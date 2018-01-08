@@ -20,8 +20,8 @@
     [super viewDidLoad];
     self.title = NSLocalizedString(@"綁定推薦人", nil);
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
-    _BindingIntroduceTextField.keyboardType = UIKeyboardTypeASCIICapable;
-     _BindingIntroduceTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
+    self.BindingIntroduceTextField.keyboardType = UIKeyboardTypeASCIICapable;
+     self.BindingIntroduceTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
     self.BindingIntroducscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐藏
     
 }
@@ -33,26 +33,23 @@
 }
 - (void)allData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    dic[@"acc"] = _BindingIntroduceTextField.text;
+    dic[@"acc"] = self.BindingIntroduceTextField.text;
     dic[@"token"] = Token;
     [ZP_MyTool requesIntroduce:dic success:^(id obj) {
         NSDictionary * dic = obj;
         if ([dic[@"result"]isEqualToString:@"ok"]) {
             [SVProgressHUD showSuccessWithStatus:@"綁定成功"];
             [self.navigationController popViewControllerAnimated:YES];
-        }else {
+        }else
             if ([dic[@"result"]isEqualToString:@"failure"]) {
                 [SVProgressHUD showInfoWithStatus:@"綁定失敗"];
-        }else {
+        }else
             if ([dic[@"result"]isEqualToString:@"no"]) {
                 [SVProgressHUD showInfoWithStatus:@"賬戶不存在"];
-        }else {
+        }else
              if ([dic[@"result"]isEqualToString:@"abnormal_message"]) {
                 [SVProgressHUD showInfoWithStatus:@"異常訊息"];
                  
-                    }
-                }
-            }
         }
     } failure:^(NSError * error) {
         

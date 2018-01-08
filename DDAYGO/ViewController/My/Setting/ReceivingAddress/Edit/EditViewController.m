@@ -27,7 +27,12 @@
     self.navigationItem.rightBarButtonItem = item;
     self.ContactnumberTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.ZipcodeaddressTextField.keyboardType = UIKeyboardTypeNumberPad;
-    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor whiteColor]];
+    self.ContactnumberTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
+    self.ContactpersonTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
+    self.ReceivingaddressTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
+    self.ZipcodeaddressTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
+    [self.navigationItem.rightBarButtonItem setTintColor:ZP_WhiteColor];
+    
 }
 
 // 国别
@@ -61,11 +66,11 @@
 - (void)acquiring {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"adsid"] = self.model.addressid;
-    dic[@"name"] = _ContactpersonTextField.text;
-    dic[@"phone"] = _ContactnumberTextField.text;
+    dic[@"name"] = self.ContactpersonTextField.text;
+    dic[@"phone"] = self.ContactnumberTextField.text;
     dic[@"cell"] = @"";
-    dic[@"zipcode"] = _ZipcodeaddressTextField.text;
-    dic[@"address"] = _ReceivingaddressTextField.text;
+    dic[@"zipcode"] = self.ZipcodeaddressTextField.text;
+    dic[@"address"] = self.ReceivingaddressTextField.text;
     dic[@"isdefault"] = [NSNumber numberWithBool: _acquiescence.selected];
     dic[@"token"] = Token;
     ZPLog(@"%@",dic);
@@ -76,14 +81,12 @@
             ZPLog(@"加入成功");
             [SVProgressHUD showSuccessWithStatus:@"修改成功"];
             [self.navigationController popViewControllerAnimated:YES];
-        }else {
+        }else
             if ([dic[@"result"] isEqualToString:@"add_up_to_ten"]) {
                 [SVProgressHUD showInfoWithStatus:@"添加失败，最多添加10條數據喲"];
-            }else {
-                if ([dic[@"result"] isEqualToString:@"sys_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"服務器連接至火星"];
-                }
-            }
+        }else
+            if ([dic[@"result"] isEqualToString:@"sys_err"]) {
+                [SVProgressHUD showInfoWithStatus:@"服務器連接至火星"];
         }
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);

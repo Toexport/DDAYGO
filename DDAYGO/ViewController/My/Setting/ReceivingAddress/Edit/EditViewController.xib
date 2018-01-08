@@ -143,9 +143,10 @@
                                         <action selector="acquiescence:" destination="-1" eventType="touchUpInside" id="ATB-bD-vU2"/>
                                     </connections>
                                 </button>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5XP-DL-dMa">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5XP-DL-dMa">
                                     <rect key="frame" x="96" y="176" width="216" height="33"/>
-                                    <attributedString key="attributedText"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                             </subviews>

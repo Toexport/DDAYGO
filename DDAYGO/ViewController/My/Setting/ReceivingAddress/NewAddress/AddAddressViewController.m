@@ -19,8 +19,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self countrycode];
-    _ContactnumberTextField.keyboardType = UIKeyboardTypeNumberPad;
-    _ZipcodeaddressTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.ContactnumberTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.ZipcodeaddressTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.ContactnumberTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
+    self.ContactpersonTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
+    self.ReceivingaddressTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
+    self.ZipcodeaddressTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
 }
 
 - (void)setContentDic:(NSDictionary *)contentDic {
@@ -40,15 +44,15 @@
     self.regionLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
     switch ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue]) {
         case 886:
-            _regionLabel.text = @"臺灣";
+            self.regionLabel.text = @"臺灣";
             break;
             
         case 86:
-            _regionLabel.text = @"中国";
+            self.regionLabel.text = @"中国";
             break;
             
         case 852:
-            _regionLabel.text = @"香港";
+            self.regionLabel.text = @"香港";
             break;
         default:
             break;
@@ -65,50 +69,42 @@
 - (void)allData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"adsid"] = @"0";
-    dic[@"name"] = _ContactpersonTextField.text;
-    dic[@"phone"] = _ContactnumberTextField.text;
+    dic[@"name"] = self.ContactpersonTextField.text;
+    dic[@"phone"] = self.ContactnumberTextField.text;
     dic[@"cell"] = @"";
     dic[@"email"] = @"";
-    dic[@"zipcode"] = _ZipcodeaddressTextField.text;
-    dic[@"address"] = _ReceivingaddressTextField.text;
+    dic[@"zipcode"] = self.ZipcodeaddressTextField.text;
+    dic[@"address"] = self.ReceivingaddressTextField.text;
     dic[@"isdefault"] = [NSNumber numberWithBool: _acquiescence.selected];
     dic[@"token"] = Token;
     ZPLog(@"%@",dic);
     
     [ZP_MyTool requesnewAaddress:dic success:^(id obj) {
         NSDictionary * dic = obj;
-        
         ZPLog(@"%@",obj);
         if ([dic[@"result"] isEqualToString:@"ok"]) {
             ZPLog(@"加入成功");
             [SVProgressHUD showSuccessWithStatus:@"添加成功"];
             [self.navigationController popViewControllerAnimated:YES];
-        }else {
+        }else
             if ([dic[@"result"] isEqualToString:@"add_up_to_ten"]) {
                 [SVProgressHUD showInfoWithStatus:@"添加失败，最多只能添加10條數據喲"];
-        }else {
+        }else
             if ([dic[@"result"] isEqualToString:@"sys_err"]) {
                 [SVProgressHUD showInfoWithStatus:@"服務器連接至火星"];
-        }else {
+        }else
             if ([dic[@"result"] isEqualToString:@"name_err"]) {
                 [SVProgressHUD showInfoWithStatus:@"姓名不能為空"];
-        }else {
+        }else
             if ([dic[@"result"] isEqualToString:@"phone_err"]) {
                 [SVProgressHUD showInfoWithStatus:@"電話號碼不能為空"];
-        }else {
+        }else
             if ([dic[@"result"] isEqualToString:@"address_err"]) {
                 [SVProgressHUD showInfoWithStatus:@"地址不能為空"];
-            }
-                
-            
-                    }
-                }
-            }
         }
-    }
     } failure:^(NSError * error) {
-//        ZPLog(@"%@",error);
-        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
+        ZPLog(@"%@",error);
+//        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 

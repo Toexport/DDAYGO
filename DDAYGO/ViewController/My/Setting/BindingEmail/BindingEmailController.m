@@ -35,9 +35,10 @@
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-    _BinDing.layer.cornerRadius = 8.0;
-    _BinDing.layer.masksToBounds = YES;
-    _ZPEmailTextFiled.textField.keyboardType = UIKeyboardTypeEmailAddress;
+    self.BinDing.layer.cornerRadius = 8.0;
+    self.BinDing.layer.masksToBounds = YES;
+    self.ZPEmailTextFiled.textField.keyboardType = UIKeyboardTypeEmailAddress;
+    self.ZPEmailTextFiled.textField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
 //    [_ZPCodeTextField.functionBtn addTarget:self action:@selector(getMSNCode) forControlEvents:UIControlEventTouchUpInside];
 //    _ZPCodeTextField.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
@@ -70,7 +71,7 @@
 - (void)allData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
-    dic[@"emailverify"] = _ZPEmailTextFiled.textField.text;
+    dic[@"emailverify"] = self.ZPEmailTextFiled.textField.text;
     [ZP_MyTool requesEmail:dic uccess:^(id obj) {
         ZPLog(@"%@",obj);
         if ([obj[@"result"]isEqualToString:@"ok"]) {

@@ -43,16 +43,16 @@
 
 // 确定按钮
 - (IBAction)DetermineBut:(id)sender {
-    if (self.newpwTextfield.text.length < 8 || self.newpwTextfield.text.length >20) {
+    if (self.newpwTextfield.text.length < 6 || self.newpwTextfield.text.length >20) {
         [SVProgressHUD showInfoWithStatus:@"密碼位數不能小於8大於20"];
         ZPLog(@"密码不足6位");
         return;
     }
-    if (![self judgePassWordLegal:self.newpwTextfield.text]) {
-        [SVProgressHUD showInfoWithStatus:@"密碼必須8-20大小寫數字組合"];
-        ZPLog(@"密码不足8位");
-        return;
-    }
+//    if (![self judgePassWordLegal:self.newpwTextfield.text]) {
+//        [SVProgressHUD showInfoWithStatus:@"密碼必須8-20大小寫數字組合"];
+//        ZPLog(@"密码不足8位");
+//        return;
+//    }
     if (self.newpwTextfield.text != self.againpwTextfield.text) {
         [SVProgressHUD showInfoWithStatus:@"兩次密碼不一致"];
     }else {

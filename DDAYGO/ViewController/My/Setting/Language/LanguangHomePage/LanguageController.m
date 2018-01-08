@@ -61,7 +61,6 @@
         [SVProgressHUD showErrorWithStatus:@"请选择"];
         return;
     }
-
     switch (a) {
         case 1:
             [self changeLanguageTo:@"en"];
@@ -72,23 +71,12 @@
         case 3:
              [self changeLanguageTo:@"zh-Hant"];
             break;
-            
         default:
             break;
     }
- 
 }
-//- (IBAction)zhongwen:(id)sender {
-//    [self changeLanguageTo:@"zh-Hans"];
-//}
-//- (IBAction)yinwen:(id)sender {
-//    [self changeLanguageTo:@"en"];
-//
-//}
-//- (IBAction)fantizhongwen:(id)sender {
-//    [self changeLanguageTo:@"zh-Hant"];
-//}
 
+// 语言设置
 - (void)changeLanguageTo:(NSString *)language {
 //  设置语言
     [NSBundle setLanguage:language];
@@ -102,7 +90,6 @@
     [UIApplication sharedApplication].keyWindow.rootViewController = tabBar;
 //  跳转到设置页
     tabBar.selectedIndex = 4;
-
 //    [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -112,7 +99,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return self.TitleArray.count;
 }
 
@@ -127,16 +113,17 @@
     }
     cell.textLabel.text = self.TitleArray[indexPath.row];
     cell.textLabel.font = ZP_TooBarFont;
+//    [self.tableview deselectRowAtIndexPath:indexPath animated:YES]; // 点击cell时，让某行cell的选中状态消失
     
     return cell;
 }
 
 //- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 //    [tableView deselectRowAtIndexPath:indexPath animated:YES]; // 点击cell时，让某行cell的选中状态消失
-//    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+////    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
 //
 //}
-//
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 45;
@@ -145,13 +132,10 @@
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSIndexPath *oldIndex = [tableView indexPathForSelectedRow];
-    
     [tableView cellForRowAtIndexPath:oldIndex].accessoryType = UITableViewCellAccessoryNone;
-    
     [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
     
     return indexPath;
-    
 }
 
 @end
