@@ -43,6 +43,13 @@
             _regionLabel.text = @"臺灣";
             break;
             
+        case 86:
+            _regionLabel.text = @"中国";
+            break;
+            
+        case 852:
+            _regionLabel.text = @"香港";
+            break;
         default:
             break;
     }

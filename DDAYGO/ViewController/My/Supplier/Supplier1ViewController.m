@@ -107,7 +107,12 @@
         case 886:
             _LocationLabel.text = @"臺灣";
             break;
-            
+        case 86:
+            _LocationLabel.text = @"中国";
+            break;
+        case 852:
+            _LocationLabel.text = @"香港";
+            break;
         default:
             break;
     }

@@ -38,6 +38,14 @@
             self.RegionLabel.text = @"臺灣";
             break;
             
+        case 86:
+            self.RegionLabel.text = @"中国";
+            break;
+            
+        case 852:
+            self.RegionLabel.text = @"香港";
+            break;
+            
         default:
             break;
     }
@@ -47,8 +55,8 @@
 - (void)EditAddress {
     [self acquiring];
     NSLog(@"保存");
-   
 }
+
 // 保存修改后的数据
 - (void)acquiring {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
