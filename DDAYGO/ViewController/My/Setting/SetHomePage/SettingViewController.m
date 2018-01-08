@@ -116,14 +116,12 @@
         
 // 填写数据
         [self fillData:model];
-        
     } failure:^(NSError * error) {
         [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 
 - (void)fillData:(ZP_HomePageModel *)model{
-
     [_headerImage sd_setImageWithURL:[NSURL URLWithString:model.avatarimg] placeholderImage:[UIImage imageNamed:@"HeadrImage"]];
     _AccountNumber.text = model.email; // 账号
     _nicknameLabel.text = model.nickname; // 昵称

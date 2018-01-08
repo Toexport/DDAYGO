@@ -165,7 +165,6 @@
     dic[@"contactphone"] = [self.dataDic objectForKey:@(12)];
     dic[@"companyproduct"] = [self.dataDic objectForKey:@(13)];
     dic[@"projectinfo"] = [self.dataDic objectForKey:@(14)];
-
     [self AllData:dic];
 }
 
