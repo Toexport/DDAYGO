@@ -147,10 +147,13 @@
                 
         if ([dic[@"result"] isEqualToString:@"ok"]) {
             [ZP_LoginTool getAccountInfo:Token success:^(id obj) {
+                //都提示这里有问题  自己看数据
                 NSDictionary * tempDic = obj;
-                NSDictionary *asdic = @{@"address":tempDic[@"address"],@"aid":tempDic[@"aid"],@"avatarimg":tempDic[@"avatarimg"],@"countrycode":tempDic[@"countrycode"],@"email":tempDic[@"email"],@"nickname":tempDic[@"nickname"],@"phone":tempDic[@"phone"],@"realname":tempDic[@"realname"],@"sex":tempDic[@"sex"],@"state":tempDic[@"state"]};
-                [[NSUserDefaults standardUserDefaults] setObject:asdic forKey:@"userInfo"];
-//                DD_HASLOGIN = YES;
+                if (tempDic.allKeys.count > 1) {
+                    NSDictionary * asdic = @{@"address":tempDic[@"address"],@"aid":tempDic[@"aid"],@"avatarimg":tempDic[@"avatarimg"],@"countrycode":tempDic[@"countrycode"],@"email":tempDic[@"email"],@"nickname":tempDic[@"nickname"],@"phone":tempDic[@"phone"],@"realname":tempDic[@"realname"],@"sex":tempDic[@"sex"],@"state":tempDic[@"state"]};
+                    
+                    [[NSUserDefaults standardUserDefaults] setObject:asdic forKey:@"userInfo"];
+                }
         if (success) {
              success(nil);
             }
@@ -360,7 +363,6 @@
     self.xfjlView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
     self.xfjlView.layer.shadowOffset = CGSizeMake(0, 0);
     self.xfjlView.layer.shadowOpacity = 0.3;
-     
 //    self.zxxxView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
 //    self.zxxxView.layer.shadowOffset = CGSizeMake(0, 0);
 //    self.zxxxView.layer.shadowOpacity = 0.3;

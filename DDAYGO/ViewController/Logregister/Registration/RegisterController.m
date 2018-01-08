@@ -114,9 +114,9 @@
     dict[@"email"] = _ZPAccountNumberTextFiled.textField.text;
     dict[@"pwd"] = [self md5:_ZPPswTextField.textField.text];
     dict[@"emailverify"] = _ZPEmailTextFiled.textField.text;
-
 //这里是不是国家
     dict[@"countrycode"] = _CountCode;
+    
     [ZP_LoginTool requestRegiser:dict success:^(id obj) {
         ZPLog(@"%@",obj);
         NSDictionary * dic = obj;
@@ -124,7 +124,6 @@
             if ([dic[@"result"] isEqualToString:@"ok"]) {
                 NSLog(@"注册成功");
                 [SVProgressHUD showSuccessWithStatus:@"注册成功!"];
-
                 CountCode = _CountCode;   // 保存国家
                 [self.navigationController popViewControllerAnimated:YES];
             }else
@@ -140,6 +139,9 @@
                 if ([dic[@"result"] isEqualToString:@"email_key_err"]) {
                     [SVProgressHUD showInfoWithStatus:@"註冊帳號不能以ICUE开头"];
             }else
+                if ([dic[@"result"] isEqualToString:@"email_format2_err"]) {
+                    [SVProgressHUD showInfoWithStatus:@"注册账号不能含有ddaygo字符"];
+            } else
                 if ([dic[@"result"] isEqualToString:@"pwd_null_err"]) {
                     [SVProgressHUD showInfoWithStatus:@"密码为空错误"];
             }else
@@ -154,12 +156,10 @@
             }else
                 if ([dic[@"result"] isEqualToString:@"verify_send_err"]) {
                     [SVProgressHUD showInfoWithStatus:@"邮箱验证信投递失败"];
-//                                      }
-                                   }
-        
+            }
     } failure:^(NSError *error) {
-//        ZPLog(@"%@",error);
-        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
+        ZPLog(@"%@",error);
+//        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
     }];
 }
 
@@ -207,10 +207,7 @@
 
 // 选择国家
 - (void)choseCountry {
-    
     _ZPCountryTextField.functionBtn.userInteractionEnabled = NO;
-    
-    
     [self PositionallData];
     ZPLog(@"选择国家");
 }

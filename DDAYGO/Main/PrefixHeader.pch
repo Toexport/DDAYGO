@@ -41,6 +41,8 @@
 #import "LogregisterController.h"
 #import "MJExtension.h"
 #import "Const.h"
+//测试用这个
+
 #ifdef DEBUG
 #if TARGET_IPHONE_SIMULATOR//模拟器
 
@@ -50,7 +52,7 @@
 
 #define ZPLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
 
-//#define NSLog(...) fprintf(stderr,"[%s-%d行] %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:@"%@", ##__VA_ARGS__] UTF8String]);
+//#define ZPLog(...) fprintf(stderr,"[%s-%d行] %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:@"%@", ##__VA_ARGS__] UTF8String]);
 
 #endif
 
@@ -68,6 +70,16 @@
 #endif
 
 #endif
+//*/
+/**
+//正式用这个
+#ifdef DEBUG // 调试状态, 打开LOG功能
+#define ZPLog(...) NSLog(__VA_ARGS__)
+#else // 发布状态, 关闭LOG功能
+#define ZPLog(...)
+#endif
+*/
+
 #define DEMO_CALL 1Check login status
 #define DD_CHECK_HASLONGIN if (!DD_HASLOGIN) {[SVProgressHUD showErrorWithStatus:@"请登录账户"];return;}
 

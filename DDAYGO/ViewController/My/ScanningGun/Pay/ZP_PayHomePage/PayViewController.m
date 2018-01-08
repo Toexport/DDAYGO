@@ -37,7 +37,7 @@
 - (void)backAction {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
-
+// 數據
 - (void)AllData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
@@ -54,7 +54,7 @@
     dic[@"shopcode"] = self.Oid; // 这个必须要
     dic[@"countrycode"] = @"886";
     dic[@"payway"] = @"allpay_balance";   // 这个是在view上选择支付方式
-    dic[@"icuetoken"] = @"";
+    dic[@"icuetoken"] = ZPICUEToken;
 //    ZP_PayView * PayView = [[ZP_PayView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
 //    [PayView showInView:self.view];
     

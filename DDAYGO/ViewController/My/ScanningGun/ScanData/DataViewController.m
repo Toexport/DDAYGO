@@ -117,13 +117,13 @@
             }
             
         } failure:^(NSError * error) {
-//            ZPLog(@"%@",error);
-            [SVProgressHUD showInfoWithStatus:@"服務器臉頰失敗"];
+            ZPLog(@"%@",error);
+//            [SVProgressHUD showInfoWithStatus:@"服務器連接失敗"];
         }];
         [SVProgressHUD dismiss];
     }else{
         
-      [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"鏈接錯誤", nil)];
+//      [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"連接錯誤", nil)];
         
     }
 }

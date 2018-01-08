@@ -177,7 +177,6 @@
             ZP_ConfirmPayModel * model = response;
             NSLog(@"payname = %@",model.payname);
             ZP_ComfirmModel *modell = _dataArrar[0];
-            
             NSMutableDictionary *dic =[NSMutableDictionary dictionary];
             dic[@"token"] = Token;
             dic[@"adsid"] = modell.addressid;
@@ -185,7 +184,7 @@
             dic[@"logistic"] = @1;
             dic[@"payway"] = model.payid;
             dic[@"leavemsg"] = @"";
-            dic[@"icuetoken"] = @"";
+            dic[@"icuetoken"] = ZPICUEToken;
             if (self.ordersnumber) {
                 dic[@"ordersnumber"] = self.ordersnumber;
             }

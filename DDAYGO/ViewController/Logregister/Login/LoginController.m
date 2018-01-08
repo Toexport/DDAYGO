@@ -54,9 +54,9 @@
 }
 
 - (IBAction)LoginClick:(id)sender {
-    if (![self validateEmail:_ZPEmailTextField.textField.text]) {
-        [SVProgressHUD showInfoWithStatus:@"賬號格式不正確"];
-        }
+//    if (![self validateEmail:_ZPEmailTextField.textField.text]) {
+//        [SVProgressHUD showInfoWithStatus:@"賬號格式不正確"];
+//        }
     [self allData];
 }
 // 数据

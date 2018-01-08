@@ -63,7 +63,7 @@
                                 <constraint firstAttribute="height" constant="35" id="KE2-IA-oSI"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="titleStr" value="請輸入郵箱"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="titleStr" value="請輸入郵箱(選填)"/>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="showBtn" value="YES"/>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="secureTextEntry" value="NO"/>
                             </userDefinedRuntimeAttributes>

@@ -128,8 +128,6 @@
         return;
     }
     
-    
-    //这里我都写的很清楚了
     [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         //公司名称
         if ([obj integerValue] == 0) {
@@ -143,7 +141,7 @@
     
     //组织形态  = _seleStr
     NSLog(@"组织形态 %@",_seleStr);
-    //数据都在这个里面 self.dataDic;  key 是顺序 从上到下 0 - 13 value 是textfield的值 ·就是需要上传到接口的
+    //数据都在这个里 self.dataDic;  key 是顺序 从上到下 0 - 13 value 是textfield的值 ·就是需要上传到接口的
     NSLog(@"%@",self.dataDic);
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;

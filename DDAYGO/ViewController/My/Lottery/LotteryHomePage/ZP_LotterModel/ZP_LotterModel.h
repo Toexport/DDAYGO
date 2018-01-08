@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSDictionary * lottery;
 /*彩金點數*/
 @property (nonatomic, strong) NSNumber * lbalance;
+
 @property (nonatomic, strong) NSArray<lotterywinModel *> *lotterywin;
 
 @property (nonatomic, strong) NSArray<lotteryorderModel *> *lotteryorder;
