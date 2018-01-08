@@ -44,13 +44,13 @@
             make.height.mas_equalTo(1); // 高
             make.width.mas_offset(ZP_Width-5);
         }];
-        
+        NSLog(@"%f",ZP_Width);
         for (int i = 0; i <= 3; i ++) {
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i * ZP_Width / 4 , z * ZP_Width / 4 , ZP_Width / 4 , ZP_Width / 4 )];
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * ZP_Width / 4 + (ZP_Width / 4 - 60) / 2  , z * ZP_Width / 4 + (ZP_Width / 4 - 60) / 2 - 10, 60 , 60 )];
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(i * ZP_Width / 4, z * ZP_Width / 4 + (ZP_Width / 4 - 60) / 2 - 10 + 60 + 8, ZP_Width / 4, 15)];
-            label.font = [UIFont systemFontOfSize:13];
-            label.textAlignment =NSTextAlignmentCenter;
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * ZP_Width / 4 + (ZP_Width / 4 - 55/414.0*ZP_Width) / 2  , z * ZP_Width / 4 + (ZP_Width / 4 - 55/414.0*ZP_Width) / 2 - 10, 55/414.0*ZP_Width , 55/414.0*ZP_Width )];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(i * ZP_Width / 4, z * ZP_Width / 4 + (ZP_Width / 4 - 55/414.0*ZP_Width) / 2 - 10 + 55/414.0*ZP_Width + 8, ZP_Width / 4, 15)];
+            label.font = ZP_stockFont;
+            label.textAlignment = NSTextAlignmentCenter;
 //            button.backgroundColor = [UIColor whiteColor];
             button.titleLabel.font = ZP_titleFont;
             [button setTitleColor:ZP_textblack forState:UIControlStateNormal];
