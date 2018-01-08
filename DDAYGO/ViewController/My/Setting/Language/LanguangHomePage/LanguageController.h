@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LanguageController : UIViewController
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
 
 @end

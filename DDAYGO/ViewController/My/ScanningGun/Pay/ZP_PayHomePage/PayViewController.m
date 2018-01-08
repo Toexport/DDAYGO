@@ -55,8 +55,6 @@
     dic[@"countrycode"] = @"886";
     dic[@"payway"] = @"allpay_balance";   // 这个是在view上选择支付方式
     dic[@"icuetoken"] = ZPICUEToken;
-//    ZP_PayView * PayView = [[ZP_PayView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-//    [PayView showInView:self.view];
     
 //    这是是在选择支付方式后点击确定后跳转的数据加OID回调
     [ZP_MyTool requesQrCodePay:dic success:^(id obj) {

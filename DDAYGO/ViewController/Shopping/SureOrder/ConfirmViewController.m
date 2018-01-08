@@ -52,12 +52,13 @@
     [self ImmobilizationView];
     self.title = NSLocalizedString(@"確認訂單", nil);
 
-    // 666shi dindaingjiemian
+    // 666shi 订单界面
     if (self.type == 666) {
         [self Mainorder];
         [self getAddData];
         ZPLog(@"^^^");
     } else {
+//        购物车界面
          [self getAddData];
          [self MakeSureOrder];
     }
@@ -188,6 +189,10 @@
             if (self.ordersnumber) {
                 dic[@"ordersnumber"] = self.ordersnumber;
             }
+//            没数据，等下次在加
+//            if (_type == 666) {
+//                ZPLog(@"666");
+//            }else {
             __weak typeof(PayView) weakView = PayView;
             [ZP_shoopingTool requessaddorderpay:dic noEdit:self.noEdit success:^(id obj) {
                 ZP_ConfirmWebController * web = [[ZP_ConfirmWebController alloc]init];
@@ -199,7 +204,9 @@
                 NSLog(@"%@",error);
 //                [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
             }];
-        };
+//            }
+            };
+            
         
         [PayView showInView:self.view];
     } failure:^(NSError * error) {
@@ -244,6 +251,7 @@
         [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
+
 // 获取确认订单
 - (void)MakeSureOrder {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];

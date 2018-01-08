@@ -66,9 +66,8 @@
 // 解决出现的那条线
     tools.clipsToBounds = YES;
 // 解决tools背景颜色的问题
-    [tools setBackgroundImage:[UIImage new]forToolbarPosition:UIBarPositionAny                      barMetrics:UIBarMetricsDefault];
-    [tools setShadowImage:[UIImage new]
-       forToolbarPosition:UIToolbarPositionAny];
+    [tools setBackgroundImage:[UIImage new]forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [tools setShadowImage:[UIImage new] forToolbarPosition:UIToolbarPositionAny];
 //
 //    [_chooseCityBtn setImage:[UIImage imageNamed:@"ic_home_down"] forState:(UIControlStateNormal)];
 //    CGFloat imageWidth = _chooseCityBtn.imageView.bounds.size.width;
@@ -93,7 +92,7 @@
     
     // 调这里 fame就好
     
-    UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton * but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame = CGRectMake(20, CGRectGetMaxY(_OrderNumView.frame) + 10, ZP_Width - 40, 40);
     but.layer.cornerRadius = 5;
     [but setTitle:@"填寫" forState:UIControlStateNormal];
@@ -304,7 +303,6 @@
 
 // 历史填写
 - (void)HistoricalBetAction {
-    
     ZP_LotteryHistoricalBettingNumberController * LotteryHistoricalBettingNumber = [[ZP_LotteryHistoricalBettingNumberController alloc]init];
     [self.navigationController pushViewController:LotteryHistoricalBettingNumber animated:YES];
 }
@@ -390,9 +388,6 @@
     [suffixBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [self.bounctyView addSubview:suffixBtn];
 }
-
-
-
 
 //#pragma mark --tableview delegate
 //- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

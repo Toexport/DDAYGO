@@ -274,6 +274,7 @@
 - (IBAction)languageAction:(id)sender {
     LanguageController * Language = [[LanguageController alloc]init];
     [self.navigationController pushViewController:Language animated:YES];
+//    [self presentViewController:Language animated:YES completion:nil];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
 }
 
@@ -297,6 +298,7 @@
         
         //跳转
         if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+            
             UITabBarController * tbvc  = [[UIApplication sharedApplication] keyWindow].rootViewController;
             [tbvc setSelectedIndex:0];
         }

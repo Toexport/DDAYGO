@@ -184,10 +184,6 @@
 		4D0949001FDEF77500FC4BCA /* EvaluateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0948FE1FDEF77400FC4BCA /* EvaluateTableViewCell.m */; };
 		4D0949011FDEF77500FC4BCA /* EvaluateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0948FF1FDEF77500FC4BCA /* EvaluateTableViewCell.xib */; };
 		6FA32ACCA83E0A32B68FDCFC /* libPods-DDAYGO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC9B15E33AA25F355BC51C7 /* libPods-DDAYGO.a */; };
-		C40580F020034A5C0033C010 /* LanguangTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C40580EE20034A5C0033C010 /* LanguangTableViewCell.m */; };
-		C40580F120034A5C0033C010 /* LanguangTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C40580EF20034A5C0033C010 /* LanguangTableViewCell.xib */; };
-		C4058100200351EA0033C010 /* LanguageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40580FE200351EA0033C010 /* LanguageController.m */; };
-		C4058101200351EA0033C010 /* LanguageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C40580FF200351EA0033C010 /* LanguageController.xib */; };
 		C40763711FF50E9A00180975 /* IQTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C407636F1FF50E9A00180975 /* IQTableView.m */; };
 		C40763731FF52DDC00180975 /* DDAYGO IHTTP协议1.0.docx in Resources */ = {isa = PBXBuildFile; fileRef = C40763721FF52DDC00180975 /* DDAYGO IHTTP协议1.0.docx */; };
 		C407AC131FD7E917004A8DE8 /* 提现记录_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = C407AC121FD7E916004A8DE8 /* 提现记录_spec.png */; };
@@ -229,6 +225,8 @@
 		C43987811FF4C67100044E21 /* SupplierTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C439877F1FF4C67100044E21 /* SupplierTableViewCell.xib */; };
 		C4399D6F1FCE84A000B7B96D /* LotteryController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4399D691FCE849F00B7B96D /* LotteryController.m */; };
 		C4399D701FCE84A000B7B96D /* LotteryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4399D6A1FCE849F00B7B96D /* LotteryController.xib */; };
+		C43DE4DE200355AF002AB8D2 /* LanguageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C43DE4DB200355AF002AB8D2 /* LanguageController.m */; };
+		C43DE4DF200355AF002AB8D2 /* LanguageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43DE4DD200355AF002AB8D2 /* LanguageController.xib */; };
 		C44C9DB11FEA392D00CD7D4D /* ZP_QuickLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44C9DAE1FEA392C00CD7D4D /* ZP_QuickLoginController.m */; };
 		C44C9DB21FEA392D00CD7D4D /* ZP_QuickLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C44C9DAF1FEA392C00CD7D4D /* ZP_QuickLoginController.xib */; };
 		C44D6D0F1FD8CF070002DAF2 /* PayViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D6D0A1FD8CF070002DAF2 /* PayViewCell.m */; };
@@ -738,12 +736,6 @@
 		4D0948FF1FDEF77500FC4BCA /* EvaluateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluateTableViewCell.xib; sourceTree = "<group>"; };
 		6A14FE6EC0BD7CDD0156BD7F /* Pods-DDAYGO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDAYGO.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDAYGO/Pods-DDAYGO.release.xcconfig"; sourceTree = "<group>"; };
 		949508FD8C61CA662D6E2034 /* Pods-DDAYGO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDAYGO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDAYGO/Pods-DDAYGO.debug.xcconfig"; sourceTree = "<group>"; };
-		C40580ED20034A5C0033C010 /* LanguangTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanguangTableViewCell.h; sourceTree = "<group>"; };
-		C40580EE20034A5C0033C010 /* LanguangTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanguangTableViewCell.m; sourceTree = "<group>"; };
-		C40580EF20034A5C0033C010 /* LanguangTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguangTableViewCell.xib; sourceTree = "<group>"; };
-		C40580FD200351EA0033C010 /* LanguageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageController.h; sourceTree = "<group>"; };
-		C40580FE200351EA0033C010 /* LanguageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageController.m; sourceTree = "<group>"; };
-		C40580FF200351EA0033C010 /* LanguageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageController.xib; sourceTree = "<group>"; };
 		C407636F1FF50E9A00180975 /* IQTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTableView.m; sourceTree = "<group>"; };
 		C40763701FF50E9A00180975 /* IQTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQTableView.h; sourceTree = "<group>"; };
 		C40763721FF52DDC00180975 /* DDAYGO IHTTP协议1.0.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0.docx"; sourceTree = "<group>"; };
@@ -832,6 +824,9 @@
 		C4399D681FCE849F00B7B96D /* LotteryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryController.h; sourceTree = "<group>"; };
 		C4399D691FCE849F00B7B96D /* LotteryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryController.m; sourceTree = "<group>"; };
 		C4399D6A1FCE849F00B7B96D /* LotteryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LotteryController.xib; sourceTree = "<group>"; };
+		C43DE4DB200355AF002AB8D2 /* LanguageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageController.m; sourceTree = "<group>"; };
+		C43DE4DC200355AF002AB8D2 /* LanguageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageController.h; sourceTree = "<group>"; };
+		C43DE4DD200355AF002AB8D2 /* LanguageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageController.xib; sourceTree = "<group>"; };
 		C44C9DAD1FEA392C00CD7D4D /* ZP_QuickLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZP_QuickLoginController.h; sourceTree = "<group>"; };
 		C44C9DAE1FEA392C00CD7D4D /* ZP_QuickLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZP_QuickLoginController.m; sourceTree = "<group>"; };
 		C44C9DAF1FEA392C00CD7D4D /* ZP_QuickLoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZP_QuickLoginController.xib; sourceTree = "<group>"; };
@@ -1766,7 +1761,6 @@
 				C45F230E1FA0757A00F5DB41 /* ZP_HomePage */,
 				C45F230A1FA0756300F5DB41 /* ZP_Position */,
 				C45F22FE1FA0754500F5DB41 /* ZP_SearchBox */,
-				C47E75831FB573CB009F279A /* ZP_HomeTool */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -2327,22 +2321,12 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		C40580EA20034A340033C010 /* LanguangCell */ = {
-			isa = PBXGroup;
-			children = (
-				C40580ED20034A5C0033C010 /* LanguangTableViewCell.h */,
-				C40580EE20034A5C0033C010 /* LanguangTableViewCell.m */,
-				C40580EF20034A5C0033C010 /* LanguangTableViewCell.xib */,
-			);
-			path = LanguangCell;
-			sourceTree = "<group>";
-		};
 		C40580FC200351EA0033C010 /* LanguangHomePage */ = {
 			isa = PBXGroup;
 			children = (
-				C40580FD200351EA0033C010 /* LanguageController.h */,
-				C40580FE200351EA0033C010 /* LanguageController.m */,
-				C40580FF200351EA0033C010 /* LanguageController.xib */,
+				C43DE4DC200355AF002AB8D2 /* LanguageController.h */,
+				C43DE4DB200355AF002AB8D2 /* LanguageController.m */,
+				C43DE4DD200355AF002AB8D2 /* LanguageController.xib */,
 			);
 			path = LanguangHomePage;
 			sourceTree = "<group>";
@@ -3047,7 +3031,6 @@
 			isa = PBXGroup;
 			children = (
 				C40580FC200351EA0033C010 /* LanguangHomePage */,
-				C40580EA20034A340033C010 /* LanguangCell */,
 			);
 			path = Language;
 			sourceTree = "<group>";
@@ -3777,6 +3760,7 @@
 		E37503CB1FC7BBF400DA2950 /* ZP_ConfirmPayWeb */ = {
 			isa = PBXGroup;
 			children = (
+				C47E75831FB573CB009F279A /* ZP_HomeTool */,
 				E37503CC1FC7BBF400DA2950 /* ZP_ConfirmWebController.h */,
 				E37503CD1FC7BBF400DA2950 /* ZP_ConfirmWebController.m */,
 				E37503CE1FC7BBF400DA2950 /* ZP_ConfirmWebController.xib */,
@@ -3965,7 +3949,6 @@
 				06F572411F9F204F00D61FDB /* BillDetailViewController.xib in Resources */,
 				C47096931FB04998006EA52C /* BindingEmailController.xib in Resources */,
 				062C9D621F8CD6F900E14987 /* button_5@3x.png in Resources */,
-				C40580F120034A5C0033C010 /* LanguangTableViewCell.xib in Resources */,
 				C47E762A1FB5A1C7009F279A /* RightTableViewCell.xib in Resources */,
 				C472F1341FE299E00031D7B5 /* ZP_CheckMoreController.xib in Resources */,
 				064249871F99FBEB00340EBA /* PayFailController.xib in Resources */,
@@ -4006,7 +3989,7 @@
 				06F5716E1F9F15CE00D61FDB /* CollectionViewController.xib in Resources */,
 				C46B9F481FDE71FE00942750 /* 历史下注号码_spec.png in Resources */,
 				C4C4D1541FF6823D0075D8D8 /* Supplier1ViewController.xib in Resources */,
-				C4058101200351EA0033C010 /* LanguageController.xib in Resources */,
+				C43DE4DF200355AF002AB8D2 /* LanguageController.xib in Resources */,
 				0682BE801F90C8F000894F4E /* seven.png in Resources */,
 				062C9D681F8CDB7900E14987 /* headImage.jpg in Resources */,
 				C44D6D101FD8CF070002DAF2 /* PayViewCell.xib in Resources */,
@@ -4149,7 +4132,7 @@
 				C479C6A51FE3CB5800A58A2A /* MJPropertyType.m in Sources */,
 				064449B71F6A9B250004DFE4 /* NSBundle+MJRefresh.m in Sources */,
 				C4D9E70D1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.m in Sources */,
-				C4058100200351EA0033C010 /* LanguageController.m in Sources */,
+				C43DE4DE200355AF002AB8D2 /* LanguageController.m in Sources */,
 				C45F22ED1FA0746300F5DB41 /* NSString+Additions.m in Sources */,
 				C47BBBF51FE510950000FFE6 /* ZP_DetailsSistoryAwardMOdel.m in Sources */,
 				C42A17411FF2532400680F92 /* BetTableViewMyCell2.m in Sources */,
@@ -4349,7 +4332,6 @@
 				06F570EC1F9F0ABA00D61FDB /* ShoppingViewController.m in Sources */,
 				C479C6A61FE3CB5800A58A2A /* NSObject+MJClass.m in Sources */,
 				06F571E11F9F1A7900D61FDB /* SelectPhotoManager.m in Sources */,
-				C40580F020034A5C0033C010 /* LanguangTableViewCell.m in Sources */,
 				0641BBDF1F67F9E400E72FEF /* UIImageView+WebCache.m in Sources */,
 				C472F1331FE299E00031D7B5 /* ZP_CheckMoreController.m in Sources */,
 				C425BEA91FC813C30097DB8F /* FSPageContentView.m in Sources */,
