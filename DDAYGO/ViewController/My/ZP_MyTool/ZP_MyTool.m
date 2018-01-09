@@ -199,6 +199,7 @@
         failure(error);
     }];
 }
+
 // 获取浏览记录、收藏的数量
 + (void)requesBrowseCollection:(NSDictionary *)BrowseCollection uccess:(void (^)(id))success failure:(void (^)(NSError *))failure {
     [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@gethistorycount?token=%@",URLAPI,BrowseCollection[@"token"]] parameters:nil success:^(id responseObject) {

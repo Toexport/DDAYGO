@@ -126,7 +126,6 @@
                
                // 2. 删除预览图层
                [self.previewLayer removeFromSuperlayer];
-               
                 PayViewController * pay = [[PayViewController alloc]init];
                 NSArray * arr = [obj.stringValue componentsSeparatedByString:@","];
                 pay.Oid = arr[1];

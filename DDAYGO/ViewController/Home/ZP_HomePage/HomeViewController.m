@@ -70,6 +70,7 @@
 
 - (void)initUI {
     self.tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+//    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height) style:UITableViewStylePlain];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
     self.tableView.backgroundColor = ZP_Graybackground;
     self.tableView.delegate = self;
@@ -82,7 +83,6 @@
         make.top.equalTo(self.view).offset(0);
     }];
 }
-
 - (void)registration {
     //  注册
     [self.tableView registerClass:[ZeroViewCell class] forCellReuseIdentifier:@"ceaa"];
@@ -92,7 +92,6 @@
     [self.tableView registerClass:[FourthViewCell class] forCellReuseIdentifier:@"Fourthcell"];
     [self.tableView registerClass:[FifthViewCell class] forCellReuseIdentifier:@"ceaaa"];
     [self.tableView registerClass:[SixthViewCell class] forCellReuseIdentifier:@"Fifthcell"];
-    
 }
 
 - (void)searchBox {
@@ -163,13 +162,12 @@
 }
 //  定位数据
 - (void)PositionallData {
-    
     [ZP_HomeTool requesPosition:nil success:^(id obj) {
         _postionArray= [ZP_PositionModel arrayWithArray:obj];
         ZPLog(@"%@",_postionArray);
         
     } failure:^(NSError *error) {
-//        ZPLog(@"%@",error);
+        ZPLog(@"%@",error);
 //        [SVProgressHUD showInfoWithStatus: NSLocalizedString(@"Server link failed", nil)];
     }];
 }
@@ -196,7 +194,6 @@
 
 // cell个数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     return 4;
 }
 
@@ -206,16 +203,17 @@
     if (indexPath.section == 0) {
         static NSString * ZeroID = @"ceaa";
         ZeroViewCell * cell = [tableView dequeueReusableCellWithIdentifier: ZeroID];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
         cell.finishBlock = ^(id response) {
             DetailedController *viewController = [[DetailedController alloc] init];
             [self.navigationController pushViewController:viewController animated:YES];
         };
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
         return cell;
     }else
         if (indexPath.section == 1){
             static NSString * FirstID = @"First";
             FirstViewCell * cell = [tableView dequeueReusableCellWithIdentifier: FirstID];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
             cell.firstBlock = ^(NSInteger tag, NSString *name) {
                 CPViewController * CVPView = [[CPViewController alloc]init];
                 CVPView.fatherId =[NSNumber numberWithInteger:tag];
@@ -277,7 +275,7 @@
             static NSString * SixthID = @"Fifthcell";
             SixthViewCell * cell = [tableView dequeueReusableCellWithIdentifier: SixthID];
         cell.ThirdBlock = ^(NSInteger tag){
-            DetailedController *viewController = [[DetailedController alloc] init];
+            DetailedController * viewController = [[DetailedController alloc] init];
             viewController.productId = @(tag);
             [self.navigationController pushViewController:viewController animated:YES];
         };

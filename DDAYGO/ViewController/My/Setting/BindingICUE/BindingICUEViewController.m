@@ -44,8 +44,18 @@
     }
 }
 - (IBAction)buildingAction:(id)sender {
-    
-    [self allData];
+#pragma make -- 提示框
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"ICUE账号一旦绑定后将无法更改，您确定要绑定此ICUE账号吗？",nil) preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        ZPLog(@"取消");
+    }];
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [self allData];
+    }];
+    [alert addAction:defaultAction];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 // 数据
@@ -75,7 +85,7 @@
                 ZPLog(@"inter_err：网络错误");
         }else
             if ([dic[@"result"]isEqualToString:@"acc_pwd_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"賬號密碼錯誤"];
+                [SVProgressHUD showInfoWithStatus:@"賬號或密碼錯誤"];
                 ZPLog(@"acc_pwd_err：账号密码错误");
         }else
             if ([dic[@"result"]isEqualToString:@"invalid_user"]) {

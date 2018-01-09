@@ -10,8 +10,8 @@
 
 @interface JXPopoverAction ()
 
-@property (nonatomic, strong, readwrite) UIImage *image; ///< 图标
-@property (nonatomic, copy, readwrite) NSString *title; ///< 标题
+@property (nonatomic, strong, readwrite) UIImage * image; ///< 图标
+@property (nonatomic, copy, readwrite) NSString * title; ///< 标题
 @property (nonatomic, copy, readwrite) void(^handler)(JXPopoverAction *action); ///< 选择回调
 
 @end

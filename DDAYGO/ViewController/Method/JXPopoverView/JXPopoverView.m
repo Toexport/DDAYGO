@@ -21,11 +21,11 @@ float DegreesToRadians(float angle) {
 @interface JXPopoverView () <UITableViewDelegate, UITableViewDataSource>
 
 #pragma mark - UI
-@property (nonatomic, weak) UIWindow *keyWindow; ///< 当前窗口
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) UIView *shadeView; ///< 遮罩层
-@property (nonatomic, weak) CAShapeLayer *borderLayer; ///< 边框Layer
-@property (nonatomic, weak) UITapGestureRecognizer *tapGesture; ///< 点击背景阴影的手势
+@property (nonatomic, weak) UIWindow * keyWindow; ///< 当前窗口
+@property (nonatomic, strong) UITableView * tableView;
+@property (nonatomic, strong) UIView * shadeView; ///< 遮罩层
+@property (nonatomic, weak) CAShapeLayer * borderLayer; ///< 边框Layer
+@property (nonatomic, weak) UITapGestureRecognizer * tapGesture; ///< 点击背景阴影的手势
 
 #pragma mark - Data
 @property (nonatomic, copy) NSArray<JXPopoverAction *> *actions;

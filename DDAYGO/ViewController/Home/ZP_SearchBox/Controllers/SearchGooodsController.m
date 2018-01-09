@@ -77,7 +77,6 @@
 #pragma mark - 请求数据
 - (void)search:(NSString *)keywords{
     NSLog(@"go - > %@",keywords);
-    
     if (keywords.length > 0 ) {
         NSLog(@"go");
         CPViewController * CVPView = [[CPViewController alloc]init];
@@ -85,6 +84,7 @@
         CVPView.keyword = keywords;
         CVPView.titleString = @"搜索";
         [SVProgressHUD showInfoWithStatus:@"暂无数据"];
+//        [ZPProgressHUD showWithStatus:@"正在搜索..." maskType:ZPProgressHUDMaskTypeBlack];
 //        [self presentViewController:CVPView animated:YES completion:nil];
 //        [self.navigationController pushViewController:CVPView animated:YES];
     }else{
@@ -92,9 +92,6 @@
         NSLog(@"no go");
     }
     
-    
-
-
 //    [SVProgressHUD showWithStatus:@"正在搜索..." maskType:SVProgressHUDMaskTypeBlack];
 //    NSDictionary *dic = @{@"pageno":@"0",@"pageSize":@"10",@"queryStr":keywords};
 //    [ZP_ClassViewTool search:dic success:^(id obj) {

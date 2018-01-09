@@ -147,7 +147,6 @@
                 
         if ([dic[@"result"] isEqualToString:@"ok"]) {
             [ZP_LoginTool getAccountInfo:Token success:^(id obj) {
-                //都提示这里有问题  自己看数据
                 NSDictionary * tempDic = obj;
                 if (tempDic.allKeys.count > 1) {
                     NSDictionary * asdic = @{@"address":tempDic[@"address"],@"aid":tempDic[@"aid"],@"avatarimg":tempDic[@"avatarimg"],@"countrycode":tempDic[@"countrycode"],@"email":tempDic[@"email"],@"nickname":tempDic[@"nickname"],@"phone":tempDic[@"phone"],@"realname":tempDic[@"realname"],@"sex":tempDic[@"sex"],@"state":tempDic[@"state"]};
@@ -178,8 +177,6 @@
         }
     }
 }
-
-
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -459,7 +456,6 @@
 
 // 彩票
 - (IBAction)CaipiaoAction:(id)sender {
-#pragma make -- 提示框
 //    [SVProgressHUD showInfoWithStatus:@"暂时未到开放日期"];
     LotteryController * Lottery = [[LotteryController alloc]init];
     [self.navigationController pushViewController:Lottery animated:YES];

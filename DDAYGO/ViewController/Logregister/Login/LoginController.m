@@ -74,6 +74,7 @@
 //    if (![self validateEmail:_ZPEmailTextField.textField.text]) {
 //        [SVProgressHUD showInfoWithStatus:@"賬號格式不正確"];
 //        }
+    [SVProgressHUD showWithStatus:@"正在登录。。。"];
     [self allData];
 }
 // 数据

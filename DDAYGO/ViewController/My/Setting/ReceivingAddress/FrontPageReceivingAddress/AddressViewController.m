@@ -48,23 +48,10 @@
 }
 // 获取地址数据
 - (void)allData {
-    
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     dic[@"aid"] = _oid;
     [ZP_MyTool requesAddress:dic success:^(id obj) {
-//        if (self.newsData.count < 1) {
-//            UIImageView * image = [UIImageView new];
-//            image.image = [UIImage imageNamed:@"icon_fail"];
-//            [self.view addSubview:image];
-//            [image mas_makeConstraints:^(MASConstraintMaker *make) {
-//                make.left.equalTo(self.view).offset(ZP_Width / 2 -25);
-//                make.top.equalTo(self.view).offset(20);
-//                make.width.mas_offset(50);
-//                make.height.mas_equalTo(50);
-//            }];
-//        }
-        
         NSArray * arr = obj;
         self.newsData = [ZP_FrontPageReceivingAddressModel arrayWithArray:arr];
         [self.tableView reloadData];
@@ -75,13 +62,18 @@
 }
 
 #pragma mark ---tableView delegate
-//3.设置cell之间headerview的高度
+////3.设置cell之间headerview的高度
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+//    return 10;
+//}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 10;
+    return 5;
 }
+
 //4.设置headerview的颜色
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headerView = [[UIView alloc] init];
+    UIView * headerView = [[UIView alloc] init];
     headerView.backgroundColor = [UIColor clearColor];
     return headerView;
 }
@@ -92,7 +84,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AddressTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"AddressTableViewCell" forIndexPath:indexPath];
-    
     ZP_FrontPageReceivingAddressModel * model = self.newsData[indexPath.row];
 //    默认地址
         cell.defBtn.tag = indexPath.row;
@@ -108,7 +99,6 @@
         [self.navigationController pushViewController:viewController animated:YES];
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
         self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-        
     };
     return cell;
 }

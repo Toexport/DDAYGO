@@ -271,7 +271,7 @@
 //    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
     dic[@"fatherid"] = _fatherId;
     dic[@"seq"] = @"desc";
-    dic[@"word"] = @"";
+    dic[@"word"] = [NSString stringWithFormat:@"%@",_keyword];
     dic[@"countrycode"] = @"886";
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"10";
@@ -282,27 +282,27 @@
         NSArray * arr = dict[@"datalist"];
         self.newsData = [ZP_ClassGoodsModel arrayWithArray:arr];
         
-//      数据为空时提示
-        if (self.newsData.count < 1) {
-            UIImageView * image = [UIImageView new];
-            image.image = [UIImage imageNamed:@"icon_fail"];
-            [self.view addSubview:image];
-            [image mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(_collectionView1).offset(ZP_Width / 2 -25);
-                make.top.equalTo(_collectionView1).offset(ZP_Width / 2 - 25);
-                make.width.mas_offset(50);
-                make.height.mas_equalTo(50);
-            }];
-            ZP_GeneralLabel * RemindLabel = [ZP_GeneralLabel initWithtextLabel:_RemindLabel.text textColor:ZP_textblack font:ZP_TrademarkFont textAlignment:NSTextAlignmentCenter bakcgroundColor:nil];
-            RemindLabel.text = @"数据空空如也";
-            [self.view addSubview:RemindLabel];
-            [RemindLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(_collectionView1).offset(ZP_Width / 2 -30);
-                make.top.equalTo(image).offset(55);
-                make.height.mas_offset(15);
-            }];
-            
-        }
+////      数据为空时提示
+//        if (self.newsData.count < 1) {
+//            UIImageView * image = [UIImageView new];
+//            image.image = [UIImage imageNamed:@"icon_fail"];
+//            [self.view addSubview:image];
+//            [image mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.left.equalTo(_collectionView1).offset(ZP_Width / 2 -25);
+//                make.top.equalTo(_collectionView1).offset(ZP_Width / 2 - 25);
+//                make.width.mas_offset(50);
+//                make.height.mas_equalTo(50);
+//            }];
+//            ZP_GeneralLabel * RemindLabel = [ZP_GeneralLabel initWithtextLabel:_RemindLabel.text textColor:ZP_textblack font:ZP_TrademarkFont textAlignment:NSTextAlignmentCenter bakcgroundColor:nil];
+//            RemindLabel.text = @"数据空空如也";
+//            [self.view addSubview:RemindLabel];
+//            [RemindLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.left.equalTo(_collectionView1).offset(ZP_Width / 2 -30);
+//                make.top.equalTo(image).offset(55);
+//                make.height.mas_offset(15);
+//            }];
+//
+//        }
         switch (tag) {
             case 0:
                 [self.collectionView1 reloadData];

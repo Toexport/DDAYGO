@@ -21,8 +21,8 @@
 @implementation OrderViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     
+    [super viewDidLoad];
     self.title = NSLocalizedString(@"Order", nil);
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
@@ -32,7 +32,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     if (!DD_HASLOGIN) {
         if (![MyViewController sharedInstanceTool].hasRemind) {
             [MyViewController sharedInstanceTool].hasRemind = YES;

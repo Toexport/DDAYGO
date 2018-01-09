@@ -39,7 +39,7 @@
 // Nav按钮
 - (void)addNavigationBar {
     __weak LanguageController  * Language = self;
-    [self addNavigationBarItemWithType:LLNavigationBarItemTypeRightFirst handler:^(UIButton *button) {
+    [self addNavigationBarItemWithType:LLNavigationBarItemTypeRightFirst handler:^(UIButton * button) {
         [button setTitle:NSLocalizedString(@"完成", nil) forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [button addTarget:Language action:@selector(CompleteBut:) forControlEvents:UIControlEventTouchUpInside];
@@ -93,22 +93,22 @@
 }
 
 //适当的位置移除通知
-- (void)dealloc{
+- (void)dealloc {
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#pragma mark -- UItableviewdelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.TitleArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     static NSString *cellid = @"ssss";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
     }
     cell.textLabel.text = self.TitleArray[indexPath.row];
     cell.textLabel.font = ZP_TooBarFont;
@@ -125,6 +125,7 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     return 45;
 }
 

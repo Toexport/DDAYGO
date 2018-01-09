@@ -311,7 +311,6 @@
         if (indexPath.row == 12) {
             cell.textField.keyboardType = UIKeyboardTypeNumberPad;
         }
-        
         return cell;
     }
 }
@@ -327,17 +326,20 @@
             [self.typeIdArray addObject:objj[@"typeid"]];
             [self.typeNameArray addObject:objj[@"typename"]];
         }];
+        
     } failure:^(NSError * error) {
+        
         ZPLog(@"%@",error);
     }];
     
 }
 
 - (void)actBut:(UIButton *)but {
-    JXPopoverView *popoverView = [JXPopoverView popoverView];
-    NSMutableArray *titleArray = [NSMutableArray array];
+    
+    JXPopoverView * popoverView = [JXPopoverView popoverView];
+    NSMutableArray * titleArray = [NSMutableArray array];
     for (int i = 0; i < self.typeNameArray.count; i ++) {
-        JXPopoverAction *action1 = [JXPopoverAction actionWithTitle:self.typeNameArray[i] handler:^(JXPopoverAction *action) {
+        JXPopoverAction * action1 = [JXPopoverAction actionWithTitle:self.typeNameArray[i] handler:^(JXPopoverAction *action) {
             
             NSLog(@"dian ji l %@",self.typeNameArray[i]);
             
@@ -354,23 +356,19 @@
     
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 5) {
-        SupplierViewCell2
-        * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:5 inSection:0]];
+        SupplierViewCell2 * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:5 inSection:0]];
         JXPopoverView *popoverView = [JXPopoverView popoverView];
         NSMutableArray *titleArray = [NSMutableArray array];
         for (int i = 0; i < self.typeNameArray.count; i ++) {
-            JXPopoverAction *action1 = [JXPopoverAction actionWithTitle:self.typeNameArray[i] handler:^(JXPopoverAction *action) {
+            JXPopoverAction * action1 = [JXPopoverAction actionWithTitle:self.typeNameArray[i] handler:^(JXPopoverAction *action) {
                 
                 NSLog(@"dian ji l %@",self.typeNameArray[i]);
-                
                 _seleStr = self.typeNameArray[i];
                 _seleId = self.typeIdArray[i];
                 NSIndexPath *index = [NSIndexPath indexPathForRow:5 inSection:0];
                 [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:index, nil] withRowAnimation:UITableViewRowAnimationNone];
-                
             }];
             [titleArray addObject:action1];
         }
@@ -406,8 +404,7 @@
     return _dataDic;
 }
 
-- (NSMutableDictionary *)PldataDic
-{
+- (NSMutableDictionary *)PldataDic {
     if (!_PldataDic) {
         _PldataDic = [NSMutableDictionary dictionary];
     }

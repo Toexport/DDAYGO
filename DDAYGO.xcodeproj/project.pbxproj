@@ -245,6 +245,7 @@
 		C4535E3E1FC5654500DFFD62 /* PayMoneyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4535E3C1FC5654500DFFD62 /* PayMoneyCell.xib */; };
 		C4535E421FC56A0000DFFD62 /* ZP_MessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4535E411FC56A0000DFFD62 /* ZP_MessageViewCell.m */; };
 		C4566B641FBED233000FCC78 /* ZP_OrderTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C4566B631FBED233000FCC78 /* ZP_OrderTool.m */; };
+		C4578B2020049AB800D010D6 /* ZPProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C4578B1F20049AB800D010D6 /* ZPProgressHUD.m */; };
 		C45868FA1FC7CE06000CEB92 /* collectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C45868F91FC7CE06000CEB92 /* collectionModel.m */; };
 		C45869011FC80C8E000CEB92 /* ZP_OrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C45869001FC80C8E000CEB92 /* ZP_OrderModel.m */; };
 		C45D83051FAB00EB003C35EB /* UIButton+countDown.m in Sources */ = {isa = PBXBuildFile; fileRef = C45D83041FAB00EB003C35EB /* UIButton+countDown.m */; };
@@ -859,6 +860,8 @@
 		C4535E411FC56A0000DFFD62 /* ZP_MessageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZP_MessageViewCell.m; sourceTree = "<group>"; };
 		C4566B621FBED233000FCC78 /* ZP_OrderTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_OrderTool.h; sourceTree = "<group>"; };
 		C4566B631FBED233000FCC78 /* ZP_OrderTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_OrderTool.m; sourceTree = "<group>"; };
+		C4578B1E20049AB800D010D6 /* ZPProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZPProgressHUD.h; sourceTree = "<group>"; };
+		C4578B1F20049AB800D010D6 /* ZPProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPProgressHUD.m; sourceTree = "<group>"; };
 		C45868F81FC7CE06000CEB92 /* collectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectionModel.h; sourceTree = "<group>"; };
 		C45868F91FC7CE06000CEB92 /* collectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = collectionModel.m; sourceTree = "<group>"; };
 		C45868FF1FC80C8E000CEB92 /* ZP_OrderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_OrderModel.h; sourceTree = "<group>"; };
@@ -1578,6 +1581,7 @@
 				0662AB311F9592A50031F22B /* VPImageCropper */,
 				06621D941F9757B40030983F /* SDAutoLayout */,
 				065B3CCD1F984F8A00A8E6D6 /* SDCycleScrollView */,
+				C4578B1D20049AB800D010D6 /* HUD */,
 				C45F22E61FA0746300F5DB41 /* Tools */,
 				06418F381F7A076A00479523 /* Masonry */,
 				065099DC1F6247D1002F62D4 /* SDWebimage */,
@@ -2650,6 +2654,15 @@
 				C42F06FF1FFE2D7100B3D510 /* ZP_InstructionBetModel */,
 			);
 			path = ZP_InstructionBet;
+			sourceTree = "<group>";
+		};
+		C4578B1D20049AB800D010D6 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				C4578B1E20049AB800D010D6 /* ZPProgressHUD.h */,
+				C4578B1F20049AB800D010D6 /* ZPProgressHUD.m */,
+			);
+			path = HUD;
 			sourceTree = "<group>";
 		};
 		C45868F71FC7CE06000CEB92 /* ZP_CollcetionModel */ = {
@@ -4288,6 +4301,7 @@
 				06418F551F7A076A00479523 /* MASViewConstraint.m in Sources */,
 				0641BBD71F67F9E400E72FEF /* SDWebImageDownloader.m in Sources */,
 				C47E763C1FB5A1C7009F279A /* ZPHomeLayout.m in Sources */,
+				C4578B2020049AB800D010D6 /* ZPProgressHUD.m in Sources */,
 				C45FAF3C1FCD48CC00BD4CE1 /* EditorViewCell.m in Sources */,
 				06F571831F9F16A600D61FDB /* FootprintCollectionViewCell.m in Sources */,
 				C409F86F1FA17336009DE7B1 /* SixthViewCell.m in Sources */,

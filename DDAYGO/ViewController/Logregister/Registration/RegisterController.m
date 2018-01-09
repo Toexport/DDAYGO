@@ -113,6 +113,8 @@
         ZPLog(@"同意协议");
         return;
     }
+    
+    [SVProgressHUD showWithStatus:@"正在注册。。。"];
     [self allData];
  
 }

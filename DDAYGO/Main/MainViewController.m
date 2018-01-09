@@ -26,8 +26,7 @@
 
 @implementation MainViewController
 
-+ (void)load
-{
++ (void)load {
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     //字体颜色

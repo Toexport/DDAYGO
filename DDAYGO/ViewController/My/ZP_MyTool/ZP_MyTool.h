@@ -24,6 +24,7 @@
 
 // 设定默认地址
 + (void) requestDefaultAddress:(NSDictionary *)DefaultAddress success:(void (^)(id))success failure:(void (^)(NSError *))failure;
+
 // 删除地址
 + (void)requesDeleteAddress:(NSDictionary *)DeleteAddress success:(void (^)(id))success failure:(void (^)(NSError *))failure;
 //  绑定IUCE

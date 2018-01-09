@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -35,7 +34,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="莉莉安" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgT-1E-MbV">
-                        <rect key="frame" x="16" y="8" width="172" height="18"/>
+                        <rect key="frame" x="16" y="11" width="46" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -58,7 +57,7 @@
                             <constraint firstAttribute="width" constant="100" id="dDe-dy-K3E"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <inset key="titleEdgeInsets" minX="14" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <state key="normal" title="默认地址" image="ic_Shopping_Choice_normal">
                             <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
@@ -99,10 +98,9 @@
                     <constraint firstItem="sgT-1E-MbV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="3mO-ZB-naZ"/>
                     <constraint firstAttribute="bottom" secondItem="wXs-eE-jWb" secondAttribute="bottom" id="6Id-zp-JEI"/>
                     <constraint firstItem="DQX-2A-oMK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="6jT-tk-0Hs"/>
-                    <constraint firstItem="sgT-1E-MbV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="7iK-D0-nHY"/>
+                    <constraint firstItem="sgT-1E-MbV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="7iK-D0-nHY"/>
                     <constraint firstAttribute="trailingMargin" secondItem="DQX-2A-oMK" secondAttribute="trailing" constant="8" id="9X4-Tv-X0w"/>
                     <constraint firstAttribute="trailingMargin" secondItem="4ba-Lv-ohB" secondAttribute="trailing" constant="8" id="GUz-s9-n0f"/>
-                    <constraint firstItem="sgT-1E-MbV" firstAttribute="width" secondItem="Hyb-px-6iy" secondAttribute="width" multiplier="0.5" constant="-16" id="Jlx-mi-CiT"/>
                     <constraint firstItem="4ba-Lv-ohB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="PFA-w2-M7b"/>
                     <constraint firstAttribute="trailing" secondItem="Hyb-px-6iy" secondAttribute="trailing" id="Xkh-RC-eb6"/>
                     <constraint firstItem="xUE-ly-bQU" firstAttribute="leading" secondItem="tjZ-AU-Ls3" secondAttribute="trailing" constant="30" id="XqX-Rc-pEO"/>

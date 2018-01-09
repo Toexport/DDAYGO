@@ -50,12 +50,11 @@
 - (void)btnClick {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
-    dic[@"amount"] = money; // 这个是在view上选择支付金额
+    dic[@"amount"] = money; // 这个是在view上选择支付金额（手动输入）
     dic[@"shopcode"] = self.Oid; // 这个必须要
     dic[@"countrycode"] = @"886";
     dic[@"payway"] = @"allpay_balance";   // 这个是在view上选择支付方式
     dic[@"icuetoken"] = ZPICUEToken;
-    
 //    这是是在选择支付方式后点击确定后跳转的数据加OID回调
     [ZP_MyTool requesQrCodePay:dic success:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"ok"]) {
@@ -86,7 +85,6 @@
         }else
             if ([obj[@"result"]isEqualToString:@"addorder_err"]) {
                 [SVProgressHUD showInfoWithStatus:@"訂單生成失敗"];
-                
         }
     } failure:^(NSError *error) {
         NSLog(@"error = %@",error);

@@ -35,6 +35,7 @@
 #import "UINavigationBar+Awesome.h"
 #import "UIButton+countDown.h"
 #import "Const.h"
+#import "ZPProgressHUD.h"
 #import "JXPopoverView.h"
 #import "ZP_GeneralLabel.h"
 #import "MyViewController.h"

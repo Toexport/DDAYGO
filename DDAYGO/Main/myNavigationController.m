@@ -34,8 +34,8 @@
 +(void)load {
     if (AboveIOS9) {
         UINavigationBar * navBar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[self]];
-        
         NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+        
         dict[NSFontAttributeName] = ZP_addBtnTextdetaFont;
         
         //        dict[NSForegroundColorAttributeName] = [UIColor colorWithHexString:mainFont];
