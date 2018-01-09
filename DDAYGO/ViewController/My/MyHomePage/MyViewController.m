@@ -33,9 +33,9 @@
 //@property (weak, nonatomic) IBOutlet UIView * zxxxView;
 @property (weak, nonatomic) IBOutlet UIView * scanView;
 @property (weak, nonatomic) IBOutlet UIView * CaipiaoView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewLayoutConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *SdglLayoutConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *XfjlLayoutConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint * viewLayoutConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint * SdglLayoutConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint * XfjlLayoutConstraint;
 @property (nonatomic, strong) NSString * reason;
 @end
 
@@ -43,8 +43,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 }
+
 // 生命周期
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:animated];
@@ -61,16 +61,15 @@
         _headImageBut.layer.masksToBounds = YES;
         [_headImageBut setImage:image forState:UIControlStateNormal];
     }
-    
 }
 
-- (void) Supplier {
+//- (void) Supplier {
     //     判断是否是供货商
-    if (state.length == NO) {
-        _SdglLayoutConstraint.constant = CGFLOAT_MIN;
-        _sdglView.hidden = YES;
+//    if (state.length == NO) {
+//        _SdglLayoutConstraint.constant = CGFLOAT_MIN;
+//        _sdglView.hidden = YES;
         //        _viewLayoutConstraint.constant = 50.0;
-    }
+//    }
     //     判断是否申请成功供货商
 //    if (state.length == YES) {
 //        //        _SdglLayoutConstraint.constant = CGFLOAT_MIN;
@@ -78,7 +77,7 @@
 //        self.xfjlView.hidden = YES;
 //        //        _viewLayoutConstraint.constant = 50.0;
 //    }
-}
+//}
 
 // 登录状态
 - (void)LoginJudde {
@@ -96,7 +95,7 @@
         }
     }];
 }
-//
+
 - (void)loginAllData {
     //    判断是否登录
     if (!Token) {
@@ -106,12 +105,12 @@
             [self.navigationController pushViewController:viewcontroller animated:YES];
         }
     }else {
-        
         [self AllDatas];
         [self allData];
         [self SupplierAllData];
     }
 }
+
 + (MyViewController *)sharedInstanceTool {
     static MyViewController *instance = nil;
     static NSString *language = nil;
@@ -119,6 +118,7 @@
         NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
         [[NSUserDefaults standardUserDefaults] setObject:array.firstObject forKey:@"Language"];
     }
+    
     NSString *language1 = [[NSUserDefaults standardUserDefaults] objectForKey:@"Language"];
     if (!language) {
         language = [[NSUserDefaults standardUserDefaults] objectForKey:@"Language"];
@@ -127,10 +127,8 @@
         language = language1;
         instance = [[self alloc] init];
     }
-    
     return instance;
 }
-
 
 - (void)autoLogin:(void (^)(id obj))success {
     if (DD_HASLOGIN) {
@@ -150,7 +148,6 @@
                 NSDictionary * tempDic = obj;
                 if (tempDic.allKeys.count > 1) {
                     NSDictionary * asdic = @{@"address":tempDic[@"address"],@"aid":tempDic[@"aid"],@"avatarimg":tempDic[@"avatarimg"],@"countrycode":tempDic[@"countrycode"],@"email":tempDic[@"email"],@"nickname":tempDic[@"nickname"],@"phone":tempDic[@"phone"],@"realname":tempDic[@"realname"],@"sex":tempDic[@"sex"],@"state":tempDic[@"state"]};
-                    
                     [[NSUserDefaults standardUserDefaults] setObject:asdic forKey:@"userInfo"];
                 }
         if (success) {
@@ -189,7 +186,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
-    
 }
 
 //  个人资料
@@ -198,7 +194,6 @@
     dic[@"token"] = Token;
     int i = arc4random_uniform(999);  // 随机数
     dic[@"nonce"] = @(i);
-//    dic[@"nonce"] = @"adf";
     [ZP_MyTool requestSetHomePage:dic success:^(id obj) {
         ZPLog(@"%@",obj);
        // [self SupplierAllData];
@@ -228,6 +223,7 @@
 
 // 获取浏览记录、收藏的数量
 - (void)AllDatas {
+    
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     [ZP_MyTool requesBrowseCollection:dic uccess:^(id obj) {
@@ -236,6 +232,7 @@
         model.collecedcount = obj[@"collecedcount"];
         model.historycount = obj[@"historycount"];
         [self setAllDatas:model];
+        
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
         _SdglLayoutConstraint.constant = CGFLOAT_MIN;
@@ -345,12 +342,12 @@
 }
 
 - (void)SupplierData:(ZP_MyHopageModel2 *)model {
-    
-    _RequestStatusLabel.text = [NSString stringWithFormat:@"%@",model.stateString];
+    self.RequestStatusLabel.text = [NSString stringWithFormat:@"%@",model.stateString];
 }
 
 // UI
 - (void)initUI {
+    
     self.userBackView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
     self.userBackView.layer.shadowOffset = CGSizeMake(1.0, 1.0);
     self.userBackView.layer.shadowOpacity = YES;
@@ -369,6 +366,7 @@
 }
 
 - (void)updateUserInfo {
+    
     if (Token) {
         NSDictionary * dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
         self.NameLabel.text = dic[@"nickname"];

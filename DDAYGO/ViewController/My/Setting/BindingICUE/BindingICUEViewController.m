@@ -19,12 +19,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self ButStatusAttribute];
+    [self initUI];
+}
+
+// UI
+- (void)initUI {
     self.title = NSLocalizedString(@"ICUC綁定", nil);
     self.PassWordtextField.secureTextEntry = YES;
     _AccountnumbertextField.keyboardType = UIKeyboardTypeASCIICapable;
     self.AccountnumbertextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
     self.PassWordtextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
-     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.BindingICUEscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐藏
 }
 
@@ -34,6 +39,7 @@
     self.BindingBut.userInteractionEnabled = NO;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(ButStatus:) name:UITextFieldTextDidChangeNotification object:self.PassWordtextField];
 }
+
 - (void)ButStatus:(UIButton *)sender {
     if (self.PassWordtextField.text.length > 0) {
         self.BindingBut.userInteractionEnabled = YES;
@@ -44,25 +50,26 @@
     }
 }
 - (IBAction)buildingAction:(id)sender {
-#pragma make -- 提示框
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"ICUE账号一旦绑定后将无法更改，您确定要绑定此ICUE账号吗？",nil) preferredStyle:UIAlertControllerStyleAlert];
-
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-        ZPLog(@"取消");
-    }];
-    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    
+//#pragma make -- 提示框
+//    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"ICUE账号一旦绑定后将无法更改，您确定要绑定此ICUE账号吗？",nil) preferredStyle:UIAlertControllerStyleAlert];
+//
+//    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+//        ZPLog(@"取消");
+//    }];
+//    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         [self allData];
-    }];
-    [alert addAction:defaultAction];
-    [alert addAction:cancelAction];
-    [self presentViewController:alert animated:YES completion:nil];
+//    }];
+//    [alert addAction:defaultAction];
+//    [alert addAction:cancelAction];
+//    [self presentViewController:alert animated:YES completion:nil];
 }
 
 // 数据
 - (void)allData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"icueaccount"] = [self.AccountnumbertextField.text stringByReplacingOccurrencesOfString:@" " withString:@""]; // 防止輸入帶有空格
-    dic[@"pwd"] = _PassWordtextField.text;
+    dic[@"pwd"] = [self.PassWordtextField.text stringByReplacingOccurrencesOfString:@" " withString:@""]; // 防止輸入帶有空格
     dic[@"token"] = Token;
     ZPLog(@"%@",dic);
     [ZP_MyTool requestBindingICUE:dic success:^(id obj) {
@@ -116,6 +123,7 @@
         
     }];
 }
+
 #pragma mark -- 安全输入
 - (IBAction)showPwAction:(UIButton *)sender {
     
