@@ -97,7 +97,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"SupplierViewCell2" bundle:nil] forCellReuseIdentifier:@"SupplierViewCell2"];
 
     _array = [NSArray arrayWithObjects:@"公司名稱:",@"統一編號:",@"公司人數:",@"註冊資本:",@"創立日期:",@"組織形態:",@"公司地址:",@"公司電話:",@"公司傳真(選填):",@"公司網址(選填):",@"聯繫人:",@"聯繫人郵箱:",@"聯繫電話:",@"經營項目:",@"合作項目:", nil];
-    //这个数组是放 pl 的自己放进去·对应的放好
+    //这个数组是放 pl 的放进去·对应的放好
     _arrayP = [NSArray arrayWithObjects:@" ",@" ",@"如:50 - 100人",@" ",@"YYYY - MM -DD",@" ",@" ",@" ",@" ",@" ",@"聯繫人/職稱/分機",@" ",@" ",@" ",@" ", nil];
     
     
@@ -170,7 +170,6 @@
 
 // 数据
 - (void)AllData:(NSMutableDictionary *)dic {
- 
     [ZP_MyTool requestSupplierRequest:dic success:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"ok"]) {
             [SVProgressHUD showSuccessWithStatus:@"申請成功,等待審核"];

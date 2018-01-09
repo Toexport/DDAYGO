@@ -18,7 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"ICUC綁定";
+    [self ButStatusAttribute];
+    self.title = NSLocalizedString(@"ICUC綁定", nil);
     self.PassWordtextField.secureTextEntry = YES;
     _AccountnumbertextField.keyboardType = UIKeyboardTypeASCIICapable;
     self.AccountnumbertextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
@@ -27,6 +28,21 @@
     self.BindingICUEscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐藏
 }
 
+// 按钮状态属性
+- (void)ButStatusAttribute {
+    self.BindingBut.alpha = 0.5;
+    self.BindingBut.userInteractionEnabled = NO;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(ButStatus:) name:UITextFieldTextDidChangeNotification object:self.PassWordtextField];
+}
+- (void)ButStatus:(UIButton *)sender {
+    if (self.PassWordtextField.text.length > 0) {
+        self.BindingBut.userInteractionEnabled = YES;
+        self.BindingBut.alpha = 1;
+    }else {
+        self.PassWordtextField.userInteractionEnabled = NO;
+        self.PassWordtextField.alpha = 0.5;
+    }
+}
 - (IBAction)buildingAction:(id)sender {
     
     [self allData];

@@ -13,10 +13,10 @@
 #import "TextView.h"
 @interface BindingEmailController ()
 @property (weak, nonatomic) IBOutlet TextView * ZPEmailTextFiled;
-@property (weak, nonatomic) IBOutlet TextView * ZPCodeTextField;
+//@property (weak, nonatomic) IBOutlet TextView * ZPCodeTextField;
 //@property (weak, nonatomic) IBOutlet TextView * ZPPswTextField;
 @property (weak, nonatomic) IBOutlet UIButton * BinDing;
-@property (nonatomic, strong) NSString * codeStr;
+//@property (nonatomic, strong) NSString * codeStr; // 验证码
 @end
 
 @implementation BindingEmailController
@@ -30,13 +30,14 @@
 }
 // UI
 - (void)initUI {
+    [self ButStatusAttribute];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-    self.BinDing.layer.cornerRadius = 8.0;
-    self.BinDing.layer.masksToBounds = YES;
+//    self.BinDing.layer.cornerRadius = 8.0;
+//    self.BinDing.layer.masksToBounds = YES;
     self.ZPEmailTextFiled.textField.keyboardType = UIKeyboardTypeEmailAddress;
     self.ZPEmailTextFiled.textField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
 //    [_ZPCodeTextField.functionBtn addTarget:self action:@selector(getMSNCode) forControlEvents:UIControlEventTouchUpInside];
@@ -46,9 +47,25 @@
 //    _ZPPswTextField.showEyeBtn                 = YES;
 //    [_ZPPswTextField.functionBtn addTarget:self action:@selector(secureTextEntry) forControlEvents:UIControlEventTouchUpInside];
 }
+
+// 按钮状态属性
+- (void)ButStatusAttribute {
+    self.BinDing.alpha = 0.5;
+    self.BinDing.userInteractionEnabled = NO;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(ButStatus:) name:UITextFieldTextDidChangeNotification object:self.ZPEmailTextFiled.textField];
+}
+- (void)ButStatus:(UIButton *)sender {
+    
+    if (self.ZPEmailTextFiled.textField.text.length > 0) {
+        self.BinDing.userInteractionEnabled = YES;
+        self.BinDing.alpha = 1;
+    }else {
+        self.BinDing.userInteractionEnabled = NO;
+        self.BinDing.alpha = 0.5;
+    }
+}
 //  绑定邮箱成功与失败
 - (IBAction)BindingEmail:(id)sender {
-    
     if (![self validateEmail:_ZPEmailTextFiled.textField.text]) {
         [SVProgressHUD showInfoWithStatus:@"郵箱格式不正確"];
         return;
@@ -67,6 +84,7 @@
     [self allData]; // 数据
 //    ZPLog(@"----");
 }
+
 // 绑定邮箱数据
 - (void)allData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];

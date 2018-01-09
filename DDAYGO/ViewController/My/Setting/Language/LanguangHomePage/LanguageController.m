@@ -36,7 +36,6 @@
     self.tableview.tableFooterView = [[UIView alloc]init]; // 隱藏tableviewcell多余的線條
     self.TitleArray = [NSArray arrayWithObjects:@"English",@"简体中文",@"繁體中文", nil];
 }
-
 // Nav按钮
 - (void)addNavigationBar {
     __weak LanguageController  * Language = self;

@@ -69,15 +69,20 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Son-Iu-HOg">
-                            <rect key="frame" x="20" y="317" width="281" height="40"/>
+                            <rect key="frame" x="20" y="317" width="281" height="35"/>
                             <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.0" alpha="0.64544092470000003" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="0Os-0Z-Rpa"/>
+                                <constraint firstAttribute="height" constant="35" id="0Os-0Z-Rpa"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="登錄">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="LoginClick:" destination="-1" eventType="touchUpInside" id="kS8-Bs-zwo"/>
                             </connections>
@@ -121,7 +126,7 @@
                         <constraint firstItem="xeP-42-6hO" firstAttribute="leading" secondItem="Son-Iu-HOg" secondAttribute="leading" id="ALL-Ro-vkS"/>
                         <constraint firstItem="bIN-HP-Tca" firstAttribute="leading" secondItem="xeP-42-6hO" secondAttribute="trailing" constant="15" id="F8B-ok-Ptx"/>
                         <constraint firstItem="ZuZ-SW-gu9" firstAttribute="leading" secondItem="rjj-oS-adh" secondAttribute="trailing" constant="1" id="FcO-ew-RKl"/>
-                        <constraint firstAttribute="bottom" secondItem="Son-Iu-HOg" secondAttribute="bottom" constant="211" id="JzJ-9w-wRh"/>
+                        <constraint firstAttribute="bottom" secondItem="Son-Iu-HOg" secondAttribute="bottom" constant="216" id="JzJ-9w-wRh"/>
                         <constraint firstItem="3WR-zG-gJb" firstAttribute="leading" secondItem="EdG-tj-q4I" secondAttribute="leading" constant="20" id="Q4Z-Ny-x2J"/>
                         <constraint firstAttribute="trailing" secondItem="fh4-zK-ymt" secondAttribute="trailing" constant="25" id="UDc-S1-faq"/>
                         <constraint firstItem="ZuZ-SW-gu9" firstAttribute="top" secondItem="bIN-HP-Tca" secondAttribute="bottom" constant="23" id="Wke-Sf-gE9"/>

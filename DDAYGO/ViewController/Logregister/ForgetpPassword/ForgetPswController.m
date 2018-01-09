@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet TextView * ZPCodeTextField;
 @property (weak, nonatomic) IBOutlet TextView * ZPPswTextField;
 @property (weak, nonatomic) IBOutlet TextView * ZPConPswTextField;
+@property (weak, nonatomic) IBOutlet UIButton * DetermineBut;
 @property (nonatomic, strong) NSString * codeStr;
 @property (nonatomic, strong) NSString * verifyemail;
 
@@ -28,10 +29,11 @@
 //    [self secureTextEntry];
     _ForgetPswscrollView.bounces = NO;
     [self initUI];
-    self.title = @"忘記密碼";
 }
 // UI
 - (void)initUI {
+    self.title = NSLocalizedString(@"忘記密碼", nil);
+    [self ButStatusAttribute];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
@@ -43,18 +45,30 @@
     self.ZPPswTextField.textField.keyboardType = UIKeyboardTypeDefault;
     self.ZPConPswTextField.textField.keyboardType = UIKeyboardTypeDefault;
     [self.ZPCodeTextField.functionBtn addTarget:self action:@selector(getMSNCode) forControlEvents:UIControlEventTouchUpInside];
-    
 //    _ZPPswTextField.showBtn                  = NO;
 //    _ZPPswTextField.showEyeBtn               = YES;
 //    [_ZPPswTextField.functionBtn addTarget:self action:@selector(secureTextEntry) forControlEvents:UIControlEventTouchUpInside];
-    
 //    self.ZPConPswTextField.showBtn                  = NO;
 //    self.ZPConPswTextField.showEyeBtn               = YES;
 //    [self.ZPConPswTextField.functionBtn addTarget:self action:@selector(secureTextEntry) forControlEvents:UIControlEventTouchUpInside];
-
     self.ZPCodeTextField.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
 }
+// 按钮状态属性
+- (void)ButStatusAttribute {
+    self.DetermineBut.alpha = 0.5;
+    self.DetermineBut.userInteractionEnabled = NO;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(ButStatus:) name:UITextFieldTextDidChangeNotification object:self.ZPConPswTextField.textField];
+}
 
+- (void)ButStatus:(UIButton *)sender {
+    if (self.ZPConPswTextField.textField.text.length > 0) {
+        self.DetermineBut.userInteractionEnabled = YES;
+        self.DetermineBut.alpha = 1;
+    }else {
+        self.DetermineBut.userInteractionEnabled = NO;
+        self.DetermineBut.alpha = 0.5;
+    }
+}
 // 数据（第一步）
 // 获取验证码
 - (void)getMSNCode {

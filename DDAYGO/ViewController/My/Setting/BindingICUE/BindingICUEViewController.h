@@ -12,5 +12,6 @@
 @property (strong, nonatomic) IBOutlet UIScrollView * BindingICUEscrollView;
 @property (weak, nonatomic) IBOutlet UITextField * AccountnumbertextField;
 @property (weak, nonatomic) IBOutlet UITextField * PassWordtextField;
+@property (weak, nonatomic) IBOutlet UIButton *BindingBut;
 
 @end

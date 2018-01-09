@@ -10,7 +10,7 @@
 #import "PrefixHeader.pch"
 #import "ZP_MyTool.h"
 #import "MyViewController.h"
-@interface ResetPasswordViewController ()<UITextFieldDelegate>
+@interface ResetPasswordViewController ()
 
 @end
 
@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-    [self touchesBegan];
+//    [self touchesBegan];
     self.title = NSLocalizedString(@"修改密碼", nil);
      [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.ResetPasswordscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐藏
@@ -27,12 +27,10 @@
 }
 // UI
 - (void)initUI {
+    [self ButStatusAttribute];
     self.oldpwTextfield.secureTextEntry = YES;
     self.newpwTextfield.secureTextEntry = YES;
     self.againpwTextfield.secureTextEntry = YES;
-    self.oldpwTextfield.delegate = self;
-    self.newpwTextfield.delegate = self;
-    self.againpwTextfield.delegate = self;
     self.oldpwTextfield.keyboardType = UIKeyboardTypeDefault;
     self.newpwTextfield.keyboardType = UIKeyboardTypeDefault;
     self.againpwTextfield.keyboardType = UIKeyboardTypeDefault;
@@ -40,11 +38,27 @@
     self.newpwTextfield.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
     self.againpwTextfield.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
 }
+// 按钮状态属性
+- (void)ButStatusAttribute {
+    self.DetermineBut.alpha = 0.5;
+    self.DetermineBut.userInteractionEnabled = NO;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(ButStatus:) name:UITextFieldTextDidChangeNotification object:self.againpwTextfield];
+}
+- (void)ButStatus:(UIButton *)sender {
+    if (self.againpwTextfield.text.length > 0) {
+        self.DetermineBut.userInteractionEnabled = YES;
+        self.DetermineBut.alpha = 1;
+    }else {
+        self.DetermineBut.userInteractionEnabled = NO;
+        self.DetermineBut.alpha = 0.5;
+    }
+}
 
 // 确定按钮
 - (IBAction)DetermineBut:(id)sender {
+    
     if (self.newpwTextfield.text.length < 6 || self.newpwTextfield.text.length >20) {
-        [SVProgressHUD showInfoWithStatus:@"密碼位數不能小於8大於20"];
+        [SVProgressHUD showInfoWithStatus:@"密碼位數不能小於6大於20"];
         ZPLog(@"密码不足6位");
         return;
     }
@@ -96,40 +110,40 @@
     }];
 }
 
-/***********鍵盤************/
--(void)textFieldDidBeginEditing:(UITextField *)textField{// 文本编辑开始时
-    [UIView animateWithDuration:0.4 animations:^{
-        self.ResetPasswordscrollView.contentOffset = CGPointMake(0, ZP_Width - 210);
-    }];
-    
-}
-- (void)textFieldDidEndEditing:(UITextField *)textField{
-    [UIView animateWithDuration:0.3 animations:^{
-        self.ResetPasswordscrollView.contentOffset = CGPointMake(0, 0);
-    }];
-    
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.ResetPasswordscrollView endEditing:YES];
-}
-
-// 键盘触摸
-- (void)touchesBegan {
-    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
-    //设置成NO表示当前控件响应后会传播到其他控件上，默认为YES。
-    tapGestureRecognizer.cancelsTouchesInView = NO;
-    //将触摸事件添加到当前view
-    [self.view addGestureRecognizer:tapGestureRecognizer];
-    
-}
-// 触发事件
--(void)keyboardHide:(UITapGestureRecognizer*)tap {
-    
-    [self.oldpwTextfield resignFirstResponder];
-    [self.oldpwTextfield resignFirstResponder];
-    [self.againpwTextfield resignFirstResponder];
-}
+///***********鍵盤************/
+//-(void)textFieldDidBeginEditing:(UITextField *)textField{// 文本编辑开始时
+//    [UIView animateWithDuration:0.4 animations:^{
+//        self.ResetPasswordscrollView.contentOffset = CGPointMake(0, ZP_Width - 210);
+//    }];
+//
+//}
+//- (void)textFieldDidEndEditing:(UITextField *)textField{
+//    [UIView animateWithDuration:0.3 animations:^{
+//        self.ResetPasswordscrollView.contentOffset = CGPointMake(0, 0);
+//    }];
+//
+//}
+//
+//- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+//    [self.ResetPasswordscrollView endEditing:YES];
+//}
+//
+//// 键盘触摸
+//- (void)touchesBegan {
+//    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
+//    //设置成NO表示当前控件响应后会传播到其他控件上，默认为YES。
+//    tapGestureRecognizer.cancelsTouchesInView = NO;
+//    //将触摸事件添加到当前view
+//    [self.view addGestureRecognizer:tapGestureRecognizer];
+//
+//}
+//// 触发事件
+//-(void)keyboardHide:(UITapGestureRecognizer*)tap {
+//
+//    [self.oldpwTextfield resignFirstResponder];
+//    [self.oldpwTextfield resignFirstResponder];
+//    [self.againpwTextfield resignFirstResponder];
+//}
 
 //显示密码
 - (IBAction)showpwAction:(UIButton *)sender {

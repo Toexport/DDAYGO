@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self ButStatusAttribute];
     self.title = NSLocalizedString(@"綁定推薦人", nil);
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.BindingIntroduceTextField.keyboardType = UIKeyboardTypeASCIICapable;
@@ -26,6 +27,21 @@
     
 }
 
+// 按钮状态属性
+- (void)ButStatusAttribute {
+    self.BinDingBut.alpha = 0.5;
+    self.BinDingBut.userInteractionEnabled = NO;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(ButStatus:) name:UITextFieldTextDidChangeNotification object:self.BindingIntroduceTextField];
+}
+- (void)ButStatus:(UIButton *)sender {
+    if (self.BindingIntroduceTextField.text.length > 0) {
+        self.BinDingBut.userInteractionEnabled = YES;
+        self.BinDingBut.alpha = 1;
+    }else {
+        self.BinDingBut.userInteractionEnabled = NO;
+        self.BinDingBut.alpha = 0.5;
+    }
+}
 // 绑定推荐人
 - (IBAction)BindingIntroduceTextField:(id)sender {
     [self allData];

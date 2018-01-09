@@ -68,15 +68,20 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Po-ec-Hmh">
-                            <rect key="frame" x="20" y="381" width="280" height="40"/>
+                            <rect key="frame" x="20" y="381" width="280" height="35"/>
                             <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.0" alpha="0.64544092470000003" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="4qT-12-6B7"/>
+                                <constraint firstAttribute="height" constant="35" id="4qT-12-6B7"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="登錄">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="LoginClick:" destination="-1" eventType="touchUpInside" id="8hR-CP-OCb"/>
                             </connections>
@@ -110,7 +115,7 @@
                         <constraint firstAttribute="trailing" secondItem="JDe-kg-ZAR" secondAttribute="trailing" constant="20" id="YfB-2i-eQ7"/>
                         <constraint firstItem="N1H-1R-l1k" firstAttribute="bottom" secondItem="xK9-YZ-Sae" secondAttribute="bottom" id="acz-1e-k5A"/>
                         <constraint firstItem="JDe-kg-ZAR" firstAttribute="leading" secondItem="Tfk-1J-dAD" secondAttribute="trailing" constant="8" symbolic="YES" id="eao-mc-gHk"/>
-                        <constraint firstItem="eDe-Ut-vzV" firstAttribute="top" secondItem="8Po-ec-Hmh" secondAttribute="bottom" constant="20" id="hBX-8J-fO4"/>
+                        <constraint firstItem="eDe-Ut-vzV" firstAttribute="top" secondItem="8Po-ec-Hmh" secondAttribute="bottom" constant="25" id="hBX-8J-fO4"/>
                         <constraint firstItem="xK9-YZ-Sae" firstAttribute="trailing" secondItem="8Po-ec-Hmh" secondAttribute="trailing" id="jtZ-UC-tjK"/>
                         <constraint firstItem="Tfk-1J-dAD" firstAttribute="leading" secondItem="N1H-1R-l1k" secondAttribute="leading" id="qMb-eV-v1m"/>
                         <constraint firstItem="Tfk-1J-dAD" firstAttribute="leading" secondItem="Brj-Am-5rS" secondAttribute="leading" constant="20" id="uOw-Ul-zvc"/>

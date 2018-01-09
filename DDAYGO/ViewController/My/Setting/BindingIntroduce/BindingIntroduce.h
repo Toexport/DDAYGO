@@ -11,5 +11,6 @@
 @interface BindingIntroduce : UIViewController
 @property (strong, nonatomic) IBOutlet UIScrollView * BindingIntroducscrollView;
 @property (strong, nonatomic) IBOutlet UITextField * BindingIntroduceTextField;
+@property (weak, nonatomic) IBOutlet UIButton *BinDingBut;
 
 @end

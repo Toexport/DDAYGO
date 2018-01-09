@@ -34,16 +34,33 @@
     [self initUI];
 }
 
+// UI
 - (void)initUI {
     self.title = NSLocalizedString(@"ICUE快速登錄", nil);
+    [self ButStatusAttribute];
     self.QuickLoginscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐
-    _LoginBtn.layer.cornerRadius             = 8.0;
-    _LoginBtn.layer.masksToBounds            = YES;
-    _ZPEmailTextField.textField.keyboardType = UIKeyboardTypeASCIICapable;
-    
-    _ZPPswTextField.showBtn                  = NO;
-    _ZPPswTextField.showEyeBtn               = YES;
-    [_ZPPswTextField.functionBtn addTarget:self action:@selector(secureTextEntry) forControlEvents:UIControlEventTouchUpInside];
+//    _LoginBtn.layer.cornerRadius             = 8.0;
+//    _LoginBtn.layer.masksToBounds            = YES;
+    self.ZPEmailTextField.textField.keyboardType = UIKeyboardTypeASCIICapable;
+    self.ZPPswTextField.showBtn                  = NO;
+    self.ZPPswTextField.showEyeBtn               = YES;
+    [self.ZPPswTextField.functionBtn addTarget:self action:@selector(secureTextEntry) forControlEvents:UIControlEventTouchUpInside];
+}
+
+// 按钮状态属性
+- (void)ButStatusAttribute {
+    self.LoginBtn.userInteractionEnabled = NO;
+    self.LoginBtn.alpha = 0.5;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(ButStatus:) name:UITextFieldTextDidChangeNotification object:self.ZPPswTextField.textField];
+}
+- (void)ButStatus:(UIButton *)sender {
+    if (self.ZPPswTextField.textField.text.length > 0) {
+        self.LoginBtn.userInteractionEnabled = YES;
+        self.LoginBtn.alpha = 1;
+    }else {
+        self.LoginBtn.userInteractionEnabled = NO;
+        self.LoginBtn.alpha = 0.5;
+    }
 }
 
 //  登录
@@ -62,7 +79,6 @@
         return;
     }
     
-
     _LoginBtn.userInteractionEnabled = NO;
 
     [SVProgressHUD showWithStatus:@"正在登录。。。"];

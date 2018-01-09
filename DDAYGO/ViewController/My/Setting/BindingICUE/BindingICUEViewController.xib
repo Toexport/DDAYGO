@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BindingICUEViewController">
             <connections>
                 <outlet property="AccountnumbertextField" destination="oCK-0y-ito" id="Xdw-o8-bwk"/>
+                <outlet property="BindingBut" destination="mrj-l7-uQz" id="jgX-eQ-2Ev"/>
                 <outlet property="BindingICUEscrollView" destination="MIm-ar-Srq" id="j4u-rf-wXY"/>
                 <outlet property="PassWordtextField" destination="S1L-wQ-aLr" id="NlI-BF-JUI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -70,10 +71,10 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrj-l7-uQz">
-                            <rect key="frame" x="15" y="237" width="290" height="38"/>
+                            <rect key="frame" x="15" y="237" width="290" height="35"/>
                             <color key="backgroundColor" red="0.98743456602096558" green="0.66118896007537842" blue="0.32479727268218994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="38" id="ZPH-d3-T9I"/>
+                                <constraint firstAttribute="height" constant="35" id="ZPH-d3-T9I"/>
                             </constraints>
                             <state key="normal" title="绑定">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -107,7 +108,7 @@
                         <constraint firstItem="oCK-0y-ito" firstAttribute="top" secondItem="MIm-ar-Srq" secondAttribute="top" constant="57" id="0tM-dc-Alf"/>
                         <constraint firstItem="5nV-S6-0Jz" firstAttribute="top" secondItem="oCK-0y-ito" secondAttribute="bottom" constant="8" symbolic="YES" id="2UV-7j-zbN"/>
                         <constraint firstAttribute="trailing" secondItem="0j6-Ww-o1h" secondAttribute="trailing" id="2dm-Ky-sWf"/>
-                        <constraint firstAttribute="bottom" secondItem="mrj-l7-uQz" secondAttribute="bottom" constant="363" id="6Oa-XJ-tM2"/>
+                        <constraint firstAttribute="bottom" secondItem="mrj-l7-uQz" secondAttribute="bottom" constant="296" id="6Oa-XJ-tM2"/>
                         <constraint firstItem="oCK-0y-ito" firstAttribute="leading" secondItem="S1L-wQ-aLr" secondAttribute="leading" id="7hl-eQ-VWF"/>
                         <constraint firstItem="0j6-Ww-o1h" firstAttribute="bottom" secondItem="S1L-wQ-aLr" secondAttribute="bottom" id="DEh-1o-Osb"/>
                         <constraint firstItem="MP9-Pg-sEy" firstAttribute="leading" secondItem="5nV-S6-0Jz" secondAttribute="leading" id="Gub-mw-1gW"/>

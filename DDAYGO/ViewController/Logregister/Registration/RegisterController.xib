@@ -79,15 +79,20 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xl3-3I-Rb5">
-                            <rect key="frame" x="20" y="334" width="280" height="45"/>
+                            <rect key="frame" x="20" y="334" width="280" height="35"/>
                             <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.0" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="45" id="vo0-dN-5gW"/>
+                                <constraint firstAttribute="height" constant="35" id="vo0-dN-5gW"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="註冊">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="rEgBut:" destination="-1" eventType="touchUpInside" id="IWf-JB-tHm"/>
                             </connections>
@@ -127,13 +132,13 @@
                         <constraint firstItem="2Qq-Ot-hOg" firstAttribute="leading" secondItem="b3T-6M-oan" secondAttribute="leading" id="DJz-Nd-zxm"/>
                         <constraint firstItem="b3T-6M-oan" firstAttribute="top" secondItem="2Qq-Ot-hOg" secondAttribute="bottom" constant="16" id="EcN-hl-7ki"/>
                         <constraint firstAttribute="trailing" secondItem="2Qq-Ot-hOg" secondAttribute="trailing" constant="20" id="IHz-jC-PPt"/>
-                        <constraint firstItem="HPu-2F-a1a" firstAttribute="top" secondItem="xl3-3I-Rb5" secondAttribute="bottom" constant="8" id="KHm-A1-ouF"/>
+                        <constraint firstItem="HPu-2F-a1a" firstAttribute="top" secondItem="xl3-3I-Rb5" secondAttribute="bottom" constant="18" id="KHm-A1-ouF"/>
                         <constraint firstItem="0RT-tI-UKY" firstAttribute="trailing" secondItem="ai0-Ib-O4o" secondAttribute="trailing" id="U3o-7F-8uH"/>
                         <constraint firstAttribute="bottom" secondItem="HPu-2F-a1a" secondAttribute="bottom" constant="151" id="aAy-Zz-Tmk"/>
                         <constraint firstItem="0RT-tI-UKY" firstAttribute="top" secondItem="b3T-6M-oan" secondAttribute="bottom" constant="17" id="eIJ-Qq-pKG"/>
                         <constraint firstItem="xl3-3I-Rb5" firstAttribute="top" secondItem="YQ9-G9-V5Z" secondAttribute="top" constant="334" id="hxg-iV-otz"/>
                         <constraint firstItem="ai0-Ib-O4o" firstAttribute="top" secondItem="0RT-tI-UKY" secondAttribute="bottom" constant="17" id="ilH-yb-3J4"/>
-                        <constraint firstItem="0Ce-wd-kq9" firstAttribute="top" secondItem="xl3-3I-Rb5" secondAttribute="bottom" constant="8" id="oBY-P9-z8L"/>
+                        <constraint firstItem="0Ce-wd-kq9" firstAttribute="top" secondItem="xl3-3I-Rb5" secondAttribute="bottom" constant="18" id="oBY-P9-z8L"/>
                         <constraint firstItem="0Ce-wd-kq9" firstAttribute="leading" secondItem="HPu-2F-a1a" secondAttribute="trailing" constant="5" id="p3T-6a-BAl"/>
                         <constraint firstItem="2Qq-Ot-hOg" firstAttribute="trailing" secondItem="b3T-6M-oan" secondAttribute="trailing" id="tcl-tV-gfv"/>
                         <constraint firstItem="0RT-tI-UKY" firstAttribute="leading" secondItem="ai0-Ib-O4o" secondAttribute="leading" id="uEW-Gs-rMY"/>

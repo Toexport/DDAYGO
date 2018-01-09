@@ -29,7 +29,6 @@
     [super viewDidLoad];
     [self initUI];
     self.title = NSLocalizedString(@"Login", nil) ;
-
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
 //    self.LoginscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐藏
@@ -37,22 +36,40 @@
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
+
 - (void)viewWillDisappear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
-    
 }
+// UI
 - (void)initUI {
-    _LoginBtn.layer.cornerRadius             = 8.0;
-    _LoginBtn.layer.masksToBounds            = YES;
-    
-    _ZPEmailTextField.textField.keyboardType =  UIKeyboardTypeASCIICapable;
-    _ZPPswTextField.textField.keyboardType = UIKeyboardTypeDefault;
-    _ZPPswTextField.showBtn                  = NO;
-    _ZPPswTextField.showEyeBtn               = YES;
-    [_ZPPswTextField.functionBtn addTarget:self action:@selector(secureTextEntry) forControlEvents:UIControlEventTouchUpInside];
+//    _LoginBtn.layer.cornerRadius             = 8.0;
+//    _LoginBtn.layer.masksToBounds            = YES;
+    [self ButStatusAttribute];
+    self.ZPEmailTextField.textField.keyboardType =  UIKeyboardTypeASCIICapable;
+    self.ZPPswTextField.textField.keyboardType = UIKeyboardTypeDefault;
+    self.ZPPswTextField.showBtn                  = NO;
+    self.ZPPswTextField.showEyeBtn               = YES;
+    [self.ZPPswTextField.functionBtn addTarget:self action:@selector(secureTextEntry) forControlEvents:UIControlEventTouchUpInside];
+}
+// 按钮状态属性
+- (void)ButStatusAttribute {
+    self.LoginBtn.alpha = 0.5;
+    self.LoginBtn.userInteractionEnabled = NO;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(ButStatus:) name:UITextFieldTextDidChangeNotification object:self.ZPPswTextField.textField];
 }
 
+- (void)ButStatus:(UIButton *)sender {
+    if (self.ZPPswTextField.textField.text.length > 0) {
+        self.LoginBtn.userInteractionEnabled = YES;
+        self.LoginBtn.alpha = 1;
+    }else {
+        self.LoginBtn.userInteractionEnabled = NO;
+        self.LoginBtn.alpha = 0.5;
+    }
+}
+
+// 确定按钮
 - (IBAction)LoginClick:(id)sender {
 //    if (![self validateEmail:_ZPEmailTextField.textField.text]) {
 //        [SVProgressHUD showInfoWithStatus:@"賬號格式不正確"];
@@ -63,7 +80,7 @@
 - (void)allData {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     dic[@"email"] = [self.ZPEmailTextField.textField.text stringByReplacingOccurrencesOfString:@" " withString:@""]; // 防止輸入帶有空格
-    dic[@"pwd"] = [self md5:_ZPPswTextField.textField.text];
+    dic[@"pwd"] = [self md5:self.ZPPswTextField.textField.text];
     dic[@"countrycode"] = CountCode;
 //    NSLog(@"count %@",CountCode);
     [[NSUserDefaults standardUserDefaults] setObject:dic forKey:@"loginData"];
@@ -114,35 +131,26 @@
 }
 
 - (IBAction)forgetPsdClick:(id)sender {
-    
     self.hidesBottomBarWhenPushed = YES;
-    ForgetPswController *forget = [[ForgetPswController alloc]init];
+    ForgetPswController * forget = [[ForgetPswController alloc]init];
     [self.navigationController pushViewController:forget animated:YES];
     self.hidesBottomBarWhenPushed = YES;
 }
 
 #pragma mark - - - - - - - - - - - - - - - private methods 私有方法 - - - - - - - - - - - - - -
 - (BOOL)validateEmail:(NSString *)email {
-    
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-    
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-    
     return [emailTest evaluateWithObject:email];
-    
 }
+
 - (BOOL)judgePassWordLegal:(NSString *)pass {
-    
     BOOL result ;
     // 判断长度大于8位后再接着判断是否同时包含数字和大小写字母
     NSString * regex =@"(?![0-9A-Z]+$)(?![0-9a-z]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,20}$";
-    
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
-    
     result = [pred evaluateWithObject:pass];
-    
     return result;
-    
 }
 
 //  MD5加密方法
@@ -160,12 +168,11 @@
 
 #pragma mark - 安全输入
 -(void)secureTextEntry {
-    _ZPPswTextField.textField.secureTextEntry = !_ZPPswTextField.textField.secureTextEntry;
-    
-    if (_ZPPswTextField.textField.secureTextEntry) {
-        [_ZPPswTextField.functionBtn setImage:[UIImage imageNamed:@"ic_login_close.png"] forState:UIControlStateNormal];
+    self.ZPPswTextField.textField.secureTextEntry = !self.ZPPswTextField.textField.secureTextEntry;
+    if (self.ZPPswTextField.textField.secureTextEntry) {
+        [self.ZPPswTextField.functionBtn setImage:[UIImage imageNamed:@"ic_login_close.png"] forState:UIControlStateNormal];
     }else {
-        [_ZPPswTextField.functionBtn setImage:[UIImage imageNamed:@"ic_login_open.png"] forState:UIControlStateNormal];
+        [self.ZPPswTextField.functionBtn setImage:[UIImage imageNamed:@"ic_login_open.png"] forState:UIControlStateNormal];
     }
 }
 

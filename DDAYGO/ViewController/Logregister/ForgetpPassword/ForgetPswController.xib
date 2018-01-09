@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ForgetPswController">
             <connections>
+                <outlet property="DetermineBut" destination="kJa-0e-23V" id="slR-vf-bbt"/>
                 <outlet property="ForgetPswscrollView" destination="kBY-oE-d25" id="T2b-Hd-am6"/>
                 <outlet property="ZPCodeTextField" destination="NSX-zq-gr8" id="aT7-kP-bHG"/>
                 <outlet property="ZPConPswTextField" destination="eRg-7k-H40" id="iHT-bc-QjK"/>
@@ -102,10 +103,10 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJa-0e-23V">
-                            <rect key="frame" x="20" y="403" width="279" height="45"/>
+                            <rect key="frame" x="20" y="403" width="279" height="35"/>
                             <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="45" id="Nuz-J5-UXs"/>
+                                <constraint firstAttribute="height" constant="35" id="Nuz-J5-UXs"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="確定">
@@ -130,7 +131,7 @@
                         <constraint firstAttribute="trailing" secondItem="kJa-0e-23V" secondAttribute="trailing" constant="21" id="BSj-LY-au8"/>
                         <constraint firstItem="NSX-zq-gr8" firstAttribute="top" secondItem="oTz-Xy-Ym9" secondAttribute="bottom" constant="5" id="Bde-Ai-0VT"/>
                         <constraint firstItem="oTz-Xy-Ym9" firstAttribute="top" secondItem="tnd-Uf-2NE" secondAttribute="bottom" constant="20" id="EOd-N0-Uee"/>
-                        <constraint firstAttribute="bottom" secondItem="kJa-0e-23V" secondAttribute="bottom" constant="120" id="G3f-q7-XmG"/>
+                        <constraint firstAttribute="bottom" secondItem="kJa-0e-23V" secondAttribute="bottom" constant="130" id="G3f-q7-XmG"/>
                         <constraint firstItem="d4L-Uq-Mha" firstAttribute="leading" secondItem="kBY-oE-d25" secondAttribute="leading" constant="20" id="GtF-Oz-non"/>
                         <constraint firstItem="GUl-ga-Gvv" firstAttribute="leading" secondItem="WjN-vY-m0T" secondAttribute="leading" id="Nux-wc-VXw"/>
                         <constraint firstItem="WjN-vY-m0T" firstAttribute="top" secondItem="4bT-Yy-IRF" secondAttribute="bottom" constant="16" id="PE7-gc-0ia"/>

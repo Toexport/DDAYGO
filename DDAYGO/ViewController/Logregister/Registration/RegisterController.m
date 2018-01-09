@@ -16,7 +16,7 @@
 #import "ZP_HomeTool.h"
 #import "ZP_PositionModel.h"
 #import "RegistrationAgreementController.h"
-@interface RegisterController (){
+@interface RegisterController () {
     UIButton * _chooseCityBtn;
 }
 @property (weak, nonatomic) IBOutlet TextView * ZPAccountNumberTextFiled; // 账号
@@ -36,41 +36,50 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-    self.title = @"注册";
+}
+// UI
+- (void)initUI {
+    self.title = NSLocalizedString(@"注册", nil);
+    [self ButStatusAttribute];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.RegisterscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐藏
-}
-
-- (void)initUI {
-    
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-    _RegBtn.layer.cornerRadius = 8.0;
-    _RegBtn.layer.masksToBounds = YES;
-    
-//
+//    _RegBtn.layer.cornerRadius = 8.0;
+//    _RegBtn.layer.masksToBounds = YES;
 //    [_ZPCodeTextField.functionBtn addTarget:self action:@selector(getMSNCode) forControlEvents:UIControlEventTouchUpInside];
 //    _ZPCodeTextField.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    
-    _ZPAccountNumberTextFiled.textField.keyboardType = UIKeyboardTypeASCIICapable;
-    _ZPEmailTextFiled.textField.keyboardType = UIKeyboardTypeASCIICapable;
-    [_ZPCountryTextField.functionBtn setTitle:@"点击选择" forState:UIControlStateNormal];
-    [_ZPCountryTextField.functionBtn addTarget:self action:@selector(choseCountry) forControlEvents:UIControlEventTouchUpInside];
-    
-    _ZPPswTextField.showBtn                    = NO;
-    _ZPPswTextField.showEyeBtn                 = YES;
-    _ZPPswTextField.textField.keyboardType = UIKeyboardTypeNamePhonePad;
-    [_ZPPswTextField.functionBtn addTarget:self action:@selector(secureTextEntry) forControlEvents:UIControlEventTouchUpInside];
-    
+    self.ZPAccountNumberTextFiled.textField.keyboardType = UIKeyboardTypeASCIICapable;
+    self.ZPEmailTextFiled.textField.keyboardType = UIKeyboardTypeASCIICapable;
+    [self.ZPCountryTextField.functionBtn setTitle:@"点击选择" forState:UIControlStateNormal];
+    [self.ZPCountryTextField.functionBtn addTarget:self action:@selector(choseCountry) forControlEvents:UIControlEventTouchUpInside];
+    self.ZPPswTextField.showBtn                    = NO;
+    self.ZPPswTextField.showEyeBtn                 = YES;
+//    _ZPPswTextField.textField.keyboardType = UIKeyboardTypeNamePhonePad;
+    [self.ZPPswTextField.functionBtn addTarget:self action:@selector(secureTextEntry) forControlEvents:UIControlEventTouchUpInside];
 }
-
+// 按钮状态属性
+- (void)ButStatusAttribute {
+    self.RegBtn.userInteractionEnabled = NO;
+    self.RegBtn.alpha = 0.5;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(ButStatus:) name:UITextFieldTextDidChangeNotification object:self.ZPPswTextField.textField];
+}
+- (void)ButStatus:(UIButton *)sender {
+    if (self.ZPPswTextField.textField.text.length > 0) {
+        self.RegBtn.userInteractionEnabled = YES;
+        self.RegBtn.alpha = 1;
+    }else {
+        self.RegBtn.userInteractionEnabled = NO;
+        self.RegBtn.alpha = 0.5;
+    }
+}
 //  注册
 - (IBAction)rEgBut:(id)sender {
     
-    if (![self JudgeTheillegalCharacter:_ZPAccountNumberTextFiled.textField.text]) {
+    if (![self JudgeTheillegalCharacter:self.ZPAccountNumberTextFiled.textField.text]) {
         [SVProgressHUD showInfoWithStatus:@"账号格式不正确"];
         return;
     }
@@ -79,7 +88,7 @@
 //        ZPLog(@"请输入验证码");
 //        return;
 //    }
-    if (_ZPPswTextField.textField.text.length < 6||_ZPPswTextField.textField.text.length >20) {
+    if (self.ZPPswTextField.textField.text.length < 6||self.ZPPswTextField.textField.text.length >20) {
         [SVProgressHUD showInfoWithStatus:@"密码位数不能小于6大于20"];
         ZPLog(@"密码不足6位");
         return;
@@ -94,12 +103,12 @@
 //        ZPLog(@"密码不足8位");
 //        return;
 //    }
-    if (_ZPCountryTextField.textField.text.length < 1) {
+    if (self.ZPCountryTextField.textField.text.length < 1) {
         [SVProgressHUD showInfoWithStatus:@"选择国家"];
         ZPLog(@"选择国家");
         return;
     }
-    if (!_agreeBtn.selected) {
+    if (!self.agreeBtn.selected) {
         [SVProgressHUD showInfoWithStatus:@"同意协议"];
         ZPLog(@"同意协议");
         return;
@@ -111,11 +120,11 @@
 // 数据
 - (void)allData {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    dict[@"email"] = _ZPAccountNumberTextFiled.textField.text;
-    dict[@"pwd"] = [self md5:_ZPPswTextField.textField.text];
-    dict[@"emailverify"] = _ZPEmailTextFiled.textField.text;
+    dict[@"email"] = self.ZPAccountNumberTextFiled.textField.text;
+    dict[@"pwd"] = [self md5:self.ZPPswTextField.textField.text];
+    dict[@"emailverify"] = self.ZPEmailTextFiled.textField.text;
 //这里是不是国家
-    dict[@"countrycode"] = _CountCode;
+    dict[@"countrycode"] = self.CountCode;
     
     [ZP_LoginTool requestRegiser:dict success:^(id obj) {
         ZPLog(@"%@",obj);
@@ -124,7 +133,7 @@
             if ([dic[@"result"] isEqualToString:@"ok"]) {
                 NSLog(@"注册成功");
                 [SVProgressHUD showSuccessWithStatus:@"注册成功!"];
-                CountCode = _CountCode;   // 保存国家
+                CountCode = self.CountCode;   // 保存国家
                 [self.navigationController popViewControllerAnimated:YES];
             }else
                 if ([dic[@"result"] isEqualToString:@"sys_err"]) {
@@ -207,7 +216,7 @@
 
 // 选择国家
 - (void)choseCountry {
-    _ZPCountryTextField.functionBtn.userInteractionEnabled = NO;
+    self.ZPCountryTextField.functionBtn.userInteractionEnabled = NO;
     [self PositionallData];
     ZPLog(@"选择国家");
 }
@@ -215,22 +224,22 @@
 - (void)PositionallData {
     
     [ZP_HomeTool requesPosition:nil success:^(id obj) {
-    _ZPCountryTextField.functionBtn.userInteractionEnabled = YES;
+    self.ZPCountryTextField.functionBtn.userInteractionEnabled = YES;
         NSArray * arr = [ZP_PositionModel arrayWithArray:obj];
 //        ZPLog(@"%@",obj);
         PositionView * position = [[PositionView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)];
         [position Position:arr];
         position.ThirdBlock = ^(NSString *ContStr,NSNumber *code) {
 //            NSLog(@"c = %@ %@",ContStr,code);
-            _CountCode = code;
-            _ZPCountryTextField.textField.text = ContStr;
+            self.CountCode = code;
+            self.ZPCountryTextField.textField.text = ContStr;
         };
         //  显示
         [position showInView:self.navigationController.view];
         
     } failure:^(NSError *error) {
 //        ZPLog(@"%@",error);
-        _ZPCountryTextField.functionBtn.userInteractionEnabled = YES;
+        self.ZPCountryTextField.functionBtn.userInteractionEnabled = YES;
         [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
     }];
 }
@@ -295,7 +304,7 @@
 #pragma mark - - - - - - - - - - - - - - delegate 视图委托 - - - - - - - - - - - - - -
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     
-    if (_ZPCountryTextField.textField == textField) {
+    if (self.ZPCountryTextField.textField == textField) {
         [self choseCountry];
         return NO;
     }
@@ -304,12 +313,12 @@
 
 #pragma mark - 安全输入
 -(void)secureTextEntry {
-    _ZPPswTextField.textField.secureTextEntry = !_ZPPswTextField.textField.secureTextEntry;
+    self.ZPPswTextField.textField.secureTextEntry = !self.ZPPswTextField.textField.secureTextEntry;
     
-    if (_ZPPswTextField.textField.secureTextEntry) {
-        [_ZPPswTextField.functionBtn setImage:[UIImage imageNamed:@"ic_login_close.png"] forState:UIControlStateNormal];
+    if (self.ZPPswTextField.textField.secureTextEntry) {
+        [self.ZPPswTextField.functionBtn setImage:[UIImage imageNamed:@"ic_login_close.png"] forState:UIControlStateNormal];
     }else {
-        [_ZPPswTextField.functionBtn setImage:[UIImage imageNamed:@"ic_login_open.png"] forState:UIControlStateNormal];
+        [self.ZPPswTextField.functionBtn setImage:[UIImage imageNamed:@"ic_login_open.png"] forState:UIControlStateNormal];
     }
 }
 @end
