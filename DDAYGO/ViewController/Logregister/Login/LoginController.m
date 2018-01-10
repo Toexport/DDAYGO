@@ -52,13 +52,13 @@
     self.ZPPswTextField.showEyeBtn               = YES;
     [self.ZPPswTextField.functionBtn addTarget:self action:@selector(secureTextEntry) forControlEvents:UIControlEventTouchUpInside];
 }
+
 // 按钮状态属性
 - (void)ButStatusAttribute {
     self.LoginBtn.alpha = 0.5;
     self.LoginBtn.userInteractionEnabled = NO;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(ButStatus:) name:UITextFieldTextDidChangeNotification object:self.ZPPswTextField.textField];
 }
-
 - (void)ButStatus:(UIButton *)sender {
     if (self.ZPPswTextField.textField.text.length > 0) {
         self.LoginBtn.userInteractionEnabled = YES;
@@ -71,9 +71,13 @@
 
 // 确定按钮
 - (IBAction)LoginClick:(id)sender {
-//    if (![self validateEmail:_ZPEmailTextField.textField.text]) {
-//        [SVProgressHUD showInfoWithStatus:@"賬號格式不正確"];
-//        }
+    //  设置时间和动画效果
+    [UIView animateWithDuration:4.0 animations:^{
+        
+    } completion:^(BOOL finished) {
+        //  动画完毕从父视图移除
+        
+    }];
     [SVProgressHUD showWithStatus:@"正在登录。。。"];
     [self allData];
 }

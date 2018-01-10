@@ -76,41 +76,24 @@
 
 #pragma mark - 请求数据
 - (void)search:(NSString *)keywords{
-    NSLog(@"go - > %@",keywords);
-    if (keywords.length > 0 ) {
+    
+    NSString * newStr = [keywords stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"go - > %@ --- %@",keywords,newStr);
+    if (newStr.length > 0 ) {
         NSLog(@"go");
         CPViewController * CVPView = [[CPViewController alloc]init];
         CVPView.fatherId =[NSNumber numberWithInteger:1];
-        CVPView.keyword = keywords;
+        CVPView.keyword = newStr;
         CVPView.titleString = @"搜索";
-        [SVProgressHUD showInfoWithStatus:@"暂无数据"];
-//        [ZPProgressHUD showWithStatus:@"正在搜索..." maskType:ZPProgressHUDMaskTypeBlack];
-//        [self presentViewController:CVPView animated:YES completion:nil];
-//        [self.navigationController pushViewController:CVPView animated:YES];
+        [ZPProgressHUD showWithStatus:@"正在搜索..." maskType:ZPProgressHUDMaskTypeBlack];
+        [self.navigationController pushViewController:CVPView animated:YES];
     }else{
     [SVProgressHUD showInfoWithStatus:@"請輸入你要寻找的商品"];
         NSLog(@"no go");
     }
-    
-//    [SVProgressHUD showWithStatus:@"正在搜索..." maskType:SVProgressHUDMaskTypeBlack];
-//    NSDictionary *dic = @{@"pageno":@"0",@"pageSize":@"10",@"queryStr":keywords};
-//    [ZP_ClassViewTool search:dic success:^(id obj) {
-//        if (obj!=nil) {
-//            [SVProgressHUD dismiss];
-//            self.dataArray = obj;
-//            [self.tableView reloadData];
-//            self.tableView.hidden = NO;
-//        }else{
-//            [SVProgressHUD dismiss];
-//            return ;
-//        }
-//    } failure:^(NSError *error) {
-//        [SVProgressHUD dismiss];
-//    }];
 }
 
 #pragma mark - action
-
 - (void)back {
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -126,23 +109,7 @@
     return nil;
 }
 
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    LWNsearchModel *mo = self.dataArray[indexPath.row];
-//    ClassDetailCarVC *class = [ClassDetailCarVC new];
-    //    ClassDetailCarModel *classModel = [[ClassDetailCarModel alloc]init];
-    //    classModel.ids = mo.ID.integerValue;
-    //    classModel.title = mo.title;
-    //    classModel.img = mo.img1;
-    //    classModel.price = mo.price;
-    //    class.mo = classModel;
-//    class.dis = mo.ID.integerValue;
-//    UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:class];
-//    [self presentViewController:navi animated:YES completion:nil];
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 82;
     
 }

@@ -11,6 +11,7 @@
 #import "ZP_HomeTool.h"
 #import "ZP_PositionModel.h"
 #import "DetailedController.h"
+#import "myNavigationController.h"
 //#import "SelectedViewController.h"
 #import "CPViewController.h"
 @interface HomeViewController () <SDCycleScrollViewDelegate,UITableViewDelegate, UITableViewDataSource> {
@@ -42,15 +43,15 @@
 //    [self.view setBackgroundColor:[UIColor yellowColor]];
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     
-//
+/** 判断是否是 ios11 */
     if (@available(iOS 11.0, *)){
         _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
        _tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
         _tableView.scrollIndicatorInsets = _tableView.contentInset;
     }
-   
 }
 
+// 上下拉刷新
 - (void)addRefresh {
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsData removeAllObjects];
@@ -67,7 +68,7 @@
     }];
 }
 
-
+// UI
 - (void)initUI {
     self.tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
 //    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height) style:UITableViewStylePlain];
@@ -83,8 +84,9 @@
         make.top.equalTo(self.view).offset(0);
     }];
 }
+
 - (void)registration {
-    //  注册
+//  注册
     [self.tableView registerClass:[ZeroViewCell class] forCellReuseIdentifier:@"ceaa"];
     [self.tableView registerClass:[FirstViewCell class] forCellReuseIdentifier:@"First"];
     [self.tableView registerClass:[SecondViewCell class] forCellReuseIdentifier:@"Secondcell"];
@@ -98,7 +100,7 @@
     //  搜索框
     ZPSearchBarBUtton * searchBar = [ZPSearchBarBUtton buttonWithType:UIButtonTypeCustom];
     searchBar.titleLabel.font = ZP_TooBarFont;
-    searchBar.width = ZP_Width -100;
+    searchBar.width = ZP_Width - 100;
     searchBar.height = 25;
     [searchBar setImage:[UIImage imageNamed:@"nav_menu_search"] forState:UIControlStateNormal];
     [searchBar setTitle:NSLocalizedString(@"Searchfavorite", nil) forState:UIControlStateNormal];
@@ -116,8 +118,6 @@
     _chooseCityBtn.titleLabel.font = ZP_TooBarFont;
     [_chooseCityBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_chooseCityBtn setTitle:NSLocalizedString(@"臺灣", nil) forState:UIControlStateNormal];
-    
-    
     [_chooseCityBtn setImage:[UIImage imageNamed:@"ic_home_down"] forState:(UIControlStateNormal)];
     CGFloat imageWidth = _chooseCityBtn.imageView.bounds.size.width;
     CGFloat labelWidth = _chooseCityBtn.titleLabel.bounds.size.width;
@@ -130,8 +130,7 @@
 //  搜索框点击事件
 - (void)onClikedSearchBar {
     SearchGooodsController * search = [SearchGooodsController new];
-    UINavigationController * login = [[UINavigationController alloc]initWithRootViewController:search];
-//    [self.navigationController pushViewController:search animated:YES];
+    myNavigationController * login = [[myNavigationController alloc]initWithRootViewController:search];
     [self presentViewController:login animated:YES completion:nil];
     NSLog(@"搜索框");
 }

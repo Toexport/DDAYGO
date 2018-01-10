@@ -35,6 +35,7 @@
     //    self.tableview.separatorStyle = UITableViewCellSelectionStyleNone;  // 隱藏tableviewcell所有的線條
     self.tableview.tableFooterView = [[UIView alloc]init]; // 隱藏tableviewcell多余的線條
     self.TitleArray = [NSArray arrayWithObjects:@"English",@"简体中文",@"繁體中文", nil];
+    //这里写你的灰色
 }
 // Nav按钮
 - (void)addNavigationBar {
@@ -131,6 +132,8 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    
+    //这里写你的选中颜色 
     NSIndexPath *oldIndex = [tableView indexPathForSelectedRow];
     [tableView cellForRowAtIndexPath:oldIndex].accessoryType = UITableViewCellAccessoryNone;
     [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;

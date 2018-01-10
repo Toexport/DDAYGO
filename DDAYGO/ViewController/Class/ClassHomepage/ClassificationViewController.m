@@ -39,15 +39,13 @@
     self.title = NSLocalizedString(@"Class", nil);
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
-    
     self.rightData = [NSMutableDictionary dictionary];
     [self.leftTableView registerNib:[UINib nibWithNibName:@"LeftTableViewCell" bundle:nil] forCellReuseIdentifier:@"LeftTableViewCell"];
     [self.rightTableView registerNib:[UINib nibWithNibName:@"RightTableViewCell" bundle:nil] forCellReuseIdentifier:@"RightTableViewCell"];
-
     self.leftTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.rightTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
 }
+
 //  左边
 - (void)selectLeftCell:(UIButton *)sender {
     self.leftSelectRow = sender.tag;
@@ -83,7 +81,6 @@
 //  数据（右边）
 - (void)getRightItemDataWithProducttypeid:(NSInteger)producttypeid {
     ZP_LeftModel *Molde =self.newsData[producttypeid];
-    
     NSDictionary * dictt = @{@"level":@"2",@"language":@"zh-tw",@"fatherid":[Molde.producttypeid stringValue]};
 //     NSDictionary * dictt = @{@"level":@"2",@"language":@"zh-tw",@"fatherid": [NSString stringWithFormat:@"producttypeid+%ld",producttypeid]};
     NSLog(@"%@",dictt);

@@ -38,7 +38,6 @@
         line.backgroundColor = [UIColor colorWithHexString:@"#e74940"];
         [self.topView addSubview:line];
         _line = line;
-        
     }
     return _line;
 }
@@ -46,8 +45,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-    
-     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
+    [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
 }
 
 // 生命周期
@@ -229,12 +228,10 @@
 }
 //  数据
 - (void)allData {
-//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
-    
     NSDictionary * dic =@{@"fatherid":_fatherId,@"seq":@"desc",@"word":[NSString stringWithFormat:@"%@",_keyword],@"countrycode":@"886",@"page":@"1",@"pagesize":@"10"};
-    
     [ZP_ClassViewTool requMerchandise:dic WithIndex:0 success:^(id obj) {
         NSDictionary * dict = obj;
+        [SVProgressHUD dismiss];
         ZPLog(@"%@",obj);
         self.dicts = dict[@"datalist"];
         NSArray * arr = dict[@"datalist"];
@@ -251,7 +248,7 @@
 //        NSLog(@"%ld",(unsigned long)arr.count);
 
     } failure:^(NSError *error) {
-
+        [SVProgressHUD dismiss];
         NSLog(@"%@",error);
 
     }];
@@ -276,6 +273,7 @@
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"10";
     [ZP_ClassViewTool requMerchandise:dic WithIndex:tag success:^(id obj) {
+        [SVProgressHUD dismiss];
 //        NSLog(@"obj = %@",obj);
         NSDictionary * dict = obj;
         self.dicts = dict[@"datalist"];
@@ -322,6 +320,7 @@
         }
 //
     } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
 //        [SVProgressHUD showInfoWithStatus:@"服務器連接失敗"];
         NSLog(@"%@",error);
         

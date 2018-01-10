@@ -45,24 +45,23 @@
         self.BindingBut.userInteractionEnabled = YES;
         self.BindingBut.alpha = 1;
     }else {
-        self.PassWordtextField.userInteractionEnabled = NO;
-        self.PassWordtextField.alpha = 0.5;
+        self.BindingBut.userInteractionEnabled = NO;
+        self.BindingBut.alpha = 0.5;
     }
 }
 - (IBAction)buildingAction:(id)sender {
-    
-//#pragma make -- 提示框
-//    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"ICUE账号一旦绑定后将无法更改，您确定要绑定此ICUE账号吗？",nil) preferredStyle:UIAlertControllerStyleAlert];
-//
-//    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-//        ZPLog(@"取消");
-//    }];
-//    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+#pragma make -- 提示框
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"ICUE账号一旦绑定后将无法更改，您确定要绑定此ICUE账号吗？",nil) preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        ZPLog(@"取消");
+    }];
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         [self allData];
-//    }];
-//    [alert addAction:defaultAction];
-//    [alert addAction:cancelAction];
-//    [self presentViewController:alert animated:YES completion:nil];
+    }];
+    [alert addAction:defaultAction];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 // 数据
@@ -123,10 +122,8 @@
         
     }];
 }
-
 #pragma mark -- 安全输入
 - (IBAction)showPwAction:(UIButton *)sender {
-    
     _PassWordtextField.secureTextEntry = sender.selected;
     sender.selected =!sender.selected;
 }

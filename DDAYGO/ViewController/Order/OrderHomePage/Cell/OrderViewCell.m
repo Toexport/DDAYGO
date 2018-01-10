@@ -269,22 +269,22 @@
     }];
     _AppraiseBut = AppraiseBut;
     
-//  物流
-    UIButton * LogisticsBut = [UIButton buttonWithType:UIButtonTypeSystem];
-    LogisticsBut.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
-    [LogisticsBut setTitle:NSLocalizedString(@"查看物流", nil) forState:UIControlStateNormal];
-    [LogisticsBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
-    LogisticsBut.titleLabel.font = ZP_introduceFont;
-    LogisticsBut.layer.borderWidth = 1;
-    [LogisticsBut addTarget:self action:@selector(LogisticsBut:) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView addSubview:LogisticsBut];
-    [LogisticsBut mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self).offset(-75);
-        make.bottom.equalTo(self).offset(-15);
-        make.width.mas_equalTo(60);
-    }];
-    _LogisticsBut = LogisticsBut;
-    
+////  物流
+//    UIButton * LogisticsBut = [UIButton buttonWithType:UIButtonTypeSystem];
+//    LogisticsBut.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
+//    [LogisticsBut setTitle:NSLocalizedString(@"查看物流", nil) forState:UIControlStateNormal];
+//    [LogisticsBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
+//    LogisticsBut.titleLabel.font = ZP_introduceFont;
+//    LogisticsBut.layer.borderWidth = 1;
+//    [LogisticsBut addTarget:self action:@selector(LogisticsBut:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.contentView addSubview:LogisticsBut];
+//    [LogisticsBut mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.equalTo(self).offset(-75);
+//        make.bottom.equalTo(self).offset(-15);
+//        make.width.mas_equalTo(60);
+//    }];
+//    _LogisticsBut = LogisticsBut;
+//
 //  再次购买
     UIButton * OnceagainBut = [UIButton buttonWithType:UIButtonTypeSystem];
     OnceagainBut.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;

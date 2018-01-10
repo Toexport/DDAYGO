@@ -129,7 +129,6 @@
         }
         self.newsData = [OrderModel arrayWithArray:json];
         [self.tableview.mj_header endRefreshing];  // 結束刷新
-//        [self.tableview mj_footer ]
     [self.tableview reloadData];
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
@@ -171,7 +170,6 @@
     OrdersdetailModel * model2;
     if (![_titleStr isEqualToString:@"評價"]) {
          model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail.firstObject];
-        
         [cell InformationWithDic:model2 WithModel:model];
     }else {
     [cell InformationWithDic:nil WithModel:model];

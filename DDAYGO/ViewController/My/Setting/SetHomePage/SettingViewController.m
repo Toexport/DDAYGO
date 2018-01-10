@@ -278,7 +278,6 @@
 
 //  登出
 - (IBAction)logoutAction:(id)sender {
-    
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message: NSLocalizedString(@"Are you sure you want to log out?", nil)preferredStyle:UIAlertControllerStyleActionSheet];
     //  设置popover指向的item
     alert.popoverPresentationController.barButtonItem = self.navigationItem.leftBarButtonItem;
@@ -293,7 +292,6 @@
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
         [[NSUserDefaults standardUserDefaults]synchronize];
         [self.navigationController popToRootViewControllerAnimated:NO];
-        
         //跳转
         if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
             
@@ -307,33 +305,6 @@
     }]];
     [self presentViewController:alert animated:YES completion:nil];
 }
-
-// 网路请求
-//-(viod)updata{
-//
-//    UIApplication *application = [UIApplication sharedApplication];
-//
-//    AFHTTPRequestOperationManager *manager =[AFHTTPRequestOperationManager manager];
-//    manager.requestSerializer.timeoutInterval = 5;
-//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"text/javascript",@"text/html", @"application/json",nil];
-//
-//    NSArray*arrar=[THE_IMG_PATH componentsSeparatedByString:@"/"];
-//    NSString*imageName=[arrar objectAtIndex:arrar.count-1];
-//    NSMutableDictionary*dic=@{@"image":_imageString,@"imagePath":imageName};
-//
-//    [manager POST:urlString parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//
-//        if(sucess){
-//
-//            sucess(responseObject);
-//            NSLog(@"responseObject=%@",responseObject);
-//        }
-//
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"LYYB----AFNetWoring.errno=%@",error);
-//        fails(error);
-//    }];
-//}
 
 - (NSMutableDictionary *)dataDic {
     if (!_dataDic) {
