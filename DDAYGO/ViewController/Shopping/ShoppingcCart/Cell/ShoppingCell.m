@@ -94,6 +94,8 @@
 // 货币符号
     ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_TypefaceColor font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self.contentView addSubview:CurrencySymbolLabel];
+    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(imageView).offset(95);
         make.top.equalTo(SizeLabel).offset(20);
@@ -116,9 +118,9 @@
     [self.contentView addSubview:TrademarkImage];
     [TrademarkImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(PreferentialLabel).offset(80);
-        make.top.equalTo(PreferentialLabel).offset(20);
-        make.width.mas_offset(10);
-        make.height.mas_offset(10);
+        make.top.equalTo(PreferentialLabel).offset(0);
+        make.width.mas_offset(15);
+        make.height.mas_offset(15);
     }];
     _TrademarkImage = TrademarkImage;
     
@@ -127,7 +129,7 @@
     [self.contentView addSubview:TrademarkLabel];
     [TrademarkLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(TrademarkImage).offset(18);
-        make.top.equalTo(TrademarkImage).offset(0);
+        make.top.equalTo(TrademarkImage).offset(2.5);
     }];
     _TrademarkLabel = TrademarkLabel;
     
@@ -138,7 +140,7 @@
     [self.contentView addSubview:VerticalView];
     [VerticalView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(TrademarkLabel).offset(40);
-        make.top.equalTo(TrademarkImage).offset(3); // 下
+        make.top.equalTo(TrademarkImage).offset(18.5); // 下
         make.height.mas_equalTo(15); // 高
         make.width.mas_equalTo(1); // 宽
     }];
@@ -175,14 +177,12 @@
 }
 
 //  数据
-- (void)cellWithModel:(ZP_CartsModel *)model andIndexObject:(NSString *)str{
-    
+- (void)cellWithModel:(ZP_CartsModel *)model andIndexObject:(NSString *)str {
     [_leftImageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:nil];;
     _titleLabel.text = model.productname;
     _MerchandiseIntroducedLabel.text = model.productremark;
     _descLabel.text = model.colorname;
     _SizeLabel.text = model.normname;
-//    _CurrencySymbolLabel.text = model.symbol;
     _PreferentialLabel.text = [NSString stringWithFormat:@"%@",model.productprice];
 //    _PriceLabel.text = [NSString stringWithFormat:@"NT:%@",model.productprice];
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];

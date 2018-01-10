@@ -444,6 +444,16 @@
 //    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
 //    self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
 //}
+
+// 彩票
+- (IBAction)CaipiaoAction:(id)sender {
+    //    [SVProgressHUD showInfoWithStatus:@"暂时未到开放日期"];
+    LotteryController * Lottery = [[LotteryController alloc]init];
+    [self.navigationController pushViewController:Lottery animated:YES];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil]; // 隐藏返回按钮上的文字
+    self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
+}
+
 //  扫一扫
 - (IBAction)scanAction:(id)sender {
     QCodeController * CodeController = [[QCodeController alloc]init];
@@ -452,13 +462,10 @@
     self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
 }
 
-// 彩票
-- (IBAction)CaipiaoAction:(id)sender {
-//    [SVProgressHUD showInfoWithStatus:@"暂时未到开放日期"];
-    LotteryController * Lottery = [[LotteryController alloc]init];
-    [self.navigationController pushViewController:Lottery animated:YES];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil]; // 隐藏返回按钮上的文字
-    self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
+// 退款/ 售后
+- (IBAction)RefundService:(id)sender {
+    
 }
+
 
 @end

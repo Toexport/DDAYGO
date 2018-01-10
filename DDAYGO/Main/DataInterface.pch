@@ -9,18 +9,18 @@
 #ifndef DataInterface_pch
 #define DataInterface_pch
 //  外网
-#define URLAPI @"http://www.ddaygo.com/api/Test/"
+//#define URLAPI @"http://www.ddaygo.com/api/Test/"
 //内网
-//#define URLAPI @"http://www.ddaygo.com/api/Test"
+#define URLAPI @"http://192.168.0.117:7000/api/Test/"
 // HomePage(首页接口)
 //国家列表
 #define Psoitions @"getcountry"
-////轮播接口
+//轮播接口
 //#define ImgAPI @"home/res"
 
 //#define PageAPI @"home/recommend"
 
-//// 首页展示
+// 首页展示
 //#define ItemAPI @"home/nav"
 ////精选商品
 //#define AllDataAPI @"classify/list"
@@ -47,7 +47,7 @@
 //#define RecordAPI @"my/activity/info"
 // 获取确认订单信息
 #define MakeSureOrderAPI @"ordersaddinfo"
-//http://www.ddaygo.com/api/Test/confirmreceipt?oid=117102618111439993&token=
+
 // 获取确认订单界面数据
 #define MakeOrderAPI @"ordersupdateinfo"
 ////发送抽奖信息

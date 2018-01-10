@@ -40,7 +40,7 @@
     [TitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(2);
         make.right.equalTo(self).offset(-2);
-        make.top.equalTo(imageView).offset(50);
+        make.top.equalTo(imageView).offset(75);
     }];
     _titleLabel = TitleLabel;
     
@@ -48,8 +48,9 @@
     ZP_GeneralLabel * PreferentialLabel = [ZP_GeneralLabel initWithtextLabel:_PreferentialLabel.text textColor:ZP_HomePreferentialpriceTypefaceCorlor font:ZP_NineFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self addSubview:PreferentialLabel];
     [PreferentialLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(5);
+        make.left.equalTo(self).offset(10);
         make.top.equalTo(TitleLabel).offset(10);
+        make.height.mas_offset(15);
     }];
     _PreferentialLabel = PreferentialLabel;
     
@@ -77,22 +78,22 @@
     UIImageView * TrademarkImage = [UIImageView new];
     [self.contentView addSubview:TrademarkImage];
     [TrademarkImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(5);
-        make.bottom.equalTo(PreferentialLabel).offset(8);
-        make.width.mas_offset(8);
-        make.height.mas_offset(8);
+//        make.left.equalTo(PreferentialLabel).offset(5);
+        make.top.equalTo(PreferentialLabel).offset(2.5);
+        make.right.equalTo(PreferentialLabel).offset(15);
+        make.width.mas_offset(10);
+        make.height.mas_offset(10);
     }];
     _TrademarkImage = TrademarkImage;
     
 //    商标编号
-    ZP_GeneralLabel * TrademarkLabel = [ZP_GeneralLabel initWithtextLabel:_TrademarkLabel.text textColor:ZP_HomeTitlepriceTypefaceColor font:ZP_SevenFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    ZP_GeneralLabel * TrademarkLabel = [ZP_GeneralLabel initWithtextLabel:_TrademarkLabel.text textColor:ZP_HomeTitlepriceTypefaceColor font:ZP_NineFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self.contentView addSubview:TrademarkLabel];
     [TrademarkLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(TrademarkImage).offset(10);
-        make.bottom.equalTo(PreferentialLabel).offset(8);
-        
-        make.height.mas_offset(10); // 高
-        
+        make.left.equalTo(TrademarkImage).offset(12.5);
+//        make.right.equalTo(TrademarkImage).offset(10);
+        make.top.equalTo(PreferentialLabel).offset(0);
+        make.height.mas_offset(15); // 高
     }];
     _TrademarkLabel = TrademarkLabel;
     

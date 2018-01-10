@@ -93,7 +93,7 @@
         for (int i = 0; i < _normsArr.count; i ++) {
             ZP_GoodDetailsModel *model = _normsArr[i];
             _ShopImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ZP_Width * i, 0, ZP_Width, self.onScrollView.height)];
-            _ShopImageView.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255. green:arc4random_uniform(256)/255. blue:arc4random_uniform(256)/255. alpha:1];
+//            _ShopImageView.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255. green:arc4random_uniform(256)/255. blue:arc4random_uniform(256)/255. alpha:1];
             [_ShopImageView sd_setImageWithURL:[NSURL URLWithString:model.cnimg] placeholderImage:[UIImage imageNamed:@""]];
             [self.onScrollView addSubview:_ShopImageView];
         }
@@ -470,7 +470,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, ZP_Width - 8, 30)];
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, ZP_Width - 8, 30)];
     label.backgroundColor = [UIColor whiteColor];
     if (section == 0) {
         label.text = @"产品内容";

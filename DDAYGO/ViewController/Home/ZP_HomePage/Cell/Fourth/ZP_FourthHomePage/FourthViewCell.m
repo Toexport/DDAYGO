@@ -35,7 +35,6 @@
 }
 //  注册
 - (void)Registration {
-    
     [self.tableView registerClass:[CustomCell class] forCellReuseIdentifier:@"customCell"];
     
 }

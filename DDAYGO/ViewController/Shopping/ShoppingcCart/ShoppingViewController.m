@@ -421,10 +421,11 @@ if (count == dataArray.count) {
     } else {
         self.Shopchoosebuttom.selected = NO;
     }
+    /**********************/
 //       更新合计数据
-//    self.PriceLabel.text = [@(data) stringValue];
-//    [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算(%ld)",(long)dataCount] forState: UIControlStateNormal];
-//    allNum = dataCount;
+    self.PriceLabel.text = [@(data) stringValue];
+    [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算(%ld)",(long)dataCount] forState: UIControlStateNormal];
+    allNum = dataCount;
 }
 
 #pragma mark - 结算

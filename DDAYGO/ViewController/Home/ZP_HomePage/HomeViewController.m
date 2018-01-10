@@ -309,9 +309,10 @@
     }else
         if (indexPath.section == 3){
 /*********有问题***********/
-            if (_newsData.count == 0) {
-                return 0;
-            }
+            
+//            if (_newsData.count == 0) {
+//                return 0;
+//            }
             return ZP_Width / 4;
             
     }else {

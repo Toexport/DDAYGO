@@ -88,7 +88,7 @@
     PreferentialLabel.font = ZP_titleFont;
     [self.contentView addSubview:PreferentialLabel];
     [PreferentialLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(CurrencySymbolLabel).offset(35); // 左
+        make.left.equalTo(CurrencySymbolLabel).offset(20); // 左
         make.top.equalTo(descLabel).offset(15); // 上
     }];
     _PreferentialLabel = PreferentialLabel;
