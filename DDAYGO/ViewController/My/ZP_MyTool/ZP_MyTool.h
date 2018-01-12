@@ -106,5 +106,8 @@
 
 // 获取退换货记录列表
 + (void)requestGetrefundlist:(NSDictionary *)Getrefundlist success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure;
+
+// 获取退换货详情
++ (void)requestGetrefundinfo:(NSDictionary *)Getrefundinfo success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure;
 @end
 

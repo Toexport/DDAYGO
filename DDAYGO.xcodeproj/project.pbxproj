@@ -389,6 +389,8 @@
 		C4B04DA42008A652009F7AF9 /* SelectViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B04DA22008A652009F7AF9 /* SelectViewCell.xib */; };
 		C4B04DA82008B9A9009F7AF9 /* SelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B04DA72008B9A9009F7AF9 /* SelectModel.m */; };
 		C4B04DAA2008F000009F7AF9 /* DDAYGO IHTTP协议1.0.docx in Resources */ = {isa = PBXBuildFile; fileRef = C4B04DA92008F000009F7AF9 /* DDAYGO IHTTP协议1.0.docx */; };
+		C4B04DAF20092652009F7AF9 /* RequestReplaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B04DAD20092652009F7AF9 /* RequestReplaceController.m */; };
+		C4B04DB020092652009F7AF9 /* RequestReplaceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B04DAE20092652009F7AF9 /* RequestReplaceController.xib */; };
 		C4C4D1461FF64A810075D8D8 /* SupplierViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C4D1441FF64A810075D8D8 /* SupplierViewCell2.m */; };
 		C4C4D1471FF64A810075D8D8 /* SupplierViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C4D1451FF64A810075D8D8 /* SupplierViewCell2.xib */; };
 		C4C4D1531FF6823D0075D8D8 /* Supplier1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C4D1511FF6823D0075D8D8 /* Supplier1ViewController.m */; };
@@ -1142,6 +1144,9 @@
 		C4B04DA62008B9A9009F7AF9 /* SelectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectModel.h; sourceTree = "<group>"; };
 		C4B04DA72008B9A9009F7AF9 /* SelectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectModel.m; sourceTree = "<group>"; };
 		C4B04DA92008F000009F7AF9 /* DDAYGO IHTTP协议1.0.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0.docx"; sourceTree = "<group>"; };
+		C4B04DAC20092652009F7AF9 /* RequestReplaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestReplaceController.h; sourceTree = "<group>"; };
+		C4B04DAD20092652009F7AF9 /* RequestReplaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestReplaceController.m; sourceTree = "<group>"; };
+		C4B04DAE20092652009F7AF9 /* RequestReplaceController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestReplaceController.xib; sourceTree = "<group>"; };
 		C4C4D1431FF64A810075D8D8 /* SupplierViewCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupplierViewCell2.h; sourceTree = "<group>"; };
 		C4C4D1441FF64A810075D8D8 /* SupplierViewCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SupplierViewCell2.m; sourceTree = "<group>"; };
 		C4C4D1451FF64A810075D8D8 /* SupplierViewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SupplierViewCell2.xib; sourceTree = "<group>"; };
@@ -3718,6 +3723,7 @@
 		C4B04D8F200889C8009F7AF9 /* RequestReplace */ = {
 			isa = PBXGroup;
 			children = (
+				C4B04DAB20092652009F7AF9 /* RequestReplaceHomePage */,
 				C4B04D90200889C8009F7AF9 /* ExchangeDetails */,
 			);
 			path = RequestReplace;
@@ -3764,6 +3770,16 @@
 				C4B04DA72008B9A9009F7AF9 /* SelectModel.m */,
 			);
 			path = SelectModel;
+			sourceTree = "<group>";
+		};
+		C4B04DAB20092652009F7AF9 /* RequestReplaceHomePage */ = {
+			isa = PBXGroup;
+			children = (
+				C4B04DAC20092652009F7AF9 /* RequestReplaceController.h */,
+				C4B04DAD20092652009F7AF9 /* RequestReplaceController.m */,
+				C4B04DAE20092652009F7AF9 /* RequestReplaceController.xib */,
+			);
+			path = RequestReplaceHomePage;
 			sourceTree = "<group>";
 		};
 		C4D2FEA41FD5197E00F546AB /* ZP_QrCodeModel */ = {
@@ -4014,6 +4030,7 @@
 				C4D9E7081FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.xib in Resources */,
 				06F571D81F9F1A7900D61FDB /* EditViewController.xib in Resources */,
 				06F572411F9F204F00D61FDB /* BillDetailViewController.xib in Resources */,
+				C4B04DB020092652009F7AF9 /* RequestReplaceController.xib in Resources */,
 				C47096931FB04998006EA52C /* BindingEmailController.xib in Resources */,
 				C47E762A1FB5A1C7009F279A /* RightTableViewCell.xib in Resources */,
 				C472F1341FE299E00031D7B5 /* ZP_CheckMoreController.xib in Resources */,
@@ -4364,6 +4381,7 @@
 				C479C6A71FE3CB5800A58A2A /* NSObject+MJCoding.m in Sources */,
 				C42A173D1FF2532400680F92 /* BetTableViewCellTwo.m in Sources */,
 				C42A173C1FF2532400680F92 /* BetTableViewMyCell.m in Sources */,
+				C4B04DAF20092652009F7AF9 /* RequestReplaceController.m in Sources */,
 				06F571D11F9F1A7900D61FDB /* BindingICUEViewController.m in Sources */,
 				C42F06FE1FFE259A00B3D510 /* ZP_BetHeaderModel.m in Sources */,
 				C46B9F4F1FDE764000942750 /* ZP_ExtractModel.m in Sources */,

@@ -354,5 +354,14 @@
     }];
 }
 
+
+// 获取退换货详情
++ (void)requestGetrefundinfo:(NSDictionary *)Getrefundinfo success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
+    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getrefundinfo?token=%@&refundid=%@&countrycode=%@",URLAPI,Getrefundinfo[@"token"],Getrefundinfo[@"refundid"],Getrefundinfo[@"countrycode"]] parameters:nil success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError * error) {
+        failure(error);
+    }];
+}
 @end
 

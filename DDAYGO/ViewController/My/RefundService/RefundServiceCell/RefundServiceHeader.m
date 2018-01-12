@@ -10,8 +10,7 @@
 #import "PrefixHeader.pch"
 #import "RefundServiceCell.h"
 #import "RequestRefundController.h"
-@interface RefundServiceHeader ()
-<UITableViewDelegate, UITableViewDataSource>
+@interface RefundServiceHeader () <UITableViewDelegate, UITableViewDataSource>
 
 @end
 
@@ -20,7 +19,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self initUI];
-    
 }
 
 // UI
@@ -44,10 +42,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-//    if (self.RefundServiceHeaderBlock) {
-//        RequestRefundController * requ = [[RequestRefundController alloc]init];
-//
-//
-//    }
+
 }
 @end
