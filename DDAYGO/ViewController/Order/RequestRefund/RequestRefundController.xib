@@ -187,11 +187,11 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="sxZxSA" translatesAutoresizingMaskIntoConstraints="NO" id="pkc-HY-oPz">
-                                    <rect key="frame" x="74" y="113" width="238" height="72"/>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkc-HY-oPz">
+                                    <rect key="frame" x="74" y="108" width="238" height="77"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="72" id="ehR-Pd-icK"/>
+                                        <constraint firstAttribute="height" constant="77" id="ehR-Pd-icK"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -231,7 +231,7 @@
                                 <constraint firstAttribute="trailing" secondItem="2Cm-Qi-2tA" secondAttribute="trailing" id="iGe-Wg-Jj5"/>
                                 <constraint firstAttribute="trailing" secondItem="GCz-tz-uN4" secondAttribute="trailing" id="nNC-ac-rSX"/>
                                 <constraint firstItem="GCz-tz-uN4" firstAttribute="top" secondItem="yUV-ya-tls" secondAttribute="bottom" constant="1" id="vLv-2S-wOV"/>
-                                <constraint firstItem="pkc-HY-oPz" firstAttribute="top" secondItem="2Cm-Qi-2tA" secondAttribute="bottom" constant="30" id="ver-47-8u6"/>
+                                <constraint firstItem="pkc-HY-oPz" firstAttribute="top" secondItem="2Cm-Qi-2tA" secondAttribute="bottom" constant="25" id="ver-47-8u6"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gra-Br-XAw">

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SelectViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *SelectLabel;
-@property (weak, nonatomic) IBOutlet UIButton *SelectBut;
+@property (weak, nonatomic) IBOutlet UILabel * SelectLabel;
+@property (weak, nonatomic) IBOutlet UIButton * SelectBut;
 
 @end

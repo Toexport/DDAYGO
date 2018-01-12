@@ -316,7 +316,7 @@
             if (self.appraiseBlock) {
                 self.appraiseBlock(ExchangeDetails);
             }
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"ExchangeDetails" object:_model.ordersnumber];
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"ExchangeDetails" object:nil];
         }
             break;
             

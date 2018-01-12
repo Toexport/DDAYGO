@@ -228,10 +228,10 @@
     }];
 }
 
-- (void)viewWithdic:(ZP_ConfirmPayModel *)model {
-    [_ICUEimageview sd_setImageWithURL:[NSURL URLWithString:model.logourl] placeholderImage:[UIImage imageNamed:@""]];
-    _ICUELabel.text = model.payname;
-}
+//- (void)viewWithdic:(ZP_ConfirmPayModel *)model {
+//    [_ICUEimageview sd_setImageWithURL:[NSURL URLWithString:model.logourl] placeholderImage:[UIImage imageNamed:@""]];
+//    _ICUELabel.text = model.payname;
+//}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

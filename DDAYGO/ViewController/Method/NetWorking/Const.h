@@ -38,7 +38,10 @@ extern NSString * countrycode;
  */
 extern NSString * result;
 
+
+
 extern NSString * state;
+
 @interface Const : NSObject
 
 @end

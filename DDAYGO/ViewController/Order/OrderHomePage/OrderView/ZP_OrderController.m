@@ -102,15 +102,15 @@
     if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
         dic[@"sta"] = @"4";
     }
-    if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
-        dic[@"sta"] = @"5";
-    }
-    if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
-        dic[@"sta"] = @"6";
-    }
-    if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
-        dic[@"sta"] = @"7";
-    }
+//    if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
+//        dic[@"sta"] = @"5";
+//    }
+//    if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
+//        dic[@"sta"] = @"6";
+//    }
+//    if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
+//        dic[@"sta"] = @"7";
+//    }
     dic[@"days"] = @"7";
     dic[@"token"] = Token;
     dic[@"orderno"] = @"";
@@ -193,22 +193,20 @@
         self.hidesBottomBarWhenPushed = NO;
     };
     
-//    评论
+//   评论
     cell.appraiseBlock = ^(AppraiseController* response) {
         response.model = model;
         [self.navigationController pushViewController:response animated:YES];
        
     };
     
-//     申请退款
+//    申请退款
     cell.appraiseBlock = ^(RequestRefundController* response) {
-        
         [self.navigationController pushViewController:response animated:YES];
     };
     
 //    退换货
     cell.appraiseBlock = ^(ExchangeDetailsController* response) {
-        
         [self.navigationController pushViewController:response animated:YES];
     };
     return cell;
