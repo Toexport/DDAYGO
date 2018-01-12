@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icon_mine_service.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "img_retreat_voucher@2x.png",
       "scale" : "2x"
     },
     {

@@ -15,6 +15,7 @@
                 <outlet property="CaipiaoView" destination="mDy-f9-02s" id="CCc-8L-W9C"/>
                 <outlet property="CollectionLabel" destination="9Ji-Nx-7ud" id="mIJ-mD-Jt0"/>
                 <outlet property="NameLabel" destination="Yfb-7E-S8p" id="9B3-Bj-5NT"/>
+                <outlet property="ReceivingView" destination="ZnJ-Pu-D2L" id="Ilu-1A-SPi"/>
                 <outlet property="RequestStatusLabel" destination="N31-ty-HnO" id="Sdh-fT-ONs"/>
                 <outlet property="SdglLayoutConstraint" destination="JIE-Bw-fKa" id="uBN-pO-aCd"/>
                 <outlet property="XfjlLayoutConstraint" destination="3x4-6N-7PJ" id="dic-cm-pgc"/>
@@ -45,7 +46,7 @@
                                     <rect key="frame" x="8" y="118" width="359" height="142"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BfH-g6-L1z">
-                                            <rect key="frame" x="179.5" y="94" width="1" height="34"/>
+                                            <rect key="frame" x="179" y="94" width="1" height="34"/>
                                             <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="34" id="3hx-oh-PqW"/>
@@ -53,7 +54,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="足迹" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMS-9M-nx2">
-                                            <rect key="frame" x="188.5" y="112" width="162.5" height="18"/>
+                                            <rect key="frame" x="188" y="112" width="163" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="18" id="hZU-Sl-gsj"/>
                                             </constraints>
@@ -62,7 +63,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKB-1F-Lrk">
-                                            <rect key="frame" x="188.5" y="94" width="162.5" height="18"/>
+                                            <rect key="frame" x="188" y="94" width="163" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="18" id="lAV-10-Zou"/>
                                             </constraints>
@@ -71,7 +72,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收藏" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69M-1X-t0e">
-                                            <rect key="frame" x="8" y="112" width="163.5" height="18"/>
+                                            <rect key="frame" x="8" y="112" width="163" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="18" id="SL2-1f-ZfX"/>
                                             </constraints>
@@ -80,7 +81,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ji-Nx-7ud">
-                                            <rect key="frame" x="8" y="94" width="163.5" height="18"/>
+                                            <rect key="frame" x="8" y="94" width="163" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="18" id="w6z-cg-yoR"/>
                                             </constraints>
@@ -89,7 +90,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLL-ln-WoI">
-                                            <rect key="frame" x="0.0" y="94" width="179.5" height="48"/>
+                                            <rect key="frame" x="0.0" y="94" width="179" height="48"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="48" id="fKf-q3-BcN"/>
                                             </constraints>
@@ -98,7 +99,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uob-lU-yEh">
-                                            <rect key="frame" x="180.5" y="94" width="178.5" height="48"/>
+                                            <rect key="frame" x="180" y="94" width="179" height="48"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="48" id="Zlh-pO-YBx"/>
                                             </constraints>
@@ -138,7 +139,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFs-vK-Df4">
-                                    <rect key="frame" x="142.5" y="85" width="90" height="90"/>
+                                    <rect key="frame" x="143" y="85" width="90" height="90"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="90" id="IUf-9S-tQq"/>
@@ -151,7 +152,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTg-9H-to4">
-                                    <rect key="frame" x="145.5" y="88" width="84" height="84"/>
+                                    <rect key="frame" x="146" y="88" width="84" height="84"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="84" id="4SN-fp-CcD"/>
                                         <constraint firstAttribute="height" constant="84" id="PyS-xL-Bht"/>
@@ -166,7 +167,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="johb Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfb-7E-S8p">
-                                    <rect key="frame" x="150.5" y="182" width="74" height="18"/>
+                                    <rect key="frame" x="151" y="182" width="74" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -200,7 +201,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pl5-HQ-VOg">
-                            <rect key="frame" x="0.0" y="268" width="375" height="211"/>
+                            <rect key="frame" x="0.0" y="268" width="375" height="265"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8nF-TL-hSY">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -355,15 +356,47 @@
                                         <constraint firstItem="SzE-mi-64s" firstAttribute="top" secondItem="7k6-oe-5YX" secondAttribute="top" id="sD8-yx-4OR"/>
                                     </constraints>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZnJ-Pu-D2L">
+                                    <rect key="frame" x="0.0" y="216" width="375" height="49"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EIo-H1-Rp6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="49" id="fVo-OT-uIc"/>
+                                                <constraint firstAttribute="height" constant="49" id="urc-dA-A1T"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <inset key="contentEdgeInsets" minX="14" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <state key="normal" title="退款/售后" image="icon_mine_service">
+                                                <color key="titleColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="RefundService:" destination="-1" eventType="touchUpInside" id="wjJ-3u-uZe"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="EIo-H1-Rp6" firstAttribute="top" secondItem="ZnJ-Pu-D2L" secondAttribute="top" id="737-ld-0SB"/>
+                                        <constraint firstAttribute="trailing" secondItem="EIo-H1-Rp6" secondAttribute="trailing" id="KBD-k5-Hi6"/>
+                                        <constraint firstAttribute="bottom" secondItem="EIo-H1-Rp6" secondAttribute="bottom" id="g8R-FD-MJ7"/>
+                                        <constraint firstAttribute="height" constant="49" id="kXj-hp-65a"/>
+                                        <constraint firstItem="EIo-H1-Rp6" firstAttribute="leading" secondItem="ZnJ-Pu-D2L" secondAttribute="leading" id="vJ9-Lb-sue"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="211" id="0No-tJ-duv"/>
+                                <constraint firstAttribute="height" constant="265" id="0No-tJ-duv"/>
                                 <constraint firstItem="8nF-TL-hSY" firstAttribute="top" secondItem="Pl5-HQ-VOg" secondAttribute="top" id="2Qe-P3-5wA"/>
                                 <constraint firstAttribute="trailing" secondItem="8nF-TL-hSY" secondAttribute="trailing" id="38P-Fy-jp0"/>
+                                <constraint firstItem="ZnJ-Pu-D2L" firstAttribute="top" secondItem="7k6-oe-5YX" secondAttribute="bottom" constant="5" id="6YF-gm-clJ"/>
                                 <constraint firstItem="Yes-LR-scf" firstAttribute="top" secondItem="8nF-TL-hSY" secondAttribute="bottom" constant="5" id="CC9-7j-WtT"/>
                                 <constraint firstItem="mDy-f9-02s" firstAttribute="top" secondItem="Yes-LR-scf" secondAttribute="bottom" constant="5" id="LKc-43-5i7"/>
+                                <constraint firstAttribute="trailing" secondItem="ZnJ-Pu-D2L" secondAttribute="trailing" id="MEz-Px-864"/>
                                 <constraint firstItem="8nF-TL-hSY" firstAttribute="leading" secondItem="Yes-LR-scf" secondAttribute="leading" id="UIm-U4-Mgb"/>
+                                <constraint firstItem="ZnJ-Pu-D2L" firstAttribute="leading" secondItem="Pl5-HQ-VOg" secondAttribute="leading" id="Vcl-wr-5Aa"/>
                                 <constraint firstItem="8nF-TL-hSY" firstAttribute="leading" secondItem="mDy-f9-02s" secondAttribute="leading" id="ZLQ-RF-WPl"/>
                                 <constraint firstItem="7k6-oe-5YX" firstAttribute="top" secondItem="mDy-f9-02s" secondAttribute="bottom" constant="5" id="dlo-3B-GcM"/>
                                 <constraint firstItem="8nF-TL-hSY" firstAttribute="trailing" secondItem="mDy-f9-02s" secondAttribute="trailing" id="kE3-Mb-0ZJ"/>
@@ -373,57 +406,12 @@
                                 <constraint firstItem="8nF-TL-hSY" firstAttribute="leading" secondItem="Pl5-HQ-VOg" secondAttribute="leading" id="uNn-sr-BIB"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZnJ-Pu-D2L">
-                            <rect key="frame" x="0.0" y="484" width="375" height="49"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EIo-H1-Rp6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="49" id="urc-dA-A1T"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <inset key="contentEdgeInsets" minX="14" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="退款/售后">
-                                        <color key="titleColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <mutableString key="image">
-- (IBAction)CaipiaoAction:(id)sender {
-//    [SVProgressHUD showInfoWithStatus:@"暂时未到开放日期"];
-    LotteryController * Lottery = [[LotteryController alloc]init];
-    [self.navigationController pushViewController:Lottery animated:YES];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil]; // 隐藏返回按钮上的文字
-    self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
-// 彩票
-- (IBAction)CaipiaoAction:(id)sender {
-//    [SVProgressHUD showInfoWithStatus:@"暂时未到开放日期"];
-    LotteryController * Lottery = [[LotteryController alloc]init];
-    [self.navigationController pushViewController:Lottery animated:YES];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil]; // 隐藏返回按钮上的文字
-    self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
-</mutableString>
-                                    </state>
-                                    <connections>
-                                        <action selector="RefundService:" destination="-1" eventType="touchUpInside" id="wjJ-3u-uZe"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="EIo-H1-Rp6" firstAttribute="leading" secondItem="ZnJ-Pu-D2L" secondAttribute="leading" id="XBY-He-3CZ"/>
-                                <constraint firstAttribute="trailing" secondItem="EIo-H1-Rp6" secondAttribute="trailing" id="XLs-SV-4DZ"/>
-                                <constraint firstItem="EIo-H1-Rp6" firstAttribute="top" secondItem="ZnJ-Pu-D2L" secondAttribute="top" id="Yc6-Iz-5wO"/>
-                                <constraint firstAttribute="height" constant="49" id="etK-Lw-HJg"/>
-                            </constraints>
-                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="ZnJ-Pu-D2L" firstAttribute="leading" secondItem="Pl5-HQ-VOg" secondAttribute="leading" id="8wW-bt-ItN"/>
-                        <constraint firstItem="ZnJ-Pu-D2L" firstAttribute="top" secondItem="Pl5-HQ-VOg" secondAttribute="bottom" constant="5" id="HwU-Kq-7Ao"/>
                         <constraint firstItem="ivX-Ep-Crm" firstAttribute="centerX" secondItem="TRP-HX-xQv" secondAttribute="centerX" id="Iei-vb-vg5"/>
                         <constraint firstItem="Pl5-HQ-VOg" firstAttribute="leading" secondItem="TRP-HX-xQv" secondAttribute="leading" id="QLY-0J-WFY"/>
                         <constraint firstItem="Pl5-HQ-VOg" firstAttribute="top" secondItem="ivX-Ep-Crm" secondAttribute="bottom" constant="8" id="YAC-RB-RWq"/>
-                        <constraint firstItem="ZnJ-Pu-D2L" firstAttribute="trailing" secondItem="Pl5-HQ-VOg" secondAttribute="trailing" id="Ysd-rQ-oUi"/>
                         <constraint firstAttribute="bottom" secondItem="ivX-Ep-Crm" secondAttribute="bottom" constant="407" id="a13-wQ-9fC"/>
                         <constraint firstAttribute="trailing" secondItem="Pl5-HQ-VOg" secondAttribute="trailing" id="ceA-Mw-j6j"/>
                         <constraint firstItem="ivX-Ep-Crm" firstAttribute="leading" secondItem="TRP-HX-xQv" secondAttribute="leading" id="g1I-nR-mGl"/>
@@ -440,30 +428,14 @@
                 <constraint firstAttribute="trailing" secondItem="TRP-HX-xQv" secondAttribute="trailing" id="Wld-vF-XTj"/>
             </constraints>
             <nil key="simulatedBottomBarMetrics"/>
-            <point key="canvasLocation" x="25" y="51"/>
+            <point key="canvasLocation" x="24.5" y="50.5"/>
         </view>
     </objects>
     <resources>
-        <image width="16" height="16">
-            <mutableString key="name">
-- (IBAction)CaipiaoAction:(id)sender {
-//    [SVProgressHUD showInfoWithStatus:@"暂时未到开放日期"];
-    LotteryController * Lottery = [[LotteryController alloc]init];
-    [self.navigationController pushViewController:Lottery animated:YES];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil]; // 隐藏返回按钮上的文字
-    self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
-// 彩票
-- (IBAction)CaipiaoAction:(id)sender {
-//    [SVProgressHUD showInfoWithStatus:@"暂时未到开放日期"];
-    LotteryController * Lottery = [[LotteryController alloc]init];
-    [self.navigationController pushViewController:Lottery animated:YES];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil]; // 隐藏返回按钮上的文字
-    self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
-</mutableString>
-        </image>
         <image name="ic_mine_scanning" width="22" height="22"/>
         <image name="ic_mine_set" width="20" height="20"/>
         <image name="ic_mine_store" width="20" height="20"/>
         <image name="icon_mine_lottery" width="23" height="23"/>
+        <image name="icon_mine_service" width="22" height="22"/>
     </resources>
 </document>

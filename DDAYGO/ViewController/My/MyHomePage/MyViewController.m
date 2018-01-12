@@ -19,6 +19,7 @@
 #import "LogregisterController.h"
 #import "PrefixHeader.pch"
 #import "Supplier1ViewController.h"
+#import "RefundServiceController.h"
 #import "ZP_MyTool.h"
 #import "ZP_HomePageModel.h"
 #import "ZP_LoginTool.h"
@@ -31,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIView * sdglView;
 @property (weak, nonatomic) IBOutlet UIView * xfjlView;
 //@property (weak, nonatomic) IBOutlet UIView * zxxxView;
+@property (weak, nonatomic) IBOutlet UIView *ReceivingView;
 @property (weak, nonatomic) IBOutlet UIView * scanView;
 @property (weak, nonatomic) IBOutlet UIView * CaipiaoView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint * viewLayoutConstraint;
@@ -464,7 +466,10 @@
 
 // 退款/ 售后
 - (IBAction)RefundService:(id)sender {
-    
+    RefundServiceController * RefundService = [[RefundServiceController alloc]init];
+    [self.navigationController pushViewController:RefundService animated:YES];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
+    self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
 }
 
 

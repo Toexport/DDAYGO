@@ -68,7 +68,7 @@
     frame.size.height = 35;
     _chooseCityBtn.frame = frame;
     _chooseCityBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    [_chooseCityBtn setTitle:NSLocalizedString(@"提交", nil) forState:UIControlStateNormal];
+    [_chooseCityBtn setTitle:NSLocalizedString(@"機選", nil) forState:UIControlStateNormal];
     CGFloat imageWidth = _chooseCityBtn.imageView.bounds.size.width;
     CGFloat labelWidth = _chooseCityBtn.titleLabel.bounds.size.width;
     _chooseCityBtn.frame =CGRectMake(0, 0, 40.0f, 25.0f);
@@ -101,25 +101,22 @@
 }
 
 
-// 下注
+// 隨機
 - (void)Instruction {
-    [self AllData];
-}
-// 下注
-- (void)AllData {
-    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    dic[@"token"]  = Token;
-    dic[@"count"] = _dicArray;
-    dic[@"count"] = @"3";
-    [ZP_MyTool requestBte:dic uccess:^(id obj) {
-        ZPLog(@"%@",obj);
-        if ([obj[@"result"]isEqualToString:@"time_err"]) {
-            [SVProgressHUD showInfoWithStatus:@"還沒到開放時間"];
-        }
-        ZPLog(@"%@",obj);
-    } failure:^(NSError * error) {
-        ZPLog(@"%@",error);
-    }];
+    self.array1 = [NSMutableArray array];
+    for (int i = 0; i< 5; i++) {
+        int i = arc4random_uniform(70);
+        [self.array1 addObject:[NSNumber numberWithInt:i]];
+    }
+    //    self.tableHeadView1.BallLabel.text  = [NSString stringWithFormat:@"%ld",self.array1.count];
+    int a = arc4random_uniform(27);
+    self.arrayT = [NSMutableArray array];
+    [self.arrayT addObject:[NSNumber numberWithInt:a+ 100]];
+    //    _label3.text  = [NSString stringWithFormat:@"%ld",self.arrayT.count];
+    self.Selearray = [NSMutableArray arrayWithArray:self.array1];
+    [self.Selearray addObject:[NSNumber numberWithInt:a+100]];
+    [self.tableView reloadData];
+    
 }
 
 // 表头
@@ -364,31 +361,12 @@
 }
 
 
-// 机选
+// 確定
 - (IBAction)suijiBut:(id)sender {
-    self.array1 = [NSMutableArray array];
-    for (int i = 0; i< 5; i++) {
-        int i = arc4random_uniform(70);
-        [self.array1 addObject:[NSNumber numberWithInt:i]];
-    }
-//    self.tableHeadView1.BallLabel.text  = [NSString stringWithFormat:@"%ld",self.array1.count];
-    int a = arc4random_uniform(27);
-     self.arrayT = [NSMutableArray array];
-    [self.arrayT addObject:[NSNumber numberWithInt:a+ 100]];
-//    _label3.text  = [NSString stringWithFormat:@"%ld",self.arrayT.count];
-    self.Selearray = [NSMutableArray arrayWithArray:self.array1];
-    [self.Selearray addObject:[NSNumber numberWithInt:a+100]];
-    [self.tableView reloadData];
-    
-}
-
-// 确定
-- (IBAction)sureBut:(id)sender {
-    
     NSLog(@"everyall %@  all %@  bai %@  hong zhe%@",self.Selearray,self.dicArray,self.array1,self.arrayT);
-
+    
     if (self.array1.count < 5) {
-//        tishi
+        //        tishi
         [SVProgressHUD showInfoWithStatus:@"請選擇五個白球"];
         return;
     }
@@ -402,7 +380,7 @@
         [SVProgressHUD showInfoWithStatus:@"請選擇五個白球和一個紅球"];
         return;
     }
-
+    
 #pragma make -- 提示框
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"確定選擇該組號碼嗎？",nil) preferredStyle:UIAlertControllerStyleAlert];
     
@@ -410,11 +388,11 @@
         ZPLog(@"取消");
     }];
     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"确定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-//        响应事件
+        //        响应事件
         if (self.Selearray.count == 6) {
             [self.Selearray addObject:@"1"];
             [self.dicArray addObject:self.Selearray];
-    
+            
             self.array1 = nil;
             self.arrayT = nil;
             self.Selearray = nil;
@@ -424,9 +402,31 @@
     [alert addAction:defaultAction];
     [alert addAction:cancelAction];
     [self presentViewController:alert animated:YES completion:nil];
-//    }
+    
 }
 
+// 下注
+- (IBAction)sureBut:(id)sender {
+    
+    [self AllData];
+}
+
+// 下注
+- (void)AllData {
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    dic[@"token"]  = Token;
+    dic[@"count"] = _dicArray;
+    dic[@"count"] = @"3";
+    [ZP_MyTool requestBte:dic uccess:^(id obj) {
+        ZPLog(@"%@",obj);
+        if ([obj[@"result"]isEqualToString:@"time_err"]) {
+            [SVProgressHUD showInfoWithStatus:@"還沒到開放時間"];
+        }
+        ZPLog(@"%@",obj);
+    } failure:^(NSError * error) {
+        ZPLog(@"%@",error);
+    }];
+}
 - (NSMutableArray *)Selearray {
     if (!_Selearray) {
         _Selearray = [NSMutableArray array];
