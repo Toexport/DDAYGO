@@ -136,16 +136,16 @@
     }
 }
 
-// 键盘弹起
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [super touchesBegan:touches withEvent:event];
-    [self.Storeratingstext resignFirstResponder];
-}
-
-
+//// 键盘弹起
+//
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//    [super touchesBegan:touches withEvent:event];
+//    [self.Storeratingstext resignFirstResponder];
+//}
+//
+//
 - (void)buttonType:(UIButton *)sender {
-    
+
     self.ShopevaluationBlock(sender.tag);
     for (int i =0; i < self.scoreButArray.count; i ++) {
         [self.scoreButArray[i] setSelected:i <= sender.tag];

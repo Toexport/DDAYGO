@@ -20,6 +20,8 @@
 #import "FSScrollContentView.h"
 #import "ConfirmViewController.h"
 #import "AppraiseController.h"
+#import "RequestRefundController.h"
+#import "ExchangeDetailsController.h"
 @interface ZP_OrderController ()<FSPageContentViewDelegate,FSSegmentTitleViewDelegate> {
     int _i;
     NSArray * dataArray;
@@ -99,6 +101,15 @@
     }
     if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
         dic[@"sta"] = @"4";
+    }
+    if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
+        dic[@"sta"] = @"5";
+    }
+    if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
+        dic[@"sta"] = @"6";
+    }
+    if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
+        dic[@"sta"] = @"7";
     }
     dic[@"days"] = @"7";
     dic[@"token"] = Token;
@@ -189,6 +200,17 @@
        
     };
     
+//     申请退款
+    cell.appraiseBlock = ^(RequestRefundController* response) {
+        
+        [self.navigationController pushViewController:response animated:YES];
+    };
+    
+//    退换货
+    cell.appraiseBlock = ^(ExchangeDetailsController* response) {
+        
+        [self.navigationController pushViewController:response animated:YES];
+    };
     return cell;
     
 }

@@ -47,13 +47,14 @@
     cartButton.backgroundColor = [UIColor clearColor];
     [cartButton setTitle:NSLocalizedString(@"发布", nil) forState:UIControlStateNormal];
     cartButton.titleLabel.font = ZP_TooBarFont;
-    [cartButton addTarget:self action:@selector(cartButton:) forControlEvents:UIControlEventTouchUpInside];
+    [cartButton addTarget:self action:@selector(cartButton) forControlEvents:UIControlEventTouchUpInside];
     cartButton.imageEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:cartButton];
+    UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:cartButton];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 }
 
-- (void)cartButton:(UIButton *)cartbut {
+- (void)cartButton {
+    [self allData];
 ////  设置时间和动画效果
 //    [UIView animateWithDuration:8.0 animations:^{
 //        [SVProgressHUD showSuccessWithStatus:@"评价成功"];
@@ -77,7 +78,6 @@
 
     dic[@"token"] = Token;
     [ZP_OrderTool requestAppraise:dic success:^(id obj) {
-        
         ZPLog(@"%@",obj);
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);

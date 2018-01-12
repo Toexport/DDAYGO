@@ -37,8 +37,10 @@
 /********************************************************/
 /*******************************************************/
 @property (nonatomic, strong) UIButton * AppraiseBut;      // 评价
-@property (nonatomic, strong) UIButton * LogisticsBut;    // 物流
+//@property (nonatomic, strong) UIButton * LogisticsBut;    // 物流
 @property (nonatomic, strong) UIButton * OnceagainBut;   // 再次购买
+
+@property (nonatomic, strong) OrdersdetailModel * model;   // 再次购买
 
 
 - (void)InformationWithDic:(OrdersdetailModel *)dic WithModel:(OrderModel *)model;

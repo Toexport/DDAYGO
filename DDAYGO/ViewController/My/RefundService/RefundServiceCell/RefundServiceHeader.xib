@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="KGk-i7-Jjw" customClass="RefundServiceHeader">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="567.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_service_store" translatesAutoresizingMaskIntoConstraints="NO" id="dYM-5I-FRK">
+                        <rect key="frame" x="16" y="11" width="23" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="8yi-ZA-5B7"/>
+                            <constraint firstAttribute="width" constant="23" id="OSq-1y-dn0"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_retreat_left" translatesAutoresizingMaskIntoConstraints="NO" id="Nha-OT-Tl8">
+                        <rect key="frame" x="121" y="17" width="10" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="q6a-dW-TJh"/>
+                            <constraint firstAttribute="width" constant="10" id="sA0-Wi-tcT"/>
+                        </constraints>
+                    </imageView>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="teh-CR-Fyc">
+                        <rect key="frame" x="0.0" y="39" width="320" height="529"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tableView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阿芙专卖店" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJH-4N-4lh">
+                        <rect key="frame" x="44" y="15" width="72" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="sNV-iO-cGt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="teh-CR-Fyc" firstAttribute="top" secondItem="dYM-5I-FRK" secondAttribute="bottom" constant="5" id="3rD-q9-ekV"/>
+                    <constraint firstItem="teh-CR-Fyc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="B9D-Yl-2Or"/>
+                    <constraint firstItem="dYM-5I-FRK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="c4v-qw-cWW"/>
+                    <constraint firstItem="Nha-OT-Tl8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="c65-pt-Dtp"/>
+                    <constraint firstItem="Nha-OT-Tl8" firstAttribute="leading" secondItem="AJH-4N-4lh" secondAttribute="trailing" constant="5" id="d5g-W7-bru"/>
+                    <constraint firstAttribute="trailing" secondItem="teh-CR-Fyc" secondAttribute="trailing" id="igf-pV-P2S"/>
+                    <constraint firstItem="dYM-5I-FRK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="o8n-Im-gvy"/>
+                    <constraint firstAttribute="bottom" secondItem="teh-CR-Fyc" secondAttribute="bottom" id="wUH-dX-6fc"/>
+                    <constraint firstItem="AJH-4N-4lh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="z8Y-6l-OLx"/>
+                    <constraint firstItem="AJH-4N-4lh" firstAttribute="leading" secondItem="dYM-5I-FRK" secondAttribute="trailing" constant="5" id="zw1-Ei-YAK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="Tableview" destination="teh-CR-Fyc" id="tAq-gu-DBA"/>
+                <outlet property="TitleLabel" destination="AJH-4N-4lh" id="gSz-EK-RI9"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="56"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_retreat_left" width="8" height="15"/>
+        <image name="icon_service_store" width="22" height="22"/>
+    </resources>
+</document>

@@ -16,9 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self initUI];
 }
+// UI
 
-
+- (void)initUI {
+    self.title = NSLocalizedString(@"退换货", nil);
+    
+}
 
 @end

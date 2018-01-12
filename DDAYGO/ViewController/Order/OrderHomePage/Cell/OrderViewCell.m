@@ -10,6 +10,8 @@
 #import "PrefixHeader.pch"
 #import "LogistcsController.h"
 #import "AppraiseController.h"
+#import "ExchangeDetailsController.h"
+#import "RequestRefundController.h"
 @implementation OrderViewCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:@"orderViewCell"];
@@ -102,6 +104,7 @@
     [self.Backgroundview addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(FigureImage).offset(80);
+        make.right.equalTo(self.Backgroundview).offset(20);
         make.top.equalTo(merchantsLabel).offset(20);
     }];
     _titleLabel = titleLabel;
@@ -111,7 +114,7 @@
     [self.Backgroundview addSubview:descLabel];
     [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(FigureImage).offset(80);
-        make.top.equalTo(merchantsLabel).offset(40);
+        make.top.equalTo(merchantsLabel).offset(50);
     }];
     _descLabel = descLabel;
     
@@ -120,8 +123,8 @@
     SizeLabel.text = @"XXL";
     [self.Backgroundview addSubview:SizeLabel];
     [SizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(descLabel).offset(40);
-        make.top.equalTo(merchantsLabel).offset(40);
+        make.right.equalTo(descLabel).offset(10);
+        make.top.equalTo(descLabel).offset(0);
     }];
     _SizeLabel = SizeLabel;
 //  货币符号
@@ -136,31 +139,31 @@
     ZP_GeneralLabel * PreferentialLabel = [ZP_GeneralLabel initWithtextLabel:_PreferentialLabel.text textColor:ZP_TypefaceColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:PreferentialLabel];
     [PreferentialLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(CurrencySymbolLabel).offset(30);
+        make.left.equalTo(CurrencySymbolLabel).offset(20);
         make.top.equalTo(SizeLabel).offset(20);
     }];
     _PreferentialLabel = PreferentialLabel;
+//
+////  价格
+//    ZP_GeneralLabel * priceLabel = [ZP_GeneralLabel initWithtextLabel:_priceLabel.text textColor:ZP_TabBarTextColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
+////    [self.Backgroundview addSubview:priceLabel];
+//    [priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(FigureImage).offset(80);
+//        make.top.equalTo(PreferentialLabel).offset(15);
+//    }];
+//    _priceLabel = priceLabel;
     
-//  价格
-    ZP_GeneralLabel * priceLabel = [ZP_GeneralLabel initWithtextLabel:_priceLabel.text textColor:ZP_TabBarTextColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
-//    [self.Backgroundview addSubview:priceLabel];
-    [priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(FigureImage).offset(80);
-        make.top.equalTo(PreferentialLabel).offset(15);
-    }];
-    _priceLabel = priceLabel;
-    
-//  横线
-    UIView * Crossview = [UIView new];
-    Crossview.layer.borderWidth = 1;
-    Crossview.backgroundColor = ZP_TabBarTextColor;
-//    [self.Backgroundview addSubview: Crossview];
-    [Crossview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(FigureImage).offset(80);
-        make.top.equalTo(priceLabel).offset(7.5);
-        make.height.mas_equalTo(1);
-        make.width.mas_equalTo(priceLabel);
-    }];
+////  横线
+//    UIView * Crossview = [UIView new];
+//    Crossview.layer.borderWidth = 1;
+//    Crossview.backgroundColor = ZP_TabBarTextColor;
+////    [self.Backgroundview addSubview: Crossview];
+//    [Crossview mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(FigureImage).offset(80);
+//        make.top.equalTo(priceLabel).offset(7.5);
+//        make.height.mas_equalTo(1);
+//        make.width.mas_equalTo(priceLabel);
+//    }];
     
 //  商标
     UIImageView * TrademarkImage = [UIImageView new];
@@ -201,7 +204,7 @@
     _SharacterLabel = SharacterLabel;
     [SharacterLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(VerticalView).offset(5);
-        make.top.equalTo(TrademarkLabel).offset(18);
+        make.top.equalTo(TrademarkLabel).offset(10);
     }];
     
 //  数量
@@ -209,16 +212,16 @@
     [self.Backgroundview addSubview:QuantityLabel];
     [QuantityLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(SharacterLabel).offset(10);
-        make.top.equalTo(TrademarkLabel).offset(18);
+        make.top.equalTo(SharacterLabel).offset(0);
     }];
     _QuantityLabel = QuantityLabel;
     
 //  合计
     ZP_GeneralLabel * CountLabel = [ZP_GeneralLabel initWithtextLabel:_CountLabel.text textColor:ZP_textblack font:ZP_introduceFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    CountLabel.text = NSLocalizedString(@"合計:", nil);
+    CountLabel.text = NSLocalizedString(@"合計", nil);
     [self.contentView addSubview:CountLabel];
     [CountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(CurrencySymbolLabel).offset(60);
+        make.left.equalTo(TrademarkLabel).offset(75);
         make.top.equalTo(VerticalView).offset(40);
     }];
     _CountLabel = CountLabel;
@@ -234,7 +237,7 @@
     
 //  运费
     ZP_GeneralLabel * FreightLabel = [ZP_GeneralLabel initWithtextLabel:_FreightLabel.text textColor:ZP_textblack font:ZP_introduceFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    FreightLabel.text = NSLocalizedString(@"運費:", nil);
+    FreightLabel.text = NSLocalizedString(@"運費", nil);
     [self.contentView addSubview:FreightLabel];
     [FreightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(AmountLabel).offset(40);
@@ -245,7 +248,7 @@
     
 //  快递费
     ZP_GeneralLabel * ExpressFeeLabel = [ZP_GeneralLabel initWithtextLabel:_ExpressFeeLabel.text textColor:ZP_textblack font:ZP_introduceFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    ExpressFeeLabel.text = @"0.00";
+//    ExpressFeeLabel.text = @"0.00";
     [self.contentView addSubview:ExpressFeeLabel];
     _ExpressFeeLabel = ExpressFeeLabel;
     [ExpressFeeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -263,7 +266,7 @@
     [AppraiseBut addTarget:self action:@selector(AppraiseBut:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:AppraiseBut];
     [AppraiseBut mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self).offset(-140);
+        make.right.equalTo(self).offset(-75);
         make.bottom.equalTo(self).offset(-15);
         make.width.mas_equalTo(60);
     }];
@@ -284,7 +287,7 @@
 //        make.width.mas_equalTo(60);
 //    }];
 //    _LogisticsBut = LogisticsBut;
-//
+
 //  再次购买
     UIButton * OnceagainBut = [UIButton buttonWithType:UIButtonTypeSystem];
     OnceagainBut.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
@@ -297,7 +300,7 @@
     [self.contentView addSubview:OnceagainBut];
     [OnceagainBut mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-10);
-        make.bottom.equalTo(self).offset(-15);
+        make.bottom.equalTo(AppraiseBut).offset(0);
         make.width.mas_equalTo(60);
     }];
     _OnceagainBut = OnceagainBut;
@@ -305,23 +308,49 @@
 
 //  评价
 - (void)AppraiseBut:(UIButton *)AppraiseBut {
-    AppraiseController * appistcs = [[AppraiseController alloc]init];
-    if (self.appraiseBlock) {
-        self.appraiseBlock(appistcs);
+    NSLog(@"state =  %@",_model.state);
+    switch (_model.state.longValue) {
+        case 3:{
+            ExchangeDetailsController * ExchangeDetails = [[ExchangeDetailsController alloc]init];
+            
+            if (self.appraiseBlock) {
+                self.appraiseBlock(ExchangeDetails);
+            }
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"ExchangeDetails" object:_model.ordersnumber];
+        }
+            break;
+            
+        case 2:{
+            RequestRefundController * RequestRefund = [[RequestRefundController alloc]init];
+            if (self.appraiseBlock) {
+                self.appraiseBlock(RequestRefund);
+            }
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"RequestRefund" object:nil];
+        }
+            break;
+            
+        case 4:{
+            AppraiseController * appistcs = [[AppraiseController alloc]init];
+            if (self.appraiseBlock) {
+                self.appraiseBlock(appistcs);
+            }
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"appraise" object:nil];
+        }
+            break;
+        default:
+            break;
     }
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"appraise" object:nil];
-    
 }
 
-//  物流
-- (void)LogisticsBut:(UIButton *) LogisticsBut {
-    LogistcsController * logistcs = [[LogistcsController alloc]init];
-    if (self.finishBlock) {
-        self.finishBlock(logistcs);
-    }
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"logistcs" object:nil];
-    NSLog(@"物流");
-}
+////  物流
+//- (void)LogisticsBut:(UIButton *) LogisticsBut {
+//    LogistcsController * logistcs = [[LogistcsController alloc]init];
+//    if (self.finishBlock) {
+//        self.finishBlock(logistcs);
+//    }
+//    [[NSNotificationCenter defaultCenter]postNotificationName:@"logistcs" object:nil];
+//    NSLog(@"物流");
+//}
 //  再次购买
 //- (void)OnceagainBut:(UIButton *)OnceagainBut {
 //    NSLog(@"再次购买");
@@ -329,40 +358,49 @@
 
 - (void)InformationWithDic:(OrdersdetailModel *)dic WithModel:(OrderModel *)model {
     int a = [dic.state intValue];
+    NSLog(@"Stata = %D",a);
     switch (a) {
-        case -1:
-            
+        case 0:
+            //不让评价点击
+            _AppraiseBut.userInteractionEnabled = NO;
+            //不让购买点击
+            _OnceagainBut.userInteractionEnabled = NO;
             break;
         case 1:
             _TradingLabel.text = @"待付款";
             [_OnceagainBut setTitle:@"付款" forState:UIControlStateNormal];
-            [_LogisticsBut setTitle:@"取消訂單" forState:UIControlStateNormal];
-            _AppraiseBut.hidden = YES;
+            [_AppraiseBut setTitle:@"取消訂單" forState:UIControlStateNormal];
+//            _AppraiseBut.hidden = YES;
+            //例如 --点击第一个看能不能点击
+            _AppraiseBut.userInteractionEnabled = NO;
             break;
         case 2:
             _TradingLabel.text = @"待發貨";
             [_OnceagainBut setTitle:@"提醒發貨" forState:UIControlStateNormal];
-            _LogisticsBut.hidden = YES;
-            _AppraiseBut.hidden = YES;
+            [_AppraiseBut setTitle:@"退款" forState:UIControlStateNormal];
+            _OnceagainBut.userInteractionEnabled = NO;
+//            _AppraiseBut.hidden = YES;
             break;
         case 3:
             _TradingLabel.text = @"待收貨";
             [_OnceagainBut setTitle:@"確認收貨" forState:UIControlStateNormal];
-            _AppraiseBut.hidden = YES;
+            [_AppraiseBut setTitle:@"退换货" forState:UIControlStateNormal];
+            _OnceagainBut.userInteractionEnabled = NO;
+//            _AppraiseBut.hidden = YES;
             break;
         case 4:
             _TradingLabel.text = @"交易成功";
             [_OnceagainBut setTitle:@"再次購買" forState:UIControlStateNormal];
-            break;
+            [_AppraiseBut setTitle:@"评价" forState:UIControlStateNormal];
             
+            break;
         default:
             break;
     }
     
     _IDLabel.text = [NSString stringWithFormat:@"%@",dic.ordersnumber];
     _DateLabel.text = model.createtime;
-
-    [_FigureImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.ddaygo.com%@", dic.defaultimg]] placeholderImage:[UIImage imageNamed:@"img_login_logo"]];
+    [_FigureImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.ddaygo.com%@", dic.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
     _merchantsLabel.text = [NSString stringWithFormat:@"%@",model.shopname]; // 这个参数显示不出来不
     _titleLabel.text = dic.productname;
 //    _titleLabel.text = model.shopname;
@@ -375,7 +413,7 @@
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
     _TrademarkLabel.text = [NSString stringWithFormat:@"%@",dic.cp];
     _QuantityLabel.text = [NSString stringWithFormat:@"%@",dic.amount];
-
+    _model = dic;
 }
 
 @end

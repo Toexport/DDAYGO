@@ -36,5 +36,25 @@
         failure(error);
     }];
 }
+
+// 获取退换货申请页面信息
++ (void)requestRequestRefund: (NSDictionary *)RequestRefund success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getrefundproductinfo?token=%@&rty=%@&oid=%@",URLAPI,RequestRefund[@"token"],RequestRefund[@"rty"],RequestRefund[@"oid"]] parameters:nil success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError * error) {
+        failure(error);
+    }];
+}
+
+// 获取退换货原因列表
++ (void)requestSelect:(NSDictionary *)Select success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+    NSString * strurl = [NSString stringWithFormat:@"%@getrefundreasonlist?token=%@&countrycode=%@",URLAPI,Select[@"token"],Select[@"countrycode"]];
+    NSString * str = [strurl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [ZP_NetorkingTools GET:str parameters:nil success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError * error) {
+        failure(error);
+    }];
+}
 @end
 

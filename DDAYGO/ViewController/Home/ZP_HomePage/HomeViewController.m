@@ -308,20 +308,21 @@
             return 190  ;
     }else
         if (indexPath.section == 3){
+            
 /*********有问题***********/
-
-        if (_newsData.count == 0) {
+        if (_newsData == nil) {
             return 0;
         }else {
             return ZP_Width / 4;
         }
     }else {
-        if (_newsData.count == 0) {
+        if (_newsData == nil) {
             return 0;
-        }
+        }else {
         //下面空白应该是 35
 //        return ZP_Width / 3 + 35;
         return ZP_Width / 3 * 2 + 35;
+        }
     }
 }
 
