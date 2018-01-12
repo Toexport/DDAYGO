@@ -103,5 +103,8 @@
 
 // 添加供货商申请
 + (void)requestSupplierRequest:(NSDictionary *)SupplierRequest success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure;
+
+// 获取退换货记录列表
++ (void)requestGetrefundlist:(NSDictionary *)Getrefundlist success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure;
 @end
 

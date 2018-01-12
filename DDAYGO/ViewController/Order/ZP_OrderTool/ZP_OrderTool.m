@@ -56,5 +56,26 @@
         failure(error);
     }];
 }
+// 添加退换货记录列表
++ (void)requestAddRefund:(NSDictionary *)AddRefund  success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+    NSString * strUrl = [NSString stringWithFormat:@"%@addrefund?token=%@&rty=%@&oid=%@&reason=%@&reasondetail=%@&imgs=%@",URLAPI,AddRefund[@"token"],AddRefund[@"rty"],AddRefund[@"oid"],AddRefund[@"reason"],AddRefund[@"reasondetail"],AddRefund[@"imgs"]];
+    NSString * str = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [ZP_NetorkingTools POST:str parameters:nil success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+// 上传退换货相关图片
++ (void)requestUploadrefundimgs:(NSDictionary *)Uploadrefundimgs success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+    NSString * strUrl = [NSString stringWithFormat:@"%@uploadrefundimgs",URLAPI];
+    NSString * str = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [ZP_NetorkingTools POST:str parameters:nil success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
 @end
 

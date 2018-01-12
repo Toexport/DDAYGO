@@ -10,6 +10,7 @@
 #import "RefundServiceHeader.h"
 #import "RequestRefundController.h"
 #import "PrefixHeader.pch"
+#import "ZP_MyTool.h"
 @interface RefundServiceController ()<UITableViewDelegate, UITableViewDataSource>
 
 @end
@@ -19,8 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-    
 }
+
 // UI
 - (void)initUI {
     self.title = NSLocalizedString(@"退款/售后", nil);
@@ -32,18 +33,40 @@
     [self.tableview registerNib:[UINib nibWithNibName:@"RefundServiceHeader" bundle:nil] forCellReuseIdentifier:@"RefundServiceHeader"];
 }
 
+// 生命周期
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self AllData];
+}
+
+// 获取退换货记录列表
+- (void)AllData {
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    dic[@"token"] = Token;
+    dic[@"page"] = @"1";
+    dic[@"pagesize"] = @"pagesize";
+    [ZP_MyTool requestGetrefundlist:dic success:^(id obj) {
+        ZPLog(@"%@",obj);
+        
+        
+    } failure:^(NSError *error) {
+        ZPLog(@"%@",error);
+    }];
+}
+
+#pragma 代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return 5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     return 45+155;
 
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     RefundServiceHeader * header = [tableView dequeueReusableCellWithIdentifier:@"RefundServiceHeader"];
     header.RefundServiceHeaderBlock = ^(NSInteger tag) {
         RequestRefundController * requestRefund = [[RequestRefundController alloc]init];
@@ -54,7 +77,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-        ZPLog(@"%ld",indexPath.row);
+    
+    ZPLog(@"%ld",indexPath.row);
    
 }
 

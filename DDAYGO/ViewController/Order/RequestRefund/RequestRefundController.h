@@ -25,8 +25,8 @@
 
 /** 第3个View */
 @property (weak, nonatomic) IBOutlet UIView * view3;
-@property (weak, nonatomic) IBOutlet UILabel * CurrencyLabel; //
-@property (weak, nonatomic) IBOutlet UILabel * PriceLabel;  //
+@property (weak, nonatomic) IBOutlet UILabel * CurrencyLabel; // 货币符号
+@property (weak, nonatomic) IBOutlet UILabel * PriceLabel;  // 金额
 
 /** 第4个View */
 @property (weak, nonatomic) IBOutlet UIView * view4;

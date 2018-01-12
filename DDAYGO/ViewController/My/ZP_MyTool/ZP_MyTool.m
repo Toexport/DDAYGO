@@ -335,12 +335,21 @@
 
 // 添加供货商申请
 + (void)requestSupplierRequest:(NSDictionary *)SupplierRequest success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
-//     这个接口对起来真特么类
+//     这个接口对起来真特么累
     NSString * str = [NSString stringWithFormat:@"%@addsupplierapply?token=%@&companyname=%@&companycode=%@&poeplecount=%@&capital=%@&companydate=%@&companytype=%@&address=%@&phone=%@&fax=%@&companyuri=%@&contact=%@&contactphone=%@&contactemail=%@&companyproduct=%@&projectinfo=%@",URLAPI,SupplierRequest[@"token"],SupplierRequest[@"companyname"],SupplierRequest[@"companycode"],SupplierRequest[@"poeplecount"],SupplierRequest[@"capital"],SupplierRequest[@"companydate"],SupplierRequest[@"companytype"],SupplierRequest[@"address"],SupplierRequest[@"phone"],SupplierRequest[@"fax"],SupplierRequest[@"companyuri"],SupplierRequest[@"contact"],SupplierRequest[@"contactphone"],SupplierRequest[@"contactemail"],SupplierRequest[@"companyproduct"],SupplierRequest[@"projectinfo"]];
     NSString * urlString = [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [ZP_NetorkingTools POST:urlString parameters:nil success:^(id responseObject) {
         success(responseObject);
     } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+// 获取退换货记录列表
++ (void)requestGetrefundlist:(NSDictionary *)Getrefundlist success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
+    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getrefundlist?token=%@&page=%@&pagesize=%@",URLAPI,Getrefundlist[@"token"],Getrefundlist[@"page"],Getrefundlist[@"pagesize"]] parameters:nil success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError * error) {
         failure(error);
     }];
 }

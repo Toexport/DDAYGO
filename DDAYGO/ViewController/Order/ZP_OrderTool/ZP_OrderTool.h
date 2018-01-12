@@ -21,6 +21,13 @@
 
 // 获取退换货申请页面信息
 + (void)requestRequestRefund: (NSDictionary *)RequestRefund success:(void (^)(id))success failure:(void (^)(NSError *))failure;
+
+// 添加退换货记录列表
++ (void)requestAddRefund:(NSDictionary *)AddRefund  success:(void (^)(id))success failure:(void (^)(NSError *))failure;
+
+// 上传退换货相关图片
++ (void)requestUploadrefundimgs:(NSDictionary *)Uploadrefundimgs success:(void (^)(id))success failure:(void (^)(NSError *))failure;
+
 @end
 
 

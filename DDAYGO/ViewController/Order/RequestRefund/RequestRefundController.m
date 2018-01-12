@@ -51,6 +51,10 @@
     SelectModel2 * model2 = [SelectModel2 mj_objectWithKeyValues:dic];
     [_MainImageView sd_setImageWithURL:[NSURL URLWithString:model2.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
     _TitleLabel.text = model2.productname;
+    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+    _CurrencyLabel.text = [NSString stringWithFormat:@"%@",str];
+    _PriceLabel.text = [model2.productamount stringValue];
+    
     
 }
 
@@ -61,7 +65,7 @@
 
 // 类型选择
 - (void)type {
-    
+
 }
 
 // 退款原因按钮
@@ -86,7 +90,42 @@
     }];
 }
 
+// 上传按钮
+- (IBAction)ShangchuanBut:(id)sender {
+    [self uploadrefundimgs];
+}
 
+// 上传退换货相关图片
+- (void)uploadrefundimgs {
+    [ZP_OrderTool requestUploadrefundimgs:nil success:^(id obj) {
+        
+        ZPLog(@"%@",obj);
+    } failure:^(NSError * error) {
+        ZPLog(@"%@",error);
+    }];
+}
 
+// 提交按钮
+- (IBAction)TijiaoBut:(id)sender {
+    [self addrefund];
+}
+
+// 添加退换货记录
+- (void)addrefund {
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    dic[@"token"] = Token;
+    dic[@"rty"] = @"0"; // 这个是类型
+    dic[@"oid"] = @"";
+    dic[@"reason"] = @"不想要了"; // 这个是原因
+    dic[@"reasondetail"] = @"不想要了"; // 这个是输入的文字
+    dic[@"imgs"] = @"";// 这个是图片
+    [ZP_OrderTool requestAddRefund:dic success:^(id obj) {
+        ZPLog(@"%@",obj);
+        
+    } failure:^(NSError * error) {
+        ZPLog(@"%@",error);
+    }];
+}
+//还有给我写个图片上传，限制200K内，最多三张图片
 
 @end
