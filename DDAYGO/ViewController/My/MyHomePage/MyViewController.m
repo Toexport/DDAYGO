@@ -27,6 +27,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIButton+WebCache.h"
 #import "SDImageCache.h"
+#import "SelectView.h"
 @interface MyViewController ()
 @property (weak, nonatomic) IBOutlet UIView * userBackView;
 @property (weak, nonatomic) IBOutlet UIView * sdglView;
@@ -409,10 +410,12 @@
 //    self.navigationController.navigationBar.tintColor = ZP_WhiteColor;}
 // 足迹
 - (IBAction)zjAction:(id)sender {
-    FootprintViewController *footprintViewController = [[FootprintViewController alloc] init];
-    [self.navigationController pushViewController:footprintViewController animated:YES];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
-    self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
+//    FootprintViewController *footprintViewController = [[FootprintViewController alloc] init];
+//    [self.navigationController pushViewController:footprintViewController animated:YES];
+//    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
+//    self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
+     SelectView * seleView = [[SelectView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [seleView showInView:self.view];
 }
 
 //  商店管理

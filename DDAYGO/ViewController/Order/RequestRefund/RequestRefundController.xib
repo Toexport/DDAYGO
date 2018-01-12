@@ -336,14 +336,28 @@
                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYB-j2-bZU">
+                                    <rect key="frame" x="8" y="85" width="62" height="15"/>
+                                    <color key="backgroundColor" white="0.78000000000000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="15" id="9U7-dp-q0j"/>
+                                        <constraint firstAttribute="width" constant="62" id="ciC-z7-ID8"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <state key="normal" title="点击放大">
+                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </state>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="Z1f-NC-w73" firstAttribute="leading" secondItem="Gd3-C3-DyP" secondAttribute="leading" constant="8" id="AAd-Zz-uCI"/>
                                 <constraint firstItem="s4e-Sn-hSw" firstAttribute="leading" secondItem="Gd3-C3-DyP" secondAttribute="leading" constant="8" id="Eo2-Iu-UB3"/>
                                 <constraint firstItem="FPA-9M-MvL" firstAttribute="top" secondItem="Gd3-C3-DyP" secondAttribute="top" constant="25" id="Fkc-wT-Eoh"/>
+                                <constraint firstItem="hYB-j2-bZU" firstAttribute="top" secondItem="FPA-9M-MvL" secondAttribute="bottom" constant="35" id="IT2-lp-G8W"/>
                                 <constraint firstAttribute="height" constant="118" id="PZ2-I2-Lr0"/>
                                 <constraint firstItem="s4e-Sn-hSw" firstAttribute="top" secondItem="Z1f-NC-w73" secondAttribute="bottom" constant="8" id="i7H-3T-P1w"/>
+                                <constraint firstItem="hYB-j2-bZU" firstAttribute="leading" secondItem="Gd3-C3-DyP" secondAttribute="leading" constant="8" id="jfC-sY-JXM"/>
                                 <constraint firstItem="FPA-9M-MvL" firstAttribute="leading" secondItem="Gd3-C3-DyP" secondAttribute="leading" constant="59" id="usI-LM-fze"/>
                                 <constraint firstItem="Z1f-NC-w73" firstAttribute="top" secondItem="Gd3-C3-DyP" secondAttribute="top" constant="8" id="ys2-Em-cz8"/>
                             </constraints>

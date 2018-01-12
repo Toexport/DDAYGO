@@ -183,7 +183,7 @@
     NSLog(@"选中IUCE");
 }
 
-#pragma mark - 点击支付按钮
+#pragma mark - 点击关闭按钮
 - (void)paybut:(UIButton *)sender {
 //    if (_Creditcardbut.selected == 0) {
 //        PayPassController * paypass = [[PayPassController alloc] init];
@@ -205,7 +205,6 @@
 }
 #pragma mark - 点击事件
 - (void)cancelbut:(UIButton * )sup {
-    
     __weak typeof(self) _weakSelf = self;
     [UIView animateWithDuration:0.3 animations:^{
         _weakSelf.backgroundColor = [UIColor clearColor];
@@ -260,9 +259,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    SelectModel * model = _dataArray[indexPath.row];
+    SelectModel1 * model1 = _dataArray[indexPath.row];
     SelectViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SelectViewCell"];
-    cell.SelectLabel.text = model.reasonstr;
+    cell.SelectLabel = [NSString stringWithFormat:@"%@",model1.reasonstr];
     [cell.SelectBut addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
@@ -301,7 +300,6 @@
 - (void)setDataArray:(NSArray *)dataArray {
     _dataArray = dataArray;
     [_tableView reloadData];
-    
     NSLog(@"%ld",(unsigned long)self.dataArray.count);
 }
 @end

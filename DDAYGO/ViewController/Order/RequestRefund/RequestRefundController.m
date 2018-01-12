@@ -34,22 +34,23 @@
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     dic[@"rty"] = @"0";
-    dic[@"oid"] = @"";
+    dic[@"oid"] = @"118011215115932693";
     [ZP_OrderTool requestRequestRefund:dic success:^(id obj) {
         ZPLog(@"%@",obj);
-        NSDictionary * dict = obj;
-        SelectModel1 * model = [SelectModel1 mj_objectWithKeyValues:dict];
+        SelectModel * model = [SelectModel mj_objectWithKeyValues:obj];
         self.prizeDic = obj;
         [self initWithRequsetRefund:model];
+        NSLog(@"%@",model);
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
     }];
 }
 
-- (void)initWithRequsetRefund:(SelectModel1 *)model {
-    [_MainImageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
-    _TitleLabel.text = model.productname;
-    
+- (void)initWithRequsetRefund:(SelectModel *)model {
+    NSDictionary * dic = model.refundinfo;
+    SelectModel2 * model2 = [SelectModel2 mj_objectWithKeyValues:dic];
+    [_MainImageView sd_setImageWithURL:[NSURL URLWithString:model2.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
+    _TitleLabel.text = model2.productname;
     
 }
 
@@ -77,12 +78,15 @@
     [ZP_OrderTool requestSelect:dic success:^(id obj) {
         ZPLog(@"%@",obj);
         SelectView * seleView = [[SelectView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-        seleView.dataArray = [SelectModel arrayWithArray:obj];
-        NSLog(@"提交订单");
+        seleView.dataArray = [SelectModel1 arrayWithArray:obj];
+        NSLog(@"获取退换货");
         [seleView showInView:self.view];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
     }];
 }
+
+
+
 
 @end

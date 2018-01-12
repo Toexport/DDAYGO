@@ -10,6 +10,10 @@
 
 @implementation SelectModel
 
+@end
+
+@implementation SelectModel1
+
 + (instancetype)GetConfirmPayData:(NSDictionary *)dic {
     return [[self alloc]initWithConfirmPayData:dic];
 }
@@ -29,7 +33,7 @@
 + (NSMutableArray *)arrayWithArray:(NSArray *)array {
     NSMutableArray * arr = [[NSMutableArray alloc]init];
     for (NSDictionary * dic in array) {
-        SelectModel * model = [[SelectModel alloc]init];
+        SelectModel1 * model = [[SelectModel1 alloc]init];
         model.reasonid = dic[@"reasonid"];
         //        [NSString stringWithFormat:@"http://www.ddaygo.com%@", dic[@"logourl"]];;
         model.reasonstr = dic[@"reasonstr"];
@@ -40,7 +44,8 @@
 
 @end
 
+/*********model2************/
+@implementation SelectModel2
 
-@implementation SelectModel1
 
 @end

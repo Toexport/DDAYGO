@@ -361,7 +361,6 @@
             }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (indexPath.section == 0) {
         static NSString * ID = @"confirmViewCell";
         ZP_ConfirmViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
