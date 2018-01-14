@@ -58,15 +58,15 @@
     
 }
 
-// 申请类型
-- (IBAction)typebut:(id)sender {
-    [self type];
-}
-
-// 类型选择
-- (void)type {
-
-}
+//// 申请类型
+//- (IBAction)typebut:(id)sender {
+//    [self type];
+//}
+//
+//// 类型选择
+//- (void)type {
+//
+//}
 
 // 退款原因按钮
 - (IBAction)yuanyinBut:(UIButton *)sender {

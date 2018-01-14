@@ -9,9 +9,9 @@
 #ifndef DataInterface_pch
 #define DataInterface_pch
 //  外网
-//#define URLAPI @"http://www.ddaygo.com/api/Test/"
+#define URLAPI @"http://www.ddaygo.com/api/Test/"
 //内网
-#define URLAPI @"http://192.168.0.117:7000/api/Test/"
+//#define URLAPI @"http://192.168.0.117:7000/api/Test/"
 // HomePage(首页接口)
 //国家列表
 #define Psoitions @"getcountry"

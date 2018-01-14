@@ -109,7 +109,7 @@
         self.onScrollViewWidth.constant = ZP_Width * 1;
         for (int i = 0; i < 1; i ++) {
             _ShopImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ZP_Width * i, 0, ZP_Width, self.onScrollView.height)];
-            _ShopImageView.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255. green:arc4random_uniform(256)/255. blue:arc4random_uniform(256)/255. alpha:1];
+//            _ShopImageView.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255. green:arc4random_uniform(256)/255. blue:arc4random_uniform(256)/255. alpha:1];
             [self.onScrollView addSubview:_ShopImageView];
         }
         self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(self.smallScrollView.center.x - 19.5, self.smallScrollView.size.height - 37, 39, 37)];

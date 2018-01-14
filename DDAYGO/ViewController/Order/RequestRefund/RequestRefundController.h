@@ -20,7 +20,6 @@
 
 /** 第2个View */
 @property (weak, nonatomic) IBOutlet UIView * view2;
-@property (weak, nonatomic) IBOutlet UILabel * StateLabel; // 退款原因
 @property (weak, nonatomic) IBOutlet UITextView * MessageLabel; // 留言
 
 /** 第3个View */
