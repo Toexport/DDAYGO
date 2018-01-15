@@ -24,7 +24,8 @@
  */
 - (void)removeView;
 
+@property (nonatomic, copy) void(^ThirdBlock)(NSString *ContStr,NSNumber * code);
 
-@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSArray * dataArray;
 
 @end

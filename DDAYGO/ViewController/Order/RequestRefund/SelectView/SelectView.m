@@ -53,18 +53,18 @@
         make.bottom.equalTo(self).offset(0);
         make.width.mas_offset(ZP_Width);
     }];
-    //  取消按钮
-    UIButton * Cancelbut = [UIButton buttonWithType:UIButtonTypeCustom];
-    [Cancelbut setImage:[UIImage imageNamed:@"ic_payment_cancel"] forState:UIControlStateNormal];
-    [Cancelbut addTarget:self action:@selector(cancelbut:) forControlEvents:UIControlEventTouchUpInside];
-    UITapGestureRecognizer *tapBackGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeView)];
-    tapBackGesture.delegate = self;
-    [self addGestureRecognizer:tapBackGesture];
-    [bounceView addSubview:Cancelbut];
-    [Cancelbut mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(bounceView).offset(10);
-        make.top.equalTo(bounceView).offset(10);
-    }];
+//    //  取消按钮
+//    UIButton * Cancelbut = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [Cancelbut setImage:[UIImage imageNamed:@"ic_payment_cancel"] forState:UIControlStateNormal];
+//    [Cancelbut addTarget:self action:@selector(cancelbut:) forControlEvents:UIControlEventTouchUpInside];
+//    UITapGestureRecognizer *tapBackGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeView)];
+//    tapBackGesture.delegate = self;
+//    [self addGestureRecognizer:tapBackGesture];
+//    [bounceView addSubview:Cancelbut];
+//    [Cancelbut mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(bounceView).offset(10);
+//        make.top.equalTo(bounceView).offset(10);
+//    }];
     //  标题
     UILabel * titleLabel = [UILabel new];
     titleLabel.textColor = [UIColor blackColor];
@@ -80,73 +80,7 @@
         //        make.height.mas_offset(20);
     }];
     
-    for (int z = 0; z <= 3; z ++) {
-        for (int i = 0; i <=2; i ++) {
-            for (int x = z; x <=1; x ++) {
-                self.view = [[UIView alloc]initWithFrame:CGRectMake(i * ZP_Width, z *  50+ 50 + x * 150, ZP_Width , 1)];
-                [self.view setBackgroundColor:ZP_DeepBlue];
-                [bounceView addSubview:self.view];
-            }
-        }
-    }
-    //  信用卡支付
-    UILabel * CreditcardLabel = [UILabel new];
-    CreditcardLabel.textColor = [UIColor blackColor];
-    CreditcardLabel.textColor = ZP_textblack;
-    CreditcardLabel.text = NSLocalizedString(@" 不想要了", nil);
-    CreditcardLabel.font = ZP_addBtnTextdetaFont;
-    [bounceView addSubview:CreditcardLabel];
-    [CreditcardLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(bounceView).offset(8);
-        make.top.equalTo(bounceView).offset(60);
-    }];
-    
-    //  信用卡选择按钮
-    UIButton * Creditcardbut = [UIButton new];
-    [Creditcardbut setImage:[UIImage imageNamed:@"icon_payment_selected_pressed"] forState:UIControlStateNormal];
-    [Creditcardbut setImage:[UIImage imageNamed:@"icon_payment_selected_normal"] forState:UIControlStateSelected];
-    [Creditcardbut addTarget:self action:@selector(creditcardbut:) forControlEvents:UIControlEventTouchUpInside];
-    Creditcardbut.layer.masksToBounds = YES;
-    Creditcardbut.layer.cornerRadius = Creditcardbut.frame.size.height / 2;
-    Creditcardbut.layer.borderColor = [UIColor clearColor].CGColor;
-    Creditcardbut.layer.borderWidth = 1;
-    [Creditcardbut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
-    [bounceView addSubview:Creditcardbut];
-    _Creditcardbut = Creditcardbut;
-    [Creditcardbut mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(bounceView).offset(-15);
-        make.top.equalTo(bounceView).offset(60);
-    }];
-    
-    //  ICUE支付
-    UILabel * ICUELabel = [UILabel new];
-    ICUELabel.textColor = [UIColor blackColor];
-    ICUELabel.textColor = ZP_textblack;
-    ICUELabel.text = NSLocalizedString(@"ICUE支付", nil);
-    ICUELabel.font = ZP_addBtnTextdetaFont;
-    [bounceView addSubview:ICUELabel];
-    [ICUELabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(bounceView).offset(8);
-        make.top.equalTo(CreditcardLabel).offset(30);
-    }];
-    
-    //  ICUE选择按钮
-    UIButton * ICUEbut = [UIButton new];
-    [ICUEbut setImage:[UIImage imageNamed:@"icon_payment_selected_normal"] forState:UIControlStateNormal];
-    [ICUEbut setImage:[UIImage imageNamed:@"icon_payment_selected_pressed"] forState:UIControlStateSelected];
-    [ICUEbut addTarget:self action:@selector(iCUEbut:) forControlEvents:UIControlEventTouchUpInside];
-    ICUEbut.layer.masksToBounds = YES;
-    ICUEbut.layer.cornerRadius = ICUEbut.frame.size.height / 2;
-    ICUEbut.layer.borderColor = [UIColor clearColor].CGColor;
-    ICUEbut.layer.borderWidth = 1;
-    [ICUEbut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
-    _ICUEbut = ICUEbut;
-    [bounceView addSubview:ICUEbut];
-    [ICUEbut mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(bounceView).offset(-15);
-        make.top.equalTo(ICUELabel).offset(0);
-    }];
-    
+    [bounceView addSubview:self.tableView];
     //  关闭按钮
     UIButton * Paybut = [UIButton new];
     Paybut.titleLabel.font = ZP_TooBarFont;
@@ -163,54 +97,32 @@
         make.height.mas_offset(40);
     }];
 }
-#pragma mark - 按钮选择
-//  信用卡选择按钮
-- (void)creditcardbut:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    _Creditcardbut.selected = NO;
-    if (_Creditcardbut == sender) {
-        _ICUEbut.selected = NO;
-    }
-    NSLog(@"选中信用卡");
-}
-
-//  ICUE 按钮选择
-- (void)iCUEbut:(UIButton *)sender {
-    _ICUEbut.selected = YES;
-    if (_ICUEbut == sender) {
-        _Creditcardbut.selected = YES;
-    }
-    NSLog(@"选中IUCE");
-}
 
 #pragma mark - 点击关闭按钮
 - (void)paybut:(UIButton *)sender {
-//    if (_Creditcardbut.selected == 0) {
-//        PayPassController * paypass = [[PayPassController alloc] init];
-//        if (self.confirmPayBlock) {
-//            self.confirmPayBlock(paypass);
-//        }
-//
-//        NSLog(@"111");
-//    }else if (_ICUEbut.selected == 1) {
-//
-//        PayFailController * PayFail = [[PayFailController alloc] init];
-//        if (self.PayFailBlock) {
-//            self.PayFailBlock(PayFail);
-//        }
-//
-//        NSLog(@"222");
-//    }
     
-}
-#pragma mark - 点击事件
-- (void)cancelbut:(UIButton * )sup {
+
+    for (int i = 0; i < self.dataArray.count; i ++) {
+        SelectViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        if (cell.SelectBut.selected) {
+            SelectModel1 * model1 = _dataArray[i];
+            if (_ThirdBlock) {
+                self.ThirdBlock(model1.reasonstr, model1.reasonid);
+            }            
+        }
+    }
+    
+    
     __weak typeof(self) _weakSelf = self;
     [UIView animateWithDuration:0.3 animations:^{
         _weakSelf.backgroundColor = [UIColor clearColor];
     } completion:^(BOOL finished) {
         [_weakSelf removeFromSuperview];
     }];
+}
+#pragma mark - 点击事件
+- (void)cancelbut:(UIButton * )sup {
+   
 }
 
 #pragma mark - UIGestureRecognizerDelegate
@@ -261,8 +173,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SelectModel1 * model1 = _dataArray[indexPath.row];
     SelectViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SelectViewCell"];
-    cell.SelectLabel = [NSString stringWithFormat:@"%@",model1.reasonstr];
+    cell.SelectLabel.text = [NSString stringWithFormat:@"%@",model1.reasonstr];
+    cell.SelectBut.tag = indexPath.row;
     [cell.SelectBut addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -273,6 +187,17 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return CGFLOAT_MIN;
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    
+    return nil;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    return nil;
+}
+
 
 - (void)btnClick:(UIButton *)btn {
     if (!btn.selected) {
@@ -289,9 +214,11 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 165, ZP_Width, self.contentView.frame.size.height - 165 - 60) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 50, ZP_Width, ZP_Width- 65) style:UITableViewStyleGrouped];
+        
         _tableView.delegate = self;
         _tableView.dataSource = self;
+//        _tableView.backgroundColor = [UIColor redColor];
         [_tableView registerNib:[UINib nibWithNibName:@"SelectViewCell" bundle:nil] forCellReuseIdentifier:@"SelectViewCell"];
     }
     return _tableView;
@@ -299,7 +226,7 @@
 
 - (void)setDataArray:(NSArray *)dataArray {
     _dataArray = dataArray;
-    [_tableView reloadData];
+    [self.tableView reloadData];
     NSLog(@"%ld",(unsigned long)self.dataArray.count);
 }
 @end

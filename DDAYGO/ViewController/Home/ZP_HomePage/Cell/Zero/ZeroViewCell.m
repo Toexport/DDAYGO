@@ -40,7 +40,7 @@
     
 //    768 × 320
 
-    SDCycleScrollView *scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, ZP_Width, zeroHeight) delegate:self placeholderImage:[UIImage imageNamed:@"ddg-propaganda.png"]];
+    SDCycleScrollView *scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, ZP_Width, zeroHeight) delegate:self placeholderImage:[UIImage imageNamed:@"ddg_propaganda.png"]];
     
     scrollView.backgroundColor = [UIColor yellowColor];
     scrollView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;

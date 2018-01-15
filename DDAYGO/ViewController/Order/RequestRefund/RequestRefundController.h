@@ -11,6 +11,7 @@
 @interface RequestRefundController : UIViewController
 @property (weak, nonatomic) IBOutlet UIScrollView *ReuqestRefundScrollView; // 滚动视图
 @property (nonatomic, strong) NSString * OrderStr;
+@property (nonatomic, strong)NSNumber * ord;
 /** 第1个View */
 @property (weak, nonatomic) IBOutlet UIView * view1;
 @property (weak, nonatomic) IBOutlet UIImageView * MainImageView; // 商品图片

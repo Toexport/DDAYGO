@@ -7,12 +7,16 @@
 //
 
 #import "RefundServiceController.h"
-#import "RefundServiceHeader.h"
 #import "RequestRefundController.h"
 #import "PrefixHeader.pch"
+#import "ExchangeDetailsController.h"
 #import "ZP_MyTool.h"
+#import "RefundServiceModel.h"
+#import "RefundServiceCell.h"
 @interface RefundServiceController ()<UITableViewDelegate, UITableViewDataSource>
-
+{
+    NSArray *_dataarray;
+}
 @end
 
 @implementation RefundServiceController
@@ -30,9 +34,10 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_WhiteColor}];   // 更改导航栏字体颜色
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];  //  更改导航栏颜色
     self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
-    [self.tableview registerNib:[UINib nibWithNibName:@"RefundServiceHeader" bundle:nil] forCellReuseIdentifier:@"RefundServiceHeader"];
+//    [self.tableview registerNib:[UINib nibWithNibName:@"RefundServiceHeader" bundle:nil] forCellReuseIdentifier:@"RefundServiceHeader"];
+    [self.tableview registerNib:[UINib nibWithNibName:@"RefundServiceCell" bundle:nil] forCellReuseIdentifier:@"RefundServiceCell"];
+    self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
-
 // 生命周期
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -40,7 +45,7 @@
     [self AllData];
 }
 
-// 获取退换货记录列表
+// 70) 获取退换货记录列表
 - (void)AllData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
@@ -48,8 +53,8 @@
     dic[@"pagesize"] = @"10";
     [ZP_MyTool requestGetrefundlist:dic success:^(id obj) {
         ZPLog(@"%@",obj);
-        
-        
+        _dataarray = [RefundServiceModel mj_objectArrayWithKeyValuesArray:obj[@"datalist"]];
+        [self.tableview reloadData];
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
     }];
@@ -57,43 +62,54 @@
 
 #pragma 代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return _dataarray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 45 + 155;
+    return 195;
 
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    RefundServiceHeader * header = [tableView dequeueReusableCellWithIdentifier:@"RefundServiceHeader"];
-    header.RefundServiceHeaderBlock = ^(NSInteger tag) {
-        RequestRefundController * requestRefund = [[RequestRefundController alloc]init];
-        [self.navigationController pushViewController:requestRefund animated:YES];
-    };
-      header.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
-        return header;
+    
+    RefundServiceModel *model = _dataarray[indexPath.row];
+    //数据
+    NSLog(@"%@ -- %ld",model.createtime,_dataarray.count);
+    RefundServiceCell * cell = [tableView dequeueReusableCellWithIdentifier:@"RefundServiceCell"];
+    cell.shopnameLabel.text = model.shopname ;
+    cell.StateLabel.text = model.statestr;
+    cell.ItemLabel.text = model.createtime;
+    cell.TitleLabel.text = model.productname;
+    [cell.MaimImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.0.117:7000%@", model.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    RefundServiceModel * model = _dataarray[indexPath.row];
+    ExchangeDetailsController * ExchangeDatails = [[ExchangeDetailsController alloc]init];
+    ExchangeDatails.Oid = model.refundid;
     
+    [self.navigationController pushViewController:ExchangeDatails animated:YES];
+  
     ZPLog(@"%ld",indexPath.row);
    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    return CGFLOAT_MIN;
-        return 5.0f;
+    return CGFLOAT_MIN;
+//        return 5.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    //    return CGFLOAT_MIN;
-    NSLog(@"go ");
-    return 10.0f;
+        return CGFLOAT_MIN;
+//    NSLog(@"go ");
+//    return 10.0f;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 10)];
     return v;
 }
+
 @end

@@ -10,6 +10,7 @@
 
 @interface ExchangeDetailsController : UIViewController
 @property (weak, nonatomic) IBOutlet UIScrollView * ExchangeDetailsScrollView; // 滚动视图
+@property (nonatomic, strong)NSNumber * Oid;
 /** 第1个View */
 @property (weak, nonatomic) IBOutlet UIView * view1;  // view1
 @property (weak, nonatomic) IBOutlet UILabel * OrderNumberLabel; // 订单号
@@ -21,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet UILabel * TitleLabel;  // 商品名字
 @property (weak, nonatomic) IBOutlet UILabel * DetailsLabel; // 商品详情
 @property (weak, nonatomic) IBOutlet UILabel * NumberLabel; // 数量
+@property (weak, nonatomic) IBOutlet UILabel * YanseLable; // 颜色
+@property (weak, nonatomic) IBOutlet UILabel * ChimaLabel; // 尺码
+
 /**********************************************************/
 @property (weak, nonatomic) IBOutlet UILabel * RequestTypeLabel; // 申请类型
 @property (weak, nonatomic) IBOutlet UILabel * CurrencyLabel;  // 货币符号
@@ -32,7 +36,10 @@
 
 /** 第3个View */
 @property (weak, nonatomic) IBOutlet UIView *view3;
+
+
+/**第4个View */
+@property (weak, nonatomic) IBOutlet UIView *view4;
 @property (weak, nonatomic) IBOutlet UIButton * CancelBut; // 取消按钮
 @property (weak, nonatomic) IBOutlet UIButton * RequestServiceBut; // 请求客服
-
 @end

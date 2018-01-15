@@ -109,5 +109,8 @@
 
 // 获取退换货详情
 + (void)requestGetrefundinfo:(NSDictionary *)Getrefundinfo success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure;
+
+//72) 更改退换货状态
++ (void)RequestRefundStatus:(NSDictionary *)RefundStatus success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure;
 @end
 

@@ -55,7 +55,7 @@
     [self.contentView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(80);
-        make.right.equalTo(self).offset(-15);
+        make.right.equalTo(self).offset(-20);
         make.top.equalTo(Backgroundview).offset(10);
     }];
     _titleLabel = titleLabel;
@@ -74,7 +74,7 @@
     UILabel * CurrencySymbolLabel = [UILabel new];
     CurrencySymbolLabel.textAlignment = NSTextAlignmentLeft;
     CurrencySymbolLabel.textColor = ZP_pricebackground;
-    CurrencySymbolLabel.font = ZP_titleFont;
+    CurrencySymbolLabel.font = ZP_TooBarFont;
     [self.contentView addSubview:CurrencySymbolLabel];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(FigureImage).offset(80);

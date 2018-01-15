@@ -345,7 +345,7 @@
     }];
 }
 
-// 获取退换货记录列表
+// 70) 获取退换货记录列表
 + (void)requestGetrefundlist:(NSDictionary *)Getrefundlist success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
     [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getrefundlist?token=%@&page=%@&pagesize=%@",URLAPI,Getrefundlist[@"token"],Getrefundlist[@"page"],Getrefundlist[@"pagesize"]] parameters:nil success:^(id responseObject) {
         success(responseObject);
@@ -360,6 +360,15 @@
     [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getrefundinfo?token=%@&refundid=%@&countrycode=%@",URLAPI,Getrefundinfo[@"token"],Getrefundinfo[@"refundid"],Getrefundinfo[@"countrycode"]] parameters:nil success:^(id responseObject) {
         success(responseObject);
     } failure:^(NSError * error) {
+        failure(error);
+    }];
+}
+
+//72) 更改退换货状态
++ (void)RequestRefundStatus:(NSDictionary *)RefundStatus success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
+    [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@updaterefundstate?token=%@&refundid=%@&type=%@&rtimgs=%@",URLAPI,RefundStatus[@"token"],RefundStatus[@"refundid"],RefundStatus[@"type"],RefundStatus[@"rtimgs"]] parameters:nil success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
         failure(error);
     }];
 }

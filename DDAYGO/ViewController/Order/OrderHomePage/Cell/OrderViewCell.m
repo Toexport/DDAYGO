@@ -12,6 +12,7 @@
 #import "AppraiseController.h"
 #import "ExchangeDetailsController.h"
 #import "RequestRefundController.h"
+#import "ZP_OrderModel.h"
 @implementation OrderViewCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:@"orderViewCell"];
@@ -104,7 +105,7 @@
     [self.Backgroundview addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(FigureImage).offset(80);
-        make.right.equalTo(self.Backgroundview).offset(20);
+        make.right.equalTo(self.Backgroundview).offset(-10);
         make.top.equalTo(merchantsLabel).offset(20);
     }];
     _titleLabel = titleLabel;
@@ -322,6 +323,7 @@
             
         case 2:{
             RequestRefundController * RequestRefund = [[RequestRefundController alloc]init];
+            RequestRefund.ord = _model.ordersnumber;
             if (self.appraiseBlock) {
                 self.appraiseBlock(RequestRefund);
             }
@@ -400,8 +402,8 @@
     
     _IDLabel.text = [NSString stringWithFormat:@"%@",dic.ordersnumber];
     _DateLabel.text = model.createtime;
-    [_FigureImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.ddaygo.com%@", dic.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
-    _merchantsLabel.text = [NSString stringWithFormat:@"%@",model.shopname]; // 这个参数显示不出来不
+    [_FigureImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.0.117:7000%@", dic.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
+    _merchantsLabel.text = [NSString stringWithFormat:@"%@",model.shopname];
     _titleLabel.text = dic.productname;
 //    _titleLabel.text = model.shopname;
     _descLabel.text = dic.colorname;

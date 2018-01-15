@@ -202,6 +202,7 @@
     
 //    申请退款
     cell.appraiseBlock = ^(RequestRefundController* response) {
+        
         [self.navigationController pushViewController:response animated:YES];
     };
     

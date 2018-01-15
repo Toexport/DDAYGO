@@ -37,7 +37,7 @@
     }];
 }
 
-// 获取退换货申请页面信息
+// 67) 获取退换货申请页面商品信息
 + (void)requestRequestRefund: (NSDictionary *)RequestRefund success:(void (^)(id))success failure:(void (^)(NSError *))failure {
     [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getrefundproductinfo?token=%@&rty=%@&oid=%@",URLAPI,RequestRefund[@"token"],RequestRefund[@"rty"],RequestRefund[@"oid"]] parameters:nil success:^(id responseObject) {
         success(responseObject);
@@ -56,7 +56,7 @@
         failure(error);
     }];
 }
-// 添加退换货记录列表
+// 69) 添加退换货记录
 + (void)requestAddRefund:(NSDictionary *)AddRefund  success:(void (^)(id))success failure:(void (^)(NSError *))failure {
     NSString * strUrl = [NSString stringWithFormat:@"%@addrefund?token=%@&rty=%@&oid=%@&reason=%@&reasondetail=%@&imgs=%@",URLAPI,AddRefund[@"token"],AddRefund[@"rty"],AddRefund[@"oid"],AddRefund[@"reason"],AddRefund[@"reasondetail"],AddRefund[@"imgs"]];
     NSString * str = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
