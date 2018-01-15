@@ -400,13 +400,13 @@
 		C4AD076C200CA8E700B8FF6E /* ExchangeDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AD076A200CA8E700B8FF6E /* ExchangeDetailsController.m */; };
 		C4AD076D200CA8E700B8FF6E /* ExchangeDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AD076B200CA8E700B8FF6E /* ExchangeDetailsController.xib */; };
 		C4AD0771200CA9A600B8FF6E /* ExchangeDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AD0770200CA9A600B8FF6E /* ExchangeDetailsModel.m */; };
+		C4AD0773200CCD5D00B8FF6E /* DDAYGO IHTTP协议1.0.docx in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0772200CCD5D00B8FF6E /* DDAYGO IHTTP协议1.0.docx */; };
 		C4B04D9A200889C8009F7AF9 /* RequestRefundController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B04D96200889C8009F7AF9 /* RequestRefundController.m */; };
 		C4B04D9B200889C8009F7AF9 /* RequestRefundController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B04D97200889C8009F7AF9 /* RequestRefundController.xib */; };
 		C4B04D9F2008A16D009F7AF9 /* SelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B04D9E2008A16D009F7AF9 /* SelectView.m */; };
 		C4B04DA32008A652009F7AF9 /* SelectViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B04DA12008A652009F7AF9 /* SelectViewCell.m */; };
 		C4B04DA42008A652009F7AF9 /* SelectViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B04DA22008A652009F7AF9 /* SelectViewCell.xib */; };
 		C4B04DA82008B9A9009F7AF9 /* SelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B04DA72008B9A9009F7AF9 /* SelectModel.m */; };
-		C4B04DAA2008F000009F7AF9 /* DDAYGO IHTTP协议1.0.docx in Resources */ = {isa = PBXBuildFile; fileRef = C4B04DA92008F000009F7AF9 /* DDAYGO IHTTP协议1.0.docx */; };
 		C4B04DAF20092652009F7AF9 /* RequestReplaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B04DAD20092652009F7AF9 /* RequestReplaceController.m */; };
 		C4B04DB020092652009F7AF9 /* RequestReplaceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B04DAE20092652009F7AF9 /* RequestReplaceController.xib */; };
 		C4C4D1461FF64A810075D8D8 /* SupplierViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C4D1441FF64A810075D8D8 /* SupplierViewCell2.m */; };
@@ -1185,6 +1185,7 @@
 		C4AD076B200CA8E700B8FF6E /* ExchangeDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExchangeDetailsController.xib; sourceTree = "<group>"; };
 		C4AD076F200CA9A600B8FF6E /* ExchangeDetailsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExchangeDetailsModel.h; sourceTree = "<group>"; };
 		C4AD0770200CA9A600B8FF6E /* ExchangeDetailsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExchangeDetailsModel.m; sourceTree = "<group>"; };
+		C4AD0772200CCD5D00B8FF6E /* DDAYGO IHTTP协议1.0.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0.docx"; sourceTree = "<group>"; };
 		C4B04D95200889C8009F7AF9 /* RequestRefundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestRefundController.h; sourceTree = "<group>"; };
 		C4B04D96200889C8009F7AF9 /* RequestRefundController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestRefundController.m; sourceTree = "<group>"; };
 		C4B04D97200889C8009F7AF9 /* RequestRefundController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestRefundController.xib; sourceTree = "<group>"; };
@@ -1195,7 +1196,6 @@
 		C4B04DA22008A652009F7AF9 /* SelectViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectViewCell.xib; sourceTree = "<group>"; };
 		C4B04DA62008B9A9009F7AF9 /* SelectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectModel.h; sourceTree = "<group>"; };
 		C4B04DA72008B9A9009F7AF9 /* SelectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectModel.m; sourceTree = "<group>"; };
-		C4B04DA92008F000009F7AF9 /* DDAYGO IHTTP协议1.0.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0.docx"; sourceTree = "<group>"; };
 		C4B04DAC20092652009F7AF9 /* RequestReplaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestReplaceController.h; sourceTree = "<group>"; };
 		C4B04DAD20092652009F7AF9 /* RequestReplaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestReplaceController.m; sourceTree = "<group>"; };
 		C4B04DAE20092652009F7AF9 /* RequestReplaceController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestReplaceController.xib; sourceTree = "<group>"; };
@@ -1286,7 +1286,7 @@
 		063FE0441F614D24009910FF /* DDAYGO */ = {
 			isa = PBXGroup;
 			children = (
-				C4B04DA92008F000009F7AF9 /* DDAYGO IHTTP协议1.0.docx */,
+				C4AD0772200CCD5D00B8FF6E /* DDAYGO IHTTP协议1.0.docx */,
 				0641BB971F67B60B00E72FEF /* Testbag */,
 				063FE0AE1F615CEB009910FF /* ViewController */,
 			);
@@ -4157,6 +4157,7 @@
 				C44D6D121FD8CF070002DAF2 /* PayViewController.xib in Resources */,
 				C4D9E7081FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.xib in Resources */,
 				06F571D81F9F1A7900D61FDB /* EditViewController.xib in Resources */,
+				C4AD0773200CCD5D00B8FF6E /* DDAYGO IHTTP协议1.0.docx in Resources */,
 				06F572411F9F204F00D61FDB /* BillDetailViewController.xib in Resources */,
 				C4B04DB020092652009F7AF9 /* RequestReplaceController.xib in Resources */,
 				C47096931FB04998006EA52C /* BindingEmailController.xib in Resources */,
@@ -4164,7 +4165,6 @@
 				C472F1341FE299E00031D7B5 /* ZP_CheckMoreController.xib in Resources */,
 				064249871F99FBEB00340EBA /* PayFailController.xib in Resources */,
 				064449B51F6A9B250004DFE4 /* MJRefresh.bundle in Resources */,
-				C4B04DAA2008F000009F7AF9 /* DDAYGO IHTTP协议1.0.docx in Resources */,
 				C492A1BC1FD15189009FF57B /* 扫码付款状态.png in Resources */,
 				064249821F99F36000340EBA /* PayPassController.xib in Resources */,
 				C47BBBF11FE510600000FFE6 /* ZP_DetailsSistoryAwardTableViewCell.xib in Resources */,
