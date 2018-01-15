@@ -249,7 +249,17 @@
         make.height.mas_equalTo(50);
     }];
     _ClearingButt = ClearingBut;
+    
+    //    运费Label
+    ZP_GeneralLabel * FreightLabel = [ZP_GeneralLabel initWithtextLabel:_FreightLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    FreightLabel.text = NSLocalizedString(@"不含运费", nil);
+    [bottomView addSubview:FreightLabel];
+    [FreightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(ClearingBut).offset(-65); // 左边
+        make.top.equalTo(StatisticsLabel).offset(20); // 下
+    }];
 }
+
 
 //  全选
 - (void)selectClick:(UIButton *)sender {

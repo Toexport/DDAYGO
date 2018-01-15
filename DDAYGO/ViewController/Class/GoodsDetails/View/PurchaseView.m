@@ -20,11 +20,11 @@
     self.userInteractionEnabled = YES;
     self.backgroundView.userInteractionEnabled = YES;
     self.backgroundView.backgroundColor = [UIColor blackColor];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
     self.backgroundView.userInteractionEnabled = YES;
     [self.backgroundView addGestureRecognizer:tap];
     
-    self.standardList = @[NSLocalizedString(@"商品規格", nil),NSLocalizedString(@"", nil)];
+    self.standardList = @[NSLocalizedString(@"商品类型", nil),NSLocalizedString(@"", nil)];
     
     self.standardTypeList = @[NSLocalizedString(@"商品規格", nil),NSLocalizedString(@"購買數量", nil)];
     
@@ -32,7 +32,7 @@
     self.chooseView = [[ChooseView alloc] initWithFrame:CGRectMake(0, screen_Height, screen_Width, screen_Height)];
     self.chooseView.headImage.image = [UIImage imageNamed:@"bingli"];
     self.chooseView.LB_price.text = @"NT36.00";
-    self.chooseView.LB_stock.text = [NSString stringWithFormat:NSLocalizedString(@"库存%@件", nil),@56];
+    self.chooseView.LB_stock.text = [NSString stringWithFormat:NSLocalizedString(@"库存:%@件", nil),@100];
     self.chooseView.LB_detail.text = nil;
     [self addSubview:self.chooseView];
     //    [self initChooseView];
@@ -102,7 +102,7 @@
     UILabel * numLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 60, 20)];
     numLabel.textAlignment = NSTextAlignmentCenter;
     numLabel.textColor = [UIColor blackColor];
-    numLabel.text = @"0";
+    numLabel.text = @"1";
     numLabel.font = ZP_TooBarFont;
     [backView addSubview:numLabel];
     _numLabel = numLabel;
@@ -398,7 +398,7 @@
             NSLog(@"stockid = %@",value);
             self.stockid = value;
         }
-        NSLog(@"go-%@",json);
+        ZPLog(@"go-%@",json);
     } failure:^(NSError *error) {
         
     }];
@@ -407,6 +407,8 @@
 - (void)setModel:(ZP_GoodDetailsModel *)model {
     _model = model;
     self.chooseView.LB_price.text = model.productprice;
+//    self.chooseView.LB_stock.text = model.productamount;
+    self.chooseView.LB_stock.text = [NSString stringWithFormat:@"库存:%@",model.productamount];
     [self.chooseView.headImage sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@"bingli"]];
     NSLog(@"_____%@",model.productid);
     self.stockid = [NSNumber numberWithInt:[model.productid intValue]];
@@ -434,8 +436,7 @@
     [self initChooseView];
 }
 
-- (void)setModeltypeArr:(NSArray *)modeltypeArr
-{
+- (void)setModeltypeArr:(NSArray *)modeltypeArr {
     _modeltypeArr = modeltypeArr;
     NSMutableArray  *arr = [NSMutableArray array];
     for (int i = 0; i < modeltypeArr.count; i ++) {

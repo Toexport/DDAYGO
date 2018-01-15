@@ -33,7 +33,9 @@
 }
 - (void)initUI {
     self.title = NSLocalizedString(@"商店管理", nil);
+    [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
+    self.title = NSLocalizedString(@"Shopping", nil);
 }
 // 获取供货商
 - (void)Supplier {
@@ -97,12 +99,12 @@
     _FrozenAssets.text = [model.balance stringValue];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.hidesBottomBarWhenPushed = NO;
-    [self.navigationController.navigationBar lt_setBackgroundColor:ZP_PayColor];
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-}
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    self.hidesBottomBarWhenPushed = NO;
+//    [self.navigationController.navigationBar lt_setBackgroundColor:ZP_PayColor];
+//    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+//}
 
 //  提现
 - (IBAction)tixianBut:(id)sender {

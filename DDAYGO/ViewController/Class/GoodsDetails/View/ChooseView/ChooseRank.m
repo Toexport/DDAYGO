@@ -34,7 +34,6 @@
 
 
 - (void)rankView {
-    
     self.packView = [[UIView alloc] initWithFrame:self.frame];
     self.packView.y = 0;
     
@@ -118,16 +117,15 @@
 
 - (void)btnClick:(UIButton *)btn {
     
-    
     if (![self.selectBtn isEqual:btn]) {
         
         self.selectBtn.backgroundColor = BackgroundColor;
         self.selectBtn.selected = NO;
     }
     else {
-        btn.backgroundColor = MainColor;
+        btn.backgroundColor = [UIColor orangeColor];
     }
-    btn.backgroundColor = MainColor;
+    btn.backgroundColor = [UIColor orangeColor];
     btn.selected = YES;
     
     self.selectBtn = btn;
