@@ -10,7 +10,7 @@
 #import "PrefixHeader.pch"
 #import "LogistcsController.h"
 #import "AppraiseController.h"
-#import "ExchangeDetailsController.h"
+#import "RequestReplaceController.h"
 #import "RequestRefundController.h"
 #import "ZP_OrderModel.h"
 @implementation OrderViewCell
@@ -312,10 +312,10 @@
     NSLog(@"state =  %@",_model.state);
     switch (_model.state.longValue) {
         case 3:{
-            ExchangeDetailsController * ExchangeDetails = [[ExchangeDetailsController alloc]init];
+            RequestReplaceController * RequestReplace = [[RequestReplaceController alloc]init];
             
             if (self.appraiseBlock) {
-                self.appraiseBlock(ExchangeDetails);
+                self.appraiseBlock(RequestReplace);
             }
             [[NSNotificationCenter defaultCenter]postNotificationName:@"ExchangeDetails" object:nil];
         }

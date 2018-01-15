@@ -20,23 +20,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_service_store" translatesAutoresizingMaskIntoConstraints="NO" id="GEm-Xy-1xn">
-                        <rect key="frame" x="8" y="7" width="23" height="23"/>
+                        <rect key="frame" x="8" y="7" width="20" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="23" id="3gA-kb-HhM"/>
-                            <constraint firstAttribute="width" constant="23" id="reh-PR-ask"/>
+                            <constraint firstAttribute="height" constant="20" id="0VX-NJ-4M3"/>
+                            <constraint firstAttribute="width" constant="20" id="5fV-Yh-SWL"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_retreat_left" translatesAutoresizingMaskIntoConstraints="NO" id="14b-ff-tae">
-                        <rect key="frame" x="110" y="12" width="10" height="15"/>
+                        <rect key="frame" x="102.5" y="12" width="8" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="15" id="ah1-Ga-Hkg"/>
-                            <constraint firstAttribute="width" constant="10" id="gnn-Q3-Wlg"/>
+                            <constraint firstAttribute="height" constant="15" id="hla-ry-xS8"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阿芙专卖店" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56O-nU-hXu">
-                        <rect key="frame" x="39" y="11" width="66.5" height="15"/>
+                        <rect key="frame" x="33" y="11" width="66.5" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="15" id="nyq-Fo-2Wg"/>
+                            <constraint firstAttribute="height" constant="15" id="iBr-ru-O87"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
@@ -159,21 +158,21 @@
                 <constraints>
                     <constraint firstItem="98C-zS-aI9" firstAttribute="leading" secondItem="t4T-oy-aHA" secondAttribute="trailing" constant="5" id="0l7-cd-WV8"/>
                     <constraint firstItem="t4T-oy-aHA" firstAttribute="top" secondItem="DOd-aw-X2K" secondAttribute="bottom" constant="4" id="2Ff-ZK-fXc"/>
-                    <constraint firstItem="TC5-Tr-wyh" firstAttribute="top" secondItem="14b-ff-tae" secondAttribute="bottom" constant="10" id="3Up-DG-99k"/>
+                    <constraint firstItem="GEm-Xy-1xn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="8hh-qY-rqy"/>
                     <constraint firstItem="DOd-aw-X2K" firstAttribute="leading" secondItem="6GF-dF-ifI" secondAttribute="trailing" constant="5" id="8tL-JN-hu8"/>
-                    <constraint firstItem="56O-nU-hXu" firstAttribute="centerY" secondItem="GEm-Xy-1xn" secondAttribute="centerY" id="APP-ik-ZOG"/>
-                    <constraint firstItem="14b-ff-tae" firstAttribute="leading" secondItem="56O-nU-hXu" secondAttribute="trailing" constant="5" id="K9E-ns-koD"/>
                     <constraint firstItem="98C-zS-aI9" firstAttribute="top" secondItem="TC5-Tr-wyh" secondAttribute="bottom" constant="32" id="KY4-as-NAl"/>
                     <constraint firstAttribute="trailing" secondItem="TC5-Tr-wyh" secondAttribute="trailing" id="L8V-Q2-7gp"/>
                     <constraint firstItem="TC5-Tr-wyh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Ldw-5G-LC5"/>
                     <constraint firstItem="DOd-aw-X2K" firstAttribute="top" secondItem="TC5-Tr-wyh" secondAttribute="bottom" constant="8" id="Mlz-o6-Oyn"/>
+                    <constraint firstItem="14b-ff-tae" firstAttribute="leading" secondItem="56O-nU-hXu" secondAttribute="trailing" constant="3" id="OQi-f0-pAZ"/>
                     <constraint firstItem="t4T-oy-aHA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="Tq4-qy-m8D"/>
                     <constraint firstItem="6GF-dF-ifI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="V72-cF-kNh"/>
-                    <constraint firstItem="56O-nU-hXu" firstAttribute="leading" secondItem="GEm-Xy-1xn" secondAttribute="trailing" constant="8" symbolic="YES" id="Yee-Jd-OPe"/>
-                    <constraint firstItem="GEm-Xy-1xn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="Z8Y-tn-eqD"/>
+                    <constraint firstItem="GEm-Xy-1xn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="ZyI-0l-aiv"/>
                     <constraint firstItem="TC5-Tr-wyh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="37" id="b1a-P4-MoG"/>
+                    <constraint firstItem="56O-nU-hXu" firstAttribute="leading" secondItem="GEm-Xy-1xn" secondAttribute="trailing" constant="5" id="cgO-bI-VH6"/>
+                    <constraint firstItem="56O-nU-hXu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="kfv-cQ-77g"/>
                     <constraint firstItem="6GF-dF-ifI" firstAttribute="top" secondItem="TC5-Tr-wyh" secondAttribute="bottom" constant="8" id="n3p-4w-YDU"/>
-                    <constraint firstItem="GEm-Xy-1xn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="tSg-Ts-atf"/>
+                    <constraint firstItem="14b-ff-tae" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="th2-GV-Fxu"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

@@ -21,7 +21,7 @@
 #import "ConfirmViewController.h"
 #import "AppraiseController.h"
 #import "RequestRefundController.h"
-#import "ExchangeDetailsController.h"
+#import "RequestReplaceController.h"
 @interface ZP_OrderController ()<FSPageContentViewDelegate,FSSegmentTitleViewDelegate> {
     int _i;
     NSArray * dataArray;
@@ -72,10 +72,10 @@
         [self getDataWithState];
     }];
 }
+
 // UI
 -(void)addUI {
-    
-    self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width , ZP_height - NavBarHeight - 40)];
+    self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width , ZP_height - NavBarHeight - 35)];
     self.tableview.backgroundColor = ZP_Graybackground;
     [self.tableview registerClass:[OrderViewCell class] forCellReuseIdentifier:@"orderViewCell"];
     self.tableview.delegate = self;
@@ -84,6 +84,7 @@
     self.tableview.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     [self.view addSubview:self.tableview];
 }
+
 // 订单协议
 - (void)getDataWithState {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
@@ -207,7 +208,7 @@
     };
     
 //    退换货
-    cell.appraiseBlock = ^(ExchangeDetailsController* response) {
+    cell.appraiseBlock = ^(RequestReplaceController* response) {
         [self.navigationController pushViewController:response animated:YES];
     };
     return cell;

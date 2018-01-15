@@ -44,8 +44,12 @@
     [ZP_MyTool requestGetrefundinfo:dic success:^(id obj) {
         ZPLog(@"%@",obj);
         ExchangeDetailsModel * model = [ExchangeDetailsModel mj_objectWithKeyValues:obj[@"refund"]];
-        NSLog(@"%@",model.ordersnumber);
+        
+        ExchangeDetailsModel * model1 = [ExchangeDetailsModel mj_objectWithKeyValues:obj[@"product"][0]];
+//        NSLog(@"%@",model.ordersnumber);
         [self ExchangeDeatils:model];
+        [self ExchangeDeatils1:model1];
+        ZPLog(@"%@",model1.productname);
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
     }];
@@ -77,6 +81,7 @@
     switch ([[[NSUserDefaults standardUserDefaults] objectForKey:[model.state stringValue]] integerValue]) {
         case 0:
             self.NowStateLabel.text = @"待審核";
+            self.RequestServiceBut.hidden = YES; // 隐藏客服按钮
             break;
 //        case 2:
 //            self.NowStateLabel.text = @"買錯了";
@@ -94,12 +99,15 @@
             break;
     }
     self.LogisticsLabel.text = model.logisticname;
+   
+}
 
-    [self.Mainimageview sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.0.117:7000%@", model.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
-    self.TitleLabel.text = model.productname;
-    self.YanseLable.text = model.colorname;
-    self.ChimaLabel.text = model.normname;
-    self.NumberLabel.text = [model.amount stringValue];
+- (void)ExchangeDeatils1:(ExchangeDetailsModel *)model1 {
+    [self.Mainimageview sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.0.117:7000%@", model1.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
+    self.TitleLabel.text = model1.productname;
+    self.YanseLable.text = model1.colorname;
+    self.ChimaLabel.text = model1.normname;
+    self.NumberLabel.text = [model1.amount stringValue];
 }
 
 //72) 更改退换货状态

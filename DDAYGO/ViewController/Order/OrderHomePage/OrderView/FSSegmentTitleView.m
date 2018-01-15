@@ -264,8 +264,8 @@
 
 #pragma mark --Btn
 
-- (void)btnClick:(UIButton *)btn
-{
+- (void)btnClick:(UIButton *)btn {
+    
     NSInteger index = btn.tag - 666;
     if (index == self.selectIndex) {
         return;
@@ -277,15 +277,14 @@
 }
 
 #pragma mark UIScrollView
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     if (self.delegate&&[self.delegate respondsToSelector:@selector(FSSegmentTitleViewWillBeginDragging:)]) {
         [self.delegate FSSegmentTitleViewWillBeginDragging:self];
     }
 }
 
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
-{
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    
     if (self.delegate&&[self.delegate respondsToSelector:@selector(FSSegmentTitleViewWillEndDragging:)]) {
         [self.delegate FSSegmentTitleViewWillEndDragging:self];
     }
@@ -310,7 +309,7 @@
  
  @return 调试用
  */
-+ (UIColor*) randomColor{
++ (UIColor*) randomColor {
     NSInteger r = arc4random() % 255;
     NSInteger g = arc4random() % 255;
     NSInteger b = arc4random() % 255;

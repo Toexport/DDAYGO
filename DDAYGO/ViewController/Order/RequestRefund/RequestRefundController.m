@@ -16,7 +16,8 @@
 @property (nonatomic, strong) NSMutableArray * DataArray;
 @property (nonatomic, strong) NSMutableDictionary * prizeDic;
 @property (weak, nonatomic) IBOutlet UILabel *showLabel;
-@property (nonatomic, strong)LPDQuoteImagesView *imageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint * view4LayoutConstraint;
+@property (nonatomic, strong)LPDQuoteImagesView * imageView;
 @end
 
 @implementation RequestRefundController
@@ -114,10 +115,10 @@
     }];
 }
 
-- (IBAction)TiangjiaBut:(id)sender {
-    
-   
-}
+//- (IBAction)TiangjiaBut:(id)sender {
+//    
+//   
+//}
 
 // 上传按钮
 - (IBAction)ShangchuanBut:(id)sender {

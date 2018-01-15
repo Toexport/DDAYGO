@@ -40,7 +40,6 @@
     [self PositionallData];
     self.tableView.separatorStyle = NO;
     [self.view setBackgroundColor:ZP_Graybackground];
-//    [self.view setBackgroundColor:[UIColor yellowColor]];
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     
 /** 判断是否是 ios11 */

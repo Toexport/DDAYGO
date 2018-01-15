@@ -15,7 +15,7 @@
 #import "RefundServiceCell.h"
 @interface RefundServiceController ()<UITableViewDelegate, UITableViewDataSource>
 {
-    NSArray *_dataarray;
+    NSArray * _dataarray;
 }
 @end
 
@@ -31,13 +31,23 @@
     self.title = NSLocalizedString(@"退款/售后", nil);
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
+    self.tableview.separatorStyle = NO;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_WhiteColor}];   // 更改导航栏字体颜色
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];  //  更改导航栏颜色
     self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
 //    [self.tableview registerNib:[UINib nibWithNibName:@"RefundServiceHeader" bundle:nil] forCellReuseIdentifier:@"RefundServiceHeader"];
     [self.tableview registerNib:[UINib nibWithNibName:@"RefundServiceCell" bundle:nil] forCellReuseIdentifier:@"RefundServiceCell"];
     self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    /** 判断是否是 ios11 */
+    if (@available(iOS 11.0, *)){
+        self.tableview.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.tableview.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
+        self.tableview.scrollIndicatorInsets = self.tableview.contentInset;
+    }
 }
+
+
 // 生命周期
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -86,25 +96,24 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     RefundServiceModel * model = _dataarray[indexPath.row];
     ExchangeDetailsController * ExchangeDatails = [[ExchangeDetailsController alloc]init];
     ExchangeDatails.Oid = model.refundid;
-    
     [self.navigationController pushViewController:ExchangeDatails animated:YES];
-  
     ZPLog(@"%ld",indexPath.row);
    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return CGFLOAT_MIN;
-//        return 5.0f;
+        return CGFLOAT_MIN;
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-        return CGFLOAT_MIN;
-//    NSLog(@"go ");
-//    return 10.0f;
+//        return CGFLOAT_MIN;
+    return 10.0f;
+
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {

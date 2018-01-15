@@ -25,6 +25,7 @@
                 <outlet property="view2" destination="J4d-Im-2bF" id="Oa6-qq-WJD"/>
                 <outlet property="view3" destination="gra-Br-XAw" id="6KA-p1-HlD"/>
                 <outlet property="view4" destination="Gd3-C3-DyP" id="JVa-oE-Y1f"/>
+                <outlet property="view4LayoutConstraint" destination="PZ2-I2-Lr0" id="bUd-gc-4hr"/>
                 <outlet property="view5" destination="1zY-UB-7yj" id="hGQ-Ku-9cQ"/>
             </connections>
         </placeholder>
