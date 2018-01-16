@@ -74,7 +74,9 @@
     UILabel * CurrencySymbolLabel = [UILabel new];
     CurrencySymbolLabel.textAlignment = NSTextAlignmentLeft;
     CurrencySymbolLabel.textColor = ZP_pricebackground;
-    CurrencySymbolLabel.font = ZP_TooBarFont;
+    CurrencySymbolLabel.font = ZP_titleFont;
+    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     [self.contentView addSubview:CurrencySymbolLabel];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(FigureImage).offset(80);
@@ -89,7 +91,7 @@
     [self.contentView addSubview:PreferentialLabel];
     [PreferentialLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(CurrencySymbolLabel).offset(20); // 左
-        make.top.equalTo(descLabel).offset(15); // 上
+        make.top.equalTo(CurrencySymbolLabel).offset(0); // 上
     }];
     _PreferentialLabel = PreferentialLabel;
     
@@ -97,10 +99,10 @@
     UIImageView * TrademarkImage = [UIImageView new];
     [self.contentView addSubview:TrademarkImage];
     [TrademarkImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(80); // 右
-        make.top.equalTo(self).offset(70);
-        make.width.mas_offset(15);
-        make.height.mas_offset(15);
+        make.right.equalTo(self).offset(-110); // 右
+        make.top.equalTo(PreferentialLabel).offset(0);
+//        make.width.mas_offset(15);
+//        make.height.mas_offset(15);
     }];
     _TrademarkImage = TrademarkImage;
     
@@ -108,36 +110,36 @@
     UILabel * TrademarkLabel = [UILabel new];
     TrademarkLabel.textAlignment = NSTextAlignmentLeft;
     TrademarkLabel.textColor = ZP_textblack;
-    TrademarkLabel.font = ZP_TooBarFont;
+    TrademarkLabel.font = ZP_TrademarkFont;
     [self.contentView addSubview:TrademarkLabel];
     [TrademarkLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(100);
-        make.top.equalTo(self).offset(70);
+        make.left.equalTo(TrademarkImage).offset(20);
+        make.top.equalTo(TrademarkImage).offset(2.5);
     }];
     _TrademarkLabel = TrademarkLabel;
     
-//  竖线
-    UIView * VerticalView = [UIView new];
-    VerticalView.layer.borderWidth = 1;
-    VerticalView.backgroundColor = ZP_TabBarTextColor;
-    [self.contentView addSubview:VerticalView];
-    [VerticalView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(-80);
-        make.top.equalTo(self).offset(70);
-        make.height.mas_equalTo(20);
-        make.width.mas_equalTo(1);
-    }];
+////  竖线
+//    UIView * VerticalView = [UIView new];
+//    VerticalView.layer.borderWidth = 1;
+//    VerticalView.backgroundColor = ZP_TabBarTextColor;
+//    [self.contentView addSubview:VerticalView];
+//    [VerticalView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self).offset(-80);
+//        make.top.equalTo(self).offset(70);
+//        make.height.mas_equalTo(20);
+//        make.width.mas_equalTo(1);
+//    }];
 
 //  符号X
     UILabel * SharacterLabel = [UILabel new];
     SharacterLabel.textAlignment = NSTextAlignmentLeft;
     SharacterLabel.textColor = ZP_TypefaceColor;
-    SharacterLabel.font = ZP_TooBarFont;
+    SharacterLabel.font = ZP_TrademarkFont;
     [self.contentView addSubview:SharacterLabel];
     SharacterLabel.text = @"X";
     [SharacterLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self).offset(-65);
-        make.top.equalTo(self).offset(72.5);
+        make.left.equalTo(TrademarkLabel).offset(35);
+        make.top.equalTo(TrademarkLabel).offset(0);
     }];
     _SharacterLabel = SharacterLabel;
     
@@ -145,11 +147,11 @@
     UILabel * QuantityLabel = [UILabel new];
     QuantityLabel.textAlignment = NSTextAlignmentLeft;
     QuantityLabel.textColor = ZP_TypefaceColor;
-    QuantityLabel.font = ZP_titleFont;
+    QuantityLabel.font = ZP_TrademarkFont;
     [self.contentView addSubview:QuantityLabel];
     [QuantityLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self).offset(-45);
-        make.top.equalTo(self).offset(73.5);
+        make.left.equalTo(SharacterLabel).offset(10);
+        make.top.equalTo(SharacterLabel).offset(0);
     }];
     _QuantityLabel = QuantityLabel;
 
@@ -169,8 +171,8 @@
 - (void)InformationWithDic:(ZP_InformationModel *)model {
     [_FigureImage sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
     _titleLabel.text = model.productname;
-//    _descLabel.text = dic[@"desc"];
-    _CurrencySymbolLabel.text = @"NT";
+////    _descLabel.text = dic[@"desc"];
+//    _CurrencySymbolLabel.text = @"NT";
    _PreferentialLabel.text = [NSString stringWithFormat:@"%@",model.productprice]; // 优惠价格
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
     _TrademarkLabel.text = model.cp;

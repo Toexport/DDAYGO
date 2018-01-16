@@ -52,7 +52,6 @@
     UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:cartButton];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 }
-
 - (void)cartButton {
     [self allData];
 ////  设置时间和动画效果

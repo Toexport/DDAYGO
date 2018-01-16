@@ -76,7 +76,7 @@
     UILabel * titleLabel = [UILabel new];
     titleLabel.textColor = [UIColor blackColor];
     titleLabel.textColor = ZP_textblack;
-    titleLabel.text = @"確認付款";
+    titleLabel.text = @"选择支付方式";
     titleLabel.numberOfLines = 0;
     titleLabel.font = ZP_addBtnTextdetaFont;
     [bounceView addSubview:titleLabel];
@@ -94,24 +94,25 @@
             }
         }
     }
+    //    货币符号
+    ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_textblack font:ZP_AmountTextFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+    [bounceView addSubview:CurrencySymbolLabel];
+    [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self).offset(260);
+        make.left.equalTo(self).offset(ZP_Width / 2 - 85);
+    }];
     
     //  金额
-    UILabel * AmountLabel = [UILabel new];
-    AmountLabel.textColor = [UIColor blackColor];
-    AmountLabel.textColor = ZP_textblack;
-    //    AmountLabel.text = @"￥600.00";
-    AmountLabel.font = ZP_AmountTextFont;
+    ZP_GeneralLabel * AmountLabel = [ZP_GeneralLabel initWithtextLabel:_AmountLabel.text textColor:ZP_textblack font:ZP_AmountTextFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [bounceView addSubview:AmountLabel];
     [AmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(280); // 上面
+        make.top.equalTo(CurrencySymbolLabel).offset(0); // 上面
         make.left.equalTo(self).offset(ZP_Width / 2 - 50); // 左边
     }];
     _AmountLabel = AmountLabel;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        NSDictionary * dic = _InformatonArray[0];
-//        CGFloat f = [[dic[@"Preferential"] stringByReplacingOccurrencesOfString:@"NT" withString:@""] floatValue];
-//        CGFloat r = [dic[@"Cost"] floatValue];
-//        _AmountLabel.text = [NSString stringWithFormat:@"NT%.2f",f* [dic[@"Quantiy"] floatValue] + r];
         [self.contentView addSubview:self.tableView];
     });
     
@@ -130,25 +131,6 @@
         make.bottom.equalTo(self).offset(-15);
         make.height.mas_offset(40);
     }];
-}
-#pragma mark - 按钮选择
-//  信用卡选择按钮
-- (void)creditcardbut:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    _Creditcardbut.selected = NO;
-    if (_Creditcardbut == sender) {
-        _ICUEbut.selected = NO;
-    }
-    NSLog(@"选中信用卡");
-}
-
-//  ICUE 按钮选择
-- (void)iCUEbut:(UIButton *)sender {
-    _ICUEbut.selected = YES;
-    if (_ICUEbut == sender) {
-        _Creditcardbut.selected = YES;
-    }
-    NSLog(@"选中IUCE");
 }
 
 #pragma mark - 点击支付按钮
@@ -228,14 +210,8 @@
     }];
 }
 
-//- (void)viewWithdic:(ZP_ConfirmPayModel *)model {
-//    [_ICUEimageview sd_setImageWithURL:[NSURL URLWithString:model.logourl] placeholderImage:[UIImage imageNamed:@""]];
-//    _ICUELabel.text = model.payname;
-//}
 
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataArray.count;
 }
 
@@ -245,20 +221,32 @@
     NSLog(@"%@",model.logourl);
     cell.PayBtn.tag = indexPath.row;
     [cell.PayImageView sd_setImageWithURL:[NSURL URLWithString:model.logourl] placeholderImage:nil];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell.PayBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     cell.PayLabel.text = model.payname;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return CGFLOAT_MIN;
+//    return CGFLOAT_MIN;
+    return 5.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return CGFLOAT_MIN;
 }
 
-- (void)btnClick:(UIButton *)btn{
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    
+    return nil;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    return nil;
+}
+
+- (void)btnClick:(UIButton *)btn {
     if (!btn.selected) {
         btn.selected = !btn.selected;
         if (btn.selected) {
@@ -273,7 +261,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 165, ZP_Width, self.contentView.frame.size.height - 165 - 60) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 100, ZP_Width, self.contentView.frame.size.height - 100 - 60) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView registerNib:[UINib nibWithNibName:@"PayMoneyCell" bundle:nil] forCellReuseIdentifier:@"PayMoneyCell"];

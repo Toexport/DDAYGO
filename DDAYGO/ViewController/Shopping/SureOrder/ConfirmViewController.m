@@ -102,7 +102,6 @@
     [self.view addSubview:bottomView];
 //      总金额
     ZP_GeneralLabel * PriceLabel = [ZP_GeneralLabel initWithtextLabel:_PriceLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-//    PriceLabel.text = @"0";
     [bottomView addSubview:PriceLabel];
     [PriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.view).offset(- 110); // 右
@@ -110,13 +109,24 @@
     }];
     _PriceLabel = PriceLabel;
     
+//       货币符号
+    ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+    [bottomView addSubview:CurrencySymbolLabel];
+    [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(PriceLabel).offset(-25);
+        make.top.equalTo(PriceLabel).offset(0);
+    }];
+    _CurrencySymbolLabel = CurrencySymbolLabel;
+    
 //      合计
     ZP_GeneralLabel * StatisticsLabel = [ZP_GeneralLabel initWithtextLabel:_StatisticsLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    StatisticsLabel.text = NSLocalizedString(@"合計NT", nil);
+    StatisticsLabel.text = @"总计";
     [bottomView addSubview:StatisticsLabel];
     [StatisticsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(PriceLabel).offset(- 65); // 右
-        make.top.equalTo(PriceLabel).offset(0);
+        make.left.equalTo(CurrencySymbolLabel).offset(- 30); // 右
+        make.top.equalTo(CurrencySymbolLabel).offset(0);
     }];
     _StatisticsLabel = StatisticsLabel;
     
@@ -260,6 +270,7 @@
     //    stockids：库存字符串，库存ID与数量拼接，多个用逗号连接，如：42_2,43_1
     [ZP_shoopingTool requesMakeSureOrder:dic success:^(id obj) {
         NSDictionary * dic = obj;
+        
         self.NewData = [ZP_InformationModel arrayWithArray:dic[@"carts"]];
         ZP_ExpressDeliveryModel * model = [[ZP_ExpressDeliveryModel alloc] init];
         model.freightamount = dic[@"freightamount"];
@@ -333,7 +344,7 @@
     [ZP_shoopingTool requesOrdersPay:dic success:^(id obj) {
         ZPLog(@"%@",obj);
     } failure:^(NSError * error) {
-//        ZPLog(@"%@",error);
+        ZPLog(@"%@",error);
         [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }

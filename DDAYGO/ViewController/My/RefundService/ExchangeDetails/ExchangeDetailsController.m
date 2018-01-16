@@ -103,7 +103,7 @@
 }
 
 - (void)ExchangeDeatils1:(ExchangeDetailsModel *)model1 {
-    [self.Mainimageview sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.0.117:7000%@", model1.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
+    [self.Mainimageview sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI,model1.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
     self.TitleLabel.text = model1.productname;
     self.YanseLable.text = model1.colorname;
     self.ChimaLabel.text = model1.normname;

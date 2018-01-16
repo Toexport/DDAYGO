@@ -19,6 +19,7 @@
 
 @property (nonatomic, strong) UILabel * StatisticsLabel; //  合计
 @property (nonatomic, strong) UILabel * PriceLabel; //  总金额
+@property (nonatomic, strong) UILabel * CurrencySymbolLabel; //货币符号
 @property (nonatomic, strong) UIButton * ClearingBut;//  提交订单
 @property (nonatomic, copy) NSString * stockidsString;//  库存id字串
 /** Web*/

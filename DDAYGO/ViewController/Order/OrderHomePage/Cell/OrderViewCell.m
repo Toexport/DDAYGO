@@ -50,12 +50,25 @@
     }];
     _DateLabel = DateLabel;
     
+    
+//     删除订单按钮
+    UIButton * DeleteBut = [UIButton buttonWithType:UIButtonTypeSystem];
+    [DeleteBut setBackgroundImage:[UIImage imageNamed:@"ic_dianpu_delete_normal"] forState:UIControlStateNormal];
+    [DeleteBut addTarget:self action:@selector(DeleteBut:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:DeleteBut];
+    [DeleteBut mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self).offset(-15);
+            make.top.equalTo(self).offset(10);
+        }];
+    _DeleteBut = DeleteBut;
+    
+    
 //  交易状态
     ZP_GeneralLabel * TradingLabel = [ZP_GeneralLabel initWithtextLabel:_TradingLabel.text textColor:ZP_typefaceOrangeColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:nil];
     [self.contentView addSubview:TradingLabel];
     [TradingLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(10);
-        make.right.equalTo(self).offset(-15);
+        make.top.equalTo(DeleteBut).offset(2.5);
+        make.right.equalTo(DeleteBut).offset(-25);
     }];
     _TradingLabel = TradingLabel;
     
@@ -131,7 +144,8 @@
 //  货币符号
     ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_TypefaceColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:CurrencySymbolLabel];
-    CurrencySymbolLabel.text = @"NT";
+    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(FigureImage).offset(80);
         make.top.equalTo(SizeLabel).offset(20);
@@ -170,8 +184,8 @@
     UIImageView * TrademarkImage = [UIImageView new];
     [self.Backgroundview addSubview:TrademarkImage];
     [TrademarkImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(FigureImage).offset(180);
-        make.top.equalTo(PreferentialLabel).offset(5);
+        make.right.equalTo(self).offset(-90);
+        make.top.equalTo(PreferentialLabel).offset(0);
         make.width.mas_offset(15);
         make.height.mas_offset(15);
     }];
@@ -182,7 +196,7 @@
     [self.Backgroundview addSubview:TrademarkLabel];
     [TrademarkLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(TrademarkImage).offset(18);
-        make.top.equalTo(PreferentialLabel).offset(5);
+        make.top.equalTo(TrademarkImage).offset(0);
     }];
     _TrademarkLabel = TrademarkLabel;
     
@@ -193,8 +207,8 @@
     [self.Backgroundview addSubview:VerticalView];
     [VerticalView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-55);
-        make.top.equalTo(self).offset(120);
-        make.height.mas_equalTo(20);
+        make.top.equalTo(TrademarkLabel).offset(0);
+        make.height.mas_equalTo(15);
         make.width.mas_equalTo(1);
     }];
     
@@ -205,7 +219,7 @@
     _SharacterLabel = SharacterLabel;
     [SharacterLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(VerticalView).offset(5);
-        make.top.equalTo(TrademarkLabel).offset(10);
+        make.top.equalTo(VerticalView).offset(0);
     }];
     
 //  数量
@@ -222,7 +236,7 @@
     CountLabel.text = NSLocalizedString(@"合計", nil);
     [self.contentView addSubview:CountLabel];
     [CountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(TrademarkLabel).offset(75);
+        make.left.equalTo(TrademarkImage).offset(-20);
         make.top.equalTo(VerticalView).offset(40);
     }];
     _CountLabel = CountLabel;
@@ -344,6 +358,10 @@
     }
 }
 
+// 上传按钮
+- (void)DeleteBut:(UIButton *)sendel {
+    ZPLog(@"----");
+}
 ////  物流
 //- (void)LogisticsBut:(UIButton *) LogisticsBut {
 //    LogistcsController * logistcs = [[LogistcsController alloc]init];
@@ -402,7 +420,7 @@
     
     _IDLabel.text = [NSString stringWithFormat:@"%@",dic.ordersnumber];
     _DateLabel.text = model.createtime;
-    [_FigureImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.0.117:7000%@", dic.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
+    [_FigureImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI,dic.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
     _merchantsLabel.text = [NSString stringWithFormat:@"%@",model.shopname];
     _titleLabel.text = dic.productname;
 //    _titleLabel.text = model.shopname;

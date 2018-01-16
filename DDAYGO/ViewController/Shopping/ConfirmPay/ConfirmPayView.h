@@ -39,7 +39,7 @@ typedef void (^ConfirmPayMoneyBlock)(id response);
 @property (nonatomic, strong) UIImageView * Creditcardimageview;
 
 @property (nonatomic, strong) NSArray *dataArray;
-
+@property (nonatomic, strong) UILabel * CurrencySymbolLabel; // 货币符号
 
 /**
  *  显示属性选择视图

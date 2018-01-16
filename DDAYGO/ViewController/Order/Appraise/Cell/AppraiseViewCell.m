@@ -111,11 +111,7 @@
     }
 }
 
-////  键盘弹起
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-//    [super touchesBegan:touches withEvent:event];
-//    [self.Evaluationtext resignFirstResponder];
-//}
+
 
 - (void)buttonType:(UIButton *)sender {
     

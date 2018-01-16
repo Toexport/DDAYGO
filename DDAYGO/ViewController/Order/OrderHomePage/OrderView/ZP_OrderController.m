@@ -55,9 +55,17 @@
     [super viewDidLoad];
    
     [self addUI];
-    
     //数据都写在这个页面·刷新什么的都在这个页面写·
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self addRefresh];
+    if (DD_HASLOGIN ) {
+        [self getDataWithState];
+    }
+}
+
 // 刷新
 - (void)addRefresh {
     self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -66,16 +74,16 @@
         [self getDataWithState];
     }];
     
-    self.tableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-//        [_ModeldataArray reverseObjectEnumerator];
-        _i+=10;
-        [self getDataWithState];
-    }];
+//    self.tableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+////        [_ModeldataArray reverseObjectEnumerator];
+//        _i+=10;
+//        [self getDataWithState];
+//    }];
 }
 
 // UI
 -(void)addUI {
-    self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width , ZP_height - NavBarHeight - 35)];
+    self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width , ZP_height - NavBarHeight - 85)];
     self.tableview.backgroundColor = ZP_Graybackground;
     [self.tableview registerClass:[OrderViewCell class] forCellReuseIdentifier:@"orderViewCell"];
     self.tableview.delegate = self;
@@ -148,14 +156,37 @@
     }];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-     [self addRefresh];
-    if (DD_HASLOGIN ) {
-      [self getDataWithState];
-    }
+// 删除订单协议
+- (void)DeleteOrderBut:(UIButton *)sender {
+#pragma make -- 提示框
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"確定要刪除嗎？",nil) preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        ZPLog(@"取消");
+    }];
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+//        响应事件
+        if (self.newsData.count == 0) {
+            return;
+        }
+        OrderModel * model = self.newsData[sender.tag];
+        NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+        dic[@"token"] = Token;
+        dic[@"ordernumber"] = model.ordersnumber;
+        [ZP_OrderTool requestDeleteOrder:dic success:^(id obj) {
+            [self.newsData removeObjectAtIndex:sender.tag];
+            if ([obj[@"result"]isEqualToString:@"ok"]) {
+                [SVProgressHUD showSuccessWithStatus:@"刪除成功"];
+            }
+            ZPLog(@"%@",obj);
+            [self.tableview reloadData];
+        } failure:^(NSError * error) {
+            ZPLog(@"%@",error);
+        }];
+    }];
+    [alert addAction:defaultAction];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
-
 
 #pragma Mark - <TableViewDelegate>
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -171,7 +202,6 @@
     static NSString * ID = @"orderViewCell";
     OrderModel * model = self.newsData[indexPath.row];
 //    OrdersdetailModel * model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail[0]];
-    
     OrderViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     self.tableview.tableFooterView = [[UIView alloc]init];
@@ -180,6 +210,8 @@
     [cell.OnceagainBut addTarget:self action:@selector(OnceagainBut:) forControlEvents:UIControlEventTouchUpInside];
     cell.OnceagainBut.tag = indexPath.row;
     OrdersdetailModel * model2;
+    cell.DeleteBut.tag = indexPath.row;
+    [cell.DeleteBut addTarget:self action:@selector(DeleteOrderBut:) forControlEvents:UIControlEventTouchUpInside];
     if (![_titleStr isEqualToString:@"評價"]) {
          model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail.firstObject];
         [cell InformationWithDic:model2 WithModel:model];

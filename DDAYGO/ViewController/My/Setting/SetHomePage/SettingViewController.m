@@ -84,7 +84,7 @@
         ZPLog(@"%@",obj);
         
         ZP_HomePageModel * model = [[ZP_HomePageModel alloc]init];
-        model.avatarimg = [NSString stringWithFormat:@"http://www.ddaygo.com%@",obj[@"avatarimg"]];
+        model.avatarimg = [NSString stringWithFormat:@"%@%@",ImgAPI,obj[@"avatarimg"]];
         model.nickname = obj[@"nickname"];
         model.realname = obj[@"realname"];
         model.icueaccount = obj[@"icueaccount"];
@@ -131,21 +131,21 @@
 }
 
 - (IBAction)touxiangAction:(id)sender {
-/********  暂时没有接口,不让点击******/
-//    if (!_photoManager) {
-//        _photoManager = [[SelectPhotoManager alloc]init];
-//    }
-//    [_photoManager startSelectPhotoWithImageName:NSLocalizedString(@"Choose photos", nil)];
-//    __weak typeof(self)mySelf = self;
-// //  选取照片成功
-//    _photoManager.successHandle=^(SelectPhotoManager *manager,UIImage * image){
-//
-//        mySelf.headerImage.image = image;
-// //  保存到本地
-//        NSData *data = UIImagePNGRepresentation(image);
-//        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
-//    };
-//
+
+    if (!_photoManager) {
+        _photoManager = [[SelectPhotoManager alloc]init];
+    }
+    [_photoManager startSelectPhotoWithImageName:NSLocalizedString(@"Choose photos", nil)];
+    __weak typeof(self)mySelf = self;
+ //  选取照片成功
+    _photoManager.successHandle=^(SelectPhotoManager *manager,UIImage * image){
+
+        mySelf.headerImage.image = image;
+ //  保存到本地
+        NSData *data = UIImagePNGRepresentation(image);
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
+    };
+
 }
 
 - (void)setHead {

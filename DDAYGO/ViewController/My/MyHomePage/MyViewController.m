@@ -57,13 +57,13 @@
     [self loginAllData];
 //    [self Supplier];
     
-    //    本地数据调用
-    UIImage * image = [UIImage imageWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"]];
-    if (image) {
-        _headImageBut.layer.cornerRadius = 42;
-        _headImageBut.layer.masksToBounds = YES;
-        [_headImageBut setImage:image forState:UIControlStateNormal];
-    }
+//    //    本地数据调用
+//    UIImage * image = [UIImage imageWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"]];
+//    if (image) {
+//        _headImageBut.layer.cornerRadius = 42;
+//        _headImageBut.layer.masksToBounds = YES;
+//        [_headImageBut setImage:image forState:UIControlStateNormal];
+//    }
 }
 
 //- (void) Supplier {
@@ -202,9 +202,8 @@
        // [self SupplierAllData];
         ZP_HomePageModel * model = [[ZP_HomePageModel alloc]init];
         model.nickname = obj[@"nickname"];
-        model.avatarimg = [NSString stringWithFormat:@"http://www.ddaygo.com%@",obj[@"avatarimg"]];
+        model.avatarimg = [NSString stringWithFormat:@"%@%@",ImgAPI,obj[@"avatarimg"]];
         [self.headImageBut sd_setBackgroundImageWithURL:[NSURL URLWithString:model.avatarimg] forState:UIControlStateNormal];
-//        [self.headImageBut sd_setImageWithURL:[NSURL URLWithString:model.avatarimg]];
         [self MyViewData:model];
         
     } failure:^(NSError * error) {
@@ -220,7 +219,7 @@
 
 - (void)MyViewData:(ZP_HomePageModel *) model {
     _NameLabel.text = model.nickname;
-//    [self.headImageBut sd_setImageWithURL:[NSURL URLWithString:model.avatarimg] placeholderImage:[UIImage imageNamed:@"HeadrImage"]];
+
     
 }
 
