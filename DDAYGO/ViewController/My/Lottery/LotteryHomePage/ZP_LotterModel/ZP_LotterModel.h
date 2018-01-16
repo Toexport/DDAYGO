@@ -40,6 +40,8 @@
 @property (nonatomic, strong) NSNumber *periods;
 /**奖池生成时间*/
 @property (nonatomic, strong) NSString *createtime;
+/**奖池开奖时间*/
+@property (nonatomic, strong) NSString *recordtime;
 /*开奖白球1*/
 @property (nonatomic, strong) NSNumber * white1;
 /*开奖白球2*/
@@ -69,7 +71,7 @@
 
 @interface lotteryorderModel : NSObject
 /*订单号*/
-@property (nonatomic, strong) NSNumber * lotteryoid;
+@property (nonatomic, strong) NSString * lotteryoid;
 /*奖池ID*/
 @property (nonatomic, strong) NSNumber * pollid;
 @property (nonatomic, strong) NSNumber * yyyy;

@@ -46,21 +46,10 @@
     [self addNavigationBar];
 }
 
-
 - (void)initUI {
     self.title = NSLocalizedString(@"促銷彩", nil);
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_WhiteColor}];   // 更改导航栏字体颜色
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];  //  更改导航栏颜色
-    
-//    static NSString * LotteryID = @"ZP_LotteryViewCell";
-//    [self.tableView registerNib:[UINib nibWithNibName:LotteryID bundle:nil] forCellReuseIdentifier:LotteryID];
-//    self.tableView.separatorStyle = UITableViewRowAnimationNone; // 隐藏tableview线条
-    
-//    self.wirteBetCount = 6;
-//    self.CCollectionView.delegate = self;
-//    self.CCollectionView.dataSource = self;
-//    static NSString * LotteryID = @"ZP_LotteryCollectionViewCell";
-//    [self.CCollectionView registerNib:[UINib nibWithNibName:LotteryID bundle:nil] forCellWithReuseIdentifier:LotteryID];
     
     UIToolbar * tools = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, -15, 15)];
 // 解决出现的那条线
@@ -68,30 +57,8 @@
 // 解决tools背景颜色的问题
     [tools setBackgroundImage:[UIImage new]forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     [tools setShadowImage:[UIImage new] forToolbarPosition:UIToolbarPositionAny];
-//
-//    [_chooseCityBtn setImage:[UIImage imageNamed:@"ic_home_down"] forState:(UIControlStateNormal)];
-//    CGFloat imageWidth = _chooseCityBtn.imageView.bounds.size.width;
-//    CGFloat labelWidth = _chooseCityBtn.titleLabel.bounds.size.width;
-//    _chooseCityBtn.imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth   , 0, -labelWidth);
-//    _chooseCityBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -imageWidth, 0, imageWidth);
-//    [_chooseCityBtn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:_chooseCityBtn];
-////  添加两个button
-//    NSMutableArray * buttons = [[NSMutableArray alloc]initWithCapacity:2];
-//
-//    UIBarButtonItem * Instruction = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"bg_lottery_record"] style: UIBarButtonItemStyleDone target:self action:@selector(Instruction)];
-//
-//    UIBarButtonItem * HistoryLottery = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"bg_lottery_explan"] style: UIBarButtonItemStyleDone target:self action:@selector(HistoryLottery)];
-//    Instruction.tintColor=[UIColor whiteColor];
-//    HistoryLottery.tintColor=[UIColor whiteColor];
-//    [buttons addObject:HistoryLottery];
-//    [buttons addObject:Instruction];
-//    [tools setItems:buttons animated:NO];
-//    UIBarButtonItem * btn =[[UIBarButtonItem alloc]initWithCustomView:tools];
-//    self.navigationItem.rightBarButtonItem = btn;
     
     // 调这里 fame就好
-    
     UIButton * but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame = CGRectMake(20, CGRectGetMaxY(_OrderNumView.frame) + 10, ZP_Width - 40, 40);
     but.layer.cornerRadius = 5;
@@ -161,18 +128,16 @@
     _NianLabel.text = [model1.yyyy stringValue];
     _YueLabel.text = [model1.mm stringValue];
     _RiLabel.text = [model1.periods stringValue];
-    _dateLabel.text = model1.createtime;
+    _dateLabel.text = model1.recordtime;
     [_but1 setTitle:[model1.white1 stringValue] forState:UIControlStateNormal];
     [_but2 setTitle:[model1.white2 stringValue] forState:UIControlStateNormal];
     [_but3 setTitle:[model1.white3 stringValue] forState:UIControlStateNormal];
     [_but4 setTitle:[model1.white4 stringValue] forState:UIControlStateNormal];
     [_but5 setTitle:[model1.white5 stringValue] forState:UIControlStateNormal];
     [_but6 setTitle:[model1.powerball stringValue] forState:UIControlStateNormal];
-    //    NSLog(@"dic %@",model.lottery);
     
     //下面一个数据 直接用
     lotteryModel *model2 = [lotteryModel mj_objectWithKeyValues:model.lottery];
-    //        _AmountLabel.text = [model2.poolamount stringValue];
     NSLog(@"m2 %@",model2.createtime);
     // lottoerwinmodel 的数据
     NSArray * arr = [lotterywinModel mj_objectArrayWithKeyValuesArray:model.lotterywin];
@@ -205,7 +170,6 @@
     }
  
     lotteryorderModel * model6 = [lotteryorderModel mj_objectWithKeyValues:model.lotteryorder.firstObject];
-    
     if (model6) {
         _butt1.hidden = NO;
         _butt2.hidden = NO;
@@ -215,9 +179,10 @@
         _butt6.hidden = NO;
         _checkMoreBtn.hidden = NO;
         _dingdanhaoLabel.hidden = NO;
-        _lingjiangBtn.hidden = NO;
+//        _lingjiangBtn.hidden = NO;
         
-        _OrderNumberLabel.text = [model6.lotteryoid stringValue];
+        _OrderNumberLabel.text = [NSString stringWithFormat:@"%@",model6.lotteryoid];
+        _XiazhushuliangLabel.text = [model6.buycount stringValue];
         [_butt1 setTitle:[model6.white1 stringValue] forState:UIControlStateNormal];
         [_butt2 setTitle:[model6.white2 stringValue] forState:UIControlStateNormal];
         [_butt3 setTitle:[model6.white3 stringValue] forState:UIControlStateNormal];
@@ -233,67 +198,15 @@
         _butt6.hidden = YES;
         _checkMoreBtn.hidden = YES;
         _dingdanhaoLabel.hidden = YES;
-        _lingjiangBtn.hidden = YES;
+//        _lingjiangBtn.hidden = NO;
         
-        _OrderNumberLabel.text = nil;
+//        _OrderNumberLabel.text = nil;
     }
     
     NSLog(@"m3 = %@",model.lottery);
     
-    //    self.periodsLabel.text = [NSString stringWithFormat:@"第%@期",[self.prizeDic[@"lottery"][@"periods"] stringValue]];
-    //    self.dateLabel.text = self.prizeDic[@"lottery"][@"createtime"];
-    //    //$
-    //    [self updateBounctyViewWithBonus:[self.prizeDic[@"lottery"][@"poolamount"] integerValue] Suffix:@"$"];
     [self updateBounctyViewWithBonus:[self.prizeDic[@"lottery"][@"poolamount"] integerValue] Suffix:@""];
-    //
-    //    NSArray *prizeArray = self.prizeDic[@"lotterywin"];
-    //    for (int i = 0; i < prizeArray.count - 1; i ++) {
-    //        NSDictionary *tempDic = prizeArray[i];
-    //        UILabel * tempWinningNumbLabel = self.winningNumbArray[i];
-    //        UILabel * tempCurrentPeriodLabel = self.currentPeriodArray[i];
-    //        UILabel * tempWinnersNumLabel = self.winnersNumArray[i];
-    //        UILabel * tempBountyLabel = self.bountyArray[i];
-    //
-    //        tempWinningNumbLabel.text = [tempDic[@"state"] stringValue];
-    //        tempCurrentPeriodLabel.text = [tempDic[@"winamount"] stringValue];
-    //        tempWinnersNumLabel.text = [tempDic[@"wincount"] stringValue];
-    //        tempBountyLabel.text = [tempDic[@"winunit"] stringValue];
-    //    }
 }
-
-//- (CGSize)getStringSize:(NSString *)string FontSize:(NSInteger)fontSize Size:(CGSize)size {
-//    CGSize size1;
-//    CGSize widthSize = [string boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName :[UIFont systemFontOfSize:fontSize]} context:nil].size;
-//    size1.width = widthSize.width+1;
-//    size1.height = widthSize.height+1;
-//    return size1;
-//}
-
-//- (void)updateViewConstraints {
-//    [super updateViewConstraints];
-//    CGFloat onScrollViewWidth = 0;
-//    CGFloat compensateValue = 0;
-//    for (int i = 0; i < self.titleArray.count; i ++) {
-//        UILabel *tempLabtl = self.titleLabelArray[i];
-//        NSLayoutConstraint *tempLayoutCont =self.titleWidthArray[i];
-//        tempLayoutCont.constant = [self getStringSize:tempLabtl.text FontSize:13 Size:CGSizeMake(MAXFLOAT, MAXFLOAT)].width;
-//        onScrollViewWidth += tempLayoutCont.constant;
-//    }
-//
-//    if (onScrollViewWidth > [UIScreen mainScreen].bounds.size.width - 16 + 50) {
-//        compensateValue = 16;
-//        onScrollViewWidth += 5 * 16;
-//    } else {
-//        compensateValue = ([UIScreen mainScreen].bounds.size.width - 16 - onScrollViewWidth) /5;
-//        onScrollViewWidth = [UIScreen mainScreen].bounds.size.width - 16;
-//    }
-//
-//    for (NSLayoutConstraint *tempLayoutCont in self.titleWidthArray) {
-//        tempLayoutCont.constant += compensateValue;
-//    }
-//    self.onScrollViewWidth.constant = onScrollViewWidth;
-//}
-
 
 // 下注
 - (void)betAction {
@@ -330,28 +243,7 @@
     ZP_CheckMoreController * CheckMore = [[ZP_CheckMoreController alloc]init];
     [self.navigationController pushViewController:CheckMore animated:YES];
 }
-/*
-#pragma mark -- Collectionview  delegate
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.wirteBetCount;
-}
 
-- (void)updateCount:(NSInteger)count {
-    self.wirteBetCount = count;
-    [self.CCollectionView reloadData];
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(30, 30);
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString * LotteryID = @"ZP_LotteryCollectionViewCell";
-    ZP_LotteryCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:LotteryID forIndexPath:indexPath];
-    [cell setValue:indexPath.row + 1];
-    return cell;
-}
-*/
 #pragma mark  更新赏金视图
 - (void)updateBounctyViewWithBonus:(NSInteger)bonus Suffix:(NSString *)suffix {
     for (UIView *view in self.bounctyView.subviews) {

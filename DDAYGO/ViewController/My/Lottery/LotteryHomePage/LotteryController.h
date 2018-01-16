@@ -83,7 +83,8 @@
 //
 @property (weak, nonatomic) IBOutlet UIView *bounctyView;
 // 订单号码
-@property (weak, nonatomic) IBOutlet UILabel *OrderNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel * OrderNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel * XiazhushuliangLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *BenQIView;
 @property (weak, nonatomic) IBOutlet UIButton *checkMoreBtn;

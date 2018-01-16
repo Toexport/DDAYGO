@@ -100,7 +100,7 @@
         _button5.hidden = NO;
         _button6.hidden = NO;
         
-        _OrderNumberLabel.text = [model6.lotteryoid stringValue];
+//        _OrderNumberLabel.text = [model6.lotteryoid stringValue];
         [_button1 setTitle:[model2.white1 stringValue] forState:UIControlStateNormal];
         [_button2 setTitle:[model2.white2 stringValue] forState:UIControlStateNormal];
         [_button3 setTitle:[model2.white3 stringValue] forState:UIControlStateNormal];

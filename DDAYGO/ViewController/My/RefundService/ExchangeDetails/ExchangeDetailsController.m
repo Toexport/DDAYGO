@@ -44,7 +44,6 @@
     [ZP_MyTool requestGetrefundinfo:dic success:^(id obj) {
         ZPLog(@"%@",obj);
         ExchangeDetailsModel * model = [ExchangeDetailsModel mj_objectWithKeyValues:obj[@"refund"]];
-        
         ExchangeDetailsModel * model1 = [ExchangeDetailsModel mj_objectWithKeyValues:obj[@"product"][0]];
 //        NSLog(@"%@",model.ordersnumber);
         [self ExchangeDeatils:model];
@@ -83,17 +82,17 @@
             self.NowStateLabel.text = @"待審核";
             self.RequestServiceBut.hidden = YES; // 隐藏客服按钮
             break;
-//        case 2:
-//            self.NowStateLabel.text = @"買錯了";
-//            break;
-//        case 3:
-//            self.NowStateLabel.text = @"發錯貨";
-//            break;
-//        case 4:
-//            self.NowStateLabel.text = @"沒收到貨";
-//            break;
-//        case 5:
-//            self.NowStateLabel.text = @"有瑕疵";
+        case 2:
+            self.NowStateLabel.text = @"買錯了";
+            break;
+        case 3:
+            self.NowStateLabel.text = @"發錯貨";
+            break;
+        case 4:
+            self.NowStateLabel.text = @"沒收到貨";
+            break;
+        case 5:
+            self.NowStateLabel.text = @"有瑕疵";
             break;
         default:
             break;
