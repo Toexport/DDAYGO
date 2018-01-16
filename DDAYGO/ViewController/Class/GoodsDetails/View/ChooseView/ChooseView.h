@@ -17,6 +17,8 @@
 @property(nonatomic,strong)UIImageView * headImage;//   商品图片
 
 @property(nonatomic,strong)UILabel * LB_price;//   商品价格
+@property (nonatomic, strong)UIImageView * CPImageview; // CP图片
+@property (nonatomic, strong)UILabel * LB_CPLabel;  // CP编号
 @property(nonatomic,strong)UILabel * LB_stock;//   商品库存
 @property(nonatomic,strong)UILabel * LB_detail;//   用户所选择商品的尺码和颜色
 @property(nonatomic,strong)UILabel * LB_line;//   分界线

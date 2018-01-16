@@ -24,7 +24,7 @@
 
 @implementation ChooseView
 
-@synthesize alphaView,whiteView,headImage,LB_detail,LB_line,LB_price,LB_stock,LB_showSales,mainscrollview,cancelBtn,addBtn,buyBtn,stockBtn;
+@synthesize alphaView,whiteView,headImage,CPImageview,LB_CPLabel,LB_detail,LB_line,LB_price,LB_stock,LB_showSales,mainscrollview,cancelBtn,addBtn,buyBtn,stockBtn;
 
 -(instancetype)initWithFrame:(CGRect)frame{
     
@@ -63,15 +63,30 @@
     [headImage.layer setMasksToBounds:YES];
     [whiteView addSubview:headImage];
     
+//     关闭按钮
     cancelBtn= [UIButton buttonWithType:UIButtonTypeCustom];
     cancelBtn.frame = CGRectMake(screen_Width-40, 10, 25, 25);
     [cancelBtn setBackgroundImage:[UIImage imageNamed:@"ic_details_cancel"] forState:0];
     [whiteView addSubview:cancelBtn];
     
+//CP图片
+    CPImageview = [[UIImageView alloc]initWithFrame:CGRectMake(screen_Width - 100, 12.5, 15, 15)];
+    CPImageview.image = [UIImage imageNamed:@"ic_cp"];
+//    headImage.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//    CPImageview.layer.borderWidth = 1;
+    [CPImageview.layer setMasksToBounds:YES];
+    [whiteView addSubview:CPImageview];
+
+//    CP编号
+    LB_CPLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(CPImageview.frame)+5, 10, 150, 20)];
+    LB_CPLabel.textColor = [UIColor blackColor];
+    LB_CPLabel.text = @"9999";
+    LB_CPLabel.font = ZP_stockFont;
+    [whiteView addSubview:LB_CPLabel];
     
 //   商品价格
     LB_price = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(headImage.frame)+20, 10, 150, 20)];
-    LB_price.text = @"NT100";
+//    LB_price.text = @"NT100";
     LB_price.textColor = [UIColor orangeColor];
     LB_price.font = ZP_NavTextdetaFont;
     [whiteView addSubview:LB_price];

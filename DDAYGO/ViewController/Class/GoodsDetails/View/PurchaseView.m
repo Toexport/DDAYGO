@@ -28,15 +28,13 @@
     
     self.standardTypeList = @[NSLocalizedString(@"商品規格", nil),NSLocalizedString(@"購買數量", nil)];
     
-    //    self.standardValueList = @[@[@"200ml",@"400ml",@"600ml"],@[]];
+// 商品价格
     self.chooseView = [[ChooseView alloc] initWithFrame:CGRectMake(0, screen_Height, screen_Width, screen_Height)];
     self.chooseView.headImage.image = [UIImage imageNamed:@"bingli"];
-    self.chooseView.LB_price.text = @"NT36.00";
     self.chooseView.LB_stock.text = [NSString stringWithFormat:NSLocalizedString(@"库存:%@件", nil),@100];
     self.chooseView.LB_detail.text = nil;
     [self addSubview:self.chooseView];
     //    [self initChooseView];
-    
     self.hidden = YES;
 }
 
@@ -411,8 +409,8 @@
 - (void)setModel:(ZP_GoodDetailsModel *)model {
     _model = model;
     self.chooseView.LB_price.text = model.productprice;
-//    self.chooseView.LB_stock.text = model.productamount;
-    self.chooseView.LB_stock.text = [NSString stringWithFormat:@"库存:%@",model.productamount];
+    self.chooseView.LB_CPLabel.text = model.TrademarkLabel;
+    self.chooseView.LB_stock.text = [NSString stringWithFormat:@"库存:%@件",model.productamount];
     [self.chooseView.headImage sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@"bingli"]];
     NSLog(@"_____%@",model.productid);
     self.stockid = [NSNumber numberWithInt:[model.productid intValue]];
