@@ -372,5 +372,15 @@
         failure(error);
     }];
 }
+
+//73) 修改用户头像
++ (void)RequestUploadavatarimg:(NSDictionary *)RefundStatus Data:(NSData *)data success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
+    [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@uploadavatarimg?token=%@",URLAPI,RefundStatus[@"token"]] parameters:nil ContentArray:@[data] success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
 @end
 

@@ -71,4 +71,38 @@ static AFHTTPSessionManager *_manager = nil;
     }];
  }
 
+//  POST文件上传
++ (void)POST:(NSString *)URLString parameters:(id)parameters ContentArray:(NSArray *)dataArray success:(void (^)(id ))success failure:(void (^)(NSError *))failure {
+    
+    if (!_manager) {
+        
+        _manager = [AFHTTPSessionManager manager];
+    }
+    NSString * tipCode = [UserDefultManage objectForKey:@"token"];
+    if (tipCode.length > 10) {
+        [_manager.requestSerializer setValue:tipCode forHTTPHeaderField:@"token"];
+    }
+    _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/plain", @"text/json", @"text/javascript", @"text/html",@"image/jpeg", nil];
+    
+    [_manager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        for (NSData *data in dataArray) {
+            [formData appendPartWithFormData:data name:@"files[]]"];
+        }
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        ZPLog(@"res %@",responseObject);
+        
+        if (success) {
+            success(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failure) {
+            
+            failure(error);
+        }
+    }];
+}
+
 @end

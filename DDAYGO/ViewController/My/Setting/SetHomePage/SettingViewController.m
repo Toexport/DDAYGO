@@ -144,6 +144,11 @@
  //  保存到本地
         NSData *data = UIImagePNGRepresentation(image);
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
+        [ZP_MyTool RequestUploadavatarimg:@{@"token":DD_TOKEN} Data:data success:^(id obj) {
+            NSLog(@"%@",obj);
+        } failure:^(NSError *error) {
+            NSLog(@"%@",error.description);
+        }];
     };
 
 }
