@@ -18,6 +18,7 @@
 #import "UIImage+Render.h"
 #import "myNavigationController.h"
 #import "PrefixHeader.pch"
+#import "HomePageViewController.h"
 #define AboveIOS9  ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
 
 @interface MainViewController ()
@@ -72,7 +73,7 @@
     Token = [[NSUserDefaults standardUserDefaults]objectForKey:@"token"];
     ZPICUEToken = [[NSUserDefaults standardUserDefaults]objectForKey:@"icuetoken"];
     
-    [self setupOneChirlVc:[[HomeViewController alloc] init] withImage:[UIImage imageNamedWithOriginalImage:@"ic_tab_home_normal.png"] selImage:[UIImage imageNamedWithOriginalImage:@"ic_tab_home_pressed.png"] title:NSLocalizedString(@"Home", nil)];
+    [self setupOneChirlVc:[[HomePageViewController alloc] init] withImage:[UIImage imageNamedWithOriginalImage:@"ic_tab_home_normal.png"] selImage:[UIImage imageNamedWithOriginalImage:@"ic_tab_home_pressed.png"] title:NSLocalizedString(@"Home", nil)];
     
     //  类
     

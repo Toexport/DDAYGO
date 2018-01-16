@@ -121,7 +121,7 @@
 //   立即购买按钮
     buyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     buyBtn.frame = CGRectMake(whiteView.frame.size.width/2,  whiteView.height-40, whiteView.frame.size.width/2, 50);
-    [buyBtn setBackgroundColor:[UIColor orangeColor]];
+    [buyBtn setBackgroundColor:ZP_BuyColor];
     [buyBtn setTitleColor:[UIColor whiteColor] forState:0];
     buyBtn.titleLabel.font = ZP_addBtnTextdetaFont;
     [buyBtn setTitle:NSLocalizedString(@"立即購買", nil) forState:0];

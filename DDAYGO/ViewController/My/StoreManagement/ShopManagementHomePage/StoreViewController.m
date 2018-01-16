@@ -35,7 +35,6 @@
     self.title = NSLocalizedString(@"商店管理", nil);
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
-    self.title = NSLocalizedString(@"Shopping", nil);
 }
 // 获取供货商
 - (void)Supplier {
@@ -94,9 +93,9 @@
 
 // 数据
 - (void)AllData:(ZP_ShopManagementModel *)model {
-    _TotalAmountLabel.text = [model.allamount stringValue];
-    _ActivitiesAssetsLabel.text = [model.iceamount stringValue];
-    _FrozenAssets.text = [model.balance stringValue];
+    self.TotalAmountLabel.text = [model.allamount stringValue];
+    self.FrozenAssets.text = [model.iceamount stringValue];
+    self.ActivitiesAssetsLabel.text = [model.balance stringValue];
 }
 
 //- (void)viewWillAppear:(BOOL)animated {

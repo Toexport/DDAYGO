@@ -141,6 +141,7 @@
         make.top.equalTo(descLabel).offset(0);
     }];
     _SizeLabel = SizeLabel;
+    
 //  货币符号
     ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_TypefaceColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:CurrencySymbolLabel];
@@ -337,7 +338,7 @@
             
         case 2:{
             RequestRefundController * RequestRefund = [[RequestRefundController alloc]init];
-            RequestRefund.ord = _model.ordersnumber;
+            RequestRefund.ord = self.model.ordersnumber;
             if (self.appraiseBlock) {
                 self.appraiseBlock(RequestRefund);
             }
@@ -347,6 +348,10 @@
             
         case 4:{
             AppraiseController * appistcs = [[AppraiseController alloc]init];
+            appistcs.ordersnumber = self.model.ordersnumber; // 传过去的数据(订单号)
+            appistcs.productid = self.model.productid; // 传过去的数据(商品ID)
+            appistcs.detailid = self.model.detailid; // 传过去的数据(商品详情ID)
+            appistcs.model2 = self.model;
             if (self.appraiseBlock) {
                 self.appraiseBlock(appistcs);
             }

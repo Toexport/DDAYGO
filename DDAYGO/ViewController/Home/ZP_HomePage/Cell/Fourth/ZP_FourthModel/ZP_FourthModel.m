@@ -7,7 +7,7 @@
 //
 
 #import "ZP_FourthModel.h"
-
+#import "PrefixHeader.pch"
 @implementation ZP_FourthModel
 + (instancetype)GetFourthData:(NSDictionary *)dic {
     return [[self alloc]initWithFourthData:dic];
@@ -31,7 +31,7 @@
     NSMutableArray * arr = [[NSMutableArray alloc]init];
     for (NSDictionary * dic in array) {
         ZP_FourthModel * model = [[ZP_FourthModel alloc]init];
-        model.defaultimg = [NSString stringWithFormat:@"http://www.ddaygo.com%@",dic[@"defaultimg"]];
+        model.defaultimg = [NSString stringWithFormat:@"%@%@",ImgAPI,dic[@"defaultimg"]];
         model.productname = dic[@"productname"];
         model.producid = dic[@"productid"];
         model.PreferentialLabel = [NSString stringWithFormat:@"%@",dic[@"productprice"]];

@@ -199,6 +199,9 @@
 		C42A17411FF2532400680F92 /* BetTableViewMyCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A173B1FF2532400680F92 /* BetTableViewMyCell2.m */; };
 		C42A17451FF2544100680F92 /* tableHeadView1.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A17421FF2544000680F92 /* tableHeadView1.m */; };
 		C42A17461FF2544100680F92 /* tableHeadView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = C42A17441FF2544100680F92 /* tableHeadView1.xib */; };
+		C42E52EE200E12DD00515364 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C42E52ED200E12DD00515364 /* HomeViewController.xib */; };
+		C42E52F2200E141000515364 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42E52F0200E141000515364 /* HomePageViewController.m */; };
+		C42E52F3200E141000515364 /* HomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C42E52F1200E141000515364 /* HomePageViewController.xib */; };
 		C42F06FE1FFE259A00B3D510 /* ZP_BetHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C42F06FD1FFE259A00B3D510 /* ZP_BetHeaderModel.m */; };
 		C42F07021FFE2D8000B3D510 /* ZP_InstructionBetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C42F07011FFE2D8000B3D510 /* ZP_InstructionBetModel.m */; };
 		C435171F1FB2AC180066302E /* ConcernShopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43517211FB2AC180066302E /* ConcernShopTableViewCell.xib */; };
@@ -792,6 +795,10 @@
 		C42A17421FF2544000680F92 /* tableHeadView1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tableHeadView1.m; sourceTree = "<group>"; };
 		C42A17431FF2544000680F92 /* tableHeadView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tableHeadView1.h; sourceTree = "<group>"; };
 		C42A17441FF2544100680F92 /* tableHeadView1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tableHeadView1.xib; sourceTree = "<group>"; };
+		C42E52ED200E12DD00515364 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		C42E52EF200E141000515364 /* HomePageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
+		C42E52F0200E141000515364 /* HomePageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
+		C42E52F1200E141000515364 /* HomePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageViewController.xib; sourceTree = "<group>"; };
 		C42F06FC1FFE259A00B3D510 /* ZP_BetHeaderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_BetHeaderModel.h; sourceTree = "<group>"; };
 		C42F06FD1FFE259A00B3D510 /* ZP_BetHeaderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_BetHeaderModel.m; sourceTree = "<group>"; };
 		C42F07001FFE2D8000B3D510 /* ZP_InstructionBetModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_InstructionBetModel.h; sourceTree = "<group>"; };
@@ -2854,6 +2861,10 @@
 			children = (
 				C45F23301FA0757A00F5DB41 /* HomeViewController.h */,
 				C45F23311FA0757A00F5DB41 /* HomeViewController.m */,
+				C42E52ED200E12DD00515364 /* HomeViewController.xib */,
+				C42E52EF200E141000515364 /* HomePageViewController.h */,
+				C42E52F0200E141000515364 /* HomePageViewController.m */,
+				C42E52F1200E141000515364 /* HomePageViewController.xib */,
 				C45F230F1FA0757A00F5DB41 /* Cell */,
 			);
 			path = ZP_HomePage;
@@ -4118,6 +4129,7 @@
 				C46837F81FDA645A000E7D7C /* 产品详情_spec.png in Resources */,
 				06621DAC1F9758720030983F /* LoginController.xib in Resources */,
 				C49B32221FD5A995007632F2 /* ZP_ExtractController.xib in Resources */,
+				C42E52F3200E141000515364 /* HomePageViewController.xib in Resources */,
 				C43517311FB2AC6D0066302E /* FootprintViewController.xib in Resources */,
 				06F571921F9F16E600D61FDB /* NewsViewController.xib in Resources */,
 				C479C6A01FE3CB5800A58A2A /* LICENSE in Resources */,
@@ -4135,6 +4147,7 @@
 				C4632E13200633E30029AA87 /* RefundServiceCell.xib in Resources */,
 				06F572291F9F1E8700D61FDB /* OrderDetailViewController.xib in Resources */,
 				06F572331F9F1E8700D61FDB /* ReceivingViewCell.xib in Resources */,
+				C42E52EE200E12DD00515364 /* HomeViewController.xib in Resources */,
 				C435171F1FB2AC180066302E /* ConcernShopTableViewCell.xib in Resources */,
 				C43517431FB2ACD60066302E /* StoreViewController.xib in Resources */,
 				C4AD076D200CA8E700B8FF6E /* ExchangeDetailsController.xib in Resources */,
@@ -4434,6 +4447,7 @@
 				C47096991FB04B2D006EA52C /* UIButton+countDown.m in Sources */,
 				C470ADF31FA95B5200BAC2CA /* ZP_registrationModel.m in Sources */,
 				C409F8721FA1758E009DE7B1 /* ZP_SixthModel.m in Sources */,
+				C42E52F2200E141000515364 /* HomePageViewController.m in Sources */,
 				C4780BEF1FD6A1F600DDE25D /* ZP_ShopManagementModel.m in Sources */,
 				C45FAEE71FCD055B00BD4CE1 /* myNavigationController.m in Sources */,
 				06418F521F7A076A00479523 /* MASConstraintMaker.m in Sources */,

@@ -118,12 +118,14 @@
 #define ZP_LabelColor [UIColor colorWithHexString:@"#434343"]
 #define ZP_green [UIColor colorWithHexString:@"#abc773"]
 #define ZP_greenen [UIColor colorWithHexString:@"#98b55e"]
+#define ZP_BuyColor [UIColor colorWithHexString:@"#E05B00"]
 #define ZP_TabbarNormalColor  [UIColor colorWithHexString:@"#ff5e0d"]
 #define ZP_HomeTableViewColor [UIColor colorWithHexString:@"#f5f6fc"]
 #define ZP_XINPINGCOLOER [UIColor colorWithHexString:@"#e3202a"]
 #define ZP_HUISE [UIColor colorWithHexString:@"#f2f2f2"]
 #define ZP_TEXTCOLERS [UIColor colorWithHexString:@"#000000"]
 #define ZP_MessageListColor [UIColor colorWithHexString:@"#f9f9f9"]
+
 
 // 字体
 #define ZP_AmountTextFont [UIFont myFontOfSize:24]

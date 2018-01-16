@@ -93,7 +93,10 @@
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"6";
     [ZP_MyTool requestHistoricalBet:dic uccess:^(id obj) {
-        
+//        数据为空时写这个不会蹦
+        if (self.newsData == nil) {
+            return ;
+        }
         if ([obj isKindOfClass:[NSDictionary class]]) {
             [SVProgressHUD showErrorWithStatus:@"無數據"];
             return ;

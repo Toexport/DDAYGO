@@ -14,6 +14,13 @@
 #import "ZP_OrderTool.h"
 @interface AppraiseController ()
 @property (nonatomic, strong) UITableView * tableview;
+@property (nonatomic, assign) NSInteger score1;
+@property (nonatomic, strong) NSString * pjstr;
+
+@property (nonatomic, assign) NSUInteger Score2;
+@property (nonatomic, strong) NSString * jpstr;
+
+
 @end
 
 @implementation AppraiseController
@@ -68,23 +75,49 @@
 // 数据
 - (void)allData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-//    写在这里就好
-//    _model.addressid
-    dic[@"preview"] = @"";  //逗號拼接： [商品详情ID,商品ID,分数,评价内容] 多个以 _ 连接
-    dic[@"oid"] = _model.ordersnumber;   //订单编号
-    dic[@"supscore"] = @""; // 店家评分
-    dic[@"sreview"] = @""; //店家评论
-
+    NSString * allStr = [NSString stringWithFormat:@"%@,%@,%ld,%@",_model2.detailid,_model2.productid,_score1+1,_pjstr];
+    NSString * utf8Str = [allStr stringByAddingPercentEscapesUsingEncoding:kCFStringEncodingUTF8];
+    dic[@"preview"] = utf8Str;
+//    ZPLog(@"%ld",_score1);
+//    ZPLog(@"%@",_pjstr);
+    dic[@"oid"] = self.ordersnumber;   //订单编号
+    dic[@"supscore"] = [NSNumber numberWithFloat:_Score2+1]; // 店家评分
+//    ZPLog(@"%ld",_Score2);
+    NSString * djStr = [_jpstr stringByAddingPercentEscapesUsingEncoding:kCFStringEncodingUTF8];
+    dic[@"sreview"] = djStr; //店家评论
+//    ZPLog(@"%@",_jpstr);
     dic[@"token"] = Token;
+    if (_score1 < 1) {
+        [SVProgressHUD showInfoWithStatus:@"請填寫您的評價"];
+        
+        return;
+    }
+    if (_pjstr.length < 1) {
+        [SVProgressHUD showInfoWithStatus:@"請填寫您的評價"];
+        return;
+    }
+    if (_Score2 < 1) {
+        [SVProgressHUD showInfoWithStatus:@"請填寫您的評價"];
+//        [SVProgressHUD setForegroundColor:[UIColor blackColor]];
+        return;
+    }
+    if (_jpstr.length < 1) {
+        [SVProgressHUD showInfoWithStatus:@"請填寫您的評價"];
+        return;
+    }
     [ZP_OrderTool requestAppraise:dic success:^(id obj) {
+        
+        if ([obj[@"result"]isEqualToString:@"ok"]) {
+            [SVProgressHUD showSuccessWithStatus:@"评价成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
         ZPLog(@"%@",obj);
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-//        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
-#pragma mark - <UItableviewDelegate>
 
+#pragma mark - <UItableviewDelegate>
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return 2;
@@ -102,7 +135,11 @@
         AppraiseViewCell * cell = [tableView dequeueReusableCellWithIdentifier:AppraiseID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
         cell.scoreBlock = ^(NSInteger tag) {
+            _score1 = tag;
             NSLog(@"%ld",(long)tag);
+        };
+        cell.savaData = ^(NSString *title) {
+            _pjstr = title;
         };
         [cell score:A];
         
@@ -117,7 +154,11 @@
         ShopevaluationViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ShopevaluationID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
         cell.ShopevaluationBlock = ^(NSInteger tag) {
+            _Score2 = tag;
             NSLog(@"%ld",(long)tag);
+        };
+        cell.savaData = ^(NSString *title) {
+            _jpstr = title;
         };
         [cell Shopevaluation:B];
         return cell;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppraiseViewCell : UITableViewCell
+@interface AppraiseViewCell : UITableViewCell<UITextFieldDelegate>
 
 @property (nonatomic, strong) UIImageView * FigureImage;       //  主图
 @property (nonatomic, strong) UILabel * EvaluationLabel;      // 商品评分
@@ -22,4 +22,9 @@
 - (void)score:(NSArray *)score;
 
 - (void)Appraise:(NSDictionary *)dic;
+
+
+@property (nonatomic, copy) void (^ savaData)(NSString *title);
+
+
 @end

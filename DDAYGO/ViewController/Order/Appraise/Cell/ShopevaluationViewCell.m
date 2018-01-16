@@ -62,6 +62,7 @@
     Storeratingstext.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
     Storeratingstext.textColor = ZP_TypefaceColor;
     Storeratingstext.font = ZP_titleFont;
+    Storeratingstext.delegate = self;
     Storeratingstext.placeholder = NSLocalizedString(@"分享一下你對店鋪的服務滿意嗎", nil);
     [self.contentView addSubview:Storeratingstext];
     [Storeratingstext mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -87,6 +88,7 @@
     [Anonymousbutton setTitle:NSLocalizedString(@"匿名", nil) forState:UIControlStateNormal];
     Anonymousbutton.titleLabel.font = ZP_TooBarFont;
     [Anonymousbutton setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
+    Anonymousbutton .contentEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
     [Anonymousbutton setImage:[UIImage imageNamed:@"ic_Shopping_Choice_normal"] forState:UIControlStateNormal];
     [Anonymousbutton setImage:[UIImage imageNamed:@"ic_Shopping_Choice_pressed"] forState:UIControlStateSelected];
     Anonymousbutton.layer.masksToBounds = YES;
@@ -136,14 +138,6 @@
     }
 }
 
-//// 键盘弹起
-//
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-//    [super touchesBegan:touches withEvent:event];
-//    [self.Storeratingstext resignFirstResponder];
-//}
-//
-//
 - (void)buttonType:(UIButton *)sender {
 
     self.ShopevaluationBlock(sender.tag);
@@ -155,5 +149,13 @@
 - (void)Anonymous:(UIButton *)sender {
 
     _Anonymousbutton.selected = !_Anonymousbutton.selected;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (self.savaData) {
+        self.savaData([textField.text stringByReplacingCharactersInRange:range withString:string]);
+    }
+    
+    return YES;
 }
 @end

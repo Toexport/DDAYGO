@@ -16,6 +16,7 @@
     if (self) {
         [self initUI];
         self.contentView.userInteractionEnabled = YES;
+        
     }
     return self;
 }
@@ -65,6 +66,7 @@
     Evaluationtext.textColor = ZP_TypefaceColor;
     Evaluationtext.font = ZP_titleFont;
     Evaluationtext.placeholder = NSLocalizedString(@"來說說你對產品的體驗，分享給想買的小夥伴", nil);
+    Evaluationtext.delegate = self;
     [self.contentView addSubview:Evaluationtext];
     [Evaluationtext mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(10);
@@ -127,6 +129,12 @@
     _FigureImage.image = [UIImage imageNamed:@"Shopping"];
 }
 
-
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (self.savaData) {
+        self.savaData([textField.text stringByReplacingCharactersInRange:range withString:string]);
+    }
+    
+    return YES;
+}
 
 @end

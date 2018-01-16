@@ -42,7 +42,6 @@
 
     SDCycleScrollView *scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, ZP_Width, zeroHeight) delegate:self placeholderImage:[UIImage imageNamed:@"ddg_propaganda.png"]];
     
-    scrollView.backgroundColor = [UIColor yellowColor];
     scrollView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
     scrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
 //    scrollView.imageURLStringsGroup = imagesURLStrings;

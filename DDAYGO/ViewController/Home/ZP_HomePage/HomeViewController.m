@@ -14,14 +14,13 @@
 #import "myNavigationController.h"
 //#import "SelectedViewController.h"
 #import "CPViewController.h"
-@interface HomeViewController () <SDCycleScrollViewDelegate,UITableViewDelegate, UITableViewDataSource> {
+@interface HomeViewController () <UITableViewDelegate, UITableViewDataSource> {
     int _i;
     UIButton * _chooseCityBtn;
-    UIScrollView * _scrollView;
     NSArray * dataArray;
 }
 
-@property(nonatomic, strong)UITableView * tableView;
+//@property(nonatomic, strong)UITableView * tableView;
 //@property (nonatomic, strong)NSArray * advertisingArray;
 @property (nonatomic, strong)NSMutableArray * newsData;
 @property (nonatomic, strong)NSArray * postionArray;
@@ -57,31 +56,17 @@
         _i = 0;
         [self allData];
     }];
-    //    进入刷新
-    [self.tableView.mj_header beginRefreshing];
-    
-    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self.newsData removeAllObjects];
-        _i+=10;
-        [self allData];
-    }];
 }
 
 // UI
 - (void)initUI {
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+//    self.tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
 //    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height) style:UITableViewStylePlain];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
     self.tableView.backgroundColor = ZP_Graybackground;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).offset(0);
-        make.bottom.equalTo(self.view).offset(0);
-        make.right.equalTo(self.view).offset(0);
-        make.top.equalTo(self.view).offset(0);
-    }];
 }
 
 - (void)registration {
@@ -120,7 +105,7 @@
     [_chooseCityBtn setImage:[UIImage imageNamed:@"ic_home_down"] forState:(UIControlStateNormal)];
     CGFloat imageWidth = _chooseCityBtn.imageView.bounds.size.width;
     CGFloat labelWidth = _chooseCityBtn.titleLabel.bounds.size.width;
-    _chooseCityBtn.imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth   , 0, -labelWidth);
+    _chooseCityBtn.imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth , 0, -labelWidth);
     _chooseCityBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -imageWidth, 0, imageWidth);
     [_chooseCityBtn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:_chooseCityBtn];
@@ -308,12 +293,11 @@
     }else
         if (indexPath.section == 3){
             
-/*********有问题***********/
-//        if (_newsData == nil) {
-//            return 0;
-//        }else {
+        if (_newsData.count == 0) {
+            return 0;
+        }else {
             return ZP_Width / 4;
-//        }
+        }
     }else {
 //        if (_newsData == nil) {
 //            return 0;

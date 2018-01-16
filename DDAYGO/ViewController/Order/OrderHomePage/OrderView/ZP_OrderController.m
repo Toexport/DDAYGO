@@ -228,7 +228,9 @@
     
 //   评论
     cell.appraiseBlock = ^(AppraiseController* response) {
+        NSLog(@" --- count --- %ld",model.ordersdetail.count);
         response.model = model;
+        response.num = indexPath.row;
         [self.navigationController pushViewController:response animated:YES];
        
     };
