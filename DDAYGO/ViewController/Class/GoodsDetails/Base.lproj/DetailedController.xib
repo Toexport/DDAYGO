@@ -19,8 +19,8 @@
                 <outlet property="ShopOldMoneyLabel" destination="JC2-YT-xXX" id="P8I-3j-1Zm"/>
                 <outlet property="ShoppingIdLabel" destination="5hf-XE-3NG" id="lxM-No-6yR"/>
                 <outlet property="cpnrBottomView" destination="mZG-Ir-Bec" id="o0a-rW-6Ya"/>
+                <outlet property="cpsmHeight" destination="3y8-Iz-ZpU" id="7Lt-Ej-jsl"/>
                 <outlet property="detailTableView" destination="LTl-24-eao" id="imh-3t-AXZ"/>
-                <outlet property="detailViewTop" destination="qUm-2r-TP6" id="py6-SK-NrE"/>
                 <outlet property="gouwuBtn" destination="LQ3-G5-mOb" id="94C-ZD-3mI"/>
                 <outlet property="headView" destination="pkQ-dn-mhv" id="QI9-Do-OFB"/>
                 <outlet property="jrgwcBtn" destination="4o7-eS-6u4" id="th2-xl-0Dq"/>
@@ -41,11 +41,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="888"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ggt-fq-ZTj">
-                    <rect key="frame" x="0.0" y="-20" width="320" height="534"/>
+                    <rect key="frame" x="0.0" y="-20" width="320" height="854"/>
                     <subviews>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxe-zc-jNu">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="364"/>
@@ -233,8 +233,11 @@
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tyf-aT-gID" userLabel="产品说明">
-                            <rect key="frame" x="0.0" y="522" width="320" height="30"/>
+                            <rect key="frame" x="0.0" y="522" width="320" height="2"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="3y8-Iz-ZpU"/>
+                            </constraints>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <state key="normal" title="  产品说明">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -244,7 +247,7 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pNh-da-IVa">
-                            <rect key="frame" x="0.0" y="560" width="320" height="40"/>
+                            <rect key="frame" x="0.0" y="532" width="320" height="40"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWJ-jb-o3c">
                                     <rect key="frame" x="0.0" y="0.0" width="107" height="40"/>
@@ -325,7 +328,7 @@
                             </constraints>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="LTl-24-eao">
-                            <rect key="frame" x="0.0" y="600" width="320" height="464"/>
+                            <rect key="frame" x="0.0" y="572" width="320" height="784"/>
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="mEb-so-CcL"/>
@@ -351,11 +354,11 @@
                         <constraint firstItem="LTl-24-eao" firstAttribute="trailing" secondItem="pNh-da-IVa" secondAttribute="trailing" id="h6i-Qx-Qov"/>
                         <constraint firstItem="zr9-j3-C4D" firstAttribute="leading" secondItem="ggt-fq-ZTj" secondAttribute="leading" id="iHi-EL-pYu"/>
                         <constraint firstItem="erL-ta-lZE" firstAttribute="leading" secondItem="ggt-fq-ZTj" secondAttribute="leading" id="lfZ-mT-qS7"/>
-                        <constraint firstItem="pNh-da-IVa" firstAttribute="top" secondItem="Tyf-aT-gID" secondAttribute="bottom" constant="8" id="qUm-2r-TP6"/>
                         <constraint firstAttribute="trailing" secondItem="zr9-j3-C4D" secondAttribute="trailing" id="rIU-aR-X7H"/>
                         <constraint firstAttribute="bottom" secondItem="dxe-zc-jNu" secondAttribute="bottom" constant="249" id="t3q-OS-Vlj"/>
                         <constraint firstItem="erL-ta-lZE" firstAttribute="top" secondItem="dxe-zc-jNu" secondAttribute="bottom" id="w07-Ul-wGB"/>
                         <constraint firstAttribute="trailing" secondItem="Tyf-aT-gID" secondAttribute="trailing" id="yJO-Z3-7pW"/>
+                        <constraint firstItem="pNh-da-IVa" firstAttribute="top" secondItem="Tyf-aT-gID" secondAttribute="bottom" constant="8" id="ytr-37-h0e"/>
                     </constraints>
                     <connections>
                         <outlet property="delegate" destination="-1" id="nfN-Mm-iPz"/>
@@ -416,7 +419,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rk-Zo-kZP">
-                    <rect key="frame" x="0.0" y="514" width="120" height="54"/>
+                    <rect key="frame" x="0.0" y="834" width="120" height="54"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oot-nU-aDp">
                             <rect key="frame" x="0.0" y="0.0" width="53" height="54"/>
@@ -452,7 +455,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLy-kt-e6a">
-                    <rect key="frame" x="120" y="514" width="200" height="54"/>
+                    <rect key="frame" x="120" y="834" width="200" height="54"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yf-OJ-y4O">
                             <rect key="frame" x="0.0" y="0.0" width="100.5" height="54"/>
@@ -504,7 +507,8 @@
                 <constraint firstItem="4rk-Zo-kZP" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-40" id="ihg-3f-NlB"/>
                 <constraint firstItem="pkQ-dn-mhv" firstAttribute="leading" secondItem="ggt-fq-ZTj" secondAttribute="leading" id="oxK-tH-mpy"/>
             </constraints>
-            <point key="canvasLocation" x="32" y="65"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-620" y="-786"/>
         </view>
     </objects>
     <resources>

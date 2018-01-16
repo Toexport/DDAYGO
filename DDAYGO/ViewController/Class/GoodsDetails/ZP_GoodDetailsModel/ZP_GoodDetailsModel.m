@@ -7,7 +7,7 @@
 //
 
 #import "ZP_GoodDetailsModel.h"
-
+#import "PrefixHeader.pch"
 @implementation ZP_GoodDetailsModel
 + (instancetype) getGoodDetailsData:(NSDictionary *)Dic {
     return [[self alloc]initWithGoodDetailsData:Dic];
@@ -15,7 +15,7 @@
 
 - (instancetype)initWithGoodDetailsData:(NSDictionary *)dic {
     if (self == [super init]) {
-        self.defaultimg = [NSString stringWithFormat:@"http://www.ddaygo.com%@", dic[@"defaultimg"]];
+        self.defaultimg = [NSString stringWithFormat:@"%@%@",ImgAPI, dic[@"defaultimg"]];
         self.productname = dic[@"productname"];
         self.productprice = [NSString stringWithFormat:@"%@",dic[@"productprice"]];
         self.TrademarkLabel = [NSString stringWithFormat:@"%@", dic[@"cp"]];
@@ -40,7 +40,7 @@
     NSMutableArray * arr = [[NSMutableArray alloc]init];
     for (NSDictionary * dic in array) {
         ZP_GoodDetailsModel * model = [[ZP_GoodDetailsModel alloc]init];
-        model.cnimg = [NSString stringWithFormat:@"http://www.ddaygo.com%@", dic[@"cnimg"]];
+        model.cnimg = [NSString stringWithFormat:@"%@%@",ImgAPI, dic[@"cnimg"]];
         model.cnname = dic[@"cnname"];
         model.cntype = dic[@"cntype"];
         model.productid = [NSString stringWithFormat:@"%@", dic[@"productid"]];
@@ -59,7 +59,7 @@
     NSMutableArray * arr = [[NSMutableArray alloc]init];
     for (NSDictionary * dic in array) {
         ZP_GoodDetailsModel * model = [[ZP_GoodDetailsModel alloc]init];
-        model.cnimg = [NSString stringWithFormat:@"http://www.ddaygo.com%@", dic[@"cnimg"]];
+        model.cnimg = [NSString stringWithFormat:@"%@%@",ImgAPI, dic[@"cnimg"]];
         model.cnname = dic[@"cnname"];
         model.cntype = dic[@"cntype"];
         model.productid = [NSString stringWithFormat:@"%@", dic[@"productid"]];

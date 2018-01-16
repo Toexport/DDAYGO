@@ -17,7 +17,7 @@
 }
 
 - (void)updateData:(NSDictionary *)dic {
-    NSDictionary *tempDic = [(NSArray *)(dic[@"reviewslist"][@"ReviewsData"]) firstObject];
+    NSDictionary * tempDic = [(NSArray *)(dic[@"reviewslist"][@"ReviewsData"]) firstObject];
     self.usernameLabel.text = [tempDic[@"aid"] stringValue];
     [self updateStartsWithtype:0 StartCount:[tempDic[@"fraction"] integerValue]];
     [self updateStartsWithtype:1 StartCount:[tempDic[@"fraction"] integerValue]];

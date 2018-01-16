@@ -31,6 +31,12 @@
     // 因为需要上个接口的 sid 所以只有等 商家sid 获取成功后才能调用
 //    [self MerchantsBalance];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
+}
+
 - (void)initUI {
     self.title = NSLocalizedString(@"商店管理", nil);
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];

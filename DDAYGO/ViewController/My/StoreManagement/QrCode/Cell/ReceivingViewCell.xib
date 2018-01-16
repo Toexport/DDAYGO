@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,46 +21,49 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_frame" translatesAutoresizingMaskIntoConstraints="NO" id="5g5-OP-le0">
-                        <rect key="frame" x="46" y="57.5" width="220" height="220"/>
+                        <rect key="frame" x="46" y="44.5" width="220" height="220"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="5g5-OP-le0" secondAttribute="height" multiplier="1:1" id="ZIW-Ft-CeC"/>
                             <constraint firstAttribute="height" constant="220" id="sKm-zV-YLS"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ydd-dV-fSA">
-                        <rect key="frame" x="66" y="77.5" width="180" height="180"/>
+                        <rect key="frame" x="66" y="64.5" width="180" height="180"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ydd-dV-fSA" secondAttribute="height" multiplier="1:1" id="r5R-hQ-uaR"/>
                             <constraint firstAttribute="height" constant="180" id="uJZ-67-grt"/>
                         </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2u-Xb-eLs">
-                        <rect key="frame" x="66" y="31.5" width="180" height="20"/>
-                        <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请扫描二维码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2S-Lu-0pK">
+                        <rect key="frame" x="113" y="11" width="86" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="bgH-Es-Hvl"/>
+                            <constraint firstAttribute="height" constant="20" id="s7H-BL-JhZ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <state key="normal" title="请扫描二维码" image="ic_code">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </state>
-                    </button>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_code" translatesAutoresizingMaskIntoConstraints="NO" id="WAk-y4-TXO">
+                        <rect key="frame" x="88" y="11" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="ZI9-gB-oUM"/>
+                            <constraint firstAttribute="height" constant="20" id="seI-jC-4Tz"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="h2u-Xb-eLs" secondAttribute="trailing" constant="50" id="3fm-fZ-hFv"/>
                     <constraint firstItem="5g5-OP-le0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4Pm-FJ-m9q"/>
                     <constraint firstAttribute="trailingMargin" secondItem="5g5-OP-le0" secondAttribute="trailing" constant="30" id="5C3-Pu-MoU"/>
                     <constraint firstItem="5g5-OP-le0" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Eru-8C-YK6"/>
                     <constraint firstItem="ydd-dV-fSA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="50" id="J9q-8e-Wu7"/>
-                    <constraint firstItem="h2u-Xb-eLs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="UaU-01-wnt"/>
-                    <constraint firstItem="5g5-OP-le0" firstAttribute="top" secondItem="h2u-Xb-eLs" secondAttribute="bottom" constant="6" id="W8A-1m-ro5"/>
-                    <constraint firstItem="ydd-dV-fSA" firstAttribute="top" secondItem="h2u-Xb-eLs" secondAttribute="bottom" constant="26" id="WdE-ib-bxD"/>
+                    <constraint firstItem="WAk-y4-TXO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="NAF-kx-mpx"/>
+                    <constraint firstItem="V2S-Lu-0pK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="TdX-6Y-dig"/>
+                    <constraint firstItem="V2S-Lu-0pK" firstAttribute="leading" secondItem="WAk-y4-TXO" secondAttribute="trailing" constant="5" id="dTS-IH-gYr"/>
                     <constraint firstItem="ydd-dV-fSA" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="fnG-cz-jsP"/>
-                    <constraint firstItem="h2u-Xb-eLs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="50" id="fxH-Qb-WiC"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ydd-dV-fSA" secondAttribute="trailing" constant="50" id="jBV-aV-3ZU"/>
+                    <constraint firstItem="V2S-Lu-0pK" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="n3U-sb-0WB"/>
                     <constraint firstItem="5g5-OP-le0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="rAc-Ob-IwY"/>
                     <constraint firstItem="ydd-dV-fSA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uZB-hR-Muf"/>
-                    <constraint firstItem="h2u-Xb-eLs" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="zAT-hd-TbV"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

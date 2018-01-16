@@ -99,12 +99,12 @@
         
         btn.tag = 10000+i;
         
-        if (i==0)
-        {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(300 * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^{
-                [self btnClick:btn];
-            });
-        }
+//        if (i==0)
+//        {
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(300 * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^{
+//                [self btnClick:btn];
+//            });
+//        }
     }
     self.btnView.height = viewHeight;
     self.packView.height = self.btnView.height+CGRectGetMaxY(titleLB.frame);
@@ -117,18 +117,20 @@
 
 - (void)btnClick:(UIButton *)btn {
     
-    if (![self.selectBtn isEqual:btn]) {
-        
+    if (self.selectBtn == btn) {
         self.selectBtn.backgroundColor = BackgroundColor;
         self.selectBtn.selected = NO;
+        self.selectBtn = nil;
     }
     else {
         btn.backgroundColor = [UIColor orangeColor];
+        self.selectBtn.selected = NO;
+        self.selectBtn.backgroundColor = BackgroundColor;
+        self.selectBtn = btn;
+        self.selectBtn.selected = YES;
     }
-    btn.backgroundColor = [UIColor orangeColor];
-    btn.selected = YES;
     
-    self.selectBtn = btn;
+    
 
     if ([self.delegate respondsToSelector:@selector(selectBtnTitle:andBtn:)]) {
         

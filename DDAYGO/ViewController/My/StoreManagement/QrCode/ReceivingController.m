@@ -31,7 +31,6 @@
 }
 
 - (void)initUI {
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"ReceivingViewCell" bundle:nil] forCellReuseIdentifier:@"ReceivingViewCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = ZP_green;

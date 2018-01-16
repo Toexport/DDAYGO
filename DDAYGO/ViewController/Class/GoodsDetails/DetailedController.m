@@ -50,6 +50,7 @@
 @property (nonatomic, strong) NSArray * typeArr;
 @property (nonatomic, strong) NSArray * pjArr;
 @property (nonatomic, strong) NSMutableArray *productArray;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cpsmHeight;
 @property (nonatomic, strong) NSMutableArray *evaluateArray;
 
 @end
