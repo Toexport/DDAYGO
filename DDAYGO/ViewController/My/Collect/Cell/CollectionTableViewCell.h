@@ -18,6 +18,7 @@
 @property (nonatomic, strong) collectionModel * model;
 @property (weak, nonatomic) IBOutlet UIImageView *showYImageVIew;
 @property (weak, nonatomic) IBOutlet UILabel *zhuangtaiLabel;
+@property (weak, nonatomic) IBOutlet UIButton * CollectionBut;
 
 @end
 

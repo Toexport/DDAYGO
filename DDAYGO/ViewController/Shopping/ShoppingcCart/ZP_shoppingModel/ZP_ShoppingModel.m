@@ -7,7 +7,7 @@
 //
 
 #import "ZP_ShoppingModel.h"
-
+#import "PrefixHeader.pch"
 @implementation ZP_ShoppingModel
 //  今天新增商品详情的判断是否为没有登录状态
 + (instancetype)CreateWithDict:(NSDictionary *)dict
@@ -38,7 +38,7 @@
     NSMutableArray *arr =[NSMutableArray array];
     for (NSDictionary *dic in array) {
         ZP_CartsModel *model = [[ZP_CartsModel alloc]init];
-        model.defaultimg = [NSString stringWithFormat:@"http://www.ddaygo.com%@", dic[@"defaultimg"]];
+        model.defaultimg = [NSString stringWithFormat:@"%@%@",ImgAPI, dic[@"defaultimg"]];
         model.createtime = dic[@"createtime"];
         model.productname = dic[@"productname"];
         model.productremark = dic[@"productremark"];

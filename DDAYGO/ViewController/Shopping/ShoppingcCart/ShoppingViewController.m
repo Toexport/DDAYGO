@@ -47,8 +47,9 @@
         self.tableView.estimatedSectionHeaderHeight = 0;
         self.tableView.estimatedSectionFooterHeight = 0;
     }
+//    self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld",nameArray.count];
+    self.navigationController.tabBarItem.badgeValue = @"1";
     
-    self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)nameArray.count];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -165,7 +166,6 @@
 
 // UI
 - (void)initUI {
-    
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height-TabbarHeight -50) style:UITableViewStylePlain];
     self.tableView.backgroundColor = ZP_Graybackground;
     self.tableView.delegate = self;
@@ -188,6 +188,7 @@
     self.AllButton.layer.cornerRadius = self.AllButton.frame.size.height/2;
     self.AllButton.layer.borderColor = [UIColor clearColor].CGColor;
     self.AllButton.layer.borderWidth = 1;
+    self.AllButton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     [self.AllButton setTitle:NSLocalizedString(@"Select", nil) forState:UIControlStateNormal];
     self.AllButton.titleLabel.font = ZP_TooBarFont;
     [self.AllButton setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
@@ -199,19 +200,19 @@
     [self.AllButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(bottomView).offset(5); // 左边
         make.bottom.equalTo(bottomView).offset(-15); // 下边
-        make.width.mas_offset(65);
+        make.width.mas_offset(80);
         make.height.mas_offset(20);
     }];
     
 //  总金额
     UILabel * PriceLabel = [UILabel new];
     PriceLabel.textAlignment = NSTextAlignmentLeft;
-    PriceLabel.textColor = ZP_TypefaceColor;
+    PriceLabel.textColor = ZP_HomePreferentialpriceTypefaceCorlor;
     PriceLabel.text = @"0";
     PriceLabel.font = ZP_TooBarFont;
     [bottomView addSubview:PriceLabel];
     [PriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(bottomView).offset(- 110);
+        make.right.equalTo(bottomView).offset(- 105);
         make.bottom.equalTo(bottomView).offset(-25);
     }];
     _PriceLabel = PriceLabel;
@@ -222,7 +223,7 @@
     CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     [bottomView addSubview:CurrencySymbolLabel];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(PriceLabel).offset(-33);
+        make.left.equalTo(PriceLabel).offset(-25);
         make.top.equalTo(PriceLabel).offset(0);
     }];
     _CurrencySymbolLabel = CurrencySymbolLabel;
@@ -232,7 +233,7 @@
     StatisticsLabel.text = NSLocalizedString(@"Total", nil);
     [bottomView addSubview:StatisticsLabel];
     [StatisticsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(CurrencySymbolLabel).offset(-33.5); // 左边
+        make.left.equalTo(CurrencySymbolLabel).offset(-28.5); // 左边
         make.bottom.equalTo(CurrencySymbolLabel).offset(0); // 下
     }];
     _StatisticsLabel = StatisticsLabel;
@@ -260,6 +261,7 @@
     ZP_GeneralLabel * FreightLabel = [ZP_GeneralLabel initWithtextLabel:_FreightLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     FreightLabel.text = NSLocalizedString(@"不含运费", nil);
     [bottomView addSubview:FreightLabel];
+    _FreightLabel = FreightLabel;
     [FreightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(ClearingBut).offset(-65); // 左边
         make.top.equalTo(StatisticsLabel).offset(20); // 下
@@ -529,6 +531,7 @@ if (count == dataArray.count) {
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     ZP_CartsShopModel * model = nameArray[section];
     return model.array.count;
+    
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -11,7 +11,9 @@
 #import "UINavigationBar+Awesome.h"
 #import "PrefixHeader.pch"
 #import "ZP_MyTool.h"
+#import "ZP_ClassViewTool.h"
 #import "collectionModel.h"
+#import "ZP_GoodDetailsModel.h"
 
 @interface CollectionViewController ()
 {
@@ -40,7 +42,7 @@
     [super viewWillAppear:animated];
     [self getData];
 }
-
+// 获取数据
 - (void)getData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
@@ -66,6 +68,28 @@
     }];
 }
 
+- (void)CollectionBut:(UIButton *)sender {
+    
+    //取消收藏
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    dic[@"productid"] = _model.productid;
+    dic[@"token"] = Token;
+    [ZP_ClassViewTool requCancelshoucang:dic success:^(id obj) {
+        sender.selected = !sender.selected;
+        if ([obj[@"result"]isEqualToString:@"ok"]) {
+            [SVProgressHUD showSuccessWithStatus:@"取消成功!"];
+        }else
+            if ([obj[@"result"]isEqualToString:@"count"]) {
+                [SVProgressHUD showInfoWithStatus:@"0"];
+            }else
+                if ([obj[@"result"]isEqualToString:@"failure"]) {
+                    [SVProgressHUD showInfoWithStatus:@"操作失败"];
+                }
+    } failure:^(NSError *error) {
+        NSLog(@"error %@",error);
+    }];
+}
+
 #pragma mark ---tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _dataArray.count;
@@ -75,6 +99,8 @@
     collectionModel * model = _dataArray[indexPath.row];
     CollectionTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CollectionTableViewCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
+    cell.CollectionBut.tag = indexPath.row;
+    [cell.CollectionBut addTarget:self action:@selector(CollectionBut:) forControlEvents:UIControlEventTouchUpInside];
     cell.model = model;
     return cell;
 }

@@ -40,7 +40,6 @@
     [_ShopimageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
     }
     _priceLabel.text = [NSString stringWithFormat:@"%@",model.productprice];
-//    _CurrencySymbolLabel.text = model.CurrencySymbolLabel;
      NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
    _CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     _Cp.text = [NSString stringWithFormat:@"%@",model.cp];

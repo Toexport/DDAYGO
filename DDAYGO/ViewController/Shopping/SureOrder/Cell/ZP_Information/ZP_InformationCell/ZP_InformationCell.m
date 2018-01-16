@@ -99,10 +99,10 @@
     UIImageView * TrademarkImage = [UIImageView new];
     [self.contentView addSubview:TrademarkImage];
     [TrademarkImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self).offset(-110); // 右
+        make.right.equalTo(self).offset(-60); // 右
         make.top.equalTo(PreferentialLabel).offset(0);
-//        make.width.mas_offset(15);
-//        make.height.mas_offset(15);
+        make.width.mas_offset(15);
+        make.height.mas_offset(15);
     }];
     _TrademarkImage = TrademarkImage;
     
@@ -138,7 +138,7 @@
     [self.contentView addSubview:SharacterLabel];
     SharacterLabel.text = @"X";
     [SharacterLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(TrademarkLabel).offset(35);
+        make.right.equalTo(self).offset(-25);
         make.top.equalTo(TrademarkLabel).offset(0);
     }];
     _SharacterLabel = SharacterLabel;

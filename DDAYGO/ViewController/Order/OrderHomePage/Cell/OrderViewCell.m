@@ -137,26 +137,28 @@
     SizeLabel.text = @"XXL";
     [self.Backgroundview addSubview:SizeLabel];
     [SizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(descLabel).offset(10);
+        make.right.equalTo(descLabel).offset(35);
         make.top.equalTo(descLabel).offset(0);
     }];
     _SizeLabel = SizeLabel;
     
 //  货币符号
-    ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_TypefaceColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
+    ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_HomePreferentialpriceTypefaceCorlor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:CurrencySymbolLabel];
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
     CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(FigureImage).offset(80);
         make.top.equalTo(SizeLabel).offset(20);
+        make.height.mas_offset(15);
     }];
 //  优惠价格
-    ZP_GeneralLabel * PreferentialLabel = [ZP_GeneralLabel initWithtextLabel:_PreferentialLabel.text textColor:ZP_TypefaceColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
+    ZP_GeneralLabel * PreferentialLabel = [ZP_GeneralLabel initWithtextLabel:_PreferentialLabel.text textColor:ZP_HomePreferentialpriceTypefaceCorlor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:PreferentialLabel];
     [PreferentialLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(CurrencySymbolLabel).offset(20);
         make.top.equalTo(SizeLabel).offset(20);
+        make.height.mas_offset(15);
     }];
     _PreferentialLabel = PreferentialLabel;
 //
@@ -185,8 +187,8 @@
     UIImageView * TrademarkImage = [UIImageView new];
     [self.Backgroundview addSubview:TrademarkImage];
     [TrademarkImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self).offset(-90);
-        make.top.equalTo(PreferentialLabel).offset(0);
+        make.right.equalTo(SizeLabel).offset(-10);
+        make.top.equalTo(PreferentialLabel).offset(+2);
         make.width.mas_offset(15);
         make.height.mas_offset(15);
     }];
@@ -197,7 +199,7 @@
     [self.Backgroundview addSubview:TrademarkLabel];
     [TrademarkLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(TrademarkImage).offset(18);
-        make.top.equalTo(TrademarkImage).offset(0);
+        make.bottom.equalTo(PreferentialLabel).offset(+2);
     }];
     _TrademarkLabel = TrademarkLabel;
     
@@ -208,8 +210,8 @@
     [self.Backgroundview addSubview:VerticalView];
     [VerticalView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-55);
-        make.top.equalTo(TrademarkLabel).offset(0);
-        make.height.mas_equalTo(15);
+        make.bottom.equalTo(PreferentialLabel).offset(0);
+        make.height.mas_equalTo(13);
         make.width.mas_equalTo(1);
     }];
     
@@ -220,7 +222,7 @@
     _SharacterLabel = SharacterLabel;
     [SharacterLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(VerticalView).offset(5);
-        make.top.equalTo(VerticalView).offset(0);
+        make.bottom.equalTo(VerticalView).offset(+2);
     }];
     
 //  数量
@@ -228,13 +230,13 @@
     [self.Backgroundview addSubview:QuantityLabel];
     [QuantityLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(SharacterLabel).offset(10);
-        make.top.equalTo(SharacterLabel).offset(0);
+        make.bottom.equalTo(SharacterLabel).offset(0);
     }];
     _QuantityLabel = QuantityLabel;
     
 //  合计
-    ZP_GeneralLabel * CountLabel = [ZP_GeneralLabel initWithtextLabel:_CountLabel.text textColor:ZP_textblack font:ZP_introduceFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    CountLabel.text = NSLocalizedString(@"合計", nil);
+    ZP_GeneralLabel * CountLabel = [ZP_GeneralLabel initWithtextLabel:_CountLabel.text textColor:ZP_textblack font:ZP_addBtnTextdetaFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    CountLabel.text = NSLocalizedString(@"合計:", nil);
     [self.contentView addSubview:CountLabel];
     [CountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(TrademarkImage).offset(-20);
@@ -243,32 +245,32 @@
     _CountLabel = CountLabel;
     
 //  金额
-    ZP_GeneralLabel * AmountLabel = [ZP_GeneralLabel initWithtextLabel:_AmountLabel.text textColor:ZP_textblack font:ZP_introduceFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    ZP_GeneralLabel * AmountLabel = [ZP_GeneralLabel initWithtextLabel:_AmountLabel.text textColor:ZP_textblack font:ZP_addBtnTextdetaFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self.contentView addSubview:AmountLabel];
     [AmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(CountLabel).offset(25);
+        make.left.equalTo(CountLabel).offset(38);
         make.top.equalTo(VerticalView).offset(40);
     }];
     _AmountLabel = AmountLabel;
     
 //  运费
-    ZP_GeneralLabel * FreightLabel = [ZP_GeneralLabel initWithtextLabel:_FreightLabel.text textColor:ZP_textblack font:ZP_introduceFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    FreightLabel.text = NSLocalizedString(@"運費", nil);
+    ZP_GeneralLabel * FreightLabel = [ZP_GeneralLabel initWithtextLabel:_FreightLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    FreightLabel.text = NSLocalizedString(@"(運費", nil);
     [self.contentView addSubview:FreightLabel];
     [FreightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(AmountLabel).offset(40);
-        make.top.equalTo(VerticalView).offset(40);
+        make.left.equalTo(AmountLabel).offset(70);
+        make.top.equalTo(AmountLabel).offset(+2.5);
     }];
     _FreightLabel = FreightLabel;
     
     
 //  快递费
-    ZP_GeneralLabel * ExpressFeeLabel = [ZP_GeneralLabel initWithtextLabel:_ExpressFeeLabel.text textColor:ZP_textblack font:ZP_introduceFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    ZP_GeneralLabel * ExpressFeeLabel = [ZP_GeneralLabel initWithtextLabel:_ExpressFeeLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
 //    ExpressFeeLabel.text = @"0.00";
     [self.contentView addSubview:ExpressFeeLabel];
     _ExpressFeeLabel = ExpressFeeLabel;
     [ExpressFeeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(FreightLabel).offset(25);
+        make.left.equalTo(FreightLabel).offset(35);
         make.top.equalTo(FreightLabel).offset(0);
     }];
     
@@ -429,10 +431,10 @@
     _merchantsLabel.text = [NSString stringWithFormat:@"%@",model.shopname];
     _titleLabel.text = dic.productname;
 //    _titleLabel.text = model.shopname;
-    _descLabel.text = dic.colorname;
-    _SizeLabel.text = dic.normname;
-    _AmountLabel.text = [NSString stringWithFormat:@"%@",model.ordersamount];
-    _ExpressFeeLabel.text = [NSString stringWithFormat:@"%@",model.freight]; // 运费
+    _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",dic.colorname];
+    _SizeLabel.text = [NSString stringWithFormat:@"尺碼:%@",dic.normname];
+    _AmountLabel.text = [NSString stringWithFormat:@"NT%@",model.ordersamount];
+    _ExpressFeeLabel.text = [NSString stringWithFormat:@"NT%@)",model.freight]; // 运费
     _PreferentialLabel.text = [NSString stringWithFormat:@"%@",dic.price];
 //    _priceLabel.text = [NSString stringWithFormat:@"NT%@",dic.cost];
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];

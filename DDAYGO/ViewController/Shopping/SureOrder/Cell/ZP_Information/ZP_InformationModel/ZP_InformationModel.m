@@ -7,7 +7,7 @@
 //
 
 #import "ZP_InformationModel.h"
-
+#import "PrefixHeader.pch"
 @implementation ZP_InformationModel
 + (instancetype)GetInformationData:(NSDictionary *)dic {
     return [[self alloc]initWithInformationData:dic];
@@ -15,7 +15,7 @@
 
 - (instancetype)initWithInformationData:(NSDictionary *)Dic {
     if (self == [super init]) {
-        self.defaultimg = [NSString stringWithFormat:@"http://www.ddaygo.com%@",Dic[@"defaultimg"]];
+        self.defaultimg = [NSString stringWithFormat:@"%@%@",ImgAPI,Dic[@"defaultimg"]];
         self.productname = Dic[@"productname"];
         self.productprice = [NSString stringWithFormat:@"%@",Dic[@"productprice"]];
         self.amount = [NSString stringWithFormat:@"%@",Dic[@"amount"]];
@@ -34,7 +34,7 @@
     NSMutableArray * arr = [[NSMutableArray alloc]init];
     for (NSDictionary * dic in array) {
         ZP_InformationModel * model = [[ZP_InformationModel alloc]init];
-        model.defaultimg = [NSString stringWithFormat:@"http://www.ddaygo.com%@",dic[@"defaultimg"]];
+        model.defaultimg = [NSString stringWithFormat:@"%@%@",ImgAPI,dic[@"defaultimg"]];
         model.productname = dic[@"productname"];
         model.suppliername = dic[@"suppliername"];
         model.allamount = dic[@"allamount"];

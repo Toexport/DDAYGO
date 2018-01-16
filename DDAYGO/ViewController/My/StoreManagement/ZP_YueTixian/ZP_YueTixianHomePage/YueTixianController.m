@@ -37,7 +37,7 @@
 - (void)Extract {
     ZPLog(@"跳转");
     ZP_ExtractController * Extract = [[ZP_ExtractController alloc]init];
-    Extract.supplierId = _SupplierId;
+    Extract.supplierId = self.SupplierId;
     [self.navigationController pushViewController:Extract animated:YES];
 }
 

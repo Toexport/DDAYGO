@@ -92,7 +92,7 @@
     [ArrowImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-15);
         make.bottom.equalTo(self).offset(-35);
-        make.width.mas_equalTo(12);
+        make.width.mas_equalTo(10);
         make.height.mas_equalTo(15);
     }];
     _ArrowImage = ArrowImage;

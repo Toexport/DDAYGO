@@ -40,14 +40,14 @@
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;;
     dic[@"sid"] = _supplierId;
-    dic[@"page"] = @"2";
+    dic[@"page"] = @"1";
     [ZP_MyTool requesWithdrawalRecord:dic uccess:^(id obj) {
         
     ZPLog(@"%@",obj);
         
     } failure:^(NSError * error) {
-//        ZPLog(@"%@",error);
-        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
+        ZPLog(@"%@",error);
+//        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 

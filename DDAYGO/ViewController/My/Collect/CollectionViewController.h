@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ZP_GoodDetailsModel.h"
 @interface CollectionViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView * tableView;
-
+@property (nonatomic, strong) ZP_GoodDetailsModel * model;
 @end

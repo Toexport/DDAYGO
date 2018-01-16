@@ -74,7 +74,7 @@
     _descLabel = descLabel;
     [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(Mainfigure).offset(95);
-        make.top.equalTo(MerchandiseIntroducedLabel).offset(35);
+        make.top.equalTo(titleLabel).offset(35);
 //        make.width.mas_offset(50);
     }];
     
@@ -83,23 +83,9 @@
     [self.contentView addSubview:SizeLabel];
     _SizeLanbel = SizeLabel;
     [SizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(descLabel).offset(45);
-        make.top.equalTo(MerchandiseIntroducedLabel).offset(35);
+        make.right.equalTo(descLabel).offset(40);
+        make.top.equalTo(descLabel).offset(0);
     //        make.width.mas_offset(25);
-    }];
-    
-//  筛选按钮
-    UIButton * ScreeningBut = [UIButton new];
-    [ScreeningBut setImage:[UIImage imageNamed:@"ic_shop_down"] forState:UIControlStateNormal];
-    ScreeningBut.layer.borderColor = [UIColor clearColor].CGColor;
-    ScreeningBut.layer.borderWidth = 1;
-    [ScreeningBut addTarget:self action:@selector(ScreeningBut:) forControlEvents:UIControlEventTouchUpInside];
-    [self.contentView addSubview:ScreeningBut];
-    [ScreeningBut mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(SizeLabel).offset(25);
-        make.top.equalTo(SizeLabel).offset(0);
-        make.width.mas_equalTo(15);
-        make.height.mas_equalTo(15);
     }];
     
 //  背景
@@ -109,7 +95,7 @@
     [self.contentView addSubview:backgroundView];
     [backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(Mainfigure).offset(95);
-        make.bottom.equalTo(self).offset(-23.5);
+        make.top.equalTo(SizeLabel).offset(20);
         make.height.mas_equalTo(20);
         make.width.mas_equalTo(100);
     }];
@@ -161,14 +147,9 @@
     [_Mainfigure sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:nil];;
     _titleLabel.text = model.productname;
     _MerchandiseIntroducedLabel.text = model.productremark;
-    _descLabel.text = model.colorname;
-    _SizeLanbel.text = model.normname;
+    _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",model.colorname];
+    _SizeLanbel.text = [NSString stringWithFormat:@"尺碼:%@",model.normname];
     _numLabel.text = [NSString stringWithFormat:@"%@",model.amount];
-    //    _PreferentialLabel.text = [NSString stringWithFormat:@"NT:%@",model.priceamount];
-    //    _PriceLabel.text = [NSString stringWithFormat:@"NT:%@",model.productprice];
-    //    _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
-    //    _TrademarkLabel.text = [NSString stringWithFormat:@"%@",model.cp];
-    //    _QuantityLabel.text = [NSString stringWithFormat:@"%@",model.amount];
 }
 
 - (void)buttonClick:(UIButton *)sender {

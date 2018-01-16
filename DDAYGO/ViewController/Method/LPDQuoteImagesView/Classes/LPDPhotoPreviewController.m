@@ -80,7 +80,7 @@
 - (void)configCustomNaviBar {
     LPDImagePickerController *lpdImagePickerVc = (LPDImagePickerController *)self.navigationController;
     
-    _naviBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.lpd_width, 64)];
+   _naviBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.lpd_width, 64)];
     _naviBar.backgroundColor = [UIColor colorWithRed:(34/255.0) green:(34/255.0)  blue:(34/255.0) alpha:0.7];
     
     _backButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 44, 44)];

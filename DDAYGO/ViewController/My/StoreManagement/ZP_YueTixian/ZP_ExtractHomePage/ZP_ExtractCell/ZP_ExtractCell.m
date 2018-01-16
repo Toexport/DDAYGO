@@ -28,6 +28,7 @@
 
 // 数据
 -(void)Extract:(ZP_ExtractModel *)model {
+    
     _MmountLabel.text = [NSString stringWithFormat:@"NT%@",model.takeamount]; // 金额
     _BanksLabel.text = [NSString stringWithFormat:@"%@",model.bankname];  // 银行
     _NameLabel.text = [NSString stringWithFormat:@"%@",model.bankcardname]; // 名字
@@ -37,6 +38,7 @@
     _ApplyTimeLabel.text = [NSString stringWithFormat:@"%@",model.createtime];  // 申请时间
     _AuditTimeLabel.text = [NSString stringWithFormat:@"%@",model.updatetime];  // 审核时间
     _ReviewStatusLabel.text = [NSString stringWithFormat:@"%@",model.state];  // 审核状态
+    
     
 }
 

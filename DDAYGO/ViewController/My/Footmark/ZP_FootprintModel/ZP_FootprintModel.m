@@ -7,7 +7,7 @@
 //
 
 #import "ZP_FootprintModel.h"
-
+#import "PrefixHeader.pch"
 @implementation ZP_FootprintModel
 
 + (NSMutableArray *)arrayWithArray:(NSArray *)array {
@@ -40,7 +40,7 @@
 
 - (instancetype)initWithFootprintData:(NSDictionary *)dic {
     if (self == [super init]) {
-        self.defaultimg = [NSString stringWithFormat:@"http://www.ddaygo.com%@",dic[@"defaultimg"]];
+        self.defaultimg = [NSString stringWithFormat:@"%@%@",ImgAPI,dic[@"defaultimg"]];
         self.productname = dic[@"productname"];
         self.productprice = [NSString stringWithFormat:@"%@",dic[@"productprice"]];
         self.cp = [NSString stringWithFormat:@"%@",dic[@"cp"]];
@@ -57,7 +57,7 @@
         for (NSDictionary * dic in array) {
             
             ZP_FootprintModel1 * model = [[ZP_FootprintModel1 alloc]init];
-            model.defaultimg = [NSString stringWithFormat:@"http://www.ddaygo.com%@",dic[@"defaultimg"]];
+            model.defaultimg = [NSString stringWithFormat:@"%@%@",ImgAPI,dic[@"defaultimg"]];
             model.productname = dic[@"productname"];
             model.productprice = [NSString stringWithFormat:@"%@",dic[@"productprice"]];
             model.cp = [NSString stringWithFormat:@"%@",dic[@"cp"]];

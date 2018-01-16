@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
-            timestampString = "537820077.269019"
+            filePath = "DDAYGO/ViewController/Method/LPDQuoteImagesView/Classes/LPDPhotoPickerController.m"
+            timestampString = "537833145.490463"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "-onClickedSweep:"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "-imagePickerVc"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
-            timestampString = "537820077.269079"
+            filePath = "DDAYGO/ViewController/Method/LPDQuoteImagesView/Classes/LPDPhotoPickerController.m"
+            timestampString = "537833145.490648"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "-onClickedSweep:"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-imagePickerVc"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
-            timestampString = "537820077.269123"
+            filePath = "DDAYGO/ViewController/Method/LPDQuoteImagesView/Classes/LPDPhotoPickerController.m"
+            timestampString = "537833145.490728"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "-onClickedSweep:"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "-imagePickerVc"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

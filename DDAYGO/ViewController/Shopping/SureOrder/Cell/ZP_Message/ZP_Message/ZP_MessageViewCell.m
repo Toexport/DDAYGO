@@ -70,7 +70,7 @@
 //    TotalLabel.text = NSLocalizedString(@"共计36件商品", nil);
     [self.contentView addSubview:TotalLabel];
     [TotalLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(120);
+        make.right.equalTo(self).offset(- 120);
         make.bottom.equalTo(self).offset(-15);
     }];
     _TotalLabel = TotalLabel;
@@ -91,7 +91,7 @@
 //      价格
     UILabel * ComputationsLabel = [UILabel new];
     ComputationsLabel.textAlignment = NSTextAlignmentLeft;
-    ComputationsLabel.textColor = ZP_textblack;
+    ComputationsLabel.textColor = ZP_HomePreferentialpriceTypefaceCorlor;
     ComputationsLabel.font = ZP_titleFont;
     [self.contentView addSubview:ComputationsLabel];
     [ComputationsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -114,52 +114,10 @@
     }];
 }
 
-///***********鍵盤************/
-//-(void)textFieldDidBeginEditing:(UITextField *)textField{// 文本编辑开始时
-//    [UIView animateWithDuration:0.4 animations:^{
-//        self.contentOffset = CGPointMake(0, ZP_Width - 210);
-//    }];
-//
-//}
-//- (void)textFieldDidEndEditing:(UITextField *)textField{
-//    [UIView animateWithDuration:0.3 animations:^{
-//        self.contentOffset = CGPointMake(0, 0);
-//    }];
-//
-//}
-//
-//- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-//    [self.contentView endEditing:YES];
-//}
-//
-//////隐藏键盘
-////- (void)keyboardWillHide:(NSNotification *)notification {
-////    //将contentInset的值设回原来的默认值
-////    UIEdgeInsets e = UIEdgeInsetsMake(0, 0, 0, 0);
-////    [self setContentInset:e];
-////
-////    NSLog(@"scrollView.height = %f", self.contentSize.height);
-////}
-
-// 键盘触摸
-- (void)touchesBegan {
-    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
-    //设置成NO表示当前控件响应后会传播到其他控件上，默认为YES。
-    tapGestureRecognizer.cancelsTouchesInView = NO;
-    //将触摸事件添加到当前view
-    [self addGestureRecognizer:tapGestureRecognizer];
-    
-}
-// 触发事件
--(void)keyboardHide:(UITapGestureRecognizer*)tap {
-    [_MessagetextField resignFirstResponder];
-
-}
-
 - (void)MessageDic:(ZP_InformationModel *)model {
 
     _TotalLabel.text = [NSString stringWithFormat:@"共计%@件商品",_allCount];
-    _ComputationsLabel.text = [NSString stringWithFormat:@"%@", _allMoney];
+    _ComputationsLabel.text = [NSString stringWithFormat:@"NT%@", _allMoney];
 }
 @end
 
