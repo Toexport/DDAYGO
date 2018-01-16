@@ -10,4 +10,5 @@
 
 @interface FifthViewCell : UITableViewCell
 @property (nonatomic, copy) void(^ThirdBlock)(NSInteger tag);
+@property (nonatomic, strong) NSArray * arrData;
 @end

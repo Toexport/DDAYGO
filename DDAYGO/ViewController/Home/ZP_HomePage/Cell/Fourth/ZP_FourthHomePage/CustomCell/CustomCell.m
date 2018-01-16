@@ -36,7 +36,7 @@
     //  文字介绍
     ZP_GeneralLabel * introduceLabel = [ZP_GeneralLabel initWithtextLabel:_introduceLabel.text textColor:ZP_HomeTitleTypefaceCorlor font:ZP_introduceFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     introduceLabel.lineBreakMode = NSLineBreakByWordWrapping; //文字分行
-    introduceLabel.numberOfLines = 0;
+    introduceLabel.numberOfLines = 2;
     [self addSubview:introduceLabel];
     [introduceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(5);
@@ -94,7 +94,7 @@
     }];
     _TrademarkImage = TrademarkImage;
     
-    //    商标编号
+//    商标编号
     ZP_GeneralLabel * TrademarkLabel = [ZP_GeneralLabel initWithtextLabel:_TrademarkLabel.text textColor:ZP_HomeTitlepriceTypefaceColor font:ZP_TrademarkFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self.contentView addSubview:TrademarkLabel];
     [TrademarkLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -119,9 +119,7 @@
 - (void)cellWithdic:(ZP_FourthModel *)model {
     [_imageView1 sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
     _introduceLabel.text = model.productname;
-    
     _PreferentialLabel.text = [NSString stringWithFormat:@"%@",model.PreferentialLabel]; // 优惠价格
-//    _PriceLabel.text = [NSString stringWithFormat:@"NT:"];
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
     _TrademarkLabel.text = model.TrademarkLabel;
 }

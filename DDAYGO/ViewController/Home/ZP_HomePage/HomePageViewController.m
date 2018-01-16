@@ -7,13 +7,22 @@
 //
 
 #import "HomePageViewController.h"
-#import "PrefixHeader.pch"
-#import "myNavigationController.h"
+#import "Documents.pch"
+#import "Pop-upPrefixHeader.pch"
 #import "ZP_HomeTool.h"
 #import "ZP_PositionModel.h"
+#import "DetailedController.h"
+#import "myNavigationController.h"
+#import "CPViewController.h"
+#import "ZP_FifthModel.h"
+#import "ZP_SixthModel.h"
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UIButton * chooseCityBtn;
+@property (nonatomic, strong) NSArray * newsData2;
+@property (nonatomic, strong) NSArray * newsData;
+@property (nonatomic, strong) NSMutableArray * SixthArrData;
 @property (nonatomic, strong) NSArray * postionArray;
+@property (nonatomic, strong) NSArray * dataArray;
 @end
 
 @implementation HomePageViewController
@@ -22,11 +31,16 @@
     [super viewDidLoad];
     [self initUI];
     [self searchBox];
+    [self registration];
+    [self FifthallData];
+    [self SixthAllData];
 }
 // UI
 - (void)initUI {
     [self.view setBackgroundColor:ZP_Graybackground];
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 }
 
 - (void)searchBox {
@@ -67,7 +81,17 @@
     [self presentViewController:login animated:YES completion:nil];
     NSLog(@"搜索框");
 }
-// 
+//  注册
+- (void)registration {
+    [self.tableView registerClass:[ZeroViewCell class] forCellReuseIdentifier:@"ceaa"];
+    [self.tableView registerClass:[FirstViewCell class] forCellReuseIdentifier:@"First"];
+    [self.tableView registerClass:[SecondViewCell class] forCellReuseIdentifier:@"Secondcell"];
+    [self.tableView registerClass:[ThirdViewCell class] forCellReuseIdentifier:@"Thirdcell"];
+    [self.tableView registerClass:[FourthViewCell class] forCellReuseIdentifier:@"Fourthcell"];
+    [self.tableView registerClass:[FifthViewCell class] forCellReuseIdentifier:@"ceaaa"];
+    [self.tableView registerClass:[SixthViewCell class] forCellReuseIdentifier:@"Fifthcell"];
+}
+
 //  位置按钮点击事件
 - (void)buttonAction:(UIButton *)sender {
     if (!DD_HASLOGIN) {
@@ -92,6 +116,7 @@
     }
     
 }
+
 //  定位数据
 - (void)PositionallData {
     [ZP_HomeTool requesPosition:nil success:^(id obj) {
@@ -103,6 +128,7 @@
         //        [SVProgressHUD showInfoWithStatus: NSLocalizedString(@"Server link failed", nil)];
     }];
 }
+
 //  数据
 - (void)allData {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -118,14 +144,200 @@
     }];
 }
 
-#pragma mark -- tabeView delegate
+// FifthAlldata
+- (void)FifthallData {
+    NSDictionary * dict = @{@"count":@"5",@"countrycode":@"886"};
+    [ZP_HomeTool requestSellLikeHotCakes:dict success:^(id obj) {
+        ZPLog(@"%@",obj);
+        NSArray * arr = obj;
+        NSArray * arra = [ZP_FifthModel arrayWithArray:arr];
+        
+        if (arra.count >= 2) {
+            self.newsData2 = [arra subarrayWithRange:NSMakeRange(0, 2)];
+            if (arra.count >2) {
+                self.newsData = [arra subarrayWithRange:NSMakeRange(2, arra.count - 2)];
+            }
+        }else {
+            self.newsData2 = arra;
+        }
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+        //        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
+    }];
+}
 
+// SixthArrData
+- (void)SixthAllData {
+    NSDictionary * dict = @{@"acount":@"5",@"countrycode":@"886"};
+    [ZP_HomeTool requSelectLikeHotCakes:dict success:^(id obj) {
+        NSArray * arr = obj;
+        ZPLog(@"%@",arr);
+        self.SixthArrData = [ZP_SixthModel arrayWithArray:arr];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        ZPLog(@"%@",error);
+        //        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Select erchandise ach Month", nil)];
+    }];
+}
+#pragma mark -- tabeView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+// cell个数
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
+    NSInteger number = 3;
+    if (self.newsData.count > 0) {
+        ZPLog(@"_____");
+        number ++;
+    }
+    if (self.SixthArrData.count > 0) {
+        
+        number++;
+    }
+    return number;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.dataArray = @[@{@"title":NSLocalizedString( @"Best-selling products", nil)}];
+    if (indexPath.section == 0) {
+        static NSString * ZeroID = @"ceaa";
+       ZeroViewCell * cell =  [tableView dequeueReusableCellWithIdentifier:ZeroID];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.finishBlock = ^(id response) {
+            
+        };
+        return cell;
+    }else
+        if (indexPath.section == 1){
+            static NSString * FirstID = @"First";
+            FirstViewCell * cell = [tableView dequeueReusableCellWithIdentifier: FirstID];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
+            cell.firstBlock = ^(NSInteger tag, NSString *name) {
+                CPViewController * CVPView = [[CPViewController alloc]init];
+                CVPView.fatherId =[NSNumber numberWithInteger:tag];
+                CVPView.titleString = name;
+                [self.navigationController pushViewController:CVPView animated:YES];
+            };
+            return cell;
+    
+        }else
+    /*************暂时不需要*************/
+        //        if (indexPath.section == 2){
+        //            static NSString * SecondID = @"Secondcell";
+        //            SecondViewCell * cell = [tableView dequeueReusableCellWithIdentifier: SecondID];
+        //            cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
+        //            cell.SecondBlock = ^(NSInteger tag){
+        //                DetailedController *viewController = [[DetailedController alloc] init];
+        ////                self.hidesBottomBarWhenPushed = YES;
+        //                [self.navigationController pushViewController:viewController animated:YES];//                self.hidesBottomBarWhenPushed = NO;
+        //            };
+        //            [cell Second:B];
+        //            return cell;
+        //    }else
+        //        if (indexPath.section == 3){
+        //            static NSString * ThirdID = @"Thirdcell";
+        //            ThirdViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ThirdID];
+        //            cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
+        //            cell.ThirdBlock = ^(NSInteger tag){
+        //                DetailedController *viewController = [[DetailedController alloc] init];
+        //                [self.navigationController pushViewController:viewController animated:YES];
+        //            };
+        //            [cell Third:C];
+        //            return cell;
+        //    }else
+        if (indexPath.section == 2){
+            static NSString * FourthID = @"Fourthcell";
+            FourthViewCell * cell = [tableView dequeueReusableCellWithIdentifier:FourthID];
+            cell.arrDara = self.newsData2;
+            cell.FourthBlock = ^(NSInteger tag){
+                DetailedController *viewController = [[DetailedController alloc] init];
+                viewController.productId = @(tag);
+                [self.navigationController pushViewController:viewController animated:YES];
+            };
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
+            NSDictionary * dic = self.dataArray[indexPath.row];
+            [cell InformationWithDic:dic];
+            return cell;
+        }else
+            if (indexPath.section ==3){
+                static NSString * FifthID = @"ceaaa";
+                FifthViewCell * cell = [tableView dequeueReusableCellWithIdentifier: FifthID];
+                 cell.arrData = self.newsData;
+                cell.ThirdBlock = ^(NSInteger tag) {
+                    ZPLog(@"%ld",tag);
+                    DetailedController * viewController = [[DetailedController alloc] init];
+                    viewController.productId = @(tag);
+                    [self.navigationController pushViewController:viewController animated:YES];
+                };
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
+                return cell;
+        }else {
+            
+            static NSString * SixthID = @"Fifthcell";
+            SixthViewCell * cell = [tableView dequeueReusableCellWithIdentifier: SixthID];
+            cell.ArrData = self.SixthArrData;
+            cell.ThirdBlock = ^(NSInteger tag){
+                DetailedController * viewController = [[DetailedController alloc] init];
+                viewController.productId = @(tag);
+                [self.navigationController pushViewController:viewController animated:YES];
+            };
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
+            return cell;
+            
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return zeroHeight;
+    }else if (indexPath.section == 1) {
+        return 200;
+    }else if (indexPath.section == 2) {
+        return 190;
+    }else if (indexPath.section == 3) {
+//        if (self.newsData.count == 0) {
+//            ZPLog(@"_____");
+//            return 0;
+//        }else {
+            return ZP_Width / 4;
+//        }
+    }else {
+        return ZP_Width / 3 * 2 + 35;
+        
+    }
+///**********暂时不需要***********/
+////        if (indexPath.section == 2){
+////            return ZP_Width;
+////    }else
+////        if (indexPath.section == 3){
+////            return 210;
+////    }else
+
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    //    return CGFLOAT_MIN;
+    NSLog(@"go ");
+    if (section == 0) {
+        return 0.0001;
+    }else
+        if (section == 2) {
+            return 0.0001;
+    }else{
+    return 10.0f;
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 10)];
+    return v;
 }
 @end

@@ -8,7 +8,7 @@
 
 #import "SettingViewController.h"
 #import "AddressViewController.h"
-#import "HomeViewController.h"
+
 #import "MyViewController.h"
 #import "BindingICUEViewController.h"
 #import "DialogBox.h"

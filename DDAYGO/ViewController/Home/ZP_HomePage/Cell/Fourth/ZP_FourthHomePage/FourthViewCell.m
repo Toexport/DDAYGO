@@ -17,7 +17,7 @@
 }
 
 @property (nonatomic, strong) UITableView * tableView;
-@property (nonatomic, strong)NSMutableArray * newsData;
+//@property (nonatomic, strong)NSMutableArray * newsData;
 
 @end
 
@@ -70,13 +70,17 @@
         make.height.mas_equalTo(160);
     }];
     _imageView1 = imageView1;
-
 }
+
+- (void)setArrDara:(NSArray *)arrDara {
+    _arrDara = arrDara;
+    [self.tableView reloadData];
+}
+
 - (void)InformationWithDic:(NSDictionary *)dic {
-    
     _Titlelabel.text = dic[@"title"];
     _imageView1.image = [UIImage imageNamed:@"img_home_advertisemen"];
-    [self allData];
+//    [self allData];
 }
 
 
@@ -97,26 +101,26 @@
         make.top.equalTo(self).offset(30);
     }];
 }
-// 数据
-- (void)allData {
-//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
-    NSDictionary * dict = @{@"count":@"5",@"countrycode":@"886"};
-    [ZP_HomeTool requestSellLikeHotCakes:dict success:^(id obj) {
-        NSArray * arr = obj;
-        ZPLog(@"%@",arr);
-        self.newsData = [ZP_FourthModel arrayWithArray:arr];
-        [self.tableView reloadData];
-    } failure:^(NSError *error) {
-        NSLog(@"%@",error);
-    }];
-}
+//// 数据
+//- (void)allData {
+////    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
+//    NSDictionary * dict = @{@"count":@"5",@"countrycode":@"886"};
+//    [ZP_HomeTool requestSellLikeHotCakes:dict success:^(id obj) {
+//        NSArray * arr = obj;
+//        ZPLog(@"%@",arr);
+//        self. = [ZP_FourthModel arrayWithArray:arr];
+//        [self.tableView reloadData];
+//    } failure:^(NSError *error) {
+//        NSLog(@"%@",error);
+//    }];
+//}
 
 
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.newsData.count;
+    return self.arrDara.count;
 }
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -128,7 +132,7 @@
     
         CustomCell * cell = [tableView dequeueReusableCellWithIdentifier:@"customCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
-         ZP_FourthModel * model = self.newsData[indexPath.row];
+         ZP_FourthModel * model = self.arrDara[indexPath.row];
         [cell cellWithdic:model];
         return cell;
     
@@ -141,7 +145,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.FourthBlock) {
-        ZP_FourthModel * model = self.newsData[indexPath.row];
+        ZP_FourthModel * model = self.arrDara[indexPath.row];
         self.FourthBlock([model.producid longLongValue]);
     }
         NSLog(@"111");

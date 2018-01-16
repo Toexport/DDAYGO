@@ -16,7 +16,7 @@
 
 @property (nonatomic,strong)UICollectionView *bottomCV;
 @property (nonatomic, strong) NSArray * array;
-@property (nonatomic, strong) NSMutableArray * newsData;
+//@property (nonatomic, strong) NSMutableArray * newsData;
 
 @end
 @implementation SixthViewCell
@@ -27,7 +27,6 @@
         
         [self addSubVIEWs];
         [self initUI];
-        [self allData];
     }
     return self;
 }
@@ -38,9 +37,10 @@
     layout.minimumLineSpacing = 1;
     layout.minimumInteritemSpacing = 1;
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    
     UICollectionView * bottomCV = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 35, ZP_Width, ZP_Width / 3 * 2) collectionViewLayout:layout];
     bottomCV.backgroundColor = [UIColor whiteColor];
-    
+    bottomCV.scrollEnabled = NO;
     bottomCV.delegate = self;
     bottomCV.dataSource = self;
     
@@ -100,42 +100,29 @@
     NSLog(@"更多...");
 }
 
-- (void)allData {
-//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
-    NSDictionary * dict = @{@"acount":@"5",@"countrycode":@"886"};
-    [ZP_HomeTool requSelectLikeHotCakes:dict success:^(id obj) {
-        NSArray * arr = obj;
-        ZPLog(@"%@",arr);
-        self.newsData = [ZP_SixthModel arrayWithArray:arr];
-        [self.bottomCV reloadData];
-    } failure:^(NSError *reeor) {
-//        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Select erchandise ach Month", nil)];
-    }];
-}
-
 #pragma mark <UICollectionViewDataSource>
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return self.newsData.count;
+    return self.ArrData.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     NestedCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Nestedcell" forIndexPath:indexPath];
-    ZP_SixthModel * model = self.newsData[indexPath.row];
+    ZP_SixthModel * model = self.ArrData[indexPath.row];
     [cell cellWithdic:model];
     return cell;
 }
 //  cell 点击事件
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.ThirdBlock) {
-        ZP_SixthModel *model = self.newsData[indexPath.row];
+        ZP_SixthModel *model = self.ArrData[indexPath.row];
         self.ThirdBlock([model.productid longValue]);
     }
     NSLog(@"选中%ld",(long)indexPath.item);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.newsData.count < 1) {
+    if (self.ArrData.count < 1) {
         return CGSizeMake(CGFLOAT_MIN, CGFLOAT_MIN);
     }
     return CGSizeMake(ZP_Width/3-1, ZP_Width / 3);

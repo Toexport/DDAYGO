@@ -48,6 +48,7 @@
         self.tableView.estimatedSectionFooterHeight = 0;
     }
     
+    self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)nameArray.count];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -134,6 +135,7 @@
 }
 
 #pragma makr -   编辑
+
 //  编辑
 - (void)onClickedSweep:(UIButton *)sup {
 //    [self EditorUI];
@@ -142,6 +144,7 @@
     if (_bjBool == YES) {
         _StatisticsLabel.hidden = YES;
         _CurrencySymbolLabel.hidden = YES;
+        _FreightLabel.hidden = YES;
         _PriceLabel.hidden = YES;
         _ClearingButt.selected = YES;
         
@@ -150,6 +153,7 @@
     }else{
         _StatisticsLabel.hidden = NO;
         _PriceLabel.hidden = NO;
+        _FreightLabel.hidden = NO;
         _CurrencySymbolLabel.hidden = NO;
         _ClearingButt.selected = NO;
          [sup setTitle:NSLocalizedString(@"Edit", nil) forState:UIControlStateNormal];
@@ -161,6 +165,7 @@
 
 // UI
 - (void)initUI {
+    
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height-TabbarHeight -50) style:UITableViewStylePlain];
     self.tableView.backgroundColor = ZP_Graybackground;
     self.tableView.delegate = self;
@@ -221,6 +226,7 @@
         make.top.equalTo(PriceLabel).offset(0);
     }];
     _CurrencySymbolLabel = CurrencySymbolLabel;
+    
 //   合计
     ZP_GeneralLabel * StatisticsLabel = [ZP_GeneralLabel initWithtextLabel:_StatisticsLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     StatisticsLabel.text = NSLocalizedString(@"Total", nil);
@@ -263,7 +269,6 @@
 
 //  全选
 - (void)selectClick:(UIButton *)sender {
-    /*******为了按钮点击不动写的，不知道有数据是否能点击***************/
     if (dataArray.count == 0) {
         sender.selected = sender.selected;
     }else {
@@ -324,7 +329,6 @@
     NSInteger data = 0;
     NSInteger dataCount = 0;
     for (int i = 0; i < dataArray.count; i ++) {
-        
         if (!_bjBool) {
             ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
 //            ZP_CartsModel *model = dataArray[i];
@@ -345,6 +349,7 @@
             }
             
         }else{
+            
             EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
             ZP_CartsModel *model = dataArray[i];
             if (cell.button.selected ) {
@@ -640,7 +645,7 @@ if (count == dataArray.count) {
 }
 
 
- -(UISwipeActionsConfiguration *)tableView:(UITableView *)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+ - (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
  if (@available(iOS 11.0, *)) {
  NSArray *array = @[[UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"delete" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
  [dataArray removeObjectAtIndex:indexPath.row];
@@ -654,8 +659,8 @@ if (count == dataArray.count) {
  
  return nil;
  }
- 
- -(UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
  
  if (@available(iOS 11.0, *)) {
  UIContextualAction *deleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"刪除" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
@@ -682,8 +687,6 @@ if (count == dataArray.count) {
  return nil;
  }
  }
- 
-
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     return @"删除";

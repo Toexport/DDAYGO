@@ -12,7 +12,7 @@
 #import "NotificationMacro.h"
 #import "NSBundle+Language.h"
 #import "PrefixHeader.pch"
-#import "HomeViewController.h"
+#import "HomePageViewController.h"
 #import "ClassificationViewController.h"
 #import "ShoppingViewController.h"
 #import "OrderViewController.h"
@@ -57,7 +57,7 @@
         UIViewController *firstVC = [nav.viewControllers firstObject];
         
         UINavigationController *homeVC = tabBarController.selectedViewController;
-        if ([firstVC isMemberOfClass:[HomeViewController class]]) {
+        if ([firstVC isMemberOfClass:[HomePageViewController class]]) {
             return YES;
             
         }

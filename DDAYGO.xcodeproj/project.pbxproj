@@ -199,7 +199,6 @@
 		C42A17411FF2532400680F92 /* BetTableViewMyCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A173B1FF2532400680F92 /* BetTableViewMyCell2.m */; };
 		C42A17451FF2544100680F92 /* tableHeadView1.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A17421FF2544000680F92 /* tableHeadView1.m */; };
 		C42A17461FF2544100680F92 /* tableHeadView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = C42A17441FF2544100680F92 /* tableHeadView1.xib */; };
-		C42E52EE200E12DD00515364 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C42E52ED200E12DD00515364 /* HomeViewController.xib */; };
 		C42E52F2200E141000515364 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42E52F0200E141000515364 /* HomePageViewController.m */; };
 		C42E52F3200E141000515364 /* HomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C42E52F1200E141000515364 /* HomePageViewController.xib */; };
 		C42F06FE1FFE259A00B3D510 /* ZP_BetHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C42F06FD1FFE259A00B3D510 /* ZP_BetHeaderModel.m */; };
@@ -257,7 +256,6 @@
 		C45F23381FA0757A00F5DB41 /* SecondViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C45F23231FA0757A00F5DB41 /* SecondViewCell.m */; };
 		C45F233B1FA0757A00F5DB41 /* ThirdViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C45F232B1FA0757A00F5DB41 /* ThirdViewCell.m */; };
 		C45F233C1FA0757A00F5DB41 /* ZeroViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C45F232F1FA0757A00F5DB41 /* ZeroViewCell.m */; };
-		C45F233D1FA0757A00F5DB41 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C45F23311FA0757A00F5DB41 /* HomeViewController.m */; };
 		C45F23491FA0809000F5DB41 /* FourthViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C45F23471FA0809000F5DB41 /* FourthViewCell.m */; };
 		C45F23501FA087A600F5DB41 /* ZP_FourthModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C45F234F1FA087A600F5DB41 /* ZP_FourthModel.m */; };
 		C45F23591FA099B200F5DB41 /* ReuseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C45F23551FA099B200F5DB41 /* ReuseCollectionViewCell.m */; };
@@ -795,7 +793,6 @@
 		C42A17421FF2544000680F92 /* tableHeadView1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tableHeadView1.m; sourceTree = "<group>"; };
 		C42A17431FF2544000680F92 /* tableHeadView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tableHeadView1.h; sourceTree = "<group>"; };
 		C42A17441FF2544100680F92 /* tableHeadView1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tableHeadView1.xib; sourceTree = "<group>"; };
-		C42E52ED200E12DD00515364 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		C42E52EF200E141000515364 /* HomePageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
 		C42E52F0200E141000515364 /* HomePageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
 		C42E52F1200E141000515364 /* HomePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageViewController.xib; sourceTree = "<group>"; };
@@ -915,8 +912,6 @@
 		C45F232B1FA0757A00F5DB41 /* ThirdViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewCell.m; sourceTree = "<group>"; };
 		C45F232E1FA0757A00F5DB41 /* ZeroViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZeroViewCell.h; sourceTree = "<group>"; };
 		C45F232F1FA0757A00F5DB41 /* ZeroViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZeroViewCell.m; sourceTree = "<group>"; };
-		C45F23301FA0757A00F5DB41 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		C45F23311FA0757A00F5DB41 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		C45F23461FA0809000F5DB41 /* FourthViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewCell.h; sourceTree = "<group>"; };
 		C45F23471FA0809000F5DB41 /* FourthViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewCell.m; sourceTree = "<group>"; };
 		C45F234E1FA087A600F5DB41 /* ZP_FourthModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZP_FourthModel.h; sourceTree = "<group>"; };
@@ -2859,9 +2854,6 @@
 		C45F230E1FA0757A00F5DB41 /* ZP_HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				C45F23301FA0757A00F5DB41 /* HomeViewController.h */,
-				C45F23311FA0757A00F5DB41 /* HomeViewController.m */,
-				C42E52ED200E12DD00515364 /* HomeViewController.xib */,
 				C42E52EF200E141000515364 /* HomePageViewController.h */,
 				C42E52F0200E141000515364 /* HomePageViewController.m */,
 				C42E52F1200E141000515364 /* HomePageViewController.xib */,
@@ -4147,7 +4139,6 @@
 				C4632E13200633E30029AA87 /* RefundServiceCell.xib in Resources */,
 				06F572291F9F1E8700D61FDB /* OrderDetailViewController.xib in Resources */,
 				06F572331F9F1E8700D61FDB /* ReceivingViewCell.xib in Resources */,
-				C42E52EE200E12DD00515364 /* HomeViewController.xib in Resources */,
 				C435171F1FB2AC180066302E /* ConcernShopTableViewCell.xib in Resources */,
 				C43517431FB2ACD60066302E /* StoreViewController.xib in Resources */,
 				C4AD076D200CA8E700B8FF6E /* ExchangeDetailsController.xib in Resources */,
@@ -4348,7 +4339,6 @@
 				06F571D31F9F1A7900D61FDB /* DialogBox.m in Sources */,
 				064449BA1F6A9B250004DFE4 /* UIView+MJExtension.m in Sources */,
 				064449B31F6A9B250004DFE4 /* MJRefreshNormalHeader.m in Sources */,
-				C45F233D1FA0757A00F5DB41 /* HomeViewController.m in Sources */,
 				C47E764A1FB5A1C7009F279A /* Pop-upTableViewDataSource.m in Sources */,
 				06418F561F7A076A00479523 /* NSArray+MASAdditions.m in Sources */,
 				C479C6A51FE3CB5800A58A2A /* MJPropertyType.m in Sources */,

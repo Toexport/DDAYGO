@@ -13,7 +13,6 @@
 @property (nonatomic, strong) UIImageView * imageView; // 主图
 @property (nonatomic, strong) UILabel * titleLabel;  // 标题
 @property (nonatomic, strong) UILabel * PreferentialLabel; // 优惠价格
-@property (nonatomic, strong) UILabel * priceLabel; // 价格
 @property (nonatomic, strong) UIImageView * TrademarkImage; //商标
 @property (nonatomic, strong) UILabel * TrademarkLabel; // 商标编号
 

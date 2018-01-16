@@ -10,7 +10,7 @@
 #import "PrefixHeader.pch"
 #import "ZP_MyTool.h"
 #import "MyViewController.h"
-#import "HomeViewController.h"
+#import "HomePageViewController.h"
 @interface ResetPasswordViewController ()
 
 @end

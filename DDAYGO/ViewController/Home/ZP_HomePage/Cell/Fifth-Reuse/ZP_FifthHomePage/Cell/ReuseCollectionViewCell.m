@@ -54,26 +54,6 @@
     }];
     _PreferentialLabel = PreferentialLabel;
     
-////    价格
-//    ZP_GeneralLabel * priceLabel = [ZP_GeneralLabel initWithtextLabel:_priceLabel.text textColor:ZP_HomeTitlepriceTypefaceColor font:ZP_introduceFont textAlignment:NSTextAlignmentCenter bakcgroundColor:ZP_WhiteColor];
-//    [self addSubview:priceLabel];
-//    [priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self).offset(5);
-//        make.bottom.equalTo(PreferentialLabel).offset(10);
-//    }];
-//    _priceLabel = priceLabel;
-//
-////    横线
-//    UIView * Crossview = [UIView new];
-//    Crossview.backgroundColor = ZP_HomeTitlepriceTypefaceColor;
-//    [self addSubview: Crossview];
-//    [Crossview mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self).offset(5);
-//        make.bottom.equalTo(PreferentialLabel).offset(4.5);
-//        make.width.mas_equalTo(priceLabel);
-//        make.height.mas_equalTo(1);
-//    }];
-    
 //    商标
     UIImageView * TrademarkImage = [UIImageView new];
     [self.contentView addSubview:TrademarkImage];
@@ -113,7 +93,6 @@
     [_imageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
     _titleLabel.text = model.productname;
     _PreferentialLabel.text = [NSString stringWithFormat:@"NT%@",model.PreferentialLabel]; // 优惠价格
-    _priceLabel.text = [NSString stringWithFormat:@"NT"];
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
     _TrademarkLabel.text = model.TrademarkLabel;
     
