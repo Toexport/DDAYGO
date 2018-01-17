@@ -236,8 +236,8 @@
 		C4411DB3200F626200CE906F /* loading8.png in Resources */ = {isa = PBXBuildFile; fileRef = C4411DA0200F626100CE906F /* loading8.png */; };
 		C4411DB4200F626200CE906F /* loading9.png in Resources */ = {isa = PBXBuildFile; fileRef = C4411DA1200F626100CE906F /* loading9.png */; };
 		C4411DB5200F626200CE906F /* 加载中.png in Resources */ = {isa = PBXBuildFile; fileRef = C4411DA2200F626100CE906F /* 加载中.png */; };
-		C4411DB6200F626200CE906F /* 加载失败_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = C4411DA3200F626100CE906F /* 加载失败_spec.png */; };
 		C4411DB7200F626200CE906F /* 暂无数据.png in Resources */ = {isa = PBXBuildFile; fileRef = C4411DA4200F626100CE906F /* 暂无数据.png */; };
+		C4411DB9200F636500CE906F /* 加载失败_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = C4411DB8200F636500CE906F /* 加载失败_spec.png */; };
 		C44C9DB11FEA392D00CD7D4D /* ZP_QuickLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44C9DAE1FEA392C00CD7D4D /* ZP_QuickLoginController.m */; };
 		C44C9DB21FEA392D00CD7D4D /* ZP_QuickLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C44C9DAF1FEA392C00CD7D4D /* ZP_QuickLoginController.xib */; };
 		C44D6D0F1FD8CF070002DAF2 /* PayViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D6D0A1FD8CF070002DAF2 /* PayViewCell.m */; };
@@ -442,7 +442,6 @@
 		C4D2FEF41FD5636C00F546AB /* 商店管理_spec_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = C4D2FED71FD5636C00F546AB /* 商店管理_spec_spec.png */; };
 		C4D2FEF51FD5636C00F546AB /* 提现_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = C4D2FED81FD5636C00F546AB /* 提现_spec.png */; };
 		C4D9E7071FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D9E7051FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.m */; };
-		C4D9E7081FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D9E7061FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.xib */; };
 		C4D9E70D1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D9E70B1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.m */; };
 		C4D9E70E1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D9E70C1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib */; };
 		E37503CF1FC7BD8F00DA2950 /* ZP_ConfirmWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37503CD1FC7BBF400DA2950 /* ZP_ConfirmWebController.m */; };
@@ -879,8 +878,8 @@
 		C4411DA0200F626100CE906F /* loading8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading8.png; sourceTree = "<group>"; };
 		C4411DA1200F626100CE906F /* loading9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading9.png; sourceTree = "<group>"; };
 		C4411DA2200F626100CE906F /* 加载中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "加载中.png"; sourceTree = "<group>"; };
-		C4411DA3200F626100CE906F /* 加载失败_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "加载失败_spec.png"; sourceTree = "<group>"; };
 		C4411DA4200F626100CE906F /* 暂无数据.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "暂无数据.png"; sourceTree = "<group>"; };
+		C4411DB8200F636500CE906F /* 加载失败_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "加载失败_spec.png"; sourceTree = "<group>"; };
 		C44C9DAD1FEA392C00CD7D4D /* ZP_QuickLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZP_QuickLoginController.h; sourceTree = "<group>"; };
 		C44C9DAE1FEA392C00CD7D4D /* ZP_QuickLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZP_QuickLoginController.m; sourceTree = "<group>"; };
 		C44C9DAF1FEA392C00CD7D4D /* ZP_QuickLoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZP_QuickLoginController.xib; sourceTree = "<group>"; };
@@ -1262,7 +1261,6 @@
 		C4D2FED81FD5636C00F546AB /* 提现_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "提现_spec.png"; sourceTree = "<group>"; };
 		C4D9E7041FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_LotteryHistoricalBettingNumberController.h; sourceTree = "<group>"; };
 		C4D9E7051FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_LotteryHistoricalBettingNumberController.m; sourceTree = "<group>"; };
-		C4D9E7061FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZP_LotteryHistoricalBettingNumberController.xib; sourceTree = "<group>"; };
 		C4D9E70A1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_LotteryHistoricalBettingNumberCell.h; sourceTree = "<group>"; };
 		C4D9E70B1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_LotteryHistoricalBettingNumberCell.m; sourceTree = "<group>"; };
 		C4D9E70C1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZP_LotteryHistoricalBettingNumberCell.xib; sourceTree = "<group>"; };
@@ -2614,7 +2612,7 @@
 				C4411DA0200F626100CE906F /* loading8.png */,
 				C4411DA1200F626100CE906F /* loading9.png */,
 				C4411DA2200F626100CE906F /* 加载中.png */,
-				C4411DA3200F626100CE906F /* 加载失败_spec.png */,
+				C4411DB8200F636500CE906F /* 加载失败_spec.png */,
 				C4411DA4200F626100CE906F /* 暂无数据.png */,
 			);
 			path = "加载_ios";
@@ -4041,7 +4039,6 @@
 			children = (
 				C4D9E7041FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.h */,
 				C4D9E7051FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.m */,
-				C4D9E7061FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.xib */,
 				C4D9E7091FE76A0C000D2413 /* ZP_LotteryHistoricalBettingNumberCell */,
 				C41CBE2C1FF7EE9600F9B227 /* ZP_LotteryHistoricalBettingNumberModel */,
 			);
@@ -4200,7 +4197,6 @@
 				06F572211F9F1E8700D61FDB /* BillViewController.xib in Resources */,
 				C4AD0753200C7A5D00B8FF6E /* LPDImagePickerController.bundle in Resources */,
 				06F5716C1F9F15CE00D61FDB /* CollectionTableViewCell.xib in Resources */,
-				C4411DB6200F626200CE906F /* 加载失败_spec.png in Resources */,
 				C4411DAB200F626200CE906F /* loading11.png in Resources */,
 				06F571901F9F16E600D61FDB /* NewsTableViewCell.xib in Resources */,
 				06621DB91F9758AE0030983F /* ForgetPswController.xib in Resources */,
@@ -4245,6 +4241,7 @@
 				063FE0551F614D24009910FF /* LaunchScreen.storyboard in Resources */,
 				4D0948F21FDD9BDC00FC4BCA /* ProductTableViewCell.xib in Resources */,
 				C47E765D1FB5A5A6009F279A /* DetailedController.xib in Resources */,
+				C4411DB9200F636500CE906F /* 加载失败_spec.png in Resources */,
 				C4D2FEF51FD5636C00F546AB /* 提现_spec.png in Resources */,
 				06F572311F9F1E8700D61FDB /* OrderSearchView.xib in Resources */,
 				C47212A31FB186C90055578E /* MyViewController.xib in Resources */,
@@ -4258,7 +4255,6 @@
 				4D0949011FDEF77500FC4BCA /* EvaluateTableViewCell.xib in Resources */,
 				C47096951FB04998006EA52C /* PromptBox.xib in Resources */,
 				C44D6D121FD8CF070002DAF2 /* PayViewController.xib in Resources */,
-				C4D9E7081FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.xib in Resources */,
 				06F571D81F9F1A7900D61FDB /* EditViewController.xib in Resources */,
 				C4AD0773200CCD5D00B8FF6E /* DDAYGO IHTTP协议1.0.docx in Resources */,
 				06F572411F9F204F00D61FDB /* BillDetailViewController.xib in Resources */,

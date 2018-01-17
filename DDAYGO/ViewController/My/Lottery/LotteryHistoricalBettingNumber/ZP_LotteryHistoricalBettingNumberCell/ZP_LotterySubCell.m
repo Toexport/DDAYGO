@@ -15,7 +15,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:@"lotterysubcell"];
     if (self) {
-        
+        [self initUI];
     }
     return self;
 }
@@ -29,12 +29,19 @@
 
 - (void)viewWithArray:(NSMutableArray *)array{
     _backView.frame = CGRectMake(0, 0, self.frame.size.width, array.count*35);
+    _backView.backgroundColor = [UIColor orangeColor];
     for (NSInteger i = 0; i<array.count; i++) {
         ZP_LotteryHistoricalBettingNumberModel3 * model = array[i];
         ButtonsView * view = [[ButtonsView alloc]initWithFrame:CGRectMake(0, i*35, ZP_Width, 35)];
         [view viewWithModel:model];
+        
         [_backView addSubview:view];
     }
     
+}
+
+- (void)layoutSubviews {
+    _backView.frame = CGRectMake(0, 0, self.frame.size.width, 35);
+    [super layoutSubviews];
 }
 @end

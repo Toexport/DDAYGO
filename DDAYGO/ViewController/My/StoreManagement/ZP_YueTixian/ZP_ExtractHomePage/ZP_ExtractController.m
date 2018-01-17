@@ -56,15 +56,15 @@
 
 // 取消按鈕點擊事件
 - (void)CancelButt:(UIButton *)sender {
-    [self Canceltakeout];
+    [self Canceltakeout:sender.tag];
 }
 
 // 取消余额提现
-- (void)Canceltakeout {
-    
+- (void)Canceltakeout:(NSUInteger)abc {
+    ZP_ExtractModel * model = self.ExtractArr[abc];
     NSMutableDictionary * dicc = [NSMutableDictionary dictionary];
     dicc[@"token"] = Token;
-    dicc[@"sid"] = _supplierId;
+    dicc[@"sid"] = model.supplierid;
     [ZP_MyTool requestCanceltakeout:dicc uccess:^(id obj) {
         if ([dicc[@"result"]isEqualToString:@"ok"]) {
             [SVProgressHUD showSuccessWithStatus:@"取消成功"];
@@ -78,58 +78,31 @@
     }];
 }
 #pragma mark - tableview delegate
-//// 表头
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    UIView *myView = [[UIView alloc]init];
-//    self.tableView.tableHeaderView = myView; // 表头跟着cell一起滚动
-//    [myView setBackgroundColor:ZP_Graybackground];
-//
-//    ZP_GeneralLabel * DateTimeLabel = [ZP_GeneralLabel initWithtextLabel:_DateTimeLabel.text textColor:ZP_WhiteColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_titlecokeColor];
-//    DateTimeLabel.text = @"2017-12-02 13:38";
-//    [myView addSubview:DateTimeLabel];
-//    _DateTimeLabel = DateTimeLabel;
-//    [DateTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(myView).offset(ZP_Width / 2 - 60);
-//        make.top.equalTo(myView).offset(10);
-////        make.right.equalTo(myView).offset(ZP_Width- 50);
-//        make.width.mas_equalTo(120);
-//    }];
-//    return myView;
-//}
-//
-////  设置表头高度
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//
-//    return 35;
-//}
 
 
-// 1.设置section的数目，即是你有多少个cell
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 1;
-}
 
 //2.对于每个section返回一个cell
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return self.ExtractArr.count;
 }
 
-//3.设置cell之间headerview的高度
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 10.; // you can have your own choice, of course
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+        return 1;
 }
-//4.设置headerview的颜色
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headerView = [[UIView alloc] init];
-    headerView.backgroundColor = [UIColor clearColor];
-    return headerView;
+
+#pragma mark --- 颜色
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 10)];
+    //颜色在这里
+    v.backgroundColor = ZP_Graybackground;
+    return v;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    ZP_ExtractModel * model = self.ExtractArr[indexPath.row];
+    ZP_ExtractModel * model = self.ExtractArr[indexPath.section];
     ZP_ExtractCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ZP_ExtractCell"];
     cell.CancelBut.tag = indexPath.row;
     [cell.CancelBut addTarget:self action:@selector(CancelButt:) forControlEvents:UIControlEventTouchUpInside];
@@ -140,8 +113,20 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 410;
+    return 290;
 }
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (self.ExtractArr.count -1 == section) {
+        return CGFLOAT_MIN;
+    }
+    return 10;
+}
+
+
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     

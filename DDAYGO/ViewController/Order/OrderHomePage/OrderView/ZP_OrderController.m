@@ -205,7 +205,10 @@
             [self.newsData removeObjectAtIndex:sender.tag];
             if ([obj[@"result"]isEqualToString:@"ok"]) {
                 [SVProgressHUD showSuccessWithStatus:@"刪除成功"];
-            }
+            }else
+                if ([obj[@"result"]isEqualToString:@"time_error"]) {
+                    [SVProgressHUD showInfoWithStatus:@"交易完成的訂單需要15天後才能刪除"];
+                }
             ZPLog(@"%@",obj);
             [self.tableview reloadData];
         } failure:^(NSError * error) {
@@ -218,18 +221,41 @@
 }
 
 #pragma Mark - <TableViewDelegate>
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 10.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    //    return CGFLOAT_MIN;
+    NSLog(@"go ");
+//    if (section == 0) {
+//        return 0.0001;
+//    }else
+//        if (section == 2) {
+//            return 0.0001;
+//        }else{
+            return 10.0f;
+//        }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 10)];
+      v.backgroundColor = ZP_Graybackground;
+    return v;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return self.newsData.count;;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.newsData.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString * ID = @"orderViewCell";
-    OrderModel * model = self.newsData[indexPath.row];
+    OrderModel * model = self.newsData[indexPath.section];
 //    OrdersdetailModel * model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail[0]];
     OrderViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -303,6 +329,7 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 //    self.hidesBottomBarWhenPushed = YES;
 }
+
 
 @end
 

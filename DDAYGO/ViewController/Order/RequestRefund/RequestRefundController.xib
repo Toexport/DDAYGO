@@ -247,27 +247,10 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjo-uq-muc">
-                                    <rect key="frame" x="7" y="120" width="62" height="19"/>
-                                    <color key="backgroundColor" red="0.99215686274509807" green="0.6588235294117647" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="19" id="Vjv-y0-csE"/>
-                                        <constraint firstAttribute="width" constant="62" id="gxl-OK-ZVt"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <state key="normal" title="上传">
-                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="ShangchuanBut:" destination="-1" eventType="touchUpInside" id="Sss-uA-0DF"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="wjo-uq-muc" firstAttribute="leading" secondItem="Gd3-C3-DyP" secondAttribute="leading" constant="7" id="4Id-gc-dwm"/>
                                 <constraint firstItem="Z1f-NC-w73" firstAttribute="leading" secondItem="Gd3-C3-DyP" secondAttribute="leading" constant="8" id="AAd-Zz-uCI"/>
-                                <constraint firstItem="wjo-uq-muc" firstAttribute="top" secondItem="Z1f-NC-w73" secondAttribute="bottom" constant="91" id="OVB-SY-g9l"/>
                                 <constraint firstAttribute="height" constant="146" id="PZ2-I2-Lr0"/>
                                 <constraint firstItem="Z1f-NC-w73" firstAttribute="top" secondItem="Gd3-C3-DyP" secondAttribute="top" constant="8" id="ys2-Em-cz8"/>
                             </constraints>

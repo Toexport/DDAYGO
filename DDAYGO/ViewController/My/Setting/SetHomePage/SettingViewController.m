@@ -193,6 +193,7 @@
     }];
 }
 
+
 - (IBAction)genderGail:(UIButton *)sender {
     NSLog(@"%d",sender.selected);
     if (sender.selected) {

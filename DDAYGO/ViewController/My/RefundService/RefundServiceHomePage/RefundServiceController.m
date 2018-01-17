@@ -110,7 +110,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    RefundServiceModel * model = _dataarray[indexPath.row];
+    
+    RefundServiceModel * model = _dataarray[indexPath.section];
     ExchangeDetailsController * ExchangeDatails = [[ExchangeDetailsController alloc]init];
     ExchangeDatails.Oid = model.refundid;
     [self.navigationController pushViewController:ExchangeDatails animated:YES];

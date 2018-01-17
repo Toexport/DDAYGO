@@ -69,7 +69,6 @@
 }
 
 - (void)CollectionBut:(UIButton *)sender {
-    
     //取消收藏
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     dic[@"productid"] = _model.productid;

@@ -63,7 +63,7 @@
     titleLabel.textColor = ZP_textblack;
     titleLabel.text = NSLocalizedString(@"Choose your country", nil) ;
     titleLabel.numberOfLines = 0;
-    titleLabel.font = [UIFont systemFontOfSize:18];
+    titleLabel.font = [UIFont systemFontOfSize:13];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     [bounceView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {

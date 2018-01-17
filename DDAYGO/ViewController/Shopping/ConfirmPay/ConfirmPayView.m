@@ -101,7 +101,7 @@
     [bounceView addSubview:CurrencySymbolLabel];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(260);
-        make.left.equalTo(self).offset(ZP_Width / 2 - 85);
+        make.left.equalTo(self).offset(ZP_Width / 2 - 30);
     }];
     
     //  金额
@@ -109,7 +109,7 @@
     [bounceView addSubview:AmountLabel];
     [AmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(CurrencySymbolLabel).offset(0); // 上面
-        make.left.equalTo(self).offset(ZP_Width / 2 - 50); // 左边
+        make.left.equalTo(CurrencySymbolLabel).offset(35); // 左边
     }];
     _AmountLabel = AmountLabel;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

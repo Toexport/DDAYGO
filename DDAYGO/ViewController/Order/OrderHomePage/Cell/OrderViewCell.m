@@ -81,7 +81,7 @@
     Backgroundview.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
     [self.contentView addSubview:Backgroundview];
     [Backgroundview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(35);
+        make.top.equalTo(self).offset(40);
         make.left.equalTo(self).offset(0);
         make.right.equalTo(self).offset(0);
         make.height.mas_equalTo(110);
@@ -95,18 +95,18 @@
     [self.Backgroundview addSubview:FigureImage];
     [FigureImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(5);
-        make.top.equalTo(self).offset(40);
-        make.width.mas_equalTo(70);
+        make.top.equalTo(self).offset(45);
+        make.width.mas_equalTo(85);
         make.height.mas_equalTo(100 - 5);
     }];
     _FigureImage = FigureImage;
     
 //  商家名字
-    ZP_GeneralLabel * merchantsLabel = [ZP_GeneralLabel  initWithtextLabel:_merchantsLabel.text textColor:ZP_textblack font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
+    ZP_GeneralLabel * merchantsLabel = [ZP_GeneralLabel  initWithtextLabel:_merchantsLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:merchantsLabel];
 //    merchantsLabel.text = @"你好吗";
     [merchantsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(FigureImage).offset(80);
+        make.left.equalTo(FigureImage).offset(95);
         make.top.equalTo(DateLabel).offset(20);
     }];
     _merchantsLabel = merchantsLabel;
@@ -119,7 +119,7 @@
     titleLabel.font = ZP_titleFont;
     [self.Backgroundview addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(FigureImage).offset(80);
+        make.left.equalTo(FigureImage).offset(95);
         make.right.equalTo(self.Backgroundview).offset(-10);
         make.top.equalTo(merchantsLabel).offset(20);
     }];
@@ -129,14 +129,13 @@
     ZP_GeneralLabel * descLabel = [ZP_GeneralLabel initWithtextLabel:_descLabel.text textColor:ZP_TypefaceColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:descLabel];
     [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(FigureImage).offset(80);
+        make.left.equalTo(FigureImage).offset(95);
         make.top.equalTo(merchantsLabel).offset(50);
     }];
     _descLabel = descLabel;
     
 //  尺码
     ZP_GeneralLabel * SizeLabel = [ZP_GeneralLabel initWithtextLabel:_SizeLabel.text textColor:ZP_TypefaceColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
-    SizeLabel.text = @"XXL";
     [self.Backgroundview addSubview:SizeLabel];
     [SizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(descLabel).offset(35);
@@ -150,7 +149,7 @@
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
     CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(FigureImage).offset(80);
+        make.left.equalTo(FigureImage).offset(95);
         make.top.equalTo(SizeLabel).offset(20);
         make.height.mas_offset(15);
     }];
@@ -295,7 +294,7 @@
     [OnceagainBut setTitleColor:ZP_textWite forState:UIControlStateNormal];
     OnceagainBut.titleLabel.font = ZP_introduceFont;
     OnceagainBut.layer.borderWidth = 1;
-    //    [OnceagainBut addTarget:self action:@selector(OnceagainBut:) forControlEvents:UIControlEventTouchUpInside];
+        [OnceagainBut addTarget:self action:@selector(OnceagainBut:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:OnceagainBut];
     [OnceagainBut mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-10);
@@ -341,6 +340,7 @@
             [[NSNotificationCenter defaultCenter]postNotificationName:@"appraise" object:nil];
         }
             break;
+            
         default:
             break;
     }
@@ -360,9 +360,22 @@
 //    NSLog(@"物流");
 //}
 //  再次购买
-//- (void)OnceagainBut:(UIButton *)OnceagainBut {
-//    NSLog(@"再次购买");
-//}
+- (void)OnceagainBut:(UIButton *)OnceagainBut {
+    NSLog(@"state =  %@",_model.state);
+    switch (_model.state.longValue) {
+       case 6:{
+           RequestRefundController * RequestReplace = [[RequestRefundController alloc]init];
+    
+           if (self.appraiseBlock) {
+              self.appraiseBlock(RequestReplace);
+         }
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"RequestReplace" object:nil];
+}
+    break;
+        default:
+            break;
+    }
+}
 
 - (void)InformationWithDic:(OrdersdetailModel *)dic WithModel:(OrderModel *)model {
     int a = [dic.state intValue];
@@ -380,25 +393,32 @@
 //            [_AppraiseBut setTitle:@"取消訂單" forState:UIControlStateNormal];
             _AppraiseBut.hidden = YES;
             //例如 --点击第一个看能不能点击
+            NSLog(@"Stata = %D",a);
             _AppraiseBut.userInteractionEnabled = NO;
             break;
         case 2:
             _TradingLabel.text = @"待發貨";
             [_OnceagainBut setTitle:@"提醒發貨" forState:UIControlStateNormal];
             [_AppraiseBut setTitle:@"退款" forState:UIControlStateNormal];
+            NSLog(@"Stata = %D",a);
             _OnceagainBut.userInteractionEnabled = NO;
-//            _AppraiseBut.hidden = YES;
+
             break;
         case 3:
             _TradingLabel.text = @"待收貨";
             [_OnceagainBut setTitle:@"確認收貨" forState:UIControlStateNormal];
             [_AppraiseBut setTitle:@"退换货" forState:UIControlStateNormal];
+            NSLog(@"Stata = %D",a);
             _OnceagainBut.userInteractionEnabled = NO;
             break;
         case 4:
+            
             _TradingLabel.text = @"交易成功";
             [_OnceagainBut setTitle:@"再次購買" forState:UIControlStateNormal];
-            [_AppraiseBut setTitle:@"评价" forState:UIControlStateNormal];
+//            [_AppraiseBut setTitle:@"评价" forState:UIControlStateNormal];
+            NSLog(@"Stata = %D",a);
+            _AppraiseBut.hidden = YES;
+            NSLog(@"Stata = %D",a);
             break;
         case 5:
             _TradingLabel.text = @"已取消";
@@ -408,15 +428,15 @@
             _OnceagainBut.hidden = YES;
             break;
         case 6:
-//            _TradingLabel.text = @"交易成功";
-//            [_OnceagainBut setTitle:@"再次購買" forState:UIControlStateNormal];
-//            _AppraiseBut.hidden = YES;
-            break;
-        case 7:
-            _TradingLabel.text = @"交易成功";
+            _TradingLabel.text = @"退款/售后";
             [_OnceagainBut setTitle:@"查看详情" forState:UIControlStateNormal];
             _AppraiseBut.hidden = YES;
             break;
+//        case 7:
+//            _TradingLabel.text = @"交易成功";
+//            [_OnceagainBut setTitle:@"查看详情" forState:UIControlStateNormal];
+//            _AppraiseBut.hidden = YES;
+//            break;
         default:
             break;
     }

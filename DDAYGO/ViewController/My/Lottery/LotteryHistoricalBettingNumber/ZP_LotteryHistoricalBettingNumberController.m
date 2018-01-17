@@ -14,7 +14,7 @@
 #import "ZP_LotterySubCell.h"
 
 @interface ZP_LotteryHistoricalBettingNumberController () <UITableViewDelegate, UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UITableView * tableView;
+@property (nonatomic, strong)  UITableView * tableView;
 @property (nonatomic, strong) NSMutableArray * newsData;
 //@property (nonatomic, strong) NSMutableArray * array;
 //@property (nonatomic, strong) NSMutableArray * arr;
@@ -30,10 +30,22 @@
     [self AllData];
 }
 
+- (UITableView *)tableView
+{
+    if (!_tableView) {
+        _tableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
+        _tableView.delegate= self;
+        _tableView.dataSource = self;
+    }
+    return _tableView;
+}
+
+
 //  UI
 - (void)initUI {
     self.title = NSLocalizedString(@"歷史提交號碼", nil);
 //    static NSString * LotteryID = @"ZP_LotteryHistoricalBettingNumberCell";
+    [self.view addSubview:self.tableView];
     [self.tableView registerNib:[UINib nibWithNibName:@"ZP_LotteryHistoricalBettingNumberCell" bundle:nil] forCellReuseIdentifier:@"ZP_LotteryHistoricalBettingNumberCell"];
     [self.tableView registerClass:[ZP_LotterySubCell class] forCellReuseIdentifier:@"lotterysubcell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
@@ -94,9 +106,10 @@
     dic[@"pagesize"] = @"6";
     [ZP_MyTool requestHistoricalBet:dic uccess:^(id obj) {
 //        数据为空时写这个不会蹦
-        if (self.newsData == nil) {
-            return ;
-        }
+        
+//        if (self.newsData == nil) {
+//            return ;
+//        }
         if ([obj isKindOfClass:[NSDictionary class]]) {
             [SVProgressHUD showErrorWithStatus:@"無數據"];
             return ;
@@ -112,6 +125,8 @@
             for (NSDictionary * dic2 in dic1[@"winorders"]) {
                 ZP_LotteryHistoricalBettingNumberModel2 * model2 = [[ZP_LotteryHistoricalBettingNumberModel2 alloc]init];
                 model2.lotteryoid = dic2[@"lotteryoid"];
+                
+                
                 [self WithLotteryHistroicalBettingNumber:model2];
                 
                 model2.arr = [NSMutableArray array];
@@ -120,6 +135,12 @@
                     ZP_LotteryHistoricalBettingNumberModel3 * model3 = [[ZP_LotteryHistoricalBettingNumberModel3 alloc]init];
                     model3.lotteryoid = dic3[@"lotteryoid"];
                     NSLog(@"id--%@",dic3[@"lotteryoid"]);
+                    model3.white1 = dic3[@"white1"];
+                    model3.white2 = dic3[@"white1"];
+                    model3.white3 = dic3[@"white1"];
+                    model3.white4 = dic3[@"white1"];
+                    model3.white5 = dic3[@"white1"];
+                    model3.powerball = dic3[@"powerball"];
                     [model2.arr addObject:model3];
                 }
                 [model.array addObject:model2];
@@ -127,13 +148,16 @@
             [self.newsData addObject:model];
         }
 
-        for (NSDictionary * dict in obj[@"winorders"]) {
-//            ZP_LotteryHistoricalBettingNumberModel2 * model2 = [[ZP_LotteryHistoricalBettingNumberModel2 alloc]init];
-//            model2.lotteryoid = dict[@"lotteryoid"];
-//            model2.pollid = obj[@""];
-//            model2.aid = obj[@""];
-//            [self WithLotteryHistroicalBettingNumber:model2];
-        }
+//        for (NSDictionary * dict in obj) {
+//            for (NSDictionary * dic in dict[@"winordersdetail"]) {
+//                ZP_LotteryHistoricalBettingNumberModel2 * model2 = [[ZP_LotteryHistoricalBettingNumberModel2 alloc]init];
+//                    model2.lotteryoid = dict[@"lotteryoid"];
+//                    model2.pollid = dict[@"pollid"];
+//                    model2.aid = dict[@"aid"];
+//                    [self WithLotteryHistroicalBettingNumber:model2];
+//            }
+//
+//        }
 //        for (NSDictionary * dic in obj[@"winordersdetail"]) {
 //            <#statements#>
 //        }
@@ -217,20 +241,23 @@
 /*设置cell 的宽度 */
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 35;
+    return 50;
     
 }
 
 #pragma mark -- tableviewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     ZP_LotteryHistoricalBettingNumberModel * model = self.newsData[section];
+    NSLog(@"%ld",model.array.count);
     return model.array.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     ZP_LotteryHistoricalBettingNumberModel * model = self.newsData[indexPath.section];
     ZP_LotteryHistoricalBettingNumberModel2 * model2 = model.array[indexPath.row];
     ZP_LotterySubCell * cell = [tableView dequeueReusableCellWithIdentifier:@"lotterysubcell"];
+    
 
     
     [cell viewWithArray:model2.arr];

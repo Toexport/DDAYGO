@@ -49,7 +49,7 @@
 - (void)searchBox {
     //  搜索框
     ZPSearchBarBUtton * searchBar = [ZPSearchBarBUtton buttonWithType:UIButtonTypeCustom];
-    searchBar.titleLabel.font = ZP_TooBarFont;
+    searchBar.titleLabel.font = ZP_titleFont;
     searchBar.width = ZP_Width - 100;
     searchBar.height = 25;
     [searchBar setImage:[UIImage imageNamed:@"nav_menu_search"] forState:UIControlStateNormal];
@@ -65,7 +65,7 @@
     self.chooseCityBtn.frame =CGRectMake(0, 0, 60.0f, 25.0f);
     // _chooseCityBtn.imageEdgeInsets = UIEdgeInsetsMake(6, 0, 15, 35);
     self.chooseCityBtn.contentEdgeInsets = UIEdgeInsetsMake(6, -15, 6, 5);
-    self.chooseCityBtn.titleLabel.font = ZP_TooBarFont;
+    self.chooseCityBtn.titleLabel.font = ZP_stockFont;
     [self.chooseCityBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.chooseCityBtn setTitle:NSLocalizedString(@"臺灣", nil) forState:UIControlStateNormal];
     [self.chooseCityBtn setImage:[UIImage imageNamed:@"ic_home_down"] forState:(UIControlStateNormal)];

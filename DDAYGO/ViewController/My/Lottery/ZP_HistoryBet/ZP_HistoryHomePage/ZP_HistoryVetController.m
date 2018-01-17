@@ -15,7 +15,7 @@
 @interface ZP_HistoryVetController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView * tableView;
 @property (nonatomic, strong)NSMutableArray * newsData;
-@property (nonatomic, strong) NSMutableArray * allData;
+//@property (nonatomic, strong) NSMutableArray * allData;
 @end
 
 @implementation ZP_HistoryVetController
@@ -215,7 +215,7 @@
 
 #pragma mark -- tableviewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.allData.count;
+    return self.newsData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

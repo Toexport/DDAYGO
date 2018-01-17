@@ -54,6 +54,7 @@
 @property (nonatomic, strong) NSNumber * white5;
 @property (nonatomic, strong) NSNumber * powerball;
 @property (nonatomic, strong) NSNumber * buycount;
+
 //@interface ZP_LotteryHistoricalBettingNumberModel2 : NSObject
 //
 //@property (nonatomic, strong) NSNumber * lotteryoid;

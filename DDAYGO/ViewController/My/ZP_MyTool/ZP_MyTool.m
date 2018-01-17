@@ -193,7 +193,7 @@
 
 // 取消余额提现
 + (void)requestCanceltakeout:(NSDictionary *)Canceltakeout uccess:(void (^)(id))success failure:(void (^)(NSError *))failure {
-    [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@canceltakeout?token=%@&sid=%@",URLAPI,Canceltakeout[@"Token"],Canceltakeout[@"sid"]] parameters:nil success:^(id responseObject) {
+    [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@canceltakeout?token=%@&sid=%@",URLAPI,Canceltakeout[@"token"],Canceltakeout[@"sid"]] parameters:nil success:^(id responseObject) {
         success(responseObject);
     } failure:^(NSError *error) {
         failure(error);
