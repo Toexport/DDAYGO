@@ -124,7 +124,6 @@
     [topView addSubview:gayLine];
     
     for (int i = 0; i<4; i++) {
-        
         UIButton *btn =[UIButton buttonWithType:UIButtonTypeCustom];
         [btn setTitle:allTitle[i] forState:UIControlStateNormal];
         btn.frame = CGRectMake(i * (ZP_Width /4), 0, (ZP_Width /4) , 35);
@@ -159,7 +158,6 @@
 
 // CollectionView
 - (void)initCollectionView {
-    
     UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc]init];
     _collectionView1 = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, fDeviceWidth, fDeviceHeight - 101) collectionViewLayout:flowLayout];
     _collectionView2 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth, 0, fDeviceWidth, fDeviceHeight - 101) collectionViewLayout:flowLayout];
@@ -228,7 +226,7 @@
 }
 //  数据
 - (void)allData {
-    NSDictionary * dic =@{@"fatherid":_fatherId,@"seq":@"desc",@"word":[NSString stringWithFormat:@"%@",_keyword],@"countrycode":@"886",@"page":@"1",@"pagesize":@"10"};
+    NSDictionary * dic =@{@"fatherid":_fatherId,@"seq":@"desc",@"word":[NSString stringWithFormat:@"%@",@""],@"countrycode":@"886",@"page":@"1",@"pagesize":@"10"};
     [ZP_ClassViewTool requMerchandise:dic WithIndex:0 success:^(id obj) {
         NSDictionary * dict = obj;
         [SVProgressHUD dismiss];

@@ -9,6 +9,7 @@
 #import "AppraiseViewCell.h"
 #import "PrefixHeader.pch"
 #import "UIButton+UIButtonImageWithLable.h"
+#import "ZP_OrderModel.h"
 @implementation AppraiseViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

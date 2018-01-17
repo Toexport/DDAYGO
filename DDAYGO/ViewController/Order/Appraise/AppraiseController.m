@@ -12,6 +12,7 @@
 #import "UINavigationBar+Awesome.h"
 #import "PrefixHeader.pch"
 #import "ZP_OrderTool.h"
+#import "ZP_OrderModel.h"
 @interface AppraiseController ()
 @property (nonatomic, strong) UITableView * tableview;
 @property (nonatomic, assign) NSInteger score1;
@@ -128,9 +129,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (indexPath.section == 0) {
         NSArray * A = @[@"a",@"b",@"c",@"d",@"e"];
+        
         NSString * AppraiseID = @"prefixHeader";
         AppraiseViewCell * cell = [tableView dequeueReusableCellWithIdentifier:AppraiseID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果

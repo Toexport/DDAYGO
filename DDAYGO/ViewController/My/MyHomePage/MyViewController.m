@@ -57,13 +57,13 @@
     [self loginAllData];
 //    [self Supplier];
     
-//    //    本地数据调用
-//    UIImage * image = [UIImage imageWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"]];
-//    if (image) {
-//        _headImageBut.layer.cornerRadius = 42;
-//        _headImageBut.layer.masksToBounds = YES;
-//        [_headImageBut setImage:image forState:UIControlStateNormal];
-//    }
+    //    本地数据调用
+    UIImage * image = [UIImage imageWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"]];
+    if (image) {
+        _headImageBut.layer.cornerRadius = 42;
+        _headImageBut.layer.masksToBounds = YES;
+        [_headImageBut setImage:image forState:UIControlStateNormal];
+    }
 }
 
 //- (void) Supplier {

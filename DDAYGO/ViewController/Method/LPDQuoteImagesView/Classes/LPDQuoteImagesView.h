@@ -44,3 +44,4 @@
 - (instancetype)initWithFrame:(CGRect)frame withCountPerRowInView:(NSUInteger)ArrangeCount cellMargin:(CGFloat)cellMargin;
 
 @end
+

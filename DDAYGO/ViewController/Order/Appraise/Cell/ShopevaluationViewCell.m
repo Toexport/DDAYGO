@@ -88,7 +88,9 @@
     [Anonymousbutton setTitle:NSLocalizedString(@"匿名", nil) forState:UIControlStateNormal];
     Anonymousbutton.titleLabel.font = ZP_TooBarFont;
     [Anonymousbutton setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
-    Anonymousbutton .contentEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
+//    Anonymousbutton .contentEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
+//    Anonymousbutton.imageEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
+    Anonymousbutton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     [Anonymousbutton setImage:[UIImage imageNamed:@"ic_Shopping_Choice_normal"] forState:UIControlStateNormal];
     [Anonymousbutton setImage:[UIImage imageNamed:@"ic_Shopping_Choice_pressed"] forState:UIControlStateSelected];
     Anonymousbutton.layer.masksToBounds = YES;
@@ -100,7 +102,7 @@
     [Anonymousbutton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(5);
         make.bottom.equalTo(self).offset(-15);
-        make.width.mas_offset(55);
+        make.width.mas_offset(80);
         make.height.mas_offset(20);
     }];
     _Anonymousbutton = Anonymousbutton;

@@ -142,7 +142,7 @@
         }
         if (a > 0) {
             NSLog(@"规格有选中");
-            [SVProgressHUD showErrorWithStatus:@"规格没有选中"];
+//            [SVProgressHUD showErrorWithStatus:@"规格没有选中"];
         }else{
             [SVProgressHUD showErrorWithStatus:@"规格没有选中"];
             NSLog(@"规格没有选中");
@@ -167,7 +167,7 @@
         }
         if (b > 0) {
             NSLog(@"尺寸有选中");
-            [SVProgressHUD showErrorWithStatus:@"规格没有选中"];
+//            [SVProgressHUD showErrorWithStatus:@"规格没有选中"];
         }else{
             //提示语
             NSLog(@"尺寸没有选中");

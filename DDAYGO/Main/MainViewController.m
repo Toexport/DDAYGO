@@ -33,7 +33,7 @@
     //字体颜色
     dict[NSForegroundColorAttributeName] = [UIColor colorWithHexString:@"#828C98"];
     //字体大小
-    dict[NSFontAttributeName] = [UIFont systemFontOfSize:13];
+//    dict[NSFontAttributeName] = [UIFont systemFontOfSize:13];
     
     NSMutableDictionary *dict2 = [NSMutableDictionary dictionary];
     //字体颜色

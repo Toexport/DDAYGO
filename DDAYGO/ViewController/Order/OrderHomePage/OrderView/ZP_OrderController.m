@@ -22,6 +22,7 @@
 #import "AppraiseController.h"
 #import "RequestRefundController.h"
 #import "RequestReplaceController.h"
+#import "UIButton+Badge.h"
 @interface ZP_OrderController ()<FSPageContentViewDelegate,FSSegmentTitleViewDelegate> {
     int _i;
     NSArray * dataArray;
@@ -35,7 +36,7 @@
 @property (nonatomic, strong)UITableView * tableview;
 
 @property (nonatomic, strong) FSPageContentView * pageContentView;
-@property (nonatomic, strong) FSSegmentTitleView * titleView;
+
 @property (nonatomic, strong) NSMutableArray * newsData;
 @end
 
@@ -56,14 +57,22 @@
    
     [self addUI];
     //数据都写在这个页面·刷新什么的都在这个页面写·
+   
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self addRefresh];
+    
+//    NSLog(@"%@",self.view.superview);
+//     self.titleView = [self.view.superview viewWithTag:66];
     if (DD_HASLOGIN ) {
         [self getDataWithState];
     }
+    
+    
+    
+    
 }
 
 // 刷新
@@ -96,21 +105,32 @@
 // 订单协议
 - (void)getDataWithState {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    NSInteger i;
     if ([_titleStr isEqualToString:NSLocalizedString(@"all", nil)]) {
         dic[@"sta"] = @"-1";
+        i = 0;
     }
     if ([_titleStr isEqualToString:NSLocalizedString(@"Waiting payment", nil)]) {
         dic[@"sta"] = @"1";
+        i = 1;
     }
     if ([_titleStr isEqualToString:NSLocalizedString(@"Wait delivery", nil)]) {
         dic[@"sta"] = @"2";
+        i = 2;
     }
     if ([_titleStr isEqualToString:NSLocalizedString(@"Waiting goods", nil)]) {
         dic[@"sta"] = @"3";
+        i = 3;
     }
     if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
         dic[@"sta"] = @"4";
+        i = 4;
     }
+    
+    UIButton * but = [self.titleView viewWithTag:666+i];
+    NSLog(@"but = %@",but.titleLabel.text);
+  
+    
 //    if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
 //        dic[@"sta"] = @"5";
 //    }
@@ -148,6 +168,15 @@
             return ;
         }
         self.newsData = [OrderModel arrayWithArray:json];
+//         小红点数据
+        if (self.newsData.count > 0) {
+            but.badgeValue = [NSString stringWithFormat:@"%ld",self.newsData.count];
+            but.badgeBGColor = [UIColor orangeColor];
+        }else{
+            but.badgeValue = nil;
+            but.badgeBGColor = [UIColor whiteColor];
+        }
+        
         [self.tableview.mj_header endRefreshing];  // 結束刷新
     [self.tableview reloadData];
     } failure:^(NSError *error) {

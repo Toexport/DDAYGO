@@ -15,14 +15,14 @@
 
 @interface LPDPhotoArrangeCell : UICollectionViewCell
 
-@property (strong, nonatomic) UIImageView * imageThumbnail; //图片缩略图
-@property (strong, nonatomic) UIImageView * videoThumbnail; //视频缩略图
-@property (strong, nonatomic) UIButton * nookDeleteBtn;     //角标删除按钮
-@property (nonatomic, strong) UIButton * Shangchuanbut;    // 上传按钮
+@property (strong, nonatomic) UIImageView *imageThumbnail; //图片缩略图
+@property (strong, nonatomic) UIImageView *videoThumbnail; //视频缩略图
+@property (strong, nonatomic) UIButton *nookDeleteBtn;     //角标删除按钮
 @property (assign, nonatomic) NSInteger row;               //行
 @property (strong, nonatomic) id asset;                    //资源模型
-
+@property (nonatomic, strong) UIButton * Shangchuanbut;
 
 - (UIView *)snapshotView;
 
 @end
+

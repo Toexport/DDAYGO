@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSNumber * ordersnumber; // 订单号
 @property (nonatomic, strong) NSNumber * productid; //商品ID
 @property (nonatomic, strong) NSNumber * detailid; // 商品详情ID
-@property (nonatomic, assign) NSInteger  num; // 商品详情IDi
+@property (nonatomic, assign) NSInteger  num; // 商品详情ID
 
 
 

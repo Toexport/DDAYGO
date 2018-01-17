@@ -16,7 +16,9 @@
 #import "CPViewController.h"
 #import "ZP_FifthModel.h"
 #import "ZP_SixthModel.h"
-@interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource> {
+     int _i;
+}
 @property (nonatomic, strong) UIButton * chooseCityBtn;
 @property (nonatomic, strong) NSArray * newsData2;
 @property (nonatomic, strong) NSArray * newsData;
@@ -34,6 +36,7 @@
     [self registration];
     [self FifthallData];
     [self SixthAllData];
+    [self addRefresh];
 }
 // UI
 - (void)initUI {
@@ -72,6 +75,16 @@
     self.self.chooseCityBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -imageWidth, 0, imageWidth);
     [self.chooseCityBtn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.chooseCityBtn];
+}
+// 刷新
+- (void)addRefresh {
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.SixthArrData removeAllObjects];
+        _i = 0;
+        [self allData];
+        [self FifthallData];
+    }];
+    
 }
 
 //  搜索框点击事件
@@ -114,7 +127,6 @@
         ZPLog(@"已登錄");
         [SVProgressHUD showInfoWithStatus: NSLocalizedString(@"Once logged in, no other countries will be supported", nil)];
     }
-    
 }
 
 //  定位数据
@@ -122,7 +134,6 @@
     [ZP_HomeTool requesPosition:nil success:^(id obj) {
         _postionArray= [ZP_PositionModel arrayWithArray:obj];
         ZPLog(@"%@",_postionArray);
-        
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
         //        [SVProgressHUD showInfoWithStatus: NSLocalizedString(@"Server link failed", nil)];
@@ -138,6 +149,7 @@
     [ZP_HomeTool requestSellLikeHotCakes:nil success:^(id obj) {
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_header endRefreshing];  // 結束刷新
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
         //        [SVProgressHUD showInfoWithStatus: NSLocalizedString(@"Server link failed", nil)];
@@ -151,7 +163,6 @@
         ZPLog(@"%@",obj);
         NSArray * arr = obj;
         NSArray * arra = [ZP_FifthModel arrayWithArray:arr];
-        
         if (arra.count >= 2) {
             self.newsData2 = [arra subarrayWithRange:NSMakeRange(0, 2)];
             if (arra.count >2) {

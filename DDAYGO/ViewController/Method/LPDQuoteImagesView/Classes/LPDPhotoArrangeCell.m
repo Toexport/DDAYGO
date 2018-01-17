@@ -35,22 +35,30 @@
         _nookDeleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self setupDeleteBtn:DEL_BTN_WH];
         [self addSubview:_nookDeleteBtn];
-        [self addSubview:_Shangchuanbut];
+        
         _Shangchuanbut = [UIButton buttonWithType:UIButtonTypeCustom];
-     }
+        
+        [_Shangchuanbut setTitle:@"上传" forState:UIControlStateNormal];
+        _Shangchuanbut.titleLabel.font = [UIFont systemFontOfSize:15];
+        _Shangchuanbut.layer.cornerRadius = 4;
+        _Shangchuanbut.layer.masksToBounds = YES;
+        [_Shangchuanbut addTarget:self action:@selector(ShangchuanBut:) forControlEvents:UIControlEventAllEvents];
+        _Shangchuanbut.backgroundColor = [UIColor orangeColor];
+        [self addSubview:_Shangchuanbut];
+    }
     return self;
+}
+
+//  上传图片点击事件
+- (void)ShangchuanBut:(UIButton *)sender {
+    
+    NSLog(@"---结算--");
 }
 
 - (void)setupDeleteBtn:(CGFloat)width {
     _nookDeleteBtn.frame = CGRectMake(self.frame.size.width - width * 0.75 , -width / 2 + RELATIVE_VALUE(2) , width, width);
     _nookDeleteBtn.alpha = 1.0;
-    [_nookDeleteBtn setImage:[UIImage imageNamedFromMyBundle:@"icon_retreat_delete"] forState:UIControlStateNormal];
-    
-//    _Shangchuanbut.frame = CGRectMake(0 , 0 , 20, 15);
-//    [_Shangchuanbut setTitle:@"上传" forState:UIControlStateNormal];
-//    [_nookDeleteBtn setImage:[UIImage imageNamedFromMyBundle:@"icon_retreat_delete"] forState:UIControlStateNormal];
-//    [_Shangchuanbut setTintColor:[UIColor yellowColor]];
-//    _Shangchuanbut.backgroundColor = [UIColor orangeColor];
+    [_nookDeleteBtn setImage:[UIImage imageNamedFromMyBundle:@"nookDeleteBtn"] forState:UIControlStateNormal];
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
@@ -68,9 +76,10 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    _imageThumbnail.frame = self.bounds;
+    _imageThumbnail.frame = CGRectMake(0, 0, self.lpd_width, self.lpd_height-20);
     CGFloat width = self.frame.size.width/3;
     _videoThumbnail.frame = CGRectMake(width, width, width, width);
+    _Shangchuanbut.frame = CGRectMake(0 , _imageThumbnail.lpd_bottom+5 , self.lpd_width, 15);
 }
 
 - (void)setAsset:(id)asset {
@@ -115,3 +124,4 @@
 }
 
 @end
+

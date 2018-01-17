@@ -216,6 +216,9 @@
 		C4399D701FCE84A000B7B96D /* LotteryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4399D6A1FCE849F00B7B96D /* LotteryController.xib */; };
 		C43DE4DE200355AF002AB8D2 /* LanguageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C43DE4DB200355AF002AB8D2 /* LanguageController.m */; };
 		C43DE4DF200355AF002AB8D2 /* LanguageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43DE4DD200355AF002AB8D2 /* LanguageController.xib */; };
+		C4411D8C200EFB4900CE906F /* AboutDDAYGOController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4411D8A200EFB4900CE906F /* AboutDDAYGOController.m */; };
+		C4411D8D200EFB4900CE906F /* AboutDDAYGOController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4411D8B200EFB4900CE906F /* AboutDDAYGOController.xib */; };
+		C4411D90200F368100CE906F /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = C4411D8E200F368000CE906F /* UIButton+Badge.m */; };
 		C44C9DB11FEA392D00CD7D4D /* ZP_QuickLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44C9DAE1FEA392C00CD7D4D /* ZP_QuickLoginController.m */; };
 		C44C9DB21FEA392D00CD7D4D /* ZP_QuickLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C44C9DAF1FEA392C00CD7D4D /* ZP_QuickLoginController.xib */; };
 		C44D6D0F1FD8CF070002DAF2 /* PayViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D6D0A1FD8CF070002DAF2 /* PayViewCell.m */; };
@@ -835,6 +838,11 @@
 		C43DE4DB200355AF002AB8D2 /* LanguageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageController.m; sourceTree = "<group>"; };
 		C43DE4DC200355AF002AB8D2 /* LanguageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageController.h; sourceTree = "<group>"; };
 		C43DE4DD200355AF002AB8D2 /* LanguageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageController.xib; sourceTree = "<group>"; };
+		C4411D89200EFB4900CE906F /* AboutDDAYGOController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutDDAYGOController.h; sourceTree = "<group>"; };
+		C4411D8A200EFB4900CE906F /* AboutDDAYGOController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutDDAYGOController.m; sourceTree = "<group>"; };
+		C4411D8B200EFB4900CE906F /* AboutDDAYGOController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutDDAYGOController.xib; sourceTree = "<group>"; };
+		C4411D8E200F368000CE906F /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
+		C4411D8F200F368100CE906F /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
 		C44C9DAD1FEA392C00CD7D4D /* ZP_QuickLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZP_QuickLoginController.h; sourceTree = "<group>"; };
 		C44C9DAE1FEA392C00CD7D4D /* ZP_QuickLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZP_QuickLoginController.m; sourceTree = "<group>"; };
 		C44C9DAF1FEA392C00CD7D4D /* ZP_QuickLoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZP_QuickLoginController.xib; sourceTree = "<group>"; };
@@ -2076,6 +2084,7 @@
 				C491D3731FCBE2EE00D127E9 /* BindingIntroduce */,
 				06F571B51F9F1A7900D61FDB /* ChangePassword */,
 				C47096A31FB065AA006EA52C /* Language */,
+				C4411D88200EFB3400CE906F /* AboutDDAYGO */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -2451,6 +2460,8 @@
 		C425BEA31FC813C30097DB8F /* OrderView */ = {
 			isa = PBXGroup;
 			children = (
+				C4411D8F200F368100CE906F /* UIButton+Badge.h */,
+				C4411D8E200F368000CE906F /* UIButton+Badge.m */,
 				C425BEAE1FC818480097DB8F /* ZP_OrderController.h */,
 				C425BEAF1FC818480097DB8F /* ZP_OrderController.m */,
 				C425BEA41FC813C30097DB8F /* FSPageContentView.h */,
@@ -2532,6 +2543,17 @@
 			);
 			path = LotteryHomePage;
 			sourceTree = "<group>";
+		};
+		C4411D88200EFB3400CE906F /* AboutDDAYGO */ = {
+			isa = PBXGroup;
+			children = (
+				C4411D89200EFB4900CE906F /* AboutDDAYGOController.h */,
+				C4411D8A200EFB4900CE906F /* AboutDDAYGOController.m */,
+				C4411D8B200EFB4900CE906F /* AboutDDAYGOController.xib */,
+			);
+			name = AboutDDAYGO;
+			path = DDAYGO/ViewController/My/AboutDDAYGO;
+			sourceTree = SOURCE_ROOT;
 		};
 		C44C9DAC1FEA392C00CD7D4D /* ZP_QuickLoginHomePage */ = {
 			isa = PBXGroup;
@@ -4106,6 +4128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06621DB31F9758840030983F /* RegisterController.xib in Resources */,
+				C4411D8D200EFB4900CE906F /* AboutDDAYGOController.xib in Resources */,
 				06F572211F9F1E8700D61FDB /* BillViewController.xib in Resources */,
 				C4AD0753200C7A5D00B8FF6E /* LPDImagePickerController.bundle in Resources */,
 				06F5716C1F9F15CE00D61FDB /* CollectionTableViewCell.xib in Resources */,
@@ -4362,6 +4385,7 @@
 				0662AB341F9592A50031F22B /* VPImageCropperViewController.m in Sources */,
 				C47E762F1FB5A1C7009F279A /* DetailedViewCell.m in Sources */,
 				C477507E1FBA990E00AE8B3F /* ZP_PositionModel.m in Sources */,
+				C4411D8C200EFB4900CE906F /* AboutDDAYGOController.m in Sources */,
 				C44D6D111FD8CF070002DAF2 /* PayViewController.m in Sources */,
 				064449AD1F6A9B250004DFE4 /* MJRefreshAutoNormalFooter.m in Sources */,
 				C472F1381FE29A060031D7B5 /* ZP_CheckMoreCell.m in Sources */,
@@ -4567,6 +4591,7 @@
 				C479C6A61FE3CB5800A58A2A /* NSObject+MJClass.m in Sources */,
 				06F571E11F9F1A7900D61FDB /* SelectPhotoManager.m in Sources */,
 				0641BBDF1F67F9E400E72FEF /* UIImageView+WebCache.m in Sources */,
+				C4411D90200F368100CE906F /* UIButton+Badge.m in Sources */,
 				C472F1331FE299E00031D7B5 /* ZP_CheckMoreController.m in Sources */,
 				C425BEA91FC813C30097DB8F /* FSPageContentView.m in Sources */,
 				C45F22D11FA05A9E00F5DB41 /* UITabBarItem+Theme.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import "ZP_ClassGoodsModel.h"
-
+#import "PrefixHeader.pch"
 @implementation ZP_ClassGoodsModel
 
 + (instancetype)gEtCassGoods:(NSDictionary *)Dic {
@@ -18,7 +18,7 @@
     if (self == [super init]) {
         self.productname = dic[@"productname"];
         self.productprice = [NSString stringWithFormat:@"NT%@",dic[@"productprice"]];
-        self.defaultimg = [NSString stringWithFormat:@"http://www.ddaygo.com%@", dic[@"defaultimg"]];
+        self.defaultimg = [NSString stringWithFormat:@"%@%@",ImgAPI, dic[@"defaultimg"]];
         self.TrademarkLabel = [NSString stringWithFormat:@"%@", dic[@"cp"]];
         self.productid = dic[@"productid"];
         self.productremark = dic[@"productremark"];
@@ -38,7 +38,7 @@
     NSMutableArray * arr = [[NSMutableArray alloc]init];
     for (NSDictionary * dic in array) {
         ZP_ClassGoodsModel * model = [[ZP_ClassGoodsModel alloc]init];
-        model.defaultimg = [NSString stringWithFormat:@"http://www.ddaygo.com%@", dic[@"defaultimg"]];
+        model.defaultimg = [NSString stringWithFormat:@"%@%@",ImgAPI, dic[@"defaultimg"]];
         model.productname = dic[@"productname"];
         model.productprice = [NSString stringWithFormat:@"NT%@",dic[@"productprice"]];
         model.TrademarkLabel = [NSString stringWithFormat:@"%@", dic[@"cp"]];

@@ -57,7 +57,10 @@
 - (void)ExchangeDeatils:(ExchangeDetailsModel *)model {
     self.OrderNumberLabel.text = [model.ordersnumber stringValue];
     self.RequestTypeLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:[model.returntype stringValue]];
-    switch ([[[NSUserDefaults standardUserDefaults] objectForKey:[model.returntype stringValue]] integerValue]) {
+    int a = [model.state intValue];
+    NSLog(@"Stata = %D",a);
+    switch (a) {
+            
         case 0:
             self.RequestTypeLabel.text = @"仅退款";
             break;

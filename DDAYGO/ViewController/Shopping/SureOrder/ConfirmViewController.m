@@ -141,10 +141,20 @@
         make.left.equalTo(self.view).offset(ZP_Width - 100); // 左
         make.right.equalTo(self.view).offset(0);  // 右
         make.top.equalTo(bottomView).offset(0);
-        make.height.mas_equalTo(50); // 高度
+        make.height.mas_equalTo(50);
     }];
     _ClearingBut = Clearing;
     [self.view addSubview:bottomView];
+
+//       货币符号
+    ZP_GeneralLabel * HintLanguageLabel = [ZP_GeneralLabel initWithtextLabel:_HintLanguageLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    HintLanguageLabel.text = @"（含運費）";
+    [bottomView addSubview:HintLanguageLabel];
+    [HintLanguageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(Clearing).offset( -50 - 60);
+        make.top.equalTo(StatisticsLabel).offset(20);
+    }];
+    _HintLanguageLabel = HintLanguageLabel;
 }
 
 //  组头
@@ -264,13 +274,13 @@
 
 // 获取确认订单
 - (void)MakeSureOrder {
-    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    dic[@"token"] = Token;
-    dic[@"stockids"] = self.stockidsString;
+    NSMutableDictionary * dicc = [NSMutableDictionary dictionary];
+    dicc[@"token"] = Token;
+    dicc[@"stockids"] = self.stockidsString;
     //    stockids：库存字符串，库存ID与数量拼接，多个用逗号连接，如：42_2,43_1
-    [ZP_shoopingTool requesMakeSureOrder:dic success:^(id obj) {
+    [ZP_shoopingTool requesMakeSureOrder:dicc success:^(id obj) {
         NSDictionary * dic = obj;
-        
+        allMoney = [NSString stringWithFormat:@"%@",obj[@"allamount"]];
         self.NewData = [ZP_InformationModel arrayWithArray:dic[@"carts"]];
         ZP_ExpressDeliveryModel * model = [[ZP_ExpressDeliveryModel alloc] init];
         model.freightamount = dic[@"freightamount"];
@@ -282,6 +292,7 @@
         [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
+
 // 总计金额
 - (void)upfataStatisticsLabel {
     float asd = 0.0;
@@ -290,9 +301,10 @@
         asd += model.amount.intValue * model.productprice.floatValue;
         qwe += model.amount.intValue;
     }
-    allMoney = [NSString stringWithFormat:@"%.2f",asd];
+//    allMoney = [NSString stringWithFormat:@"%.2f",asd];
     allCount = [NSString stringWithFormat:@"%d",qwe];
-    self.PriceLabel.text = [NSString stringWithFormat:@"%.2f",asd];
+    self.PriceLabel.text = allMoney;
+//    self.PriceLabel.text = [self.model.allamount stringValue];
 }
 
 // 快递费
@@ -325,7 +337,7 @@
         model.freightamount = dic[@"freightamount"];
         model.chooselogistic = dic[@"chooselogistic"];
         [_ConfirmArray addObject:model];
-        [self upfataStatisticsLabel];
+//        [self upfataStatisticsLabel];
     } failure:^(NSError * error) {
 //        ZPLog(@"%@",error);
         [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
@@ -489,7 +501,6 @@
 
 //  表头
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
     
     if (section ==1) {
         ZP_CartsShopModel *model = _nameArray[section-1];

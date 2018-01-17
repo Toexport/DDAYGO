@@ -53,20 +53,20 @@
     _MerchandiseIntroducedLabel = MerchandiseIntroducedLabel;
     
 //    优惠价格
-    UILabel * preferentialLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, CGRectGetWidth(self.frame)+ 25, CGRectGetWidth(self.frame) - 90, 15)];
-    preferentialLabel.textColor = ZP_TypefaceColor;
+    UILabel * preferentialLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, CGRectGetWidth(self.frame)+ 35, CGRectGetWidth(self.frame) - 90, 15)];
+    preferentialLabel.textColor = ZP_HomePreferentialpriceTypefaceCorlor;
     preferentialLabel.font = ZP_introduceFont;
     preferentialLabel.textAlignment = NSTextAlignmentLeft;
     [self addSubview:preferentialLabel];
     _preferentialLabel = preferentialLabel;
     
-//    价格
-    UILabel * priceLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, CGRectGetWidth(self.frame)+ 40, CGRectGetWidth(self.frame) - 100, 15)];
-    priceLabel.textColor = ZP_TypefaceColor;
-    priceLabel.font = ZP_TrademarkFont;
-    priceLabel.textAlignment = NSTextAlignmentLeft;
-//    [self.contentView addSubview:priceLabel];
-    _priceLabel = priceLabel;
+////    价格
+//    UILabel * priceLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, CGRectGetWidth(self.frame)+ 35, CGRectGetWidth(self.frame) - 100, 15)];
+//    priceLabel.textColor = ZP_HomePreferentialpriceTypefaceCorlor;
+//    priceLabel.font = ZP_TrademarkFont;
+//    priceLabel.textAlignment = NSTextAlignmentLeft;
+////    [self.contentView addSubview:priceLabel];
+//    _priceLabel = priceLabel;
     
     
 //   横线

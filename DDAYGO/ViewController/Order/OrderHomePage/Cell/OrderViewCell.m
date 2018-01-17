@@ -36,8 +36,8 @@
     ZP_GeneralLabel * IDLabel = [ZP_GeneralLabel initWithtextLabel:_IDLabel.text textColor:ZP_textblack font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self.contentView addSubview:IDLabel];
     [IDLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(55);
-        make.top.equalTo(self).offset(5);
+        make.left.equalTo(self).offset(50);
+        make.top.equalTo(OrderLabel).offset(0);
     }];
     _IDLabel = IDLabel;
     
@@ -46,19 +46,21 @@
     [self.contentView addSubview:DateLabel];
     [DateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(5);
-        make.top.equalTo(self).offset(20);
+        make.top.equalTo(IDLabel).offset(20);
     }];
     _DateLabel = DateLabel;
     
     
 //     删除订单按钮
     UIButton * DeleteBut = [UIButton buttonWithType:UIButtonTypeSystem];
-    [DeleteBut setBackgroundImage:[UIImage imageNamed:@"ic_dianpu_delete_normal"] forState:UIControlStateNormal];
+    [DeleteBut setBackgroundImage:[UIImage imageNamed:@"ic_footprint_delete_normal"] forState:UIControlStateNormal];
     [DeleteBut addTarget:self action:@selector(DeleteBut:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:DeleteBut];
     [DeleteBut mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self).offset(-15);
-            make.top.equalTo(self).offset(10);
+        make.right.equalTo(self).offset(-15);
+        make.top.equalTo(self).offset(10);
+        make.width.mas_offset(15);
+        make.height.mas_offset(15);
         }];
     _DeleteBut = DeleteBut;
     
@@ -67,7 +69,7 @@
     ZP_GeneralLabel * TradingLabel = [ZP_GeneralLabel initWithtextLabel:_TradingLabel.text textColor:ZP_typefaceOrangeColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:nil];
     [self.contentView addSubview:TradingLabel];
     [TradingLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(DeleteBut).offset(2.5);
+        make.top.equalTo(DeleteBut).offset(0);
         make.right.equalTo(DeleteBut).offset(-25);
     }];
     _TradingLabel = TradingLabel;
@@ -161,28 +163,7 @@
         make.height.mas_offset(15);
     }];
     _PreferentialLabel = PreferentialLabel;
-//
-////  价格
-//    ZP_GeneralLabel * priceLabel = [ZP_GeneralLabel initWithtextLabel:_priceLabel.text textColor:ZP_TabBarTextColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
-////    [self.Backgroundview addSubview:priceLabel];
-//    [priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(FigureImage).offset(80);
-//        make.top.equalTo(PreferentialLabel).offset(15);
-//    }];
-//    _priceLabel = priceLabel;
-    
-////  横线
-//    UIView * Crossview = [UIView new];
-//    Crossview.layer.borderWidth = 1;
-//    Crossview.backgroundColor = ZP_TabBarTextColor;
-////    [self.Backgroundview addSubview: Crossview];
-//    [Crossview mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(FigureImage).offset(80);
-//        make.top.equalTo(priceLabel).offset(7.5);
-//        make.height.mas_equalTo(1);
-//        make.width.mas_equalTo(priceLabel);
-//    }];
-    
+
 //  商标
     UIImageView * TrademarkImage = [UIImageView new];
     [self.Backgroundview addSubview:TrademarkImage];
@@ -206,7 +187,7 @@
 //  竖线
     UIView * VerticalView = [UIView new];
     VerticalView.layer.borderWidth = 1;
-    VerticalView.backgroundColor = ZP_TabBarTextColor;
+    VerticalView.backgroundColor = ZP_TypefaceColor;
     [self.Backgroundview addSubview:VerticalView];
     [VerticalView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-55);
@@ -413,13 +394,16 @@
             [_OnceagainBut setTitle:@"確認收貨" forState:UIControlStateNormal];
             [_AppraiseBut setTitle:@"退换货" forState:UIControlStateNormal];
             _OnceagainBut.userInteractionEnabled = NO;
-//            _AppraiseBut.hidden = YES;
             break;
         case 4:
             _TradingLabel.text = @"交易成功";
             [_OnceagainBut setTitle:@"再次購買" forState:UIControlStateNormal];
             [_AppraiseBut setTitle:@"评价" forState:UIControlStateNormal];
-            
+            break;
+        case 6:
+            _TradingLabel.text = @"交易成功";
+            [_OnceagainBut setTitle:@"再次購買" forState:UIControlStateNormal];
+            _AppraiseBut.hidden = YES;
             break;
         default:
             break;
@@ -430,7 +414,6 @@
     [_FigureImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI,dic.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
     _merchantsLabel.text = [NSString stringWithFormat:@"%@",model.shopname];
     _titleLabel.text = dic.productname;
-//    _titleLabel.text = model.shopname;
     _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",dic.colorname];
     _SizeLabel.text = [NSString stringWithFormat:@"尺碼:%@",dic.normname];
     _AmountLabel.text = [NSString stringWithFormat:@"NT%@",model.ordersamount];

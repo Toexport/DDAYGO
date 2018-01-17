@@ -48,7 +48,6 @@
         self.tableView.estimatedSectionFooterHeight = 0;
     }
 //    self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld",nameArray.count];
-    self.navigationController.tabBarItem.badgeValue = @"1";
     
 }
 
@@ -106,9 +105,12 @@
             for (ZP_CartsModel * model in dataArray) {
                 [selectArray addObject:model.amount];
             }
+            
+            self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld",dataArray.count];
+
+            
             [self.tableView reloadData];
         }
-        
     } failure:^(NSError *error) {
 //        NSLog(@"%@",error);
 //        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"服務器連接失敗", nil)];
@@ -241,7 +243,7 @@
 //  结算按钮
     UIButton * ClearingBut = [UIButton new];
     ClearingBut.backgroundColor = ZP_pricebackground;
-    [ClearingBut setTitle:NSLocalizedString(@"Clearing(0)", nil) forState:UIControlStateNormal];
+    [ClearingBut setTitle:NSLocalizedString(@"Clearing", nil) forState:UIControlStateNormal];
 //    [ClearingBut setTitle:NSLocalizedString(@"Delete", nil) forState:UIControlStateSelected];
     ClearingBut.titleLabel.font = ZP_TooBarFont;
     [ClearingBut addTarget:self action:@selector(ClearingBut:) forControlEvents:UIControlEventTouchUpInside];
@@ -267,7 +269,6 @@
         make.top.equalTo(StatisticsLabel).offset(20); // 下
     }];
 }
-
 
 //  全选
 - (void)selectClick:(UIButton *)sender {
@@ -297,8 +298,15 @@
         }
     }
     [self updateData:sender.tag];
-}
-}
+    if (_bjBool) {
+        //编辑的按钮文字
+        [_ClearingButt setTitle:@"删除" forState:UIControlStateNormal];
+    }else{
+        //不是编辑的按钮文字
+        [_ClearingButt setTitle:@"结算" forState:UIControlStateNormal];
+    }
+  }
+ }
 
 //  店铺选择按钮
 - (void)ShopClick:(UIButton *)sender {
@@ -323,6 +331,13 @@
         }
     }
     [self updateDataa:sender.tag];
+    if (_bjBool) {
+        //编辑的按钮文字
+        [_ClearingButt setTitle:@"删除" forState:UIControlStateNormal];
+    }else{
+        //不是编辑的按钮文字
+        [_ClearingButt setTitle:@"结算" forState:UIControlStateNormal];
+    }
 }
 
 - (void)updateData:(NSInteger)tag {
@@ -440,9 +455,14 @@ if (count == dataArray.count) {
     }
     /**********************/
 //       更新合计数据
+    
     self.PriceLabel.text = [@(data) stringValue];
-    [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算(%ld)",(long)dataCount] forState: UIControlStateNormal];
-    allNum = dataCount;
+//    if (allNum >=0) {
+//        self.ClearingButt.height = NO;
+//    }else {
+        [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算(%ld)",(long)dataCount] forState: UIControlStateNormal];
+        allNum = dataCount;
+//    }
 }
 
 #pragma mark - 结算
@@ -588,6 +608,7 @@ if (count == dataArray.count) {
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     ZP_CartsShopModel * model;
+    
     if (nameArray.count > 0) {
         model = nameArray[section];
     } else {
@@ -623,6 +644,7 @@ if (count == dataArray.count) {
         make.width.mas_offset(80);
     }];
     _merchantsLabel = merchantsLabel;
+    
     //  横线
     UIView * view0 = [UIView new];
     view0.backgroundColor = ZP_Graybackground;
@@ -638,86 +660,82 @@ if (count == dataArray.count) {
 
 //  设置表头高度
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    
     ZP_CartsShopModel * model = nameArray[section];
     if (model.array.count > 0) {
         return 40;
     }
-    
     return 0.1;
 }
 
-
- - (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
- if (@available(iOS 11.0, *)) {
- NSArray *array = @[[UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"delete" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
- [dataArray removeObjectAtIndex:indexPath.row];
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- completionHandler(YES);
- }]];
- return [UISwipeActionsConfiguration configurationWithActions:array];
- } else {
- // Fallback on earlier versions
- }
- 
- return nil;
- }
-
 - (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
- 
- if (@available(iOS 11.0, *)) {
- UIContextualAction *deleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"刪除" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
- ZP_CartsModel *model = dataArray[indexPath.row];
- NSMutableDictionary *dic = [NSMutableDictionary dictionary];
- dic[@"stockid"] = model.stockid;
- dic[@"token"]  = [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
- [ZP_shoopingTool requesscartitemdelte:dic success:^(id obj) {
- NSLog(@"%@",obj);
- } failure:^(NSError *error) {
- NSLog(@"%@",error);
- }];
- 
- [dataArray removeObjectAtIndex:indexPath.row];
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- completionHandler(YES);
- }];
- //也可以设置图片
- deleteAction.backgroundColor = [UIColor redColor];
- UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration configurationWithActions:@[deleteAction]];
- return config;
- } else {
- // Fallback on earlier versions
- return nil;
- }
- }
+    if (@available(iOS 11.0, *)) {
+        UIContextualAction *deleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"刪除" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+            //
+
+            ZP_CartsShopModel * models = nameArray[indexPath.section];
+            ZP_CartsModel * model = models.array[indexPath.row];
+
+            NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+            dic[@"stockid"] = model.stockid;
+            dic[@"token"]  = [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+            [ZP_shoopingTool requesscartitemdelte:dic success:^(id obj) {
+                NSLog(@"%@",obj);
+                [models.array removeObjectAtIndex:indexPath.row];
+//                 tabbar按钮红点
+                if (models.array.count == 0) {
+                    nameArray = nil;
+                    self.navigationController.tabBarItem.badgeValue = nil;
+                }else{
+                self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld",models.array.count];
+                }
+                [tableView reloadData];
+                completionHandler(YES);
+            } failure:^(NSError *error) {
+                NSLog(@"%@",error);
+            }];
+            
+           
+        }];
+        //也可以设置图片
+        deleteAction.backgroundColor = [UIColor redColor];
+        UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration configurationWithActions:@[deleteAction]];
+        return config;
+    } else {
+        // Fallback on earlier versions
+        return nil;
+    }
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     return @"删除";
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSLog(@"go");
-        ZP_CartsModel *model = dataArray[indexPath.row];
+        ZP_CartsModel * model = dataArray[indexPath.row];
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
         dic[@"stockid"] = model.stockid;
         dic[@"token"] = Token;
         [ZP_shoopingTool requesscartitemdelte:dic success:^(id obj) {
+            
             if ([obj[@"result"]isEqualToString:@"ok"]) {
                 [SVProgressHUD showSuccessWithStatus:@"刪除成功!"];
             }else
                 if ([obj[@"result"]isEqualToString:@"failure"]) {
-                    
+
                     [SVProgressHUD showInfoWithStatus:@"删除失敗"];
                 }
         } failure:^(NSError *error) {
             NSLog(@"%@",error);
 //             [SVProgressHUD showInfoWithStatus:@"服務器連接失敗"];
         }];
-        
+
         [dataArray removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
+
     }
 }
 

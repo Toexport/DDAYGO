@@ -17,7 +17,6 @@
 
 @implementation myNavigationController
 
-
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
     CGRect rect = CGRectMake(0, 0, size.width, size.height);
     UIGraphicsBeginImageContext(rect.size);
@@ -35,7 +34,6 @@
     if (AboveIOS9) {
         UINavigationBar * navBar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[self]];
         NSMutableDictionary * dict = [NSMutableDictionary dictionary];
-        
         dict[NSFontAttributeName] = ZP_addBtnTextdetaFont;
         
         //        dict[NSForegroundColorAttributeName] = [UIColor colorWithHexString:mainFont];
@@ -43,7 +41,6 @@
         
         //未渐变时延时@"#e64a3d"
         [navBar setBackgroundColor:[UIColor whiteColor]];
-        
         [navBar setBarTintColor:[UIColor whiteColor]];
         navBar.translucent = NO;
     }else{

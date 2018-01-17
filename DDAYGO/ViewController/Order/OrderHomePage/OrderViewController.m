@@ -11,10 +11,11 @@
 #import "OrderViewController.h"
 #import "PrefixHeader.pch"
 #import "ZP_OrderController.h"
+#import "UIButton+Badge.h"
 @interface OrderViewController ()<FSPageContentViewDelegate,FSSegmentTitleViewDelegate>
 
-@property (nonatomic, strong) FSPageContentView *pageContentView;
-@property (nonatomic, strong) FSSegmentTitleView *titleView;
+@property (nonatomic, strong) FSPageContentView * pageContentView;
+@property (nonatomic, strong) FSSegmentTitleView * titleView;
 
 @end
 
@@ -57,10 +58,11 @@
 }
 
 - (void)initUI {
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = ZP_WhiteColor;
-    
     self.titleView = [[FSSegmentTitleView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 40) titles:@[NSLocalizedString(@"all", nil),NSLocalizedString(@"Waiting payment", nil),NSLocalizedString(@"Wait delivery", nil),NSLocalizedString(@"Waiting goods", nil),NSLocalizedString(@"evaluation", nil)] delegate:self indicatorType:FSIndicatorTypeEqualTitle];
+    self.titleView.tag = 66;
     self.titleView.titleSelectFont = [UIFont systemFontOfSize:14];
     self.titleView.titleFont = [UIFont systemFontOfSize:13];
     self.titleView.titleSelectColor = [UIColor orangeColor];
@@ -70,8 +72,8 @@
     
     NSMutableArray *childVCs = [[NSMutableArray alloc]init];
     [@[NSLocalizedString(@"all", nil),NSLocalizedString(@"Waiting payment", nil),NSLocalizedString(@"Wait delivery", nil),NSLocalizedString(@"Waiting goods", nil),NSLocalizedString(@"evaluation", nil)] enumerateObjectsUsingBlock:^(NSString * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        ZP_OrderController *vc = [[ZP_OrderController alloc]init];
-
+        ZP_OrderController * vc = [[ZP_OrderController alloc]init];
+        vc.titleView = self.titleView;
         vc.titleStr = obj;
         vc.num = idx;
         [childVCs addObject:vc];
@@ -85,13 +87,19 @@
 #pragma mark --
 - (void)FSSegmentTitleView:(FSSegmentTitleView *)titleView startIndex:(NSInteger)startIndex endIndex:(NSInteger)endIndex {
     NSLog(@"222 %ld- %ld",(long)endIndex,(long)startIndex);
+    
     self.pageContentView.contentViewCurrentIndex = endIndex;
-    //    self.title = self.titleView.titlesArr[endIndex];
+//    UIButton * but = [self.titleView viewWithTag:666+endIndex];
+//    NSLog(@"but = %@",but.titleLabel.text);
+//    but.badgeValue = @"1";
+//    but.badgeBGColor = [UIColor orangeColor];
+    
 }
 
 - (void)FSContenViewDidEndDecelerating:(FSPageContentView *)contentView startIndex:(NSInteger)startIndex endIndex:(NSInteger)endIndex {
     NSLog(@"111 %ld- %ld",(long)endIndex,(long)startIndex);
     self.titleView.selectIndex = endIndex;
+    
     //    self.title = self.titleView.titlesArr[endIndex];
 }
 

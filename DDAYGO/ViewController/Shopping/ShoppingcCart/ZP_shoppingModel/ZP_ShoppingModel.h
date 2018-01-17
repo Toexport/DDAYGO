@@ -36,7 +36,7 @@
 
 @property (nonatomic, strong) NSNumber *cartid;
 @property (nonatomic, strong) NSNumber *aid;
-@property (nonatomic, strong) NSNumber *stockid;
+@property (nonatomic, strong) NSNumber * stockid;
 @property (nonatomic, strong) NSNumber *amount;
 @property (nonatomic, strong) NSNumber *productid;
 @property (nonatomic, strong) NSNumber *colorid;
