@@ -60,6 +60,9 @@
 // 获取用户提现记录列表
 + (void)requesWithdrawalRecord:(NSDictionary *)WithdrawalRecord uccess:(void (^)(id))success failure:(void (^)(NSError *))failure;
 
+// 取消余额提现
++ (void)requestCanceltakeout:(NSDictionary *)Canceltakeout uccess:(void (^)(id))success failure:(void (^)(NSError *))failure;
+
 // 获取订单支付结果
 + (void)requesOrdPay:(NSDictionary *)OrdPay uccess:(void (^)(id))success failure:(void (^)(NSError *))failure;
 

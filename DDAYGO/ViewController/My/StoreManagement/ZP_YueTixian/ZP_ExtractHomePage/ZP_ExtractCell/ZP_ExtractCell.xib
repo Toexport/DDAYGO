@@ -251,8 +251,8 @@
                         <rect key="frame" x="234" y="371" width="70" height="25"/>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.6588235294" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="25" id="2Sh-9w-4oX"/>
-                            <constraint firstAttribute="width" constant="70" id="bbM-YL-6A1"/>
+                            <constraint firstAttribute="height" constant="25" id="lvW-Ur-Mx6"/>
+                            <constraint firstAttribute="width" constant="70" id="rab-ot-vC3"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <state key="normal" title="取消提现">
@@ -268,15 +268,15 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMZ-Rs-6AH">
-                        <rect key="frame" x="38" y="277" width="274" height="75"/>
+                        <rect key="frame" x="38" y="282" width="274" height="79"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="75" id="1bS-9w-Gwq"/>
+                            <constraint firstAttribute="height" constant="79" id="1bS-9w-Gwq"/>
                         </constraints>
                         <attributedString key="attributedText">
                             <fragment content="建议您重新核查信息，确保账号主体信息及法人信息提交无误。如确认无误，还是审核失败，是因未在工商数据中查询到您提交法人的相关信息，无法核查。如您是新建企业，或近期有在做信息变更，企业工商数据跟下可能延迟，建议您过段时间再试。">
                                 <attributes>
                                     <color key="NSColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <font key="NSFont" size="11" name=".PingFangSC-Regular"/>
+                                    <font key="NSFont" size="13" name=".PingFangSC-Regular"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                 </attributes>
                             </fragment>
@@ -297,6 +297,7 @@
                     <constraint firstItem="JGN-fQ-eMb" firstAttribute="top" secondItem="k7f-pm-nom" secondAttribute="bottom" constant="7" id="5av-m5-qkr"/>
                     <constraint firstItem="nZq-RO-Ldj" firstAttribute="leading" secondItem="k7f-pm-nom" secondAttribute="trailing" constant="8" id="7PY-cJ-Lnv"/>
                     <constraint firstItem="w7y-EM-wgt" firstAttribute="top" secondItem="JZb-uA-abn" secondAttribute="bottom" constant="80" id="9Sg-p1-V5j"/>
+                    <constraint firstAttribute="trailing" secondItem="fsE-12-51B" secondAttribute="trailing" constant="16" id="ABm-7W-bFr"/>
                     <constraint firstItem="q4R-Lw-vZm" firstAttribute="top" secondItem="1Pl-wK-eG4" secondAttribute="bottom" id="B2k-oY-SXo"/>
                     <constraint firstItem="nZq-RO-Ldj" firstAttribute="top" secondItem="5dm-XT-ufb" secondAttribute="bottom" constant="56" id="CHN-Qu-H5Y"/>
                     <constraint firstAttribute="trailing" secondItem="phA-yI-lk1" secondAttribute="trailing" id="Cr5-gH-tm6"/>
@@ -320,12 +321,10 @@
                     <constraint firstItem="k7f-pm-nom" firstAttribute="top" secondItem="U0Z-Iq-W2d" secondAttribute="bottom" constant="56" id="TFM-4S-oWP"/>
                     <constraint firstItem="phA-yI-lk1" firstAttribute="top" secondItem="uki-Qg-OKX" secondAttribute="bottom" constant="7" id="TZ1-Sj-cl2"/>
                     <constraint firstAttribute="trailing" secondItem="w7y-EM-wgt" secondAttribute="trailing" id="WPt-ub-se7"/>
-                    <constraint firstAttribute="trailing" secondItem="fsE-12-51B" secondAttribute="trailing" constant="16" id="XjQ-vE-Oij"/>
                     <constraint firstAttribute="trailing" secondItem="1Pl-wK-eG4" secondAttribute="trailing" id="XkR-cy-AQN"/>
                     <constraint firstItem="kBB-uO-waP" firstAttribute="top" secondItem="UoS-JB-eQu" secondAttribute="bottom" constant="4" id="a55-Io-l61"/>
                     <constraint firstItem="KDC-5M-SaH" firstAttribute="leading" secondItem="JZb-uA-abn" secondAttribute="trailing" constant="32.5" id="cKS-iK-imt"/>
                     <constraint firstItem="UoS-JB-eQu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="cmU-iS-2CC"/>
-                    <constraint firstItem="fsE-12-51B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="234" id="d2q-hB-xMq"/>
                     <constraint firstItem="6LI-xb-fYS" firstAttribute="top" secondItem="UoS-JB-eQu" secondAttribute="bottom" constant="4" id="d6P-Fk-LL7"/>
                     <constraint firstItem="5Tb-s4-G2e" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="dHD-I0-6RP"/>
                     <constraint firstItem="5dm-XT-ufb" firstAttribute="leading" secondItem="U0Z-Iq-W2d" secondAttribute="trailing" constant="8" id="fha-O9-MDK"/>
@@ -333,7 +332,6 @@
                     <constraint firstItem="1Pl-wK-eG4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="heT-u7-7ac"/>
                     <constraint firstItem="QkY-Kg-aDV" firstAttribute="leading" secondItem="JGN-fQ-eMb" secondAttribute="trailing" constant="8" id="hf8-45-U3c"/>
                     <constraint firstAttribute="trailing" secondItem="q4R-Lw-vZm" secondAttribute="trailing" id="j9J-TZ-nDI"/>
-                    <constraint firstItem="fsE-12-51B" firstAttribute="top" secondItem="dMZ-Rs-6AH" secondAttribute="bottom" constant="19" id="jgT-72-D6h"/>
                     <constraint firstItem="bs3-th-VRS" firstAttribute="top" secondItem="phA-yI-lk1" secondAttribute="bottom" constant="8" id="kfd-b9-0d1"/>
                     <constraint firstItem="JZb-uA-abn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="22" id="nTH-SM-vMX"/>
                     <constraint firstItem="UoS-JB-eQu" firstAttribute="top" secondItem="2k5-JX-TYb" secondAttribute="bottom" constant="8" id="njb-6u-E84"/>
@@ -344,8 +342,9 @@
                     <constraint firstItem="6LI-xb-fYS" firstAttribute="leading" secondItem="kBB-uO-waP" secondAttribute="trailing" constant="32.5" id="oXd-Zz-M0O"/>
                     <constraint firstItem="z05-6x-jt2" firstAttribute="leading" secondItem="nZq-RO-Ldj" secondAttribute="trailing" constant="32.5" id="olF-um-32I"/>
                     <constraint firstItem="U0Z-Iq-W2d" firstAttribute="top" secondItem="phA-yI-lk1" secondAttribute="bottom" constant="8" id="olc-jm-bAP"/>
+                    <constraint firstItem="fsE-12-51B" firstAttribute="top" secondItem="w7y-EM-wgt" secondAttribute="bottom" constant="10" id="rUc-GF-FcU"/>
                     <constraint firstItem="q4R-Lw-vZm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="scn-As-bg7"/>
-                    <constraint firstItem="dMZ-Rs-6AH" firstAttribute="top" secondItem="KDC-5M-SaH" secondAttribute="bottom" constant="-3" id="tIR-3o-ztF"/>
+                    <constraint firstItem="dMZ-Rs-6AH" firstAttribute="top" secondItem="KDC-5M-SaH" secondAttribute="bottom" constant="2" id="tIR-3o-ztF"/>
                     <constraint firstItem="Zoc-sj-DG8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="108" id="vxa-ze-dBY"/>
                     <constraint firstItem="9tm-n6-Vcn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="22" id="y8K-HV-mLr"/>
                     <constraint firstItem="2k5-JX-TYb" firstAttribute="leading" secondItem="QkY-Kg-aDV" secondAttribute="trailing" constant="32.5" id="yWI-ec-m7e"/>

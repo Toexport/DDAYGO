@@ -10,18 +10,25 @@
 
 @implementation ZP_ExtractModel
 
-+ (instancetype)ExtractWithDict:(NSDictionary *)dic {
-    return [[self alloc]initWithDict:dic];
++ (NSMutableArray *)arrayWithArray:(NSArray *)array {
+    NSMutableArray * arr = [[NSMutableArray alloc]init];
+    for (NSDictionary * dic in array) {
+        ZP_ExtractModel * model = [[ZP_ExtractModel alloc]init];
+        model.takeid = dic[@"takeid"];
+        model.supplierid = dic[@"supplierid"];
+        model.takeamount = dic[@"takeamount"];
+        model.bankname = dic[@"bankname"];
+        model.bankcardno = dic[@"bankcardno"];
+        model.bankcardname = dic[@"bankcardname"];
+        model.phone = dic[@"phone"];
+        model.email = dic[@"email"];
+        model.state = dic[@"state"];
+        model.remark = dic[@"remark"];
+        model.createtime = dic[@"createtime"];
+        model.updatetime = dic[@"updatetime"];
+        
+        [arr addObject:model];
+    }
+    return arr;
 }
-
-- (instancetype)initWithDict:(NSDictionary *)dict {
-    if (self = [super init]) {
-        [self setValuesForKeysWithDictionary:dict];
-    };
-    return self;
-}
-
-//+ (NSMutableArray *)arrayWithArray:(NSArray *)array {
-//    
-//}
 @end

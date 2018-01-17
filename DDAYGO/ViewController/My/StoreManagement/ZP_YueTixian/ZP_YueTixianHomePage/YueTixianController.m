@@ -56,6 +56,13 @@
         if ([obj[@"result"]isEqualToString:@"ok"]) {
             [SVProgressHUD showSuccessWithStatus:@"申請成功"];
             [self.navigationController popViewControllerAnimated:YES];
+        }else
+            if ([obj[@"result"]isEqualToString:@"apply_count_err"]) {
+                [SVProgressHUD showInfoWithStatus:@"超过每日可提现次数  每日限制一次"];
+        }else
+            if ([obj[@"result"]isEqualToString:@"takeamount_err"]) {
+                [SVProgressHUD showInfoWithStatus:@"可提现金额不足"];
+                    
         }
 //        NSLog(@"obj %@",obj);
     } failure:^(NSError *error) {

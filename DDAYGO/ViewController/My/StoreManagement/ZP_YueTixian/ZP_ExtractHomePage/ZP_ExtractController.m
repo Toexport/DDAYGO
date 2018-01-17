@@ -10,6 +10,7 @@
 #import "ZP_ExtractCell.h"
 #import "PrefixHeader.pch"
 #import "ZP_MyTool.h"
+#import "ZP_ExtractModel.h"
 @interface ZP_ExtractController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) NSArray * ExtractArr;
 @end
@@ -26,7 +27,6 @@
     self.title = NSLocalizedString(@"提現記錄", nil);
     [self.tableView registerNib:[UINib nibWithNibName:@"ZP_ExtractCell" bundle:nil] forCellReuseIdentifier:@"ZP_ExtractCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.backgroundColor = ZP_DeepBlue;
 /**** IOS 11 ****/
     if (@available(iOS 11.0, *)) {
         self.tableView.estimatedRowHeight = 0;
@@ -35,7 +35,7 @@
     }
 }
 
-// 数据
+// 获取用户提现记录列表
 - (void)AllData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;;
@@ -43,14 +43,40 @@
     dic[@"page"] = @"1";
     [ZP_MyTool requesWithdrawalRecord:dic uccess:^(id obj) {
         
+//        self.ExtractArr = [ZP_ExtractModel arrayWithArray:obj[@"list"]];
+        self.ExtractArr = [ZP_ExtractModel mj_objectArrayWithKeyValuesArray:obj[@"list"]];
     ZPLog(@"%@",obj);
-        
+        [self.tableView reloadData];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
 //        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 
+
+// 取消按鈕點擊事件
+- (void)CancelButt:(UIButton *)sender {
+    [self Canceltakeout];
+}
+
+// 取消余额提现
+- (void)Canceltakeout {
+    
+    NSMutableDictionary * dicc = [NSMutableDictionary dictionary];
+    dicc[@"token"] = Token;
+    dicc[@"sid"] = _supplierId;
+    [ZP_MyTool requestCanceltakeout:dicc uccess:^(id obj) {
+        if ([dicc[@"result"]isEqualToString:@"ok"]) {
+            [SVProgressHUD showSuccessWithStatus:@"取消成功"];
+        }else
+            if ([dicc[@"result"]isEqualToString:@"failed"]) {
+                [SVProgressHUD showInfoWithStatus:@"取消失敗"];
+            }
+        ZPLog(@"%@",obj);
+    } failure:^(NSError * error) {
+        ZPLog(@"%@",error);
+    }];
+}
 #pragma mark - tableview delegate
 //// 表头
 //- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -81,12 +107,13 @@
 // 1.设置section的数目，即是你有多少个cell
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return self.ExtractArr.count; // in your case, there are 3 cells
+    return 1;
 }
 
 //2.对于每个section返回一个cell
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    
+    return self.ExtractArr.count;
 }
 
 //3.设置cell之间headerview的高度
@@ -102,7 +129,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    ZP_ExtractModel * model = self.ExtractArr[indexPath.row];
     ZP_ExtractCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ZP_ExtractCell"];
+    cell.CancelBut.tag = indexPath.row;
+    [cell.CancelBut addTarget:self action:@selector(CancelButt:) forControlEvents:UIControlEventTouchUpInside];
+    cell.model = model;
+    
     return cell;
 }
 

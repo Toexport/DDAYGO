@@ -377,8 +377,8 @@
         case 1:
             _TradingLabel.text = @"待付款";
             [_OnceagainBut setTitle:@"付款" forState:UIControlStateNormal];
-            [_AppraiseBut setTitle:@"取消訂單" forState:UIControlStateNormal];
-//            _AppraiseBut.hidden = YES;
+//            [_AppraiseBut setTitle:@"取消訂單" forState:UIControlStateNormal];
+            _AppraiseBut.hidden = YES;
             //例如 --点击第一个看能不能点击
             _AppraiseBut.userInteractionEnabled = NO;
             break;
@@ -400,9 +400,21 @@
             [_OnceagainBut setTitle:@"再次購買" forState:UIControlStateNormal];
             [_AppraiseBut setTitle:@"评价" forState:UIControlStateNormal];
             break;
-        case 6:
-            _TradingLabel.text = @"交易成功";
+        case 5:
+            _TradingLabel.text = @"已取消";
             [_OnceagainBut setTitle:@"再次購買" forState:UIControlStateNormal];
+            [_AppraiseBut setTitle:@"评价" forState:UIControlStateNormal];
+            _AppraiseBut.hidden = YES;
+            _OnceagainBut.hidden = YES;
+            break;
+        case 6:
+//            _TradingLabel.text = @"交易成功";
+//            [_OnceagainBut setTitle:@"再次購買" forState:UIControlStateNormal];
+//            _AppraiseBut.hidden = YES;
+            break;
+        case 7:
+            _TradingLabel.text = @"交易成功";
+            [_OnceagainBut setTitle:@"查看详情" forState:UIControlStateNormal];
             _AppraiseBut.hidden = YES;
             break;
         default:

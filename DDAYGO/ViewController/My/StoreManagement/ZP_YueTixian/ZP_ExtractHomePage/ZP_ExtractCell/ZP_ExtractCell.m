@@ -13,32 +13,47 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self initUI];
+//    [self initUI];
 }
-
-- (void)initUI {
-    _DatesTimeLabel.layer.cornerRadius = 5;
-    _DatesTimeLabel.clipsToBounds = YES;
-}
-
-- (IBAction)CancelBut:(UIButton *)sender {
-    ZPLog(@"取消按钮");
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
     
 }
+
 
 // 数据
--(void)Extract:(ZP_ExtractModel *)model {
+- (void)setModel:(ZP_ExtractModel *)model {
+    _MmountLabel.text =  [model.takeamount stringValue]; // 金额
+    _BanksLabel.text = model.bankname;  // 银行
+    _NameLabel.text = model.bankcardname; // 名字
+    _BankAccountLabel.text = [model.bankcardno stringValue]; // 账户
+    _PhoneLabel.text = [model.phone stringValue];  // 电话
+    _EmailLabel.text = model.email;  // 邮箱
+    _ApplyTimeLabel.text = model.createtime;  // 申请时间
+    _AuditTimeLabel.text = model.updatetime;  // 审核时间
+//    _ReviewStatusLabel.text = [model.state stringValue];  // 审核状态
     
-    _MmountLabel.text = [NSString stringWithFormat:@"NT%@",model.takeamount]; // 金额
-    _BanksLabel.text = [NSString stringWithFormat:@"%@",model.bankname];  // 银行
-    _NameLabel.text = [NSString stringWithFormat:@"%@",model.bankcardname]; // 名字
-    _BankAccountLabel.text = [NSString stringWithFormat:@"%@",model.bankcardno]; // 账户
-    _PhoneLabel.text = [NSString stringWithFormat:@"%@",model.phone];  // 电话
-    _EmailLabel.text = [NSString stringWithFormat:@"%@",model.email];  // 邮箱
-    _ApplyTimeLabel.text = [NSString stringWithFormat:@"%@",model.createtime];  // 申请时间
-    _AuditTimeLabel.text = [NSString stringWithFormat:@"%@",model.updatetime];  // 审核时间
-    _ReviewStatusLabel.text = [NSString stringWithFormat:@"%@",model.state];  // 审核状态
-    
+    int a = [model.state intValue];
+    NSLog(@"STate = %d",a);
+    switch (a) {
+        case 2:
+            _ReviewStatusLabel.text = @"提交申请";
+            break;
+        case 3:
+            _ReviewStatusLabel.text = @"提现完成";
+            _CancelBut.height = YES;
+            break;
+        case 7:
+            _ReviewStatusLabel.text = @"退件";
+            break;
+        case 6:
+            _ReviewStatusLabel.text = @"取消提现";
+            _CancelBut.height = YES;
+            break;
+            
+        default:
+            break;
+    }
     
 }
 

@@ -8,7 +8,7 @@
 
 #import "SettingViewController.h"
 #import "AddressViewController.h"
-
+#import "AboutDDAYGOController.h"
 #import "MyViewController.h"
 #import "BindingICUEViewController.h"
 #import "DialogBox.h"
@@ -279,6 +279,12 @@
     [self.navigationController pushViewController:Language animated:YES];
 //    [self presentViewController:Language animated:YES completion:nil];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
+}
+// 关于DDAYGO
+- (IBAction)AboutBut:(id)sender {
+    AboutDDAYGOController * AboutDDAYGO = [[AboutDDAYGOController alloc]init];
+    [self.navigationController pushViewController:AboutDDAYGO animated:YES];
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
 }
 
 //  登出
