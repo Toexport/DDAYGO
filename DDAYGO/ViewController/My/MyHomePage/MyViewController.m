@@ -211,8 +211,8 @@
         _SdglLayoutConstraint.constant = CGFLOAT_MIN;
         _sdglView.hidden = YES;
         //        _viewLayoutConstraint.constant = 50.0;
-        _SdglLayoutConstraint.constant = CGFLOAT_MIN;
-        _sdglView.hidden = YES;
+        _XfjlLayoutConstraint.constant = CGFLOAT_MIN;
+        _xfjlView.hidden = YES;
 //        }
     }];
 }
@@ -239,10 +239,10 @@
         ZPLog(@"%@",error);
         _SdglLayoutConstraint.constant = CGFLOAT_MIN;
         _sdglView.hidden = YES;
-        //        _viewLayoutConstraint.constant = 50.0;
-        _SdglLayoutConstraint.constant = CGFLOAT_MIN;
-        _sdglView.hidden = YES;
-//        [SVProgressHUD showInfoWithStatus:@"服務器連接失敗"];
+//        _SdglLayoutConstraint.constant = CGFLOAT_MIN;
+//        _sdglView.hidden = YES;
+        _XfjlLayoutConstraint.constant = CGFLOAT_MIN;
+        _xfjlView.hidden = YES;
     }];
 }
 
@@ -336,9 +336,10 @@
     } failure:^(NSError * error) {
         _SdglLayoutConstraint.constant = CGFLOAT_MIN;
         _sdglView.hidden = YES;
-        //        _viewLayoutConstraint.constant = 50.0;
-        _SdglLayoutConstraint.constant = CGFLOAT_MIN;
-        _sdglView.hidden = YES;
+//        _SdglLayoutConstraint.constant = CGFLOAT_MIN;
+//        _sdglView.hidden = YES;
+        _XfjlLayoutConstraint.constant = CGFLOAT_MIN;
+        _xfjlView.hidden = YES;
         ZPLog(@"%@",error);
     }];
 }
@@ -399,7 +400,6 @@
 - (IBAction)scAction:(id)sender {
     CollectionViewController *collectionViewController = [[CollectionViewController alloc] init];
     [self.navigationController pushViewController:collectionViewController animated:YES];
-
     self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
 }
 // 关注店铺（暂时不开启）- (IBAction)gzdpAction:(id)sender {

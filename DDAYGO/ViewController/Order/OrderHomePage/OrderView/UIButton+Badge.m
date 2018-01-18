@@ -27,8 +27,7 @@ NSString const *UIButton_badgeValueKey = @"UIButton_badgeValueKey";
 @dynamic badgePadding, badgeMinSize, badgeOriginX, badgeOriginY;
 @dynamic shouldHideBadgeAtZero, shouldAnimateBadge;
 
-- (void)badgeInit
-{
+- (void)badgeInit {
     // Default design initialization
     self.badgeBGColor   = [UIColor redColor];
     self.badgeTextColor = [UIColor whiteColor];

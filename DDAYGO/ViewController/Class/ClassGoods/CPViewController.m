@@ -82,27 +82,27 @@
         [self allData];
     }];
     
-//   上拉刷新
-    self.collectionView1.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        //        [_ModeldataArray reverseObjectEnumerator];
-        _i+=10;
-        [self allData];
-    }];
-    self.collectionView2.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        //        [_ModeldataArray reverseObjectEnumerator];
-        _i+=10;
-        [self allData];
-    }];
-    self.collectionView3.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        //        [_ModeldataArray reverseObjectEnumerator];
-        _i+=10;
-        [self allData];
-    }];
-    self.collectionView4.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        //        [_ModeldataArray reverseObjectEnumerator];
-        _i+=10;
-        [self allData];
-    }];
+////   上拉刷新
+//    self.collectionView1.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+//        //        [_ModeldataArray reverseObjectEnumerator];
+//        _i+=10;
+//        [self allData];
+//    }];
+//    self.collectionView2.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+//        //        [_ModeldataArray reverseObjectEnumerator];
+//        _i+=10;
+//        [self allData];
+//    }];
+//    self.collectionView3.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+//        //        [_ModeldataArray reverseObjectEnumerator];
+//        _i+=10;
+//        [self allData];
+//    }];
+//    self.collectionView4.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+//        //        [_ModeldataArray reverseObjectEnumerator];
+//        _i+=10;
+//        [self allData];
+//    }];
 }
 
 //- (void)viewWillDisappear:(BOOL)animated {
@@ -226,7 +226,9 @@
 }
 //  数据
 - (void)allData {
-    NSDictionary * dic =@{@"fatherid":_fatherId,@"seq":@"desc",@"word":[NSString stringWithFormat:@"%@",@""],@"countrycode":@"886",@"page":@"1",@"pagesize":@"10"};
+//    NSString * key = [NSString stringWithFormat:@"%@",_keyword];
+//    NSString * KeyStr = [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary * dic =@{@"fatherid":_fatherId,@"seq":@"desc",@"word":[NSString stringWithFormat:@"%@",_keyword],@"countrycode":@"886",@"page":@"1",@"pagesize":@"10"};
     [ZP_ClassViewTool requMerchandise:dic WithIndex:0 success:^(id obj) {
         NSDictionary * dict = obj;
         [SVProgressHUD dismiss];

@@ -51,7 +51,7 @@
 }
 #pragma mark - 私有
 //设置导航栏
-- (void)setUpNavgationBar{
+- (void)setUpNavgationBar {
     
 //        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"input_home_search"] forBarMetrics:UIBarMetricsDefault];
     

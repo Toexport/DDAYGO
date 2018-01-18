@@ -37,11 +37,11 @@
     NSLog(@"STate = %d",a);
     switch (a) {
         case 2:
-            _ReviewStatusLabel.text = @"提交申请";
+            _ReviewStatusLabel.text = @"未審核";
             _CancelBut.hidden = NO;
             break;
         case 3:
-            _ReviewStatusLabel.text = @"提现完成";
+            _ReviewStatusLabel.text = @"提現完成";
             _CancelBut.hidden = YES;
             
             break;
@@ -50,7 +50,7 @@
             _CancelBut.hidden = NO;
             break;
         case 6:
-            _ReviewStatusLabel.text = @"取消提现";
+            _ReviewStatusLabel.text = @"取消提現";
             _CancelBut.hidden = YES;
             break;
             
