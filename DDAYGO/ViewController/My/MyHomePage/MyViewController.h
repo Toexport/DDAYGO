@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, DDPopKind)
 };
 
 @interface MyViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIView * BackgroundView;
 
 @property (strong, nonatomic) IBOutlet UILabel * NameLabel; // 名字
 @property (strong, nonatomic) IBOutlet UILabel * CollectionLabel; // 收藏

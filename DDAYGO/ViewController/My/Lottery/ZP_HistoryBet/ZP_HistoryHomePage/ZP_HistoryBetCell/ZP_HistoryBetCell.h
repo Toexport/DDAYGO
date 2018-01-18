@@ -10,6 +10,11 @@
 #import "ZP_HistoryModel.h"
 @interface ZP_HistoryBetCell : UITableViewCell
 @property (nonatomic, strong) NSNumber * pollid;
+@property (weak, nonatomic) IBOutlet UILabel * DateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *YYY;
+@property (weak, nonatomic) IBOutlet UILabel *MM;
+@property (weak, nonatomic) IBOutlet UILabel *Day;
+@property (weak, nonatomic) IBOutlet UILabel * DateCodeLabel;
 @property (weak, nonatomic) IBOutlet UIButton * button1;
 @property (weak, nonatomic) IBOutlet UIButton * button2;
 @property (weak, nonatomic) IBOutlet UIButton * button3;

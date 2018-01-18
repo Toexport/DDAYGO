@@ -10,7 +10,8 @@
 
 @interface ExchangeDetailsController : UIViewController
 @property (weak, nonatomic) IBOutlet UIScrollView * ExchangeDetailsScrollView; // 滚动视图
-@property (nonatomic, strong)NSNumber * Oid;
+@property (nonatomic, strong) NSNumber * Oid;
+@property (nonatomic, strong) NSNumber * leeLabel;
 /** 第1个View */
 @property (weak, nonatomic) IBOutlet UIView * view1;  // view1
 @property (weak, nonatomic) IBOutlet UILabel * OrderNumberLabel; // 订单号

@@ -117,6 +117,7 @@
 + (void)RequestRefundStatus:(NSDictionary *)RefundStatus success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure;
 
 //73) 修改用户头像
-+ (void)RequestUploadavatarimg:(NSDictionary *)RefundStatus Data:(NSData *)data success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure;
++ (void)RequestUploadavatarimg:(NSDictionary *)RefundStatus Data:(NSMutableArray *)arr success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure ;
 @end
+
 

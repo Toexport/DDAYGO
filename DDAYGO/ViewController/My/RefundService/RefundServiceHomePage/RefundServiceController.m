@@ -95,15 +95,34 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    RefundServiceModel *model = self.dataarray[indexPath.row];
+    RefundServiceModel *model = self.dataarray[indexPath.section];
     //数据
     NSLog(@"%@ -- %ld",model.createtime,_dataarray.count);
     RefundServiceCell * cell = [tableView dequeueReusableCellWithIdentifier:@"RefundServiceCell"];
     cell.shopnameLabel.text = model.shopname ;
-    cell.StateLabel.text = model.statestr;
     cell.ItemLabel.text = model.createtime;
     cell.TitleLabel.text = model.productname;
     [cell.MaimImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI, model.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
+//    cell.StateLabel.text = [model.returntype stringValue];
+    int a = [model.returntype intValue];
+    switch (a) {
+        case 0:
+            cell.StateLabel.text = @"退款";
+            cell.StateImage.image = [UIImage imageNamed:@"icon_retreat_refund"];
+            break;
+            
+        case 1:
+            cell.StateLabel.text = @"退货退款";
+            cell.StateImage.image = [UIImage imageNamed:@"icon_retreat_goods"];
+            break;
+            
+        case 2:
+            cell.StateLabel.text = @"换货";
+            cell.StateImage.image = [UIImage imageNamed:@"icon_retreat_exchange"];
+            break;
+        default:
+            break;
+    }
 //    ZPLog(@"%@%@",ImgAPI,model.defaultimg);
     cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
     return cell;
@@ -114,6 +133,7 @@
     RefundServiceModel * model = _dataarray[indexPath.section];
     ExchangeDetailsController * ExchangeDatails = [[ExchangeDetailsController alloc]init];
     ExchangeDatails.Oid = model.refundid;
+    ExchangeDatails.leeLabel = model.returntype ;
     [self.navigationController pushViewController:ExchangeDatails animated:YES];
     ZPLog(@"%ld",indexPath.row);
    

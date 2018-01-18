@@ -23,3 +23,4 @@
 @property (nonatomic, strong) UILabel * RemindLabel;
 
 @end
+

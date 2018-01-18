@@ -46,6 +46,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
 }
 
 // 生命周期
@@ -225,7 +226,6 @@
 
 // 获取浏览记录、收藏的数量
 - (void)AllDatas {
-    
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     [ZP_MyTool requesBrowseCollection:dic uccess:^(id obj) {

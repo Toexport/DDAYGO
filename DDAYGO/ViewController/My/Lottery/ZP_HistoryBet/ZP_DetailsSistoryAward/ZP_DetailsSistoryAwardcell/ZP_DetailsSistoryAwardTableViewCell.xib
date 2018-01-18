@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,7 +25,7 @@
                             <constraint firstAttribute="height" constant="25" id="N81-8X-b02"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <state key="normal" title="5" backgroundImage="bg_white_ball_receive">
+                        <state key="normal" title="5" backgroundImage="bg_white_ball">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                     </button>
@@ -36,7 +36,7 @@
                             <constraint firstAttribute="height" constant="25" id="lCR-vY-aIe"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <state key="normal" title="5" backgroundImage="bg_white_ball_receive">
+                        <state key="normal" title="5" backgroundImage="bg_white_ball">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                     </button>
@@ -47,7 +47,7 @@
                             <constraint firstAttribute="width" constant="25" id="hn2-lc-kul"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <state key="normal" title="5" backgroundImage="bg_white_ball_receive">
+                        <state key="normal" title="5" backgroundImage="bg_white_ball">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                     </button>
@@ -58,7 +58,7 @@
                             <constraint firstAttribute="width" constant="25" id="fEe-0f-qv4"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <state key="normal" title="5" backgroundImage="bg_white_ball_receive">
+                        <state key="normal" title="5" backgroundImage="bg_white_ball">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                     </button>
@@ -69,8 +69,8 @@
                             <constraint firstAttribute="width" constant="25" id="Vh7-SW-lsx"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <state key="normal" title="5" backgroundImage="bg_red_ball_receive">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="5" backgroundImage="bg_red_ball">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGD-gB-Yy2">
@@ -80,7 +80,7 @@
                             <constraint firstAttribute="height" constant="25" id="vzY-oJ-3bE"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <state key="normal" title="5" backgroundImage="bg_white_ball_receive">
+                        <state key="normal" title="5" backgroundImage="bg_white_ball">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                     </button>
@@ -112,7 +112,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="bg_red_ball_receive" width="39" height="39"/>
-        <image name="bg_white_ball_receive" width="39" height="39"/>
+        <image name="bg_red_ball" width="32" height="32"/>
+        <image name="bg_white_ball" width="32" height="32"/>
     </resources>
 </document>

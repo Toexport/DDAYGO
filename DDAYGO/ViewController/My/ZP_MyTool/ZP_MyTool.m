@@ -55,7 +55,7 @@
     } failure:^(NSError *error) {
         failure(error);
         //        ZPLog(@"%@",error);
-//        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
+        //        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
     }];
 }
 //  设定默认地址
@@ -164,21 +164,21 @@
 
 // 添加提现申请  addsuppliertakeout
 + (void)requesAddSupplierTakeOut:(NSDictionary *)QrCoed success:(void (^)(id))success failure:(void (^)(NSError *))failure {
-        NSString * str = [NSString stringWithFormat:@"%@addsuppliertakeout?token=%@&sid=%@&amount=%@&bankname=%@&bankcardno=%@&bankcardname=%@&phone=%@&email=%@",URLAPI,QrCoed[@"token"],QrCoed[@"sid"],QrCoed[@"amount"],QrCoed[@"bankname"],QrCoed[@"bankcardno"],QrCoed[@"bankcardname"],QrCoed[@"phone"],QrCoed[@"email"]];
-        NSString * urlString = [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        [ZP_NetorkingTools POST:urlString parameters:nil success:^(NSDictionary *responseObject) {
-            success(responseObject);
-        } failure:^(NSError *error) {
-            failure(error);
-        }];
-//    http://www.ddaygo.com/api/Test/addsuppliertakeout?token=aa9ee6106a69859b12ea438b12c0b6ca&sid=(null)&amount=1&bankname=Sgvd%2520&bankcardno=23322%20&bankcardname=111&phone=112&email=1479@qq.com
+    NSString * str = [NSString stringWithFormat:@"%@addsuppliertakeout?token=%@&sid=%@&amount=%@&bankname=%@&bankcardno=%@&bankcardname=%@&phone=%@&email=%@",URLAPI,QrCoed[@"token"],QrCoed[@"sid"],QrCoed[@"amount"],QrCoed[@"bankname"],QrCoed[@"bankcardno"],QrCoed[@"bankcardname"],QrCoed[@"phone"],QrCoed[@"email"]];
+    NSString * urlString = [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [ZP_NetorkingTools POST:urlString parameters:nil success:^(NSDictionary *responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+    //    http://www.ddaygo.com/api/Test/addsuppliertakeout?token=aa9ee6106a69859b12ea438b12c0b6ca&sid=(null)&amount=1&bankname=Sgvd%2520&bankcardno=23322%20&bankcardname=111&phone=112&email=1479@qq.com
     
     
-//    [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@addsuppliertakeout?token=%@&sid=%@&amount=%@&bankname=%@&bankcardno=%@&bankcardname=%@&phone=%@&email=%@",URLAPI,QrCoed[@"token"],QrCoed[@"sid"],QrCoed[@"amount"],QrCoed[@"bankname"],QrCoed[@"bankcardno"],QrCoed[@"bankcardname"],QrCoed[@"phone"],QrCoed[@"email"]] parameters:nil success:^(NSDictionary *responseObject) {
-//        success(responseObject);
-//    } failure:^(NSError *error) {
-//        failure(error);
-//    }];
+    //    [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@addsuppliertakeout?token=%@&sid=%@&amount=%@&bankname=%@&bankcardno=%@&bankcardname=%@&phone=%@&email=%@",URLAPI,QrCoed[@"token"],QrCoed[@"sid"],QrCoed[@"amount"],QrCoed[@"bankname"],QrCoed[@"bankcardno"],QrCoed[@"bankcardname"],QrCoed[@"phone"],QrCoed[@"email"]] parameters:nil success:^(NSDictionary *responseObject) {
+    //        success(responseObject);
+    //    } failure:^(NSError *error) {
+    //        failure(error);
+    //    }];
     
 }
 
@@ -246,7 +246,7 @@
 
 // 获取历史开奖
 + (void)requestHistoryPrize:(NSDictionary *)HistoryPrize uccess:(void (^)(id))success failure:(void (^)(NSError *))failure {
-//    http://www.ddaygo.com/api/Test/getlotterywinhistory?token=d4668f7f74078e1aa211b97e06d2b4a7&page=1&pagesize=10
+    //    http://www.ddaygo.com/api/Test/getlotterywinhistory?token=d4668f7f74078e1aa211b97e06d2b4a7&page=1&pagesize=10
     [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getlotterywinhistory?token=%@&page=%@&pagesize=%@",URLAPI,HistoryPrize[@"token"],HistoryPrize[@"page"],HistoryPrize[@"pagesize"]] parameters:nil success:^(id responseObject) {
         success(responseObject);
     } failure:^(NSError * error) {
@@ -325,11 +325,11 @@
     } failure:^(NSError * error) {
         failure(error);
     }];
-//    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getsupplierstate?token=%@",URLAPI,Supplier[@"token"]] parameters:nil success:^(id responseObject) {
-//        success(responseObject);
-//    } failure:^(NSError * error) {
-//        failure(error);
-//    }];
+    //    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getsupplierstate?token=%@",URLAPI,Supplier[@"token"]] parameters:nil success:^(id responseObject) {
+    //        success(responseObject);
+    //    } failure:^(NSError * error) {
+    //        failure(error);
+    //    }];
 }
 
 // 获取组织形状
@@ -345,7 +345,7 @@
 
 // 添加供货商申请
 + (void)requestSupplierRequest:(NSDictionary *)SupplierRequest success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
-//     这个接口对起来真特么累
+    //     这个接口对起来真特么累
     NSString * str = [NSString stringWithFormat:@"%@addsupplierapply?token=%@&companyname=%@&companycode=%@&poeplecount=%@&capital=%@&companydate=%@&companytype=%@&address=%@&phone=%@&fax=%@&companyuri=%@&contact=%@&contactphone=%@&contactemail=%@&companyproduct=%@&projectinfo=%@",URLAPI,SupplierRequest[@"token"],SupplierRequest[@"companyname"],SupplierRequest[@"companycode"],SupplierRequest[@"poeplecount"],SupplierRequest[@"capital"],SupplierRequest[@"companydate"],SupplierRequest[@"companytype"],SupplierRequest[@"address"],SupplierRequest[@"phone"],SupplierRequest[@"fax"],SupplierRequest[@"companyuri"],SupplierRequest[@"contact"],SupplierRequest[@"contactphone"],SupplierRequest[@"contactemail"],SupplierRequest[@"companyproduct"],SupplierRequest[@"projectinfo"]];
     NSString * urlString = [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [ZP_NetorkingTools POST:urlString parameters:nil success:^(id responseObject) {
@@ -384,8 +384,8 @@
 }
 
 //73) 修改用户头像
-+ (void)RequestUploadavatarimg:(NSDictionary *)RefundStatus Data:(NSData *)data success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
-    [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@uploadavatarimg?token=%@",URLAPI,RefundStatus[@"token"]] parameters:nil ContentArray:@[data] success:^(id responseObject) {
++ (void)RequestUploadavatarimg:(NSDictionary *)RefundStatus Data:(NSMutableArray *)arr success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
+    [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@uploadavatarimg?token=%@",URLAPI,RefundStatus[@"token"]] parameters:nil ContentArray:arr success:^(id responseObject) {
         success(responseObject);
     } failure:^(NSError *error) {
         failure(error);

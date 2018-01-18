@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSString * introducer; // 绑定介绍人
 @property (nonatomic, strong) NSString * email; // 账号
 @property (nonatomic, strong) NSString * emailverify; // 邮箱
+@property (nonatomic, strong) NSNumber * Oid;
 
 + (instancetype)gEtHomePage:(NSDictionary *)Dic;
 

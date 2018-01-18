@@ -15,7 +15,10 @@
 @property (nonatomic, strong) NSString * shopname; // 商店名字
 @property (nonatomic, strong) NSString * productname; // 商品名字
 @property (nonatomic, strong) NSString * statestr; // 审核状态
+@property (nonatomic, strong) NSNumber * returntype;  // 申请类型
 @property (nonatomic, strong) NSNumber * ordersnumber; // 订单编号
 @property (nonatomic, strong)NSNumber * refundid; //退换货记录ID
+
+
 
 @end

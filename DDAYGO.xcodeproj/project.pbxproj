@@ -180,8 +180,6 @@
 		C409F8901FA1E280009DE7B1 /* ZP_ZeroModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C409F88F1FA1E280009DE7B1 /* ZP_ZeroModel.m */; };
 		C4137E811FB9A2A20072B1CA /* ZP_FrontPageReceivingAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4137E801FB9A2A20072B1CA /* ZP_FrontPageReceivingAddressModel.m */; };
 		C41CBE2F1FF7EEB000F9B227 /* ZP_LotteryHistoricalBettingNumberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C41CBE2E1FF7EEB000F9B227 /* ZP_LotteryHistoricalBettingNumberModel.m */; };
-		C41CBE321FF89A7900F9B227 /* ZP_LotterySubCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C41CBE311FF89A7900F9B227 /* ZP_LotterySubCell.m */; };
-		C41CBE351FF89CDC00F9B227 /* ButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C41CBE341FF89CDC00F9B227 /* ButtonsView.m */; };
 		C41FF4DA1FFF53F7009B720D /* ZP_InstructionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41FF4DC1FFF53F7009B720D /* ZP_InstructionController.xib */; };
 		C420EDE51FF3D397005ECE30 /* UIViewController+LLProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = C420EDE31FF3D396005ECE30 /* UIViewController+LLProgress.m */; };
 		C420EDE81FF3D7E9005ECE30 /* CALayer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C420EDE71FF3D7E9005ECE30 /* CALayer+UIColor.m */; };
@@ -401,6 +399,7 @@
 		C49B32221FD5A995007632F2 /* ZP_ExtractController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C49B32201FD5A995007632F2 /* ZP_ExtractController.xib */; };
 		C49B32271FD5AC9E007632F2 /* ZP_ExtractCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C49B32251FD5AC9E007632F2 /* ZP_ExtractCell.m */; };
 		C49B32281FD5AC9E007632F2 /* ZP_ExtractCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C49B32261FD5AC9E007632F2 /* ZP_ExtractCell.xib */; };
+		C49D25802010DD3900074CA7 /* DDAYGO IHTTP协议1.0.docx in Resources */ = {isa = PBXBuildFile; fileRef = C49D257F2010DD3800074CA7 /* DDAYGO IHTTP协议1.0.docx */; };
 		C4AD0752200C7A5D00B8FF6E /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0730200C7A5D00B8FF6E /* .gitkeep */; };
 		C4AD0753200C7A5D00B8FF6E /* LPDImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0731200C7A5D00B8FF6E /* LPDImagePickerController.bundle */; };
 		C4AD0754200C7A5D00B8FF6E /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0733200C7A5D00B8FF6E /* .gitkeep */; };
@@ -423,7 +422,6 @@
 		C4AD076C200CA8E700B8FF6E /* ExchangeDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AD076A200CA8E700B8FF6E /* ExchangeDetailsController.m */; };
 		C4AD076D200CA8E700B8FF6E /* ExchangeDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AD076B200CA8E700B8FF6E /* ExchangeDetailsController.xib */; };
 		C4AD0771200CA9A600B8FF6E /* ExchangeDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AD0770200CA9A600B8FF6E /* ExchangeDetailsModel.m */; };
-		C4AD0773200CCD5D00B8FF6E /* DDAYGO IHTTP协议1.0.docx in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0772200CCD5D00B8FF6E /* DDAYGO IHTTP协议1.0.docx */; };
 		C4B04D9A200889C8009F7AF9 /* RequestRefundController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B04D96200889C8009F7AF9 /* RequestRefundController.m */; };
 		C4B04D9B200889C8009F7AF9 /* RequestRefundController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B04D97200889C8009F7AF9 /* RequestRefundController.xib */; };
 		C4B04D9F2008A16D009F7AF9 /* SelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B04D9E2008A16D009F7AF9 /* SelectView.m */; };
@@ -778,10 +776,6 @@
 		C4137E801FB9A2A20072B1CA /* ZP_FrontPageReceivingAddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_FrontPageReceivingAddressModel.m; sourceTree = "<group>"; };
 		C41CBE2D1FF7EEB000F9B227 /* ZP_LotteryHistoricalBettingNumberModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_LotteryHistoricalBettingNumberModel.h; sourceTree = "<group>"; };
 		C41CBE2E1FF7EEB000F9B227 /* ZP_LotteryHistoricalBettingNumberModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_LotteryHistoricalBettingNumberModel.m; sourceTree = "<group>"; };
-		C41CBE301FF89A7900F9B227 /* ZP_LotterySubCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_LotterySubCell.h; sourceTree = "<group>"; };
-		C41CBE311FF89A7900F9B227 /* ZP_LotterySubCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_LotterySubCell.m; sourceTree = "<group>"; };
-		C41CBE331FF89CDC00F9B227 /* ButtonsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonsView.h; sourceTree = "<group>"; };
-		C41CBE341FF89CDC00F9B227 /* ButtonsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonsView.m; sourceTree = "<group>"; };
 		C41FF4DB1FFF53F7009B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ZP_InstructionController.xib; sourceTree = "<group>"; };
 		C41FF4DE1FFF53FC009B720D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ZP_InstructionController.strings; sourceTree = "<group>"; };
 		C41FF4E01FFF5401009B720D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ZP_InstructionController.strings"; sourceTree = "<group>"; };
@@ -1192,6 +1186,7 @@
 		C49B32241FD5AC9E007632F2 /* ZP_ExtractCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_ExtractCell.h; sourceTree = "<group>"; };
 		C49B32251FD5AC9E007632F2 /* ZP_ExtractCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_ExtractCell.m; sourceTree = "<group>"; };
 		C49B32261FD5AC9E007632F2 /* ZP_ExtractCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZP_ExtractCell.xib; sourceTree = "<group>"; };
+		C49D257F2010DD3800074CA7 /* DDAYGO IHTTP协议1.0.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0.docx"; sourceTree = "<group>"; };
 		C4AD0730200C7A5D00B8FF6E /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		C4AD0731200C7A5D00B8FF6E /* LPDImagePickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LPDImagePickerController.bundle; sourceTree = "<group>"; };
 		C4AD0733200C7A5D00B8FF6E /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -1232,7 +1227,6 @@
 		C4AD076B200CA8E700B8FF6E /* ExchangeDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExchangeDetailsController.xib; sourceTree = "<group>"; };
 		C4AD076F200CA9A600B8FF6E /* ExchangeDetailsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExchangeDetailsModel.h; sourceTree = "<group>"; };
 		C4AD0770200CA9A600B8FF6E /* ExchangeDetailsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExchangeDetailsModel.m; sourceTree = "<group>"; };
-		C4AD0772200CCD5D00B8FF6E /* DDAYGO IHTTP协议1.0.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0.docx"; sourceTree = "<group>"; };
 		C4B04D95200889C8009F7AF9 /* RequestRefundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestRefundController.h; sourceTree = "<group>"; };
 		C4B04D96200889C8009F7AF9 /* RequestRefundController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestRefundController.m; sourceTree = "<group>"; };
 		C4B04D97200889C8009F7AF9 /* RequestRefundController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestRefundController.xib; sourceTree = "<group>"; };
@@ -1332,8 +1326,8 @@
 		063FE0441F614D24009910FF /* DDAYGO */ = {
 			isa = PBXGroup;
 			children = (
+				C49D257F2010DD3800074CA7 /* DDAYGO IHTTP协议1.0.docx */,
 				C4411D91200F626100CE906F /* 加载_ios */,
-				C4AD0772200CCD5D00B8FF6E /* DDAYGO IHTTP协议1.0.docx */,
 				0641BB971F67B60B00E72FEF /* Testbag */,
 				063FE0AE1F615CEB009910FF /* ViewController */,
 			);
@@ -4051,10 +4045,6 @@
 				C4D9E70A1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.h */,
 				C4D9E70B1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.m */,
 				C4D9E70C1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib */,
-				C41CBE301FF89A7900F9B227 /* ZP_LotterySubCell.h */,
-				C41CBE311FF89A7900F9B227 /* ZP_LotterySubCell.m */,
-				C41CBE331FF89CDC00F9B227 /* ButtonsView.h */,
-				C41CBE341FF89CDC00F9B227 /* ButtonsView.m */,
 			);
 			path = ZP_LotteryHistoricalBettingNumberCell;
 			sourceTree = "<group>";
@@ -4246,6 +4236,7 @@
 				06F572311F9F1E8700D61FDB /* OrderSearchView.xib in Resources */,
 				C47212A31FB186C90055578E /* MyViewController.xib in Resources */,
 				C4B04D9B200889C8009F7AF9 /* RequestRefundController.xib in Resources */,
+				C49D25802010DD3900074CA7 /* DDAYGO IHTTP协议1.0.docx in Resources */,
 				06F5722F1F9F1E8700D61FDB /* ReturnDetailViewController.xib in Resources */,
 				06F5722D1F9F1E8700D61FDB /* OrderManagerViewController.xib in Resources */,
 				06F571D21F9F1A7900D61FDB /* BindingICUEViewController.xib in Resources */,
@@ -4256,7 +4247,6 @@
 				C47096951FB04998006EA52C /* PromptBox.xib in Resources */,
 				C44D6D121FD8CF070002DAF2 /* PayViewController.xib in Resources */,
 				06F571D81F9F1A7900D61FDB /* EditViewController.xib in Resources */,
-				C4AD0773200CCD5D00B8FF6E /* DDAYGO IHTTP协议1.0.docx in Resources */,
 				06F572411F9F204F00D61FDB /* BillDetailViewController.xib in Resources */,
 				C4B04DB020092652009F7AF9 /* RequestReplaceController.xib in Resources */,
 				C47096931FB04998006EA52C /* BindingEmailController.xib in Resources */,
@@ -4394,7 +4384,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C41CBE321FF89A7900F9B227 /* ZP_LotterySubCell.m in Sources */,
 				E37503CF1FC7BD8F00DA2950 /* ZP_ConfirmWebController.m in Sources */,
 				C42A17311FF252F400680F92 /* BetViewController.m in Sources */,
 				C49B32211FD5A995007632F2 /* ZP_ExtractController.m in Sources */,
@@ -4515,7 +4504,6 @@
 				C479C6A11FE3CB5800A58A2A /* MJExtensionConst.m in Sources */,
 				C4AD075A200C7A5D00B8FF6E /* LPDPhotoArrangeCVlLayout.m in Sources */,
 				C47E763F1FB5A1C7009F279A /* ZPLoopViewCell.m in Sources */,
-				C41CBE351FF89CDC00F9B227 /* ButtonsView.m in Sources */,
 				06F571131F9F0D6800D61FDB /* AppraiseController.m in Sources */,
 				C45F23491FA0809000F5DB41 /* FourthViewCell.m in Sources */,
 				0641BBD31F67F9E400E72FEF /* NSData+ImageContentType.m in Sources */,

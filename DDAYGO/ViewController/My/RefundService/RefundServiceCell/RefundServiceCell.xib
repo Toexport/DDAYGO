@@ -33,7 +33,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阿芙专卖店" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56O-nU-hXu">
-                        <rect key="frame" x="33" y="11" width="66.5" height="15"/>
+                        <rect key="frame" x="33" y="12" width="66.5" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="iBr-ru-O87"/>
                         </constraints>
@@ -170,7 +170,7 @@
                     <constraint firstItem="GEm-Xy-1xn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="ZyI-0l-aiv"/>
                     <constraint firstItem="TC5-Tr-wyh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="37" id="b1a-P4-MoG"/>
                     <constraint firstItem="56O-nU-hXu" firstAttribute="leading" secondItem="GEm-Xy-1xn" secondAttribute="trailing" constant="5" id="cgO-bI-VH6"/>
-                    <constraint firstItem="56O-nU-hXu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="kfv-cQ-77g"/>
+                    <constraint firstItem="56O-nU-hXu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="kfv-cQ-77g"/>
                     <constraint firstItem="6GF-dF-ifI" firstAttribute="top" secondItem="TC5-Tr-wyh" secondAttribute="bottom" constant="8" id="n3p-4w-YDU"/>
                     <constraint firstItem="14b-ff-tae" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="th2-GV-Fxu"/>
                 </constraints>
@@ -178,6 +178,7 @@
             <connections>
                 <outlet property="ItemLabel" destination="98C-zS-aI9" id="485-mP-c3U"/>
                 <outlet property="MaimImageView" destination="LMa-zG-wsx" id="gV9-Sf-anO"/>
+                <outlet property="StateImage" destination="6GF-dF-ifI" id="VtW-9p-7OR"/>
                 <outlet property="StateLabel" destination="DOd-aw-X2K" id="GFH-PJ-zOK"/>
                 <outlet property="TitleLabel" destination="Zjg-gg-3PT" id="9AK-nP-8Fr"/>
                 <outlet property="WaitStateLabel" destination="t4T-oy-aHA" id="A5a-74-4K7"/>

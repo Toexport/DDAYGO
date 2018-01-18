@@ -22,7 +22,7 @@
 }
 
 - (void)initUI {
-    self.title = NSLocalizedString(@"餘額", nil);
+    self.title = NSLocalizedString(@"提現", nil);
     UIBarButtonItem * ExtractBut = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"icon_withdrawals_record"] style:UIBarButtonItemStyleDone target:self action:@selector(Extract)];
     ExtractBut.tintColor = ZP_WhiteColor;
     self.amountText.keyboardType = UIKeyboardTypeNumberPad;

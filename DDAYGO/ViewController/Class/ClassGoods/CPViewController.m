@@ -45,6 +45,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
+    [self allData];
+    [self addRefresh];
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
 }
@@ -55,8 +57,8 @@
     [super viewWillAppear:animated];
     self.title = _titleString;
 //    self.title = _tagid;
-    [self allData];
-    [self addRefresh];
+//    [self allData];
+    
 }
 // 刷新
 - (void)addRefresh {
@@ -228,7 +230,25 @@
 - (void)allData {
 //    NSString * key = [NSString stringWithFormat:@"%@",_keyword];
 //    NSString * KeyStr = [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary * dic =@{@"fatherid":_fatherId,@"seq":@"desc",@"word":[NSString stringWithFormat:@"%@",_keyword],@"countrycode":@"886",@"page":@"1",@"pagesize":@"10"};
+//    countrycode = 886;
+//    fatherid = 28;
+//    page = 1;
+//    pagesize = 10;
+//    seq = desc;
+//    word = "";
+//    countrycode = 886;
+//    fatherid = 1;
+//    page = 1;
+//    pagesize = 10;
+//    seq = desc;
+//    word = A;
+    NSString *str;
+    if (_keyword.length > 0) {
+        str = _keyword;
+    }else{
+        str = @"";
+    }
+    NSDictionary * dic =@{@"fatherid":_fatherId,@"seq":@"desc",@"word":str,@"countrycode":@"886",@"page":@"1",@"pagesize":@"10"};
     [ZP_ClassViewTool requMerchandise:dic WithIndex:0 success:^(id obj) {
         NSDictionary * dict = obj;
         [SVProgressHUD dismiss];

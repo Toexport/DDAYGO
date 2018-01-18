@@ -42,7 +42,7 @@
         make.top.equalTo(self).offset(5); // 上
         make.left.equalTo(self).offset(30);  // 左
         make.width.mas_equalTo(90);
-        make.height.mas_equalTo(120-20);
+        make.height.mas_equalTo(90);
     }];
     _Mainfigure = Mainfigure;
     

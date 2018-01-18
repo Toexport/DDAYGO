@@ -17,6 +17,12 @@
 }
 - (void)HistoryBet:(ZP_HistoryModel *)model {
 //    ZP_HistoryModel * model = [ZP_HistoryModel mj_objectWithKeyValues:model.pollid];
+//    _DateLabel.text = [NSString stringWithFormat:@"%@",model.]
+    _YYY.text = [model.yyyy stringValue];
+    _MM.text = [model.mm stringValue];
+    _Day.text = [model.periods stringValue];
+//    _DateCodeLabel.text = model.recordtime
+    _DateCodeLabel.text = model.createtime;
     [_button1 setTitle:[NSString stringWithFormat:@"%02d",model.white1.intValue] forState:UIControlStateNormal];
     [_button2 setTitle:[NSString stringWithFormat:@"%02d",model.white2.intValue] forState:UIControlStateNormal];
     [_button3 setTitle:[NSString stringWithFormat:@"%02d",model.white3.intValue] forState:UIControlStateNormal];

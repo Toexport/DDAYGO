@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyViewController">
             <connections>
+                <outlet property="BackgroundView" destination="f7h-bn-57G" id="gDi-uy-oBw"/>
                 <outlet property="BrowseLabel" destination="wKB-1F-Lrk" id="jcJ-I7-Gmh"/>
                 <outlet property="CaipiaoView" destination="mDy-f9-02s" id="CCc-8L-W9C"/>
                 <outlet property="CollectionLabel" destination="9Ji-Nx-7ud" id="mIJ-mD-Jt0"/>

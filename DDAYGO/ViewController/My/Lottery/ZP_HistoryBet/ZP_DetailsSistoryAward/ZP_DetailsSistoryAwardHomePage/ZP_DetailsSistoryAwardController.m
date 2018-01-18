@@ -41,6 +41,7 @@
         ZP_LotterModel * model = [ZP_LotterModel mj_objectWithKeyValues:obj];
         self.model = model;
         self.prizeDic = obj;
+        _AmountLabel.text = [model.lbalance stringValue];
         [self updateData:model];
     } failure:^(NSError *error) {
         
@@ -101,12 +102,12 @@
         _button6.hidden = NO;
         
 //        _OrderNumberLabel.text = [model6.lotteryoid stringValue];
-        [_button1 setTitle:[model2.white1 stringValue] forState:UIControlStateNormal];
-        [_button2 setTitle:[model2.white2 stringValue] forState:UIControlStateNormal];
-        [_button3 setTitle:[model2.white3 stringValue] forState:UIControlStateNormal];
-        [_button4 setTitle:[model2.white4 stringValue] forState:UIControlStateNormal];
-        [_button5 setTitle:[model2.white5 stringValue] forState:UIControlStateNormal];
-        [_button6 setTitle:[model2.powerball stringValue] forState:UIControlStateNormal];
+        [_button1 setTitle:[NSString stringWithFormat:@"%02d",model2.white1.intValue] forState:UIControlStateNormal];
+        [_button2 setTitle:[NSString stringWithFormat:@"%02d",model2.white2.intValue] forState:UIControlStateNormal];
+        [_button3 setTitle:[NSString stringWithFormat:@"%02d",model2.white3.intValue] forState:UIControlStateNormal];
+        [_button4 setTitle:[NSString stringWithFormat:@"%02d",model2.white4.intValue] forState:UIControlStateNormal];
+        [_button5 setTitle:[NSString stringWithFormat:@"%02d",model2.white5.intValue] forState:UIControlStateNormal];
+        [_button6 setTitle:[NSString stringWithFormat:@"%02d",model2.powerball.intValue] forState:UIControlStateNormal];
     } else {
         _button1.hidden = YES;
         _button2.hidden = YES;
@@ -117,16 +118,14 @@
         
         _OrderNumberLabel.text = nil;
     }
-    
-    [self.tableview reloadData];
     [self updateBounctyViewWithBonus:[self.prizeDic[@"lottery"][@"poolamount"] integerValue] Suffix:@""];
+    [self.tableview reloadData];
 }
 
 - (void)updateBounctyViewWithBonus:(NSInteger)bonus Suffix:(NSString *)suffix {
     for (UIView *view in self.bounctyView.subviews) {
         [view removeFromSuperview];
     }
-    
     NSString *bonusString = @(bonus).stringValue;
     NSInteger commaCount = (bonusString.length - 1) / 3;
     CGFloat startPoint = ([UIScreen mainScreen].bounds.size.width - (14 * (bonusString.length + 1) + (bonusString.length + commaCount) * 3 + commaCount * 10)) / 2;

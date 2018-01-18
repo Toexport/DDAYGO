@@ -16,5 +16,6 @@
 /**********view*********/
 @property (weak, nonatomic) IBOutlet UIImageView *MaimImageView;
 @property (weak, nonatomic) IBOutlet UILabel *TitleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *StateImage;
 
 @end

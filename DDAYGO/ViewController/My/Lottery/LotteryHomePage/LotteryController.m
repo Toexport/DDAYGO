@@ -129,12 +129,12 @@
     _YueLabel.text = [model1.mm stringValue];
     _RiLabel.text = [model1.periods stringValue];
     _dateLabel.text = model1.recordtime;
-    [_but1 setTitle:[model1.white1 stringValue] forState:UIControlStateNormal];
-    [_but2 setTitle:[model1.white2 stringValue] forState:UIControlStateNormal];
-    [_but3 setTitle:[model1.white3 stringValue] forState:UIControlStateNormal];
-    [_but4 setTitle:[model1.white4 stringValue] forState:UIControlStateNormal];
-    [_but5 setTitle:[model1.white5 stringValue] forState:UIControlStateNormal];
-    [_but6 setTitle:[model1.powerball stringValue] forState:UIControlStateNormal];
+    [_but1 setTitle:[NSString stringWithFormat:@"%02d",model1.white1.intValue] forState:UIControlStateNormal];
+    [_but2 setTitle:[NSString stringWithFormat:@"%02d",model1.white2.intValue] forState:UIControlStateNormal];
+    [_but3 setTitle:[NSString stringWithFormat:@"%02d",model1.white3.intValue] forState:UIControlStateNormal];
+    [_but4 setTitle:[NSString stringWithFormat:@"%02d",model1.white4.intValue] forState:UIControlStateNormal];
+    [_but5 setTitle:[NSString stringWithFormat:@"%02d",model1.white5.intValue] forState:UIControlStateNormal];
+    [_but6 setTitle:[NSString stringWithFormat:@"%02d",model1.powerball.intValue] forState:UIControlStateNormal];
     
     //下面一个数据 直接用
     lotteryModel *model2 = [lotteryModel mj_objectWithKeyValues:model.lottery];
@@ -183,12 +183,12 @@
         
         _OrderNumberLabel.text = [NSString stringWithFormat:@"%@",model6.lotteryoid];
         _XiazhushuliangLabel.text = [model6.buycount stringValue];
-        [_butt1 setTitle:[model6.white1 stringValue] forState:UIControlStateNormal];
-        [_butt2 setTitle:[model6.white2 stringValue] forState:UIControlStateNormal];
-        [_butt3 setTitle:[model6.white3 stringValue] forState:UIControlStateNormal];
-        [_butt4 setTitle:[model6.white4 stringValue] forState:UIControlStateNormal];
-        [_butt5 setTitle:[model6.white5 stringValue] forState:UIControlStateNormal];
-        [_butt6 setTitle:[model6.powerball stringValue] forState:UIControlStateNormal];
+        [_butt1 setTitle:[NSString stringWithFormat:@"%02d",model6.white1.intValue] forState:UIControlStateNormal];
+        [_butt2 setTitle:[NSString stringWithFormat:@"%02d",model6.white2.intValue] forState:UIControlStateNormal];
+        [_butt3 setTitle:[NSString stringWithFormat:@"%02d",model6.white3.intValue] forState:UIControlStateNormal];
+        [_butt4 setTitle:[NSString stringWithFormat:@"%02d",model6.white4.intValue] forState:UIControlStateNormal];
+        [_butt5 setTitle:[NSString stringWithFormat:@"%02d",model6.white5.intValue] forState:UIControlStateNormal];
+        [_butt6 setTitle:[NSString stringWithFormat:@"%02d",model6.powerball.intValue] forState:UIControlStateNormal];
     } else {
         _butt1.hidden = YES;
         _butt2.hidden = YES;

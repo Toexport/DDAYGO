@@ -203,13 +203,13 @@
 
 /*设置标题头的宽度*/
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 25;
+    return 5;
 }
 
 /*设置cell 的宽度 */
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 35;
+    return 65;
     
 }
 
@@ -220,7 +220,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZP_HistoryBetCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ZP_HistoryBetCell"];
-    [cell HistoryBet:self.newsData[indexPath.row]];
+    [cell HistoryBet:self.newsData[indexPath.section]];
     return cell;
 }
 

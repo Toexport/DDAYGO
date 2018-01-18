@@ -329,14 +329,19 @@
     }
     [self.productDescriptionView show];
 }
+//
+
+
+//这里才是点击的事件,
 - (IBAction)cpnrAction:(id)sender {
+    
     if (_pjArr.count >0) {
         [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
     }else {
         ZPLog(@"----==");
 //       [SVProgressHUD showInfoWithStatus:@"数据加载失败!"];
     }
-    
+     [self updateDetailView:0];
 }
 
 - (IBAction)qupjAction:(id)sender {
@@ -345,7 +350,7 @@
     }else {
 //        [SVProgressHUD showInfoWithStatus:@"数据加载失败!"];
     }
-    
+    [self updateDetailView:1];
 }
 
 - (IBAction)shfwAction:(id)sender {
@@ -354,7 +359,7 @@
     }else {
 //        [SVProgressHUD showInfoWithStatus:@"数据加载失败!"];
     }
-    
+    [self updateDetailView:2];
 }
 
 - (void)updateDetailView:(NSInteger)index {
@@ -435,7 +440,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self updateDetailView:indexPath.section];
+   
     if (indexPath.section == 0) {
         ProductTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ProductTableViewCell"];
         [cell.productImageView sd_setImageWithURL:self.productArray[indexPath.row]];
@@ -480,7 +485,6 @@
     } else {
         label.text = @"售后服务";
     }
-    
     return label;
 }
 

@@ -22,6 +22,9 @@
 #import "MyViewController.h"
 #import "ZP_MyTool.h"
 #import "ZP_HomePageModel.h"
+#import "ZP_NetorkingTools.h"
+
+//ZP_NetorkingTools
 @interface SettingViewController ()
 @property (nonatomic, strong)SelectPhotoManager * photoManager;
 @property (weak, nonatomic) IBOutlet UIImageView * headerImage;
@@ -57,18 +60,18 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-     [self allData];
+    [self allData];
     //     判断是否为ICUE登录
     if (ZPICUEToken.length > 0) {
         _BangDingLayout.constant = CGFLOAT_MIN;
         _IcueNumLayout.constant = CGFLOAT_MIN;
-//        _view4Layout.constant = CGFLOAT_MIN;
+        //        _view4Layout.constant = CGFLOAT_MIN;
         _xgLayout.constant = CGFLOAT_MIN;
         _xgview.hidden = YES;
         _DividingLineView.hidden = YES;
         _view1.hidden = YES;
         _view3.hidden = YES;
-//        _view4.hidden = YES;
+        //        _view4.hidden = YES;
         _view3Layout.constant = 50.0;
     }
     
@@ -82,7 +85,6 @@
     dic[@"nonce"] = @(i);
     [ZP_MyTool requestSetHomePage:dic success:^(id obj) {
         ZPLog(@"%@",obj);
-        
         ZP_HomePageModel * model = [[ZP_HomePageModel alloc]init];
         model.avatarimg = [NSString stringWithFormat:@"%@%@",ImgAPI,obj[@"avatarimg"]];
         model.nickname = obj[@"nickname"];
@@ -114,7 +116,7 @@
             _genderGail.selected = YES;
         }
         
-// 填写数据
+        // 填写数据
         [self fillData:model];
     } failure:^(NSError * error) {
         [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
@@ -131,37 +133,48 @@
 }
 
 - (IBAction)touxiangAction:(id)sender {
-
+    
     if (!_photoManager) {
         _photoManager = [[SelectPhotoManager alloc]init];
     }
     [_photoManager startSelectPhotoWithImageName:NSLocalizedString(@"Choose photos", nil)];
     __weak typeof(self)mySelf = self;
- //  选取照片成功
+    //  选取照片成功
     _photoManager.successHandle=^(SelectPhotoManager *manager,UIImage * image){
-
+        
         mySelf.headerImage.image = image;
- //  保存到本地
-        NSData * data = UIImagePNGRepresentation(image);
-        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
-        [ZP_MyTool RequestUploadavatarimg:@{@"token":DD_TOKEN} Data:data success:^(id obj) {
+        //  保存到本地
+        IWFormData *formData = [[IWFormData alloc]init];
+        NSMutableArray * imageArray = [NSMutableArray array];
+        
+//        formData.data = UIImagePNGRepresentation(image);
+        
+       formData.data  = UIImageJPEGRepresentation(image, 1);
+        
+        formData.name = @"15";
+        formData.mimeType = @"image/jpeg";
+        formData.filename = @"15";
+        [imageArray addObject:formData];
+        [[NSUserDefaults standardUserDefaults] setObject:formData.data forKey:@"headerImage"];
+//        这个封装可以上传多张图片
+        [ZP_MyTool RequestUploadavatarimg:@{@"token":DD_TOKEN} Data:imageArray success:^(id obj) {
             NSLog(@"%@",obj);
         } failure:^(NSError *error) {
             NSLog(@"%@",error.description);
         }];
     };
-
+    
 }
 
 - (void)setHead {
     _headerImage.userInteractionEnabled = YES;
-//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)];
-//        [_headerImage addGestureRecognizer:tap];
+    //        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)];
+    //        [_headerImage addGestureRecognizer:tap];
     //  这里是从本地取的，如果是上线项目一定要从服务器取头像地址加载
     UIImage * img = [UIImage imageWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"]];
     if (img) {
         _headerImage.image = img;
-//        [[MyViewController sharedInstanceTool].headImageBut setImage:img forState:UIControlStateNormal];
+        //        [[MyViewController sharedInstanceTool].headImageBut setImage:img forState:UIControlStateNormal];
     }
 }
 
@@ -174,22 +187,22 @@
 - (IBAction)nichengAction:(id)sender {
     
     [[DialogBox getInstance] showDialogBoxWithOperation:DDAModifyNickname FinishBlock:^(id response) {
-            self.dataDic[@"nickname"] = (NSString *)response;
-            [ZP_MyTool requesModifydata:self.dataDic uccess:^(id obj) {
-                ZPLog(@"%@",obj);
-                if ([obj[@"result"]isEqualToString:@"ok"]) {
-                    [SVProgressHUD showSuccessWithStatus:@"修改成功"];
-                }else
-                    if ([obj[@"result"]isEqualToString:@"sys_error"]) {
-                        [SVProgressHUD showInfoWithStatus:@"修改失敗"];
-                    }
-                NSLog(@"xiugai success");
-                self.nicknameLabel.text = (NSString *)response;
-                [self allData]; //刷新表格里面的数据
-            } failure:^(NSError * error) {
-                ZPLog(@"%@",error);
-//                [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
-            }];
+        self.dataDic[@"nickname"] = (NSString *)response;
+        [ZP_MyTool requesModifydata:self.dataDic uccess:^(id obj) {
+            ZPLog(@"%@",obj);
+            if ([obj[@"result"]isEqualToString:@"ok"]) {
+                [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+            }else
+                if ([obj[@"result"]isEqualToString:@"sys_error"]) {
+                    [SVProgressHUD showInfoWithStatus:@"修改失敗"];
+                }
+            NSLog(@"xiugai success");
+            self.nicknameLabel.text = (NSString *)response;
+            [self allData]; //刷新表格里面的数据
+        } failure:^(NSError * error) {
+            ZPLog(@"%@",error);
+            //                [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
+        }];
     }];
 }
 
@@ -209,16 +222,16 @@
                 if ([json[@"result"]isEqualToString:@"sys_error"]) {
                     [SVProgressHUD showInfoWithStatus:@"修改失敗"];
                 }
-//            NSLog(@"%@",json);
+            //            NSLog(@"%@",json);
         } failure:^(NSError *error) {
             ZPLog(@"%@",error);
-//            [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
+            //            [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
         }];
     }
 }
 
 - (IBAction)genderBooy:(UIButton *)sender {
-//    NSLog(@"%d",sender.selected);
+    //    NSLog(@"%d",sender.selected);
     if (sender.selected) {
         return;
     }else {
@@ -233,7 +246,7 @@
                     [SVProgressHUD showInfoWithStatus:@"修改失敗"];
                 }
         } failure:^(NSError *error) {
-//            ZPLog(@"%@",error);
+            //            ZPLog(@"%@",error);
             [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
         }];
     }
@@ -249,7 +262,7 @@
 
 //  绑定ICUE
 - (IBAction)bdICUEAction:(id)sender {
-//        _BangDingBut.height = NO;
+    //        _BangDingBut.height = NO;
     BindingICUEViewController *viewController = [[BindingICUEViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
@@ -278,14 +291,14 @@
 - (IBAction)languageAction:(id)sender {
     LanguageController * Language = [[LanguageController alloc]init];
     [self.navigationController pushViewController:Language animated:YES];
-//    [self presentViewController:Language animated:YES completion:nil];
+    //    [self presentViewController:Language animated:YES completion:nil];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
 }
 // 关于DDAYGO
 - (IBAction)AboutBut:(id)sender {
     AboutDDAYGOController * AboutDDAYGO = [[AboutDDAYGOController alloc]init];
     [self.navigationController pushViewController:AboutDDAYGO animated:YES];
-        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
 }
 
 //  登出

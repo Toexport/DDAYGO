@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class IWFormData;
+
 @interface ZP_NetorkingTools : NSObject
 // GET
 + (void)GET:(NSString *)URLString parameters:(id)parameters success:(void (^)(id ))success failure:(void (^)(NSError *))failure;
@@ -19,3 +21,18 @@
 + (void)POST:(NSString *)URLString parameters:(id)parameters ContentArray:(NSArray *)dataArray success:(void (^)(id ))success failure:(void (^)(NSError *))failure;
 
 @end
+
+
+
+@interface IWFormData : NSObject
+
+@property (nonatomic, strong) NSData *data;
+
+@property (nonatomic, copy) NSString *name;
+
+@property (nonatomic, copy) NSString *filename;
+
+@property (nonatomic, copy) NSString *mimeType;
+
+@end
+

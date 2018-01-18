@@ -68,6 +68,7 @@
 //     self.titleView = [self.view.superview viewWithTag:66];
     if (DD_HASLOGIN ) {
         [self getDataWithState];
+        
     }
     
     
