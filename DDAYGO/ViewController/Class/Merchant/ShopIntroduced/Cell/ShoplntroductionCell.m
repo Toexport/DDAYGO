@@ -167,15 +167,8 @@
     _BusinessregistrationIDLabel = BusinessregistrationIDLabel;
 }
 
-//- (void)ShoplntroductionDic:(NSDictionary *)dic {
-//    _StorenameLabel.text = dic[@"Storename"];
-//    _AddressLabel.text = dic[@"Address"];
-//    _PhoneLabel.text = dic[@"Phone"];
-//    _ratingLabel.text = dic[@"rating"];
-//    _ServicetimeLabel.text = dic[@"Servicetime"];
-//    _BusinessregistrationIDLabel.text = dic[@"BusinessregistrationID"];
-//}
 - (void)ShoplntroducedCollection:(ShoplntroducedModel *)model {
+    
     _StorenameLabel.text = model.suppliername;
     _AddressLabel.text = model.countrycodes;
     _PhoneLabel.text = [model.phone stringValue];

@@ -9,7 +9,7 @@
 #import "SixthViewCell.h"
 #import "PrefixHeader.pch"
 #import "NestedCollectionViewCell.h"
-#import "ZP_HomeTool.h"
+//#import "ZP_HomeTool.h"
 #import "ZP_HttpConst.h"
 #import "ZP_SixthModel.h"
 @interface SixthViewCell () <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
@@ -32,18 +32,15 @@
 }
 
 - (void)addSubVIEWs {
-
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc ]init];
     layout.minimumLineSpacing = 1;
     layout.minimumInteritemSpacing = 1;
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    
     UICollectionView * bottomCV = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 35, ZP_Width, ZP_Width / 3 * 2) collectionViewLayout:layout];
     bottomCV.backgroundColor = [UIColor whiteColor];
     bottomCV.scrollEnabled = NO;
     bottomCV.delegate = self;
     bottomCV.dataSource = self;
-    
     [self addSubview:bottomCV];
     self.bottomCV = bottomCV;
     [bottomCV registerClass:[NestedCollectionViewCell class] forCellWithReuseIdentifier:@"Nestedcell"];
@@ -102,7 +99,6 @@
 
 #pragma mark <UICollectionViewDataSource>
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
     return self.ArrData.count;
 }
 

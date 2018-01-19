@@ -103,7 +103,6 @@
         make.width.mas_equalTo(1);
         make.height.mas_equalTo(ZP_Width -30);
     }];
-    
 }
 
 - (void)cellWithdic:(ZP_SixthModel *)model {

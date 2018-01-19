@@ -34,7 +34,6 @@
 @implementation ShoppingViewController
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
     _bjBool = NO;
     _selectAllArray = [[NSMutableArray alloc]init];
@@ -185,6 +184,7 @@
     UIView * bottomView = [UIView new];
     bottomView.backgroundColor = ZP_textWite;
     bottomView.frame = CGRectMake(0, ZP_height - TabbarHeight - 50 - NavBarHeight, ZP_Width, 50);
+//    bottomView.cellSeparateStyle = UITableViewCellSeparateStyleNone;
     [self.view addSubview:bottomView];
     
     //   全选按钮

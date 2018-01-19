@@ -52,12 +52,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     SatisfactionSurveyCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SatisfactionSurveyCell"];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     return 120;
 }
 

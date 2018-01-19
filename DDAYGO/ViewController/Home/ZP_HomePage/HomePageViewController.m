@@ -81,6 +81,7 @@
     [self.chooseCityBtn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.chooseCityBtn];
 }
+
 // 刷新
 - (void)addRefresh {
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -99,6 +100,7 @@
     [self presentViewController:login animated:YES completion:nil];
     NSLog(@"搜索框");
 }
+
 //  注册
 - (void)registration {
     [self.tableView registerClass:[ZeroViewCell class] forCellReuseIdentifier:@"ceaa"];

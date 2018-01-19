@@ -41,15 +41,16 @@
         make.left.equalTo(self).offset(2);
         make.right.equalTo(self).offset(-2);
         make.top.equalTo(imageView).offset(75);
+        make.height.mas_offset(15);
     }];
     _titleLabel = TitleLabel;
     
 //    优惠价格
-    ZP_GeneralLabel * PreferentialLabel = [ZP_GeneralLabel initWithtextLabel:_PreferentialLabel.text textColor:ZP_HomePreferentialpriceTypefaceCorlor font:ZP_addBtnTextdetaFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    ZP_GeneralLabel * PreferentialLabel = [ZP_GeneralLabel initWithtextLabel:_PreferentialLabel.text textColor:ZP_HomePreferentialpriceTypefaceCorlor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self addSubview:PreferentialLabel];
     [PreferentialLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(10);
-        make.top.equalTo(TitleLabel).offset(10);
+        make.top.equalTo(TitleLabel).offset(13);
         make.height.mas_offset(15);
     }];
     _PreferentialLabel = PreferentialLabel;

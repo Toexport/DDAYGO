@@ -36,5 +36,5 @@
 //    reviewscount = 0;
 //};
 
-+ (NSMutableArray *)arrayWithArray1:(NSArray *)array;
++ (NSMutableArray *)arrayWithArray:(NSArray *)array;
 @end

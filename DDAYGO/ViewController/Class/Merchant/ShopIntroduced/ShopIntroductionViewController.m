@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSMutableArray * dataArray;
 @property (nonatomic, strong) NSMutableArray * NewsData;
 @property (nonatomic, strong) UITableView * tableview;
+@property (nonatomic, strong) ShoplntroducedModel * model;
 
 @end
 
@@ -27,15 +28,16 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     [self initUI];
 //    _dataArray = @[@{@"Storename":@"金太阳国际",@"Address":@"台湾高雄市",@"Phone":@"+86 15118041624",@"rating":@"100%",@"Servicetime":@"星期一 - 星期六 AM10:00 - FM09:00",@"BusinessregistrationID":@"12706283MFZS1120996"}];
-    
 }
 // UI
 - (void)initUI {
+    
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)style:UITableViewStylePlain];
     self.tableview.backgroundColor = ZP_Graybackground;
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
     [self.view addSubview:self.tableview];
+    self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
     [self.tableview registerClass:[ShoplntroductionCell class] forCellReuseIdentifier:@"Shoplntroduction"];
 }
 
@@ -44,10 +46,7 @@
     NSMutableDictionary * dict = [NSMutableDictionary dictionary];
     dict[@"supplierid"] = self.SupplierID;
     [ZP_ClassViewTool requestShopintroduction:dict success:^(id obj) {
-        NSDictionary * dic = obj[@"introduction"];
         
-//        [self.NewsData addObject:dic];
-        ZPLog(@"%@",obj);
         [self.tableview reloadData];
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
@@ -60,31 +59,24 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return self.NewsData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ShoplntroducedModel * model = [[ShoplntroducedModel alloc]init];
+    ShoplntroducedModel * model = _NewsData[indexPath.row];
     ShoplntroductionCell * cell = [tableView dequeueReusableCellWithIdentifier:@"Shoplntroduction"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone; // 取消Cell变灰效果
-    
     self.tableview.tableFooterView = [[UIView alloc]init];
     [cell ShoplntroducedCollection:model];
-//    NSDictionary * dic = self.dataArray[indexPath.section];
-//    [cell ShoplntroductionDic:dic];
     return cell;
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
     return 160;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ShopIntroductionViewController : UIViewController
+
 @property (nonatomic, strong) NSNumber * SupplierID; // 供货商ID;
+
 @end

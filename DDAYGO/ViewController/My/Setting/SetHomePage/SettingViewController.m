@@ -149,12 +149,11 @@
 //        这个封装可以上传多张图片
         [ZP_MyTool RequestUploadavatarimg:@{@"token":DD_TOKEN} Data:imageArray success:^(id obj) {
             NSLog(@"%@",obj);
-            
-            [self.SettingScrollView removeFromSuperview];
         } failure:^(NSError *error) {
             NSLog(@"%@",error.description);
         }];
     };
+    
 }
 
 // 账号
@@ -182,7 +181,6 @@
         }];
     }];
 }
-
 
 - (IBAction)genderGail:(UIButton *)sender {
     NSLog(@"%d",sender.selected);
@@ -231,7 +229,6 @@
 
 //  收货地址
 - (IBAction)shdzAction:(id)sender {
-    
     AddressViewController *viewController = [[AddressViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
@@ -240,7 +237,6 @@
 
 //  绑定ICUE
 - (IBAction)bdICUEAction:(id)sender {
-    
     //        _BangDingBut.height = NO;
     BindingICUEViewController *viewController = [[BindingICUEViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
@@ -248,14 +244,12 @@
 }
 //  绑定邮箱
 - (IBAction)BindingEmail:(id)sender {
-    
     BindingEmailController * Email = [[BindingEmailController alloc]init];
     [self.navigationController pushViewController:Email animated:YES];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
 }
 // 绑定推荐人
 - (IBAction)bdIntroduce:(id)sender {
-    
     BindingIntroduce * introduce = [[BindingIntroduce alloc]init];
     [self.navigationController pushViewController:introduce animated:YES];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
@@ -263,7 +257,6 @@
 
 //  修改密码
 - (IBAction)xgmmAction:(id)sender {
-    
     ResetPasswordViewController *viewController = [[ResetPasswordViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
@@ -271,7 +264,6 @@
 }
 //  语言
 - (IBAction)languageAction:(id)sender {
-    
     LanguageController * Language = [[LanguageController alloc]init];
     [self.navigationController pushViewController:Language animated:YES];
     //    [self presentViewController:Language animated:YES completion:nil];
@@ -279,7 +271,6 @@
 }
 // 关于DDAYGO
 - (IBAction)AboutBut:(id)sender {
-    
     AboutDDAYGOController * AboutDDAYGO = [[AboutDDAYGOController alloc]init];
     [self.navigationController pushViewController:AboutDDAYGO animated:YES];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
@@ -287,7 +278,6 @@
 
 //  登出
 - (IBAction)logoutAction:(id)sender {
-    
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message: NSLocalizedString(@"Are you sure you want to log out?", nil)preferredStyle:UIAlertControllerStyleActionSheet];
     //  设置popover指向的item
     alert.popoverPresentationController.barButtonItem = self.navigationItem.leftBarButtonItem;
@@ -317,7 +307,6 @@
 }
 
 - (NSMutableDictionary *)dataDic {
-    
     if (!_dataDic) {
         _dataDic = [NSMutableDictionary dictionary];
         _dataDic[@"token"] = Token;

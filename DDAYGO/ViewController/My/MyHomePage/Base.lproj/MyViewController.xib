@@ -140,7 +140,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFs-vK-Df4">
-                                    <rect key="frame" x="143" y="85" width="90" height="90"/>
+                                    <rect key="frame" x="142" y="85" width="90" height="90"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="90" id="IUf-9S-tQq"/>
                                         <constraint firstAttribute="width" constant="90" id="Zsh-E1-01l"/>
@@ -153,7 +153,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTg-9H-to4">
-                                    <rect key="frame" x="146" y="88" width="84" height="84"/>
+                                    <rect key="frame" x="145.5" y="88.5" width="84" height="84"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="84" id="4SN-fp-CcD"/>
                                         <constraint firstAttribute="height" constant="84" id="PyS-xL-Bht"/>
@@ -168,7 +168,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="johb Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfb-7E-S8p">
-                                    <rect key="frame" x="151" y="182" width="74" height="18"/>
+                                    <rect key="frame" x="151" y="182.5" width="74" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
