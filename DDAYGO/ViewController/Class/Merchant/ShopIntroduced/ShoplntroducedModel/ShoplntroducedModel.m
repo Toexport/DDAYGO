@@ -16,11 +16,14 @@
 //    NSMutableDictionary * dic = [[NSMutableDictionary alloc]init];
     for (NSDictionary * dic in array) {
         ShoplntroducedModel * model = [[ShoplntroducedModel alloc]init];
+        model.suppliername = dic[@"suppliername"];
+        model.phone = dic[@"phone"];
+        model.updatetime = dic[@"updatetime"];
         model.countrycodes = dic[@"countrycodes"];
         [arr addObject:model];
     }
   }
-    return array;
+    return arr;
 }
 
 @end

@@ -210,7 +210,6 @@
         if (obj == nil) {
 //            [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
             ZPLog(@"-----");
-            
         }
         ZPLog(@"%@",obj);
     } failure:^(NSError *error) {

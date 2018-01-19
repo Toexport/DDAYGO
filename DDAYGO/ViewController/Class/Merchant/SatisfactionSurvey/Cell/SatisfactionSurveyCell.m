@@ -7,14 +7,18 @@
 //
 
 #import "SatisfactionSurveyCell.h"
-
+#import "PrefixHeader.pch"
 @implementation SatisfactionSurveyCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
 }
 
-
+- (void)SatisfactionSurvey:(SatisfactionSurveyModel *)model {
+    self.NameLabel.text = model.realname;
+    
+    self.PinglunneirongLabel.text = model.createtime;
+}
 
 @end

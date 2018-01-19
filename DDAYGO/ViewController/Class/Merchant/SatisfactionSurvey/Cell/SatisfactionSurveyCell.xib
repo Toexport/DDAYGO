@@ -41,6 +41,15 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-03-24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cm9-Ia-iQc">
+                        <rect key="frame" x="235" y="17" width="68.5" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="GoU-pd-wuy"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2L-sl-ex7">
                         <rect key="frame" x="86" y="41" width="18" height="18"/>
                         <constraints>
@@ -90,15 +99,6 @@
                         <color key="textColor" red="1" green="0.33333333333333331" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-03-24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cm9-Ia-iQc">
-                        <rect key="frame" x="235.5" y="17" width="68.5" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="GoU-pd-wuy"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发货快，售后服务很好！发货快，售后服务很好，客服解答很耐心！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vae-L2-6sW">
                         <rect key="frame" x="16" y="86" width="288" height="39"/>
                         <constraints>
@@ -133,6 +133,18 @@
                     <constraint firstItem="qYI-Yl-94a" firstAttribute="leading" secondItem="mxW-Lc-0dr" secondAttribute="trailing" constant="10" id="zgQ-X5-fec"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="Button1" destination="k2L-sl-ex7" id="9Hl-BQ-bPY"/>
+                <outlet property="Button2" destination="D3C-Sh-b2h" id="Rqp-36-GZJ"/>
+                <outlet property="Button3" destination="mxW-Lc-0dr" id="IIv-J4-ctm"/>
+                <outlet property="Button4" destination="qYI-Yl-94a" id="r11-zE-LDr"/>
+                <outlet property="Button5" destination="2oK-3z-LAA" id="D2S-L4-3oM"/>
+                <outlet property="FenshuLabel" destination="oMj-60-dyN" id="4je-Em-qpc"/>
+                <outlet property="NameLabel" destination="7VN-6y-X8F" id="PKh-Dx-Itp"/>
+                <outlet property="PinglunneirongLabel" destination="vae-L2-6sW" id="g4b-Ei-k9F"/>
+                <outlet property="TimeLabel" destination="Cm9-Ia-iQc" id="RHh-bu-oa2"/>
+                <outlet property="TouxiangImage" destination="e0k-xg-h5s" id="8Vs-sj-2Jy"/>
+            </connections>
             <point key="canvasLocation" x="34" y="100.5"/>
         </tableViewCell>
     </objects>

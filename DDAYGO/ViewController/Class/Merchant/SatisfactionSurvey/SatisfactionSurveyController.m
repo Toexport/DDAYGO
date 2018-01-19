@@ -35,8 +35,8 @@
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"3";
     [ZP_ClassViewTool requestGetshopreviews:dic success:^(id obj) {
-        
         ZPLog(@"%@",obj);
+        
     } failure:^(NSError *error) {
         
         ZPLog(@"%@",error);

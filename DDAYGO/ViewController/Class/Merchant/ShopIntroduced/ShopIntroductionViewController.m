@@ -45,7 +45,8 @@
     dict[@"supplierid"] = self.SupplierID;
     [ZP_ClassViewTool requestShopintroduction:dict success:^(id obj) {
         NSDictionary * dic = obj[@"introduction"];
-        [self.NewsData addObject:dic];
+        
+//        [self.NewsData addObject:dic];
         ZPLog(@"%@",obj);
         [self.tableview reloadData];
     } failure:^(NSError *error) {
@@ -53,19 +54,21 @@
     }];
 }
 
-
 #pragma Makr - TableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return self.NewsData.count;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ShoplntroducedModel * model = self.NewsData[indexPath.row];
+    ShoplntroducedModel * model = [[ShoplntroducedModel alloc]init];
     ShoplntroductionCell * cell = [tableView dequeueReusableCellWithIdentifier:@"Shoplntroduction"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone; // 取消Cell变灰效果
+    
     self.tableview.tableFooterView = [[UIView alloc]init];
     [cell ShoplntroducedCollection:model];
 //    NSDictionary * dic = self.dataArray[indexPath.section];

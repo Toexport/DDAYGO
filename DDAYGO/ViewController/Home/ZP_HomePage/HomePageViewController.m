@@ -138,7 +138,7 @@
 - (void)PositionallData {
     [ZP_HomeTool requesPosition:nil success:^(id obj) {
         _postionArray= [ZP_PositionModel arrayWithArray:obj];
-        ZPLog(@"%@",_postionArray);
+        ZPLog(@"%@",obj);
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
         //        [SVProgressHUD showInfoWithStatus: NSLocalizedString(@"Server link failed", nil)];
