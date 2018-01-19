@@ -74,9 +74,7 @@ static AFHTTPSessionManager *_manager = nil;
 
 //  POST文件上传
 + (void)POST:(NSString *)URLString parameters:(id)parameters ContentArray:(NSArray *)dataArray success:(void (^)(id ))success failure:(void (^)(NSError *))failure {
-    
     if (!_manager) {
-
         _manager = [AFHTTPSessionManager manager];
     }
     NSString * tipCode = [UserDefultManage objectForKey:@"token"];
@@ -87,8 +85,9 @@ static AFHTTPSessionManager *_manager = nil;
     _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/plain", @"text/json", @"text/javascript", @"text/html",@"image/jpeg", nil];
 
     [_manager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        for (IWFormData *data in dataArray) {
-            [formData appendPartWithFileData:data.data name:data.name fileName:data.filename mimeType:data.mimeType];
+        for (NSData * data in dataArray) {
+            [formData appendPartWithFileData:data name:@"images" fileName:@"file.jpeg" mimeType:@"image/jpeg"];
+            
         }
     } progress:^(NSProgress * _Nonnull uploadProgress) {
 

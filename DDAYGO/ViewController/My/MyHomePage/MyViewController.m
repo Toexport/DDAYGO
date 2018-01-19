@@ -203,23 +203,22 @@
        // [self SupplierAllData];
         ZP_HomePageModel * model = [[ZP_HomePageModel alloc]init];
         model.nickname = obj[@"nickname"];
-//        model.avatarimg = [NSString stringWithFormat:@"%@%@",ImgAPI,obj[@"avatarimg"]];
+        model.avatarimg = [NSString stringWithFormat:@"%@%@",ImgAPI,obj[@"avatarimg"]];
         [self.headImageBut sd_setBackgroundImageWithURL:[NSURL URLWithString:model.avatarimg] forState:UIControlStateNormal];
         [self MyViewData:model];
         
     } failure:^(NSError * error) {
-        //        if (state.length == NO) {
         _SdglLayoutConstraint.constant = CGFLOAT_MIN;
         _sdglView.hidden = YES;
-        //        _viewLayoutConstraint.constant = 50.0;
         _XfjlLayoutConstraint.constant = CGFLOAT_MIN;
         _xfjlView.hidden = YES;
-//        }
     }];
 }
-
 - (void)MyViewData:(ZP_HomePageModel *) model {
     _NameLabel.text = model.nickname;
+    _headImageBut.layer.cornerRadius = 42;
+    _headImageBut.layer.masksToBounds = YES;
+
 
     
 }

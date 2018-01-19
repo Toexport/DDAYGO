@@ -16,6 +16,7 @@
 #import "CPViewController.h"
 #import "ZP_FifthModel.h"
 #import "ZP_SixthModel.h"
+#import "ZP_ZeroModel.h"
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource> {
      int _i;
 }
@@ -25,6 +26,9 @@
 @property (nonatomic, strong) NSMutableArray * SixthArrData;
 @property (nonatomic, strong) NSArray * postionArray;
 @property (nonatomic, strong) NSArray * dataArray;
+
+@property (nonatomic, strong) NSArray * bannerArray;
+
 @end
 
 @implementation HomePageViewController
@@ -37,6 +41,7 @@
     [self FifthallData];
     [self SixthAllData];
     [self addRefresh];
+    [self getadvertlist];
 }
 // UI
 - (void)initUI {
@@ -140,7 +145,35 @@
     }];
 }
 
-//  数据
+// 74) 查询广告列表(轮播图)
+- (void)getadvertlist {
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    dic[@"adcode"] = @"AD001";
+    [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
+        
+        ZPLog(@"%@",obj);
+        _bannerArray = [ZP_ZeroModel mj_objectArrayWithKeyValuesArray:obj];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        ZPLog(@"%@",error);
+    }];
+}
+
+// 74) 热销商品广告列表(轮播图)
+- (void)bestSelling {
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    dic[@"adcode"] = @"AD001";
+    [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
+        
+        ZPLog(@"%@",obj);
+        _bannerArray = [ZP_ZeroModel mj_objectArrayWithKeyValuesArray:obj];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        ZPLog(@"%@",error);
+    }];
+}
+
+//  热销商品数据
 - (void)allData {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView.mj_header endRefreshing];
@@ -218,6 +251,7 @@
         static NSString * ZeroID = @"ceaa";
        ZeroViewCell * cell =  [tableView dequeueReusableCellWithIdentifier:ZeroID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.arr = _bannerArray;
         cell.finishBlock = ^(id response) {
             
         };

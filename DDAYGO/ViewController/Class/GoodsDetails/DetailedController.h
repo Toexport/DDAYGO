@@ -16,7 +16,7 @@
 @property (strong, nonatomic) UIPageControl * pageControl;
 @property (weak, nonatomic) IBOutlet UIButton * shoucangBtn;
 @property (weak, nonatomic) IBOutlet UIButton * gouwuBtn;
-//@property (weak, nonatomic) IBOutlet UIButton * dianpuBtn;  // 暂时不需要商铺按钮
+@property (weak, nonatomic) IBOutlet UIButton * dianpuBtn;  // 暂时不需要商铺按钮
 @property (weak, nonatomic) IBOutlet UIScrollView * scrollView;
 @property (weak, nonatomic) IBOutlet UIView * cpnrBottomView;
 @property (weak, nonatomic) IBOutlet UIView * shfwBottomView;

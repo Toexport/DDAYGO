@@ -112,7 +112,7 @@ static NSString * ID = @"collectionViewCell";
 //   懒加载
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 100, ZP_Width, ZP_height-105) collectionViewLayout:[[ZPHomeLayout alloc] init]];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 100, ZP_Width, ZP_height - NavBarHeight - 85) collectionViewLayout:[[ZPHomeLayout alloc] init]];
         _collectionView.backgroundColor = JFRGBColor(238, 238, 238);
         
         //    注册Cell
@@ -203,7 +203,6 @@ static NSString * ID = @"collectionViewCell";
 }
 
 #pragma mark ---UICollectionViewDataSource 数据源方法
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
     return 10;

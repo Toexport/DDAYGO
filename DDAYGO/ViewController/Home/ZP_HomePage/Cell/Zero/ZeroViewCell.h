@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SDCycleScrollView.h"
 #define zeroHeight 320.0/768.0 * ZP_Width
-
+#import "ZP_ZeroModel.h"
 typedef void (^FinishBlock)(id response);
 @interface ZeroViewCell : UITableViewCell
+
+@property (nonatomic ,strong) NSMutableArray * arr;
+@property (nonatomic ,strong) SDCycleScrollView * scrollView;
+
 
 @property (nonatomic ,strong) FinishBlock finishBlock;
 @end

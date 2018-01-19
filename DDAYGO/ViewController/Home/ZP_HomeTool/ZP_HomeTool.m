@@ -19,6 +19,16 @@
     }];
 }
 
+// 74) 查询广告列表
++ (void)requestGetadvertlist:(NSDictionary *)Getadvertlist success:(void(^)(id obj))success failure:(void (^)(NSError *error))failure {
+    
+    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getadvertlist?adcode=%@",URLAPI,Getadvertlist[@"adcode"]] parameters:nil success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError * error) {
+        failure(error);
+    }];
+}
+
 //  获取首页八大分类
 + (void)requesFirst:(NSDictionary *)First success:(void (^)(id))success failure:(void (^)(NSError *))failure {
     [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@gethometypes?countrycode=%@",URLAPI,First[@"countrycode"]] parameters:nil success:^(NSDictionary *responseObject) {

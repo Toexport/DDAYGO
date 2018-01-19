@@ -100,6 +100,7 @@
     UIView * bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, ZP_height - TabbarHeight - NavBarHeight , ZP_Width, 50)];
     bottomView.backgroundColor = ZP_textWite;
     [self.view addSubview:bottomView];
+    
 //      总金额
     ZP_GeneralLabel * PriceLabel = [ZP_GeneralLabel initWithtextLabel:_PriceLabel.text textColor:ZP_pricebackground font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [bottomView addSubview:PriceLabel];
@@ -226,8 +227,6 @@
             }];
 //            }
             };
-            
-        
         [PayView showInView:self.view];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
@@ -336,6 +335,8 @@
         ZP_ExpressDeliveryModel * model = [[ZP_ExpressDeliveryModel alloc] init];
         model.freightamount = dic[@"freightamount"];
         model.chooselogistic = dic[@"chooselogistic"];
+//        model.allamount = dic[@"allamount"];
+//        model.amount = dic[@"amount"];
         [_ConfirmArray addObject:model];
 //        [self upfataStatisticsLabel];
     } failure:^(NSError * error) {
@@ -343,6 +344,7 @@
         [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
+
 // 获取确认订单界面支付数据
 - (void)MainorderPay {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];

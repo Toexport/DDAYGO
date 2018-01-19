@@ -522,23 +522,18 @@
     // [self updateData:sender.tag];
     if ([self YESOrNoPush]) {
         if (sender.selected) {
-            
 #pragma make -- 提示框
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"確定要刪除嗎？",nil) preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"確定要刪除嗎？",nil) preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
-            }];
-            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                [self shangchuBut];
-//                [dataArray removeObjectAtIndex:indexPath.row];
-            }];
-            [alert addAction:defaultAction];
-            [alert addAction:cancelAction];
-            [self presentViewController:alert animated:YES completion:nil];
-            
+        }];
+        UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            [self shangchuBut];
+        }];
+        [alert addAction:defaultAction];
+        [alert addAction:cancelAction];
+        [self presentViewController:alert animated:YES completion:nil];
         }else {
-            
             ConfirmViewController * Confirm = [[ConfirmViewController alloc]init];
             Confirm.model = _model;
             Confirm.dataArray = dataArray;
@@ -546,14 +541,11 @@
             Confirm.PriceStr = _PriceLabel.text;
             Confirm.NumStr = self.ClearingButt.titleLabel.text;
             Confirm.stockidsString = _stockids;
-            
             [self.navigationController pushViewController:Confirm animated:YES];
             self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
             self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
         }
-        
     }else {
-        
         [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"You have not selected goods ", nil)];
         NSLog(@"没选选中，不跳");
     }
@@ -562,22 +554,21 @@
 - (void)preventFlicker:(UIButton *)sender {
     sender.highlighted = NO;
 }
+
 //删除按钮
 - (void) shangchuBut {
     //        响应事件
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     ZP_CartsModel * model = [[ZP_CartsModel alloc]init];
-    dic[@"stockid"] = model.stockid;
-    dic[@"token"] = Token;
+//    dic[@"stockid"] = _stockids;
+//    dic[@"token"] = Token;
     dic[@"stockid"] = model.stockid;
     dic[@"token"] = Token;
     [ZP_shoopingTool requesscartitemdelte:dic success:^(id obj) {
-        
         if ([obj[@"result"]isEqualToString:@"ok"]) {
             [SVProgressHUD showSuccessWithStatus:@"刪除成功!"];
         }else
             if ([obj[@"result"]isEqualToString:@"failure"]) {
-                
                 [SVProgressHUD showInfoWithStatus:@"删除失敗"];
             }
         [_tableView reloadData];
@@ -586,6 +577,7 @@
         //             [SVProgressHUD showInfoWithStatus:@"服務器連接失敗"];
     }];
 }
+
 - (BOOL)YESOrNoPush {
     for (int i = 0; i < dataArray.count; i ++) {
         if (!_bjBool) {
@@ -787,38 +779,38 @@
     }
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return @"删除";
-}
+//- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+//
+//    return @"删除";
+//}
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSLog(@"go");
-        ZP_CartsModel * model = dataArray[indexPath.row];
-        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-        dic[@"stockid"] = model.stockid;
-        dic[@"token"] = Token;
-        [ZP_shoopingTool requesscartitemdelte:dic success:^(id obj) {
-            
-            if ([obj[@"result"]isEqualToString:@"ok"]) {
-                [SVProgressHUD showSuccessWithStatus:@"刪除成功!"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"failure"]) {
-                    
-                    [SVProgressHUD showInfoWithStatus:@"删除失敗"];
-                }
-        } failure:^(NSError *error) {
-            NSLog(@"%@",error);
-            //             [SVProgressHUD showInfoWithStatus:@"服務器連接失敗"];
-        }];
-        
-        [dataArray removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
-    }
-}
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        NSLog(@"go");
+//        ZP_CartsModel * model = dataArray[indexPath.row];
+//        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+//        dic[@"stockid"] = model.stockid;
+//        dic[@"token"] = Token;
+//        [ZP_shoopingTool requesscartitemdelte:dic success:^(id obj) {
+//
+//            if ([obj[@"result"]isEqualToString:@"ok"]) {
+//                [SVProgressHUD showSuccessWithStatus:@"刪除成功!"];
+//            }else
+//                if ([obj[@"result"]isEqualToString:@"failure"]) {
+//
+//                    [SVProgressHUD showInfoWithStatus:@"删除失敗"];
+//                }
+//        } failure:^(NSError *error) {
+//            NSLog(@"%@",error);
+//            //             [SVProgressHUD showInfoWithStatus:@"服務器連接失敗"];
+//        }];
+//
+//        [dataArray removeObjectAtIndex:indexPath.row];
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//
+//    }
+//}
 
 - (void)didReceiveMemoryWarning {
     

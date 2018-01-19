@@ -104,7 +104,7 @@
         [self.scrollView addSubview:self.pageControl];
         [self.shoucangBtn resizeWithDistance:5];
         [self.gouwuBtn resizeWithDistance:5];
-//        [self.dianpuBtn resizeWithDistance:5]; // 暂时不需要商铺按钮
+        [self.dianpuBtn resizeWithDistance:5]; // 暂时不需要商铺按钮
     }
     else{
         self.onScrollViewWidth.constant = ZP_Width * 1;
@@ -120,7 +120,7 @@
         
         [self.shoucangBtn resizeWithDistance:5];
         [self.gouwuBtn resizeWithDistance:5];
-//        [self.dianpuBtn resizeWithDistance:5]; // 暂时不需要商铺按钮
+        [self.dianpuBtn resizeWithDistance:5]; // 暂时不需要商铺按钮
     }
     
 }
@@ -136,7 +136,6 @@
     } else {
         dic = @{@"productid":_productId};
     }
-    
     [ZP_ClassViewTool requDetails:dic success:^(id obj) {
         ZPLog(@"%@",obj);
         NSDictionary *asdic = [obj[@"productdetail"] firstObject];
@@ -146,7 +145,7 @@
         NSDictionary *tempDic = @{@"productid":_productId,@"page":@(1),@"pagesize":@(5)};
         [ZP_ClassViewTool requEvaluates:tempDic success:^(id obj) {
             [self.evaluateArray addObject:obj];
-//            NSLog(@"%@",obj);
+            NSLog(@"%@",obj);
         } failure:^(NSError *error) {
             NSLog(@"%@",error);
         }];
@@ -163,11 +162,9 @@
                 _typeArr = [ZP_GoodDetailsModel arrayWithTypeArray:obj[@"colornorms"]];
                 [self getimageData];
             }
-            
         }
         _model = model;
         [self getDataWithModel:model];
-        
     } failure:^(NSError * error) {
         ZPLog(@"%@", error);
     }];
@@ -188,7 +185,6 @@
     if (_normsArr.count < 1){
         [self getimageData];
         [_ShopImageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
-        
     }
     _ShopNameLabel.text = model.productname;
     _ShopMoneyLabel.text = model.productprice;
@@ -196,8 +192,8 @@
     _peramountLable.text = model.peramount;
     _productidLable.text = model.productid;
     _ShoppingIdLabel.text = model.TrademarkLabel;
-    
 }
+
 // 获取评价数据
 - (void)evaluation {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
@@ -287,11 +283,9 @@
 }
 
 - (IBAction)dianpuAction:(id)sender {
-    /** 暂不需要
     MerchantController * Merchant = [[MerchantController alloc]init];
     [self.navigationController pushViewController:Merchant animated:YES];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
-     */
 }
 
 - (IBAction)xzflAction:(UIButton *)sender {

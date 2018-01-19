@@ -11,6 +11,7 @@
 #import "ZP_HomeTool.h"
 #import "UIButton+UIButtonImageWithLable.h"
 #import "ZP_FirstModel.h"
+
 @implementation FirstViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -29,7 +30,7 @@
     NSMutableArray * arrid = [NSMutableArray array];
     for (ZP_FirstModel * model in sup) {
         [arr addObject:model.menuname];
-        [arrar addObject:[NSString stringWithFormat:@"http://www.ddaygo.com%@",[model.imgurl stringByReplacingOccurrencesOfString:@"~" withString:@""]]];
+        [arrar addObject:[NSString stringWithFormat:@"%@%@",ImgAPI,[model.imgurl stringByReplacingOccurrencesOfString:@"~" withString:@""]]];
         [arrid addObject:model.typeid];
     }
     

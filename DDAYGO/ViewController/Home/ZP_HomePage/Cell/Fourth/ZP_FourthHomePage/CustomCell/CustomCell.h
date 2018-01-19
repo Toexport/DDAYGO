@@ -16,6 +16,5 @@
 @property (nonatomic, strong) UILabel * PriceLabel; // 价格
 @property (nonatomic, strong) UIImageView * TrademarkImage; // 商标图片
 @property (nonatomic, strong) UILabel * TrademarkLabel; // 商标编号
-
 - (void)cellWithdic:(ZP_FourthModel *)model;
 @end

@@ -15,7 +15,7 @@
 
 - (instancetype)initWitheadlineData:(NSDictionary *)dic {
     if (self == [super init]) {
-        self.detaImage = dic[@"detaImage"];
+        self.advertimg = dic[@"advertimg"];
     }
     return self;
 }

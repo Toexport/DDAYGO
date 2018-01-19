@@ -26,13 +26,13 @@
 
 @interface IWFormData : NSObject
 
-@property (nonatomic, strong) NSData *data;
+@property (nonatomic, strong) NSData * data;
 
-@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString * name;
 
-@property (nonatomic, copy) NSString *filename;
+@property (nonatomic, copy) NSString * filename;
 
-@property (nonatomic, copy) NSString *mimeType;
+@property (nonatomic, copy) NSString * mimeType;
 
 @end
 

@@ -21,3 +21,7 @@
 + (NSMutableArray *)arrayWithArray:(NSArray *)array;
 
 @end
+
+@interface ZP_FourthModel1 : NSObject
+
+@end

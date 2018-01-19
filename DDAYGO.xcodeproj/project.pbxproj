@@ -399,7 +399,6 @@
 		C49B32221FD5A995007632F2 /* ZP_ExtractController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C49B32201FD5A995007632F2 /* ZP_ExtractController.xib */; };
 		C49B32271FD5AC9E007632F2 /* ZP_ExtractCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C49B32251FD5AC9E007632F2 /* ZP_ExtractCell.m */; };
 		C49B32281FD5AC9E007632F2 /* ZP_ExtractCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C49B32261FD5AC9E007632F2 /* ZP_ExtractCell.xib */; };
-		C49D25802010DD3900074CA7 /* DDAYGO IHTTP协议1.0.docx in Resources */ = {isa = PBXBuildFile; fileRef = C49D257F2010DD3800074CA7 /* DDAYGO IHTTP协议1.0.docx */; };
 		C4AD0752200C7A5D00B8FF6E /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0730200C7A5D00B8FF6E /* .gitkeep */; };
 		C4AD0753200C7A5D00B8FF6E /* LPDImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0731200C7A5D00B8FF6E /* LPDImagePickerController.bundle */; };
 		C4AD0754200C7A5D00B8FF6E /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0733200C7A5D00B8FF6E /* .gitkeep */; };
@@ -442,6 +441,7 @@
 		C4D9E7071FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D9E7051FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.m */; };
 		C4D9E70D1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D9E70B1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.m */; };
 		C4D9E70E1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D9E70C1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib */; };
+		C4FFF1F32011974200EF4A4D /* DDAYGO IHTTP协议1.0 .docx in Resources */ = {isa = PBXBuildFile; fileRef = C4FFF1F22011974200EF4A4D /* DDAYGO IHTTP协议1.0 .docx */; };
 		E37503CF1FC7BD8F00DA2950 /* ZP_ConfirmWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37503CD1FC7BBF400DA2950 /* ZP_ConfirmWebController.m */; };
 /* End PBXBuildFile section */
 
@@ -1186,7 +1186,6 @@
 		C49B32241FD5AC9E007632F2 /* ZP_ExtractCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_ExtractCell.h; sourceTree = "<group>"; };
 		C49B32251FD5AC9E007632F2 /* ZP_ExtractCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_ExtractCell.m; sourceTree = "<group>"; };
 		C49B32261FD5AC9E007632F2 /* ZP_ExtractCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZP_ExtractCell.xib; sourceTree = "<group>"; };
-		C49D257F2010DD3800074CA7 /* DDAYGO IHTTP协议1.0.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0.docx"; sourceTree = "<group>"; };
 		C4AD0730200C7A5D00B8FF6E /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		C4AD0731200C7A5D00B8FF6E /* LPDImagePickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LPDImagePickerController.bundle; sourceTree = "<group>"; };
 		C4AD0733200C7A5D00B8FF6E /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -1258,6 +1257,7 @@
 		C4D9E70A1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_LotteryHistoricalBettingNumberCell.h; sourceTree = "<group>"; };
 		C4D9E70B1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_LotteryHistoricalBettingNumberCell.m; sourceTree = "<group>"; };
 		C4D9E70C1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZP_LotteryHistoricalBettingNumberCell.xib; sourceTree = "<group>"; };
+		C4FFF1F22011974200EF4A4D /* DDAYGO IHTTP协议1.0 .docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0 .docx"; sourceTree = "<group>"; };
 		E37503CC1FC7BBF400DA2950 /* ZP_ConfirmWebController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_ConfirmWebController.h; sourceTree = "<group>"; };
 		E37503CD1FC7BBF400DA2950 /* ZP_ConfirmWebController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_ConfirmWebController.m; sourceTree = "<group>"; };
 		E37503CE1FC7BBF400DA2950 /* ZP_ConfirmWebController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZP_ConfirmWebController.xib; sourceTree = "<group>"; };
@@ -1326,7 +1326,7 @@
 		063FE0441F614D24009910FF /* DDAYGO */ = {
 			isa = PBXGroup;
 			children = (
-				C49D257F2010DD3800074CA7 /* DDAYGO IHTTP协议1.0.docx */,
+				C4FFF1F22011974200EF4A4D /* DDAYGO IHTTP协议1.0 .docx */,
 				C4411D91200F626100CE906F /* 加载_ios */,
 				0641BB971F67B60B00E72FEF /* Testbag */,
 				063FE0AE1F615CEB009910FF /* ViewController */,
@@ -1852,6 +1852,7 @@
 				C45F230E1FA0757A00F5DB41 /* ZP_HomePage */,
 				C45F230A1FA0756300F5DB41 /* ZP_Position */,
 				C45F22FE1FA0754500F5DB41 /* ZP_SearchBox */,
+				C47E75831FB573CB009F279A /* ZP_HomeTool */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -4052,7 +4053,6 @@
 		E37503CB1FC7BBF400DA2950 /* ZP_ConfirmPayWeb */ = {
 			isa = PBXGroup;
 			children = (
-				C47E75831FB573CB009F279A /* ZP_HomeTool */,
 				E37503CC1FC7BBF400DA2950 /* ZP_ConfirmWebController.h */,
 				E37503CD1FC7BBF400DA2950 /* ZP_ConfirmWebController.m */,
 				E37503CE1FC7BBF400DA2950 /* ZP_ConfirmWebController.xib */,
@@ -4236,12 +4236,12 @@
 				06F572311F9F1E8700D61FDB /* OrderSearchView.xib in Resources */,
 				C47212A31FB186C90055578E /* MyViewController.xib in Resources */,
 				C4B04D9B200889C8009F7AF9 /* RequestRefundController.xib in Resources */,
-				C49D25802010DD3900074CA7 /* DDAYGO IHTTP协议1.0.docx in Resources */,
 				06F5722F1F9F1E8700D61FDB /* ReturnDetailViewController.xib in Resources */,
 				06F5722D1F9F1E8700D61FDB /* OrderManagerViewController.xib in Resources */,
 				06F571D21F9F1A7900D61FDB /* BindingICUEViewController.xib in Resources */,
 				C4C4D1471FF64A810075D8D8 /* SupplierViewCell2.xib in Resources */,
 				C44C9DB21FEA392D00CD7D4D /* ZP_QuickLoginController.xib in Resources */,
+				C4FFF1F32011974200EF4A4D /* DDAYGO IHTTP协议1.0 .docx in Resources */,
 				C42A17321FF252F400680F92 /* BetViewController.xib in Resources */,
 				4D0949011FDEF77500FC4BCA /* EvaluateTableViewCell.xib in Resources */,
 				C47096951FB04998006EA52C /* PromptBox.xib in Resources */,

@@ -53,7 +53,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setHead];
+//    [self setHead];
     self.title = NSLocalizedString(@"Setting", nil) ;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_WhiteColor}];   // 更改导航栏字体颜色
 }
@@ -133,7 +133,6 @@
 }
 
 - (IBAction)touxiangAction:(id)sender {
-    
     if (!_photoManager) {
         _photoManager = [[SelectPhotoManager alloc]init];
     }
@@ -141,24 +140,19 @@
     __weak typeof(self)mySelf = self;
     //  选取照片成功
     _photoManager.successHandle=^(SelectPhotoManager *manager,UIImage * image){
-        
         mySelf.headerImage.image = image;
         //  保存到本地
-        IWFormData *formData = [[IWFormData alloc]init];
+//        IWFormData * formData = [[IWFormData alloc]init];
+        
         NSMutableArray * imageArray = [NSMutableArray array];
-        
-//        formData.data = UIImagePNGRepresentation(image);
-        
-       formData.data  = UIImageJPEGRepresentation(image, 1);
-        
-        formData.name = @"15";
-        formData.mimeType = @"image/jpeg";
-        formData.filename = @"15";
-        [imageArray addObject:formData];
-        [[NSUserDefaults standardUserDefaults] setObject:formData.data forKey:@"headerImage"];
+
+        NSData * data =  UIImageJPEGRepresentation(image, 1);
+        [imageArray addObject:data];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
 //        这个封装可以上传多张图片
         [ZP_MyTool RequestUploadavatarimg:@{@"token":DD_TOKEN} Data:imageArray success:^(id obj) {
             NSLog(@"%@",obj);
+            
         } failure:^(NSError *error) {
             NSLog(@"%@",error.description);
         }];
@@ -166,17 +160,17 @@
     
 }
 
-- (void)setHead {
-    _headerImage.userInteractionEnabled = YES;
-    //        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)];
-    //        [_headerImage addGestureRecognizer:tap];
-    //  这里是从本地取的，如果是上线项目一定要从服务器取头像地址加载
-    UIImage * img = [UIImage imageWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"]];
-    if (img) {
-        _headerImage.image = img;
-        //        [[MyViewController sharedInstanceTool].headImageBut setImage:img forState:UIControlStateNormal];
-    }
-}
+//- (void)setHead {
+//    _headerImage.userInteractionEnabled = YES;
+//    //        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)];
+//    //        [_headerImage addGestureRecognizer:tap];
+//    //  这里是从本地取的，如果是上线项目一定要从服务器取头像地址加载
+//    UIImage * img = [UIImage imageWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"]];
+//    if (img) {
+//        _headerImage.image = img;
+//        //        [[MyViewController sharedInstanceTool].headImageBut setImage:img forState:UIControlStateNormal];
+//    }
+//}
 
 // 账号
 - (IBAction)zhanghaoAction:(id)sender {
