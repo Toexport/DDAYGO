@@ -248,7 +248,9 @@
     }else{
         str = @"";
     }
-    NSDictionary * dic =@{@"fatherid":_fatherId,@"seq":@"desc",@"word":str,@"countrycode":@"886",@"page":@"1",@"pagesize":@"10"};
+//    NSDictionary * dic =@{@"fatherid":_fatherId,@"seq":@"desc",@"word":str,@"countrycode":@"886",@"page":@"1",@"pagesize":@"30"};
+    NSDictionary * dic = @{@"seq":@"desc",@"countrycode":@"886",@"word":str,@"fatherid":_fatherId,@"page":@"1",@"pagesize":@"30",};
+
     [ZP_ClassViewTool requMerchandise:dic WithIndex:0 success:^(id obj) {
         NSDictionary * dict = obj;
         [SVProgressHUD dismiss];
@@ -290,8 +292,9 @@
     dic[@"seq"] = @"desc";
     dic[@"word"] = [NSString stringWithFormat:@"%@",_keyword];
     dic[@"countrycode"] = @"886";
+//    dic[@"sort"] = @"price";
     dic[@"page"] = @"1";
-    dic[@"pagesize"] = @"10";
+    dic[@"pagesize"] = @"30";
     [ZP_ClassViewTool requMerchandise:dic WithIndex:tag success:^(id obj) {
         [SVProgressHUD dismiss];
 //        NSLog(@"obj = %@",obj);
@@ -299,28 +302,6 @@
         self.dicts = dict[@"datalist"];
         NSArray * arr = dict[@"datalist"];
         self.newsData = [ZP_ClassGoodsModel arrayWithArray:arr];
-        
-////      数据为空时提示
-//        if (self.newsData.count < 1) {
-//            UIImageView * image = [UIImageView new];
-//            image.image = [UIImage imageNamed:@"icon_fail"];
-//            [self.view addSubview:image];
-//            [image mas_makeConstraints:^(MASConstraintMaker *make) {
-//                make.left.equalTo(_collectionView1).offset(ZP_Width / 2 -25);
-//                make.top.equalTo(_collectionView1).offset(ZP_Width / 2 - 25);
-//                make.width.mas_offset(50);
-//                make.height.mas_equalTo(50);
-//            }];
-//            ZP_GeneralLabel * RemindLabel = [ZP_GeneralLabel initWithtextLabel:_RemindLabel.text textColor:ZP_textblack font:ZP_TrademarkFont textAlignment:NSTextAlignmentCenter bakcgroundColor:nil];
-//            RemindLabel.text = @"数据空空如也";
-//            [self.view addSubview:RemindLabel];
-//            [RemindLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//                make.left.equalTo(_collectionView1).offset(ZP_Width / 2 -30);
-//                make.top.equalTo(image).offset(55);
-//                make.height.mas_offset(15);
-//            }];
-//
-//        }
         switch (tag) {
             case 0:
                 [self.collectionView1 reloadData];
@@ -379,6 +360,7 @@
     UICollectionReusableView * headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:header forIndexPath:indexPath];
     return headerView;
 }
+
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * detaled = @"DetailedController";

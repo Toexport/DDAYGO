@@ -48,7 +48,7 @@
     }];
 }
 
-- (void)updateData:(ZP_LotterModel *)model{
+- (void)updateData:(ZP_LotterModel *)model {
     
     lotteryModel *model1 = [lotteryModel mj_objectWithKeyValues:model.lottery];
     _NperLabel.text = self.title;

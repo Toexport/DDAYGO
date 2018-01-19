@@ -142,35 +142,20 @@
     _photoManager.successHandle=^(SelectPhotoManager *manager,UIImage * image){
         mySelf.headerImage.image = image;
         //  保存到本地
-//        IWFormData * formData = [[IWFormData alloc]init];
-        
         NSMutableArray * imageArray = [NSMutableArray array];
-
         NSData * data =  UIImageJPEGRepresentation(image, 1);
         [imageArray addObject:data];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
 //        这个封装可以上传多张图片
         [ZP_MyTool RequestUploadavatarimg:@{@"token":DD_TOKEN} Data:imageArray success:^(id obj) {
             NSLog(@"%@",obj);
-            
+            [self.SettingScrollView removeFromSuperview];
         } failure:^(NSError *error) {
             NSLog(@"%@",error.description);
         }];
     };
     
 }
-
-//- (void)setHead {
-//    _headerImage.userInteractionEnabled = YES;
-//    //        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)];
-//    //        [_headerImage addGestureRecognizer:tap];
-//    //  这里是从本地取的，如果是上线项目一定要从服务器取头像地址加载
-//    UIImage * img = [UIImage imageWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"]];
-//    if (img) {
-//        _headerImage.image = img;
-//        //        [[MyViewController sharedInstanceTool].headImageBut setImage:img forState:UIControlStateNormal];
-//    }
-//}
 
 // 账号
 - (IBAction)zhanghaoAction:(id)sender {
@@ -179,7 +164,6 @@
 
 //  修改昵称
 - (IBAction)nichengAction:(id)sender {
-    
     [[DialogBox getInstance] showDialogBoxWithOperation:DDAModifyNickname FinishBlock:^(id response) {
         self.dataDic[@"nickname"] = (NSString *)response;
         [ZP_MyTool requesModifydata:self.dataDic uccess:^(id obj) {
@@ -195,7 +179,6 @@
             [self allData]; //刷新表格里面的数据
         } failure:^(NSError * error) {
             ZPLog(@"%@",error);
-            //                [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
         }];
     }];
 }

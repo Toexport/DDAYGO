@@ -11,7 +11,7 @@
 @interface ZP_DetailsSistoryAwardController : UIViewController
 @property (weak, nonatomic) IBOutlet UIScrollView *BackgroundScrollView; // 背景
 @property (weak, nonatomic) IBOutlet UIView * TitleView; // 标题view
-@property (weak, nonatomic) IBOutlet UILabel *AmountLabel;
+@property (weak, nonatomic) IBOutlet UILabel * AmountLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel * WinningNumbersLabel;
 @property (weak, nonatomic) IBOutlet UILabel * NperLabel;
@@ -71,6 +71,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *OrderNumberLabel;
 
 @property (weak, nonatomic) IBOutlet UITableView * tableview;
-@property (strong ,nonatomic) NSNumber *pollid;
+@property (strong ,nonatomic) NSNumber * pollid;
 
 @end

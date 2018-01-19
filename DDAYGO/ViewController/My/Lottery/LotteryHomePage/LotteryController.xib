@@ -19,6 +19,7 @@
                 <outlet property="OrderNumView" destination="2Wq-Qj-3dJ" id="gAW-iE-7kI"/>
                 <outlet property="OrderNumberLabel" destination="d4Q-VX-uLC" id="oQi-4m-0as"/>
                 <outlet property="RiLabel" destination="1gh-xx-dtJ" id="fdT-dI-RNX"/>
+                <outlet property="SymbolLabel" destination="s9i-Sf-7DR" id="cZj-aO-Y3u"/>
                 <outlet property="WinningNumbersLabel" destination="iLH-vh-vnc" id="Sea-Vd-bxv"/>
                 <outlet property="WinningNumbersView" destination="ohp-5z-SVX" id="UdT-rb-YvS"/>
                 <outlet property="XiazhushuliangLabel" destination="fiR-gd-ecz" id="D9b-iY-Rn1"/>

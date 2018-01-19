@@ -8,11 +8,12 @@
 
 #import "ShopIntroductionViewController.h"
 #import "ShoplntroductionCell.h"
+#import "ShoplntroducedModel.h"
+#import "ZP_ClassViewTool.h"
 #import "PrefixHeader.pch"
-@interface ShopIntroductionViewController () <UITableViewDelegate,UITableViewDataSource> {
-    
-    NSArray * dataArray;
-}
+@interface ShopIntroductionViewController () <UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong) NSMutableArray * dataArray;
+@property (nonatomic, strong) NSMutableArray * NewsData;
 @property (nonatomic, strong) UITableView * tableview;
 
 @end
@@ -21,13 +22,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self shopintroduction];
     self.title = NSLocalizedString(@"店铺介绍", nil);
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     [self initUI];
-    dataArray = @[@{@"Storename":@"金太阳国际",@"Address":@"台湾高雄市",@"Phone":@"+86 15118041624",@"rating":@"100%",@"Servicetime":@"星期一 - 星期六 AM10:00 - FM09:00",@"BusinessregistrationID":@"12706283MFZS1120996"}];
+//    _dataArray = @[@{@"Storename":@"金太阳国际",@"Address":@"台湾高雄市",@"Phone":@"+86 15118041624",@"rating":@"100%",@"Servicetime":@"星期一 - 星期六 AM10:00 - FM09:00",@"BusinessregistrationID":@"12706283MFZS1120996"}];
     
 }
-
+// UI
 - (void)initUI {
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)style:UITableViewStylePlain];
     self.tableview.backgroundColor = ZP_Graybackground;
@@ -37,23 +39,37 @@
     [self.tableview registerClass:[ShoplntroductionCell class] forCellReuseIdentifier:@"Shoplntroduction"];
 }
 
+// 78) 店铺介绍
+- (void)shopintroduction {
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    dict[@"supplierid"] = self.SupplierID;
+    [ZP_ClassViewTool requestShopintroduction:dict success:^(id obj) {
+        NSDictionary * dic = obj[@"introduction"];
+        [self.NewsData addObject:dic];
+        ZPLog(@"%@",obj);
+        [self.tableview reloadData];
+    } failure:^(NSError *error) {
+        ZPLog(@"%@",error);
+    }];
+}
+
+
 #pragma Makr - TableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     return 1;
-    
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return dataArray.count;
+    return self.NewsData.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    ShoplntroducedModel * model = self.NewsData[indexPath.row];
     ShoplntroductionCell * cell = [tableView dequeueReusableCellWithIdentifier:@"Shoplntroduction"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone; // 取消Cell变灰效果
     self.tableview.tableFooterView = [[UIView alloc]init];
-    NSDictionary * dic = dataArray[indexPath.row];
-    [cell ShoplntroductionDic:dic];
+    [cell ShoplntroducedCollection:model];
+//    NSDictionary * dic = self.dataArray[indexPath.section];
+//    [cell ShoplntroductionDic:dic];
     return cell;
     
 }

@@ -101,9 +101,8 @@
     self.numberingLabel.text = numberingPrice;
 }
 - (void)layoutSubviews {
-    
     [super layoutSubviews];
-    self.iconView.frame = CGRectMake(5, 5, self.frame.size.width - 10, self.frame.size.height - 60);
+//    self.iconView.frame = CGRectMake(5, 5, self.frame.size.width - 10, self.frame.size.height - 60);
     self.describeLabel.frame = CGRectMake(5, CGRectGetWidth(self.frame)- 15, CGRectGetWidth(self.frame)-10, 40);
     self.currentPriceLabel.frame = CGRectMake(5, CGRectGetWidth(self.frame)+18, CGRectGetWidth(self.frame)-10, 20);
     self.originalPriceLabel.frame = CGRectMake(5, CGRectGetWidth(self.frame)+33, CGRectGetWidth(self.frame)-10, 20);;

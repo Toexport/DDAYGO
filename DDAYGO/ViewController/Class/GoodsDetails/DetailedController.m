@@ -49,7 +49,9 @@
 @property (nonatomic, strong) NSArray * normsArr;
 @property (nonatomic, strong) NSArray * typeArr;
 @property (nonatomic, strong) NSArray * pjArr;
-@property (nonatomic, strong) NSMutableArray *productArray;
+
+@property (nonatomic, strong) NSMutableArray * productArray;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cpsmHeight;
 @property (nonatomic, strong) NSMutableArray *evaluateArray;
 
@@ -138,11 +140,11 @@
     }
     [ZP_ClassViewTool requDetails:dic success:^(id obj) {
         ZPLog(@"%@",obj);
-        NSDictionary *asdic = [obj[@"productdetail"] firstObject];
-        NSString *asdtring = asdic[@"content"];
+        NSDictionary * asdic = [obj[@"productdetail"] firstObject];
+        NSString * asdtring = asdic[@"content"];
         self.productArray = [asdtring componentsSeparatedByString:@","];
         [self.detailTableView reloadData];
-        NSDictionary *tempDic = @{@"productid":_productId,@"page":@(1),@"pagesize":@(5)};
+        NSDictionary * tempDic = @{@"productid":_productId,@"page":@(1),@"pagesize":@(5)};
         [ZP_ClassViewTool requEvaluates:tempDic success:^(id obj) {
             [self.evaluateArray addObject:obj];
             NSLog(@"%@",obj);
@@ -215,8 +217,8 @@
         ZPLog(@"%@",error);
 //        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
     }];
-    
 }
+
 
 //  自定义返回按钮
 - (IBAction)backAction:(id)sender {
@@ -273,17 +275,23 @@
 }
 
 - (IBAction)ShoppingCartAction:(id)sender {
+//    if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
 //
+//        UITabBarController * tbvc  = [[UIApplication sharedApplication] keyWindow].rootViewController;
+//        [tbvc setSelectedIndex:2];
+//    }
+//    NSLog(@"点击了确定按钮");
+//}
+
 //    ShoppingViewController * Shopping = [[ShoppingViewController alloc]init];
-//    self.hidesBottomBarWhenPushed = YES;
+//    self.hidesBottomBarWhenPushed = NO;
 //    [self.navigationController pushViewController:Shopping animated:YES];
 //    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
-//    self.hidesBottomBarWhenPushed = YES;
-    
+//    self.hidesBottomBarWhenPushed = NO;
 }
-
 - (IBAction)dianpuAction:(id)sender {
     MerchantController * Merchant = [[MerchantController alloc]init];
+    Merchant.Supplieerid = self.model.supplierid;
     [self.navigationController pushViewController:Merchant animated:YES];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
 }
@@ -439,13 +447,17 @@
         ProductTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ProductTableViewCell"];
         [cell.productImageView sd_setImageWithURL:self.productArray[indexPath.row]];
         return cell;
-    } else {
+    } else{
+//        if (indexPath.section == 0) {
         
         EvaluateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EvaluateTableViewCell"];
         [cell updateData:self.evaluateArray.firstObject];
         return cell;
+//        }else {
+//            TextdetailsViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TextdetailsViewCell"];
+//            return cell;
+        }
     }
-}
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -454,10 +466,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return ZP_Width;
-    } else {
+        return 0;
+    } else
+         if (indexPath.section == 1){
         return 192;
-    }
+         }else {
+             return 0;
+         }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

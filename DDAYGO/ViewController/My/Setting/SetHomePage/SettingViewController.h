@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIScrollView *SettingScrollView;
 @property (strong, nonatomic) IBOutlet UIImageView * PhotoImage;
 @property (strong, nonatomic) IBOutlet UILabel * AccountNumber;   // 账号
 @property (strong, nonatomic) IBOutlet UILabel * nicknameLabel;  // 昵称

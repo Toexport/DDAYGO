@@ -441,7 +441,13 @@
 		C4D9E7071FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D9E7051FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.m */; };
 		C4D9E70D1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D9E70B1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.m */; };
 		C4D9E70E1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D9E70C1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib */; };
-		C4FFF1F32011974200EF4A4D /* DDAYGO IHTTP协议1.0 .docx in Resources */ = {isa = PBXBuildFile; fileRef = C4FFF1F22011974200EF4A4D /* DDAYGO IHTTP协议1.0 .docx */; };
+		C4FFF1F82011EFF000EF4A4D /* SatisfactionSurveyController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFF1F62011EFF000EF4A4D /* SatisfactionSurveyController.m */; };
+		C4FFF1F92011EFF000EF4A4D /* SatisfactionSurveyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FFF1F72011EFF000EF4A4D /* SatisfactionSurveyController.xib */; };
+		C4FFF1FE2011F05A00EF4A4D /* SatisfactionSurveyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFF1FC2011F05A00EF4A4D /* SatisfactionSurveyCell.m */; };
+		C4FFF1FF2011F05A00EF4A4D /* SatisfactionSurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FFF1FD2011F05A00EF4A4D /* SatisfactionSurveyCell.xib */; };
+		C4FFF2012012180400EF4A4D /* DDAYGO IHTTP协议1.0 .docx in Resources */ = {isa = PBXBuildFile; fileRef = C4FFF2002012180400EF4A4D /* DDAYGO IHTTP协议1.0 .docx */; };
+		C4FFF2052012309800EF4A4D /* ShoplntroducedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFF2042012309800EF4A4D /* ShoplntroducedModel.m */; };
+		C4FFF2092012442F00EF4A4D /* SatisfactionSurveyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFF2082012442F00EF4A4D /* SatisfactionSurveyModel.m */; };
 		E37503CF1FC7BD8F00DA2950 /* ZP_ConfirmWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37503CD1FC7BBF400DA2950 /* ZP_ConfirmWebController.m */; };
 /* End PBXBuildFile section */
 
@@ -1257,7 +1263,17 @@
 		C4D9E70A1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_LotteryHistoricalBettingNumberCell.h; sourceTree = "<group>"; };
 		C4D9E70B1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_LotteryHistoricalBettingNumberCell.m; sourceTree = "<group>"; };
 		C4D9E70C1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZP_LotteryHistoricalBettingNumberCell.xib; sourceTree = "<group>"; };
-		C4FFF1F22011974200EF4A4D /* DDAYGO IHTTP协议1.0 .docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0 .docx"; sourceTree = "<group>"; };
+		C4FFF1F52011EFF000EF4A4D /* SatisfactionSurveyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SatisfactionSurveyController.h; sourceTree = "<group>"; };
+		C4FFF1F62011EFF000EF4A4D /* SatisfactionSurveyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SatisfactionSurveyController.m; sourceTree = "<group>"; };
+		C4FFF1F72011EFF000EF4A4D /* SatisfactionSurveyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SatisfactionSurveyController.xib; sourceTree = "<group>"; };
+		C4FFF1FB2011F05A00EF4A4D /* SatisfactionSurveyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SatisfactionSurveyCell.h; sourceTree = "<group>"; };
+		C4FFF1FC2011F05A00EF4A4D /* SatisfactionSurveyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SatisfactionSurveyCell.m; sourceTree = "<group>"; };
+		C4FFF1FD2011F05A00EF4A4D /* SatisfactionSurveyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SatisfactionSurveyCell.xib; sourceTree = "<group>"; };
+		C4FFF2002012180400EF4A4D /* DDAYGO IHTTP协议1.0 .docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0 .docx"; sourceTree = "<group>"; };
+		C4FFF2032012309800EF4A4D /* ShoplntroducedModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShoplntroducedModel.h; sourceTree = "<group>"; };
+		C4FFF2042012309800EF4A4D /* ShoplntroducedModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoplntroducedModel.m; sourceTree = "<group>"; };
+		C4FFF2072012442F00EF4A4D /* SatisfactionSurveyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SatisfactionSurveyModel.h; sourceTree = "<group>"; };
+		C4FFF2082012442F00EF4A4D /* SatisfactionSurveyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SatisfactionSurveyModel.m; sourceTree = "<group>"; };
 		E37503CC1FC7BBF400DA2950 /* ZP_ConfirmWebController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_ConfirmWebController.h; sourceTree = "<group>"; };
 		E37503CD1FC7BBF400DA2950 /* ZP_ConfirmWebController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_ConfirmWebController.m; sourceTree = "<group>"; };
 		E37503CE1FC7BBF400DA2950 /* ZP_ConfirmWebController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZP_ConfirmWebController.xib; sourceTree = "<group>"; };
@@ -1326,7 +1342,7 @@
 		063FE0441F614D24009910FF /* DDAYGO */ = {
 			isa = PBXGroup;
 			children = (
-				C4FFF1F22011974200EF4A4D /* DDAYGO IHTTP协议1.0 .docx */,
+				C4FFF2002012180400EF4A4D /* DDAYGO IHTTP协议1.0 .docx */,
 				C4411D91200F626100CE906F /* 加载_ios */,
 				0641BB971F67B60B00E72FEF /* Testbag */,
 				063FE0AE1F615CEB009910FF /* ViewController */,
@@ -3588,6 +3604,7 @@
 				C47E75F31FB5A1C7009F279A /* MerchantHomePage */,
 				C47E75FB1FB5A1C7009F279A /* ScrollView */,
 				C47E760B1FB5A1C7009F279A /* ShopIntroduced */,
+				C4FFF1F42011EFC500EF4A4D /* SatisfactionSurvey */,
 				C47E76111FB5A1C7009F279A /* Tools */,
 			);
 			path = Merchant;
@@ -3649,6 +3666,7 @@
 				C47E760F1FB5A1C7009F279A /* ShopIntroductionViewController.h */,
 				C47E76101FB5A1C7009F279A /* ShopIntroductionViewController.m */,
 				C47E760C1FB5A1C7009F279A /* Cell */,
+				C4FFF2022012308100EF4A4D /* ShoplntroducedModel */,
 			);
 			path = ShopIntroduced;
 			sourceTree = "<group>";
@@ -4050,6 +4068,46 @@
 			path = ZP_LotteryHistoricalBettingNumberCell;
 			sourceTree = "<group>";
 		};
+		C4FFF1F42011EFC500EF4A4D /* SatisfactionSurvey */ = {
+			isa = PBXGroup;
+			children = (
+				C4FFF1F52011EFF000EF4A4D /* SatisfactionSurveyController.h */,
+				C4FFF1F62011EFF000EF4A4D /* SatisfactionSurveyController.m */,
+				C4FFF1F72011EFF000EF4A4D /* SatisfactionSurveyController.xib */,
+				C4FFF1FA2011F04000EF4A4D /* Cell */,
+				C4FFF2062012441D00EF4A4D /* SatisfactionSurveyModel */,
+			);
+			path = SatisfactionSurvey;
+			sourceTree = "<group>";
+		};
+		C4FFF1FA2011F04000EF4A4D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C4FFF1FB2011F05A00EF4A4D /* SatisfactionSurveyCell.h */,
+				C4FFF1FC2011F05A00EF4A4D /* SatisfactionSurveyCell.m */,
+				C4FFF1FD2011F05A00EF4A4D /* SatisfactionSurveyCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C4FFF2022012308100EF4A4D /* ShoplntroducedModel */ = {
+			isa = PBXGroup;
+			children = (
+				C4FFF2032012309800EF4A4D /* ShoplntroducedModel.h */,
+				C4FFF2042012309800EF4A4D /* ShoplntroducedModel.m */,
+			);
+			path = ShoplntroducedModel;
+			sourceTree = "<group>";
+		};
+		C4FFF2062012441D00EF4A4D /* SatisfactionSurveyModel */ = {
+			isa = PBXGroup;
+			children = (
+				C4FFF2072012442F00EF4A4D /* SatisfactionSurveyModel.h */,
+				C4FFF2082012442F00EF4A4D /* SatisfactionSurveyModel.m */,
+			);
+			path = SatisfactionSurveyModel;
+			sourceTree = "<group>";
+		};
 		E37503CB1FC7BBF400DA2950 /* ZP_ConfirmPayWeb */ = {
 			isa = PBXGroup;
 			children = (
@@ -4179,7 +4237,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4FFF2012012180400EF4A4D /* DDAYGO IHTTP协议1.0 .docx in Resources */,
 				06621DB31F9758840030983F /* RegisterController.xib in Resources */,
+				C4FFF1FF2011F05A00EF4A4D /* SatisfactionSurveyCell.xib in Resources */,
 				C4411DB7200F626200CE906F /* 暂无数据.png in Resources */,
 				C4411DA8200F626200CE906F /* iconn_no_network@3x.png in Resources */,
 				C4411DB0200F626200CE906F /* loading5.png in Resources */,
@@ -4241,7 +4301,6 @@
 				06F571D21F9F1A7900D61FDB /* BindingICUEViewController.xib in Resources */,
 				C4C4D1471FF64A810075D8D8 /* SupplierViewCell2.xib in Resources */,
 				C44C9DB21FEA392D00CD7D4D /* ZP_QuickLoginController.xib in Resources */,
-				C4FFF1F32011974200EF4A4D /* DDAYGO IHTTP协议1.0 .docx in Resources */,
 				C42A17321FF252F400680F92 /* BetViewController.xib in Resources */,
 				4D0949011FDEF77500FC4BCA /* EvaluateTableViewCell.xib in Resources */,
 				C47096951FB04998006EA52C /* PromptBox.xib in Resources */,
@@ -4292,6 +4351,7 @@
 				062C9D681F8CDB7900E14987 /* headImage.jpg in Resources */,
 				C44D6D101FD8CF070002DAF2 /* PayViewCell.xib in Resources */,
 				064448E21F6A1F7F0004DFE4 /* Shopping.png in Resources */,
+				C4FFF1F92011EFF000EF4A4D /* SatisfactionSurveyController.xib in Resources */,
 				C4411DAD200F626200CE906F /* loading2.png in Resources */,
 				064448DF1F6A16A00004DFE4 /* banner_jiazai.jpg in Resources */,
 				0641BBA11F67B60B00E72FEF /* Second.png in Resources */,
@@ -4387,6 +4447,7 @@
 				E37503CF1FC7BD8F00DA2950 /* ZP_ConfirmWebController.m in Sources */,
 				C42A17311FF252F400680F92 /* BetViewController.m in Sources */,
 				C49B32211FD5A995007632F2 /* ZP_ExtractController.m in Sources */,
+				C4FFF2092012442F00EF4A4D /* SatisfactionSurveyModel.m in Sources */,
 				C4137E811FB9A2A20072B1CA /* ZP_FrontPageReceivingAddressModel.m in Sources */,
 				C47E763B1FB5A1C7009F279A /* ZPHomeCell.m in Sources */,
 				06621DB81F9758AE0030983F /* ForgetPswController.m in Sources */,
@@ -4531,6 +4592,7 @@
 				C409F8721FA1758E009DE7B1 /* ZP_SixthModel.m in Sources */,
 				C42E52F2200E141000515364 /* HomePageViewController.m in Sources */,
 				C4780BEF1FD6A1F600DDE25D /* ZP_ShopManagementModel.m in Sources */,
+				C4FFF2052012309800EF4A4D /* ShoplntroducedModel.m in Sources */,
 				C45FAEE71FCD055B00BD4CE1 /* myNavigationController.m in Sources */,
 				06418F521F7A076A00479523 /* MASConstraintMaker.m in Sources */,
 				064449A71F6A9B250004DFE4 /* MJRefreshAutoFooter.m in Sources */,
@@ -4614,6 +4676,7 @@
 				0641BBE01F67F9E400E72FEF /* UIView+WebCacheOperation.m in Sources */,
 				C4AD075E200C7A5D00B8FF6E /* LPDProgressView.m in Sources */,
 				C4C4D1461FF64A810075D8D8 /* SupplierViewCell2.m in Sources */,
+				C4FFF1F82011EFF000EF4A4D /* SatisfactionSurveyController.m in Sources */,
 				064449AB1F6A9B250004DFE4 /* MJRefreshHeader.m in Sources */,
 				C479C6A71FE3CB5800A58A2A /* NSObject+MJCoding.m in Sources */,
 				C42A173D1FF2532400680F92 /* BetTableViewCellTwo.m in Sources */,
@@ -4640,6 +4703,7 @@
 				064449AA1F6A9B250004DFE4 /* MJRefreshFooter.m in Sources */,
 				06F571091F9F0D3A00D61FDB /* OrderViewCell.m in Sources */,
 				0641BBD81F67F9E400E72FEF /* SDWebImageDownloaderOperation.m in Sources */,
+				C4FFF1FE2011F05A00EF4A4D /* SatisfactionSurveyCell.m in Sources */,
 				C47E76261FB5A1C7009F279A /* LeftTableViewCell.m in Sources */,
 				064449B01F6A9B250004DFE4 /* MJRefreshBackNormalFooter.m in Sources */,
 				4D0949001FDEF77500FC4BCA /* EvaluateTableViewCell.m in Sources */,

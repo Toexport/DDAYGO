@@ -179,6 +179,8 @@
         _butt6.hidden = NO;
         _checkMoreBtn.hidden = NO;
         _dingdanhaoLabel.hidden = NO;
+        _SymbolLabel.hidden = NO;
+        _XiazhushuliangLabel.hidden = NO;
 //        _lingjiangBtn.hidden = NO;
         
         _OrderNumberLabel.text = [NSString stringWithFormat:@"%@",model6.lotteryoid];
@@ -198,6 +200,8 @@
         _butt6.hidden = YES;
         _checkMoreBtn.hidden = YES;
         _dingdanhaoLabel.hidden = YES;
+        _SymbolLabel.hidden = YES;
+        _XiazhushuliangLabel.hidden = YES;
 //        _lingjiangBtn.hidden = NO;
         
 //        _OrderNumberLabel.text = nil;

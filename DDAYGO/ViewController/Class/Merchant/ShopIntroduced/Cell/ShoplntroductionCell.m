@@ -8,6 +8,7 @@
 
 #import "ShoplntroductionCell.h"
 #import "PrefixHeader.pch"
+#import "ShoplntroducedModel.h"
 @implementation ShoplntroductionCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -174,5 +175,8 @@
     _ratingLabel.text = dic[@"rating"];
     _ServicetimeLabel.text = dic[@"Servicetime"];
     _BusinessregistrationIDLabel.text = dic[@"BusinessregistrationID"];
+}
+- (void)ShoplntroducedCollection:(ShoplntroducedModel *)model {
+    _StorenameLabel.text = model.countrycodes;
 }
 @end

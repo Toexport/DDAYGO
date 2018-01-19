@@ -82,7 +82,8 @@
     if (newStr.length > 0 ) {
         NSLog(@"go");
         CPViewController * CVPView = [[CPViewController alloc]init];
-        CVPView.fatherId =[NSNumber numberWithInteger:1];
+        //你自己看  你写了是1  我就想不通那里难 ·你找了· 有问题你自己都不找·
+        CVPView.fatherId = [NSNumber numberWithInteger:0];
         CVPView.keyword = newStr;
         CVPView.titleString = @"搜索";
         [ZPProgressHUD showWithStatus:@"正在搜索..." maskType:ZPProgressHUDMaskTypeBlack];

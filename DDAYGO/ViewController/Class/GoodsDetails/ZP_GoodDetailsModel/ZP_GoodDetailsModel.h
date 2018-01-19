@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString * TrademarkLabel; // 商标编号
 @property (nonatomic, strong) NSString * peramount;  // 销量
 @property (nonatomic, strong) NSString * productid; // 货号ID
+@property (nonatomic, strong) NSNumber * supplierid; // 供货商ID
 @property (nonatomic, strong) NSNumber * state;  //状态
 /**库存*/
 @property (nonatomic, strong) NSString * productamount;

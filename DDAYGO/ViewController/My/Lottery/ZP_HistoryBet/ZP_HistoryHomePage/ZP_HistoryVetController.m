@@ -198,7 +198,7 @@
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
-    return 1;
+    return self.newsData.count;
 }
 
 /*设置标题头的宽度*/
@@ -215,7 +215,7 @@
 
 #pragma mark -- tableviewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.newsData.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -227,7 +227,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ZP_DetailsSistoryAwardController * DetailsSistoryAward = [[ZP_DetailsSistoryAwardController alloc]init];
-    ZP_HistoryModel *model = self.newsData[indexPath.row];
+    ZP_HistoryModel * model = self.newsData[indexPath.row];
     DetailsSistoryAward.pollid = model.pollid;
     DetailsSistoryAward.title = [NSString stringWithFormat:@"第%@期",model.yyyy];
     [self.navigationController pushViewController:DetailsSistoryAward animated:YES];

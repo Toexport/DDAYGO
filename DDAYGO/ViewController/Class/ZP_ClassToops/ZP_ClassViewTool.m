@@ -33,16 +33,12 @@
 //  商品分类
 + (void)requMerchandise:(NSDictionary *)spfl WithIndex:(NSUInteger)index success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     NSArray * arr = @[@"default",@"sale",@"price",@"time"];
-    //    [ZP_NetorkingTools POST:[NSString stringWithFormat:@"http://www.ddaygo.com/api/Test/ProductFilter?producttypeid=2&sort=%@&seq=desc&word=&countrycode=886&page=1&pagesize=30",arr[index]] parameters:spfl success:^(NSDictionary *responseObject) {
-    ////        ZPLog(@"%@",responseObject);
-    //        success(responseObject);
-    //    } failure:^(NSError *error) {
-    //        failure(error);
-    ////        ZPLog(@"%@",error);
-    //    }];
+
     
-    
-    [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@productfilter?fatherid=%@&sort=%@&seq=%@&word=%@&countrycode=%@&page=%@&pagesize=%@",URLAPI,spfl[@"fatherid"],arr[index],spfl[@"seq"],spfl[@"word"],spfl[@"countrycode"],spfl[@"page"],spfl[@"pagesize"]] parameters:nil success:^(NSDictionary *responseObject) {
+//    http://192.168.0.117:7000/api/Test/productfilter?fatherid=&sort=&seq=&word=&countrycode=&page=&pagesize=
+//    http://192.168.0.117:7000/api/Test/productfilter?seq=&countrycode=&word=&fatherid=&sort=&page=&pagesize=
+
+    [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@productfilter?seq=%@&countrycode=%@&word=%@&fatherid=%@&sort=%@&page=%@&pagesize=%@",URLAPI,spfl[@"seq"],spfl[@"countrycode"],spfl[@"word"],spfl[@"fatherid"],arr[index],spfl[@"page"],spfl[@"pagesize"]] parameters:nil success:^(NSDictionary *responseObject) {
         //        ZPLog(@"%@",responseObject);
         success(responseObject);
     } failure:^(NSError *error) {
@@ -50,6 +46,7 @@
         //        ZPLog(@"%@",error);
     }];
 }
+
 //  商品详情
 + (void)requDetails:(NSDictionary *)spxq success:(void (^)(id))success failure:(void (^)(NSError *))failure {
     [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@%@?productid=%@&token=%@", URLAPI,Details,spxq[@"productid"],spxq[@"token"]] parameters:nil success:^(NSDictionary *responseObject) {
@@ -121,13 +118,46 @@
     }];
 }
 
-+ (void)requImage:(NSString *)url success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
-    [ZP_NetorkingTools GET:url parameters:nil success:^(NSDictionary *responseObject) {
-        success([UIImage imageWithData:responseObject]);
-    } failure:^(NSError *error) {
-        NSDictionary *dic = error;
+//+ (void)requImage:(NSString *)url success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
+//    [ZP_NetorkingTools GET:url parameters:nil success:^(NSDictionary *responseObject) {
+//        success([UIImage imageWithData:responseObject]);
+//    } failure:^(NSError *error) {
+//        NSDictionary *dic = error;
+//        failure(error);
+//    }];
+//}
+
+//75) 获取店铺信息
++ (void)requestGetshopinfos: (NSDictionary *)Getshopinfos success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
+    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getshopinfos?supplierid=%@",URLAPI,Getshopinfos[@"supplierid"]] parameters:nil success:^(id responseObject) {
+        success(responseObject);
+        
+    } failure:^(NSError * error) {
         failure(error);
     }];
 }
+
+//76) 获取店铺评论
++ (void)requestGetshopreviews:(NSDictionary *)Getshopreviews success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure{
+
+//    NSString * strUrl = [NSString stringWithFormat:[NSString stringWithFormat:@"%@getshopreviews?sid=%@&page=%@&pagesize=%@",URLAPI,Getshopreviews[@"sid"],Getshopreviews[@"page"],Getshopreviews[@"pagesize"]];
+    NSString * strUrl = [NSString stringWithFormat:@"%@getshopreviews?sid=%@&page=%@&pagesize=%@",URLAPI,Getshopreviews[@"sid"],Getshopreviews[@"page"],Getshopreviews[@"pagesize"]];
+     NSString * urlString = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [ZP_NetorkingTools GET:urlString parameters:nil success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError * error) {
+        failure(error);
+    }];
+}
+// 店铺简介
++ (void)requestShopintroduction: (NSDictionary *)Shopintroduction success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
+    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@shopintroduction?supplierid=%@",URLAPI,Shopintroduction[@"supplierid"]] parameters:nil success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError * error) {
+        failure(error);
+        ZPLog(@"%@",error);
+    }];
+}
+
 @end
 

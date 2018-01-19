@@ -21,6 +21,7 @@
                 <outlet property="IcueNumLayout" destination="zhQ-iJ-ieF" id="FMF-oK-AMT"/>
                 <outlet property="IuceNumBut" destination="lIK-lF-bcl" id="kZr-1U-Riu"/>
                 <outlet property="PhotoImage" destination="VSQ-p6-o0u" id="jmm-m2-15b"/>
+                <outlet property="SettingScrollView" destination="a1m-AF-8r7" id="8xQ-RB-Xo5"/>
                 <outlet property="bindingEmailLabel" destination="Z6A-Ma-YCN" id="Zdz-4T-G6V"/>
                 <outlet property="genderBooy" destination="JlW-SS-5Mu" id="tqb-Ly-Fle"/>
                 <outlet property="genderGail" destination="e8s-H7-s4G" id="m5b-Eu-3EB"/>

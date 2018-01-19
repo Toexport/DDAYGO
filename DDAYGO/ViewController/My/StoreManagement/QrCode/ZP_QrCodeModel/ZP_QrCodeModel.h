@@ -10,6 +10,6 @@
 
 @interface ZP_QrCodeModel : NSObject
 @property (nonatomic, strong) NSString * shopname;  // 商品名字
-@property (nonatomic, strong) NSString * supplierid; // 商家ID
+@property (nonatomic, strong) NSNumber * supplierid; // 商家ID
 
 @end

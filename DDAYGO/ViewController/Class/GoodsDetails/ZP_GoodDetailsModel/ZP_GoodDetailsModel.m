@@ -24,6 +24,7 @@
         self.productid = [NSString stringWithFormat:@"%@",dic[@"productid"]];
         self.productamount = [NSString stringWithFormat:@"%@",dic[@"productamount"]];
         self.state = dic[@"state"];
+        self.supplierid = dic[@"supplierid"];
     }
     return self;
 }

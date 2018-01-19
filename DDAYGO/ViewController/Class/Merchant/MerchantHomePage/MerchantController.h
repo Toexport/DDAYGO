@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MerchantController : UIViewController
-
+@property (nonatomic, strong) NSNumber * Supplieerid; // 供货商ID
 @end

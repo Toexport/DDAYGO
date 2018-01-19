@@ -10,8 +10,10 @@
 #import "ZPHomeLayout.h"
 #import "ZPHomeCell.h"
 #import "ShopIntroductionViewController.h"
+#import "SatisfactionSurveyController.h"
 #import "Pop-upPrefixHeader.pch"
 #import "PrefixHeader.pch"
+#import "ZP_ClassViewTool.h"
 #define JFRGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 #define JFRGBAColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(r)/255.0 blue:(r)/255.0 alpha:a]
 
@@ -45,6 +47,7 @@ static NSString * ID = @"collectionViewCell";
     }
     return _line;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpNavgationBar]; //navigationBar
@@ -55,16 +58,23 @@ static NSString * ID = @"collectionViewCell";
     
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self getNetData];
+    //    self.navigationController.navigationBar.hidden = YES;  //   隐藏navigationBar
+    
+}
+
 - (void)dataUI {
-    NSArray * allTitle = @[NSLocalizedString(@"全部", nil),NSLocalizedString(@"待付款", nil),NSLocalizedString(@"待发货", nil),NSLocalizedString(@"待收货", nil),NSLocalizedString(@"评价", nil)];
-    UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 37)];
+    self.title = @"zach的小店";
+    NSArray * allTitle = @[NSLocalizedString(@"销量", nil),NSLocalizedString(@"最新", nil),NSLocalizedString(@"好评", nil),NSLocalizedString(@"价格", nil)];
+    UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 35)];
     topView.backgroundColor = [UIColor whiteColor];
     UIView * gayLine = [[UIView alloc]initWithFrame:CGRectMake(0, topView.height - 1, ZP_Width, 1)];
     gayLine.backgroundColor = [UIColor colorWithHexString:@"#f2f2f2"];
     [topView addSubview:gayLine];
     
     for (int i = 0; i<4; i++) {
-        
         UIButton *btn =[UIButton buttonWithType:UIButtonTypeCustom];
         [btn setTitle:allTitle[i] forState:UIControlStateNormal];
         btn.frame = CGRectMake(i * (ZP_Width /4), 0, (ZP_Width /4) , 35);
@@ -73,21 +83,14 @@ static NSString * ID = @"collectionViewCell";
         [btn addTarget:self action:@selector(btnClickAction:) forControlEvents:UIControlEventTouchUpInside];
         btn.tag = 100 + i;
         if (i == 0) {
-            
             _btn = btn;
             _btn.selected = YES;
-            
         }
-        
         [topView addSubview:btn];
     }
-    
     [self.view addSubview:topView];
-    
     self.topView = topView;
-    
     self.line.x = self.btn.x;
-    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getNetData) name:@"relodMerchantDaTa" object:nil];
 }
 
@@ -97,22 +100,27 @@ static NSString * ID = @"collectionViewCell";
     sender.selected = YES;
     self.btn = sender;
     self.lastView.contentOffset = CGPointMake((sender.tag - 100) * ZP_Width, 0);
-    
     [UIView animateWithDuration:0.2 animations:^{
-        
         self.line.x = sender.x;
-        
     }];
 }
 
+// 获取数据
 - (void)getNetData {
-    NSLog(@"获取数据");
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    dic[@"supplierid"] = self.Supplieerid;
+    [ZP_ClassViewTool requestGetshopinfos:dic success:^(id obj) {
+        
+        ZPLog(@"%@",obj);
+    } failure:^(NSError *error) {
+        ZPLog(@"%@",error);
+    }];
 }
 
 //   懒加载
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 100, ZP_Width, ZP_height - NavBarHeight - 85) collectionViewLayout:[[ZPHomeLayout alloc] init]];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 37, ZP_Width, ZP_height - NavBarHeight - 85) collectionViewLayout:[[ZPHomeLayout alloc] init]];
         _collectionView.backgroundColor = JFRGBColor(238, 238, 238);
         
         //    注册Cell
@@ -133,11 +141,10 @@ static NSString * ID = @"collectionViewCell";
 
 //  navigationBar按钮
 - (void) setUpNavgationBar {
+    
     static CGFloat const kButtonWidth = 33.0f;
     static CGFloat const kButtonHeight = 43.0f;
-    
     UIImage * cartImage = [UIImage imageNamed:@"ic_shop_dropdown"];
-    
     UIButton *cartButton = [UIButton buttonWithType:UIButtonTypeCustom];
     cartButton.frame = CGRectMake(0.0f, 0.0f, kButtonWidth, kButtonHeight);
     cartButton.backgroundColor = [UIColor clearColor];
@@ -150,23 +157,21 @@ static NSString * ID = @"collectionViewCell";
 }
 
 - (NSArray *) titles {
-    
     return @[@"店铺简介",
+             @"满意度调查",
              @"反馈",
              @"分享"];
 }
 
 - (NSArray *) images {
-    
     return @[@"ic_shop_filesearch",
+             @"icon_shop_store_left",
              @"ic_shop_edit",
-             @"ic_shop_share"];
+             @"ic_shop_share",];
 }
-
 
 - (void)onClickedSweep:(UIButton *)sender {
     NSMutableArray * obj = [NSMutableArray array];
-    
     for (NSInteger i = 0; i < [self titles].count; i ++) {
         Pop_upMenuModle * info = [Pop_upMenuModle new];
         info.image = [self images][i];
@@ -178,9 +183,16 @@ static NSString * ID = @"collectionViewCell";
         NSLog(@"index:%ld",(long)index);
         if (index ==0) {
             ShopIntroductionViewController * ShopIntroduction = [[ShopIntroductionViewController alloc]init];
-            self.hidesBottomBarWhenPushed = YES;
+//            self.hidesBottomBarWhenPushed = YES;
+            ShopIntroduction.SupplierID = self.Supplieerid;
             [self.navigationController pushViewController:ShopIntroduction animated:YES];
-            self.hidesBottomBarWhenPushed = NO;
+//            self.hidesBottomBarWhenPushed = NO;
+        }else {
+            SatisfactionSurveyController * SatisfactionSurvey = [[SatisfactionSurveyController alloc]init];
+//            self.hidesBottomBarWhenPushed = YES;
+            SatisfactionSurvey.sid = self.Supplieerid;
+            [self.navigationController pushViewController:SatisfactionSurvey animated:YES];
+            
         }
         
     }];
@@ -188,12 +200,6 @@ static NSString * ID = @"collectionViewCell";
 
 /*****************************************************************************************************/
 /*****************************************************************************************************/
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    //    self.navigationController.navigationBar.hidden = YES;  //   隐藏navigationBar
-    
-}
 
 - (void)loadView {
     [super loadView];
@@ -209,20 +215,19 @@ static NSString * ID = @"collectionViewCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    ZPHomeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
-    cell.iconName = @"Shopping";
-    cell.describe = @"芭欧芭女爵系列*透水修护疑霜50ML...";
-    cell.currentPrice = @"NT888";
-    cell.originalPrice = @"NT8888";
-    cell.TrademarkImageName = @"ic_cp";
-    cell.numberingPrice = @"6666";
+    ZPHomeCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+//    cell.iconName = @"Shopping";
+//    cell.describe = @"芭欧芭女爵系列*透水修护疑霜50ML...";
+//    cell.currentPrice = @"NT888";
+//    cell.originalPrice = @"NT8888";
+//    cell.TrademarkImageName = @"ic_cp";
+//    cell.numberingPrice = @"6666";
     return cell;
 }
 
 //   添加headerView
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     ZPHomeHeadrView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerView" forIndexPath:indexPath];;
-    
     //    判断上面注册的UICollectionReusableView类型
     if (kind == UICollectionElementKindSectionHeader) {
         return headerView;
@@ -240,8 +245,6 @@ static NSString * ID = @"collectionViewCell";
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
     self.hidesBottomBarWhenPushed = YES;
     
     NSLog(@"选中%ld",(long)indexPath.item);
