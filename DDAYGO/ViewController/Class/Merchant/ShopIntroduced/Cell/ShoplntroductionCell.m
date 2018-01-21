@@ -167,11 +167,13 @@
     _BusinessregistrationIDLabel = BusinessregistrationIDLabel;
 }
 
-- (void)ShoplntroducedCollection:(ShoplntroducedModel *)model {
-    
-    _StorenameLabel.text = model.suppliername;
-    _AddressLabel.text = model.countrycodes;
-    _PhoneLabel.text = [model.phone stringValue];
-    _ServicetimeLabel.text = model.updatetime;
+//  解析数据
+- (void)ShoplntroducedCollection:(NSDictionary *)dic andDic:(NSDictionary *)dict{
+    _ratingLabel.text = [NSString stringWithFormat:@"%@",dict[@"good_percent"]];
+    _StorenameLabel.text = [NSString stringWithFormat:@"%@",dic[@"countrycode"]];
+//    _AddressLabel.text = model.countrycodes;
+//    _PhoneLabel.text = [model.phone stringValue];
+//    _ServicetimeLabel.text = model.updatetime;
 }
+
 @end

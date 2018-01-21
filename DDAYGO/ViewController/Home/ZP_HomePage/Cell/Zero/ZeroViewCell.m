@@ -32,7 +32,6 @@
     return self;
 }
 - (void)initUI {
-    NSLog(@"go -- - - - ");
     [self.contentView addSubview:self.scrollView];
 }
 

@@ -10,7 +10,7 @@
 
 @implementation ShoplntroducedModel
 
-+ (NSMutableArray *)arrayWithArray:(NSArray *)array {
++ (NSMutableArray *)dictWithArray:(NSArray *)array {
     NSMutableArray * arr = [[NSMutableArray alloc]init];
     if (array.count > 0) {
 //    NSMutableDictionary * dic = [[NSMutableDictionary alloc]init];

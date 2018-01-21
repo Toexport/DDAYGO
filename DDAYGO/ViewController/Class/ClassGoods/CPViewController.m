@@ -304,7 +304,7 @@
         self.newsData = [ZP_ClassGoodsModel arrayWithArray:arr];
         switch (tag) {
             case 0:
-                [self.collectionView1 reloadData];
+            [self.collectionView1 reloadData];
                 break;
             case 1:
             [self.collectionView2 reloadData];

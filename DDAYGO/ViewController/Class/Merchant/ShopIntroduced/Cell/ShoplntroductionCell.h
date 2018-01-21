@@ -16,5 +16,5 @@
 @property (nonatomic, strong) UILabel * ServicetimeLabel; // 服务时间
 @property (nonatomic, strong) UILabel * BusinessregistrationIDLabel; // 营业登记
 
-- (void)ShoplntroducedCollection:(ShoplntroducedModel *)model;
+- (void)ShoplntroducedCollection:(NSDictionary *)dic andDic:(NSDictionary *)dict;
 @end

@@ -37,7 +37,6 @@
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *detailViewTop;
 @property (weak, nonatomic) IBOutlet UITableView * detailTableView;
-
 @property (nonatomic, strong) NSArray * array;
 @property (nonatomic, strong) UIWindow * window;
 @property (nonatomic, strong) ProductDescriptionView * productDescriptionView;
@@ -46,12 +45,13 @@
 @property (weak, nonatomic) IBOutlet UIButton * ljgmBtn;
 @property (weak, nonatomic) IBOutlet UIButton * jrgwcBtn;
 @property (nonatomic, strong) ZP_GoodDetailsModel * model;
+
+
 @property (nonatomic, strong) NSArray * normsArr;
 @property (nonatomic, strong) NSArray * typeArr;
 @property (nonatomic, strong) NSArray * pjArr;
-
 @property (nonatomic, strong) NSMutableArray * productArray;
-
+@property (nonatomic, strong) NSMutableArray * textdetaArray;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cpsmHeight;
 @property (nonatomic, strong) NSMutableArray *evaluateArray;
 
@@ -337,7 +337,7 @@
 - (IBAction)cpnrAction:(id)sender {
     
     if (_pjArr.count >0) {
-        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }else {
         ZPLog(@"----==");
 //       [SVProgressHUD showInfoWithStatus:@"数据加载失败!"];
@@ -346,19 +346,28 @@
 }
 
 - (IBAction)qupjAction:(id)sender {
-    if (_pjArr.count > 0) {
-        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    if (_typeArr.count > 0) {
+    NSIndexPath * index = [NSIndexPath indexPathForRow:0 inSection:1];
+
+        [self.detailTableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }else {
 //        [SVProgressHUD showInfoWithStatus:@"数据加载失败!"];
+        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_pjArr.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }
     [self updateDetailView:1];
 }
 
 - (IBAction)shfwAction:(id)sender {
-    if (_pjArr.count >0) {
-        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    if (_normsArr.count >0) {
+        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }else {
 //        [SVProgressHUD showInfoWithStatus:@"数据加载失败!"];
+        if (_typeArr.count == 0) {
+            [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_pjArr.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        }else{
+            [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_typeArr.count-1 inSection:1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        }
+        
     }
     [self updateDetailView:2];
 }
@@ -433,6 +442,22 @@
 
 #pragma mark  --- tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        if (self.productArray.count>0) {
+            return self.productArray.count;
+        }else{
+            return 0;
+        }
+    }else if (section == 1){
+        if (self.evaluateArray.count>0) {
+            return self.evaluateArray.count;
+        }else{
+            return 0;
+        }
+    }else{
+        return 0;
+        
+    }
     return self.productArray.count;
 }
 
@@ -446,18 +471,19 @@
         ProductTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ProductTableViewCell"];
         [cell.productImageView sd_setImageWithURL:self.productArray[indexPath.row]];
         return cell;
-    } else{
-//        if (indexPath.section == 0) {
+    } else
+        if (indexPath.section == 1) {
         
         EvaluateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EvaluateTableViewCell"];
-        [cell updateData:self.evaluateArray.firstObject];
+        NSDictionary * dic = self.evaluateArray[indexPath.row];
+        [cell updateData:dic];
         return cell;
-//        }else {
-//            TextdetailsViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TextdetailsViewCell"];
-//            return cell;
+        
+    }else {
+            TextdetailsViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TextdetailsViewCell"];
+            return cell;
         }
-    }
-
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -465,7 +491,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 0;
+        return 100;
     } else
          if (indexPath.section == 1){
         return 192;

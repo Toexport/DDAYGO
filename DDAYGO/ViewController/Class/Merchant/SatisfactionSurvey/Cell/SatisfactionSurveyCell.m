@@ -17,7 +17,6 @@
 
 - (void)SatisfactionSurvey:(SatisfactionSurveyModel *)model {
     self.NameLabel.text = model.realname;
-    
     self.PinglunneirongLabel.text = model.createtime;
 }
 

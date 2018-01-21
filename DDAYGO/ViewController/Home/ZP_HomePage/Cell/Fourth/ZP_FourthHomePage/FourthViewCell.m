@@ -11,7 +11,8 @@
 #import "CustomCell.h"
 #import "ZP_HomeTool.h"
 #import "ZP_FourthModel.h"
-@interface FourthViewCell ()<UITableViewDelegate,UITableViewDataSource> {
+#import "SDCycleScrollView.h"
+@interface FourthViewCell ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate> {
     
 //    NSArray * CustomAArray;
 }
@@ -41,6 +42,7 @@
 }
 
 - (void)initUI {
+    [self.contentView addSubview:self.scrollView];
 //    标题
     ZP_GeneralLabel * Titlelabel = [ZP_GeneralLabel initWithtextLabel:_Titlelabel.text textColor:ZP_textblack font:ZP_addBtnTextdetaFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self addSubview:Titlelabel];
@@ -62,16 +64,47 @@
     }];
     
 //  图片1
-    UIImageView * imageView1 = [UIImageView new];
-    [self addSubview:imageView1];
-    [imageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(30);
-        make.left.equalTo(self).offset(0);
-        make.width.mas_equalTo(100);
-        make.height.mas_equalTo(160);
-    }];
-    _imageView1 = imageView1;
+//    UIImageView * imageView1 = [UIImageView new];
+//    [self addSubview:imageView1];
+//    [imageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self).offset(30);
+//        make.left.equalTo(self).offset(0);
+//        make.width.mas_equalTo(100);
+//        make.height.mas_equalTo(160);
+//    }];
+//    _imageView1 = imageView1;
+    
 }
+
+- (SDCycleScrollView *)scrollView {
+    if (!_scrollView) {
+        CGFloat With ;
+        if (ZP_Width == 320) {
+            With = 100;
+        }else
+            if(ZP_Width == 375) {
+                With = 100 * 1.1;
+        }else {
+            With = 100 * 1.2;
+            }
+        _scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 30, With,  160) delegate:self placeholderImage:[UIImage imageNamed:@""]];
+        _scrollView.backgroundColor = [UIColor whiteColor];
+        _scrollView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
+        _scrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
+        _scrollView.userInteractionEnabled = YES;
+//        UITapGestureRecognizer * tap = [UITapGestureRecognizer alloc]initWithTarget:self action:<#(nullable SEL)#>
+        self.scrollView.imageURLStringsGroup = @[@"img_home_advertisemen"];
+    }
+    return _scrollView;
+}
+
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
+    NSLog(@"---点击了第%ld张图片", (long)index);
+    if (self.fourthBlock1) {
+        self.fourthBlock1(@(index));
+    }
+}
+
 
 - (void)setArrDara:(NSArray *)arrDara {
     _arrDara = arrDara;
@@ -80,7 +113,7 @@
 
 - (void)InformationWithDic:(NSDictionary *)dic {
     _Titlelabel.text = dic[@"title"];
-    _imageView1.image = [UIImage imageNamed:@"img_home_advertisemen"];
+//    _imageView1.image = [UIImage imageNamed:@"img_home_advertisemen"];
 //    [self allData];
 }
 
@@ -102,35 +135,12 @@
         make.top.equalTo(self).offset(30);
     }];
 }
-//// 数据
-//- (void)allData {
-////    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
-//    NSDictionary * dict = @{@"count":@"5",@"countrycode":@"886"};
-//    [ZP_HomeTool requestSellLikeHotCakes:dict success:^(id obj) {
-//        NSArray * arr = obj;
-//        ZPLog(@"%@",arr);
-//        self. = [ZP_FourthModel arrayWithArray:arr];
-//        [self.tableView reloadData];
-//    } failure:^(NSError *error) {
-//        NSLog(@"%@",error);
-//    }];
-//}
-
-
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
     return self.arrDara.count;
 }
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//
-//    return self.newsData.count;
-//}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
         CustomCell * cell = [tableView dequeueReusableCellWithIdentifier:@"customCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
          ZP_FourthModel * model = self.arrDara[indexPath.row];

@@ -29,8 +29,5 @@
 
 //@property (nonatomic, strong) NSString * tagid;
 
-
-
-
 @property (nonatomic, strong) UILabel * RemindLabel;
 @end

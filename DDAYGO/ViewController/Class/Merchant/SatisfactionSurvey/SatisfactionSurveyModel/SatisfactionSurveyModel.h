@@ -16,5 +16,5 @@
 @property (nonatomic, strong) NSNumber * fraction; // 评分
 @property (nonatomic,strong) NSString * createtime; // 评价时间
 
-- (NSMutableArray *)SatisfactionSurvey:(NSArray *)array;
++ (NSMutableArray *)SatisfactionSurvey:(NSArray *)array;
 @end

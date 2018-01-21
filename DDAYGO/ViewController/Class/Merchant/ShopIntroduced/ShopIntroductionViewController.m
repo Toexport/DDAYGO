@@ -16,7 +16,8 @@
 @property (nonatomic, strong) NSMutableArray * NewsData;
 @property (nonatomic, strong) UITableView * tableview;
 @property (nonatomic, strong) ShoplntroducedModel * model;
-
+@property (nonatomic, strong) NSDictionary * introductionDic;
+@property (nonatomic, strong) NSDictionary * reviewgoodDic;
 @end
 
 @implementation ShopIntroductionViewController
@@ -46,12 +47,18 @@
     NSMutableDictionary * dict = [NSMutableDictionary dictionary];
     dict[@"supplierid"] = self.SupplierID;
     [ZP_ClassViewTool requestShopintroduction:dict success:^(id obj) {
-        
+        NSDictionary * dic = obj;
+        _introductionDic = dic[@"introduction"];
+        _reviewgoodDic = dic[@"reviewgood"];
+        ZPLog(@"%@",_introductionDic[@"updatetime"]);
+//        self.NewsData = [ShoplntroducedModel arrayWithArray:arr];
         [self.tableview reloadData];
+        
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
     }];
 }
+
 
 #pragma Makr - TableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -59,15 +66,18 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.NewsData.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ShoplntroducedModel * model = _NewsData[indexPath.row];
+//    ShoplntroducedModel * model = _NewsData[indexPath.row];
     ShoplntroductionCell * cell = [tableView dequeueReusableCellWithIdentifier:@"Shoplntroduction"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone; // 取消Cell变灰效果
     self.tableview.tableFooterView = [[UIView alloc]init];
-    [cell ShoplntroducedCollection:model];
+    if (_introductionDic.count>0 && _reviewgoodDic.count>0) {
+        [cell ShoplntroducedCollection:_introductionDic andDic:_reviewgoodDic];
+    }
+    
     return cell;
     
 }

@@ -8,14 +8,14 @@
 
 #import "SatisfactionSurveyController.h"
 #import "SatisfactionSurveyCell.h"
+#import "SatisfactionSurveyModel.h"
 #import "PrefixHeader.pch"
 #import "ZP_ClassViewTool.h"
 @interface SatisfactionSurveyController ()<UITableViewDelegate, UITableViewDataSource>
-
+@property (nonatomic, strong) NSMutableArray * NewsData;
 @end
 
 @implementation SatisfactionSurveyController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
@@ -35,16 +35,24 @@
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"3";
     [ZP_ClassViewTool requestGetshopreviews:dic success:^(id obj) {
+        NSDictionary * dict = obj;
+        NSArray * arr = dict[@"datalist"];
+        _NewsData = [SatisfactionSurveyModel SatisfactionSurvey:arr];
         ZPLog(@"%@",obj);
-        
+        [self.tableView reloadData];
     } failure:^(NSError *error) {
         
         ZPLog(@"%@",error);
     }];
 }
+
 #pragma mark --- tableviewdelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    if (self.NewsData.count > 0) {
+        return self.NewsData.count;
+    }else {
+    return 0;
+    }
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -53,6 +61,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SatisfactionSurveyCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SatisfactionSurveyCell"];
+//    NSArray * arr = _NewsData[indexPath.section];
+    SatisfactionSurveyModel * model = _NewsData[indexPath.section];
+    [cell SatisfactionSurvey:model];
     return cell;
 }
 

@@ -26,7 +26,6 @@
 @property (nonatomic, strong) NSMutableArray * SixthArrData;
 @property (nonatomic, strong) NSArray * postionArray;
 @property (nonatomic, strong) NSArray * dataArray;
-
 @property (nonatomic, strong) NSArray * bannerArray;
 
 @end
@@ -42,6 +41,7 @@
     [self SixthAllData];
     [self addRefresh];
     [self getadvertlist];
+    [self bestSelling];
 }
 // UI
 - (void)initUI {
@@ -300,6 +300,9 @@
             static NSString * FourthID = @"Fourthcell";
             FourthViewCell * cell = [tableView dequeueReusableCellWithIdentifier:FourthID];
             cell.arrDara = self.newsData2;
+            cell.fourthBlock1 = ^(id response) {
+                
+            };
             cell.FourthBlock = ^(NSInteger tag){
                 DetailedController *viewController = [[DetailedController alloc] init];
                 viewController.productId = @(tag);

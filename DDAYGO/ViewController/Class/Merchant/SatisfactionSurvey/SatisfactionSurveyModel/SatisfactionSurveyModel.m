@@ -10,7 +10,7 @@
 
 @implementation SatisfactionSurveyModel
 
-- (NSMutableArray *)SatisfactionSurvey:(NSArray *)array {
++ (NSMutableArray *)SatisfactionSurvey:(NSArray *)array {
     NSMutableArray * arr = [[NSMutableArray alloc]init];
     for (NSDictionary * dic in array) {
         SatisfactionSurveyModel * model = [[SatisfactionSurveyModel alloc]init];
