@@ -434,6 +434,7 @@
 		C4D9E70E1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D9E70C1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib */; };
 		C4ECF4AB2015AFC1006DFE7E /* MerchantCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECF4AA2015AFC1006DFE7E /* MerchantCollectionViewCell.m */; };
 		C4ECF4AF2015CF5E006DFE7E /* MerchantModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECF4AE2015CF5E006DFE7E /* MerchantModel.m */; };
+		C4ECF4B32016087C006DFE7E /* SecondModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECF4B22016087C006DFE7E /* SecondModel.m */; };
 		C4FFF1F82011EFF000EF4A4D /* SatisfactionSurveyController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFF1F62011EFF000EF4A4D /* SatisfactionSurveyController.m */; };
 		C4FFF1F92011EFF000EF4A4D /* SatisfactionSurveyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FFF1F72011EFF000EF4A4D /* SatisfactionSurveyController.xib */; };
 		C4FFF1FE2011F05A00EF4A4D /* SatisfactionSurveyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFF1FC2011F05A00EF4A4D /* SatisfactionSurveyCell.m */; };
@@ -1242,6 +1243,8 @@
 		C4ECF4AA2015AFC1006DFE7E /* MerchantCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantCollectionViewCell.m; sourceTree = "<group>"; };
 		C4ECF4AD2015CF5E006DFE7E /* MerchantModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MerchantModel.h; sourceTree = "<group>"; };
 		C4ECF4AE2015CF5E006DFE7E /* MerchantModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantModel.m; sourceTree = "<group>"; };
+		C4ECF4B12016087C006DFE7E /* SecondModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondModel.h; sourceTree = "<group>"; };
+		C4ECF4B22016087C006DFE7E /* SecondModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondModel.m; sourceTree = "<group>"; };
 		C4FFF1F52011EFF000EF4A4D /* SatisfactionSurveyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SatisfactionSurveyController.h; sourceTree = "<group>"; };
 		C4FFF1F62011EFF000EF4A4D /* SatisfactionSurveyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SatisfactionSurveyController.m; sourceTree = "<group>"; };
 		C4FFF1F72011EFF000EF4A4D /* SatisfactionSurveyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SatisfactionSurveyController.xib; sourceTree = "<group>"; };
@@ -2975,6 +2978,7 @@
 			children = (
 				C45F23221FA0757A00F5DB41 /* SecondViewCell.h */,
 				C45F23231FA0757A00F5DB41 /* SecondViewCell.m */,
+				C4ECF4B02016086C006DFE7E /* SecondModel */,
 			);
 			path = Second;
 			sourceTree = "<group>";
@@ -4025,6 +4029,15 @@
 			path = MerchantModel;
 			sourceTree = "<group>";
 		};
+		C4ECF4B02016086C006DFE7E /* SecondModel */ = {
+			isa = PBXGroup;
+			children = (
+				C4ECF4B12016087C006DFE7E /* SecondModel.h */,
+				C4ECF4B22016087C006DFE7E /* SecondModel.m */,
+			);
+			path = SecondModel;
+			sourceTree = "<group>";
+		};
 		C4FFF1F42011EFC500EF4A4D /* SatisfactionSurvey */ = {
 			isa = PBXGroup;
 			children = (
@@ -4498,6 +4511,7 @@
 				C482B2761FC2848C00D7539F /* ZP_GeneralLabel.m in Sources */,
 				C4ECF4AF2015CF5E006DFE7E /* MerchantModel.m in Sources */,
 				06F571791F9F163F00D61FDB /* ConcernShopViewController.m in Sources */,
+				C4ECF4B32016087C006DFE7E /* SecondModel.m in Sources */,
 				06F5716B1F9F15CE00D61FDB /* CollectionTableViewCell.m in Sources */,
 				06621D9B1F9757B40030983F /* UIView+SDAutoLayout.m in Sources */,
 				06418F511F7A076A00479523 /* MASConstraint.m in Sources */,

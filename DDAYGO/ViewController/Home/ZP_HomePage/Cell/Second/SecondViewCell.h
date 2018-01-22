@@ -11,5 +11,5 @@
 @interface SecondViewCell : UITableViewCell
 @property (nonatomic, copy) void(^SecondBlock)(NSInteger tag);
 
-- (void)Second: (NSArray *)sup;
+- (void)Second:(NSArray *)sup;
 @end

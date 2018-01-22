@@ -23,5 +23,6 @@
 @end
 
 @interface ZP_FourthModel1 : NSObject
-
+@property (nonatomic, strong) NSString * advertimg; // 主图
+//+ (NSMutableArray *)FourthWithArray:(NSArray *)array;
 @end

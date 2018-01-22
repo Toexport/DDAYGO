@@ -22,6 +22,7 @@
 #import "ConfirmViewController.h"
 #import "ProductTableViewCell.h"
 #import "EvaluateTableViewCell.h"
+#import "MainViewController.h"
 @interface DetailedController ()<UICollectionViewDelegate,UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource>
 
 //**Xib 拖过来然后填写数据**/
@@ -196,33 +197,11 @@
     _ShoppingIdLabel.text = model.TrademarkLabel;
 }
 
-// 获取评价数据
-- (void)evaluation {
-    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    dic[@"productid"] = _productId;
-    dic[@"page"] = @"1";
-    dic[@"pagesize"] = @"5";
-    [ZP_ClassViewTool requEvaluates:dic success:^(id obj) {
-        NSLog(@"go? %@",obj);
-        
-//        这里到时候需要根据 接口返回的类型来判断，不然一样会奔溃·
-        _pjArr = obj;
-        if (obj == nil) {
-//            [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
-            ZPLog(@"-----");
-        }
-        ZPLog(@"%@",obj);
-    } failure:^(NSError *error) {
-        ZPLog(@"%@",error);
-//        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
-    }];
-}
-
-
 //  自定义返回按钮
 - (IBAction)backAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 // 分享
 - (IBAction)shareAction:(id)sender {
     
@@ -286,6 +265,18 @@
 //    self.hidesBottomBarWhenPushed = NO;
 //    [self.navigationController pushViewController:Shopping animated:YES];
 //    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
+    
+//    LogregisterController * Login = [[LogregisterController alloc]init];
+//    [self.navigationController pushViewController:Login animated:YES];
+//    [SVProgressHUD showErrorWithStatus:@"请登录"];
+    
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tbvc  = [[UIApplication sharedApplication] keyWindow].rootViewController;
+        [tbvc setSelectedIndex:2];
+    }
+    
+    
 //    self.hidesBottomBarWhenPushed = NO;
 }
 - (IBAction)dianpuAction:(id)sender {
@@ -331,17 +322,35 @@
     }
     [self.productDescriptionView show];
 }
-//
 
+// 获取评价数据
+- (void)evaluation {
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    dic[@"productid"] = _productId;
+    dic[@"page"] = @"1";
+    dic[@"pagesize"] = @"5";
+    [ZP_ClassViewTool requEvaluates:dic success:^(id obj) {
+        NSLog(@"go? %@",obj);
+        
+        //        这里到时候需要根据 接口返回的类型来判断，不然一样会奔溃·
+        _pjArr = obj;
+        if (obj == nil) {
+            ZPLog(@"-----");
+        }
+        
+        ZPLog(@"%@",obj);
+    } failure:^(NSError *error) {
+        ZPLog(@"%@",error);
+    }];
+}
 
 //这里才是点击的事件（评价详情按钮）,
 - (IBAction)cpnrAction:(id)sender {
     
     if (_pjArr.count >0) {
-        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
     }else {
         ZPLog(@"----==");
-//       [SVProgressHUD showInfoWithStatus:@"数据加载失败!"];
     }
      [self updateDetailView:0];
 }
@@ -350,23 +359,23 @@
     if (_typeArr.count > 0) {
     NSIndexPath * index = [NSIndexPath indexPathForRow:0 inSection:1];
 
-        [self.detailTableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        [self.detailTableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:NO];
     }else {
 //        [SVProgressHUD showInfoWithStatus:@"数据加载失败!"];
-        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_pjArr.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_pjArr.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
     }
     [self updateDetailView:1];
 }
 
 - (IBAction)shfwAction:(id)sender {
     if (_normsArr.count >0) {
-        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2] atScrollPosition:UITableViewScrollPositionTop animated:NO];
     }else {
 //        [SVProgressHUD showInfoWithStatus:@"数据加载失败!"];
         if (_typeArr.count == 0) {
-            [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_pjArr.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_pjArr.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
         }else{
-            [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_typeArr.count-1 inSection:1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+            [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_typeArr.count-1 inSection:1] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
         }
         
     }

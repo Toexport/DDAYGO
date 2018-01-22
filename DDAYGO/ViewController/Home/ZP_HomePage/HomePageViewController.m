@@ -27,6 +27,8 @@
 @property (nonatomic, strong) NSArray * postionArray;
 @property (nonatomic, strong) NSArray * dataArray;
 @property (nonatomic, strong) NSArray * bannerArray;
+@property (nonatomic, strong) NSArray * ForurthArray;
+@property (nonatomic, strong) NSArray * SecondArray;
 
 @end
 
@@ -42,6 +44,7 @@
     [self addRefresh];
     [self getadvertlist];
     [self bestSelling];
+    [self getNewsAlldata];
 }
 // UI
 - (void)initUI {
@@ -164,11 +167,23 @@
 // 74) 热销商品广告列表(轮播图)
 - (void)bestSelling {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    dic[@"adcode"] = @"AD001";
+    dic[@"adcode"] = @"AD004";
     [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
-        
         ZPLog(@"%@",obj);
-        _bannerArray = [ZP_ZeroModel mj_objectArrayWithKeyValuesArray:obj];
+        _ForurthArray = [ZP_ZeroModel mj_objectArrayWithKeyValuesArray:obj];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        ZPLog(@"%@",error);
+    }];
+}
+
+// 获取首页4张大图片
+- (void)getNewsAlldata {
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    dic[@"adcode"] = @"AD003";
+    [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
+        _SecondArray = [ZP_ZeroModel mj_objectArrayWithKeyValuesArray:obj];
+        ZPLog(@"%@",obj);
         [self.tableView reloadData];
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
@@ -215,6 +230,7 @@
 
 // SixthArrData
 - (void)SixthAllData {
+    
     NSDictionary * dict = @{@"acount":@"5",@"countrycode":@"886"};
     [ZP_HomeTool requSelectLikeHotCakes:dict success:^(id obj) {
         NSArray * arr = obj;
@@ -226,6 +242,7 @@
         //        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Select erchandise ach Month", nil)];
     }];
 }
+
 #pragma mark -- tabeView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -234,8 +251,7 @@
 
 // cell个数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
-    NSInteger number = 3;
+    NSInteger number = 4;
     if (self.newsData.count > 0) {
         ZPLog(@"_____");
         number ++;
@@ -272,19 +288,21 @@
             return cell;
     
         }else
-    /*************暂时不需要*************/
-        //        if (indexPath.section == 2){
-        //            static NSString * SecondID = @"Secondcell";
-        //            SecondViewCell * cell = [tableView dequeueReusableCellWithIdentifier: SecondID];
-        //            cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
-        //            cell.SecondBlock = ^(NSInteger tag){
-        //                DetailedController *viewController = [[DetailedController alloc] init];
-        ////                self.hidesBottomBarWhenPushed = YES;
-        //                [self.navigationController pushViewController:viewController animated:YES];//                self.hidesBottomBarWhenPushed = NO;
-        //            };
-        //            [cell Second:B];
-        //            return cell;
-        //    }else
+    
+            if (indexPath.section == 2){
+                static NSString * SecondID = @"Secondcell";
+                SecondViewCell * cell = [tableView dequeueReusableCellWithIdentifier: SecondID];
+
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
+                [cell Second:_SecondArray];
+                cell.SecondBlock = ^(NSInteger tag){
+//                    DetailedController *viewController = [[DetailedController alloc] init];
+//        //                self.hidesBottomBarWhenPushed = YES;
+//                    [self.navigationController pushViewController:viewController animated:YES];//                self.hidesBottomBarWhenPushed = NO;
+                };
+                return cell;
+            }else
+            /*************暂时不需要*************/
         //        if (indexPath.section == 3){
         //            static NSString * ThirdID = @"Thirdcell";
         //            ThirdViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ThirdID];
@@ -296,10 +314,12 @@
         //            [cell Third:C];
         //            return cell;
         //    }else
-        if (indexPath.section == 2){
+        if (indexPath.section == 3){
             static NSString * FourthID = @"Fourthcell";
             FourthViewCell * cell = [tableView dequeueReusableCellWithIdentifier:FourthID];
             cell.arrDara = self.newsData2;
+//            cell.arr = _ForurthArray;
+            [cell inisWithArray:_ForurthArray];
             cell.fourthBlock1 = ^(id response) {
                 
             };
@@ -313,7 +333,7 @@
             [cell InformationWithDic:dic];
             return cell;
         }else
-            if (indexPath.section ==3){
+            if (indexPath.section ==4){
                 static NSString * FifthID = @"ceaaa";
                 FifthViewCell * cell = [tableView dequeueReusableCellWithIdentifier: FifthID];
                  cell.arrData = self.newsData;
@@ -346,23 +366,21 @@
         return zeroHeight;
     }else if (indexPath.section == 1) {
         return 200;
-    }else if (indexPath.section == 2) {
+    }else
+        if (indexPath.section == 2){
+        return ZP_Width;
+    }else
+        if (indexPath.section == 3) {
         return 190;
-    }else if (indexPath.section == 3) {
-//        if (self.newsData.count == 0) {
-//            ZPLog(@"_____");
-//            return 0;
-//        }else {
+    }else if (indexPath.section == 4) {
             return ZP_Width / 4;
 //        }
     }else {
         return ZP_Width / 3 * 2 + 35;
         
     }
-///**********暂时不需要***********/
-////        if (indexPath.section == 2){
-////            return ZP_Width;
-////    }else
+
+    ///**********暂时不需要***********/
 ////        if (indexPath.section == 3){
 ////            return 210;
 ////    }else

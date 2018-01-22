@@ -98,10 +98,7 @@
         if (i == 3) {
 //            默认图片
             [btn setImage:[UIImage imageNamed:@"icon_shop_classification_01"] forState:UIControlStateNormal];
-
         }
-        
-        
         
         [topView addSubview:btn];
     }
@@ -137,8 +134,6 @@
         ZPLog(@"%@",error);
     }];
 }
-
-
 
 - (void)initCollectionView {
     UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc]init];
@@ -181,6 +176,7 @@
     _collectionView4.dataSource = self;
     
     if (@available(iOS 11.0, *)){
+        
         _collectionView1.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         _collectionView1.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
         _collectionView1.scrollIndicatorInsets = _collectionView1.contentInset;
@@ -244,13 +240,9 @@
         NSLog(@"index:%ld",(long)index);
         if (index ==0) {
             ShopIntroductionViewController * ShopIntroduction = [[ShopIntroductionViewController alloc]init];
-//            self.hidesBottomBarWhenPushed = YES;
             ShopIntroduction.SupplierID = self.Supplieerid;
-            [self.navigationController pushViewController:ShopIntroduction animated:YES];
-//            self.hidesBottomBarWhenPushed = NO;
         }else {
             SatisfactionSurveyController * SatisfactionSurvey = [[SatisfactionSurveyController alloc]init];
-//            self.hidesBottomBarWhenPushed = YES;
             SatisfactionSurvey.sid = self.Supplieerid;
             [self.navigationController pushViewController:SatisfactionSurvey animated:YES];
         }
@@ -263,11 +255,7 @@
 
     if (sender.tag -100 == 3) {
         sender.selected = !sender.selected;
-
         [self getproductfilter:sender.tag];
-//        self.btn.selected = NO;
-//        sender.selected = YES;
-//        self.btn = sender;
         self.lastView.contentOffset = CGPointMake((sender.tag -100) * ZP_Width, 0);
         [UIView animateWithDuration:0.2 animations:^{
             
@@ -290,6 +278,7 @@
             NSLog(@"meiyou ");
         }
         
+        
     }else{
         [self getproductfilter:sender.tag];
         self.btn.selected = NO;
@@ -297,7 +286,6 @@
         self.btn = sender;
         self.lastView.contentOffset = CGPointMake((sender.tag -100) * ZP_Width, 0);
         [UIView animateWithDuration:0.2 animations:^{
-            
             self.line.x = sender.x;
             
         }];
@@ -307,16 +295,15 @@
 
 // 77) 根据大分类和子分类，获取该分类下产品，默认销量排序，支持排序最新，好评，价格
 - (void)getproductfilter:(NSInteger)tag {
-    ///这个里面的东西呢· 这样能有数据？
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    //    dic[@"fathid"] = self.Supplieerid;
+//        dic[@"fathid"] = self.Supplieerid;
     dic[@"fathid"] = @"0";
+//    这个id
     dic[@"seq"] = @"asc";
     dic[@"word"] = @"";
     dic[@"countrycode"] = @"886";
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"30";
-    
     switch (tag-100) {
         case 0:
             dic[@"sort"] = @"sale"; //销量
@@ -372,7 +359,7 @@
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     //    dic[@"fathid"] = self.Supplieerid;
     dic[@"fathid"] = @"0";
-    
+//    这个id 为0
     NSLog(@"tag = %ld",tag);
     
     switch (tag) {

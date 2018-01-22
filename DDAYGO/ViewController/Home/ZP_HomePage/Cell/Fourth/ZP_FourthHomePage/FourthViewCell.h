@@ -17,6 +17,12 @@ typedef void (^FourthBlock)(id response);
 @property (nonatomic, strong) UIImageView * imageView1; // 图片1
 @property (nonatomic ,strong) SDCycleScrollView * scrollView;
 @property (nonatomic ,strong) FourthBlock fourthBlock1;
+
+@property (nonatomic ,strong) NSArray * arr;
+
 - (void)InformationWithDic:(NSDictionary *)dic;
+
+
+- (void)inisWithArray:(NSArray *)arr;
 
 @end

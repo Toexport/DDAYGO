@@ -63,6 +63,8 @@
         make.height.mas_equalTo(1);
     }];
     
+    
+    [self.contentView addSubview:self.scrollView];
 //  图片1
 //    UIImageView * imageView1 = [UIImageView new];
 //    [self addSubview:imageView1];
@@ -91,11 +93,23 @@
         _scrollView.backgroundColor = [UIColor whiteColor];
         _scrollView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
         _scrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
-        _scrollView.userInteractionEnabled = YES;
+//        _scrollView.userInteractionEnabled = YES;
+        _scrollView.backgroundColor = [UIColor whiteColor];
 //        UITapGestureRecognizer * tap = [UITapGestureRecognizer alloc]initWithTarget:self action:<#(nullable SEL)#>
-        self.scrollView.imageURLStringsGroup = @[@"img_home_advertisemen"];
+        
     }
     return _scrollView;
+}
+
+
+- (void)inisWithArray:(NSArray *)arr
+{
+
+    NSMutableArray * array = [NSMutableArray array];
+    for (ZP_ZeroModel * model in arr) {
+        [array addObject:[NSString stringWithFormat:@"%@%@",ImgAPI,model.advertimg]];
+    }
+    self.scrollView.imageURLStringsGroup = array;
 }
 
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {

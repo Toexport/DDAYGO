@@ -8,6 +8,7 @@
 
 #import "SecondViewCell.h"
 #import "PrefixHeader.pch"
+
 @implementation SecondViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -18,15 +19,13 @@
     return self;
 }
 - (void)Second:(NSArray *)sup {
-    
     NSInteger num = 0;
     for (int z = 0; z <= 1; z ++) {
-        
         for (int i = 0; i <= 1; i ++) {
-            
-            UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i * ZP_Width / 2, z * ZP_Width / 2, ZP_Width / 2, ZP_Width / 2)];
+            UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i * ZP_Width / 2-1, z * ZP_Width / 2-1, ZP_Width / 2-1, ZP_Width / 2-1)];
             imageView.tag = num;
-            [imageView setImage:[UIImage imageNamed:@"seven"]];
+            ZP_ZeroModel *model = sup[num];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI,model.advertimg]]];
             imageView.userInteractionEnabled = YES;
             UITapGestureRecognizer  * singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(buttonType:)];
             [imageView addGestureRecognizer:singleTap];
@@ -36,6 +35,8 @@
         }
     }
 }
+
+
 
 - (void)buttonType:(UITapGestureRecognizer *)tap {
     
