@@ -30,7 +30,7 @@
 // UI
 - (void)initUI {
     self.title = NSLocalizedString(@"申请退款", nil);
-    
+    _view4.hidden = YES;
     [self requestRefundAllData];
     _imageView = [[LPDQuoteImagesView alloc] initWithFrame:CGRectMake(0, 25, RELATIVE_VALUE(220), RELATIVE_VALUE(80)) withCountPerRowInView:3 cellMargin:12];
     _imageView.collectionView.scrollEnabled = NO;

@@ -296,9 +296,8 @@
 // 77) 根据大分类和子分类，获取该分类下产品，默认销量排序，支持排序最新，好评，价格
 - (void)getproductfilter:(NSInteger)tag {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-//        dic[@"fathid"] = self.Supplieerid;
-    dic[@"fathid"] = @"0";
-//    这个id
+        dic[@"fathid"] = self.Supplieerid;
+//    dic[@"fathid"] = @"0";
     dic[@"seq"] = @"asc";
     dic[@"word"] = @"";
     dic[@"countrycode"] = @"886";
@@ -349,7 +348,6 @@
     }];
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    //    NSLog(@"go");
     [[NSNotificationCenter defaultCenter]postNotificationName:@"relodClassDaTa" object:nil];
     NSInteger tag = scrollView.contentOffset.x/ZP_Width;
     UIButton *button = [self.topView viewWithTag:tag+100];
@@ -357,9 +355,8 @@
     button.selected = YES;
     self.btn = button;
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    //    dic[@"fathid"] = self.Supplieerid;
-    dic[@"fathid"] = @"0";
-//    这个id 为0
+    dic[@"fathid"] = self.Supplieerid;
+//    dic[@"fathid"] = @"0";
     NSLog(@"tag = %ld",tag);
     
     switch (tag) {

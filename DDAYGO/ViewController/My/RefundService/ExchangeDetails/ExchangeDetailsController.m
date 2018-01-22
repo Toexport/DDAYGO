@@ -14,6 +14,9 @@
 @interface ExchangeDetailsController ()<LPDQuoteImagesViewDelegate>
 @property (nonatomic, strong)LPDQuoteImagesView *imageView;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ViewLayoutConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *View3LayoutConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *View4LayoutConstraint;
 @property (nonatomic, strong) ExchangeDetailsModel * model;
 @property (nonatomic, strong) ExchangeDetailsModel * model1;
 
@@ -82,52 +85,45 @@
     switch (a) {
         case 0:
             self.RequestTypeLabel.text = @"退款";
+            [self.CancelBut setTitle:@"取消退款"  forState:UIControlStateNormal];
+            self.RequestServiceBut.hidden = YES;
+            _View3LayoutConstraint.constant = CGFLOAT_MIN;
+            self.View3LayoutConstraint.constant = 150;
+            self.view3.hidden = YES;
             break;
+            
         case 1:
-            self.RequestTypeLabel.text = @"退货退款";
+            self.RequestTypeLabel.text = @"退货";
+            [self.CancelBut setTitle:@"取消退货"  forState:UIControlStateNormal];
+            _View3LayoutConstraint.constant = CGFLOAT_MIN;
+            self.View3LayoutConstraint.constant = 150;
+            self.view3.hidden = YES;
+            self.RequestServiceBut.hidden = YES;
             break;
+            
         case 2:
             self.RequestTypeLabel.text = @"换货";
+            [self.CancelBut setTitle:@"取消换货"  forState:UIControlStateNormal];
+            _View3LayoutConstraint.constant = CGFLOAT_MIN;
+            self.View3LayoutConstraint.constant = 150;
+            self.view3.hidden = YES;
+            self.RequestServiceBut.hidden = YES;
             break;
+            
         default:
             break;
     }
+    
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
     self.CurrencyLabel.text = [NSString stringWithFormat:@"%@",str];
     self.PriceLabel.text = [model.returnamount stringValue];
     self.RequestTimeLabel.text = model.createtime;
     self.RequestYuanyin.text = model.refundreason;
     self.NowStateLabel.text = model.statestr;
-//    self.NowStateLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:[model.state stringValue]];
-//    switch ([[[NSUserDefaults standardUserDefaults] objectForKey:[model.state stringValue]] integerValue]) {
-//        case 0:
-//
-//            self.NowStateLabel.text = @"待審核";
-//            self.RequestServiceBut.hidden = YES; // 隐藏客服按钮
-//            [self.CancelBut addTarget:self action:@selector(CancelButt:) forControlEvents:UIControlEventEditingDidEnd];
-//
-//            break;
-//        case 2:
-//            self.NowStateLabel.text = @"買錯了";
-//            self.CancelBut.hidden = YES;//隐藏取消
-//            break;
-//        case 3:
-//            self.NowStateLabel.text = @"發錯貨";
-//            self.CancelBut.hidden = YES;//隐藏取消
-//            break;
-//        case 4:
-//            self.NowStateLabel.text = @"沒收到貨";
-//            self.CancelBut.hidden = YES;//隐藏取消
-//            break;
-//        case 5:
-//            self.NowStateLabel.text = @"有瑕疵";
-//            self.CancelBut.hidden = YES;//隐藏取消
-//            break;
-//        default:
-//            break;
-//    }
+//    self.NowStateLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:model.statestr ];
+    
     self.LogisticsLabel.text = model.logisticname;
-   
+    
 }
 
 - (void)ExchangeDeatils1:(ExchangeDetailsModel *)model1 {
@@ -157,7 +153,7 @@
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     dic[@"refundid"] = self.Oid;
-//    NSLog(@"%@",_model.state);
+    dic[@"type"] = @"";
     dic[@"rtimgs"] = @"";
     [self extracted:dic];
     

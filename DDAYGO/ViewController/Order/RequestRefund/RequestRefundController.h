@@ -30,6 +30,7 @@
 
 /** 第4个View */
 @property (weak, nonatomic) IBOutlet UIView * view4;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint * View4LayoutConstraint;
 
 /** 第5个View */
 @property (weak, nonatomic) IBOutlet UIView * view5;

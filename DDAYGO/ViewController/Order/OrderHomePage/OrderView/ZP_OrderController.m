@@ -137,7 +137,6 @@
     dic[@"orderno"] = @"";
     [ZP_OrderTool requestGetorders:dic success:^(id json) {
         ZPLog(@"%@",json);
-
         if ([json isKindOfClass:[NSDictionary class]]) {
             return ;
         }
@@ -150,7 +149,6 @@
             but.badgeValue = nil;
             but.badgeBGColor = [UIColor whiteColor];
         }
-        
         [self.tableview.mj_header endRefreshing];  // 結束刷新
     [self.tableview reloadData];
     } failure:^(NSError *error) {
@@ -166,6 +164,7 @@
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         ZPLog(@"取消");
     }];
+    
     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
 //        响应事件
         if (self.newsData.count == 0) {
@@ -176,8 +175,9 @@
         dic[@"token"] = Token;
         dic[@"ordernumber"] = model.ordersnumber;
         [ZP_OrderTool requestDeleteOrder:dic success:^(id obj) {
-            [self.newsData removeObjectAtIndex:sender.tag];
+            
             if ([obj[@"result"]isEqualToString:@"ok"]) {
+                [self.newsData removeObjectAtIndex:sender.tag];
                 [SVProgressHUD showSuccessWithStatus:@"刪除成功"];
             }else
                 if ([obj[@"result"]isEqualToString:@"time_error"]) {
@@ -189,6 +189,7 @@
             ZPLog(@"%@",error);
         }];
     }];
+    
     [alert addAction:defaultAction];
     [alert addAction:cancelAction];
     [self presentViewController:alert animated:YES completion:nil];
@@ -200,16 +201,8 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    //    return CGFLOAT_MIN;
     NSLog(@"go ");
-//    if (section == 0) {
-//        return 0.0001;
-//    }else
-//        if (section == 2) {
-//            return 0.0001;
-//        }else{
-            return 10.0f;
-//        }
+    return 10.0f;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -227,7 +220,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     static NSString * ID = @"orderViewCell";
     OrderModel * model = self.newsData[indexPath.section];
 //    OrdersdetailModel * model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail[0]];
@@ -241,6 +233,7 @@
     OrdersdetailModel * model2;
     cell.DeleteBut.tag = indexPath.row;
     [cell.DeleteBut addTarget:self action:@selector(DeleteOrderBut:) forControlEvents:UIControlEventTouchUpInside];
+    
     if (![_titleStr isEqualToString:@"評價"]) {
          model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail.firstObject];
         [cell InformationWithDic:model2 WithModel:model];
