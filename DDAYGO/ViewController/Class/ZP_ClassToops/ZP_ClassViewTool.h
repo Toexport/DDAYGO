@@ -61,4 +61,7 @@
 + (void)requestGetshopreviews:(NSDictionary *)Getshopreviews success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure;
 // 店铺简介
 + (void)requestShopintroduction: (NSDictionary *)Shopintroduction success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure;
+
+//77) 根据大分类和子分类，获取该分类下产品，默认销量排序，支持排序最新，好评，价格
++ (void)requestGetproductfilter:(NSDictionary *)Getproductfilter success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure;
 @end

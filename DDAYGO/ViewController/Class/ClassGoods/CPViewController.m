@@ -53,13 +53,10 @@
 
 // 生命周期
 - (void)viewWillAppear:(BOOL)animated {
-//    [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
     self.title = _titleString;
-//    self.title = _tagid;
-//    [self allData];
-    
 }
+
 // 刷新
 - (void)addRefresh {
 //    下拉刷新
@@ -83,41 +80,11 @@
         _i = 0;
         [self allData];
     }];
-    
-////   上拉刷新
-//    self.collectionView1.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-//        //        [_ModeldataArray reverseObjectEnumerator];
-//        _i+=10;
-//        [self allData];
-//    }];
-//    self.collectionView2.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-//        //        [_ModeldataArray reverseObjectEnumerator];
-//        _i+=10;
-//        [self allData];
-//    }];
-//    self.collectionView3.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-//        //        [_ModeldataArray reverseObjectEnumerator];
-//        _i+=10;
-//        [self allData];
-//    }];
-//    self.collectionView4.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-//        //        [_ModeldataArray reverseObjectEnumerator];
-//        _i+=10;
-//        [self allData];
-//    }];
 }
-
-//- (void)viewWillDisappear:(BOOL)animated {
-//    [super viewWillDisappear:animated];
-//    if ([self.navigationController.viewControllers.lastObject isKindOfClass:[ClassificationViewController class]]) {
-//        self.hidesBottomBarWhenPushed = NO;
-//    } else {
-//        self.hidesBottomBarWhenPushed = YES;
-//    }
-//}
 
 // UI
 -(void)initUI {
+    
     NSArray * allTitle = @[NSLocalizedString(@"Acquiescence", nil),NSLocalizedString(@"Sales Volume", nil),NSLocalizedString(@"Latest", nil),NSLocalizedString(@"Price", nil)];
     UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 37)];
     topView.backgroundColor = [UIColor whiteColor];
@@ -228,20 +195,6 @@
 }
 //  数据
 - (void)allData {
-//    NSString * key = [NSString stringWithFormat:@"%@",_keyword];
-//    NSString * KeyStr = [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    countrycode = 886;
-//    fatherid = 28;
-//    page = 1;
-//    pagesize = 10;
-//    seq = desc;
-//    word = "";
-//    countrycode = 886;
-//    fatherid = 1;
-//    page = 1;
-//    pagesize = 10;
-//    seq = desc;
-//    word = A;
     NSString *str;
     if (_keyword.length > 0) {
         str = _keyword;
@@ -349,6 +302,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * identify = @"cell";
     CPCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
+    
     [cell sizeToFit];
     ZP_ClassGoodsModel * model = self.newsData[indexPath.row];
     [cell cellWithdic:model];
@@ -361,14 +315,13 @@
     return headerView;
 }
 
-
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * detaled = @"DetailedController";
     DetailedController * Detailed = [[DetailedController alloc]initWithNibName:detaled bundle:nil];
     ZP_ClassGoodsModel * model = self.newsData[indexPath.row];
+    Detailed.fatherId = _fatherId;
     Detailed.productId = model.productid;
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:Detailed animated:YES];
-//    NSLog(@"选中%ld",(long)indexPath.item);
 }
 @end

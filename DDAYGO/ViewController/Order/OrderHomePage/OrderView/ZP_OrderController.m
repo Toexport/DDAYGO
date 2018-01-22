@@ -71,9 +71,6 @@
         
     }
     
-    
-    
-    
 }
 
 // 刷新
@@ -83,12 +80,6 @@
         _i = 0;
         [self getDataWithState];
     }];
-    
-//    self.tableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-////        [_ModeldataArray reverseObjectEnumerator];
-//        _i+=10;
-//        [self getDataWithState];
-//    }];
 }
 
 // UI

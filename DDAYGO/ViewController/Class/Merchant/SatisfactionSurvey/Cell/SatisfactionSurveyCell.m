@@ -12,12 +12,30 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.commodityArray = @[self.Button1,self.Button2,self.Button3,self.Button4,self.Button5];
     
 }
 
 - (void)SatisfactionSurvey:(SatisfactionSurveyModel *)model {
     self.NameLabel.text = model.realname;
-    self.PinglunneirongLabel.text = model.createtime;
+    self.PinglunneirongLabel.text = model.reviewscontent;
+    self.TimeLabel.text = model.createtime;
+    self.FenshuLabel.text = [NSString stringWithFormat:@"%@分",model.fraction];
+    [self updateStartsWithtype:0 StartCount:[model.fraction integerValue]];
+
 }
+
+- (void)updateStartsWithtype:(NSInteger)startType StartCount:(NSInteger)startCount {
+    if (startType == 0) {
+        for (int i = 0; i < self.commodityArray.count; i ++) {
+            UIButton *button = self.commodityArray[i];
+            if (i < startCount) {
+                button.hidden = NO;
+            } else {
+                button.hidden = YES;
+            }
+        }
+    }
+    }
 
 @end

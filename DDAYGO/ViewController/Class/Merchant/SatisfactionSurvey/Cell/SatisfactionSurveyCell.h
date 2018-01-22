@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton * Button5; // 按钮5
 @property (weak, nonatomic) IBOutlet UILabel * FenshuLabel; // 分数
 @property (weak, nonatomic) IBOutlet UILabel * PinglunneirongLabel; // 评论内容
-
+@property (strong ,nonatomic) NSArray * commodityArray;
 - (void)SatisfactionSurvey:(SatisfactionSurveyModel *) model;
 
 @end

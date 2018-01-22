@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) UILabel * RemindLabel;
 @property (nonatomic, strong) FSSegmentTitleView * titleView;
+
 @end
 
 

@@ -170,10 +170,25 @@
 //  解析数据
 - (void)ShoplntroducedCollection:(NSDictionary *)dic andDic:(NSDictionary *)dict{
     _ratingLabel.text = [NSString stringWithFormat:@"%@",dict[@"good_percent"]];
-    _StorenameLabel.text = [NSString stringWithFormat:@"%@",dic[@"countrycode"]];
-//    _AddressLabel.text = model.countrycodes;
-//    _PhoneLabel.text = [model.phone stringValue];
-//    _ServicetimeLabel.text = model.updatetime;
+    _PhoneLabel.text = dic[@"phone"];
+    _StorenameLabel.text = [NSString stringWithFormat:@"%@",dic[@"suppliername"]];
+    _ServicetimeLabel.text = [NSString stringWithFormat:@"%@",dic[@"updatetime"]];
+    _AddressLabel.text = [NSString stringWithFormat:@"%@",dic[@"countrycode"]];
+    switch ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue]) {
+        case 886:
+            self.AddressLabel.text = @"臺灣";
+            break;
+            
+        case 86:
+            self.AddressLabel.text = @"中国";
+            break;
+            
+        case 852:
+            self.AddressLabel.text = @"香港";
+            break;
+        default:
+            break;
+    }
 }
 
 @end

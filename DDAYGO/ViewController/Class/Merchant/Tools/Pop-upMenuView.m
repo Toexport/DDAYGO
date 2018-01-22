@@ -48,7 +48,6 @@
             }
         }];
         
-        
         self.tableView = [[UITableView alloc]initWithFrame:[self menuFrame] style:UITableViewStylePlain];
         self.tableView.dataSource = self.tableViewDataSource;
         self.tableView.delegate   = self.tableViewDelegate;

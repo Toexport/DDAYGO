@@ -89,10 +89,6 @@
     NSLog(@"222 %ld- %ld",(long)endIndex,(long)startIndex);
     
     self.pageContentView.contentViewCurrentIndex = endIndex;
-//    UIButton * but = [self.titleView viewWithTag:666+endIndex];
-//    NSLog(@"but = %@",but.titleLabel.text);
-//    but.badgeValue = @"1";
-//    but.badgeBGColor = [UIColor orangeColor];
     
 }
 

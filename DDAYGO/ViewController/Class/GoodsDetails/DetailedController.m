@@ -291,6 +291,7 @@
 - (IBAction)dianpuAction:(id)sender {
     MerchantController * Merchant = [[MerchantController alloc]init];
     Merchant.Supplieerid = self.model.supplierid;
+    Merchant.fatherId = _fatherId;
     [self.navigationController pushViewController:Merchant animated:YES];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
 }
@@ -333,7 +334,7 @@
 //
 
 
-//这里才是点击的事件,
+//这里才是点击的事件（评价详情按钮）,
 - (IBAction)cpnrAction:(id)sender {
     
     if (_pjArr.count >0) {

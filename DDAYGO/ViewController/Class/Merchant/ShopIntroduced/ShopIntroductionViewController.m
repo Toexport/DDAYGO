@@ -51,7 +51,6 @@
         _introductionDic = dic[@"introduction"];
         _reviewgoodDic = dic[@"reviewgood"];
         ZPLog(@"%@",_introductionDic[@"updatetime"]);
-//        self.NewsData = [ShoplntroducedModel arrayWithArray:arr];
         [self.tableview reloadData];
         
     } failure:^(NSError *error) {

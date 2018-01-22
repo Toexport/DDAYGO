@@ -24,6 +24,9 @@
 @property (weak, nonatomic) IBOutlet UIButton * xzflBtn;
 
 @property (nonatomic, strong) NSNumber * productId;
+@property (nonatomic, strong) NSNumber * fatherId;
+
+
 
 @end
 

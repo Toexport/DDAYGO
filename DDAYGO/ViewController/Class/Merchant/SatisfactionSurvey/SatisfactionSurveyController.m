@@ -9,6 +9,7 @@
 #import "SatisfactionSurveyController.h"
 #import "SatisfactionSurveyCell.h"
 #import "SatisfactionSurveyModel.h"
+
 #import "PrefixHeader.pch"
 #import "ZP_ClassViewTool.h"
 @interface SatisfactionSurveyController ()<UITableViewDelegate, UITableViewDataSource>
@@ -23,6 +24,7 @@
 }
 // UI
 - (void)initUI {
+    self.title = NSLocalizedString(@"满意度调查", nil);
     [self.tableView registerNib:[UINib nibWithNibName:@"SatisfactionSurveyCell" bundle:nil] forCellReuseIdentifier:@"SatisfactionSurveyCell"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -61,7 +63,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SatisfactionSurveyCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SatisfactionSurveyCell"];
-//    NSArray * arr = _NewsData[indexPath.section];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
     SatisfactionSurveyModel * model = _NewsData[indexPath.section];
     [cell SatisfactionSurvey:model];
     return cell;
