@@ -88,7 +88,7 @@
             [self.CancelBut setTitle:@"取消退款"  forState:UIControlStateNormal];
             self.RequestServiceBut.hidden = YES;
             _View3LayoutConstraint.constant = CGFLOAT_MIN;
-            self.View3LayoutConstraint.constant = 150;
+            self.ViewLayoutConstraint.constant = 50;
             self.view3.hidden = YES;
             break;
             
@@ -96,7 +96,7 @@
             self.RequestTypeLabel.text = @"退货";
             [self.CancelBut setTitle:@"取消退货"  forState:UIControlStateNormal];
             _View3LayoutConstraint.constant = CGFLOAT_MIN;
-            self.View3LayoutConstraint.constant = 150;
+            self.ViewLayoutConstraint.constant = 50;
             self.view3.hidden = YES;
             self.RequestServiceBut.hidden = YES;
             break;
@@ -105,11 +105,10 @@
             self.RequestTypeLabel.text = @"换货";
             [self.CancelBut setTitle:@"取消换货"  forState:UIControlStateNormal];
             _View3LayoutConstraint.constant = CGFLOAT_MIN;
-            self.View3LayoutConstraint.constant = 150;
+           self.ViewLayoutConstraint.constant = 50;
             self.view3.hidden = YES;
             self.RequestServiceBut.hidden = YES;
             break;
-            
         default:
             break;
     }
