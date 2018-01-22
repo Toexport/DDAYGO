@@ -58,13 +58,7 @@
     [self loginAllData];
 //    [self Supplier];
     
-//    //    本地数据调用
-//    UIImage * image = [UIImage imageWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"]];
-//    if (image) {
-//        _headImageBut.layer.cornerRadius = 42;
-//        _headImageBut.layer.masksToBounds = YES;
-//        [_headImageBut setImage:image forState:UIControlStateNormal];
-//    }
+   
 }
 
 //- (void) Supplier {
@@ -218,9 +212,6 @@
     _NameLabel.text = model.nickname;
     _headImageBut.layer.cornerRadius = 42;
     _headImageBut.layer.masksToBounds = YES;
-
-
-    
 }
 
 // 获取浏览记录、收藏的数量
@@ -349,7 +340,6 @@
 
 // UI
 - (void)initUI {
-    
     self.userBackView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
     self.userBackView.layer.shadowOffset = CGSizeMake(1.0, 1.0);
     self.userBackView.layer.shadowOpacity = YES;
@@ -406,6 +396,7 @@
 //    [self.navigationController pushViewController:concernShopViewController animated:YES];
 //    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
 //    self.navigationController.navigationBar.tintColor = ZP_WhiteColor;}
+
 // 足迹
 - (IBAction)zjAction:(id)sender {
     FootprintViewController *footprintViewController = [[FootprintViewController alloc] init];
