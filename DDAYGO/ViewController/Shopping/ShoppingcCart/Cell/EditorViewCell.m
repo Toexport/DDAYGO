@@ -153,8 +153,11 @@
 }
 
 - (void)buttonClick:(UIButton *)sender {
-    if ([_numLabel.text integerValue]<=0) {
-        _numLabel.text = @"0";
+
+    if ([_numLabel.text integerValue] <= 1) {
+        [SVProgressHUD showErrorWithStatus:@"购买数量不能少于1"];
+        _numLabel.text = @"1";
+        return;
     }else {
         _numLabel.text = [NSString stringWithFormat:@"%ld",[_numLabel.text integerValue]-1];
         self.btnClickBlock(_numLabel.text);

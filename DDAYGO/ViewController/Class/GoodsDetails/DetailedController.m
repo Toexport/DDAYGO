@@ -140,6 +140,12 @@
         dic = @{@"productid":_productId};
     }
     [ZP_ClassViewTool requDetails:dic success:^(id obj) {
+        if (obj) {
+            self.productArray = obj;
+            [self successful];
+        }else{
+            [self networkProblems];
+        }
         ZPLog(@"%@",obj);
         NSDictionary * asdic = [obj[@"productdetail"] firstObject];
         NSString * asdtring = asdic[@"content"];
@@ -147,9 +153,16 @@
         [self.detailTableView reloadData];
         NSDictionary * tempDic = @{@"productid":_productId,@"page":@(1),@"pagesize":@(5)};
         [ZP_ClassViewTool requEvaluates:tempDic success:^(id obj) {
+//            if (obj) {
+//                self.evaluateArray = obj;
+//                [self successful];
+//            }else{
+//                [self networkProblems];
+//            }
             [self.evaluateArray addObject:obj];
             NSLog(@"%@",obj);
         } failure:^(NSError *error) {
+            [self loading];
             NSLog(@"%@",error);
         }];
         
@@ -168,8 +181,35 @@
         _model = model;
         [self getDataWithModel:model];
     } failure:^(NSError * error) {
+        [self loading];
         ZPLog(@"%@", error);
     }];
+}
+
+
+-(void)loading{
+    //    [self endFreshing];
+    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    __weak typeof(self)weakSelf = self;
+    [ReloadView showToView:self.view touch:^{
+        [weakSelf allData];
+        [ReloadView dismissFromView:weakSelf.view];
+    }];
+}
+
+-(void)successful {
+//    [self.tableView reloadData];
+    [ZPProgressHUD dismiss];
+}
+
+-(void)networkProblems{
+    __weak typeof(self)weakSelf = self;
+    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    [ReloadView showToView:self.view touch:^{
+        [weakSelf allData];
+    }];
+    
+    return;
 }
 
 - (void)getRightItemDataWithProducttypeid:(NSInteger)producttypeid {

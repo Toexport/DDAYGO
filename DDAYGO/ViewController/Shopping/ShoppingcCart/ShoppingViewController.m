@@ -28,6 +28,10 @@
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)ZP_ShoppingModel * model;
 @property(nonatomic,strong)NSString * stockids;
+@property(nonatomic,strong)NSString * numstr;  //数量
+@property(nonatomic,strong)NSNumber * cardid;  //cardid
+
+
 
 @end
 
@@ -54,7 +58,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     if (!DD_HASLOGIN) {
         if (![MyViewController sharedInstanceTool].hasRemind) {
             [MyViewController sharedInstanceTool].hasRemind = YES;
@@ -64,41 +67,20 @@
             self.hidesBottomBarWhenPushed = NO;
         }
     } else {
-                [self allData];
+        [self allData];
+        
     }
 }
 // 获取购物车数据
 - (void)allData {
     [ZP_shoopingTool requesshoppingData:Token success:^(id obj) {
-        //        ZPLog(@"%@",obj);
-        //         数据为空时提示
-        //        if (dataArray.count < 1) {
-        //            UIImageView * image = [UIImageView new];
-        //            image.image = [UIImage imageNamed:@"icon_fail"];
-        //            [self.view addSubview:image];
-        //            [image mas_makeConstraints:^(MASConstraintMaker *make) {
-        //                make.left.equalTo(self.view).offset(ZP_Width / 2 -25);
-        //                make.top.equalTo(self.view).offset(ZP_Width / 2);
-        //                make.width.mas_offset(50);
-        //                make.height.mas_equalTo(50);
-        //            }];
-        ////            ZP_GeneralLabel * RemindLabel = [ZP_GeneralLabel initWithtextLabel:_RemindLabel.text textColor:ZP_textblack font:ZP_TrademarkFont textAlignment:NSTextAlignmentCenter bakcgroundColor:nil];
-        ////            RemindLabel.text = @"数据空空如也";
-        ////            [self.view addSubview:RemindLabel];
-        ////            [RemindLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        ////                make.left.equalTo(self.view).offset(ZP_Width / 2 -30);
-        ////                make.top.equalTo(image).offset(55);
-        ////                make.height.mas_offset(15);
-        ////            }];
-        //        }
-        
         if ([obj isKindOfClass:[NSDictionary class]]) {
             return ;
         }
+//        ZPLog(@"%@",obj);
         NSArray *arr = obj;
         if (arr.count > 0) {
             NSDictionary * dic = [obj firstObject];
-            //            ZPLog(@"%@",dic);
             _model = [ZP_ShoppingModel CreateWithDict:[obj firstObject]];
             dataArray = [ZP_CartsModel arrayWithArray:dic[@"cart"]];
             nameArray = [ZP_CartsShopModel arrayWithArray:obj];
@@ -106,15 +88,33 @@
             for (ZP_CartsModel * model in dataArray) {
                 [selectArray addObject:model.amount];
             }
-            
             self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld",dataArray.count];
-            
-            
             [self.tableView reloadData];
         }
     } failure:^(NSError *error) {
-        //        NSLog(@"%@",error);
-        //        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"服務器連接失敗", nil)];
+    }];
+ 
+}
+
+// 完成按钮
+- (void)CompleteBut:(UIButton *) sender {
+    [self setcartproductcount];
+}
+
+- (void)setcartproductcount {
+    //79) 修改購物車商品數量
+    NSMutableDictionary * dictt = [NSMutableDictionary dictionary];
+    //    ZP_CartsModel * model = [[ZP_CartsModel alloc]init];
+    dictt[@"token"] = Token;
+    dictt[@"cartid"] = _cardid;
+    //    dictt[@"cartid"] = model.cartid;
+    dictt[@"count"] = _numstr;
+    [ZP_shoopingTool requestSetcartproductcount:dictt success:^(id obj) {
+        ZPLog(@"%@",obj);
+        [self allData];
+        [self.tableView reloadData];
+    } failure:^(NSError * error) {
+        ZPLog(@"%@",error);
     }];
 }
 
@@ -153,6 +153,7 @@
         _ClearingButt.selected = YES;
         
         [sup setTitle:NSLocalizedString(@"Complete", nil) forState:UIControlStateNormal];
+        [sup addTarget:self action:@selector(CompleteBut:) forControlEvents:UIControlEventTouchUpInside];
         [self.ClearingButt setTitle:NSLocalizedString(@"delete",nil) forState: UIControlStateNormal];
     }else{
         _StatisticsLabel.hidden = NO;
@@ -528,7 +529,7 @@
                 ZPLog(@"取消");
         }];
         UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-            [self shangchuBut];
+            [self shangchuBut:sender];
         }];
         [alert addAction:defaultAction];
         [alert addAction:cancelAction];
@@ -556,16 +557,16 @@
 }
 
 //删除按钮
-- (void) shangchuBut {
-    //        响应事件
+- (void) shangchuBut:(UIButton *)but {
+//        响应事件
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    ZP_CartsModel * model = [[ZP_CartsModel alloc]init];
-//    dic[@"stockid"] = _stockids;
-//    dic[@"token"] = Token;
+    ZP_CartsShopModel * models = nameArray[0];
+    ZP_CartsModel * model = models.array[but.tag];
     dic[@"stockid"] = model.stockid;
     dic[@"token"] = Token;
     [ZP_shoopingTool requesscartitemdelte:dic success:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"ok"]) {
+             [models.array removeObjectAtIndex:but.tag];
             [SVProgressHUD showSuccessWithStatus:@"刪除成功!"];
         }else
             if ([obj[@"result"]isEqualToString:@"failure"]) {
@@ -574,7 +575,7 @@
         [_tableView reloadData];
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
-        //             [SVProgressHUD showInfoWithStatus:@"服務器連接失敗"];
+        
     }];
 }
 
@@ -657,7 +658,11 @@
         [cell cellWithModel:model];
         
         cell.btnClickBlock = ^(NSString *str) {
-            [selectArray replaceObjectAtIndex:indexPath.row withObject:str];
+            [selectArray replaceObjectAtIndex:indexPath.row withObject:str];  //不清楚你这句是什么意思
+            NSLog(@"shu liang = %@",str); //这个就是数量
+            _numstr = str;
+            _cardid = model.cartid;
+            NSLog(@"- num = %@,cardid = %@",_numstr,_cardid);
         };
         return cell;
     }
@@ -740,6 +745,7 @@
     return 0.1;
 }
 
+// 侧滑
 - (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (@available(iOS 11.0, *)) {
         UIContextualAction *deleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"刪除" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
@@ -753,21 +759,19 @@
             dic[@"token"]  = [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
             [ZP_shoopingTool requesscartitemdelte:dic success:^(id obj) {
                 NSLog(@"%@",obj);
-                [models.array removeObjectAtIndex:indexPath.row];
-                //                 tabbar按钮红点
+                [models.array removeObjectAtIndex:indexPath.row]; //接口成功啦 才成功的情况下写这一句代码-这个要在成功的时候写
                 if (models.array.count == 0) {
                     nameArray = nil;
                     self.navigationController.tabBarItem.badgeValue = nil;
                 }else{
                     self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld",models.array.count];
                 }
+                
                 [tableView reloadData];
                 completionHandler(YES);
             } failure:^(NSError *error) {
                 NSLog(@"%@",error);
             }];
-            
-            
         }];
         //也可以设置图片
         deleteAction.backgroundColor = [UIColor redColor];

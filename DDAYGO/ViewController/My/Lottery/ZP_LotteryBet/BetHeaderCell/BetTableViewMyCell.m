@@ -36,7 +36,7 @@
             [but setBackgroundImage:[UIImage imageNamed:@"bg_choose_whiteball_normal"] forState:UIControlStateNormal];
      
             [but setBackgroundImage:[UIImage imageNamed:@"bg_white_ball"] forState:UIControlStateSelected];
-            but.tag = num;
+            but.tag = num+1;
             [self.butArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 NSLog(@"obj =%@",obj);
                 if (but.tag == [obj integerValue]) {

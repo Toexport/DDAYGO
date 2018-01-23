@@ -43,4 +43,12 @@
 @property (weak, nonatomic) IBOutlet UIView *view4;
 @property (weak, nonatomic) IBOutlet UIButton * CancelBut; // 取消按钮
 @property (weak, nonatomic) IBOutlet UIButton * RequestServiceBut; // 请求客服
+
+/**第5个View */
+@property (weak, nonatomic) IBOutlet UIView *View5;
+@property (weak, nonatomic) IBOutlet UIImageView *imageview1;
+//@property (weak, nonatomic) IBOutlet UIImageView *imageview2;
+//@property (weak, nonatomic) IBOutlet UIImageView *imageview3;
+
+
 @end

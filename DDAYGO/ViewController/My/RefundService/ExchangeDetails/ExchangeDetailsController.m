@@ -12,11 +12,14 @@
 #import "PrefixHeader.pch"
 #import "ZP_MyTool.h"
 @interface ExchangeDetailsController ()<LPDQuoteImagesViewDelegate>
+
 @property (nonatomic, strong)LPDQuoteImagesView *imageView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ViewLayoutConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *View3LayoutConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *View4LayoutConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *View5LayoutConstraint;
+
 @property (nonatomic, strong) ExchangeDetailsModel * model;
 @property (nonatomic, strong) ExchangeDetailsModel * model1;
 
@@ -119,14 +122,41 @@
     self.RequestTimeLabel.text = model.createtime;
     self.RequestYuanyin.text = model.refundreason;
     self.NowStateLabel.text = model.statestr;
-//    self.NowStateLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:model.statestr ];
+    NSLog(@"%@",model.statestr);
+    int b = [model.returntype intValue];
+    NSLog(@"Stata = %D",b);
+    switch (b) {
+        case 0:
+            _View3LayoutConstraint.constant = CGFLOAT_MIN;
+//            _View4LayoutConstraint.constant = CGFLOAT_MIN;
+            _View5LayoutConstraint.constant = CGFLOAT_MIN;
+            self.ViewLayoutConstraint.constant = 50;
+            self.view3.hidden = YES;
+//            self.view4.hidden = YES;
+            self.View5.hidden = YES;
+//            self.RequestServiceBut.hidden = YES;
+            break;
+            
+        case 1:
+            _View3LayoutConstraint.constant = CGFLOAT_MIN;
+            _View4LayoutConstraint.constant = CGFLOAT_MIN;
+             _View5LayoutConstraint.constant = CGFLOAT_MIN;
+//            self.ViewLayoutConstraint.constant = 150;
+            self.view3.hidden = YES;
+            self.view4.hidden = YES;
+            self.View5.hidden = YES;
+            break;
+        default:
+            break;
+    }
     
     self.LogisticsLabel.text = model.logisticname;
-    
+    [self.imageview1 sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI,model.logisticimg]] placeholderImage:[UIImage imageNamed:@""]];
 }
 
 - (void)ExchangeDeatils1:(ExchangeDetailsModel *)model1 {
     [self.Mainimageview sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI,model1.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
+  
     self.TitleLabel.text = model1.productname;
     self.YanseLable.text = model1.colorname;
     self.ChimaLabel.text = model1.normname;
@@ -134,17 +164,8 @@
 }
 
 // 取消退款
-- (void)CancelButt:(UIButton *)sender {
+- (IBAction)CancelButt:(id)sender {
     [self RequestRefundStatus];
-}
-
-
-- (void)extracted:(NSMutableDictionary *)dic {
-    [ZP_MyTool RequestRefundStatus:dic success:^(id obj) {
-        ZPLog(@"%@",obj);
-    } failure:^(NSError *error) {
-        ZPLog(@"%@",error);
-    }];
 }
 
 //72) 更改退换货状态
@@ -152,10 +173,21 @@
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     dic[@"refundid"] = self.Oid;
-    dic[@"type"] = @"";
+    dic[@"type"] = @"cancel";
     dic[@"rtimgs"] = @"";
-    [self extracted:dic];
-    
+//    [self extracted:dic];
+    [ZP_MyTool RequestRefundStatus:dic success:^(id obj) {
+        if ([obj[@"result"]isEqualToString:@"ok"]) {
+            [SVProgressHUD showSuccessWithStatus:@"取消成功"];
+        }else
+            if ([obj[@"result"]isEqualToString:@"sys_err"]) {
+                [SVProgressHUD showInfoWithStatus:@"操作失败"];
+            }
+        ZPLog(@"%@",obj);
+        [self.view4 removeFromSuperview];
+    } failure:^(NSError *error) {
+        ZPLog(@"%@",error);
+    }];
 }
 
 @end

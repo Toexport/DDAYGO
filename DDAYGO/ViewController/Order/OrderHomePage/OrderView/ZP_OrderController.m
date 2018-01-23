@@ -23,6 +23,7 @@
 #import "RequestRefundController.h"
 #import "RequestReplaceController.h"
 #import "UIButton+Badge.h"
+#import "ExchangeDetailsController.h"
 @interface ZP_OrderController ()<FSPageContentViewDelegate,FSSegmentTitleViewDelegate> {
     int _i;
     NSArray * dataArray;
@@ -34,6 +35,7 @@
 @property (nonatomic, strong)UIScrollView * lastView;
 @property (nonatomic, strong)UILabel * line;
 @property (nonatomic, strong)UITableView * tableview;
+//@property (nonatomic,strong)NSMutableArray *arrData;
 
 @property (nonatomic, strong) FSPageContentView * pageContentView;
 
@@ -54,10 +56,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
     [self addUI];
     //数据都写在这个页面·刷新什么的都在这个页面写·
-   
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -68,11 +68,8 @@
 //     self.titleView = [self.view.superview viewWithTag:66];
     if (DD_HASLOGIN ) {
         [self getDataWithState];
-        
     }
-    
 }
-
 // 刷新
 - (void)addRefresh {
     self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -96,6 +93,7 @@
 
 // 订单协议
 - (void)getDataWithState {
+    
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     NSInteger i;
     if ([_titleStr isEqualToString:NSLocalizedString(@"all", nil)]) {
@@ -121,8 +119,6 @@
     
     UIButton * but = [self.titleView viewWithTag:666+i];
     NSLog(@"but = %@",but.titleLabel.text);
-  
-    
 //    if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
 //        dic[@"sta"] = @"5";
 //    }
@@ -132,11 +128,14 @@
 //    if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
 //        dic[@"sta"] = @"7";
 //    }
-    dic[@"days"] = @"7";
+    
+    dic[@"days"] = @"365";
     dic[@"token"] = Token;
     dic[@"orderno"] = @"";
+//    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
     [ZP_OrderTool requestGetorders:dic success:^(id json) {
         ZPLog(@"%@",json);
+        
         if ([json isKindOfClass:[NSDictionary class]]) {
             return ;
         }
@@ -150,10 +149,11 @@
             but.badgeBGColor = [UIColor whiteColor];
         }
         [self.tableview.mj_header endRefreshing];  // 結束刷新
+        
     [self.tableview reloadData];
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
-        
+//        [self loading];
     }];
 }
 
@@ -164,18 +164,18 @@
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         ZPLog(@"取消");
     }];
-    
     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
 //        响应事件
         if (self.newsData.count == 0) {
             return;
         }
+        
         OrderModel * model = self.newsData[sender.tag];
         NSMutableDictionary * dic = [NSMutableDictionary dictionary];
         dic[@"token"] = Token;
         dic[@"ordernumber"] = model.ordersnumber;
         [ZP_OrderTool requestDeleteOrder:dic success:^(id obj) {
-            
+
             if ([obj[@"result"]isEqualToString:@"ok"]) {
                 [self.newsData removeObjectAtIndex:sender.tag];
                 [SVProgressHUD showSuccessWithStatus:@"刪除成功"];
@@ -184,7 +184,7 @@
                     [SVProgressHUD showInfoWithStatus:@"交易完成的訂單需要15天後才能刪除"];
                 }
             ZPLog(@"%@",obj);
-            [self.tableview reloadData];
+//            [self.tableview reloadData];
         } failure:^(NSError * error) {
             ZPLog(@"%@",error);
         }];
@@ -193,6 +193,30 @@
     [alert addAction:defaultAction];
     [alert addAction:cancelAction];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+// 重新加载数据
+-(void)loading {
+    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    __weak typeof(self)weakSelf = self;
+    [ReloadView showToView:self.view touch:^{
+        [weakSelf getDataWithState];
+        [ReloadView dismissFromView:weakSelf.view];
+    }];
+}
+
+-(void)successful {
+    [self.tableview reloadData];
+    [ZPProgressHUD dismiss];
+}
+
+-(void)networkProblems {
+    __weak typeof(self)weakSelf = self;
+    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    [ReloadView showToView:self.view touch:^{
+        [weakSelf getDataWithState];
+    }];
+    return;
 }
 
 #pragma Mark - <TableViewDelegate>
@@ -227,13 +251,14 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     self.tableview.tableFooterView = [[UIView alloc]init];
     cell.AppraiseBut.tag = indexPath.row;
-    [cell.AppraiseBut removeTarget:self action:@selector(buttonType) forControlEvents:UIControlEventTouchUpInside];
-    [cell.OnceagainBut addTarget:self action:@selector(OnceagainBut:) forControlEvents:UIControlEventTouchUpInside];
+    
+//    [cell.AppraiseBut removeTarget:self action:@selector(buttonType) forControlEvents:UIControlEventTouchUpInside];
+//    [cell.OnceagainBut addTarget:self action:@selector(OnceagainBut:) forControlEvents:UIControlEventTouchUpInside];
+    
     cell.OnceagainBut.tag = indexPath.row;
     OrdersdetailModel * model2;
     cell.DeleteBut.tag = indexPath.row;
     [cell.DeleteBut addTarget:self action:@selector(DeleteOrderBut:) forControlEvents:UIControlEventTouchUpInside];
-    
     if (![_titleStr isEqualToString:@"評價"]) {
          model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail.firstObject];
         [cell InformationWithDic:model2 WithModel:model];
@@ -264,9 +289,16 @@
     };
     
 //    退换货
-    cell.appraiseBlock = ^(RequestReplaceController* response) {
+    cell.appraiseBlock = ^(ExchangeDetailsController* response) {
         [self.navigationController pushViewController:response animated:YES];
     };
+    
+    //查看详细 -- 再次购买
+    cell.onceagainBlock = ^(id response) {
+        //go
+        [self.navigationController pushViewController:response animated:YES];
+    };
+    
     return cell;
     
 }
@@ -279,23 +311,20 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-//  再次购买
-- (void)OnceagainBut:(UIButton *)OnceagainBut {
-    NSLog(@"再次购买");
-    OrderModel * model = self.newsData[OnceagainBut.tag];
-    OrdersdetailModel * model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail[0]];
-    ConfirmViewController * confirm = [[ConfirmViewController alloc]init];
-    confirm.stockidsString = [NSString stringWithFormat:@"%@_%@",model2.stockid,model2.amount];
-//    self.hidesBottomBarWhenPushed = YES;
-    confirm.noEdit = YES;
-    confirm.ordersnumber = model.ordersnumber;
-    confirm.type = 666;
-    
-    [self.navigationController pushViewController:confirm animated:YES];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//    self.hidesBottomBarWhenPushed = YES;
-}
+////  再次购买
+//- (void)OnceagainBut:(UIButton *)OnceagainBut {
+//    NSLog(@"再次购买");
+//    OrderModel * model = self.newsData[OnceagainBut.tag];
+//    OrdersdetailModel * model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail[0]];
+//    ConfirmViewController * confirm = [[ConfirmViewController alloc]init];
+//    confirm.stockidsString = [NSString stringWithFormat:@"%@_%@",model2.stockid,model2.amount];
+//    confirm.noEdit = YES;
+//    confirm.ordersnumber = model.ordersnumber;
+//    confirm.type = 666;
+//    [self.navigationController pushViewController:confirm animated:YES];
+//    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
+//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+//}
 
 
 @end

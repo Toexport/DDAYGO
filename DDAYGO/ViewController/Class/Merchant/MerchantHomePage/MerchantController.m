@@ -270,12 +270,11 @@
             
             NSLog(@"选择状态");
             
-            //默认是降序？是不是
+            
         }else{
 #warning 取消选中
               //这里设置button 按钮 图片
             [sender setImage:[UIImage imageNamed:@"icon_shop_classification_03"] forState:UIControlStateNormal];
-            NSLog(@"meiyou ");
         }
         
         

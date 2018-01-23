@@ -41,7 +41,7 @@
     [FigureImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(Backgroundview).offset(5);
         make.top.equalTo(Backgroundview).offset(5);
-        make.width.mas_equalTo(70);
+        make.width.mas_equalTo(85);
         make.height.mas_equalTo(85);
     }];
     _FigureImage = FigureImage;
@@ -54,7 +54,7 @@
     titleLabel.font = ZP_titleFont;
     [self.contentView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(80);
+        make.left.equalTo(FigureImage).offset(90);
         make.right.equalTo(self).offset(-20);
         make.top.equalTo(Backgroundview).offset(10);
     }];
@@ -79,7 +79,7 @@
     CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     [self.contentView addSubview:CurrencySymbolLabel];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(FigureImage).offset(80);
+        make.left.equalTo(FigureImage).offset(90);
         make.top.equalTo(descLabel).offset(15);
     }];
     _CurrencySymbolLabel = CurrencySymbolLabel;

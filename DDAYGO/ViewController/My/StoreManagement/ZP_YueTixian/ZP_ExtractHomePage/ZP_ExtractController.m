@@ -35,6 +35,7 @@
     }
 }
 
+
 // 获取用户提现记录列表
 - (void)AllData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
@@ -53,7 +54,6 @@
     }];
 }
 
-
 // 取消按鈕點擊事件
 - (void)CancelButt:(UIButton *)sender {
     [self Canceltakeout:sender.tag];
@@ -65,14 +65,17 @@
     NSMutableDictionary * dicc = [NSMutableDictionary dictionary];
     dicc[@"token"] = Token;
     dicc[@"sid"] = model.supplierid;
+    dicc[@"takeid"] = @"1";
     [ZP_MyTool requestCanceltakeout:dicc uccess:^(id obj) {
-        if ([dicc[@"result"]isEqualToString:@"ok"]) {
+        if ([obj[@"result"]isEqualToString:@"ok"]) {
             [SVProgressHUD showSuccessWithStatus:@"取消成功"];
         }else
-            if ([dicc[@"result"]isEqualToString:@"failed"]) {
+            if ([obj[@"result"]isEqualToString:@"failed"]) {
                 [SVProgressHUD showInfoWithStatus:@"取消失敗"];
             }
         ZPLog(@"%@",obj);
+        [self.tableView reloadData];
+        [self AllData];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
     }];
@@ -117,16 +120,12 @@
 }
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (self.ExtractArr.count -1 == section) {
         return CGFLOAT_MIN;
     }
     return 10;
 }
-
-
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     

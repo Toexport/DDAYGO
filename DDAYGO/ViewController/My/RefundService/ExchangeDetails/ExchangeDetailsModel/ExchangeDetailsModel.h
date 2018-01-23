@@ -10,7 +10,6 @@
 
 @interface ExchangeDetailsModel : NSObject
 
-
 @property (nonatomic, strong)NSNumber * aid; // 用户ID
 @property (nonatomic, strong) NSNumber * ordersnumber; // 订单号
 @property (nonatomic, strong) NSNumber * returntype; // 申请类型
@@ -27,10 +26,12 @@
 @property (nonatomic, strong) NSString * statestr; // 当前状态
 //*************************//
 @property (nonatomic, strong) NSString * defaultimg; // 主图
+@property (nonatomic, strong) NSString * logisticimg; // 上传的图片
 @property (nonatomic, strong) NSString * productname; // 商品名字
 @property (nonatomic, strong) NSString * colorname; // 颜色
 @property (nonatomic, strong) NSString * normname; // 尺码
 @property (nonatomic, strong) NSNumber * amount; // 数量
+
 
 @end
 

@@ -46,7 +46,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSData * data  = [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
+    [_headImageBut setImage:[UIImage imageWithData:data] forState:UIControlStateNormal];
+    _headImageBut.layer.cornerRadius = 42;
+    _headImageBut.layer.masksToBounds = YES;
 }
 
 // 生命周期
@@ -56,9 +59,7 @@
     [self initUI];
     [self LoginJudde];
     [self loginAllData];
-//    [self Supplier];
-    
-   
+
 }
 
 //- (void) Supplier {
@@ -194,13 +195,13 @@
     dic[@"nonce"] = @(i);
     [ZP_MyTool requestSetHomePage:dic success:^(id obj) {
         ZPLog(@"%@",obj);
-       // [self SupplierAllData];
         ZP_HomePageModel * model = [[ZP_HomePageModel alloc]init];
         model.nickname = obj[@"nickname"];
         model.avatarimg = [NSString stringWithFormat:@"%@%@",ImgAPI,obj[@"avatarimg"]];
         [self.headImageBut sd_setBackgroundImageWithURL:[NSURL URLWithString:model.avatarimg] forState:UIControlStateNormal];
         [self MyViewData:model];
-        
+        NSData * data =  [NSData dataWithContentsOfURL:[NSURL URLWithString:model.avatarimg]];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
     } failure:^(NSError * error) {
         _SdglLayoutConstraint.constant = CGFLOAT_MIN;
         _sdglView.hidden = YES;

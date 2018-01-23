@@ -13,6 +13,10 @@
 + (void)requGetAddress:(NSDictionary *)Address success:(void (^)(id))success failure:(void (^)(NSError *))failure;
 // 获取确认订单信息
 + (void)requesMakeSureOrder:(NSDictionary *)MakeSureOrder success:(void (^)(id))success failure:(void (^)(NSError *))failure;
+
+// 79) 修改購物車商品數量
++ (void)requestSetcartproductcount:(NSDictionary *)Setcartproductcount success:(void (^)(id))success failure:(void (^)(NSError *))failure;
+
 // 选择支付方式
 + (void)requetMethodpay:(NSDictionary *)Methodpay success:(void (^)(id))success failure:(void (^)(NSError *))failure;
 // 添加订单并付款

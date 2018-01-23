@@ -205,8 +205,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
     if (indexPath.section == 0) {
         BetTableViewMyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BetTableViewMyCell"];
 //        NSLog(@"you go");
@@ -327,9 +325,8 @@
     NSString * jStr = [NSString stringWithFormat:@"%d",[str integerValue] - 1];
     [self.dicArray[but.tag] addObject:jStr];
 
-    NSIndexPath *index = [NSIndexPath indexPathForRow:but.tag inSection:2];
+    NSIndexPath * index = [NSIndexPath indexPathForRow:but.tag inSection:2];
     [self.tableView reloadMoveToBottom];
-//    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:index, nil] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 //  删除
@@ -348,7 +345,7 @@
             }
         }else{
             [self.dicArray removeObjectAtIndex:but.tag];
-            NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:2];
+            NSIndexSet * indexSet=[[NSIndexSet alloc]initWithIndex:2];
             if (self.dicArray.count > 0) {
 //                [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
                 [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationFade];
@@ -434,16 +431,14 @@
     return _Selearray;
 }
 
-- (NSMutableArray *)array1
-{
+- (NSMutableArray *)array1 {
     if (!_array1) {
         _array1 = [NSMutableArray array];
     }
     return _array1;
 }
 
-- (NSMutableArray *)arrayT
-{
+- (NSMutableArray *)arrayT {
     if (!_arrayT) {
         _arrayT = [NSMutableArray array];
     }

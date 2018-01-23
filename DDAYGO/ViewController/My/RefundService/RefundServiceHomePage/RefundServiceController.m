@@ -101,6 +101,7 @@
     RefundServiceCell * cell = [tableView dequeueReusableCellWithIdentifier:@"RefundServiceCell"];
     cell.shopnameLabel.text = model.shopname ;
     cell.ItemLabel.text = model.createtime;
+    cell.WaitStateLabel.text = model.statestr;
     cell.TitleLabel.text = model.productname;
     [cell.MaimImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI, model.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
 //    cell.StateLabel.text = [model.returntype stringValue];

@@ -25,6 +25,7 @@
 - (void)setModel:(ZP_ExtractModel *)model {
     _MmountLabel.text =  [model.takeamount stringValue]; // 金额
     _BanksLabel.text = model.bankname;  // 银行
+    NSLog(@"----%@",[model.bankname stringByReplacingPercentEscapesUsingEncoding:kCFStringEncodingUTF8]);
     _NameLabel.text = model.bankcardname; // 名字
     _BankAccountLabel.text = [model.bankcardno stringValue]; // 账户
     _PhoneLabel.text = [model.phone stringValue];  // 电话

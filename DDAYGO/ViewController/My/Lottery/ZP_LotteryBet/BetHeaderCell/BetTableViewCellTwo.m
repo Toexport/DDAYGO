@@ -38,10 +38,10 @@
         but.titleLabel.font = ZP_TrademarkFont;
         if ([arr[i] integerValue] > 99) {
             
-            [but setTitle:[NSString stringWithFormat:@"%02ld",[arr[i] integerValue] - 100] forState:UIControlStateNormal];
+            [but setTitle:[NSString stringWithFormat:@"%02ld",[arr[i] integerValue] - 99] forState:UIControlStateNormal];
             but.selected = YES;
         }else{
-            [but setTitle:[NSString stringWithFormat:@"%@",arr[i]] forState:UIControlStateNormal];}
+            [but setTitle:[NSString stringWithFormat:@"%02ld",[arr[i] integerValue]] forState:UIControlStateNormal];}
         [but setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [but setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
 //        but.titleEdgeInsets = UIEdgeInsetsMake(2.5, 2.5, 2.5, 2.5);

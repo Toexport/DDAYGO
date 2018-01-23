@@ -29,7 +29,7 @@
 
 // UI
 - (void)initUI {
-    self.title = NSLocalizedString(@"申请退款", nil);
+    self.title = NSLocalizedString(@"退款", nil);
     _view4.hidden = YES;
     [self requestRefundAllData];
     _imageView = [[LPDQuoteImagesView alloc] initWithFrame:CGRectMake(0, 25, RELATIVE_VALUE(220), RELATIVE_VALUE(80)) withCountPerRowInView:3 cellMargin:12];
@@ -59,11 +59,11 @@
 - (void)initWithRequsetRefund:(SelectModel *)model {
     NSDictionary * dic = model.refundinfo;
     SelectModel2 * model2 = [SelectModel2 mj_objectWithKeyValues:dic];
-    [_MainImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://192.168.0.117:7000%@", model2.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
+    [_MainImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI, model2.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
     _TitleLabel.text = model2.productname;
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
     _CurrencyLabel.text = [NSString stringWithFormat:@"%@",str];
-    _PriceLabel.text = [model2.ordersamount stringValue];
+    _PriceLabel.text = [model2.productamount stringValue];
 }
 
 // 66) 获取退换货原因列表

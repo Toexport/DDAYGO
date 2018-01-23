@@ -43,16 +43,19 @@
 
 @property (nonatomic, strong) OrdersdetailModel * model;   // 再次购买
 
+@property (nonatomic, strong) OrderModel * model2;   // 再次购买
+
 
 - (void)InformationWithDic:(OrdersdetailModel *)dic WithModel:(OrderModel *)model;
 
 typedef void (^FinishBlock)(id response);
-
 @property (nonatomic , copy) FinishBlock finishBlock;
 
 typedef void (^AppraiseBlock)(id response);
-
 @property (nonatomic , copy) AppraiseBlock appraiseBlock;
+
+typedef void (^OnceagainBlock)(id response);
+@property (nonatomic , copy) OnceagainBlock onceagainBlock;
 
 @end
 

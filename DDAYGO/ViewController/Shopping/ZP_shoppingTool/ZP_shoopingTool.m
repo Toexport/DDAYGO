@@ -81,6 +81,16 @@
         failure(error);
     }];
 }
+
+// 79) 修改購物車商品數量
++ (void)requestSetcartproductcount:(NSDictionary *)Setcartproductcount success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+    [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@setcartproductcount?token=%@&cartid=%@&count=%@",URLAPI,Setcartproductcount[@"token"],Setcartproductcount[@"cartid"],Setcartproductcount[@"count"]] parameters:nil success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
 // 支付
 + (void)requessaddorderpay:(NSDictionary *)dic noEdit:(BOOL)noEdit success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure{
     
@@ -95,8 +105,6 @@
     } failure:^(NSError *error) {
         failure(error);
     }];
-    
-    
 }
 
 //  删除购物车

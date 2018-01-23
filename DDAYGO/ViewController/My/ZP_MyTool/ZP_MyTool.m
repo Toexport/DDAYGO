@@ -193,7 +193,9 @@
 
 // 取消余额提现
 + (void)requestCanceltakeout:(NSDictionary *)Canceltakeout uccess:(void (^)(id))success failure:(void (^)(NSError *))failure {
-    [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@canceltakeout?token=%@&sid=%@",URLAPI,Canceltakeout[@"token"],Canceltakeout[@"sid"]] parameters:nil success:^(id responseObject) {
+    NSString * strUrl = [NSString stringWithFormat:@"%@canceltakeout?token=%@&sid=%@&takeid=%@",URLAPI,Canceltakeout[@"token"],Canceltakeout[@"sid"],Canceltakeout[@"takeid"]];
+    NSString * str = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [ZP_NetorkingTools POST:str parameters:nil success:^(id responseObject) {
         success(responseObject);
     } failure:^(NSError *error) {
         failure(error);
@@ -202,7 +204,7 @@
 
 // 获取订单支付结果
 + (void)requesOrdPay:(NSDictionary *)OrdPay uccess:(void (^)(id))success failure:(void (^)(NSError *))failure {
-    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getpayresult?poid=%@",@"http://www.ddaygo.com/receive/",OrdPay[@"poid"]] parameters:nil success:^(NSDictionary *responseObject) {
+    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getpayresult?poid=%@",URLAPI,OrdPay[@"poid"]] parameters:nil success:^(NSDictionary *responseObject) {
         success(responseObject);
         //        http://www.ddaygo.com/receive/getpayresult?poid=DG12345645544
     } failure:^(NSError *error) {

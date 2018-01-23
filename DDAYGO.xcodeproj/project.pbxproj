@@ -435,6 +435,7 @@
 		C4ECF4AB2015AFC1006DFE7E /* MerchantCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECF4AA2015AFC1006DFE7E /* MerchantCollectionViewCell.m */; };
 		C4ECF4AF2015CF5E006DFE7E /* MerchantModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECF4AE2015CF5E006DFE7E /* MerchantModel.m */; };
 		C4ECF4B32016087C006DFE7E /* SecondModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECF4B22016087C006DFE7E /* SecondModel.m */; };
+		C4ECF4B62016B996006DFE7E /* ReloadView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECF4B42016B996006DFE7E /* ReloadView.m */; };
 		C4FFF1F82011EFF000EF4A4D /* SatisfactionSurveyController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFF1F62011EFF000EF4A4D /* SatisfactionSurveyController.m */; };
 		C4FFF1F92011EFF000EF4A4D /* SatisfactionSurveyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FFF1F72011EFF000EF4A4D /* SatisfactionSurveyController.xib */; };
 		C4FFF1FE2011F05A00EF4A4D /* SatisfactionSurveyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFF1FC2011F05A00EF4A4D /* SatisfactionSurveyCell.m */; };
@@ -1245,6 +1246,8 @@
 		C4ECF4AE2015CF5E006DFE7E /* MerchantModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantModel.m; sourceTree = "<group>"; };
 		C4ECF4B12016087C006DFE7E /* SecondModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondModel.h; sourceTree = "<group>"; };
 		C4ECF4B22016087C006DFE7E /* SecondModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondModel.m; sourceTree = "<group>"; };
+		C4ECF4B42016B996006DFE7E /* ReloadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReloadView.m; sourceTree = "<group>"; };
+		C4ECF4B52016B996006DFE7E /* ReloadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReloadView.h; sourceTree = "<group>"; };
 		C4FFF1F52011EFF000EF4A4D /* SatisfactionSurveyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SatisfactionSurveyController.h; sourceTree = "<group>"; };
 		C4FFF1F62011EFF000EF4A4D /* SatisfactionSurveyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SatisfactionSurveyController.m; sourceTree = "<group>"; };
 		C4FFF1F72011EFF000EF4A4D /* SatisfactionSurveyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SatisfactionSurveyController.xib; sourceTree = "<group>"; };
@@ -1840,6 +1843,8 @@
 				06DD46BC1F94721A007E4D17 /* CIImage+Extension.m */,
 				06DD46BD1F94721A007E4D17 /* UINavigationBar+Awesome.h */,
 				06DD46BE1F94721A007E4D17 /* UINavigationBar+Awesome.m */,
+				C4ECF4B52016B996006DFE7E /* ReloadView.h */,
+				C4ECF4B42016B996006DFE7E /* ReloadView.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -4503,6 +4508,7 @@
 				C47750811FBA9A1E00AE8B3F /* ZP_FirstModel.m in Sources */,
 				06F572261F9F1E8700D61FDB /* OrdersViewController.m in Sources */,
 				C46837FC1FDA78EE000E7D7C /* ZP_MyHopageModel.m in Sources */,
+				C4ECF4B62016B996006DFE7E /* ReloadView.m in Sources */,
 				C45F23081FA0754500F5DB41 /* SearchBar.m in Sources */,
 				064449B11F6A9B250004DFE4 /* MJRefreshBackStateFooter.m in Sources */,
 				06F572341F9F1E8700D61FDB /* ReceivingController.m in Sources */,

@@ -33,7 +33,6 @@
 @end
 
 @interface ZP_CartsModel : NSObject
-
 @property (nonatomic, strong) NSNumber *cartid;
 @property (nonatomic, strong) NSNumber *aid;
 @property (nonatomic, strong) NSNumber * stockid;

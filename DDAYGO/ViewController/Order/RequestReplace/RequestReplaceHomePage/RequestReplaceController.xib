@@ -13,11 +13,9 @@
             <connections>
                 <outlet property="Exchange" destination="nM8-dx-3KQ" id="SIp-Nm-UKn"/>
                 <outlet property="MainView2" destination="YOa-Pb-rtB" id="5Lt-lb-LOS"/>
-                <outlet property="Refund" destination="qjg-9e-eC2" id="lqc-AV-uAB"/>
                 <outlet property="RefundsRefunds" destination="m0D-W7-sjx" id="lDe-Yy-gDP"/>
                 <outlet property="RequestReplaceScrollView" destination="rOR-qs-q3c" id="lKJ-es-UQW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="view1" destination="8sm-1p-5E3" id="Ubz-n4-TEg"/>
                 <outlet property="view2" destination="OKG-S0-XOO" id="S4u-hv-rg4"/>
                 <outlet property="view3" destination="rkg-Ed-rCG" id="9rf-Pg-UCV"/>
             </connections>
@@ -31,46 +29,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YOa-Pb-rtB">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
                             <subviews>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8sm-1p-5E3">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjg-9e-eC2">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <connections>
-                                                <action selector="Refund:" destination="-1" eventType="touchUpInside" id="3Ly-IJ-tMh"/>
-                                            </connections>
-                                        </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_retreat_refund" translatesAutoresizingMaskIntoConstraints="NO" id="cVe-1m-ORs">
-                                            <rect key="frame" x="8" y="13" width="25" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="仅退款" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDf-fG-aRE">
-                                            <rect key="frame" x="48" y="13" width="60" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="未收到货,或卖家协商同意前提下" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PX-ze-zSZ">
-                                            <rect key="frame" x="48" y="37" width="192" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_retreat_left" translatesAutoresizingMaskIntoConstraints="NO" id="Y0h-b7-AMA">
-                                            <rect key="frame" x="297" y="22" width="10" height="15"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </view>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OKG-S0-XOO">
-                                    <rect key="frame" x="0.0" y="66" width="320" height="65"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0D-W7-sjx">
@@ -106,7 +68,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rkg-Ed-rCG">
-                                    <rect key="frame" x="0.0" y="132" width="320" height="65"/>
+                                    <rect key="frame" x="0.0" y="66" width="320" height="65"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nM8-dx-3KQ">
@@ -143,13 +105,13 @@
                                 </view>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="height" constant="200" id="gWn-dI-7eq"/>
+                                <constraint firstAttribute="height" constant="131" id="gWn-dI-7eq"/>
                             </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="YOa-Pb-rtB" secondAttribute="bottom" constant="230" id="5tZ-g3-E3u"/>
+                        <constraint firstAttribute="bottom" secondItem="YOa-Pb-rtB" secondAttribute="bottom" constant="437" id="5tZ-g3-E3u"/>
                         <constraint firstAttribute="trailing" secondItem="YOa-Pb-rtB" secondAttribute="trailing" id="Yhy-LG-hM5"/>
                         <constraint firstItem="YOa-Pb-rtB" firstAttribute="leading" secondItem="rOR-qs-q3c" secondAttribute="leading" id="Zfg-VD-blA"/>
                         <constraint firstItem="YOa-Pb-rtB" firstAttribute="top" secondItem="rOR-qs-q3c" secondAttribute="top" id="ccY-bK-YaG"/>
@@ -170,6 +132,5 @@
         <image name="icon_retreat_exchange" width="22" height="22"/>
         <image name="icon_retreat_goods" width="22" height="22"/>
         <image name="icon_retreat_left" width="8" height="15"/>
-        <image name="icon_retreat_refund" width="22" height="22"/>
     </resources>
 </document>

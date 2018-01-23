@@ -13,6 +13,7 @@
 #import "RequestReplaceController.h"
 #import "RequestRefundController.h"
 #import "ZP_OrderModel.h"
+#import "ConfirmViewController.h"
 @implementation OrderViewCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:@"orderViewCell"];
@@ -346,10 +347,7 @@
     }
 }
 
-// 上传按钮
-- (void)DeleteBut:(UIButton *)sendel {
-    ZPLog(@"----");
-}
+
 ////  物流
 //- (void)LogisticsBut:(UIButton *) LogisticsBut {
 //    LogistcsController * logistcs = [[LogistcsController alloc]init];
@@ -363,15 +361,33 @@
 - (void)OnceagainBut:(UIButton *)OnceagainBut {
     NSLog(@"state =  %@",_model.state);
     switch (_model.state.longValue) {
-       case 6:{
-           RequestRefundController * RequestReplace = [[RequestRefundController alloc]init];
-    
-           if (self.appraiseBlock) {
-              self.appraiseBlock(RequestReplace);
-         }
-        [[NSNotificationCenter defaultCenter]postNotificationName:@"RequestReplace" object:nil];
-}
-    break;
+            // cha kan xiang qing
+        case 6:{
+            //
+            RequestRefundController * RequestReplace = [[RequestRefundController alloc]init];
+            
+            if (self.onceagainBlock) {
+                self.onceagainBlock(RequestReplace);
+            }
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"RequestReplace" object:nil];
+        }
+            break;
+    // 再次购买
+        case 4:{
+
+            ConfirmViewController * confirm = [[ConfirmViewController alloc]init];
+            confirm.stockidsString = [NSString stringWithFormat:@"%@_%@",_model.stockid,_model.amount];
+            confirm.noEdit = YES;
+            confirm.ordersnumber = _model2.ordersnumber;
+            confirm.type = 666;
+            
+            if (self.onceagainBlock) {
+                self.onceagainBlock(confirm);
+            }
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"confirm" object:nil];
+        }
+            break;
+            
         default:
             break;
     }
@@ -390,14 +406,18 @@
         case 1:
             _TradingLabel.text = @"待付款";
             [_OnceagainBut setTitle:@"付款" forState:UIControlStateNormal];
+            
+            _DeleteBut.hidden = YES;
 //            [_AppraiseBut setTitle:@"取消訂單" forState:UIControlStateNormal];
             _AppraiseBut.hidden = YES;
             //例如 --点击第一个看能不能点击
             NSLog(@"Stata = %D",a);
             _AppraiseBut.userInteractionEnabled = NO;
+            
             break;
         case 2:
             _TradingLabel.text = @"待發貨";
+            _DeleteBut.hidden = YES;
             [_OnceagainBut setTitle:@"提醒發貨" forState:UIControlStateNormal];
             [_AppraiseBut setTitle:@"退款" forState:UIControlStateNormal];
             NSLog(@"Stata = %D",a);
@@ -406,6 +426,7 @@
             break;
         case 3:
             _TradingLabel.text = @"待收貨";
+            _DeleteBut.hidden = YES;
             [_OnceagainBut setTitle:@"確認收貨" forState:UIControlStateNormal];
             [_AppraiseBut setTitle:@"退换货" forState:UIControlStateNormal];
             NSLog(@"Stata = %D",a);
@@ -414,17 +435,18 @@
         case 4:
             
             _TradingLabel.text = @"交易成功";
-            [_OnceagainBut setTitle:@"再次購買" forState:UIControlStateNormal];
-//            [_AppraiseBut setTitle:@"评价" forState:UIControlStateNormal];
+//            [_OnceagainBut setTitle:@"再次購買" forState:UIControlStateNormal];
+            [_AppraiseBut setTitle:@"评价" forState:UIControlStateNormal];
             NSLog(@"Stata = %D",a);
-            _AppraiseBut.hidden = YES;
+//            _AppraiseBut.hidden = YES;
+            _OnceagainBut.hidden = YES;
             NSLog(@"Stata = %D",a);
             break;
         case 5:
             _TradingLabel.text = @"已取消";
             [_OnceagainBut setTitle:@"再次購買" forState:UIControlStateNormal];
-            [_AppraiseBut setTitle:@"评价" forState:UIControlStateNormal];
-            _AppraiseBut.hidden = YES;
+            [_OnceagainBut setTitle:@"评价" forState:UIControlStateNormal];
+//            _AppraiseBut.hidden = YES;
             _OnceagainBut.hidden = YES;
             break;
         case 6:
@@ -456,6 +478,7 @@
     _TrademarkLabel.text = [NSString stringWithFormat:@"%@",dic.cp];
     _QuantityLabel.text = [NSString stringWithFormat:@"%@",dic.amount];
     _model = dic;
+    _model2 = model;
 }
 
 @end

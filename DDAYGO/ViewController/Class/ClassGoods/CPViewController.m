@@ -205,23 +205,25 @@
     NSDictionary * dic = @{@"seq":@"desc",@"countrycode":@"886",@"word":str,@"fatherid":_fatherId,@"page":@"1",@"pagesize":@"30",};
 
     [ZP_ClassViewTool requMerchandise:dic WithIndex:0 success:^(id obj) {
-        NSDictionary * dict = obj;
-        [SVProgressHUD dismiss];
-        ZPLog(@"%@",obj);
-        self.dicts = dict[@"datalist"];
-        NSArray * arr = dict[@"datalist"];
-        self.newsData = [ZP_ClassGoodsModel arrayWithArray:arr];
-        [self.collectionView1 reloadData];
-        [self.collectionView1.mj_header endRefreshing];  // 結束下拉刷新
-        [self.collectionView2.mj_header endRefreshing];  // 結束下拉刷新
-        [self.collectionView3.mj_header endRefreshing];  // 結束下拉刷新
-        [self.collectionView4.mj_header endRefreshing];  // 結束下拉刷新
-        [self.collectionView1.mj_footer endRefreshing];  // 結束上拉刷新
-        [self.collectionView2.mj_footer endRefreshing];  // 結束上拉刷新
-        [self.collectionView3.mj_footer endRefreshing];  // 結束上拉刷新
-        [self.collectionView4.mj_footer endRefreshing];  // 結束上拉刷新
+        if (_newsData.count < 1) {
+            NSDictionary * dict = obj;
+            [SVProgressHUD dismiss];
+            ZPLog(@"%@",obj);
+            self.dicts = dict[@"datalist"];
+            NSArray * arr = dict[@"datalist"];
+            self.newsData = [ZP_ClassGoodsModel arrayWithArray:arr];
+            [self.collectionView1 reloadData];
+            [self.collectionView2 reloadData];
+            [self.collectionView3 reloadData];
+            [self.collectionView4 reloadData];
+            [self.collectionView1.mj_header endRefreshing];  // 結束下拉刷新
+            [self.collectionView2.mj_header endRefreshing];  // 結束下拉刷新
+            [self.collectionView3.mj_header endRefreshing];  // 結束下拉刷新
+            [self.collectionView4.mj_header endRefreshing];  // 結束下拉刷新
+        }else{
+            return ;
 //        NSLog(@"%ld",(unsigned long)arr.count);
-
+        }
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
         NSLog(@"%@",error);

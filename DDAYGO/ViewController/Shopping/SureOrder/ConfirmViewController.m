@@ -54,6 +54,7 @@
 
     // 666shi 订单界面
     if (self.type == 666) {
+        //这是你订单页面走的接口· 不走那里 你看到没有
         [self Mainorder];
         [self getAddData];
         ZPLog(@"^^^");
@@ -61,6 +62,7 @@
 //        购物车界面
          [self getAddData];
          [self MakeSureOrder];
+        
     }
         [self ExpressDelivery];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
@@ -332,13 +334,15 @@
         NSDictionary * dic = obj;
         ZPLog(@"%@",dic);
         self.NewData = [ZP_InformationModel arrayWithArray:dic[@"carts"]];
+         allMoney = [NSString stringWithFormat:@"%@",obj[@"allamount"]];
         ZP_ExpressDeliveryModel * model = [[ZP_ExpressDeliveryModel alloc] init];
         model.freightamount = dic[@"freightamount"];
         model.chooselogistic = dic[@"chooselogistic"];
-//        model.allamount = dic[@"allamount"];
+        model.allamount = dic[@"allamount"];
 //        model.amount = dic[@"amount"];
         [_ConfirmArray addObject:model];
-//        [self upfataStatisticsLabel];
+        [self upfataStatisticsLabel];
+        [self.tableView reloadData];
     } failure:^(NSError * error) {
 //        ZPLog(@"%@",error);
         [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];

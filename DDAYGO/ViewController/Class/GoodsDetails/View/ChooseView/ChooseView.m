@@ -120,7 +120,7 @@
     LB_detail.font = ZP_stockFont;
     [whiteView addSubview:LB_detail];
 //   分界线
-    LB_line = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(headImage.frame)+10, screen_Width, 0.5)];
+    LB_line = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(headImage.frame)+10, screen_Width, 0.03)];
     LB_line.backgroundColor = BackgroundColor;
     [whiteView addSubview:LB_line];
     
