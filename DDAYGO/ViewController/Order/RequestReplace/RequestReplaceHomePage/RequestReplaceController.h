@@ -10,6 +10,7 @@
 
 @interface RequestReplaceController : UIViewController
 @property (weak, nonatomic) IBOutlet UIScrollView *RequestReplaceScrollView; // 滚动视图
+@property (nonatomic, strong) NSNumber * Oid; // 订单号
 /** 第1个view */
 @property (weak, nonatomic) IBOutlet UIView * MianView1; // Mainview
 @property (weak, nonatomic) IBOutlet UIImageView * MianimageView; // 商品图片

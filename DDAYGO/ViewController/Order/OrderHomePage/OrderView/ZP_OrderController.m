@@ -93,7 +93,6 @@
 
 // 订单协议
 - (void)getDataWithState {
-    
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     NSInteger i;
     if ([_titleStr isEqualToString:NSLocalizedString(@"all", nil)]) {
@@ -116,26 +115,21 @@
         dic[@"sta"] = @"4";
         i = 4;
     }
-    
-    UIButton * but = [self.titleView viewWithTag:666+i];
+    UIButton * but = [self.titleView viewWithTag:666 + i];
     NSLog(@"but = %@",but.titleLabel.text);
-//    if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
-//        dic[@"sta"] = @"5";
-//    }
-//    if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
-//        dic[@"sta"] = @"6";
-//    }
-//    if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
-//        dic[@"sta"] = @"7";
-//    }
     
     dic[@"days"] = @"365";
     dic[@"token"] = Token;
     dic[@"orderno"] = @"";
-//    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
+    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
     [ZP_OrderTool requestGetorders:dic success:^(id json) {
         ZPLog(@"%@",json);
-        
+        if (json) {
+            self.newsData = json;
+            [self successful];
+        }else{
+            [self networkProblems];
+        }
         if ([json isKindOfClass:[NSDictionary class]]) {
             return ;
         }
@@ -150,10 +144,11 @@
         }
         [self.tableview.mj_header endRefreshing];  // 結束刷新
         
-    [self.tableview reloadData];
+//    [self.tableview reloadData];
     } failure:^(NSError *error) {
+//        [self.tableview.mj_header endRefreshing];  // 結束刷新
         NSLog(@"%@",error);
-//        [self loading];
+        [self loading];
     }];
 }
 
@@ -169,13 +164,11 @@
         if (self.newsData.count == 0) {
             return;
         }
-        
         OrderModel * model = self.newsData[sender.tag];
         NSMutableDictionary * dic = [NSMutableDictionary dictionary];
         dic[@"token"] = Token;
         dic[@"ordernumber"] = model.ordersnumber;
         [ZP_OrderTool requestDeleteOrder:dic success:^(id obj) {
-
             if ([obj[@"result"]isEqualToString:@"ok"]) {
                 [self.newsData removeObjectAtIndex:sender.tag];
                 [SVProgressHUD showSuccessWithStatus:@"刪除成功"];
@@ -184,7 +177,7 @@
                     [SVProgressHUD showInfoWithStatus:@"交易完成的訂單需要15天後才能刪除"];
                 }
             ZPLog(@"%@",obj);
-//            [self.tableview reloadData];
+            [self.tableview reloadData];
         } failure:^(NSError * error) {
             ZPLog(@"%@",error);
         }];

@@ -162,7 +162,7 @@
             [self.evaluateArray addObject:obj];
             NSLog(@"%@",obj);
         } failure:^(NSError *error) {
-            [self loading];
+//            [self loading];
             NSLog(@"%@",error);
         }];
         
@@ -170,7 +170,7 @@
         _shoucangBtn.selected = [model.state boolValue];
         NSString *value = [obj objectForKey:@"colornorms"];
         if ((NSNull *)value == [NSNull null]) {
-        }else{
+        }else {
             NSArray *colorArr = obj[@"colornorms"];
             if (colorArr.count > 0) {
                 _normsArr = [ZP_GoodDetailsModel arrayWithArray:obj[@"colornorms"]];
@@ -187,8 +187,8 @@
 }
 
 
--(void)loading{
-    //    [self endFreshing];
+-(void)loading {
+    
     [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
     __weak typeof(self)weakSelf = self;
     [ReloadView showToView:self.view touch:^{
@@ -198,7 +198,8 @@
 }
 
 -(void)successful {
-//    [self.tableView reloadData];
+    
+    [self.detailTableView reloadData];
     [ZPProgressHUD dismiss];
 }
 

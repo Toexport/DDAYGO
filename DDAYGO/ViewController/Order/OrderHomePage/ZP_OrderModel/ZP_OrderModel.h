@@ -113,6 +113,8 @@
 @property (nonatomic, strong) NSNumber * ordersamount;
 // 运费
 @property (nonatomic, strong) NSNumber * freight;
+// 评论次数
+@property (nonatomic, strong) NSNumber * reviewscount;
 
 + (instancetype)CreateWithDict:(NSDictionary *)dict;
 

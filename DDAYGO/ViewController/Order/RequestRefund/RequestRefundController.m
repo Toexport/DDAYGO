@@ -25,12 +25,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
+    if (self.type == 555) {
+        self.title = self.titleStr;
+        _view4.hidden = NO;
+    }
+    if (self.type == 666) {
+        self.title = self.titleStr;
+        _view4.hidden = NO;
+    }else {
+        self.title = NSLocalizedString(@"退款", nil);
+        _view4.hidden = YES;
+    }
 }
 
 // UI
 - (void)initUI {
-    self.title = NSLocalizedString(@"退款", nil);
-    _view4.hidden = YES;
     [self requestRefundAllData];
     _imageView = [[LPDQuoteImagesView alloc] initWithFrame:CGRectMake(0, 25, RELATIVE_VALUE(220), RELATIVE_VALUE(80)) withCountPerRowInView:3 cellMargin:12];
     _imageView.collectionView.scrollEnabled = NO;
@@ -44,7 +53,14 @@
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     dic[@"rty"] = @"0";
-    dic[@"oid"] = self.ord;
+//    if (self.type == 555) {
+        dic[@"oid"] = self.oid;
+//    }
+//    if (self.type == 666) {
+//        dic[@"oid"] = self.oid;
+//    }else {
+//        dic[@"oid"] = self.oid;
+//    }
     [ZP_OrderTool requestRequestRefund:dic success:^(id obj) {
         ZPLog(@"%@",obj);
         SelectModel * model = [SelectModel mj_objectWithKeyValues:obj];
@@ -100,7 +116,7 @@
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     dic[@"rty"] = @"0"; // 这个是类型（默认为0）
-    dic[@"oid"] = self.ord; // 订单号
+    dic[@"oid"] = self.oid; // 订单号
     dic[@"reason"] = self.showLabel.text; // 这个是原因
     dic[@"reasondetail"] = _MessageLabel.text; // 这个是输入的文字
     dic[@"imgs"] = @"";// 这个是图片(退票不需要添加图片)

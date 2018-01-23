@@ -198,7 +198,6 @@
     });
     [ZP_HomeTool requestSellLikeHotCakes:nil success:^(id obj) {
         [self.tableView reloadData];
-        [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_header endRefreshing];  // 結束刷新
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);

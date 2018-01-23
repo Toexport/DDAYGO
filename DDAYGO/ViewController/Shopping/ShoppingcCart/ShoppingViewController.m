@@ -73,10 +73,17 @@
 }
 // 获取购物车数据
 - (void)allData {
+//    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
     [ZP_shoopingTool requesshoppingData:Token success:^(id obj) {
         if ([obj isKindOfClass:[NSDictionary class]]) {
             return ;
         }
+//        if (obj) {
+//            self.selectAllArray = obj;
+//            [self successful];
+//        }else{
+//            [self networkProblems];
+//        }
 //        ZPLog(@"%@",obj);
         NSArray *arr = obj;
         if (arr.count > 0) {
@@ -92,17 +99,38 @@
             [self.tableView reloadData];
         }
     } failure:^(NSError *error) {
+        
     }];
  
 }
 
-// 完成按钮
-- (void)CompleteBut:(UIButton *) sender {
-    [self setcartproductcount];
+// 重新加载数据
+-(void)loading {
+    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    __weak typeof(self)weakSelf = self;
+    [ReloadView showToView:self.view touch:^{
+        [weakSelf allData];
+        [ReloadView dismissFromView:weakSelf.view];
+    }];
 }
 
-- (void)setcartproductcount {
-    //79) 修改購物車商品數量
+-(void)successful {
+    [self.tableView reloadData];
+    [ZPProgressHUD dismiss];
+}
+
+-(void)networkProblems {
+    __weak typeof(self)weakSelf = self;
+    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    [ReloadView showToView:self.view touch:^{
+        [weakSelf allData];
+    }];
+    return;
+}
+
+// 完成按钮
+- (void)CompleteBut:(UIButton *) sender {
+//79) 修改購物車商品數量
     NSMutableDictionary * dictt = [NSMutableDictionary dictionary];
     //    ZP_CartsModel * model = [[ZP_CartsModel alloc]init];
     dictt[@"token"] = Token;

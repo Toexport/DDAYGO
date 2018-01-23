@@ -14,7 +14,11 @@
     self.YearsLabel.text = [model.yyyy stringValue];
     self.MonthLabel.text = [model.mm stringValue];
     self.DyaLabel.text = [model.periods stringValue];
-    self.ItmeLanel.text = [NSString stringWithFormat:@"%@",model.lotterytime];
+    if (model.lotterytime == nil) {
+        return;
+    }else {
+        self.ItmeLanel.text = [NSString stringWithFormat:@"%@",model.lotterytime];
+    }
     self.NumberLabel.text = [model.lotterycounts stringValue];
     self.AmountLabel.text = [model.poolamount stringValue];
 }

@@ -436,11 +436,11 @@
 		C4ECF4AF2015CF5E006DFE7E /* MerchantModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECF4AE2015CF5E006DFE7E /* MerchantModel.m */; };
 		C4ECF4B32016087C006DFE7E /* SecondModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECF4B22016087C006DFE7E /* SecondModel.m */; };
 		C4ECF4B62016B996006DFE7E /* ReloadView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECF4B42016B996006DFE7E /* ReloadView.m */; };
+		C4ECF4B820174B28006DFE7E /* DDAYGO IHTTP协议1.0.docx in Resources */ = {isa = PBXBuildFile; fileRef = C4ECF4B720174B28006DFE7E /* DDAYGO IHTTP协议1.0.docx */; };
 		C4FFF1F82011EFF000EF4A4D /* SatisfactionSurveyController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFF1F62011EFF000EF4A4D /* SatisfactionSurveyController.m */; };
 		C4FFF1F92011EFF000EF4A4D /* SatisfactionSurveyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FFF1F72011EFF000EF4A4D /* SatisfactionSurveyController.xib */; };
 		C4FFF1FE2011F05A00EF4A4D /* SatisfactionSurveyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFF1FC2011F05A00EF4A4D /* SatisfactionSurveyCell.m */; };
 		C4FFF1FF2011F05A00EF4A4D /* SatisfactionSurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FFF1FD2011F05A00EF4A4D /* SatisfactionSurveyCell.xib */; };
-		C4FFF2012012180400EF4A4D /* DDAYGO IHTTP协议1.0 .docx in Resources */ = {isa = PBXBuildFile; fileRef = C4FFF2002012180400EF4A4D /* DDAYGO IHTTP协议1.0 .docx */; };
 		C4FFF2052012309800EF4A4D /* ShoplntroducedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFF2042012309800EF4A4D /* ShoplntroducedModel.m */; };
 		C4FFF2092012442F00EF4A4D /* SatisfactionSurveyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFF2082012442F00EF4A4D /* SatisfactionSurveyModel.m */; };
 		E37503CF1FC7BD8F00DA2950 /* ZP_ConfirmWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37503CD1FC7BBF400DA2950 /* ZP_ConfirmWebController.m */; };
@@ -1248,13 +1248,13 @@
 		C4ECF4B22016087C006DFE7E /* SecondModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondModel.m; sourceTree = "<group>"; };
 		C4ECF4B42016B996006DFE7E /* ReloadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReloadView.m; sourceTree = "<group>"; };
 		C4ECF4B52016B996006DFE7E /* ReloadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReloadView.h; sourceTree = "<group>"; };
+		C4ECF4B720174B28006DFE7E /* DDAYGO IHTTP协议1.0.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0.docx"; sourceTree = "<group>"; };
 		C4FFF1F52011EFF000EF4A4D /* SatisfactionSurveyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SatisfactionSurveyController.h; sourceTree = "<group>"; };
 		C4FFF1F62011EFF000EF4A4D /* SatisfactionSurveyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SatisfactionSurveyController.m; sourceTree = "<group>"; };
 		C4FFF1F72011EFF000EF4A4D /* SatisfactionSurveyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SatisfactionSurveyController.xib; sourceTree = "<group>"; };
 		C4FFF1FB2011F05A00EF4A4D /* SatisfactionSurveyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SatisfactionSurveyCell.h; sourceTree = "<group>"; };
 		C4FFF1FC2011F05A00EF4A4D /* SatisfactionSurveyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SatisfactionSurveyCell.m; sourceTree = "<group>"; };
 		C4FFF1FD2011F05A00EF4A4D /* SatisfactionSurveyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SatisfactionSurveyCell.xib; sourceTree = "<group>"; };
-		C4FFF2002012180400EF4A4D /* DDAYGO IHTTP协议1.0 .docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0 .docx"; sourceTree = "<group>"; };
 		C4FFF2032012309800EF4A4D /* ShoplntroducedModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShoplntroducedModel.h; sourceTree = "<group>"; };
 		C4FFF2042012309800EF4A4D /* ShoplntroducedModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoplntroducedModel.m; sourceTree = "<group>"; };
 		C4FFF2072012442F00EF4A4D /* SatisfactionSurveyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SatisfactionSurveyModel.h; sourceTree = "<group>"; };
@@ -1327,7 +1327,7 @@
 		063FE0441F614D24009910FF /* DDAYGO */ = {
 			isa = PBXGroup;
 			children = (
-				C4FFF2002012180400EF4A4D /* DDAYGO IHTTP协议1.0 .docx */,
+				C4ECF4B720174B28006DFE7E /* DDAYGO IHTTP协议1.0.docx */,
 				C4411D91200F626100CE906F /* 加载_ios */,
 				0641BB971F67B60B00E72FEF /* Testbag */,
 				063FE0AE1F615CEB009910FF /* ViewController */,
@@ -4212,7 +4212,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4FFF2012012180400EF4A4D /* DDAYGO IHTTP协议1.0 .docx in Resources */,
 				06621DB31F9758840030983F /* RegisterController.xib in Resources */,
 				C4FFF1FF2011F05A00EF4A4D /* SatisfactionSurveyCell.xib in Resources */,
 				C4411DB7200F626200CE906F /* 暂无数据.png in Resources */,
@@ -4308,6 +4307,7 @@
 				C4535E3E1FC5654500DFFD62 /* PayMoneyCell.xib in Resources */,
 				0682BE6B1F906D7B00894F4E /* Shopping2.png in Resources */,
 				C492A17E1FD0ECB7009FF57B /* ZP_HistoryVetController.xib in Resources */,
+				C4ECF4B820174B28006DFE7E /* DDAYGO IHTTP协议1.0.docx in Resources */,
 				06F5722B1F9F1E8700D61FDB /* OrderManagerCollectionViewCell.xib in Resources */,
 				C4D9E70E1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib in Resources */,
 				064449A61F6A9B250004DFE4 /* LICENSE in Resources */,

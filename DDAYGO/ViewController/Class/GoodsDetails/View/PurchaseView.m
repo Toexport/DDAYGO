@@ -82,7 +82,6 @@
     UIView * backView = [[UIView alloc]initWithFrame:CGRectMake(20, height-30, 100, 20)];
     backView.layer.borderWidth = 1;
     backView.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
-    
     [self.chooseView.mainscrollview addSubview:backView];
     
     _backView = backView;

@@ -13,7 +13,8 @@
 #define screen_Width [UIScreen mainScreen].bounds.size.width
 #define screen_Height [UIScreen mainScreen].bounds.size.height
 
-#define BackgroundColor [UIColor colorWithRed:240/255.0f green:240/255.0f blue:244/255.0f alpha:1]
+//#define BackgroundColor [UIColor colorWithRed:240/255.0f green:240/255.0f blue:244/255.0f alpha:1]
+
 //#define MainColor        [UIColor colorWithRed:24/255.0f green:161/255.0f blue:76/255.0f alpha:1]
 @interface ChooseView ()
 
@@ -33,7 +34,7 @@
     if (self) {
         
         self.backgroundColor = [UIColor clearColor];
-        self.showSales = @"200";
+        self.showSales = @"205";
         [self creatUI];
     }
     return self;
@@ -41,8 +42,7 @@
 
 
 
--(void)creatUI{
-    
+-(void)creatUI {
 //   半透明视图
     alphaView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, screen_Height)];
     alphaView.backgroundColor = [UIColor clearColor];
@@ -56,7 +56,7 @@
     
 //   商品图片
     headImage = [[UIImageView alloc] initWithFrame:CGRectMake(20, -10, 90, 90)];
-    headImage.image = [UIImage imageNamed:@"product_04"];
+//    headImage.image = [UIImage imageNamed:@"product_04"];
     headImage.layer.cornerRadius = 4;
     headImage.layer.borderColor = [UIColor lightGrayColor].CGColor;
     headImage.layer.borderWidth = 1;
@@ -80,7 +80,7 @@
 //    CP编号
     LB_CPLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(CPImageview.frame)+5, 10, 150, 20)];
     LB_CPLabel.textColor = [UIColor blackColor];
-    LB_CPLabel.text = @"9999";
+//    LB_CPLabel.text = @"9999";
     LB_CPLabel.font = ZP_stockFont;
     [whiteView addSubview:LB_CPLabel];
     
@@ -114,15 +114,15 @@
     
 //   用户所选择商品的尺码和颜色
     LB_detail = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(headImage.frame)+20, CGRectGetMaxY(LB_stock.frame), 150, 20)];
-    LB_detail.text = NSLocalizedString(@"請選擇尺碼 顏色 規格", nil);
+//    LB_detail.text = NSLocalizedString(@"請選擇尺碼 顏色 規格", nil);
     LB_detail.numberOfLines = 0;
     LB_detail.textColor = [UIColor blackColor];
     LB_detail.font = ZP_stockFont;
     [whiteView addSubview:LB_detail];
 //   分界线
-    LB_line = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(headImage.frame)+10, screen_Width, 0.03)];
-    LB_line.backgroundColor = BackgroundColor;
-    [whiteView addSubview:LB_line];
+//    LB_line = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(headImage.frame)+10, screen_Width, 0)];
+//    LB_line.backgroundColor = [UIColor yellowColor];
+//    [whiteView addSubview:LB_line];
     
 //   加入购物车按钮
     addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
