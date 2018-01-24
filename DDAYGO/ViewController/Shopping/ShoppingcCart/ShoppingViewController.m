@@ -46,6 +46,7 @@
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.title = NSLocalizedString(@"Shopping", nil);
+    
     /**** IOS 11 ****/
     if (@available(iOS 11.0, *)) {
         self.tableView.estimatedRowHeight = 0;
@@ -77,24 +78,25 @@
         }
     } else {
         [self allData];
-        
     }
 }
 // 获取购物车数据
 - (void)allData {
-//    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
+    //    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
     [ZP_shoopingTool requesshoppingData:Token success:^(id obj) {
         ZPLog(@"%@",obj);
         if ([obj isKindOfClass:[NSDictionary class]]) {
+            NSLog(@"go");
+            [self.tableView reloadData];
             return ;
         }
-//        if (obj) {
-//            self.selectAllArray = obj;
-//            [self successful];
-//        }else{
-//            [self networkProblems];
-//        }
-//        ZPLog(@"%@",obj);
+        //        if (obj) {
+        //            self.selectAllArray = obj;
+        //            [self successful];
+        //        }else{
+        //            [self networkProblems];
+        //        }
+        //        ZPLog(@"%@",obj);
         NSArray *arr = obj;
         if (arr.count > 0) {
             NSDictionary * dic = [obj firstObject];
@@ -108,16 +110,24 @@
             self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld",dataArray.count];
             [self.tableView reloadData];
             [self.tableView.mj_header endRefreshing];
+        }else{
+            NSLog(@"go");
+            dataArray = nil;
+            nameArray= nil;
+            selectArray = nil;
+            _AllButton.selected = NO;
+            self.navigationController.tabBarItem.badgeValue = @"";
+            [self.tableView reloadData];
         }
     } failure:^(NSError *error) {
         
     }];
- 
+    
 }
 
 // 完成按钮
 - (void)CompleteBut:(UIButton *) sender {
-//79) 修改購物車商品數量
+    //79) 修改購物車商品數量
     NSMutableDictionary * dictt = [NSMutableDictionary dictionary];
     //    ZP_CartsModel * model = [[ZP_CartsModel alloc]init];
     dictt[@"token"] = Token;
@@ -126,6 +136,9 @@
     dictt[@"count"] = _numstr;
     [ZP_shoopingTool requestSetcartproductcount:dictt success:^(id obj) {
         ZPLog(@"%@",obj);
+        if ([obj[@"result"] isEqualToString:@"stock_count_err"]) {
+            [SVProgressHUD showErrorWithStatus:@"库存不足"];
+        }
         [self allData];
         [self.tableView reloadData];
     } failure:^(NSError * error) {
@@ -151,7 +164,6 @@
     UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:cartButton];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 }
-
 
 #pragma makr -   编辑
 //  编辑
@@ -189,7 +201,7 @@
     self.tableView.separatorStyle = NO;
     [self.view addSubview:self.tableView];
     
-//   注册
+    //   注册
     [self.tableView registerClass:[ShoppingCell class] forCellReuseIdentifier:@"shoppingCell"];
     [self.tableView registerClass:[EditorViewCell class] forCellReuseIdentifier:@"editorViewCell"];
     UIView * bottomView = [UIView new];
@@ -197,7 +209,7 @@
     bottomView.frame = CGRectMake(0, ZP_height - TabbarHeight - 50 - NavBarHeight, ZP_Width, 50);
     [self.view addSubview:bottomView];
     
-//   全选按钮
+    //   全选按钮
     self.AllButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.AllButton.layer.masksToBounds = YES;
     self.AllButton.layer.cornerRadius = self.AllButton.frame.size.height/2;
@@ -219,7 +231,7 @@
         make.height.mas_offset(20);
     }];
     
-//  总金额
+    //  总金额
     UILabel * PriceLabel = [UILabel new];
     PriceLabel.textAlignment = NSTextAlignmentLeft;
     PriceLabel.textColor = ZP_HomePreferentialpriceTypefaceCorlor;
@@ -232,7 +244,7 @@
     }];
     _PriceLabel = PriceLabel;
     
-//    货币符号
+    //    货币符号
     ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
     CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
@@ -243,7 +255,7 @@
     }];
     _CurrencySymbolLabel = CurrencySymbolLabel;
     
-//   合计
+    //   合计
     ZP_GeneralLabel * StatisticsLabel = [ZP_GeneralLabel initWithtextLabel:_StatisticsLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     StatisticsLabel.text = NSLocalizedString(@"Total", nil);
     [bottomView addSubview:StatisticsLabel];
@@ -253,7 +265,7 @@
     }];
     _StatisticsLabel = StatisticsLabel;
     
-//  结算按钮
+    //  结算按钮
     UIButton * ClearingBut = [UIButton new];
     ClearingBut.backgroundColor = ZP_pricebackground;
     [ClearingBut setTitle:NSLocalizedString(@"Clearing", nil) forState:UIControlStateNormal];
@@ -272,7 +284,7 @@
     }];
     _ClearingButt = ClearingBut;
     
-//    运费Label
+    //    运费Label
     ZP_GeneralLabel * FreightLabel = [ZP_GeneralLabel initWithtextLabel:_FreightLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     FreightLabel.text = NSLocalizedString(@"不含运费", nil);
     [bottomView addSubview:FreightLabel];
@@ -437,7 +449,7 @@
                 if (_modelstockid.length > 0) {
                     _modelstockid = [_modelstockid stringByAppendingString:[NSString stringWithFormat:@",%@",str1]];
                 }else{
-                    _modelstockid = str;
+                    _modelstockid = str1;
                 }
                 if (_stockids.length > 0) {
                     _stockids = [_stockids stringByAppendingString:[NSString stringWithFormat:@",%@",str]];
@@ -528,27 +540,27 @@
 - (void)ClearingBut:(UIButton *)sender {
     // _stockids = nil;
     _modelstockid = nil;
-     [self updateData:sender.tag];
+    [self updateData:sender.tag];
     if ([self YESOrNoPush]) {
         if (sender.selected) {
 #pragma make -- 提示框
-        UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"確定要刪除嗎？",nil) preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"確定要刪除嗎？",nil) preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
-        }];
-        UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-            [self shangchuBut:sender];
-        }];
-        [alert addAction:defaultAction];
-        [alert addAction:cancelAction];
-        [self presentViewController:alert animated:YES completion:nil];
+            }];
+            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                [self shangchuBut:sender];
+            }];
+            [alert addAction:defaultAction];
+            [alert addAction:cancelAction];
+            [self presentViewController:alert animated:YES completion:nil];
         }else {
             ConfirmViewController * Confirm = [[ConfirmViewController alloc]init];
             Confirm.model = _model;
-//            Confirm.dataArray = dataArray;
-//            Confirm.nameArray = nameArray;
-//            Confirm.PriceStr = _PriceLabel.text;
-//            Confirm.NumStr = self.ClearingButt.titleLabel.text;
+            //            Confirm.dataArray = dataArray;
+            //            Confirm.nameArray = nameArray;
+            //            Confirm.PriceStr = _PriceLabel.text;
+            //            Confirm.NumStr = self.ClearingButt.titleLabel.text;
             Confirm.stockidsString = _stockids;
             [self.navigationController pushViewController:Confirm animated:YES];
             self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
@@ -566,15 +578,18 @@
 
 //删除按钮
 - (void) shangchuBut:(UIButton *)but {
-//   响应事件
+    //   响应事件
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     ZP_CartsShopModel * models = nameArray[0];
-    ZP_CartsModel * model = models.array[but.tag];
-    dic[@"stockid"] = model.stockid;
+    //    ZP_CartsModel * model = models.array[but.tag];
+    //    dic[@"stockid"] = model.stockid;
+    //    dic[@"stockid"] = @"18,18";
+    dic[@"stockid"] = _modelstockid;
     dic[@"token"] = Token;
     [ZP_shoopingTool requesscartitemdelte:dic success:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"ok"]) {
-             [models.array removeObjectAtIndex:but.tag];
+            //             [models.array removeObjectAtIndex:but.tag];
+            [self allData];
             [SVProgressHUD showSuccessWithStatus:@"刪除成功!"];
         }else
             if ([obj[@"result"]isEqualToString:@"failure"]) {

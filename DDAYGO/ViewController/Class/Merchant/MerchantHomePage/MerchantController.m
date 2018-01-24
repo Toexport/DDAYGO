@@ -71,7 +71,7 @@
 
 // UI
 -(void)addUI {
-    NSArray * allTitle = @[NSLocalizedString(@"店铺首页", nil),NSLocalizedString(@"最新", nil),NSLocalizedString(@"好评", nil),NSLocalizedString(@"价格", nil)];
+    NSArray * allTitle = @[NSLocalizedString(@"店店鋪首頁", nil),NSLocalizedString(@"最新", nil),NSLocalizedString(@"好評", nil),NSLocalizedString(@"價格", nil)];
     UIImageView * imageview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 150)];
     _imageview = imageview;
     imageview.backgroundColor = [UIColor whiteColor];
@@ -176,7 +176,6 @@
     _collectionView4.dataSource = self;
     
     if (@available(iOS 11.0, *)){
-        
         _collectionView1.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         _collectionView1.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
         _collectionView1.scrollIndicatorInsets = _collectionView1.contentInset;
@@ -194,7 +193,6 @@
         _collectionView4.scrollIndicatorInsets = _collectionView4.contentInset;
         //
     }
-    
     //    自适应大小
     _collectionView1.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight;
     _collectionView2.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -219,8 +217,8 @@
 }
 
 - (NSArray *) titles {
-    return @[@"店铺简介",
-             @"满意度调查"];
+    return @[@"店鋪簡介",
+             @"滿意度調查"];
 }
 
 - (NSArray *) images {
@@ -241,12 +239,12 @@
         if (index ==0) {
             ShopIntroductionViewController * ShopIntroduction = [[ShopIntroductionViewController alloc]init];
             ShopIntroduction.SupplierID = self.Supplieerid;
+            [self.navigationController pushViewController:ShopIntroduction animated:YES];
         }else {
             SatisfactionSurveyController * SatisfactionSurvey = [[SatisfactionSurveyController alloc]init];
             SatisfactionSurvey.sid = self.Supplieerid;
             [self.navigationController pushViewController:SatisfactionSurvey animated:YES];
         }
-
     }];
 }
 
@@ -258,25 +256,21 @@
         [self getproductfilter:sender.tag];
         self.lastView.contentOffset = CGPointMake((sender.tag -100) * ZP_Width, 0);
         [UIView animateWithDuration:0.2 animations:^{
-            
             self.line.x = sender.x;
             
         }];
         
         if (sender.selected) {
 #warning 选中
-            //这里设置button 按钮 图片
+//          这里设置button 按钮 图片
             [sender setImage:[UIImage imageNamed:@"icon_shop_classification_02"] forState:UIControlStateNormal];
-            
             NSLog(@"选择状态");
-            
             
         }else{
 #warning 取消选中
-              //这里设置button 按钮 图片
+//          这里设置button 按钮 图片
             [sender setImage:[UIImage imageNamed:@"icon_shop_classification_03"] forState:UIControlStateNormal];
         }
-        
         
     }else{
         [self getproductfilter:sender.tag];
@@ -295,14 +289,17 @@
 // 77) 根据大分类和子分类，获取该分类下产品，默认销量排序，支持排序最新，好评，价格
 - (void)getproductfilter:(NSInteger)tag {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-        dic[@"fathid"] = self.Supplieerid;
-//    dic[@"fathid"] = @"0";
+    dic[@"token"] = Token;
+    dic[@"sid"] = self.Supplieerid;
+//    dic[@"fathid"] = self.Supplieerid;
+    dic[@"fathid"] = @"0";
     dic[@"seq"] = @"asc";
     dic[@"word"] = @"";
     dic[@"countrycode"] = @"886";
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"30";
     switch (tag-100) {
+            
         case 0:
             dic[@"sort"] = @"sale"; //销量
             break;
@@ -318,14 +315,13 @@
         default:
             break;
     }
-    
     [ZP_ClassViewTool requestGetproductfilter:dic success:^(id obj) {
         ZPLog(@"%@",obj);
         NSDictionary * dict = obj;
-        NSArray * arr = dict[@"datalist"];
+        NSDictionary * dicct = dict[@"reviewgood"];
+        NSArray * arr = dicct[@"datalist"];
         _newsarray = [MerchantModel Merchant:arr];
         switch (tag-100) {
-                
             case 0:
                 [self.collectionView1 reloadData];
                 break;
@@ -342,6 +338,7 @@
             default:
                 break;
         }
+        
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
     }];
@@ -354,10 +351,7 @@
     button.selected = YES;
     self.btn = button;
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    dic[@"fathid"] = self.Supplieerid;
-//    dic[@"fathid"] = @"0";
-    NSLog(@"tag = %ld",tag);
-    
+//    dic[@"fathid"] = self.Supplieerid;
     switch (tag) {
         case 0:
             dic[@"sort"] = @"sale"; //销量
@@ -374,7 +368,10 @@
         default:
             break;
     }
-
+    dic[@"token"] = Token;
+    dic[@"sid"] = self.Supplieerid;
+    //    dic[@"fathid"] = self.Supplieerid;
+    dic[@"fathid"] = @"0";
     dic[@"seq"] = @"asc";
     dic[@"word"] = @"";
     dic[@"countrycode"] = @"886";
@@ -383,9 +380,9 @@
     [ZP_ClassViewTool requestGetproductfilter:dic success:^(id obj) {
         ZPLog(@"%@",obj);
         NSDictionary * dict = obj;
-        NSArray * arr = dict[@"datalist"];
+        NSDictionary * dicct = dict[@"reviewgood"];
+        NSArray * arr = dicct[@"datalist"];
         _newsarray = [MerchantModel Merchant:arr];
-
         switch (tag) {
                 case 0:
                 [self.collectionView1 reloadData];

@@ -50,9 +50,9 @@
         NSDictionary * dic = obj;
         _introductionDic = dic[@"introduction"];
         _reviewgoodDic = dic[@"reviewgood"];
-        ZPLog(@"%@",_introductionDic[@"updatetime"]);
+//        ZPLog(@"%@",_introductionDic[@"updatetime"]);
+        ZPLog(@"%@",obj);
         [self.tableview reloadData];
-        
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
     }];

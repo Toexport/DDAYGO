@@ -161,7 +161,8 @@
 
 //77) 根据大分类和子分类，获取该分类下产品，默认销量排序，支持排序最新，好评，价格
 + (void)requestGetproductfilter:(NSDictionary *)Getproductfilter success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
-    NSString * strUrl = [NSString stringWithFormat:@"%@getproductfilter?fathid=%@&sort=%@&seq=%@&word=%@&countrycode=%@&page=%@&pagesize=%@",URLAPI,Getproductfilter[@"fathid"],Getproductfilter[@"sort"],Getproductfilter[@"seq"],Getproductfilter[@"word"],Getproductfilter[@"countrycode"],Getproductfilter[@"page"],Getproductfilter[@"pagesize"]];
+//    NSString * strUrl = [NSString stringWithFormat:@"%@getproductfilter?fathid=%@&sort=%@&seq=%@&word=%@&countrycode=%@&page=%@&pagesize=%@",URLAPI,Getproductfilter[@"fathid"],Getproductfilter[@"sort"],Getproductfilter[@"seq"],Getproductfilter[@"word"],Getproductfilter[@"countrycode"],Getproductfilter[@"page"],Getproductfilter[@"pagesize"]];
+    NSString * strUrl = [NSString stringWithFormat:@"%@getproductfilter?token=%@&sid=%@&fathid=%@&sort=%@&seq=%@&word=%@&countrycode=%@&page=%@&pagesize=%@",URLAPI,Getproductfilter[@"token"],Getproductfilter[@"sid"],Getproductfilter[@"fathid"],Getproductfilter[@"sort"],Getproductfilter[@"seq"],Getproductfilter[@"word"],Getproductfilter[@"countrycode"],Getproductfilter[@"page"],Getproductfilter[@"pagesize"]];
     NSString * str = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [ZP_NetorkingTools GET:str parameters:nil success:^(id responseObject) {
         success(responseObject);

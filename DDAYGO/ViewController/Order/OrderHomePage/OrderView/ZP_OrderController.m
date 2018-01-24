@@ -27,7 +27,6 @@
 @interface ZP_OrderController ()<FSPageContentViewDelegate,FSSegmentTitleViewDelegate> {
     int _i;
     NSArray * dataArray;
-//    NSArray * _ModeldataArray;
 }
 @property (nonatomic, strong)UIButton * btn;
 @property (nonatomic, strong)UIView * views;
@@ -35,7 +34,6 @@
 @property (nonatomic, strong)UIScrollView * lastView;
 @property (nonatomic, strong)UILabel * line;
 @property (nonatomic, strong)UITableView * tableview;
-//@property (nonatomic,strong)NSMutableArray *arrData;
 
 @property (nonatomic, strong) FSPageContentView * pageContentView;
 
@@ -63,9 +61,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self addRefresh];
-    
-//    NSLog(@"%@",self.view.superview);
-//     self.titleView = [self.view.superview viewWithTag:66];
     if (DD_HASLOGIN ) {
         [self getDataWithState];
     }
@@ -82,6 +77,7 @@
 
 // UI
 -(void)addUI {
+    
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width , ZP_height - NavBarHeight - 85)];
     self.tableview.backgroundColor = ZP_Graybackground;
     [self.tableview registerClass:[OrderViewCell class] forCellReuseIdentifier:@"orderViewCell"];
@@ -94,6 +90,7 @@
 
 // 订单协议
 - (void)getDataWithState {
+    
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     NSInteger i;
     if ([_titleStr isEqualToString:NSLocalizedString(@"all", nil)]) {
@@ -114,6 +111,7 @@
     }
     if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
         dic[@"sta"] = @"4";
+        
         i = 4;
     }
     UIButton * but = [self.titleView viewWithTag:666 + i];
@@ -138,15 +136,13 @@
         if (self.newsData.count > 0) {
             but.badgeValue = [NSString stringWithFormat:@"%ld",self.newsData.count];
             but.badgeBGColor = [UIColor orangeColor];
-        }else{
+        }else {
             but.badgeValue = nil;
             but.badgeBGColor = [UIColor whiteColor];
         }
-        [self.tableview.mj_header endRefreshing];  // 結束刷新
-        
-//    [self.tableview reloadData];
+    [self.tableview.mj_header endRefreshing];  // 結束刷新
+    [self.tableview reloadData];
     } failure:^(NSError *error) {
-//        [self.tableview.mj_header endRefreshing];  // 結束刷新
         NSLog(@"%@",error);
         [self loading];
     }];
@@ -249,10 +245,8 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     self.tableview.tableFooterView = [[UIView alloc]init];
     cell.AppraiseBut.tag = indexPath.row;
-    
 //    [cell.AppraiseBut removeTarget:self action:@selector(buttonType) forControlEvents:UIControlEventTouchUpInside];
 //    [cell.OnceagainBut addTarget:self action:@selector(OnceagainBut:) forControlEvents:UIControlEventTouchUpInside];
-    
     cell.OnceagainBut.tag = indexPath.row;
     OrdersdetailModel * model2;
     cell.DeleteBut.tag = indexPath.row;
@@ -280,18 +274,18 @@
        
     };
     
-//    申请退款
+//   申请退款
     cell.appraiseBlock = ^(RequestRefundController* response) {
         
         [self.navigationController pushViewController:response animated:YES];
     };
     
-//    退换货
+//   退换货
     cell.appraiseBlock = ^(ExchangeDetailsController* response) {
         [self.navigationController pushViewController:response animated:YES];
     };
     
-    //查看详细 -- 再次购买
+//   查看详细 -- 再次购买
     cell.onceagainBlock = ^(id response) {
         //go
         [self.navigationController pushViewController:response animated:YES];

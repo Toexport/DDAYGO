@@ -191,8 +191,7 @@
     [self layoutIfNeeded];
 }
 
-- (void)setSelectIndex:(NSInteger)selectIndex
-{
+- (void)setSelectIndex:(NSInteger)selectIndex {
     if (_selectIndex == selectIndex||selectIndex < 0||selectIndex > self.itemBtnArr.count - 1) {
         return;
     }
@@ -208,8 +207,7 @@
     [self layoutIfNeeded];
 }
 
-- (void)setTitleFont:(UIFont *)titleFont
-{
+- (void)setTitleFont:(UIFont *)titleFont {
     _titleFont = titleFont;
     for (UIButton *btn in self.itemBtnArr) {
         btn.titleLabel.font = titleFont;
@@ -218,8 +216,7 @@
     [self layoutIfNeeded];
 }
 
-- (void)setTitleSelectFont:(UIFont *)titleSelectFont
-{
+- (void)setTitleSelectFont:(UIFont *)titleSelectFont {
     if (_titleFont == titleSelectFont) {
         _titleSelectFont = _titleFont;
         return;
@@ -233,30 +230,26 @@
     [self layoutIfNeeded];
 }
 
-- (void)setTitleNormalColor:(UIColor *)titleNormalColor
-{
+- (void)setTitleNormalColor:(UIColor *)titleNormalColor {
     _titleNormalColor = titleNormalColor;
     for (UIButton *btn in self.itemBtnArr) {
         [btn setTitleColor:titleNormalColor forState:UIControlStateNormal];
     }
 }
 
-- (void)setTitleSelectColor:(UIColor *)titleSelectColor
-{
+- (void)setTitleSelectColor:(UIColor *)titleSelectColor {
     _titleSelectColor = titleSelectColor;
     for (UIButton *btn in self.itemBtnArr) {
         [btn setTitleColor:titleSelectColor forState:UIControlStateSelected];
     }
 }
 
-- (void)setIndicatorColor:(UIColor *)indicatorColor
-{
+- (void)setIndicatorColor:(UIColor *)indicatorColor {
     _indicatorColor = indicatorColor;
     self.indicatorView.backgroundColor = indicatorColor;
 }
 
-- (void)setIndicatorExtension:(CGFloat)indicatorExtension
-{
+- (void)setIndicatorExtension:(CGFloat)indicatorExtension {
     _indicatorExtension = indicatorExtension;
     [self setNeedsLayout];
     [self layoutIfNeeded];
