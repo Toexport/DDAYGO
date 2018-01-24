@@ -58,7 +58,6 @@
 }
 
 - (void)initUI {
-    
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = ZP_WhiteColor;
     self.titleView = [[FSSegmentTitleView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 40) titles:@[NSLocalizedString(@"all", nil),NSLocalizedString(@"Waiting payment", nil),NSLocalizedString(@"Wait delivery", nil),NSLocalizedString(@"Waiting goods", nil),NSLocalizedString(@"evaluation", nil)] delegate:self indicatorType:FSIndicatorTypeEqualTitle];

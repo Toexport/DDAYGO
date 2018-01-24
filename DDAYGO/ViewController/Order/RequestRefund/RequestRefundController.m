@@ -28,7 +28,7 @@
     if (self.type == 555) {
         self.title = self.titleStr;
         _view4.hidden = NO;
-    }
+    }else
     if (self.type == 666) {
         self.title = self.titleStr;
         _view4.hidden = NO;
@@ -46,30 +46,6 @@
     _imageView.navcDelegate = self;
     _imageView.maxSelectedCount = 3;
     [self.view4 addSubview:_imageView];
-}
-
-// 67) 获取退换货申请页面商品信息
-- (void) requestRefundAllData {
-    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    dic[@"token"] = Token;
-    dic[@"rty"] = @"0";
-//    if (self.type == 555) {
-        dic[@"oid"] = self.oid;
-//    }
-//    if (self.type == 666) {
-//        dic[@"oid"] = self.oid;
-//    }else {
-//        dic[@"oid"] = self.oid;
-//    }
-    [ZP_OrderTool requestRequestRefund:dic success:^(id obj) {
-        ZPLog(@"%@",obj);
-        SelectModel * model = [SelectModel mj_objectWithKeyValues:obj];
-        self.prizeDic = obj;
-        [self initWithRequsetRefund:model];
-        NSLog(@"%@",model);
-    } failure:^(NSError * error) {
-        ZPLog(@"%@",error);
-    }];
 }
 
 - (void)initWithRequsetRefund:(SelectModel *)model {
@@ -106,6 +82,31 @@
     }];
 }
 
+// 67) 获取退换货申请页面商品信息
+- (void) requestRefundAllData {
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    dic[@"token"] = Token;
+    if (self.type == 555) {
+        dic[@"oid"] = self.oid;
+        dic[@"rty"] = @"1";
+    }else
+        if (self.type == 666) {
+            dic[@"oid"] = self.oid;
+            dic[@"rty"] = @"2";
+        }else {
+            dic[@"oid"] = self.oid;
+            dic[@"rty"] = @"0";
+        }
+    [ZP_OrderTool requestRequestRefund:dic success:^(id obj) {
+        ZPLog(@"%@",obj);
+        SelectModel * model = [SelectModel mj_objectWithKeyValues:obj];
+        self.prizeDic = obj;
+        [self initWithRequsetRefund:model];
+        NSLog(@"%@",model);
+    } failure:^(NSError * error) {
+        ZPLog(@"%@",error);
+    }];
+}
 //69) 添加退换货记录
 - (IBAction)TijiaoBut:(id)sender {
     [self addrefund];
@@ -131,10 +132,6 @@
     }];
 }
 
-//- (IBAction)TiangjiaBut:(id)sender {
-//    
-//   
-//}
 
 // 上传按钮
 - (IBAction)ShangchuanBut:(id)sender {

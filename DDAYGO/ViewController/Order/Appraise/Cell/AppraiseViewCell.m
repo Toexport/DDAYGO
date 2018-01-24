@@ -91,12 +91,9 @@
 
 //  按钮
 - (void)score:(NSArray *)score {
-    
     NSInteger num = 0;
     for (int x = 0; x <= 0; x ++) {
-        
         for (int i = 0; i <= 4; i ++) {
-            
             UIButton * scoreBut = [UIButton buttonWithType:UIButtonTypeCustom];
             scoreBut.frame = CGRectMake(i * ZP_Width / 14 + 150, x * ZP_Width / 14 + 20 , ZP_Width / 14 - 65, 15);
             [scoreBut setImage:[UIImage imageNamed:@"ic_evaluate_star_normal"] forState:UIControlStateNormal];
@@ -114,19 +111,14 @@
     }
 }
 
-
-
 - (void)buttonType:(UIButton *)sender {
-    
     self.scoreBlock(sender.tag);
     for (int i =0; i < self.scoreButArray.count; i ++) {
-        
         [self.scoreButArray[i] setSelected:i <= sender.tag];
     }
 }
 
 - (void)Appraise:(NSDictionary *)dic {
-    
     _FigureImage.image = [UIImage imageNamed:@"Shopping"];
 }
 

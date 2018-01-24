@@ -366,14 +366,25 @@
     }];
 }
 
+// 获取退换货详情（订单跳转）
++ (void)requestGetrefundinfoOrder:(NSDictionary *)GetrefundinfoOrder success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
+    //    http://www.ddaygo.com/api/Test/getrefundinfo?token=0f609c5df43e9add8c92d80e10e4ff86&oid=454545485455&countrycode=886
+        [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getrefundinfo?token=%@&oid=%@&countrycode=%@",URLAPI,GetrefundinfoOrder[@"token"],GetrefundinfoOrder[@"oid"],GetrefundinfoOrder[@"countrycode"]] parameters:nil success:^(id responseObject) {
+            
+            success(responseObject);
+        } failure:^(NSError * error) {
+            failure(error);
+        }];
+}
 
-// 获取退换货详情
+// 获取退换货详情（正常）
 + (void)requestGetrefundinfo:(NSDictionary *)Getrefundinfo success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
-    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getrefundinfo?token=%@&refundid=%@&countrycode=%@",URLAPI,Getrefundinfo[@"token"],Getrefundinfo[@"refundid"],Getrefundinfo[@"countrycode"]] parameters:nil success:^(id responseObject) {
-        success(responseObject);
-    } failure:^(NSError * error) {
-        failure(error);
-    }];
+
+        [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getrefundinfo?token=%@&refundid=%@&countrycode=%@",URLAPI,Getrefundinfo[@"token"],Getrefundinfo[@"refundid"],Getrefundinfo[@"countrycode"]] parameters:nil success:^(id responseObject) {
+            success(responseObject);
+        } failure:^(NSError * error) {
+            failure(error);
+        }];
 }
 
 //72) 更改退换货状态

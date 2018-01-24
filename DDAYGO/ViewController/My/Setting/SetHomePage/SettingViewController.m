@@ -73,6 +73,10 @@
         _view3.hidden = YES;
         //        _view4.hidden = YES;
         _view3Layout.constant = 50.0;
+    }else {
+        _IcueNumLayout.constant = CGFLOAT_MIN;
+        _view1.hidden = YES;
+        _view3Layout.constant = 153.0;
     }
     
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];

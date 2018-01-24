@@ -11,6 +11,7 @@
 @interface ExchangeDetailsController : UIViewController
 @property (weak, nonatomic) IBOutlet UIScrollView * ExchangeDetailsScrollView; // 滚动视图
 @property (nonatomic, strong) NSNumber * Oid;
+@property (nonatomic, assign) NSInteger type; //
 @property (nonatomic, strong) NSNumber * leeLabel;
 /** 第1个View */
 @property (weak, nonatomic) IBOutlet UIView * view1;  // view1
@@ -41,6 +42,8 @@
 
 /**第4个View */
 @property (weak, nonatomic) IBOutlet UIView *view4;
+
+@property (weak, nonatomic) IBOutlet UILabel *View4titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton * CancelBut; // 取消按钮
 @property (weak, nonatomic) IBOutlet UIButton * RequestServiceBut; // 请求客服
 

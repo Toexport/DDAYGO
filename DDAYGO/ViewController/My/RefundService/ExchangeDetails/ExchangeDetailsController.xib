@@ -30,6 +30,7 @@
                 <outlet property="TitleLabel" destination="d4u-EB-hlK" id="vfe-aG-qZQ"/>
                 <outlet property="View3LayoutConstraint" destination="gG0-bi-HDn" id="i9U-XU-se2"/>
                 <outlet property="View4LayoutConstraint" destination="hZH-M4-mnj" id="4VR-sU-ATW"/>
+                <outlet property="View4titleLabel" destination="H4R-xE-6hV" id="EQx-k4-gnJ"/>
                 <outlet property="View5" destination="ntL-fo-oSq" id="Chr-AK-Upz"/>
                 <outlet property="View5LayoutConstraint" destination="0iR-Hz-7X0" id="v9b-oE-ek0"/>
                 <outlet property="ViewLayoutConstraint" destination="Qnu-5G-MJI" id="lJT-Ee-7Bf"/>

@@ -354,12 +354,14 @@
             // 退款详情
             ExchangeDetailsController * ExchangeDetails = [[ExchangeDetailsController alloc]init];
             ExchangeDetails.Oid = _model.ordersnumber;// 传过去的数据(订单号)
+            ExchangeDetails.type = 666;
             if (self.onceagainBlock) {
                 self.onceagainBlock(ExchangeDetails);
             }
             [[NSNotificationCenter defaultCenter]postNotificationName:@"ExchangeDetails" object:nil];
         }
             break;
+            
         case 4:{
             if ([_model.reviewscount integerValue] == 0) {
                 AppraiseController * appistcs = [[AppraiseController alloc]init];

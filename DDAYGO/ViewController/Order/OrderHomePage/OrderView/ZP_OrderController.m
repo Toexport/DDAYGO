@@ -117,7 +117,6 @@
     }
     UIButton * but = [self.titleView viewWithTag:666 + i];
     NSLog(@"but = %@",but.titleLabel.text);
-    
     dic[@"days"] = @"365";
     dic[@"token"] = Token;
     dic[@"orderno"] = @"";
@@ -150,6 +149,30 @@
         NSLog(@"%@",error);
         [self loading];
     }];
+}
+
+// 重新加载数据
+-(void)loading {
+    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    __weak typeof(self)weakSelf = self;
+    [ReloadView showToView:self.view touch:^{
+        [weakSelf getDataWithState];
+        [ReloadView dismissFromView:weakSelf.view];
+    }];
+}
+
+-(void)successful {
+    [self.tableview reloadData];
+    [ZPProgressHUD dismiss];
+}
+
+-(void)networkProblems {
+    __weak typeof(self)weakSelf = self;
+    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    [ReloadView showToView:self.view touch:^{
+        [weakSelf getDataWithState];
+    }];
+    return;
 }
 
 // 删除订单协议
@@ -186,30 +209,6 @@
     [alert addAction:defaultAction];
     [alert addAction:cancelAction];
     [self presentViewController:alert animated:YES completion:nil];
-}
-
-// 重新加载数据
--(void)loading {
-    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
-    __weak typeof(self)weakSelf = self;
-    [ReloadView showToView:self.view touch:^{
-        [weakSelf getDataWithState];
-        [ReloadView dismissFromView:weakSelf.view];
-    }];
-}
-
--(void)successful {
-    [self.tableview reloadData];
-    [ZPProgressHUD dismiss];
-}
-
--(void)networkProblems {
-    __weak typeof(self)weakSelf = self;
-    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
-    [ReloadView showToView:self.view touch:^{
-        [weakSelf getDataWithState];
-    }];
-    return;
 }
 
 #pragma Mark - <TableViewDelegate>

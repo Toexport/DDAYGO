@@ -10,6 +10,7 @@
 
 @interface ZP_MyTool : NSObject
 
+
 // 个人资料
 + (void)requestSetHomePage:(NSDictionary *)SetHomePage success:(void (^)(id))success failure:(void (^)(NSError *))failure;
 
@@ -109,6 +110,9 @@
 
 // 获取退换货记录列表
 + (void)requestGetrefundlist:(NSDictionary *)Getrefundlist success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure;
+
+// 获取退换货详情（订单跳转）
++ (void)requestGetrefundinfoOrder:(NSDictionary *)GetrefundinfoOrder success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure;
 
 // 获取退换货详情
 + (void)requestGetrefundinfo:(NSDictionary *)Getrefundinfo success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure;
