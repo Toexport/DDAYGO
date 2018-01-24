@@ -116,11 +116,24 @@
 - (void)addrefund {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
-    dic[@"rty"] = @"0"; // 这个是类型（默认为0）
+//    dic[@"rty"] = @"0"; // 这个是类型（默认为0）
     dic[@"oid"] = self.oid; // 订单号
     dic[@"reason"] = self.showLabel.text; // 这个是原因
     dic[@"reasondetail"] = _MessageLabel.text; // 这个是输入的文字
-    dic[@"imgs"] = @"";// 这个是图片(退票不需要添加图片)
+    if (self.type == 555) {
+        dic[@"oid"] = self.oid;
+        dic[@"rty"] = @"1";
+        dic[@"imgs"] = @"";
+    }else
+        if (self.type == 666) {
+            dic[@"oid"] = self.oid;
+            dic[@"rty"] = @"2";
+            dic[@"imgs"] = @"";
+        }else {
+            dic[@"oid"] = self.oid;
+            dic[@"rty"] = @"0";
+            dic[@"imgs"] = @"";// 这个是图片(退款不需要添加图片)
+        }
     [ZP_OrderTool requestAddRefund:dic success:^(id obj) {
         ZPLog(@"%@",obj);
         if ([obj[@"result"]isEqualToString:@"ok"]) {

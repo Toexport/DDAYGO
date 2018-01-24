@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSNumber * Oid;
 @property (nonatomic, assign) NSInteger type; //
 @property (nonatomic, strong) NSNumber * leeLabel;
+@property (nonatomic, strong) NSString * STrtltle;
 /** 第1个View */
 @property (weak, nonatomic) IBOutlet UIView * view1;  // view1
 @property (weak, nonatomic) IBOutlet UILabel * OrderNumberLabel; // 订单号
@@ -50,8 +51,7 @@
 /**第5个View */
 @property (weak, nonatomic) IBOutlet UIView *View5;
 @property (weak, nonatomic) IBOutlet UIImageView *imageview1;
-//@property (weak, nonatomic) IBOutlet UIImageView *imageview2;
-//@property (weak, nonatomic) IBOutlet UIImageView *imageview3;
+
 
 
 @end

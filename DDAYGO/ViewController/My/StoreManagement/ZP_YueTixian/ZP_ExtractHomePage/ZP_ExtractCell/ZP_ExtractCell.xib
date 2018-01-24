@@ -215,10 +215,10 @@
                         <rect key="frame" x="0.0" y="248" width="320" height="40"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsE-12-51B">
-                                <rect key="frame" x="242" y="8" width="70" height="25"/>
+                                <rect key="frame" x="242" y="4" width="70" height="30"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.6588235294" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="3vg-gk-yOM"/>
+                                    <constraint firstAttribute="height" constant="30" id="3vg-gk-yOM"/>
                                     <constraint firstAttribute="width" constant="70" id="NiK-ZJ-zad"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -243,7 +243,7 @@
                             <constraint firstAttribute="trailing" secondItem="Mcn-Z0-WSM" secondAttribute="trailing" id="2oH-Eq-0D8"/>
                             <constraint firstAttribute="height" constant="40" id="IZg-ME-zyq"/>
                             <constraint firstItem="Mcn-Z0-WSM" firstAttribute="top" secondItem="Wd3-Gf-4cF" secondAttribute="top" id="MPm-bF-4wv"/>
-                            <constraint firstItem="fsE-12-51B" firstAttribute="top" secondItem="Wd3-Gf-4cF" secondAttribute="top" constant="8" id="O6I-cE-Wc8"/>
+                            <constraint firstItem="fsE-12-51B" firstAttribute="top" secondItem="Wd3-Gf-4cF" secondAttribute="top" constant="4" id="O6I-cE-Wc8"/>
                             <constraint firstAttribute="trailing" secondItem="fsE-12-51B" secondAttribute="trailing" constant="8" id="PXu-2D-DVz"/>
                             <constraint firstItem="Mcn-Z0-WSM" firstAttribute="leading" secondItem="Wd3-Gf-4cF" secondAttribute="leading" constant="10" id="u1v-yM-CFS"/>
                         </constraints>
@@ -315,6 +315,7 @@
                 <outlet property="NameLabel" destination="Zoc-sj-DG8" id="9Tm-qT-GUF"/>
                 <outlet property="PhoneLabel" destination="z05-6x-jt2" id="sfB-OJ-U3L"/>
                 <outlet property="ReviewStatusLabel" destination="KDC-5M-SaH" id="vnX-XI-ewo"/>
+                <outlet property="ViewLayoutConstraint" destination="IZg-ME-zyq" id="8gh-Vd-sJZ"/>
             </connections>
             <point key="canvasLocation" x="35" y="28.5"/>
         </tableViewCell>

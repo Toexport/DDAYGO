@@ -9,8 +9,8 @@
 #import "LPDPhotoArrangeCell.h"
 #import <Photos/Photos.h>
 #import <AssetsLibrary/AssetsLibrary.h>
-
-
+#import "ZP_OrderTool.h"
+#import "PrefixHeader.pch"
 #define DEL_BTN_WH  RELATIVE_VALUE(24)
 
 @implementation LPDPhotoArrangeCell
@@ -37,12 +37,11 @@
         [self addSubview:_nookDeleteBtn];
         
         _Shangchuanbut = [UIButton buttonWithType:UIButtonTypeCustom];
-        
         [_Shangchuanbut setTitle:@"上传" forState:UIControlStateNormal];
         _Shangchuanbut.titleLabel.font = [UIFont systemFontOfSize:15];
         _Shangchuanbut.layer.cornerRadius = 4;
         _Shangchuanbut.layer.masksToBounds = YES;
-        [_Shangchuanbut addTarget:self action:@selector(ShangchuanBut:) forControlEvents:UIControlEventAllEvents];
+        [_Shangchuanbut addTarget:self action:@selector(ShangchuanBut) forControlEvents:UIControlEventAllEvents];
         _Shangchuanbut.backgroundColor = [UIColor orangeColor];
         [self addSubview:_Shangchuanbut];
     }
@@ -50,11 +49,22 @@
 }
 
 //  上传图片点击事件
-- (void)ShangchuanBut:(UIButton *)sender {
-    
-    NSLog(@"---结算--");
+- (void)ShangchuanBut {
+    NSLog(@"---上传--");
+    [self uploadrefundimgs]; // 图片上传
+    // 图片在这里
+//    NSArray * imageArray =  [NSArray arrayWithArray:_imageView.selectedPhotos];
+//    NSLog(@"%ld,%@",imageArray.count,imageArray);
 }
 
+// 68) 上传退换货相关图片
+- (void)uploadrefundimgs {
+    [ZP_OrderTool requestUploadrefundimgs:nil success:^(id obj) {
+        ZPLog(@"%@",obj);
+    } failure:^(NSError * error) {
+        ZPLog(@"%@",error);
+    }];
+}
 - (void)setupDeleteBtn:(CGFloat)width {
     _nookDeleteBtn.frame = CGRectMake(self.frame.size.width - width * 0.75 , -width / 2 + RELATIVE_VALUE(2) , width, width);
     _nookDeleteBtn.alpha = 1.0;

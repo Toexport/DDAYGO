@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UILabel * ReviewStatusLabel;  // 审核状态
 @property (strong, nonatomic) IBOutlet UILabel * TextIntroduceLabel;  // 文字介绍
 @property (weak, nonatomic) IBOutlet UIButton * CancelBut; // 取消按鈕
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ViewLayoutConstraint;
 @property (nonatomic, strong) ZP_ExtractModel * model;
 //- (void)Extract:(ZP_ExtractModel *)model;
 

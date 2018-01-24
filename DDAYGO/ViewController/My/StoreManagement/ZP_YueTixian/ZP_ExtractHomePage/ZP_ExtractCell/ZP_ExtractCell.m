@@ -20,7 +20,6 @@
     
 }
 
-
 // 数据
 - (void)setModel:(ZP_ExtractModel *)model {
     _MmountLabel.text =  [model.takeamount stringValue]; // 金额
@@ -31,7 +30,7 @@
     _PhoneLabel.text = [model.phone stringValue];  // 电话
     _EmailLabel.text = model.email;  // 邮箱
     _ApplyTimeLabel.text = model.createtime;  // 申请时间
-    _AuditTimeLabel.text = model.updatetime;  // 审核时间
+//    _AuditTimeLabel.text = model.updatetime;  // 审核时间
 //    _ReviewStatusLabel.text = [model.state stringValue];  // 审核状态
     
     int a = [model.state intValue];
@@ -41,17 +40,22 @@
             _ReviewStatusLabel.text = @"未審核";
             _CancelBut.hidden = NO;
             break;
+            
         case 3:
             _ReviewStatusLabel.text = @"提現完成";
+            _ViewLayoutConstraint.constant = CGFLOAT_MIN;
             _CancelBut.hidden = YES;
-            
             break;
+            
         case 7:
             _ReviewStatusLabel.text = @"退件";
-            _CancelBut.hidden = NO;
+            _ViewLayoutConstraint.constant = CGFLOAT_MIN;
+            _CancelBut.hidden = YES;
             break;
+            
         case 6:
             _ReviewStatusLabel.text = @"取消提現";
+            _ViewLayoutConstraint.constant = CGFLOAT_MIN;
             _CancelBut.hidden = YES;
             break;
             

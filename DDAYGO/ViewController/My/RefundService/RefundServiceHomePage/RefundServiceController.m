@@ -53,6 +53,7 @@
         [self AllData];
     }
 }
+
 // 刷新数据
 - (void)addRefresh {
     self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -61,20 +62,51 @@
         [self AllData];
     }];
 }
+
 // 70) 获取退换货记录列表
 - (void)AllData {
+    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"10";
     [ZP_MyTool requestGetrefundlist:dic success:^(id obj) {
+        if (obj) {
+            self.dataarray = obj;
+            [self successful];
+        }else{
+            [self networkProblems];
+        }
         ZPLog(@"%@",obj);
         self.dataarray = [RefundServiceModel mj_objectArrayWithKeyValuesArray:obj[@"datalist"]];
         [self.tableview reloadData];
         [self.tableview.mj_header endRefreshing];  // 結束刷新
     } failure:^(NSError *error) {
+        [self loading];
         ZPLog(@"%@",error);
     }];
+}
+
+// 数据为空时加载此动画
+-(void)loading{
+    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    __weak typeof(self)weakSelf = self;
+    [ReloadView showToView:self.view touch:^{
+        [weakSelf AllData];
+        [ReloadView dismissFromView:weakSelf.view];
+    }];
+}
+-(void)successful {
+    [self.tableview reloadData];
+    [ZPProgressHUD dismiss];
+}
+-(void)networkProblems{
+    __weak typeof(self)weakSelf = self;
+    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    [ReloadView showToView:self.view touch:^{
+        [weakSelf AllData];
+    }];
+    return;
 }
 
 #pragma 代理方法
@@ -94,7 +126,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     RefundServiceModel *model = self.dataarray[indexPath.section];
     //数据
     NSLog(@"%@ -- %ld",model.createtime,_dataarray.count);
@@ -130,14 +161,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     RefundServiceModel * model = _dataarray[indexPath.section];
     ExchangeDetailsController * ExchangeDatails = [[ExchangeDetailsController alloc]init];
     ExchangeDatails.Oid = model.refundid;
     ExchangeDatails.leeLabel = model.returntype ;
     [self.navigationController pushViewController:ExchangeDatails animated:YES];
     ZPLog(@"%ld",indexPath.row);
-   
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

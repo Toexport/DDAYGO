@@ -286,8 +286,6 @@
 
 
 #pragma mark - LPDImagePickerControllerDelegate
-
-
 /// 用户点击了取消 代理
 - (void)lpd_imagePickerControllerDidCancel:(LPDImagePickerController *)picker {
     NSLog(@"cancel");

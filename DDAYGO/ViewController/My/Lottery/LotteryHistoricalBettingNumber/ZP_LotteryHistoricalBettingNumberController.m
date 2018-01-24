@@ -84,13 +84,12 @@
     [myView setBackgroundColor:ZP_Graybackground];
     //     标题1
     ZP_GeneralLabel * TitleLabel1 = [ZP_GeneralLabel initWithtextLabel:_TitleLabel1.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
-    TitleLabel1.text = @"第201811期";
+//    TitleLabel1.text = @"第201811期";
     [myView addSubview:TitleLabel1];
     _TitleLabel1 = TitleLabel1;
     [TitleLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(myView).offset(8);
         make.centerY.equalTo(myView);
-//                make.width.mas_equalTo(15);
         make.height.mas_equalTo(15);
     }];
     
@@ -102,13 +101,12 @@
     [TitleLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(TitleLabel1).offset(15);
         make.top.equalTo(TitleLabel1).offset(0);
-        //        make.width.mas_equalTo(90);
         make.height.mas_equalTo(15);
     }];
     
 //    标题3
     ZP_GeneralLabel * titleLabel3 = [ZP_GeneralLabel initWithtextLabel:_TitleLabel3.text textColor:ZP_textblack font:ZP_TrademarkFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
-    titleLabel3.text = @"2018-11-01 18:35:53";
+//    titleLabel3.text = @"2018-11-01 18:35:53";
     [myView addSubview:titleLabel3];
     _TitleLabel3 = titleLabel3;
     [titleLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -128,21 +126,28 @@
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"6";
     [ZP_MyTool requestHistoricalBet:dic uccess:^(id obj) {
+         ZPLog(@"%@",obj);
         if ([obj isKindOfClass:[NSDictionary class]]) {
             [SVProgressHUD showErrorWithStatus:@"無數據"];
             return ;
         }
-            ZP_LotteryHistoricalBettingNumberModel *model1 = [ZP_LotteryHistoricalBettingNumberModel mj_objectWithKeyValues:obj[0]];
-            [self.secData addObject:model1];
-             self.rowData= [ZP_LotteryHistoricalBettingNumberModel2 mj_objectArrayWithKeyValuesArray:model1.winorders];
+        ZP_LotteryHistoricalBettingNumberModel *model1 = [ZP_LotteryHistoricalBettingNumberModel mj_objectWithKeyValues:obj[0]];
+        [self.secData addObject:model1];
+        [self settitltHade:model1];
+        self.rowData= [ZP_LotteryHistoricalBettingNumberModel2 mj_objectArrayWithKeyValuesArray:model1.winorders];
         [self.tableView reloadData];
-        ZPLog(@"%@",obj);
+       
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
     }];
     
 }
 
+// 获取最外层年月日时间
+- (void)settitltHade:(ZP_LotteryHistoricalBettingNumberModel *)model {
+    self.TitleLabel1.text = [NSString stringWithFormat:@"第%@%@%@期",model.yyyy,model.mm,model.periods]; // 数据多个拼接
+    self.TitleLabel3.text = [NSString stringWithFormat:@"%@",model.createtime];
+}
 
 //////表头
 //- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

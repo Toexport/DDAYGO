@@ -12,9 +12,7 @@
 #import "ZP_MyTool.h"
 #import "ZP_LotterModel.h"
 @interface ZP_DetailsSistoryAwardController ()<UITableViewDelegate, UITableViewDataSource>
-//@property (strong, nonatomic) IBOutlet UITableView * tableView;
 
-//@property (nonatomic, strong) NSArray * titleArray;
 @property (strong ,nonatomic) NSDictionary *prizeDic;
 @property (strong ,nonatomic) NSArray *dataArray;
 @property (strong ,nonatomic) ZP_LotterModel * model;

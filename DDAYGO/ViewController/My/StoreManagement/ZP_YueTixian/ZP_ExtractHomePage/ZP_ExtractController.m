@@ -56,7 +56,17 @@
 
 // 取消按鈕點擊事件
 - (void)CancelButt:(UIButton *)sender {
-    [self Canceltakeout:sender.tag];
+#pragma make -- 提示框
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"確定要取消提現嗎？",nil) preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        ZPLog(@"取消");
+    }];
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [self Canceltakeout:sender.tag];
+    }];
+    [alert addAction:defaultAction];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 // 取消余额提现
@@ -65,27 +75,28 @@
     NSMutableDictionary * dicc = [NSMutableDictionary dictionary];
     dicc[@"token"] = Token;
     dicc[@"sid"] = model.supplierid;
-    dicc[@"takeid"] = @"1";
+    dicc[@"takeid"] = model.takeid;
     [ZP_MyTool requestCanceltakeout:dicc uccess:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"ok"]) {
+            [self AllData];
+            [self.tableView reloadData];
             [SVProgressHUD showSuccessWithStatus:@"取消成功"];
         }else
             if ([obj[@"result"]isEqualToString:@"failed"]) {
                 [SVProgressHUD showInfoWithStatus:@"取消失敗"];
             }
-        ZPLog(@"%@",obj);
-        [self.tableView reloadData];
         [self AllData];
+        [self.tableView reloadData];
+        ZPLog(@"%@",obj);
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
     }];
 }
+
 #pragma mark - tableview delegate
 
 
-
 //2.对于每个section返回一个cell
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.ExtractArr.count;
@@ -107,6 +118,7 @@
     
     ZP_ExtractModel * model = self.ExtractArr[indexPath.section];
     ZP_ExtractCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ZP_ExtractCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
     cell.CancelBut.tag = indexPath.row;
     [cell.CancelBut addTarget:self action:@selector(CancelButt:) forControlEvents:UIControlEventTouchUpInside];
     cell.model = model;
@@ -127,8 +139,8 @@
     return 10;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    ZPLog(@"%ld",(long)indexPath.item);
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    ZPLog(@"%ld",(long)indexPath.item);
+//}
 @end

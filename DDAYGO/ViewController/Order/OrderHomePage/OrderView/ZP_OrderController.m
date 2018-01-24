@@ -193,12 +193,17 @@
         dic[@"ordernumber"] = model.ordersnumber;
         [ZP_OrderTool requestDeleteOrder:dic success:^(id obj) {
             if ([obj[@"result"]isEqualToString:@"ok"]) {
+                [self getDataWithState];
                 [self.newsData removeObjectAtIndex:sender.tag];
+                
                 [SVProgressHUD showSuccessWithStatus:@"刪除成功"];
             }else
                 if ([obj[@"result"]isEqualToString:@"time_error"]) {
                     [SVProgressHUD showInfoWithStatus:@"交易完成的訂單需要15天後才能刪除"];
-                }
+            }else
+                if ([obj[@"result"]isEqualToString:@"orders_state_error"]) {
+                    [SVProgressHUD showInfoWithStatus:@"此状态下暂不能删除"];
+            }
             ZPLog(@"%@",obj);
             [self.tableview reloadData];
         } failure:^(NSError * error) {

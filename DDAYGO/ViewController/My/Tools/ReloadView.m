@@ -10,6 +10,7 @@
 
 @interface ReloadView ()
 @property (nonatomic, weak)UIImageView *imageView;
+//@property (nonatomic, strong) UILabel * label;
 @end
 
 @implementation ReloadView
@@ -26,16 +27,20 @@
 
 //设置imgaeView
 - (void)setupImageView{
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iconn_no_network"]];
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iconn_no_network@3x"]];
+//    UILabel * label = [[UILabel alloc]init];
+//    label.text = @"网络异常，请检查您的网络";
+//    [self addSubview:label];
     [self addSubview:imageView];
     self.imageView = imageView;
+//    self.label = label;
 }
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    
     //设置imageView的frame
     self.imageView.center = self.center;
+//    self.label.center = self.center;
 }
 
 + (instancetype)reloadView{

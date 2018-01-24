@@ -55,7 +55,7 @@
 //     删除订单按钮
     UIButton * DeleteBut = [UIButton buttonWithType:UIButtonTypeSystem];
     [DeleteBut setBackgroundImage:[UIImage imageNamed:@"ic_footprint_delete_normal"] forState:UIControlStateNormal];
-    [DeleteBut addTarget:self action:@selector(DeleteBut:) forControlEvents:UIControlEventTouchUpInside];
+//    [DeleteBut addTarget:self action:@selector(DeleteBut:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:DeleteBut];
     [DeleteBut mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-15);
@@ -254,7 +254,7 @@
         make.top.equalTo(FreightLabel).offset(0);
     }];
     
-//  评价
+//  左边按钮
     UIButton * AppraiseBut = [UIButton buttonWithType:UIButtonTypeSystem];
     AppraiseBut.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
     [AppraiseBut setTitle:NSLocalizedString(@"評價", nil) forState:UIControlStateNormal];
@@ -286,7 +286,7 @@
 //    }];
 //    _LogisticsBut = LogisticsBut;
 
-//  再次购买
+//  右边按钮
     UIButton * OnceagainBut = [UIButton buttonWithType:UIButtonTypeSystem];
     OnceagainBut.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
     OnceagainBut.backgroundColor = ZP_OnceagainColor;
@@ -304,117 +304,6 @@
     _OnceagainBut = OnceagainBut;
 }
 
-//  评价
-- (void)AppraiseBut:(UIButton *)AppraiseBut {
-    NSLog(@"state =  %@",_model.state);
-    switch (_model.state.longValue) {
-        case 3:{
-            RequestReplaceController * RequestReplace = [[RequestReplaceController alloc]init];
-            RequestReplace.Oid = self.model.ordersnumber; // 传过去的数据(订单号)
-            if (self.appraiseBlock) {
-                self.appraiseBlock(RequestReplace);
-            }
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"ExchangeDetails" object:nil];
-        }
-            break;
-            
-//        case 2:{
-//            RequestRefundController * RequestRefund = [[RequestRefundController alloc]init];
-//            RequestRefund.ord = self.model.ordersnumber;
-//            if (self.appraiseBlock) {
-//                self.appraiseBlock(RequestRefund);
-//            }
-//            [[NSNotificationCenter defaultCenter]postNotificationName:@"RequestRefund" object:nil];
-//        }
-//            break;
-//
-//        case 4:{
-//            AppraiseController * appistcs = [[AppraiseController alloc]init];
-//            appistcs.ordersnumber = self.model.ordersnumber; // 传过去的数据(订单号)
-//            appistcs.productid = self.model.productid; // 传过去的数据(商品ID)
-//            appistcs.detailid = self.model.detailid; // 传过去的数据(商品详情ID)
-//            appistcs.model2 = self.model;
-//            if (self.appraiseBlock) {
-//                self.appraiseBlock(appistcs);
-//            }
-//            [[NSNotificationCenter defaultCenter]postNotificationName:@"appraise" object:nil];
-//        }
-//            break;
-//
-        default:
-            break;
-    }
-}
-
-//  再次购买
-- (void)OnceagainBut:(UIButton *)OnceagainBut {
-    NSLog(@"state =  %@",_model.state);
-    switch (_model.state.longValue) {
-        case 6:{
-            // 退款详情
-            ExchangeDetailsController * ExchangeDetails = [[ExchangeDetailsController alloc]init];
-            ExchangeDetails.Oid = _model.ordersnumber;// 传过去的数据(订单号)
-            ExchangeDetails.type = 666;
-            if (self.onceagainBlock) {
-                self.onceagainBlock(ExchangeDetails);
-            }
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"ExchangeDetails" object:nil];
-        }
-            break;
-            
-        case 4:{
-            if ([_model.reviewscount integerValue] == 0) {
-                AppraiseController * appistcs = [[AppraiseController alloc]init];
-                appistcs.ordersnumber = self.model.ordersnumber; // 传过去的数据(订单号)
-                appistcs.productid = self.model.productid; // 传过去的数据(商品ID)
-                appistcs.detailid = self.model.detailid; // 传过去的数据(商品详情ID)
-                appistcs.model2 = self.model;
-                if (self.appraiseBlock) {
-                    self.appraiseBlock(appistcs);
-                }
-                [[NSNotificationCenter defaultCenter]postNotificationName:@"appraise" object:nil];
-                _OnceagainBut.hidden = NO;
-            }else {
-                RequestReplaceController * RequestReplace = [[RequestReplaceController alloc]init];
-                if (self.appraiseBlock) {
-                    self.appraiseBlock(RequestReplace);
-                }
-                [[NSNotificationCenter defaultCenter]postNotificationName:@"RequestReplace" object:nil];
-                _OnceagainBut.hidden = YES;
-            }
-        }
-            break;
-    // 付款
-        case 1:{
-            ConfirmViewController * confirm = [[ConfirmViewController alloc]init];
-            confirm.stockidsString = [NSString stringWithFormat:@"%@_%@",_model.stockid,_model.amount];
-            confirm.noEdit = YES;
-            confirm.ordersnumber = _model2.ordersnumber;
-            confirm.type = 666;
-            
-            if (self.onceagainBlock) {
-                self.onceagainBlock(confirm);
-            }
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"confirm" object:nil];
-        }
-            break;
-    // 退款
-        case 2:{
-            RequestRefundController * RequestRefund = [[RequestRefundController alloc]init];
-            RequestRefund.oid = self.model.ordersnumber;
-
-            
-            if (self.onceagainBlock) {
-                self.onceagainBlock(RequestRefund);
-            }
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"RequestRefund" object:nil];
-        }
-            break;
-            
-        default:
-            break;
-    }
-}
 
 - (void)InformationWithDic:(OrdersdetailModel *)dic WithModel:(OrderModel *)model {
     int a = [dic.state intValue];
@@ -471,7 +360,6 @@
             }else {
                 _OnceagainBut.hidden = YES;
             }
-            
             NSLog(@"Stata = %D",a);
             _AppraiseBut.hidden = YES;
 //            _OnceagainBut.hidden = YES;
@@ -487,6 +375,14 @@
             break;
         case 6:
             _TradingLabel.text = @"退款/售后";
+            _DeleteBut.hidden = YES;
+            [_OnceagainBut setTitle:@"查看详情" forState:UIControlStateNormal];
+            _AppraiseBut.hidden = YES;
+            break;
+        case 7:
+            _TradingLabel.text = @"换货中";
+            _OnceagainBut.backgroundColor = nil;
+            [self.OnceagainBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
             _DeleteBut.hidden = YES;
             [_OnceagainBut setTitle:@"查看详情" forState:UIControlStateNormal];
             _AppraiseBut.hidden = YES;
@@ -511,6 +407,107 @@
     _QuantityLabel.text = [NSString stringWithFormat:@"%@",dic.amount];
     _model = dic;
     _model2 = model;
+}
+
+//  左边按钮
+- (void)AppraiseBut:(UIButton *)AppraiseBut {
+    NSLog(@"state =  %@",_model.state);
+    switch (_model.state.longValue) {
+        case 3:{
+            RequestReplaceController * RequestReplace = [[RequestReplaceController alloc]init];
+            RequestReplace.Oid = self.model.ordersnumber; // 传过去的数据(订单号)
+            if (self.appraiseBlock) {
+                self.appraiseBlock(RequestReplace);
+            }
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"ExchangeDetails" object:nil];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+//  右边按钮
+- (void)OnceagainBut:(UIButton *)OnceagainBut {
+    NSLog(@"state =  %@",_model.state);
+    switch (_model.state.longValue) {
+        case 7:{
+            // 退款详情
+            ExchangeDetailsController * ExchangeDetails = [[ExchangeDetailsController alloc]init];
+            ExchangeDetails.Oid = _model.ordersnumber;// 传过去的数据(订单号)
+            ExchangeDetails.STrtltle = @"换货";
+            ExchangeDetails.type = 777;
+            if (self.onceagainBlock) {
+                self.onceagainBlock(ExchangeDetails);
+            }
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"ExchangeDetails" object:nil];
+        }
+            break;
+        case 6:{
+            // 退款详情
+            ExchangeDetailsController * ExchangeDetails = [[ExchangeDetailsController alloc]init];
+            ExchangeDetails.Oid = _model.ordersnumber;// 传过去的数据(订单号)
+            ExchangeDetails.STrtltle = @"换货";
+            ExchangeDetails.type = 666;
+            if (self.onceagainBlock) {
+                self.onceagainBlock(ExchangeDetails);
+            }
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"ExchangeDetails" object:nil];
+        }
+            break;
+            
+        case 4:{
+            if ([_model.reviewscount integerValue] == 0) {
+                AppraiseController * appistcs = [[AppraiseController alloc]init];
+                appistcs.ordersnumber = self.model.ordersnumber; // 传过去的数据(订单号)
+                appistcs.productid = self.model.productid; // 传过去的数据(商品ID)
+                appistcs.detailid = self.model.detailid; // 传过去的数据(商品详情ID)
+                appistcs.model2 = self.model;
+                if (self.appraiseBlock) {
+                    self.appraiseBlock(appistcs);
+                }
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"appraise" object:nil];
+                _OnceagainBut.hidden = NO;
+            }else {
+                RequestReplaceController * RequestReplace = [[RequestReplaceController alloc]init];
+                if (self.appraiseBlock) {
+                    self.appraiseBlock(RequestReplace);
+                }
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"RequestReplace" object:nil];
+                _OnceagainBut.hidden = YES;
+            }
+        }
+            break;
+            // 付款
+        case 1:{
+            ConfirmViewController * confirm = [[ConfirmViewController alloc]init];
+            confirm.stockidsString = [NSString stringWithFormat:@"%@_%@",_model.stockid,_model.amount];
+            confirm.noEdit = YES;
+            confirm.ordersnumber = _model2.ordersnumber;
+            confirm.type = 666;
+            
+            if (self.onceagainBlock) {
+                self.onceagainBlock(confirm);
+            }
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"confirm" object:nil];
+        }
+            break;
+            // 退款
+        case 2:{
+            RequestRefundController * RequestRefund = [[RequestRefundController alloc]init];
+            RequestRefund.oid = self.model.ordersnumber;
+            
+            
+            if (self.onceagainBlock) {
+                self.onceagainBlock(RequestRefund);
+            }
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"RequestRefund" object:nil];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

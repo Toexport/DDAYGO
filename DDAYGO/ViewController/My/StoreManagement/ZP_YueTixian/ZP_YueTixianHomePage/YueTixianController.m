@@ -63,6 +63,10 @@
         [SVProgressHUD showInfoWithStatus:@"请输入电话"];
         return;
     }
+    if (![self validateEmail:_emailText.textField.text]) {
+        [SVProgressHUD showInfoWithStatus:@"郵箱格式不正確"];
+        return;
+    }
     if (_emailText.textField.text.length < 1) {
         [SVProgressHUD showInfoWithStatus:@"请输入邮箱"];
         return;
@@ -100,5 +104,17 @@
         NSLog(@"error %@",error);
     }];
 }
+
+#pragma mark - - - - - - - - - - - - - - - private methods 私有方法 - - - - - - - - - - - - - -
+- (BOOL)validateEmail:(NSString *)email {
+    
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    
+    return [emailTest evaluateWithObject:email];
+    
+}
+
 @end
 

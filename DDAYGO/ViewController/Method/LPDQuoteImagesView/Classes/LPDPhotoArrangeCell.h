@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIView+HandyValue.h"
 #import "UIImage+MyBundle.h"
-
+#import "LPDQuoteImagesView.h"
 @class LPDImagePickerController;
 @class LPDQuoteSystemImagesView;
 
@@ -22,6 +22,7 @@
 @property (strong, nonatomic) id asset;                    //资源模型
 @property (nonatomic, strong) UIButton * Shangchuanbut;
 
+@property (nonatomic, strong)LPDQuoteSystemImagesView * imageView;
 - (UIView *)snapshotView;
 
 @end
