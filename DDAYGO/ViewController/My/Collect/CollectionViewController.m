@@ -13,10 +13,8 @@
 #import "ZP_MyTool.h"
 #import "ZP_ClassViewTool.h"
 #import "collectionModel.h"
-#import "ZP_GoodDetailsModel.h"
 
-@interface CollectionViewController ()
-{
+@interface CollectionViewController () {
     NSArray *_dataArray;
 }
 @end
@@ -49,41 +47,28 @@
     dic[@"screen"] = @1;
     [ZP_MyTool requestgetcollections:dic success:^(id json) {
         ZPLog(@"%@",json);
-//    if (_dataArray.count < 1) {
-//        UIImageView * image = [UIImageView new];
-//        image.image = [UIImage imageNamed:@"icon_fail"];
-//        [self.view addSubview:image];
-//        [image mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(self.view).offset(ZP_Width / 2 -25);
-//            make.top.equalTo(self.view).offset(20);
-//            make.width.mas_offset(50);
-//            make.height.mas_equalTo(50);
-//        }];
-//    }
     _dataArray = [collectionModel arrayWithArray:json[@"list"]];
     [self.tableView reloadData];
     } failure:^(NSError *error) {
         ZPLog(@"error");
-        
     }];
 }
 
 - (void)CollectionBut:(UIButton *)sender {
     //取消收藏
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    dic[@"productid"] = _model.productid;
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    collectionModel * model = _dataArray[sender.tag];
+    dic[@"productid"] = model.productid; // 这个为空
     dic[@"token"] = Token;
     [ZP_ClassViewTool requCancelshoucang:dic success:^(id obj) {
-        sender.selected = !sender.selected;
         if ([obj[@"result"]isEqualToString:@"ok"]) {
+            [self getData];
+            [self.tableView reloadData];
             [SVProgressHUD showSuccessWithStatus:@"取消成功!"];
         }else
-            if ([obj[@"result"]isEqualToString:@"count"]) {
-                [SVProgressHUD showInfoWithStatus:@"0"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"failure"]) {
-                    [SVProgressHUD showInfoWithStatus:@"操作失败"];
-                }
+            if ([obj[@"result"]isEqualToString:@"failure"]) {
+                [SVProgressHUD showInfoWithStatus:@"操作失败"];
+        }
     } failure:^(NSError *error) {
         NSLog(@"error %@",error);
     }];

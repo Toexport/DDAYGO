@@ -17,8 +17,7 @@
         model.defaultimg = [NSString stringWithFormat:@"%@%@",ImgAPI, dic[@"defaultimg"]];
         model.productname = dic[@"productname"];
         model.productprice = dic[@"productprice"];
-//        model.CurrencySymbolLabel = @"NT";
-        model.productid =  dic[@"productid"];
+        model.productid =  dic[@"productid"]; // 商品ID
         model.cp = dic[@"cp"];
         model.state = dic[@"state"];
         [arr addObject:model];

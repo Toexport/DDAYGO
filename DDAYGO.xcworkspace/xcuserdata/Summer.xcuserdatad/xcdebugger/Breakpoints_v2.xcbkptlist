@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
-            timestampString = "538481840.727015"
+            timestampString = "538485761.046935"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "572"
-            endingLineNumber = "572"
+            startingLineNumber = "573"
+            endingLineNumber = "573"
             landmarkName = "-shangchuBut:"
             landmarkType = "7">
          </BreakpointContent>
