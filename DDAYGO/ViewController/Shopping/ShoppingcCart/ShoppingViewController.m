@@ -30,8 +30,6 @@
 @property(nonatomic,strong)NSString * numstr;  //数量
 @property(nonatomic,strong)NSNumber * cardid;  //cardid
 
-
-
 @end
 
 @implementation ShoppingViewController
@@ -110,6 +108,7 @@
             self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld",dataArray.count];
             [self.tableView reloadData];
             [self.tableView.mj_header endRefreshing];
+            
         }else{
             NSLog(@"go");
             dataArray = nil;
@@ -703,7 +702,6 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     ZP_CartsShopModel * model;
-    
     if (nameArray.count > 0) {
         model = nameArray[section];
     } else {
@@ -712,7 +710,6 @@
     UIView * myView = [[UIView alloc]init];
     self.tableView.tableHeaderView = myView; // 表头跟着cell一起滚动
     [myView setBackgroundColor:[UIColor whiteColor]];
-    
     
     //  商店选择按钮
     self.Shopchoosebuttom = [UIButton buttonWithType:UIButtonTypeCustom];

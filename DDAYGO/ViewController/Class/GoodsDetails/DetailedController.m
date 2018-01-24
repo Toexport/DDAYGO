@@ -526,13 +526,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        if (_productArray.count >0) {
-            return 100;
+        if (_productArray.count > 0) {
+            return ZP_Width;
         }
         return CGFLOAT_MIN;
     } else
          if (indexPath.section == 1){
-             if (_evaluateArray.count>0) {
+             if (_evaluateArray.count > 0) {
                  return 192;
              }
         return CGFLOAT_MIN;
