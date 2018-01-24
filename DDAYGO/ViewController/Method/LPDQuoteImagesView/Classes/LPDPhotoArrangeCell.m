@@ -52,6 +52,7 @@
 - (void)ShangchuanBut {
     NSLog(@"---上传--");
     [self uploadrefundimgs]; // 图片上传
+    
     // 图片在这里
 //    NSArray * imageArray =  [NSArray arrayWithArray:_imageView.selectedPhotos];
 //    NSLog(@"%ld,%@",imageArray.count,imageArray);
@@ -59,11 +60,35 @@
 
 // 68) 上传退换货相关图片
 - (void)uploadrefundimgs {
-    [ZP_OrderTool requestUploadrefundimgs:nil success:^(id obj) {
-        ZPLog(@"%@",obj);
-    } failure:^(NSError * error) {
-        ZPLog(@"%@",error);
-    }];
+//    [ZP_OrderTool requestUploadrefundimgs:nil success:^(id obj) {
+//        ZPLog(@"%@",obj);
+//    } failure:^(NSError * error) {
+//        ZPLog(@"%@",error);
+//    }];
+    if (!_photoManager) {
+        _photoManager = [[SelectPhotoManager alloc]init];
+    }
+    [_photoManager startSelectPhotoWithImageName:NSLocalizedString(@"Choose photos", nil)];
+    __weak typeof(self)mySelf = self;
+//     选取照片成功
+    _photoManager.successHandle=^(SelectPhotoManager *manager,UIImage * image){
+//        mySelf.headerImage.image = image;
+        //  保存到本地
+        NSMutableArray * imageArray = [NSMutableArray array];
+        NSData * data =  UIImageJPEGRepresentation(image, 1);
+        [imageArray addObject:data];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
+//       这个封装可以上传多张图片
+//        [ZP_OrderTool ]
+        
+//        [ZP_MyTool RequestUploadavatarimg:@{@"token":DD_TOKEN} Data:imageArray success:^(id obj) {
+//            NSLog(@"%@",obj);
+//        } failure:^(NSError *error) {
+//            NSLog(@"%@",error.description);
+//        }];
+    };
+    
+    
 }
 - (void)setupDeleteBtn:(CGFloat)width {
     _nookDeleteBtn.frame = CGRectMake(self.frame.size.width - width * 0.75 , -width / 2 + RELATIVE_VALUE(2) , width, width);

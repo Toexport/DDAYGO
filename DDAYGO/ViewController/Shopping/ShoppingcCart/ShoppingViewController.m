@@ -14,7 +14,6 @@
 #import "ZP_ShoppingModel.h"
 #import "EditorViewCell.h"
 @interface ShoppingViewController ()<UITableViewDelegate,UITableViewDataSource,UIViewControllerPreviewingDelegate> {
-    
     NSInteger allNum;
     NSMutableArray * dataArray;
     NSArray * nameArray;
@@ -22,7 +21,7 @@
     NSString * _modelstockid;
     NSMutableArray * indexArray;
     NSMutableArray * selectArray;
-    
+    int _i;
 }
 @property(nonatomic,strong) NSMutableArray * selectAllArray;;
 @property(nonatomic,strong)UITableView * tableView;
@@ -39,6 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addRefresh];
     _bjBool = NO;
     _selectAllArray = [[NSMutableArray alloc]init];
     [self setUpNavgationBar];
@@ -52,9 +52,18 @@
         self.tableView.estimatedSectionHeaderHeight = 0;
         self.tableView.estimatedSectionFooterHeight = 0;
     }
-    //    self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld",nameArray.count];
-//    [self allData];
 }
+
+// 刷新
+- (void)addRefresh {
+    //    下拉刷新
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.selectAllArray removeAllObjects];
+        _i = 0;
+        [self allData];
+    }];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -75,6 +84,7 @@
 - (void)allData {
 //    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
     [ZP_shoopingTool requesshoppingData:Token success:^(id obj) {
+        ZPLog(@"%@",obj);
         if ([obj isKindOfClass:[NSDictionary class]]) {
             return ;
         }
@@ -97,35 +107,12 @@
             }
             self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld",dataArray.count];
             [self.tableView reloadData];
+            [self.tableView.mj_header endRefreshing];
         }
     } failure:^(NSError *error) {
         
     }];
  
-}
-
-// 重新加载数据
--(void)loading {
-    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
-    __weak typeof(self)weakSelf = self;
-    [ReloadView showToView:self.view touch:^{
-        [weakSelf allData];
-        [ReloadView dismissFromView:weakSelf.view];
-    }];
-}
-
--(void)successful {
-    [self.tableView reloadData];
-    [ZPProgressHUD dismiss];
-}
-
--(void)networkProblems {
-    __weak typeof(self)weakSelf = self;
-    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
-    [ReloadView showToView:self.view touch:^{
-        [weakSelf allData];
-    }];
-    return;
 }
 
 // 完成按钮
@@ -153,7 +140,6 @@
     UIButton *cartButton = [UIButton buttonWithType:UIButtonTypeCustom];
     cartButton.frame = CGRectMake(0.0f, 0.0f, kButtonWidth - 25, kButtonHeight);
     cartButton.backgroundColor = [UIColor clearColor];
-    
     [cartButton setTitle:NSLocalizedString(@"Edit", nil) forState:UIControlStateNormal];
     cartButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     cartButton.titleLabel.font = ZP_TooBarFont;
@@ -166,11 +152,10 @@
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 }
 
-#pragma makr -   编辑
 
+#pragma makr -   编辑
 //  编辑
 - (void)onClickedSweep:(UIButton *)sup {
-    //    [self EditorUI];
     sup.selected = !sup.selected;
     _bjBool = !_bjBool;
     if (_bjBool == YES) {
@@ -192,9 +177,7 @@
         [sup setTitle:NSLocalizedString(@"Edit", nil) forState:UIControlStateNormal];
         [self.ClearingButt setTitle:NSLocalizedString(@"settlement", nil) forState: UIControlStateNormal];
     }
-    
     [self.tableView reloadData];
-    
 }
 
 // UI
@@ -206,17 +189,15 @@
     self.tableView.separatorStyle = NO;
     [self.view addSubview:self.tableView];
     
-    //   注册
+//   注册
     [self.tableView registerClass:[ShoppingCell class] forCellReuseIdentifier:@"shoppingCell"];
     [self.tableView registerClass:[EditorViewCell class] forCellReuseIdentifier:@"editorViewCell"];
-    
     UIView * bottomView = [UIView new];
     bottomView.backgroundColor = ZP_textWite;
     bottomView.frame = CGRectMake(0, ZP_height - TabbarHeight - 50 - NavBarHeight, ZP_Width, 50);
-//    bottomView.cellSeparateStyle = UITableViewCellSeparateStyleNone;
     [self.view addSubview:bottomView];
     
-    //   全选按钮
+//   全选按钮
     self.AllButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.AllButton.layer.masksToBounds = YES;
     self.AllButton.layer.cornerRadius = self.AllButton.frame.size.height/2;
@@ -238,7 +219,7 @@
         make.height.mas_offset(20);
     }];
     
-    //  总金额
+//  总金额
     UILabel * PriceLabel = [UILabel new];
     PriceLabel.textAlignment = NSTextAlignmentLeft;
     PriceLabel.textColor = ZP_HomePreferentialpriceTypefaceCorlor;
@@ -251,7 +232,7 @@
     }];
     _PriceLabel = PriceLabel;
     
-    //    货币符号
+//    货币符号
     ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
     CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
@@ -262,7 +243,7 @@
     }];
     _CurrencySymbolLabel = CurrencySymbolLabel;
     
-    //   合计
+//   合计
     ZP_GeneralLabel * StatisticsLabel = [ZP_GeneralLabel initWithtextLabel:_StatisticsLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     StatisticsLabel.text = NSLocalizedString(@"Total", nil);
     [bottomView addSubview:StatisticsLabel];
@@ -272,7 +253,7 @@
     }];
     _StatisticsLabel = StatisticsLabel;
     
-    //  结算按钮
+//  结算按钮
     UIButton * ClearingBut = [UIButton new];
     ClearingBut.backgroundColor = ZP_pricebackground;
     [ClearingBut setTitle:NSLocalizedString(@"Clearing", nil) forState:UIControlStateNormal];
@@ -291,7 +272,7 @@
     }];
     _ClearingButt = ClearingBut;
     
-    //    运费Label
+//    运费Label
     ZP_GeneralLabel * FreightLabel = [ZP_GeneralLabel initWithtextLabel:_FreightLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     FreightLabel.text = NSLocalizedString(@"不含运费", nil);
     [bottomView addSubview:FreightLabel];
@@ -308,7 +289,6 @@
         sender.selected = sender.selected;
     }else {
         sender.selected =! sender.selected;
-        
         if (self.AllButton == sender ) {
             for (int i = 0; i < dataArray.count; i ++) {
                 if (!_bjBool) {
@@ -548,7 +528,7 @@
 - (void)ClearingBut:(UIButton *)sender {
     // _stockids = nil;
     _modelstockid = nil;
-    // [self updateData:sender.tag];
+     [self updateData:sender.tag];
     if ([self YESOrNoPush]) {
         if (sender.selected) {
 #pragma make -- 提示框
@@ -565,10 +545,10 @@
         }else {
             ConfirmViewController * Confirm = [[ConfirmViewController alloc]init];
             Confirm.model = _model;
-            Confirm.dataArray = dataArray;
-            Confirm.nameArray = nameArray;
-            Confirm.PriceStr = _PriceLabel.text;
-            Confirm.NumStr = self.ClearingButt.titleLabel.text;
+//            Confirm.dataArray = dataArray;
+//            Confirm.nameArray = nameArray;
+//            Confirm.PriceStr = _PriceLabel.text;
+//            Confirm.NumStr = self.ClearingButt.titleLabel.text;
             Confirm.stockidsString = _stockids;
             [self.navigationController pushViewController:Confirm animated:YES];
             self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
@@ -586,7 +566,7 @@
 
 //删除按钮
 - (void) shangchuBut:(UIButton *)but {
-//        响应事件
+//   响应事件
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     ZP_CartsShopModel * models = nameArray[0];
     ZP_CartsModel * model = models.array[but.tag];

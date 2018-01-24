@@ -10,8 +10,7 @@
 #import "UIBarButtonItem+Button.h"
 
 @implementation UIViewController (Util)
--(void)setGoBackOrDismissButtonAuto
-{
+-(void)setGoBackOrDismissButtonAuto {
     if([self.navigationController.viewControllers count]>1){
         [self setBackButton];
     }else{
@@ -19,8 +18,7 @@
     }
 }
 
--(void)dismissAutomatically
-{
+-(void)dismissAutomatically {
     if([self.navigationController.viewControllers count]>1){
         [self.navigationController popViewControllerAnimated:YES];
     }else{
@@ -28,32 +26,26 @@
     }
 }
 
-
--(void)setBackButton
-{
-    
+-(void)setBackButton {
     //白色
     UIBarButtonItem *leftButtonItem = [UIBarButtonItem backItemWithImage:[UIImage imageNamed:@"whiteBack"] highImage:[UIImage imageNamed:@"whiteBack"] target:self action:@selector(popViewControllerAnimated)];
     //    [leftButtonItem setTintColor:TP.barTintColor];
     self.navigationItem.leftBarButtonItem = leftButtonItem;
 }
 
--(void)setCancelButton
-{
+-(void)setCancelButton {
     UIBarButtonItem *leftButtonItem =[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bar_icon_close"] style:UIBarButtonItemStylePlain target:self action:@selector(dismissModalViewController)];
     //    [leftButtonItem setTintColor:TP.barTintColor];
     self.navigationItem.leftBarButtonItem = leftButtonItem;
 }
 
-- (void)setRightBarButtonWithImage:(UIImage*)image target:(id)aTarget action:(SEL)aAction
-{
+- (void)setRightBarButtonWithImage:(UIImage*)image target:(id)aTarget action:(SEL)aAction {
     UIBarButtonItem *ButtonItem =[[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:aTarget action:aAction];
     //    [ButtonItem setTintColor:TP.barTintColor];
     self.navigationItem.rightBarButtonItem = ButtonItem;
 }
 
-- (void)setLeftBarButtonWithImage:(UIImage*)image target:(id)aTarget action:(SEL)aAction
-{
+- (void)setLeftBarButtonWithImage:(UIImage*)image target:(id)aTarget action:(SEL)aAction {
     UIBarButtonItem *ButtonItem =[[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:aTarget action:aAction];
     //    [ButtonItem setTintColor:TP.barTintColor];
     self.navigationItem.leftBarButtonItem = ButtonItem;
@@ -70,8 +62,7 @@
 //    [AV hide];
 //}
 
-- (void)setRightBarButtonWithTitle:(NSString*)aTitle target:(id)aTarget action:(SEL)aAction
-{
+- (void)setRightBarButtonWithTitle:(NSString*)aTitle target:(id)aTarget action:(SEL)aAction {
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:aTitle style:UIBarButtonItemStylePlain target:self action:aAction];
 }
 
@@ -91,19 +82,17 @@
 //    }
 //}
 
--(void)popViewControllerAnimated
-{
+-(void)popViewControllerAnimated {
     [self selfWillPop];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)dismissModalViewController
-{
+-(void)dismissModalViewController {
     [self selfWillPop];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)selfWillPop{
+-(void)selfWillPop {
     
 }
 

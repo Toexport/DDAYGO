@@ -44,7 +44,7 @@
         make.right.equalTo(imageView1).offset(-75);
     }];
     _introduceLabel = introduceLabel;
-//     NT
+//     货币符号
     ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_HomePreferentialpriceTypefaceCorlor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self addSubview:CurrencySymbolLabel];
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];

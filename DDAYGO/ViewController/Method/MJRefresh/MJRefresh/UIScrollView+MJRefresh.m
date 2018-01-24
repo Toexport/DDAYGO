@@ -45,15 +45,13 @@ static const char MJRefreshHeaderKey = '\0';
     }
 }
 
-- (MJRefreshHeader *)mj_header
-{
+- (MJRefreshHeader *)mj_header {
     return objc_getAssociatedObject(self, &MJRefreshHeaderKey);
 }
 
 #pragma mark - footer
 static const char MJRefreshFooterKey = '\0';
-- (void)setMj_footer:(MJRefreshFooter *)mj_footer
-{
+- (void)setMj_footer:(MJRefreshFooter *)mj_footer {
     if (mj_footer != self.mj_footer) {
         // 删除旧的，添加新的
         [self.mj_footer removeFromSuperview];

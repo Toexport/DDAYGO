@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DDAYGO/ViewController/Method/LPDQuoteImagesView/Classes/LPDPhotoArrangeCell.m"
-            timestampString = "538472942.108058"
+            filePath = "DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+            timestampString = "538481840.727015"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "-ShangchuanBut"
+            startingLineNumber = "572"
+            endingLineNumber = "572"
+            landmarkName = "-shangchuBut:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

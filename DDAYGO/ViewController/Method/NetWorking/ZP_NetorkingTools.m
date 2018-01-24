@@ -53,7 +53,6 @@ static AFHTTPSessionManager *_manager = nil;
     }
     _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/plain", @"text/json", @"text/javascript", @"text/html",@"image/jpeg", nil];
-//    少啦参数 ？ 我都不想说什么,我的datherID怎么是1，我们是同一个账号啊
     [_manager POST:URLString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

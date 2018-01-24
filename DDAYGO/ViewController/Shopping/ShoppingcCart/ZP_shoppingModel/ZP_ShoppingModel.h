@@ -33,27 +33,27 @@
 @end
 
 @interface ZP_CartsModel : NSObject
-@property (nonatomic, strong) NSNumber *cartid;
-@property (nonatomic, strong) NSNumber *aid;
+@property (nonatomic, strong) NSNumber * cartid;
+@property (nonatomic, strong) NSNumber * aid;
 @property (nonatomic, strong) NSNumber * stockid;
-@property (nonatomic, strong) NSNumber *amount;
-@property (nonatomic, strong) NSNumber *productid;
-@property (nonatomic, strong) NSNumber *colorid;
-@property (nonatomic, strong) NSNumber *normid;
-@property (nonatomic, strong) NSNumber *productprice;
-@property (nonatomic, strong) NSNumber *cp;
+@property (nonatomic, strong) NSNumber * amount;
+@property (nonatomic, strong) NSNumber * productid;
+@property (nonatomic, strong) NSNumber * colorid;
+@property (nonatomic, strong) NSNumber * normid;
+@property (nonatomic, strong) NSNumber * productprice;
+@property (nonatomic, strong) NSNumber * cp;
 @property (nonatomic, strong) NSNumber * supplierid;
 @property (nonatomic, strong) NSNumber * weight;
 @property (nonatomic, strong) NSNumber * priceamount;
-@property (nonatomic, strong) NSNumber *productcost;
+@property (nonatomic, strong) NSNumber * productcost;
 
-@property (nonatomic, strong) NSString *createtime;
-@property (nonatomic, strong) NSString *productname;
-@property (nonatomic, strong) NSString *defaultimg;
-@property (nonatomic, strong) NSString *productremark;
-@property (nonatomic, strong) NSString *colorname;
-@property (nonatomic, strong) NSString *normname;
-@property (nonatomic, strong) NSString *suppliername;
+@property (nonatomic, strong) NSString * createtime;
+@property (nonatomic, strong) NSString * productname;
+@property (nonatomic, strong) NSString * defaultimg;
+@property (nonatomic, strong) NSString * productremark;
+@property (nonatomic, strong) NSString * colorname;
+@property (nonatomic, strong) NSString * normname;
+@property (nonatomic, strong) NSString * suppliername;
 
 + (NSMutableArray *)arrayWithArray:(NSArray *)array;
 

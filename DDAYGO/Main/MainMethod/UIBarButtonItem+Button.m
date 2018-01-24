@@ -68,8 +68,7 @@
 }
 
 //导航栏返回按钮
-+ (UIBarButtonItem *)backItemWithImage:(UIImage *)image highImage:(UIImage *)highImage target:target action:(SEL)action
-{
++ (UIBarButtonItem *)backItemWithImage:(UIImage *)image highImage:(UIImage *)highImage target:target action:(SEL)action {
     UIButton *backBtn = [[UIButton alloc] init];
     
     [backBtn setImage:image forState:UIControlStateNormal];

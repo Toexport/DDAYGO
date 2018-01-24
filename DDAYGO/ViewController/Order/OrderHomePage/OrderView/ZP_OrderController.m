@@ -70,6 +70,7 @@
         [self getDataWithState];
     }
 }
+
 // 刷新
 - (void)addRefresh {
     self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{

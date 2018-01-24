@@ -159,6 +159,7 @@
             LPDAssetModel *model = [LPDAssetModel modelWithAsset:asset type:LPDAssetModelMediaTypeVideo timeLength:@""];
             vc.model = model;
             [self.navcDelegate presentViewController:vc animated:YES completion:nil];
+//            [self.navcDelegate.navigationController pushViewController:vc animated:YES];
         } else { // 预览照片
             LPDImagePickerController *selectImagePickerVc = [[LPDImagePickerController alloc] initWithSelectedAssets:_selectedAssets selectedPhotos:_selectedPhotos index:indexPath.row];
             selectImagePickerVc.maxImagesCount = _maxSelectedCount;
@@ -171,6 +172,7 @@
                 _collectionView.contentSize = CGSizeMake(0, ((_selectedPhotos.count + 2) / 3 ) * (_margin + _itemWH));
             }];
             [self.navcDelegate presentViewController:selectImagePickerVc animated:YES completion:nil];
+//            [self.navcDelegate.navigationController pushViewController:selectImagePickerVc animated:YES];
         }
     }
 }
@@ -219,6 +221,7 @@
     }
     
     [self.navcDelegate presentViewController:lpdImagePickerVc animated:YES completion:nil];
+//    [self.navcDelegate.navigationController pushViewController:lpdImagePickerVc animated:YES];
 }
 
 #pragma mark - UIImagePickerController
@@ -231,6 +234,7 @@
             _imagePickerVc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         }
         [self.navcDelegate presentViewController:_imagePickerVc animated:YES completion:nil];
+//        [self.navcDelegate.navigationController pushViewController:_imagePickerVc animated:YES];
     } else {
         NSLog(@"模拟器中无法打开照相机,请在真机中使用");
     }
@@ -238,6 +242,7 @@
 
 - (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [picker dismissViewControllerAnimated:YES completion:nil];
+//    [picker popViewControllerAnimated:YES];
     NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
     if ([type isEqualToString:@"public.image"]) {
         LPDImagePickerController *lpdImagePickerVc = [[LPDImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
@@ -280,6 +285,7 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     if ([picker isKindOfClass:[UIImagePickerController class]]) {
         [picker dismissViewControllerAnimated:YES completion:nil];
+//        [picker popViewControllerAnimated:YES];
     }
 }
 

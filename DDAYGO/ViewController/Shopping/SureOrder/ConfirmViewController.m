@@ -26,35 +26,32 @@
 #import "AddAddressViewController.h"
 
 @interface ConfirmViewController () <UITableViewDelegate, UITableViewDataSource> {
-    
     NSArray * InformatonArray;
     NSArray * messageArray;;
     NSString * allMoney;
     NSString * allCount;
+    int _i;
 }
-
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)NSMutableArray * dataArrar;
 @property (nonatomic, strong)NSMutableArray * NewData;
 @property (nonatomic, strong) NSMutableArray * ConfirmArray;
 @property (nonatomic, strong) UILabel * merchantsLabel;
-
-
 @end
 
 @implementation ConfirmViewController
 
 - (void)viewDidLoad {
+    
+    [self addRefresh];
     ZPLog(@"_stockid = %@",_stockid);
     _dataArrar = [NSMutableArray array];
     _ConfirmArray = [NSMutableArray array];
     [self initUI];
     [self ImmobilizationView];
     self.title = NSLocalizedString(@"確認訂單", nil);
-
     // 666shi 订单界面
     if (self.type == 666) {
-        //这是你订单页面走的接口· 不走那里 你看到没有
         [self Mainorder];
         [self getAddData];
         ZPLog(@"^^^");
@@ -62,7 +59,6 @@
 //        购物车界面
          [self getAddData];
          [self MakeSureOrder];
-        
     }
         [self ExpressDelivery];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
@@ -72,6 +68,18 @@
     }else {
         messageArray = @[@{@"Computations":@"",@"num":@""}];
     }
+}
+
+// 刷新
+- (void)addRefresh {
+//    下拉刷新
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.dataArrar removeAllObjects];
+        [self.NewData removeAllObjects];
+        [self.ConfirmArray removeAllObjects];
+        _i = 0;
+        [self MakeSureOrder];
+    }];
 }
 
 // UI
@@ -84,7 +92,7 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
-    //  注册
+//  注册
     static NSString * ConfirmViewID = @"confirmViewCell";
     static NSString * InformationID = @"informationCell";
     static NSString * AnonymityViewID = @"anonymity";
@@ -95,7 +103,6 @@
     [self.tableView registerClass:[ZP_ExpressDeliveryCell class] forCellReuseIdentifier:ExpressDeliveryID];
     [self.tableView registerClass:[ZP_MessageViewCell class] forCellReuseIdentifier:messageID];
     [self.tableView registerClass:[ZP_AnonymityViewCell class] forCellReuseIdentifier:AnonymityViewID];
-    
 }
 
 - (void)ImmobilizationView {
@@ -103,7 +110,7 @@
     bottomView.backgroundColor = ZP_textWite;
     [self.view addSubview:bottomView];
     
-//      总金额
+//    总金额
     ZP_GeneralLabel * PriceLabel = [ZP_GeneralLabel initWithtextLabel:_PriceLabel.text textColor:ZP_pricebackground font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [bottomView addSubview:PriceLabel];
     [PriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -112,7 +119,7 @@
     }];
     _PriceLabel = PriceLabel;
     
-//       货币符号
+//    货币符号
     ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_pricebackground font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
     CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
@@ -123,7 +130,7 @@
     }];
     _CurrencySymbolLabel = CurrencySymbolLabel;
     
-//      合计
+//    合计
     ZP_GeneralLabel * StatisticsLabel = [ZP_GeneralLabel initWithtextLabel:_StatisticsLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     StatisticsLabel.text = @"合計";
     [bottomView addSubview:StatisticsLabel];
@@ -133,7 +140,7 @@
     }];
     _StatisticsLabel = StatisticsLabel;
     
-//      提交订单
+//    提交订单
     UIButton * Clearing = [UIButton new];
     Clearing.backgroundColor = ZP_pricebackground;
     [Clearing setTitle:NSLocalizedString(@"提交訂單", nil) forState:UIControlStateNormal];
@@ -161,6 +168,7 @@
 }
 
 //  组头
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
     if (section ==1) {
@@ -289,6 +297,7 @@
         [_ConfirmArray addObject:model];
         [self upfataStatisticsLabel];
         [self.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
     } failure:^(NSError * error) {
         [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
@@ -302,10 +311,8 @@
         asd += model.amount.intValue * model.productprice.floatValue;
         qwe += model.amount.intValue;
     }
-//    allMoney = [NSString stringWithFormat:@"%.2f",asd];
     allCount = [NSString stringWithFormat:@"%d",qwe];
     self.PriceLabel.text = allMoney;
-//    self.PriceLabel.text = [self.model.allamount stringValue];
 }
 
 // 快递费

@@ -152,17 +152,20 @@
     NSArray * imageArray =  [NSArray arrayWithArray:_imageView.selectedPhotos];
     NSLog(@"%ld,%@",imageArray.count,imageArray);
     
-    [self uploadrefundimgs];
+//    [self uploadrefundimgs];
 }
 
-// 68) 上传退换货相关图片
-- (void)uploadrefundimgs {
-    [ZP_OrderTool requestUploadrefundimgs:nil success:^(id obj) {
-        
-        ZPLog(@"%@",obj);
-    } failure:^(NSError * error) {
-        ZPLog(@"%@",error);
-    }];
-}
+//// 68) 上传退换货相关图片
+//- (void)uploadrefundimgs {
+//
+//
+//
+//    [ZP_OrderTool requestUploadrefundimgs:nil success:^(id obj) {
+//
+//        ZPLog(@"%@",obj);
+//    } failure:^(NSError * error) {
+//        ZPLog(@"%@",error);
+//    }];
+//}
 
 @end

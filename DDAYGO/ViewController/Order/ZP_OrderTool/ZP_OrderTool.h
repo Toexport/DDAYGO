@@ -27,7 +27,8 @@
 + (void)requestAddRefund:(NSDictionary *)AddRefund  success:(void (^)(id))success failure:(void (^)(NSError *))failure;
 
 // 上传退换货相关图片
-+ (void)requestUploadrefundimgs:(NSDictionary *)Uploadrefundimgs success:(void (^)(id))success failure:(void (^)(NSError *))failure;
+//+ (void)requestUploadrefundimgs:(NSDictionary *)Uploadrefundimgs success:(void (^)(id))success failure:(void (^)(NSError *))failure;
++ (void)requestUploadrefundimgs:(NSDictionary *)Uploadrefundimgs Data:(NSMutableArray *)arr success:(void (^)(id))success failure:(void (^)(NSError *))failure;
 
 @end
 

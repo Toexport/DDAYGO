@@ -76,12 +76,21 @@
 }
 
 // 上传退换货相关图片
-+ (void)requestUploadrefundimgs:(NSDictionary *)Uploadrefundimgs success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+//+ (void)requestUploadrefundimgs:(NSDictionary *)Uploadrefundimgs success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+//    NSString * strUrl = [NSString stringWithFormat:@"%@uploadrefundimgs",URLAPI];
+//    NSString * str = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    [ZP_NetorkingTools POST:str parameters:nil success:^(id responseObject) {
+//        success(responseObject);
+//    } failure:^(NSError *error) {
+//        failure(error);
+//    }];
+//}
++ (void)requestUploadrefundimgs:(NSDictionary *)Uploadrefundimgs Data:(NSMutableArray *)arr success:(void (^)(id))success failure:(void (^)(NSError *))failure {
     NSString * strUrl = [NSString stringWithFormat:@"%@uploadrefundimgs",URLAPI];
     NSString * str = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [ZP_NetorkingTools POST:str parameters:nil success:^(id responseObject) {
+    [ZP_NetorkingTools POST:str parameters:nil ContentArray:arr success:^(id responseObject) {
         success(responseObject);
-    } failure:^(NSError *error) {
+    } failure:^(NSError * error) {
         failure(error);
     }];
 }

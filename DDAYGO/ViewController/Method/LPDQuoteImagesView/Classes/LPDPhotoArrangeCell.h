@@ -10,6 +10,7 @@
 #import "UIView+HandyValue.h"
 #import "UIImage+MyBundle.h"
 #import "LPDQuoteImagesView.h"
+#import "SelectPhotoManager.h"
 @class LPDImagePickerController;
 @class LPDQuoteSystemImagesView;
 
@@ -23,6 +24,15 @@
 @property (nonatomic, strong) UIButton * Shangchuanbut;
 
 @property (nonatomic, strong)LPDQuoteSystemImagesView * imageView;
+
+
+
+
+@property (nonatomic, strong)SelectPhotoManager * photoManager;
+
+
+
+
 - (UIView *)snapshotView;
 
 @end
