@@ -389,7 +389,9 @@
 
 //72) 更改退换货状态
 + (void)RequestRefundStatus:(NSDictionary *)RefundStatus success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
-    [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@updaterefundstate?token=%@&refundid=%@&type=%@&rtimgs=%@",URLAPI,RefundStatus[@"token"],RefundStatus[@"refundid"],RefundStatus[@"type"],RefundStatus[@"rtimgs"]] parameters:nil success:^(id responseObject) {
+    NSString * strURl = [NSString stringWithFormat:@"%@updaterefundstate?token=%@&refundid=%@&type=%@&rtimgs=%@",URLAPI,RefundStatus[@"token"],RefundStatus[@"refundid"],RefundStatus[@"type"],RefundStatus[@"rtimgs"]];
+    NSString * str = [strURl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [ZP_NetorkingTools POST:str parameters:nil success:^(id responseObject) {
         success(responseObject);
     } failure:^(NSError *error) {
         failure(error);
@@ -404,6 +406,5 @@
         failure(error);
     }];
 }
-
 @end
 

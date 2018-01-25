@@ -20,6 +20,7 @@
         self.productprice = [NSString stringWithFormat:@"%@",Dic[@"productprice"]];
         self.amount = [NSString stringWithFormat:@"%@",Dic[@"amount"]];
         self.cp = [NSString stringWithFormat:@"%@",Dic[@"cp"]];
+        self.shopname = Dic[@"shopname"];
     }
     return self;
 }
@@ -41,6 +42,7 @@
         model.amount = [NSString stringWithFormat:@"%@",dic[@"amount"]];
         model.productprice = [NSString stringWithFormat:@"%@",dic[@"productprice"]];
         model.cp = [NSString stringWithFormat:@"%@",dic[@"cp"]];
+        model.shopname = dic[@"shopname"];
         [arr addObject:model];
     }
     return arr;

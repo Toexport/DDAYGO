@@ -36,7 +36,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T29-UR-1XQ">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="499"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRh-I0-HPO">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
@@ -276,17 +276,22 @@
                     </constraints>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1zY-UB-7yj">
-                    <rect key="frame" x="0.0" y="512" width="320" height="55"/>
+                    <rect key="frame" x="0.0" y="507" width="320" height="60"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRN-Ay-gDr">
-                            <rect key="frame" x="8" y="9" width="304" height="35"/>
+                            <rect key="frame" x="8" y="9" width="304" height="40"/>
                             <color key="backgroundColor" red="0.99215686270000003" green="0.6588235294" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="35" id="GWz-Oj-aj6"/>
+                                <constraint firstAttribute="height" constant="40" id="GWz-Oj-aj6"/>
                             </constraints>
                             <state key="normal" title="提交">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="TijiaoBut:" destination="-1" eventType="touchUpInside" id="hmO-ho-F36"/>
                             </connections>

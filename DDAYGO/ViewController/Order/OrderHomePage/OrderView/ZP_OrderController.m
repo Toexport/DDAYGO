@@ -240,13 +240,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * ID = @"orderViewCell";
     OrderModel * model = self.newsData[indexPath.section];
-//    OrdersdetailModel * model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail[0]];
     OrderViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     self.tableview.tableFooterView = [[UIView alloc]init];
     cell.AppraiseBut.tag = indexPath.row;
-//    [cell.AppraiseBut removeTarget:self action:@selector(buttonType) forControlEvents:UIControlEventTouchUpInside];
-//    [cell.OnceagainBut addTarget:self action:@selector(OnceagainBut:) forControlEvents:UIControlEventTouchUpInside];
     cell.OnceagainBut.tag = indexPath.row;
     OrdersdetailModel * model2;
     cell.DeleteBut.tag = indexPath.row;
@@ -287,10 +284,12 @@
     
 //   查看详细 -- 再次购买
     cell.onceagainBlock = ^(id response) {
-        //go
         [self.navigationController pushViewController:response animated:YES];
     };
-    
+//     確認收貨
+    cell.appraiseBlock = ^(AppraiseController* responses) {
+        [self.navigationController pushViewController:responses animated:YES];
+    };
     return cell;
     
 }
@@ -302,22 +301,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
-////  再次购买
-//- (void)OnceagainBut:(UIButton *)OnceagainBut {
-//    NSLog(@"再次购买");
-//    OrderModel * model = self.newsData[OnceagainBut.tag];
-//    OrdersdetailModel * model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail[0]];
-//    ConfirmViewController * confirm = [[ConfirmViewController alloc]init];
-//    confirm.stockidsString = [NSString stringWithFormat:@"%@_%@",model2.stockid,model2.amount];
-//    confirm.noEdit = YES;
-//    confirm.ordersnumber = model.ordersnumber;
-//    confirm.type = 666;
-//    [self.navigationController pushViewController:confirm animated:YES];
-//    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
-//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//}
-
 
 @end
 

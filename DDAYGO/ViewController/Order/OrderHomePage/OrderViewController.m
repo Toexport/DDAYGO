@@ -79,14 +79,12 @@
     }];
 
     self.pageContentView = [[FSPageContentView alloc]initWithFrame:CGRectMake(0,  40, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.frame)  - 40) childVCs:childVCs parentVC:self delegate:self];
-    
     [self.view addSubview:_pageContentView];
 }
 
 #pragma mark --
 - (void)FSSegmentTitleView:(FSSegmentTitleView *)titleView startIndex:(NSInteger)startIndex endIndex:(NSInteger)endIndex {
     NSLog(@"222 %ld- %ld",(long)endIndex,(long)startIndex);
-    
     self.pageContentView.contentViewCurrentIndex = endIndex;
     
 }

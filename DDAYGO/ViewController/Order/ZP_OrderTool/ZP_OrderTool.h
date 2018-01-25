@@ -19,7 +19,8 @@
 + (void)requestDeleteOrder:(NSDictionary *)DeleteOrder success:(void (^)(id))success failure:(void (^)(NSError *))failure;
 // 获取退换货原因列表
 + (void)requestSelect:(NSDictionary *)Select success:(void (^)(id))success failure:(void (^)(NSError *))failure;
-
+// 确认收货
++ (void)requestConfirmreceipt:(NSDictionary *)Confirmreceipt success:(void (^)(id))success failure:(void (^)(NSError *))failure;
 // 获取退换货申请页面信息
 + (void)requestRequestRefund: (NSDictionary *)RequestRefund success:(void (^)(id))success failure:(void (^)(NSError *))failure;
 

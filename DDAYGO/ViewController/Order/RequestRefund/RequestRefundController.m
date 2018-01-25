@@ -109,6 +109,15 @@
 }
 //69) 添加退换货记录
 - (IBAction)TijiaoBut:(id)sender {
+    
+    if (_showLabel.text.length < 1) {
+        [SVProgressHUD showInfoWithStatus:@"请选择原因"];
+        return;
+    }
+    if (_MessageLabel.text.length < 1) {
+        [SVProgressHUD showInfoWithStatus:@"请输入详细原因"];
+        return;
+    }
     [self addrefund];
 }
 
@@ -152,7 +161,6 @@
     NSArray * imageArray =  [NSArray arrayWithArray:_imageView.selectedPhotos];
     NSLog(@"%ld,%@",imageArray.count,imageArray);
     
-//    [self uploadrefundimgs];
 }
 
 //// 68) 上传退换货相关图片

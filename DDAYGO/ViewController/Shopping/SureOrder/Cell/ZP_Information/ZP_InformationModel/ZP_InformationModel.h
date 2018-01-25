@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface ZP_InformationModel : NSObject
+@property (nonatomic, strong) NSString * shopname; // 商店名字
 @property (nonatomic, strong) NSString * productname;         // 商品名称
 @property (nonatomic, strong) NSString * defaultimg;         // 商品默认图片
 @property (nonatomic, strong) NSString * productprice;      // 商品价格

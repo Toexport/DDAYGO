@@ -29,6 +29,7 @@
 @property (nonatomic, strong)UIScrollView * lastView;
 @property (nonatomic, strong)UILabel * line;
 @property (nonatomic, strong) NSMutableArray * newsarray;
+@property (nonatomic, strong) NSString * NameLabel;
 
 @end
 
@@ -64,7 +65,7 @@
 
 // UI
 -(void)addUI {
-    NSArray * allTitle = @[NSLocalizedString(@"店店鋪首頁", nil),NSLocalizedString(@"最新", nil),NSLocalizedString(@"好評", nil),NSLocalizedString(@"價格", nil)];
+    NSArray * allTitle = @[NSLocalizedString(@"店鋪首頁", nil),NSLocalizedString(@"最新", nil),NSLocalizedString(@"好評", nil),NSLocalizedString(@"價格", nil)];
     UIImageView * imageview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 150)];
     _imageview = imageview;
     imageview.backgroundColor = [UIColor whiteColor];
@@ -120,6 +121,7 @@
     dic[@"supplierid"] = self.Supplieerid;
     [ZP_ClassViewTool requestGetshopinfos:dic success:^(id obj) {
         self.title = obj[@"shopname"];
+        self.NameLabel = dic[@"shopname"];
 //        图片本来就没有   -> 默认图片
         [self.imageview sd_setImageWithURL:[NSURL URLWithString:obj[@"shopdetail"]] placeholderImage:[UIImage imageNamed:@""]];
         ZPLog(@"%@",obj);
@@ -134,7 +136,6 @@
     _collectionView2 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth, 0, fDeviceWidth, fDeviceHeight - 200) collectionViewLayout:flowLayout];
     _collectionView3 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 2, 0, fDeviceWidth, fDeviceHeight - 200) collectionViewLayout:flowLayout];
     _collectionView4 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 3, 0, fDeviceWidth, fDeviceHeight - 200) collectionViewLayout:flowLayout];
-    
     _collectionView1.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
     _collectionView2.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
     _collectionView3.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
@@ -167,24 +168,19 @@
     _collectionView3.dataSource = self;
     _collectionView4.delegate = self;
     _collectionView4.dataSource = self;
-    
     if (@available(iOS 11.0, *)){
         _collectionView1.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         _collectionView1.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
         _collectionView1.scrollIndicatorInsets = _collectionView1.contentInset;
-        
         _collectionView2.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         _collectionView2.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
         _collectionView2.scrollIndicatorInsets = _collectionView2.contentInset;
-        
         _collectionView3.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         _collectionView3.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
         _collectionView3.scrollIndicatorInsets = _collectionView3.contentInset;
-        
         _collectionView4.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         _collectionView4.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
         _collectionView4.scrollIndicatorInsets = _collectionView4.contentInset;
-        //
     }
     //    自适应大小
     _collectionView1.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight;
@@ -206,19 +202,16 @@
     cartButton.imageEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:cartButton];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-
 }
 
 - (NSArray *) titles {
     return @[@"店鋪簡介",
              @"滿意度調查"];
 }
-
 - (NSArray *) images {
     return @[@"ic_shop_filesearch",
              @"icon_shop_store_left"];
 }
-
 - (void)onClickedSweep:(UIButton *)sender {
     NSMutableArray * obj = [NSMutableArray array];
     for (NSInteger i = 0; i < [self titles].count; i ++) {
@@ -287,7 +280,6 @@
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"30";
     switch (tag-100) {
-            
         case 0:
             dic[@"sort"] = @"sale"; //销量
             break;
@@ -428,25 +420,21 @@
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     UICollectionReusableView * headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ReusableView" forIndexPath:indexPath];
-    
     return headerView;
 }
-
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     DetailedController * detaile = [[DetailedController alloc]init];
+    MerchantModel * model = _newsarray[indexPath.row];
     [self.navigationController pushViewController:detaile animated:YES];
+    detaile.productId = model.productid;
     NSLog(@"选中%ld",(long)indexPath.item);
 }
-
-
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    
     NSLog(@"ggg");
     return CGSizeMake(ZP_Width, CGFLOAT_MIN);
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-    
     NSLog(@"ooooo");
     return CGSizeMake(ZP_Width, CGFLOAT_MIN);
 }
@@ -457,25 +445,21 @@
     [self.newsarray removeAllObjects];
     _i = 0;
     [self getshopinfos];
-    [self getproductfilter:100];
     }];
     self.collectionView2.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsarray removeAllObjects];
         _i = 0;
         [self getshopinfos];
-        [self getproductfilter:100];
     }];
     self.collectionView3.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsarray removeAllObjects];
         _i = 0;
         [self getshopinfos];
-        [self getproductfilter:100];
     }];
     self.collectionView4.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsarray removeAllObjects];
         _i = 0;
         [self getshopinfos];
-        [self getproductfilter:100];
     }];
     
 }

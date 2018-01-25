@@ -59,7 +59,6 @@
 }
 
 - (void)merchant:(MerchantModel *)model {
-    
      [_imageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
     self.headerlabel.text = model.productname;
     self.priceLabel.text = [NSString stringWithFormat:@"NT%@",[model.productprice stringValue]];

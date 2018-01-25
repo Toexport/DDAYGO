@@ -15,6 +15,7 @@
 #import "ExchangeDetailsController.h"
 #import "ZP_OrderModel.h"
 #import "ConfirmViewController.h"
+#import "ZP_OrderTool.h"
 @implementation OrderViewCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:@"orderViewCell"];
@@ -307,7 +308,7 @@
 
 - (void)InformationWithDic:(OrdersdetailModel *)dic WithModel:(OrderModel *)model {
     int a = [dic.state intValue];
-    NSLog(@"Stata = %D",a);
+//    NSLog(@"Stata = %D",a);
     switch (a) {
         case 0:
             //不让评价点击
@@ -324,6 +325,7 @@
             //例如 --点击第一个看能不能点击
             NSLog(@"Stata = %D",a);
             _AppraiseBut.userInteractionEnabled = NO;
+            ZPLog(@"Stata = %D",a);
             break;
 //          退款
         case 2:
@@ -333,8 +335,8 @@
             _OnceagainBut.backgroundColor = nil;
             [self.OnceagainBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
 //            [_AppraiseBut setTitle:@"退款" forState:UIControlStateNormal];
-            NSLog(@"Stata = %D",a);
-//            _OnceagainBut.userInteractionEnabled = YES;
+            ZPLog(@"Stata = %D",a);
+            _OnceagainBut.hidden = NO;
             _AppraiseBut.hidden = YES;
             break;
             
@@ -344,40 +346,41 @@
             [_OnceagainBut setTitle:@"確認收貨" forState:UIControlStateNormal];
             [_AppraiseBut setTitle:@"退换货" forState:UIControlStateNormal];
             NSLog(@"Stata = %D",a);
-
             _OnceagainBut.userInteractionEnabled = YES;
+            ZPLog(@"Stata = %D",a);
             break;
-            
         case 4:
             _TradingLabel.text = @"交易成功";
             _DeleteBut.hidden = NO;
-            [_OnceagainBut setTitle:@"评价" forState:UIControlStateNormal];
+            [_OnceagainBut setTitle:@"評價" forState:UIControlStateNormal];
             _OnceagainBut.backgroundColor = nil;
             [self.OnceagainBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
 //            [_AppraiseBut setTitle:@"评价" forState:UIControlStateNormal];
-            if ([_model.reviewscount integerValue] == 0) {
-                _OnceagainBut.hidden = NO;
-            }else {
+            if ([_model.reviewscount integerValue] > 0) {
                 _OnceagainBut.hidden = YES;
+            }else {
+                _OnceagainBut.hidden = NO;
             }
-            NSLog(@"Stata = %D",a);
             _AppraiseBut.hidden = YES;
-//            _OnceagainBut.hidden = YES;
-            NSLog(@"Stata = %D",a);
+            _OnceagainBut.hidden = YES;
+            ZPLog(@"Stata = %D",a);
             break;
         case 5:
             _TradingLabel.text = @"交易成功";
-            _DeleteBut.hidden = NO;
+            _DeleteBut.hidden = YES;
 //            [_OnceagainBut setTitle:@"再次購買" forState:UIControlStateNormal];
 //            [_OnceagainBut setTitle:@"评价" forState:UIControlStateNormal];
-//            _AppraiseBut.hidden = YES;
-//            _OnceagainBut.hidden = YES;
+            _AppraiseBut.hidden = YES;
+            _OnceagainBut.hidden = YES;
+            ZPLog(@"Stata = %D",a);
             break;
         case 6:
             _TradingLabel.text = @"退款/售后";
             _DeleteBut.hidden = YES;
             [_OnceagainBut setTitle:@"查看详情" forState:UIControlStateNormal];
+            _OnceagainBut.hidden = NO;
             _AppraiseBut.hidden = YES;
+            ZPLog(@"Stata = %D",a);
             break;
         case 7:
             _TradingLabel.text = @"换货中";
@@ -385,7 +388,9 @@
             [self.OnceagainBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
             _DeleteBut.hidden = YES;
             [_OnceagainBut setTitle:@"查看详情" forState:UIControlStateNormal];
+            _OnceagainBut.hidden = NO;
             _AppraiseBut.hidden = YES;
+            ZPLog(@"Stata = %D",a);
             break;
         default:
             break;
@@ -493,7 +498,6 @@
             confirm.noEdit = YES;
             confirm.ordersnumber = _model2.ordersnumber;
             confirm.type = 666;
-            
             if (self.onceagainBlock) {
                 self.onceagainBlock(confirm);
             }
@@ -504,12 +508,37 @@
         case 2:{
             RequestRefundController * RequestRefund = [[RequestRefundController alloc]init];
             RequestRefund.oid = self.model.ordersnumber;
-            
-            
             if (self.onceagainBlock) {
                 self.onceagainBlock(RequestRefund);
             }
             [[NSNotificationCenter defaultCenter]postNotificationName:@"RequestRefund" object:nil];
+        }
+            break;
+        case 3:{
+            NSMutableDictionary * dicc = [NSMutableDictionary dictionary];
+            dicc[@"token"] = Token;
+            dicc[@"oid"] = self.model.ordersnumber;
+            [ZP_OrderTool requestConfirmreceipt:dicc success:^(id obj) {
+                if ([obj[@"result"] isEqualToString:@"ok"]) {
+                    [SVProgressHUD showSuccessWithStatus:@"確認收貨成功!"];
+                    AppraiseController * appistcss = [[AppraiseController alloc]init];
+                    appistcss.ordersnumber = self.model.ordersnumber; // 传过去的数据(订单号)
+                    appistcss.productid = self.model.productid; // 传过去的数据(商品ID)
+                    appistcss.detailid = self.model.detailid; // 传过去的数据(商品详情ID)
+                    appistcss.model2 = self.model;
+                    if (self.appraiseBlock) {
+                        self.appraiseBlock(appistcss);
+                    }
+                    [[NSNotificationCenter defaultCenter]postNotificationName:@"appraises" object:nil];
+                }
+                if ([obj[@"result"] isEqualToString:@"failure"]) {
+                    [SVProgressHUD showInfoWithStatus:@"確認收貨失敗,請稍後再試"];
+                }
+                ZPLog(@"%@",obj);
+            } failure:^(NSError * error) {
+                ZPLog(@"%@",error);
+            }];
+            
         }
             break;
             

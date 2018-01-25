@@ -219,12 +219,12 @@
         [self getimageData];
         [_ShopImageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
     }
-    _ShopNameLabel.text = model.productname;
-    _ShopMoneyLabel.text = model.productprice;
-    _quantityLable.text = model.productamount;
-    _peramountLable.text = model.peramount;
-    _productidLable.text = model.productid;
-    _ShoppingIdLabel.text = model.TrademarkLabel;
+      _ShopNameLabel.text = model.productname;
+       _ShopMoneyLabel.text = model.productprice;
+        _quantityLable.text = model.productamount;
+        _peramountLable.text = model.peramount;
+         _productidLable.text = model.productid;
+        _ShoppingIdLabel.text = model.TrademarkLabel;
 }
 
 //  自定义返回按钮
@@ -283,6 +283,7 @@
 }
 
 - (IBAction)ShoppingCartAction:(id)sender {
+    DD_CHECK_HASLONGIN;
     [self.navigationController popToRootViewControllerAnimated:NO];
     if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
         UITabBarController * tbvc  = [[UIApplication sharedApplication] keyWindow].rootViewController;
@@ -291,6 +292,7 @@
 }
 
 - (IBAction)dianpuAction:(id)sender {
+    DD_CHECK_HASLONGIN;
     MerchantController * Merchant = [[MerchantController alloc]init];
     Merchant.Supplieerid = self.model.supplierid;
     Merchant.fatherId = _fatherId;
@@ -344,7 +346,7 @@
     [ZP_ClassViewTool requEvaluates:dic success:^(id obj) {
         NSLog(@"go? %@",obj);
         
-        //        这里到时候需要根据 接口返回的类型来判断，不然一样会奔溃·
+//        这里到时候需要根据 接口返回的类型来判断，不然一样会奔溃·
         _pjArr = obj;
         if (obj == nil) {
             ZPLog(@"-----");
@@ -422,7 +424,6 @@
         self.purchaseView.modelArr = _normsArr;
         [self.view addSubview:self.purchaseView];
     }
-    
     [self.purchaseView show:^(id response) {
         [self.xzflBtn setTitle:response forState:UIControlStateNormal];
     }];
@@ -433,7 +434,6 @@
         _weakSelf.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:_weakSelf action:nil];  // 隐藏返回按钮上的文字
         _weakSelf.navigationController.navigationBar.tintColor = [UIColor whiteColor];
         [_weakSelf.navigationController pushViewController:response animated:YES];
-        
     };
 }
 

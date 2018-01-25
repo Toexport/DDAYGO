@@ -228,13 +228,56 @@
 
 // 取消退款
 - (IBAction)CancelButt:(id)sender {
+    if (self.type == 666) {
+        //72) 更改退换货状态
+        NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+        dic[@"token"] = Token;
+        dic[@"refundid"] = self.model.refundid;
+        dic[@"type"] = @"cancel";
+        dic[@"rtimgs"] = @"";
+        //    [self extracted:dic];
+        [ZP_MyTool RequestRefundStatus:dic success:^(id obj) {
+            if ([obj[@"result"]isEqualToString:@"ok"]) {
+                [self ExchangeDetails];
+                [SVProgressHUD showSuccessWithStatus:@"取消成功"];
+            }else
+                if ([obj[@"result"]isEqualToString:@"sys_err"]) {
+                    [SVProgressHUD showInfoWithStatus:@"操作失败"];
+                }
+            ZPLog(@"%@",obj);
+            [self.view4 removeFromSuperview];
+        } failure:^(NSError *error) {
+            ZPLog(@"%@",error);
+        }];
+    }else
+        if (self.type == 777) {
+            //72) 更改退换货状态
+            NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+            dic[@"token"] = Token;
+            dic[@"refundid"] = self.model.refundid;
+            dic[@"type"] = @"cancel";
+            dic[@"rtimgs"] = @"";
+            //    [self extracted:dic];
+            [ZP_MyTool RequestRefundStatus:dic success:^(id obj) {
+                if ([obj[@"result"]isEqualToString:@"ok"]) {
+                    [self ExchangeDetails];
+                    [SVProgressHUD showSuccessWithStatus:@"取消成功"];
+                }else
+                    if ([obj[@"result"]isEqualToString:@"sys_err"]) {
+                        [SVProgressHUD showInfoWithStatus:@"操作失败"];
+                    }
+                ZPLog(@"%@",obj);
+                [self.view4 removeFromSuperview];
+            } failure:^(NSError *error) {
+                ZPLog(@"%@",error);
+            }];
+        }else {
 //72) 更改退换货状态
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     dic[@"refundid"] = self.Oid;
     dic[@"type"] = @"cancel";
     dic[@"rtimgs"] = @"";
-//    [self extracted:dic];
     [ZP_MyTool RequestRefundStatus:dic success:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"ok"]) {
             [self ExchangeDetails];
@@ -248,10 +291,7 @@
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
     }];
+    }
 }
 
-//// 图片点击事件
-//- (void)singleTapAction:(UIGestureRecognizer *)sender {
-//    ZPLog(@"1111");
-//}
 @end

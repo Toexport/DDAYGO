@@ -171,7 +171,11 @@
 - (void)ShoplntroducedCollection:(NSDictionary *)dic andDic:(NSDictionary *)dict{
     _ratingLabel.text = [NSString stringWithFormat:@"%@",dict[@"good_percent"]];
     _PhoneLabel.text = dic[@"phone"];
-//    _StorenameLabel.text = [NSString stringWithFormat:@"%@",dic[@"suppliername"]];
+//    if ([NSString stringWithFormat:@"%@",dic[@"suppliername"]].length < 1) {
+//        _StorenameLabel.hidden = YES;
+//    }else {
+//        _StorenameLabel.text = [NSString stringWithFormat:@"%@",dic[@"suppliername"]];
+//    }
     _ServicetimeLabel.text = [NSString stringWithFormat:@"%@",dic[@"updatetime"]];
     _AddressLabel.text = [NSString stringWithFormat:@"%@",dic[@"countrycode"]];
     switch ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue]) {

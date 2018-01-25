@@ -288,9 +288,15 @@
     dicc[@"stockids"] = self.stockidsString;
     //    stockids：库存字符串，库存ID与数量拼接，多个用逗号连接，如：42_2,43_1
     [ZP_shoopingTool requesMakeSureOrder:dicc success:^(id obj) {
+        ZPLog(@"%@",obj);
         NSDictionary * dic = obj;
         allMoney = [NSString stringWithFormat:@"%@",obj[@"allamount"]];
         self.NewData = [ZP_InformationModel arrayWithArray:dic[@"carts"]];
+        
+        NSArray *arr = [ZP_InformationModel arrayWithArray:dic[@"cartshop"]];
+        ZP_InformationModel * modell = arr[0];
+        NSLog(@"shop name = %@",modell.shopname);
+        self.merchantsLabel.text = modell.shopname;
         ZP_ExpressDeliveryModel * model = [[ZP_ExpressDeliveryModel alloc] init];
         model.freightamount = dic[@"freightamount"];
         model.chooselogistic = dic[@"chooselogistic"];
