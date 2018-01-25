@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSNumber * productprice; // 价格
 @property (nonatomic, strong) NSString * productname; //商品名字
 @property (nonatomic, strong) NSString * productremark;
+@property (nonatomic, strong) NSNumber * productid; //商品ID
 
 + (NSMutableArray *)Merchant:(NSArray *)array;
 

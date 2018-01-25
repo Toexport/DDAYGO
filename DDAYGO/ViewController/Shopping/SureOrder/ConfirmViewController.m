@@ -303,7 +303,6 @@
     }];
 }
 
-// 问题：购物车为空时，店铺名字还在；购物车不能支持多个删除，点击加减，或者删除，下面的总价格不变，
 // 总计金额
 - (void)upfataStatisticsLabel {
     float asd = 0.0;
@@ -315,7 +314,6 @@
     allCount = [NSString stringWithFormat:@"%d",qwe];
     self.PriceLabel.text = allMoney;
 }
-
 // 快递费
 - (void)ExpressDelivery {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];

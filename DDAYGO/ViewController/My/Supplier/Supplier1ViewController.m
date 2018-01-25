@@ -100,7 +100,6 @@
     //这个数组是放 pl 的放进去·对应的放好
     _arrayP = [NSArray arrayWithObjects:@" ",@" ",@"如:50 - 100人",@" ",@"YYYY - MM -DD",@" ",@" ",@" ",@" ",@" ",@"聯繫人/職稱/分機",@" ",@" ",@" ",@" ", nil];
     
-    
     _LocationLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
     
     switch ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue]) {

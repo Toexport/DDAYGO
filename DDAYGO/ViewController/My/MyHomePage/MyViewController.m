@@ -238,8 +238,16 @@
 }
 
 - (void)setAllDatas:(ZP_MyHopageModel *)model {
-    _CollectionLabel.text =  [NSString stringWithFormat:@"%@",model.collecedcount];
-    _BrowseLabel.text = [NSString stringWithFormat:@"%@",model.historycount];
+    if (model.collecedcount == nil) {
+        return;
+    }else {
+    _CollectionLabel.text = [NSString stringWithFormat:@"%@",model.collecedcount];
+    }
+    if (model.historycount == nil) {
+        return;
+    }else {
+        _BrowseLabel.text = [NSString stringWithFormat:@"%@",model.historycount];
+    }
 }
 
 // 供货商状态请求

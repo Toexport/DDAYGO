@@ -78,10 +78,11 @@
     _descLabel = descLabel;
     [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(imageView).offset(95);
-        make.top.equalTo(titleLabel).offset(35);
-//        make.width.mas_offset(50);
+        make.bottom.equalTo(MerchandiseIntroducedLabel).offset(15); //
     }];
 
+ 
+    
 //  商品尺码
     ZP_GeneralLabel * SizeLabel = [ZP_GeneralLabel initWithtextLabel:_SizeLabel.text textColor:ZP_TypefaceColor font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self.contentView addSubview:SizeLabel];
@@ -99,7 +100,7 @@
     CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(imageView).offset(95);
-        make.top.equalTo(SizeLabel).offset(20);
+        make.bottom.equalTo(SizeLabel).offset(15);
         make.height.mas_offset(15);
     }];
     
@@ -109,7 +110,7 @@
     _PreferentialLabel = PreferentialLabel;
     [PreferentialLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(CurrencySymbolLabel).offset(25); //左边
-        make.top.equalTo(SizeLabel).offset(20);
+        make.bottom.equalTo(SizeLabel).offset(15);
         make.height.mas_offset(15);
 //        make.width.mas_offset(100);
     }];
@@ -182,10 +183,24 @@
     [_leftImageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:nil];;
     _titleLabel.text = model.productname;
     _MerchandiseIntroducedLabel.text = model.productremark;
-    _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",model.colorname];
-    _SizeLabel.text = [NSString stringWithFormat:@"尺碼:%@",model.normname];
+//    先不管你写没有写对· 你自己解释·你这行代码的意思·
+//    if model里面的颜色为nil时候这个label就隐藏，不是就显示出来   -这是你逻辑的意思··   你写的代码是这个意思？
+//    你代码的意思是 --》 如果colorname 为nil  ，—desclabel  == 显示 并复制
+//    else 结束   return 是结束···这个方法后面不走啦 你懂不懂   你再看一遍   ／／看没看到他走那
+    //不要动不动就用nil ·你觉得你的接口返回的是nil 吗
+    NSLog(@"%@",model.colorname);  //看到没有· 并不是空 可能是@”“ 可能是null 可能是nil  ·你说你的判断该怎么写
+//    length这个是什么意思 长度的· ·字符的长度 // 用点心吧
+    if (model.colorname.length < 1) {
+        _descLabel.hidden = YES;//你自己看 model 。colorename 是不是等于nil、
+    }else {
+        _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",model.colorname];
+    }
+    if (model.normname.length < 1) {
+        _SizeLabel.hidden = YES;
+    }else {
+        _SizeLabel.text = [NSString stringWithFormat:@"尺碼:%@",model.normname];
+    }
     _PreferentialLabel.text = [NSString stringWithFormat:@"%@",model.productprice];
-//    _PriceLabel.text = [NSString stringWithFormat:@"NT:%@",model.productprice];
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
     _TrademarkLabel.text = [NSString stringWithFormat:@"%@",model.cp];
     _QuantityLabel.text = [NSString stringWithFormat:@"%@",str];

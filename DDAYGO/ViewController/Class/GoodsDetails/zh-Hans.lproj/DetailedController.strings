@@ -1,7 +1,4 @@
 
-/* Class = "UIButton"; normalTitle = "店铺"; ObjectID = "1WZ-Ph-sR3"; */
-"1WZ-Ph-sR3.normalTitle" = "店铺";
-
 /* Class = "UIButton"; normalTitle = "立即购买"; ObjectID = "3yf-OJ-y4O"; */
 "3yf-OJ-y4O.normalTitle" = "立即购买";
 
@@ -11,26 +8,26 @@
 /* Class = "UILabel"; text = "销量："; ObjectID = "5Lc-D8-gsU"; */
 "5Lc-D8-gsU.text" = "销量：";
 
-/* Class = "UILabel"; text = "89.00"; ObjectID = "7ei-Zi-m8A"; */
-"7ei-Zi-m8A.text" = "89.00";
+/* Class = "UILabel"; text = "0"; ObjectID = "5hf-XE-3NG"; */
+"5hf-XE-3NG.text" = "0";
 
-/* Class = "UILabel"; text = "368"; ObjectID = "7kb-Is-qTY"; */
-"7kb-Is-qTY.text" = "368";
+/* Class = "UILabel"; text = "0"; ObjectID = "7ei-Zi-m8A"; */
+"7ei-Zi-m8A.text" = "0";
 
-/* Class = "UILabel"; text = "00000000"; ObjectID = "CaB-oG-Ejt"; */
-"CaB-oG-Ejt.text" = "00000000";
+/* Class = "UILabel"; text = "0"; ObjectID = "7kb-Is-qTY"; */
+"7kb-Is-qTY.text" = "0";
 
-/* Class = "UILabel"; text = "NT:189.00"; ObjectID = "JC2-YT-xXX"; */
-"JC2-YT-xXX.text" = "NT189.00";
+/* Class = "UILabel"; text = "0"; ObjectID = "CaB-oG-Ejt"; */
+"CaB-oG-Ejt.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "店铺"; ObjectID = "EnS-wl-TFo"; */
+"EnS-wl-TFo.normalTitle" = "店铺";
 
 /* Class = "UIButton"; normalTitle = "购物车"; ObjectID = "LQ3-G5-mOb"; */
 "LQ3-G5-mOb.normalTitle" = "购物车";
 
 /* Class = "UIButton"; normalTitle = "  产品说明"; ObjectID = "Tyf-aT-gID"; */
 "Tyf-aT-gID.normalTitle" = "  产品说明";
-
-/* Class = "UILabel"; text = "天然植物萃取保加利亚玫瑰纯露200ml"; ObjectID = "UEw-bb-Qwf"; */
-"UEw-bb-Qwf.text" = "天然植物萃取保加利亚玫瑰纯露200ml";
 
 /* Class = "UIButton"; normalTitle = "售后服务"; ObjectID = "XE2-SC-BL0"; */
 "XE2-SC-BL0.normalTitle" = "售后服务";
@@ -41,14 +38,11 @@
 /* Class = "UILabel"; text = "NT"; ObjectID = "h8l-8J-Oxy"; */
 "h8l-8J-Oxy.text" = "NT";
 
-/* Class = "UIButton"; normalTitle = "68"; ObjectID = "k90-TI-nPH"; */
-"k90-TI-nPH.normalTitle" = "68";
-
 /* Class = "UILabel"; text = "货号："; ObjectID = "l2L-6h-8AD"; */
 "l2L-6h-8AD.text" = "货号：";
 
-/* Class = "UILabel"; text = "206"; ObjectID = "nED-hC-rXF"; */
-"nED-hC-rXF.text" = "206";
+/* Class = "UILabel"; text = "0"; ObjectID = "nED-hC-rXF"; */
+"nED-hC-rXF.text" = "0";
 
 /* Class = "UIButton"; normalTitle = "产品内容"; ObjectID = "oWJ-jb-o3c"; */
 "oWJ-jb-o3c.normalTitle" = "产品内容";
@@ -59,6 +53,5 @@
 /* Class = "UIButton"; normalTitle = "全部评价"; ObjectID = "sM6-X9-s9Q"; */
 "sM6-X9-s9Q.normalTitle" = "全部评价";
 
-/* Class = "UIButton"; normalTitle = "  选择分类,规格"; ObjectID = "zr9-j3-C4D"; */
-"zr9-j3-C4D.normalTitle" = "  选择分类,规格";
-
+/* Class = "UIButton"; normalTitle = "  选择分类/规格"; ObjectID = "zr9-j3-C4D"; */
+"zr9-j3-C4D.normalTitle" = "  选择分类/规格";

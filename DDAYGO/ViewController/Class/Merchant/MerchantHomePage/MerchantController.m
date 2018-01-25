@@ -6,26 +6,19 @@
 //  Copyright © 2017年 Summer. All rights reserved.
 //
 #import "MerchantController.h"
-//#import "FSScrollContentView.h"
-//#import "ZPHomeLayout.h"
-//#import "ZPHomeCell.h"
-//#import "ShopIntroductionViewController.h"
-//#import "SatisfactionSurveyController.h"
-//#import "Pop-upPrefixHeader.pch"
-//#import "PrefixHeader.pch"
-//#import "HeadCollectionReusableView.h"
 #import "ZP_ClassViewTool.h"
 #import "MerchantCollectionViewCell.h"
 #import "PrefixHeader.pch"
 #import "Pop-upMenuModle.h"
 #import "ClassificationViewController.h"
+#import "DetailedController.h"
 #import "Pop-upPrefixHeader.pch"
 #import "ShopIntroductionViewController.h"
 #import "SatisfactionSurveyController.h"
 #import "MerchantModel.h"
 @interface MerchantController ()<UIScrollViewDelegate> {
-    
-    NSArray * array;
+    int _i;
+//    NSArray * array;
 }
 
 #define fDeviceWidth ([UIScreen mainScreen].bounds.size.width)
@@ -52,8 +45,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addRefresh];
     [self addUI];
-    [self getshopinfos];
     [self setUpNavgationBar]; //navigationBar
     [self getproductfilter:100];
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
@@ -102,7 +95,6 @@
         
         [topView addSubview:btn];
     }
-    
     [self.view addSubview:topView];
     self.topView = topView;
     self.line.x = self.btn.x;
@@ -114,6 +106,7 @@
     [self.view addSubview:lastView];
     self.lastView = lastView;
     [self initCollectionView];
+    [self addRefresh];
     [lastView addSubview:self.collectionView1];
     [lastView addSubview:self.collectionView2];
     [lastView addSubview:self.collectionView3];
@@ -250,28 +243,23 @@
 
 
 - (void)btnClickAction:(UIButton *)sender {
-
     if (sender.tag -100 == 3) {
         sender.selected = !sender.selected;
         [self getproductfilter:sender.tag];
         self.lastView.contentOffset = CGPointMake((sender.tag -100) * ZP_Width, 0);
         [UIView animateWithDuration:0.2 animations:^{
             self.line.x = sender.x;
-            
         }];
-        
         if (sender.selected) {
 #warning 选中
 //          这里设置button 按钮 图片
             [sender setImage:[UIImage imageNamed:@"icon_shop_classification_02"] forState:UIControlStateNormal];
             NSLog(@"选择状态");
-            
         }else{
 #warning 取消选中
 //          这里设置button 按钮 图片
             [sender setImage:[UIImage imageNamed:@"icon_shop_classification_03"] forState:UIControlStateNormal];
         }
-        
     }else{
         [self getproductfilter:sender.tag];
         self.btn.selected = NO;
@@ -293,7 +281,7 @@
     dic[@"sid"] = self.Supplieerid;
 //    dic[@"fathid"] = self.Supplieerid;
     dic[@"fathid"] = @"0";
-    dic[@"seq"] = @"asc";
+//    dic[@"seq"] = @"asc";
     dic[@"word"] = @"";
     dic[@"countrycode"] = @"886";
     dic[@"page"] = @"1";
@@ -324,15 +312,19 @@
         switch (tag-100) {
             case 0:
                 [self.collectionView1 reloadData];
+                [self.collectionView1.mj_header endRefreshing];  // 結束下拉刷新
                 break;
             case 1:
                 [self.collectionView2 reloadData];
+                [self.collectionView2.mj_header endRefreshing];  // 結束下拉刷新
                 break;
             case 2:
                 [self.collectionView3 reloadData];
+                [self.collectionView3.mj_header endRefreshing];  // 結束下拉刷新
                 break;
             case 3:
                 [self.collectionView4 reloadData];
+                [self.collectionView4.mj_header endRefreshing];  // 結束下拉刷新
                 break;
                 
             default:
@@ -372,7 +364,7 @@
     dic[@"sid"] = self.Supplieerid;
     //    dic[@"fathid"] = self.Supplieerid;
     dic[@"fathid"] = @"0";
-    dic[@"seq"] = @"asc";
+//    dic[@"seq"] = @"asc";
     dic[@"word"] = @"";
     dic[@"countrycode"] = @"886";
     dic[@"page"] = @"1";
@@ -386,15 +378,19 @@
         switch (tag) {
                 case 0:
                 [self.collectionView1 reloadData];
+                [self.collectionView1.mj_header endRefreshing];  // 結束下拉刷新
             break;
                 case 1:
                 [self.collectionView2 reloadData];
+                [self.collectionView2.mj_header endRefreshing];  // 結束下拉刷新
             break;
                 case 2:
                 [self.collectionView3 reloadData];
+                [self.collectionView3.mj_header endRefreshing];  // 結束下拉刷新
             break;
                 case 3:
                 [self.collectionView4 reloadData];
+                [self.collectionView4.mj_header endRefreshing];  // 結束下拉刷新
             break;
                 
             default:
@@ -405,7 +401,6 @@
         
     }];
     
-    
     [UIView animateWithDuration:0.2 animations:^{
         self.line.x = button.x;
     }];
@@ -413,9 +408,7 @@
 }
 
 #pragma make - 创建collectionView代理
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
     return _newsarray.count;
 }
 
@@ -429,12 +422,6 @@
     MerchantCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
     MerchantModel * model = _newsarray[indexPath.row];
     [cell merchant:model];
-//    [cell sizeToFit];
-    
-    //    cell.imageView.image = [UIImage imageNamed:_cellArray[indexPath.item]];
-    //    cell.headerlabel.text = [NSString stringWithFormat:@"cell %ld",(long)indexPath.item];
-//    NSDictionary * dic = array[indexPath.row];
-//    [cell cellWithdic:dic];
     
     return cell;
 }
@@ -446,7 +433,8 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    //    DetailedController * Detailed = [[DetailedController alloc]init];
+    DetailedController * detaile = [[DetailedController alloc]init];
+    [self.navigationController pushViewController:detaile animated:YES];
     NSLog(@"选中%ld",(long)indexPath.item);
 }
 
@@ -463,6 +451,34 @@
     return CGSizeMake(ZP_Width, CGFLOAT_MIN);
 }
 
+// 刷新
+- (void)addRefresh {
+    self.collectionView1.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    [self.newsarray removeAllObjects];
+    _i = 0;
+    [self getshopinfos];
+    [self getproductfilter:100];
+    }];
+    self.collectionView2.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.newsarray removeAllObjects];
+        _i = 0;
+        [self getshopinfos];
+        [self getproductfilter:100];
+    }];
+    self.collectionView3.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.newsarray removeAllObjects];
+        _i = 0;
+        [self getshopinfos];
+        [self getproductfilter:100];
+    }];
+    self.collectionView4.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.newsarray removeAllObjects];
+        _i = 0;
+        [self getshopinfos];
+        [self getproductfilter:100];
+    }];
+    
+}
 
 
 @end

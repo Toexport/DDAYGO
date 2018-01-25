@@ -121,7 +121,7 @@
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(FigureImage).offset(95);
         make.right.equalTo(self.Backgroundview).offset(-10);
-        make.top.equalTo(merchantsLabel).offset(20);
+        make.bottom.equalTo(merchantsLabel).offset(15);
     }];
     _titleLabel = titleLabel;
     
@@ -130,7 +130,7 @@
     [self.Backgroundview addSubview:descLabel];
     [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(FigureImage).offset(95);
-        make.top.equalTo(merchantsLabel).offset(50);
+        make.bottom.equalTo(titleLabel).offset(15);
     }];
     _descLabel = descLabel;
     
@@ -150,7 +150,7 @@
     CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(FigureImage).offset(95);
-        make.top.equalTo(SizeLabel).offset(20);
+        make.bottom.equalTo(SizeLabel).offset(15);
         make.height.mas_offset(15);
     }];
     
@@ -159,7 +159,7 @@
     [self.Backgroundview addSubview:PreferentialLabel];
     [PreferentialLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(CurrencySymbolLabel).offset(20);
-        make.top.equalTo(SizeLabel).offset(20);
+        make.top.equalTo(CurrencySymbolLabel).offset(0);
         make.height.mas_offset(15);
     }];
     _PreferentialLabel = PreferentialLabel;
@@ -168,8 +168,8 @@
     UIImageView * TrademarkImage = [UIImageView new];
     [self.Backgroundview addSubview:TrademarkImage];
     [TrademarkImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(SizeLabel).offset(-10);
-        make.top.equalTo(PreferentialLabel).offset(+2);
+        make.left.equalTo(PreferentialLabel).offset(60);
+        make.top.equalTo(PreferentialLabel).offset(0);
         make.width.mas_offset(15);
         make.height.mas_offset(15);
     }];
@@ -180,7 +180,7 @@
     [self.Backgroundview addSubview:TrademarkLabel];
     [TrademarkLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(TrademarkImage).offset(18);
-        make.bottom.equalTo(PreferentialLabel).offset(+2);
+        make.bottom.equalTo(PreferentialLabel).offset(0);
     }];
     _TrademarkLabel = TrademarkLabel;
     
@@ -221,7 +221,7 @@
     [self.contentView addSubview:CountLabel];
     [CountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(TrademarkImage).offset(-20);
-        make.top.equalTo(VerticalView).offset(40);
+        make.bottom.equalTo(Backgroundview).offset(25);
     }];
     _CountLabel = CountLabel;
     
@@ -230,7 +230,7 @@
     [self.contentView addSubview:AmountLabel];
     [AmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(CountLabel).offset(38);
-        make.top.equalTo(VerticalView).offset(40);
+        make.top.equalTo(CountLabel).offset(0);
     }];
     _AmountLabel = AmountLabel;
     
@@ -240,7 +240,7 @@
     [self.contentView addSubview:FreightLabel];
     [FreightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(AmountLabel).offset(70);
-        make.top.equalTo(AmountLabel).offset(+2.5);
+        make.top.equalTo(AmountLabel).offset(+2);
     }];
     _FreightLabel = FreightLabel;
     
@@ -396,8 +396,16 @@
     [_FigureImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI,dic.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
     _merchantsLabel.text = [NSString stringWithFormat:@"%@",model.shopname];
     _titleLabel.text = dic.productname;
-    _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",dic.colorname];
-    _SizeLabel.text = [NSString stringWithFormat:@"尺碼:%@",dic.normname];
+    if (dic.colorname.length < 1) {
+        _DateLabel.hidden = YES;
+    }else {
+       _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",dic.colorname];
+    }
+    if (dic.normname.length < 1) {
+        _SizeLabel.hidden = YES;
+    }else {
+        _SizeLabel.text = [NSString stringWithFormat:@"尺碼:%@",dic.normname];
+    }
     _AmountLabel.text = [NSString stringWithFormat:@"NT%@",model.ordersamount];
     _ExpressFeeLabel.text = [NSString stringWithFormat:@"NT%@)",model.freight]; // 运费
     _PreferentialLabel.text = [NSString stringWithFormat:@"%@",dic.price];

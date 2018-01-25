@@ -36,7 +36,7 @@
     
     //            价格
     self.priceLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, CGRectGetWidth(self.frame)+ 25, CGRectGetWidth(self.frame) - 90, 15)];
-    self.priceLabel.textColor = ZP_TypefaceColor;
+    self.priceLabel.textColor = ZP_HomePreferentialpriceTypefaceCorlor;
     self.priceLabel.font = [UIFont systemFontOfSize:10];
     //    [self.priceLabel setBackgroundColor:ZP_Graybackground];
     self.priceLabel.textAlignment = NSTextAlignmentLeft;

@@ -97,7 +97,6 @@
         for (int i = 0; i < _normsArr.count; i ++) {
             ZP_GoodDetailsModel *model = _normsArr[i];
             _ShopImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ZP_Width * i, 0, ZP_Width, self.onScrollView.height)];
-//            _ShopImageView.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255. green:arc4random_uniform(256)/255. blue:arc4random_uniform(256)/255. alpha:1];
             [_ShopImageView sd_setImageWithURL:[NSURL URLWithString:model.cnimg] placeholderImage:[UIImage imageNamed:@""]];
             [self.onScrollView addSubview:_ShopImageView];
         }
@@ -107,13 +106,12 @@
         [self.scrollView addSubview:self.pageControl];
         [self.shoucangBtn resizeWithDistance:5];
         [self.gouwuBtn resizeWithDistance:5];
-        [self.dianpuBtn resizeWithDistance:5]; // 暂时不需要商铺按钮
+        [self.dianpuBtn resizeWithDistance:5];
     }
     else{
         self.onScrollViewWidth.constant = ZP_Width * 1;
         for (int i = 0; i < 1; i ++) {
             _ShopImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ZP_Width * i, 0, ZP_Width, self.onScrollView.height)];
-//            _ShopImageView.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255. green:arc4random_uniform(256)/255. blue:arc4random_uniform(256)/255. alpha:1];
             [self.onScrollView addSubview:_ShopImageView];
         }
         self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(self.smallScrollView.center.x - 19.5, self.smallScrollView.size.height - 37, 39, 37)];
@@ -123,7 +121,7 @@
         
         [self.shoucangBtn resizeWithDistance:5];
         [self.gouwuBtn resizeWithDistance:5];
-        [self.dianpuBtn resizeWithDistance:5]; // 暂时不需要商铺按钮
+        [self.dianpuBtn resizeWithDistance:5];
     }
     
 }
@@ -153,12 +151,6 @@
         [self.detailTableView reloadData];
         NSDictionary * tempDic = @{@"productid":_productId,@"page":@(1),@"pagesize":@(5)};
         [ZP_ClassViewTool requEvaluates:tempDic success:^(id obj) {
-//            if (obj) {
-//                self.evaluateArray = obj;
-//                [self successful];
-//            }else{
-//                [self networkProblems];
-//            }
             [self.evaluateArray addObject:obj];
             NSLog(@"%@",obj);
         } failure:^(NSError *error) {
@@ -188,7 +180,6 @@
 
 
 -(void)loading {
-    
     [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
     __weak typeof(self)weakSelf = self;
     [ReloadView showToView:self.view touch:^{
@@ -209,7 +200,6 @@
     [ReloadView showToView:self.view touch:^{
         [weakSelf allData];
     }];
-    
     return;
 }
 
