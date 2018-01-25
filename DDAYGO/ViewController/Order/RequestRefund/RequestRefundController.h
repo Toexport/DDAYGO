@@ -23,6 +23,7 @@
 
 /** 第2个View */
 @property (weak, nonatomic) IBOutlet UIView * view2;
+@property (weak, nonatomic) IBOutlet UIButton * WhyBut; // 原因按钮
 @property (weak, nonatomic) IBOutlet UITextView * MessageLabel; // 留言
 
 /** 第3个View */

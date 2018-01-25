@@ -21,12 +21,9 @@
 @property (strong, nonatomic) UIButton *nookDeleteBtn;     //角标删除按钮
 @property (assign, nonatomic) NSInteger row;               //行
 @property (strong, nonatomic) id asset;                    //资源模型
-@property (nonatomic, strong) UIButton * Shangchuanbut;
+@property (nonatomic, strong) UIButton * Shangchuanbut;  // 上传按钮
 
 @property (nonatomic, strong)LPDQuoteSystemImagesView * imageView;
-
-
-
 
 @property (nonatomic, strong)SelectPhotoManager * photoManager;
 

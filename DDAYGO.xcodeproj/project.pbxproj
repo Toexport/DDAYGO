@@ -825,6 +825,8 @@
 		C430B81A2019FE8B00C12A16 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/StoreViewController.strings"; sourceTree = "<group>"; };
 		C430B81C2019FEA100C12A16 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/StoreViewController.strings"; sourceTree = "<group>"; };
 		C430B8202019FF3D00C12A16 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StoreViewController.strings; sourceTree = "<group>"; };
+		C430B822201A065200C12A16 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SettingViewController.strings"; sourceTree = "<group>"; };
+		C430B824201A066C00C12A16 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SettingViewController.strings"; sourceTree = "<group>"; };
 		C43517201FB2AC180066302E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConcernShopTableViewCell.xib; sourceTree = "<group>"; };
 		C43517231FB2AC1D0066302E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ConcernShopTableViewCell.strings; sourceTree = "<group>"; };
 		C43517251FB2AC1F0066302E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ConcernShopTableViewCell.strings"; sourceTree = "<group>"; };
@@ -1147,8 +1149,6 @@
 		C482B2851FC2B62600D7539F /* ZP_AnonymityViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZP_AnonymityViewCell.m; sourceTree = "<group>"; };
 		C4910F6F1FFC6D24006DA5B9 /* ddg_advertising.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ddg_advertising.png; sourceTree = "<group>"; };
 		C4910F7A1FFCB087006DA5B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SettingViewController.strings; sourceTree = "<group>"; };
-		C4910F7C1FFCB08A006DA5B9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SettingViewController.strings"; sourceTree = "<group>"; };
-		C4910F7E1FFCB08C006DA5B9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SettingViewController.strings"; sourceTree = "<group>"; };
 		C491D3741FCBE31D00D127E9 /* BindingIntroduce.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindingIntroduce.h; sourceTree = "<group>"; };
 		C491D3751FCBE31D00D127E9 /* BindingIntroduce.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindingIntroduce.m; sourceTree = "<group>"; };
 		C491D3761FCBE31D00D127E9 /* BindingIntroduce.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BindingIntroduce.xib; sourceTree = "<group>"; };
@@ -4878,8 +4878,8 @@
 			children = (
 				C47212AD1FB18A4E0055578E /* Base */,
 				C4910F7A1FFCB087006DA5B9 /* en */,
-				C4910F7C1FFCB08A006DA5B9 /* zh-Hans */,
-				C4910F7E1FFCB08C006DA5B9 /* zh-Hant */,
+				C430B822201A065200C12A16 /* zh-Hans */,
+				C430B824201A066C00C12A16 /* zh-Hant */,
 			);
 			name = SettingViewController.xib;
 			sourceTree = "<group>";

@@ -515,37 +515,43 @@
         }
             break;
         case 3:{
-            NSMutableDictionary * dicc = [NSMutableDictionary dictionary];
-            dicc[@"token"] = Token;
-            dicc[@"oid"] = self.model.ordersnumber;
-            [ZP_OrderTool requestConfirmreceipt:dicc success:^(id obj) {
-                if ([obj[@"result"] isEqualToString:@"ok"]) {
-                    [SVProgressHUD showSuccessWithStatus:@"確認收貨成功!"];
-                    AppraiseController * appistcss = [[AppraiseController alloc]init];
-                    appistcss.ordersnumber = self.model.ordersnumber; // 传过去的数据(订单号)
-                    appistcss.productid = self.model.productid; // 传过去的数据(商品ID)
-                    appistcss.detailid = self.model.detailid; // 传过去的数据(商品详情ID)
-                    appistcss.model2 = self.model;
-                    if (self.appraiseBlock) {
-                        self.appraiseBlock(appistcss);
-                    }
-                    [[NSNotificationCenter defaultCenter]postNotificationName:@"appraises" object:nil];
-                }
-                if ([obj[@"result"] isEqualToString:@"failure"]) {
-                    [SVProgressHUD showInfoWithStatus:@"確認收貨失敗,請稍後再試"];
-                }
-                ZPLog(@"%@",obj);
-            } failure:^(NSError * error) {
-                ZPLog(@"%@",error);
-            }];
+//       确认收货
             
+            [self requestConfirmreceipt];
         }
             break;
-            
         default:
             break;
     }
 }
 
+// 确认收货
+- (void)requestConfirmreceipt {
+    
+//    確認收貨
+    NSMutableDictionary * dicc = [NSMutableDictionary dictionary];
+    dicc[@"token"] = Token;
+    dicc[@"oid"] = self.model.ordersnumber;
+    [ZP_OrderTool requestConfirmreceipt:dicc success:^(id obj) {
+        if ([obj[@"result"] isEqualToString:@"ok"]) {
+            [SVProgressHUD showSuccessWithStatus:@"確認收貨成功!"];
+            AppraiseController * appistcss = [[AppraiseController alloc]init];
+            appistcss.ordersnumber = self.model.ordersnumber; // 传过去的数据(订单号)
+            appistcss.productid = self.model.productid; // 传过去的数据(商品ID)
+            appistcss.detailid = self.model.detailid; // 传过去的数据(商品详情ID)
+            appistcss.model2 = self.model;
+            if (self.appraiseBlock) {
+                self.appraiseBlock(appistcss);
+            }
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"appraises" object:nil];
+        }
+        if ([obj[@"result"] isEqualToString:@"failure"]) {
+            [SVProgressHUD showInfoWithStatus:@"確認收貨失敗,請稍後再試"];
+        }
+        ZPLog(@"%@",obj);
+    } failure:^(NSError * error) {
+        ZPLog(@"%@",error);
+    }];
+}
 @end
 

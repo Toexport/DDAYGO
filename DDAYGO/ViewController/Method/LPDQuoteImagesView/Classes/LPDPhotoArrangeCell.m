@@ -11,6 +11,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "ZP_OrderTool.h"
 #import "PrefixHeader.pch"
+#import "LPDQuoteImagesView.h"
 #define DEL_BTN_WH  RELATIVE_VALUE(24)
 
 @implementation LPDPhotoArrangeCell
@@ -60,36 +61,51 @@
 
 // 68) 上传退换货相关图片
 - (void)uploadrefundimgs {
-//    [ZP_OrderTool requestUploadrefundimgs:nil success:^(id obj) {
-//        ZPLog(@"%@",obj);
-//    } failure:^(NSError * error) {
-//        ZPLog(@"%@",error);
-//    }];
-    if (!_photoManager) {
-        _photoManager = [[SelectPhotoManager alloc]init];
-    }
-    [_photoManager startSelectPhotoWithImageName:NSLocalizedString(@"Choose photos", nil)];
-    __weak typeof(self)mySelf = self;
+//    if (!_photoManager) {
+//        _photoManager = [[SelectPhotoManager alloc]init];
+//    }
+//    [_photoManager startSelectPhotoWithImageName:NSLocalizedString(@"Choose photos", nil)];
+//    __weak typeof(self)mySelf = self;
 //     选取照片成功
-    _photoManager.successHandle=^(SelectPhotoManager *manager,UIImage * image){
+//    _photoManager.successHandle=^(SelectPhotoManager *manager,UIImage * image){
 //        mySelf.headerImage.image = image;
         //  保存到本地
-        NSMutableArray * imageArray = [NSMutableArray array];
-        NSData * data =  UIImageJPEGRepresentation(image, 1);
-        [imageArray addObject:data];
-        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
+//        NSMutableArray * imageArray = [NSMutableArray array];
+//        NSData * data =  UIImageJPEGRepresentation(image, 1);
+//        [imageArray addObject:data];
+//        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
 //       这个封装可以上传多张图片
-//        [ZP_OrderTool ]
         
 //        [ZP_MyTool RequestUploadavatarimg:@{@"token":DD_TOKEN} Data:imageArray success:^(id obj) {
 //            NSLog(@"%@",obj);
 //        } failure:^(NSError *error) {
 //            NSLog(@"%@",error.description);
 //        }];
+//    };
+    
+    // 图片在这里
+    __weak typeof(self)mySelf = self;
+     _photoManager.successHandle=^(SelectPhotoManager *manager,UIImage * image){
+    NSMutableArray * imageArray = [NSMutableArray array];
+         mySelf.imageView = self;
+    NSData * data =  UIImageJPEGRepresentation(image, 1);
+    [imageArray addObject:data];
+    NSMutableDictionary * dictt = [NSMutableDictionary dictionary];
+    dictt[@"token"] = Token;
+    dictt[@"img"] = @"";
+    dictt[@"type"] = @"refund";
+//    img:文件流
+//    type：类型  refund 上传凭证图   logistic  上传退货单图
+    [ZP_OrderTool requestUploadrefundimgs:dictt Data:imageArray success:^(id obj) {
+        
+        ZPLog(@"%@",obj);
+    } failure:^(NSError * error) {
+        ZPLog(@"%@",error);
+    }];
+         
     };
-    
-    
 }
+
 - (void)setupDeleteBtn:(CGFloat)width {
     _nookDeleteBtn.frame = CGRectMake(self.frame.size.width - width * 0.75 , -width / 2 + RELATIVE_VALUE(2) , width, width);
     _nookDeleteBtn.alpha = 1.0;

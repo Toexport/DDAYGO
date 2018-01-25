@@ -14,9 +14,7 @@
 #import "UIView+HandyValue.h"
 #import "LPDImageManager.h"
 #import "UIImage+MyBundle.h"
-@interface LPDImagePickerController ()
-
-{
+@interface LPDImagePickerController (){
     NSTimer *_timer;
     UILabel *_tipLable;
     UIButton *_settingBtn;
@@ -493,6 +491,7 @@
     LPDAlbumCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LPDAlbumCell"];
     LPDImagePickerController *imagePickerVc = (LPDImagePickerController *)self.navigationController;
     cell.selectedCountButton.backgroundColor = imagePickerVc.oKButtonTitleColorNormal;
+    
     cell.model = _albumArr[indexPath.row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;

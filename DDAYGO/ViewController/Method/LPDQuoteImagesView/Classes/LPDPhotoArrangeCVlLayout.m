@@ -375,20 +375,17 @@ CG_INLINE CGPoint CGPointOffset(CGPoint point, CGFloat dx, CGFloat dy)
 
 #pragma mark - displayLink
 
-- (void)displayLinkTriggered:(CADisplayLink *)displayLink
-{
+- (void)displayLinkTriggered:(CADisplayLink *)displayLink {
     if (_remainSecondsToBeginEditing <= 0) {
         [_displayLink invalidate];
         _displayLink = nil;
     }
-    
     _remainSecondsToBeginEditing = _remainSecondsToBeginEditing - 0.1;
 }
 
 #pragma mark - KVO and notification
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@stringify(collectionView)]) {
         if (self.collectionView) {
             [self addGestureRecognizers];

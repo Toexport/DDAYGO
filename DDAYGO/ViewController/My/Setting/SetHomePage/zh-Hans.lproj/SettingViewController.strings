@@ -17,6 +17,9 @@
 /* Class = "UIButton"; normalTitle = "收货地址"; ObjectID = "Tyd-n1-XLR"; */
 "Tyd-n1-XLR.normalTitle" = "收货地址";
 
+/* Class = "UIButton"; normalTitle = "关于 DDAYGO"; ObjectID = "avw-gh-5ot"; */
+"avw-gh-5ot.normalTitle" = "关于 DDAYGO";
+
 /* Class = "UIButton"; normalTitle = "昵称"; ObjectID = "djq-6N-dQQ"; */
 "djq-6N-dQQ.normalTitle" = "昵称";
 

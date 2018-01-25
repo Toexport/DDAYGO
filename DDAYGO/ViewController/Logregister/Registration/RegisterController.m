@@ -224,7 +224,6 @@
 }
 //  国家列表数据
 - (void)PositionallData {
-    
     [ZP_HomeTool requesPosition:nil success:^(id obj) {
     self.ZPCountryTextField.functionBtn.userInteractionEnabled = YES;
         NSArray * arr = [ZP_PositionModel arrayWithArray:obj];

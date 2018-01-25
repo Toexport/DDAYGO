@@ -19,13 +19,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="135.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Swh-VP-nth">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="5"/>
-                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="5" id="Nv6-H9-Az2"/>
-                        </constraints>
-                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hyb-px-6iy">
                         <rect key="frame" x="0.0" y="90.5" width="375" height="1"/>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,8 +86,6 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Swh-VP-nth" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2bc-yN-r6w"/>
-                    <constraint firstAttribute="trailing" secondItem="Swh-VP-nth" secondAttribute="trailing" id="32Z-Qa-QQL"/>
                     <constraint firstItem="sgT-1E-MbV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="3mO-ZB-naZ"/>
                     <constraint firstAttribute="bottom" secondItem="wXs-eE-jWb" secondAttribute="bottom" id="6Id-zp-JEI"/>
                     <constraint firstItem="DQX-2A-oMK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="6jT-tk-0Hs"/>
@@ -112,7 +103,6 @@
                     <constraint firstItem="xUE-ly-bQU" firstAttribute="top" secondItem="Hyb-px-6iy" secondAttribute="bottom" id="k5f-fI-qlc"/>
                     <constraint firstItem="Hyb-px-6iy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="kYk-Em-Yw3"/>
                     <constraint firstAttribute="bottom" secondItem="xUE-ly-bQU" secondAttribute="bottom" id="nFc-W4-uLR"/>
-                    <constraint firstItem="Swh-VP-nth" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="nqc-U4-gIA"/>
                     <constraint firstItem="DQX-2A-oMK" firstAttribute="top" secondItem="4ba-Lv-ohB" secondAttribute="bottom" constant="8" id="rcO-Oo-lU4"/>
                     <constraint firstAttribute="trailing" secondItem="xUE-ly-bQU" secondAttribute="trailing" constant="16" id="y1I-3D-gVw"/>
                     <constraint firstItem="wXs-eE-jWb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="yNN-yJ-7iF"/>

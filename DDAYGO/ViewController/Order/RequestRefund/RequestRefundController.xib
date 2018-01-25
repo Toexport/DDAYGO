@@ -20,6 +20,7 @@
                 <outlet property="ReuqestRefundScrollView" destination="T29-UR-1XQ" id="5Kv-4q-fgo"/>
                 <outlet property="TitleLabel" destination="SZk-wu-hv7" id="W60-KH-zAA"/>
                 <outlet property="View4LayoutConstraint" destination="PZ2-I2-Lr0" id="dPx-Nx-q53"/>
+                <outlet property="WhyBut" destination="qpF-Bq-M9c" id="mgz-uP-fHk"/>
                 <outlet property="showLabel" destination="8kx-Is-eLL" id="Krq-LO-Uy8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="view1" destination="cRh-I0-HPO" id="DeT-wM-YjQ"/>

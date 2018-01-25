@@ -30,10 +30,31 @@
     [super viewDidLoad];
     self.title = NSLocalizedString(@"發佈評論", nil);
      [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"ic_bar_return"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
     [self initUI];
     [self setUpNavgationBar];
 }
 
+// 返回按钮
+- (void)backAction {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"确定要退出吗?" preferredStyle:UIAlertControllerStyleAlert];
+    NSArray *array = [self.navigationController viewControllers];
+    UIViewController *viewController = array.firstObject;
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        [self.navigationController popToRootViewControllerAnimated:NO];
+//        viewController.tabBarController.selectedIndex = 3;
+//        viewController.popoverPresentationController = YES;
+        [viewController.navigationController popViewControllerAnimated:YES];
+    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+// UI
 - (void)initUI {
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 10, ZP_Width, ZP_height)];
     dataArray = @[@{@"":@""}];
@@ -62,11 +83,7 @@
 }
 
 - (void)cartButton {
-    [self allData];
-}
-
 // 数据
-- (void)allData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     NSString * allStr = [NSString stringWithFormat:@"%@,%@,%ld,%@",_model2.detailid,_model2.productid,_score1+1,_pjstr];
     NSString * utf8Str = [allStr stringByAddingPercentEscapesUsingEncoding:kCFStringEncodingUTF8];

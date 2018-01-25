@@ -125,10 +125,7 @@
     
 }
 
-
-
 #pragma mark - UITapGestureRecognizer Event
-
 - (void)doubleTap:(UITapGestureRecognizer *)tap {
     if (_scrollView.zoomScale > 1.0) {
         _scrollView.contentInset = UIEdgeInsetsZero;
@@ -141,7 +138,6 @@
         [_scrollView zoomToRect:CGRectMake(touchPoint.x - xsize/2, touchPoint.y - ysize/2, xsize, ysize) animated:YES];
     }
 }
-
 - (void)singleTap:(UITapGestureRecognizer *)tap {
     if (self.singleTapGestureBlock) {
         self.singleTapGestureBlock();
@@ -149,7 +145,6 @@
 }
 
 #pragma mark - UIScrollViewDelegate
-
 - (nullable UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return _imageContainerView;
 }

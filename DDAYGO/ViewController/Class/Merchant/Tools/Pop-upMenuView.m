@@ -9,7 +9,7 @@
 #import "Pop-upMenuView.h"
 #import "Pop-upPrefixHeader.pch"
 
-#define WBNUMBER 6
+#define WBNUMBER 3
 
 @interface Pop_upMenuView ()
 
@@ -47,7 +47,6 @@
                 self.action(indexRow);
             }
         }];
-        
         self.tableView = [[UITableView alloc]initWithFrame:[self menuFrame] style:UITableViewStylePlain];
         self.tableView.dataSource = self.tableViewDataSource;
         self.tableView.delegate   = self.tableViewDelegate;
@@ -57,19 +56,18 @@
         self.tableView.rowHeight = 40;
         self.tableView.tableFooterView = [[UIView alloc] init]; // 隐藏多余Tableview的线条
         [self addSubview:self.tableView];
-        
         if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
             [self.tableView setSeparatorInset:UIEdgeInsetsZero];
         }
         if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
             [self.tableView setLayoutMargins:UIEdgeInsetsZero];
         }
-        
     }
     return self;
 }
 
 - (CGRect)menuFrame {
+    
     CGFloat menuX = [UIScreen mainScreen].bounds.size.width - 110;
     CGFloat menuY = 55 - 15 * WBNUMBER;
     CGFloat width = self.menuWidth;

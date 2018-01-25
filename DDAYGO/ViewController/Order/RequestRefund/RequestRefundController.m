@@ -60,6 +60,7 @@
 
 // 66) 获取退换货原因列表
 - (IBAction)yuanyinBut:(UIButton *)sender {
+    self.WhyBut.userInteractionEnabled = NO;
     [self requsetRefundAllData];
    
 }
@@ -70,6 +71,7 @@
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
     dic[@"countrycode"] = str;
     [ZP_OrderTool requestSelect:dic success:^(id obj) {
+        self.WhyBut.userInteractionEnabled = YES;
         ZPLog(@"%@",obj);
         SelectView * seleView = [[SelectView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         seleView.dataArray = [SelectModel1 arrayWithArray:obj];

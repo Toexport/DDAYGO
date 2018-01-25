@@ -99,6 +99,7 @@ static CGSize AssetGridThumbnailSize;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    
     [super viewWillDisappear:animated];
     LPDImagePickerController *lpdImagePickerVc = (LPDImagePickerController *)self.navigationController;
     lpdImagePickerVc.isSelectOriginalPhoto = _isSelectOriginalPhoto;
