@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"我的足跡";
+    self.title = NSLocalizedString(@"footprint", nil);
     [self allData];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     [self.collectionView registerNib:[UINib nibWithNibName:@"FootprintCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"FootprintCollectionViewCell"];
@@ -44,7 +44,6 @@
         ZPLog(@"%@",obj);
         NSDictionary * dic = obj;
         NSArray *arr = [ZP_FootprintModel arrayWithArray:dic[@"historyslist"]];
-        
         [arr enumerateObjectsUsingBlock:^(ZP_FootprintModel *model, NSUInteger idx, BOOL * _Nonnull stop) {
             [model.historyArray enumerateObjectsUsingBlock:^(ZP_FootprintModel1 *model1, NSUInteger idx, BOOL * _Nonnull stop) {
                 [self.newsData addObject:model1];

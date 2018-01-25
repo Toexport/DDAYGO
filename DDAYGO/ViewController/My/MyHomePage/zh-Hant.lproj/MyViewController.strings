@@ -14,11 +14,11 @@
 /* Class = "UILabel"; text = "足迹"; ObjectID = "CMS-9M-nx2"; */
 "CMS-9M-nx2.text" = "足跡";
 
+/* Class = "UIButton"; normalTitle = "退款/售后"; ObjectID = "EIo-H1-Rp6"; */
+"EIo-H1-Rp6.normalTitle" = "退款/售後";
+
 /* Class = "UILabel"; text = "("; ObjectID = "EYd-Rv-7Up"; */
 "EYd-Rv-7Up.text" = "(";
-
-/* Class = "UILabel"; text = "1111100"; ObjectID = "N31-ty-HnO"; */
-"N31-ty-HnO.text" = "";
 
 /* Class = "UIButton"; normalTitle = "扫一扫"; ObjectID = "SzE-mi-64s"; */
 "SzE-mi-64s.normalTitle" = "掃一掃";
@@ -29,7 +29,7 @@
 /* Class = "UIButton"; normalTitle = "促销彩"; ObjectID = "Yq7-mx-siu"; */
 "Yq7-mx-siu.normalTitle" = "促銷彩";
 
-/* Class = "UILabel"; text = "申請成為供貨商"; ObjectID = "dSx-Sb-nWM"; */
+/* Class = "UILabel"; text = "申请成为供货商"; ObjectID = "dSx-Sb-nWM"; */
 "dSx-Sb-nWM.text" = "申請成為供貨商";
 
 /* Class = "UILabel"; text = "0"; ObjectID = "wKB-1F-Lrk"; */

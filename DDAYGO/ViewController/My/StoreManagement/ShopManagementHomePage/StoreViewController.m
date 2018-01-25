@@ -38,7 +38,7 @@
 }
 
 - (void)initUI {
-    self.title = NSLocalizedString(@"商店管理", nil);
+    self.title = NSLocalizedString(@"store management", nil);
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
 }

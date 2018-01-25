@@ -816,12 +816,15 @@
 		C42F06FD1FFE259A00B3D510 /* ZP_BetHeaderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_BetHeaderModel.m; sourceTree = "<group>"; };
 		C42F07001FFE2D8000B3D510 /* ZP_InstructionBetModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_InstructionBetModel.h; sourceTree = "<group>"; };
 		C42F07011FFE2D8000B3D510 /* ZP_InstructionBetModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_InstructionBetModel.m; sourceTree = "<group>"; };
-		C42F07041FFE5BDF00B3D510 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyViewController.strings; sourceTree = "<group>"; };
-		C42F07061FFE5C7C00B3D510 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MyViewController.strings"; sourceTree = "<group>"; };
-		C42F07081FFE5CAA00B3D510 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MyViewController.strings"; sourceTree = "<group>"; };
 		C430B80E20196B1B00C12A16 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DetailedController.strings"; sourceTree = "<group>"; };
 		C430B81020196B2100C12A16 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/DetailedController.strings"; sourceTree = "<group>"; };
 		C430B81220196BC600C12A16 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DetailedController.strings; sourceTree = "<group>"; };
+		C430B8142019FBCC00C12A16 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MyViewController.strings"; sourceTree = "<group>"; };
+		C430B8162019FBE200C12A16 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MyViewController.strings"; sourceTree = "<group>"; };
+		C430B8182019FC6B00C12A16 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MyViewController.strings; sourceTree = "<group>"; };
+		C430B81A2019FE8B00C12A16 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/StoreViewController.strings"; sourceTree = "<group>"; };
+		C430B81C2019FEA100C12A16 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/StoreViewController.strings"; sourceTree = "<group>"; };
+		C430B8202019FF3D00C12A16 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StoreViewController.strings; sourceTree = "<group>"; };
 		C43517201FB2AC180066302E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConcernShopTableViewCell.xib; sourceTree = "<group>"; };
 		C43517231FB2AC1D0066302E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ConcernShopTableViewCell.strings; sourceTree = "<group>"; };
 		C43517251FB2AC1F0066302E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ConcernShopTableViewCell.strings"; sourceTree = "<group>"; };
@@ -839,9 +842,6 @@
 		C43517401FB2ACCB0066302E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/FootprintCollectionViewCell.strings"; sourceTree = "<group>"; };
 		C43517421FB2ACCD0066302E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/FootprintCollectionViewCell.strings"; sourceTree = "<group>"; };
 		C43517441FB2ACD60066302E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StoreViewController.xib; sourceTree = "<group>"; };
-		C43517471FB2ACDA0066302E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StoreViewController.strings; sourceTree = "<group>"; };
-		C43517491FB2ACDD0066302E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/StoreViewController.strings"; sourceTree = "<group>"; };
-		C435174B1FB2ACDF0066302E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/StoreViewController.strings"; sourceTree = "<group>"; };
 		C43517511FB2ACF40066302E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/OrdersViewController.xib; sourceTree = "<group>"; };
 		C43987731FF48B5D00044E21 /* RegistrationAgreementController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationAgreementController.h; sourceTree = "<group>"; };
 		C43987741FF48B5D00044E21 /* RegistrationAgreementController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationAgreementController.m; sourceTree = "<group>"; };
@@ -4836,9 +4836,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				C43517441FB2ACD60066302E /* Base */,
-				C43517471FB2ACDA0066302E /* en */,
-				C43517491FB2ACDD0066302E /* zh-Hans */,
-				C435174B1FB2ACDF0066302E /* zh-Hant */,
+				C430B81A2019FE8B00C12A16 /* zh-Hans */,
+				C430B81C2019FEA100C12A16 /* zh-Hant */,
+				C430B8202019FF3D00C12A16 /* en */,
 			);
 			name = StoreViewController.xib;
 			sourceTree = "<group>";
@@ -4866,9 +4866,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				C47212A41FB186C90055578E /* Base */,
-				C42F07041FFE5BDF00B3D510 /* en */,
-				C42F07061FFE5C7C00B3D510 /* zh-Hans */,
-				C42F07081FFE5CAA00B3D510 /* zh-Hant */,
+				C430B8142019FBCC00C12A16 /* zh-Hans */,
+				C430B8162019FBE200C12A16 /* zh-Hant */,
+				C430B8182019FC6B00C12A16 /* en */,
 			);
 			name = MyViewController.xib;
 			sourceTree = "<group>";

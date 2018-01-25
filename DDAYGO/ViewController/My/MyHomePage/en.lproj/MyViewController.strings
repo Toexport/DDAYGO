@@ -1,4 +1,7 @@
 
+/* Class = "UIButton"; normalTitle = "退款/售后"; ObjectID = "EIo-H1-Rp6"; */
+"EIo-H1-Rp6.normalTitle" = "Refund/after-sales service.";
+
 /* Class = "UIButton"; normalTitle = "商店管理"; ObjectID = "55u-GW-AOe"; */
 "55u-GW-AOe.normalTitle" = "Store management";
 
@@ -34,3 +37,4 @@
 
 /* Class = "UILabel"; text = "0"; ObjectID = "wKB-1F-Lrk"; */
 "wKB-1F-Lrk.text" = "0";
+

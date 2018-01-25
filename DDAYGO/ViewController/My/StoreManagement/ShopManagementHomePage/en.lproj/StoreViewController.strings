@@ -1,27 +1,24 @@
 
-/* Class = "UILabel"; text = "店铺状态"; ObjectID = "61a-4X-KfI"; */
-"61a-4X-KfI.text" = "State of store";
-
-/* Class = "UILabel"; text = "商品数量"; ObjectID = "7xj-zh-NOG"; */
-"7xj-zh-NOG.text" = "Quantity goods";
-
-/* Class = "UILabel"; text = "合约时间：2017-09-01至2018-09-01"; ObjectID = "F5Z-ZZ-147"; */
-"F5Z-ZZ-147.text" = "contract time：2017-09-01至2018-09-01";
-
-/* Class = "UILabel"; text = "680"; ObjectID = "Fgi-7b-NgL"; */
-"Fgi-7b-NgL.text" = "680";
+/* Class = "UIButton"; normalTitle = "總額"; ObjectID = "FJ5-x6-N9K"; */
+"FJ5-x6-N9K.normalTitle" = "total money";
 
 /* Class = "UIButton"; normalTitle = "收款"; ObjectID = "Het-JD-t1Y"; */
 "Het-JD-t1Y.normalTitle" = "Collect money";
 
-/* Class = "UILabel"; text = "上架中"; ObjectID = "fLY-wO-apx"; */
-"fLY-wO-apx.text" = "In processing";
+/* Class = "UILabel"; text = "0"; ObjectID = "XvN-Gj-nTQ"; */
+"XvN-Gj-nTQ.text" = "0";
 
-/* Class = "UIButton"; normalTitle = "账单"; ObjectID = "oEn-Yx-YTD"; */
-"oEn-Yx-YTD.normalTitle" = "bill";
+/* Class = "UILabel"; text = "活動餘額"; ObjectID = "a0d-qK-uBs"; */
+"a0d-qK-uBs.text" = "Activity of money";
 
-/* Class = "UIButton"; normalTitle = "订单"; ObjectID = "of4-ko-yr5"; */
-"of4-ko-yr5.normalTitle" = "order";
+/* Class = "UILabel"; text = "凍結餘額"; ObjectID = "cj0-uh-ggr"; */
+"cj0-uh-ggr.text" = "Freeze money";
 
-/* Class = "UILabel"; text = "阿芙专卖店"; ObjectID = "sMA-bM-g8J"; */
-"sMA-bM-g8J.text" = "阿芙专卖店";
+/* Class = "UILabel"; text = "去提現"; ObjectID = "fQf-4a-mYD"; */
+"fQf-4a-mYD.text" = "withdraw money";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "gbw-oB-nud"; */
+"gbw-oB-nud.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "mKV-AN-7gh"; */
+"mKV-AN-7gh.text" = "0";

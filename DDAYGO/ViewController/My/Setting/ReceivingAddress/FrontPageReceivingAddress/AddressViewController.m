@@ -62,10 +62,10 @@
 }
 
 #pragma mark ---tableView delegate
-////3.设置cell之间headerview的高度
-//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-//    return 10;
-//}
+//3.设置cell之间headerview的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.001;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 5;
@@ -77,14 +77,16 @@
     headerView.backgroundColor = [UIColor clearColor];
     return headerView;
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.newsData.count;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AddressTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"AddressTableViewCell" forIndexPath:indexPath];
-    ZP_FrontPageReceivingAddressModel * model = self.newsData[indexPath.row];
+    ZP_FrontPageReceivingAddressModel * model = self.newsData[indexPath.section];
 //    默认地址
         cell.defBtn.tag = indexPath.row;
         [cell.defBtn addTarget:self action:@selector(seleClick:) forControlEvents:UIControlEventTouchUpInside];
