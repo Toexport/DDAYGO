@@ -221,7 +221,7 @@
     CountLabel.text = NSLocalizedString(@"合計:", nil);
     [self.contentView addSubview:CountLabel];
     [CountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(TrademarkImage).offset(-20);
+        make.left.equalTo(TrademarkImage).offset(10);
         make.bottom.equalTo(Backgroundview).offset(25);
     }];
     _CountLabel = CountLabel;

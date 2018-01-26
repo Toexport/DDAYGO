@@ -67,9 +67,9 @@
     self.navigationController.navigationBar.hidden = YES;
     [self.detailTableView registerNib:[UINib nibWithNibName:@"ProductTableViewCell" bundle:nil] forCellReuseIdentifier:@"ProductTableViewCell"];
     [self.detailTableView registerNib:[UINib nibWithNibName:@"EvaluateTableViewCell" bundle:nil] forCellReuseIdentifier:@"EvaluateTableViewCell"];
+    self.detailTableView.rowHeight=UITableViewAutomaticDimension;//高度设置为自适应
     self.shfwBottomView.hidden = YES;
     self.qbpjBottomView.hidden = YES;
-    
     self.evaluateArray = [NSMutableArray array];
 }
 

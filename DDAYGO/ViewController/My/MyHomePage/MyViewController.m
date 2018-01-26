@@ -185,6 +185,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
+    [self allData];
 }
 
 //  个人资料
@@ -200,6 +201,7 @@
         model.avatarimg = [NSString stringWithFormat:@"%@%@",ImgAPI,obj[@"avatarimg"]];
         [self.headImageBut sd_setBackgroundImageWithURL:[NSURL URLWithString:model.avatarimg] forState:UIControlStateNormal];
         [self MyViewData:model];
+        
         NSData * data =  [NSData dataWithContentsOfURL:[NSURL URLWithString:model.avatarimg]];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
     } failure:^(NSError * error) {

@@ -136,6 +136,7 @@
     _BindingIntroduce.text = model.introducer; // ICUE 介绍人
 }
 
+// 修改头像
 - (IBAction)touxiangAction:(id)sender {
     if (!_photoManager) {
         _photoManager = [[SelectPhotoManager alloc]init];
@@ -152,9 +153,9 @@
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
 //        这个封装可以上传多张图片
         [ZP_MyTool RequestUploadavatarimg:@{@"token":DD_TOKEN} Data:imageArray success:^(id obj) {
-            NSLog(@"%@",obj);
+            ZPLog(@"%@",obj);
         } failure:^(NSError *error) {
-            NSLog(@"%@",error.description);
+            ZPLog(@"%@",error.description);
         }];
     };
     

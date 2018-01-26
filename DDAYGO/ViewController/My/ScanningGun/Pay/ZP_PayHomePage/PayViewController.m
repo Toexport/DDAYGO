@@ -68,7 +68,7 @@
             if ([obj[@"result"]isEqualToString:@"country_err"]) {
                 [SVProgressHUD showInfoWithStatus:@"國家不匹配"];
         }else
-            if ([obj[@"result"]isEqualToString:@"国家不匹配"]) {
+            if ([obj[@"result"]isEqualToString:@"payamount_err"]) {
                 [SVProgressHUD showInfoWithStatus:@"支付方式錯誤"];
         }else
             if ([obj[@"result"]isEqualToString:@"icuetoken_err"]) {
@@ -90,6 +90,7 @@
         NSLog(@"error = %@",error);
     }];
 }
+
 // UI
 - (void)initUI {
     [self.tableView registerNib:[UINib nibWithNibName:@"PayViewCell" bundle:nil] forCellReuseIdentifier:@"PayViewCell"];
@@ -106,11 +107,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PayViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"PayViewCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
-    [cell initWithName:self.Oname NameId:_Oid];
+    [cell initWithName:self.Oname NameId:_Oname];
     cell.PayBlock = ^(NSString * text) {
         money = text;
         [self btnClick];
-       
     };
     return cell;
 }

@@ -40,19 +40,19 @@
                     </textField>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d6p-3Q-7I6">
                         <rect key="frame" x="33" y="200" width="254" height="1"/>
-                        <color key="backgroundColor" red="0.96167116119999996" green="0.86762083580000005" blue="0.097072327649999998" alpha="0.90938035100000003" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.98431372549019602" green="0.5607843137254902" blue="0.14509803921568626" alpha="0.90938035100000003" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="uA6-5e-kkx"/>
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBR-Qo-kme">
                         <rect key="frame" x="33" y="242" width="254" height="35"/>
-                        <color key="backgroundColor" red="0.96167116119999996" green="0.86762083580000005" blue="0.097072327649999998" alpha="0.90938035100000003" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.98431372549019602" green="0.5607843137254902" blue="0.14509803921568626" alpha="0.90938035100000003" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="HN1-zu-j6p"/>
                         </constraints>
                         <state key="normal" title="确定">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -78,7 +78,7 @@
                             <constraint firstAttribute="height" constant="20" id="JUv-c5-mGd"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.96167116116751272" green="0.86762083576528781" blue="0.097072327649224105" alpha="0.90938035102739723" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="textColor" red="0.98431372549019602" green="0.5607843137254902" blue="0.14509803921568626" alpha="0.90938035100000003" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="付款" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCy-Q9-Lu6">

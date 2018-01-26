@@ -70,7 +70,7 @@
 //用一个字符串来接受  全局的· 后面要用
     _str = request.URL.absoluteString;
     
-//    [SVProgressHUD showWithStatus:@"正在努力加载ing......请再稍等一下下~"]; // 菊花
+    [SVProgressHUD showWithStatus:@"正在努力加载ing......请再稍等一下下~"]; // 菊花
     
     return YES;
 }

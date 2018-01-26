@@ -25,7 +25,6 @@
 
 - (void)initWithName:(NSString *)name NameId:(NSString *)nameId {
     _BusinessNameLabel.text = name;
-    
     NSLog(@"id = %@",nameId);
 }
 
