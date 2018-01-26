@@ -238,11 +238,6 @@
     self.NumberLabel.text = [model1.amount stringValue];
 }
 
-//(lldb) po model.colorname.length
-//<nil>
-//
-//(lldb) po model.colorname
-//<object returned empty description>
 // 取消退款
 - (IBAction)CancelButt:(id)sender {
     if (self.type == 666) {
@@ -252,7 +247,6 @@
         dic[@"refundid"] = self.model.refundid;
         dic[@"type"] = @"cancel";
         dic[@"rtimgs"] = @"";
-        //    [self extracted:dic];
         [ZP_MyTool RequestRefundStatus:dic success:^(id obj) {
             if ([obj[@"result"]isEqualToString:@"ok"]) {
                 [self ExchangeDetails];
