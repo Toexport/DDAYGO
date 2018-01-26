@@ -175,9 +175,14 @@
 }
 
 - (void)addClick:(UIButton *)sender {
-    
+    ZP_ShoppingModel * model = [[ZP_ShoppingModel alloc]init];
+    if (model.productamount.integerValue < [_numLabel.text integerValue]) {
+        [SVProgressHUD showErrorWithStatus:@"购买数量不能大于库存"];
+        return;
+    }else {
     _numLabel.text = [NSString stringWithFormat:@"%ld",[_numLabel.text integerValue]+1];
     self.btnClickBlock(_numLabel.text);
+}
 }
 
 //  筛选

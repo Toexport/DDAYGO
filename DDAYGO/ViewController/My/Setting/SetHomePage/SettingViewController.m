@@ -154,8 +154,10 @@
 //        这个封装可以上传多张图片
         [ZP_MyTool RequestUploadavatarimg:@{@"token":DD_TOKEN} Data:imageArray success:^(id obj) {
             ZPLog(@"%@",obj);
+            [[MyViewController sharedInstanceTool].headImageBut setImage:image forState:UIControlStateNormal]; // 老重要了
         } failure:^(NSError *error) {
             ZPLog(@"%@",error.description);
+
         }];
     };
     

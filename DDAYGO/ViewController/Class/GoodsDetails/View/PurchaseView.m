@@ -128,10 +128,15 @@
 }
 
 - (void)addClick:(UIButton *)sender {
-    
-    _numLabel.text = [NSString stringWithFormat:@"%ld",_numLabel.text.integerValue + 1];
+    if (_model.productamount.integerValue <= [_numLabel.text integerValue]) {
+        [SVProgressHUD showErrorWithStatus:@"购买数量不能大于库存"];
+        return;
+    }else {
+        _numLabel.text = [NSString stringWithFormat:@"%ld",[_numLabel.text integerValue]+1];
+//        self.btnClickBlock(_numLabel.text);
+    }
 }
-
+        
 #pragma mark - - - -立即购买
 - (void)immedPayBtnClick{
     NSLog(@"im go pay");

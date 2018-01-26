@@ -507,9 +507,6 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    这里不是写死啦？
-//    有什么办法解决吗，是要找后台吗，还是什么   你自己叫他返回宽高· ·图片的宽高，有没有那种不知道宽高的方法来识别
-//    那你自己算吧· 你自己获取图片自己算 反正图片已经不变形了  你自己看着办
     if (indexPath.section == 0) {
         if (_productArray.count > 0) {
             return ZP_Width;
@@ -565,6 +562,7 @@
         label.hidden = YES;
     }
     return label;
+//你来看这个，看看是不说手势冲突了
 }
 
 #pragma mark --- scrollView delegate
