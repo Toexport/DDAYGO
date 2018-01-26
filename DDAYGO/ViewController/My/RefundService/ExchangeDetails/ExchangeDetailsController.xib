@@ -13,9 +13,9 @@
             <connections>
                 <outlet property="BackgroundView" destination="UOr-mp-IaP" id="odK-sY-ngY"/>
                 <outlet property="CancelBut" destination="2Uh-iK-8fS" id="Gfh-PI-NI1"/>
-                <outlet property="ChimaLabel" destination="cqC-tq-zp3" id="djd-cR-qIE"/>
+                <outlet property="ChimaLabel" destination="cqC-tq-zp3" id="d6z-gb-Ymx"/>
+                <outlet property="ChimaaLabel" destination="Pqq-hI-n64" id="8OW-OP-Q0V"/>
                 <outlet property="CurrencyLabel" destination="2GM-24-F7V" id="6WA-Cu-ffi"/>
-                <outlet property="DetailsLabel" destination="T0a-s2-YKf" id="cCZ-U2-gKK"/>
                 <outlet property="ExchangeDetailsScrollView" destination="XIe-Hx-Wnj" id="XbH-Pa-Rjp"/>
                 <outlet property="LogisticsLabel" destination="dRE-bd-Pjh" id="AIo-Fy-2gj"/>
                 <outlet property="Mainimageview" destination="kX5-4Z-qUU" id="rPE-de-VwL"/>
@@ -35,6 +35,7 @@
                 <outlet property="View5LayoutConstraint" destination="0iR-Hz-7X0" id="v9b-oE-ek0"/>
                 <outlet property="ViewLayoutConstraint" destination="Qnu-5G-MJI" id="lJT-Ee-7Bf"/>
                 <outlet property="YanseLable" destination="klo-UL-8gf" id="g7t-kf-ZEG"/>
+                <outlet property="YansesLabel" destination="T0a-s2-YKf" id="8Tb-wY-2vA"/>
                 <outlet property="imageview1" destination="Rph-qA-MaE" id="kZu-eq-gEg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="view1" destination="NWw-Zq-Iks" id="Nnk-Vp-kIo"/>
@@ -88,7 +89,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOr-mp-IaP">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Shopping2.png" translatesAutoresizingMaskIntoConstraints="NO" id="kX5-4Z-qUU">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kX5-4Z-qUU">
                                             <rect key="frame" x="8" y="12" width="90" height="100"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="8jx-oF-WQr"/>
@@ -101,7 +102,7 @@
                                                 <constraint firstAttribute="height" constant="25" id="BJM-6S-k99"/>
                                             </constraints>
                                             <attributedString key="attributedText">
-                                                <fragment content="Valvola法莫拉天然植物萃取保加利亚玫瑰纯露200ml">
+                                                <fragment content=".">
                                                     <attributes>
                                                         <font key="NSFont" size="12" name=".PingFangSC-Regular"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -169,10 +170,12 @@
                                     <constraints>
                                         <constraint firstItem="T0a-s2-YKf" firstAttribute="leading" secondItem="kX5-4Z-qUU" secondAttribute="trailing" constant="8" id="8EM-uz-c85"/>
                                         <constraint firstAttribute="trailing" secondItem="d4u-EB-hlK" secondAttribute="trailing" constant="8" id="E5x-Wx-A5y"/>
+                                        <constraint firstItem="T0a-s2-YKf" firstAttribute="leading" secondItem="d4u-EB-hlK" secondAttribute="leading" id="FdY-UV-4sA"/>
                                         <constraint firstItem="cqC-tq-zp3" firstAttribute="leading" secondItem="Pqq-hI-n64" secondAttribute="trailing" constant="5" id="Lgj-C2-q3O"/>
                                         <constraint firstItem="cqy-tp-eQF" firstAttribute="top" secondItem="T0a-s2-YKf" secondAttribute="bottom" constant="8" id="QlL-8k-i7i"/>
                                         <constraint firstItem="d4u-EB-hlK" firstAttribute="leading" secondItem="kX5-4Z-qUU" secondAttribute="trailing" constant="8" id="Sqd-iK-Ml3"/>
                                         <constraint firstItem="klo-UL-8gf" firstAttribute="leading" secondItem="T0a-s2-YKf" secondAttribute="trailing" constant="5" id="VFe-GA-voe"/>
+                                        <constraint firstItem="cqy-tp-eQF" firstAttribute="leading" secondItem="T0a-s2-YKf" secondAttribute="leading" id="WL7-x5-mJW"/>
                                         <constraint firstItem="Pqq-hI-n64" firstAttribute="top" secondItem="d4u-EB-hlK" secondAttribute="bottom" constant="8" id="Zvj-Ns-G5v"/>
                                         <constraint firstItem="T0a-s2-YKf" firstAttribute="top" secondItem="d4u-EB-hlK" secondAttribute="bottom" constant="8" id="aE6-AR-tNg"/>
                                         <constraint firstItem="kX5-4Z-qUU" firstAttribute="top" secondItem="UOr-mp-IaP" secondAttribute="top" constant="12" id="gYa-RQ-sO8"/>
@@ -496,7 +499,4 @@
             <point key="canvasLocation" x="69" y="53"/>
         </view>
     </objects>
-    <resources>
-        <image name="Shopping2.png" width="202" height="190"/>
-    </resources>
 </document>

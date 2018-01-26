@@ -50,7 +50,7 @@
     [self AllData];
     [self addRefresh];
     if (DD_HASLOGIN ) {
-        [self AllData];
+    [self AllData];
     }
 }
 
@@ -104,7 +104,7 @@
     __weak typeof(self)weakSelf = self;
     [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
     [ReloadView showToView:self.view touch:^{
-        [weakSelf AllData];
+     [weakSelf AllData];
     }];
     return;
 }
@@ -116,7 +116,6 @@
 }
 // 分组
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     return self.dataarray.count;
 }
 
@@ -170,7 +169,6 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    return CGFLOAT_MIN;
     if (section == 0) {
         return 0;
     }else {

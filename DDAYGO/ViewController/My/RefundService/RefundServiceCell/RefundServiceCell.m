@@ -20,5 +20,12 @@
 
     // Configure the view for the selected state
 }
-
+- (UIImageView *)productImageView {
+    [_MaimImageView setContentScaleFactor:[[UIScreen mainScreen] scale]];
+    _MaimImageView.contentMode =  UIViewContentModeScaleAspectFill;
+    _MaimImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    _MaimImageView.layer.contentsGravity = kCAGravityResizeAspectFill;
+    _MaimImageView.clipsToBounds  = YES;
+    return _MaimImageView;
+}
 @end

@@ -145,7 +145,8 @@
     __weak typeof(self)mySelf = self;
     //  选取照片成功
     _photoManager.successHandle=^(SelectPhotoManager *manager,UIImage * image){
-        mySelf.headerImage.image = image;
+        image = [mySelf imageWithImage:image scaledToSize:CGSizeMake(150, 150)];
+        
         //  保存到本地
         NSMutableArray * imageArray = [NSMutableArray array];
         NSData * data =  UIImageJPEGRepresentation(image, 1);
@@ -154,13 +155,32 @@
 //        这个封装可以上传多张图片
         [ZP_MyTool RequestUploadavatarimg:@{@"token":DD_TOKEN} Data:imageArray success:^(id obj) {
             ZPLog(@"%@",obj);
-            [[MyViewController sharedInstanceTool].headImageBut setImage:image forState:UIControlStateNormal]; // 老重要了
+            mySelf.headerImage.image = image;
+        [[MyViewController sharedInstanceTool].headImageBut setImage:image forState:UIControlStateNormal]; // 老重要了
         } failure:^(NSError *error) {
             ZPLog(@"%@",error.description);
 
         }];
     };
     
+}
+
+- (UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize {
+    // Create a graphics image context
+    UIGraphicsBeginImageContext(newSize);
+    
+    // Tell the old image to draw in this new context, with the desired
+    // new size
+    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    
+    // Get the new image from the context
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // End the context
+    UIGraphicsEndImageContext();
+    
+    // Return the new image.
+    return newImage;
 }
 
 // 账号

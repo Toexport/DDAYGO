@@ -37,6 +37,10 @@
     
 //  主图
     UIImageView * Mainfigure = [UIImageView new];
+    [Mainfigure setContentScaleFactor:[[UIScreen mainScreen] scale]];
+    Mainfigure.contentMode =  UIViewContentModeScaleAspectFill;
+    Mainfigure.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    Mainfigure.clipsToBounds  = YES;
     [self.contentView addSubview:Mainfigure];
     [Mainfigure mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(5); // 上

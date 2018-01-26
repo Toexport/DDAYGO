@@ -55,6 +55,7 @@
 @property (nonatomic, strong) NSMutableArray * textdetaArray;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cpsmHeight;
 @property (nonatomic, strong) NSMutableArray *evaluateArray;
+@property (nonatomic, assign) NSInteger imageHeight;  //详情图片的高度
 
 @end
 
@@ -488,7 +489,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         ProductTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ProductTableViewCell"];
-        [cell.productImageView sd_setImageWithURL:self.productArray[indexPath.row]];
+        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.productArray[indexPath.row]] options:0 progress:nil completed:^(UIImage * image, NSError * error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            // 主线程刷新UI
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                cell.productImageView.image = image;
+                if (self.imageHeight != ZP_Width * image.size.height / image.size.width) {
+                    self.imageHeight = ZP_Width * image.size.height / image.size.width;
+                    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:0];
+                    self.scrollView.contentSize =CGSizeMake(ZP_Width,ZP_height + self.imageHeight -120);
+                }
+            });
+        }];
+//        [cell.productImageView sd_setImageWithURL:self.productArray[indexPath.row]];
         return cell;
     } else
         if (indexPath.section == 1) {
@@ -514,9 +527,7 @@
         return CGFLOAT_MIN;
     } else
          if (indexPath.section == 1){
-             if (_evaluateArray.count > 0) {
-                 return ZP_Width;
-             }
+             return self.imageHeight;
         return CGFLOAT_MIN;
          }else {
              return 0;
@@ -577,7 +588,7 @@
     }
 }
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    self.scrollView.contentSize =CGSizeMake(ZP_Width,ZP_height * 2);
+//    self.scrollView.contentSize =CGSizeMake(ZP_Width,ZP_height * 2);
     if (scrollView == self.smallScrollView) {
         if (!velocity.y && velocity.x) {
             CGPoint point = *targetContentOffset;

@@ -40,6 +40,10 @@
     
 //  图片
     UIImageView * imageView = [UIImageView new];
+    [imageView setContentScaleFactor:[[UIScreen mainScreen] scale]];
+    imageView.contentMode =  UIViewContentModeScaleAspectFill;
+    imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    imageView.clipsToBounds  = YES;
     [self.contentView addSubview:imageView];
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(5); // 上
@@ -183,11 +187,6 @@
     [_leftImageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:nil];;
     _titleLabel.text = model.productname;
     _MerchandiseIntroducedLabel.text = model.productremark;
-//    先不管你写没有写对· 你自己解释·你这行代码的意思·
-//    if model里面的颜色为nil时候这个label就隐藏，不是就显示出来   -这是你逻辑的意思··   你写的代码是这个意思？
-//    你代码的意思是 --》 如果colorname 为nil  ，—desclabel  == 显示 并复制
-//    else 结束   return 是结束···这个方法后面不走啦 你懂不懂   你再看一遍   ／／看没看到他走那
-    //不要动不动就用nil ·你觉得你的接口返回的是nil 吗
     NSLog(@"%@",model.colorname);  //看到没有· 并不是空 可能是@”“ 可能是null 可能是nil  ·你说你的判断该怎么写
 //    length这个是什么意思 长度的· ·字符的长度 // 用点心吧
     if (model.colorname.length < 1) {

@@ -23,7 +23,9 @@
 @property (weak, nonatomic) IBOutlet UIView * BackgroundView; // 背景view
 @property (weak, nonatomic) IBOutlet UIImageView * Mainimageview;  // 商品图片
 @property (weak, nonatomic) IBOutlet UILabel * TitleLabel;  // 商品名字
-@property (weak, nonatomic) IBOutlet UILabel * DetailsLabel; // 商品详情
+@property (weak, nonatomic) IBOutlet UILabel * YansesLabel; // 颜色标题
+@property (weak, nonatomic) IBOutlet UILabel * ChimaaLabel; // 尺码标题
+
 @property (weak, nonatomic) IBOutlet UILabel * NumberLabel; // 数量
 @property (weak, nonatomic) IBOutlet UILabel * YanseLable; // 颜色
 @property (weak, nonatomic) IBOutlet UILabel * ChimaLabel; // 尺码

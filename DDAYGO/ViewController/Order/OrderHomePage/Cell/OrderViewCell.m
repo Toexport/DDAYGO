@@ -93,6 +93,10 @@
 /******************************************************/
 //  主图
     UIImageView * FigureImage = [UIImageView new];
+    [FigureImage setContentScaleFactor:[[UIScreen mainScreen] scale]];
+    FigureImage.contentMode =  UIViewContentModeScaleAspectFill;
+    FigureImage.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    FigureImage.clipsToBounds  = YES;
     [self.Backgroundview addSubview:FigureImage];
     [FigureImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(5);
@@ -105,7 +109,6 @@
 //  商家名字
     ZP_GeneralLabel * merchantsLabel = [ZP_GeneralLabel  initWithtextLabel:_merchantsLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:merchantsLabel];
-//    merchantsLabel.text = @"你好吗";
     [merchantsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(FigureImage).offset(95);
         make.top.equalTo(DateLabel).offset(20);
