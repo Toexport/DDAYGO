@@ -234,25 +234,27 @@
     }];
 }
 
-
 - (void)btnClickAction:(UIButton *)sender {
     if (sender.tag -100 == 3) {
         sender.selected = !sender.selected;
-        [self getproductfilter:sender.tag];
-        self.lastView.contentOffset = CGPointMake((sender.tag -100) * ZP_Width, 0);
-        [UIView animateWithDuration:0.2 animations:^{
-            self.line.x = sender.x;
-        }];
+    
         if (sender.selected) {
 #warning 选中
 //          这里设置button 按钮 图片
             [sender setImage:[UIImage imageNamed:@"icon_shop_classification_02"] forState:UIControlStateNormal];
+            _priceStrTag = @"asc";//jiang降 等下你自己调
             NSLog(@"选择状态");
         }else{
 #warning 取消选中
 //          这里设置button 按钮 图片
             [sender setImage:[UIImage imageNamed:@"icon_shop_classification_03"] forState:UIControlStateNormal];
+            _priceStrTag = @"desc";
         }
+        [self getproductfilter:sender.tag];
+        self.lastView.contentOffset = CGPointMake((sender.tag -100) * ZP_Width, 0);
+        [UIView animateWithDuration:0.2 animations:^{
+            self.line.x = sender.x;
+        }];
     }else{
         [self getproductfilter:sender.tag];
         self.btn.selected = NO;
@@ -261,7 +263,6 @@
         self.lastView.contentOffset = CGPointMake((sender.tag -100) * ZP_Width, 0);
         [UIView animateWithDuration:0.2 animations:^{
             self.line.x = sender.x;
-            
         }];
     }
     
@@ -274,7 +275,7 @@
     dic[@"sid"] = self.Supplieerid;
 //    dic[@"fathid"] = self.Supplieerid;
     dic[@"fathid"] = @"0";
-//    dic[@"seq"] = @"asc";
+    dic[@"seq"] = _priceStrTag;
     dic[@"word"] = @"";
     dic[@"countrycode"] = @"886";
     dic[@"page"] = @"1";
@@ -318,7 +319,6 @@
                 [self.collectionView4 reloadData];
                 [self.collectionView4.mj_header endRefreshing];  // 結束下拉刷新
                 break;
-                
             default:
                 break;
         }
@@ -356,7 +356,7 @@
     dic[@"sid"] = self.Supplieerid;
     //    dic[@"fathid"] = self.Supplieerid;
     dic[@"fathid"] = @"0";
-//    dic[@"seq"] = @"asc";
+    dic[@"seq"] = _priceStrTag;
     dic[@"word"] = @"";
     dic[@"countrycode"] = @"886";
     dic[@"page"] = @"1";

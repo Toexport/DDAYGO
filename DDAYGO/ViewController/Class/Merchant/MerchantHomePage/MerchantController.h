@@ -14,7 +14,7 @@
 @property (nonatomic, strong) UICollectionView * collectionView3;
 @property (nonatomic, strong) UICollectionView * collectionView4;
 @property (nonatomic, strong)UIImageView * imageview;
-
+@property (nonatomic, strong) NSString * priceStrTag;
 @property (nonatomic, strong) NSNumber * Supplieerid; // 供货商ID
 @property (nonatomic, strong) NSNumber * fatherId;
 @end

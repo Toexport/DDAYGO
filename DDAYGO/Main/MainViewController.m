@@ -96,7 +96,6 @@
     myNavigationController*nav = [[myNavigationController alloc] initWithRootViewController:VC];
     [self addChildViewController:nav];
     nav.tabBarItem.title = title;
-    
     nav.tabBarItem.image = image;
     nav.tabBarItem.selectedImage = selImage;
     

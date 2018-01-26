@@ -52,12 +52,12 @@
                   moduleName = "DDAYGO"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhangpeng/Desktop/%E4%BB%A3%E7%A0%81/DDAYGO/DDAYGO/ViewController/Method/LPDQuoteImagesView/Classes/LPDPhotoArrangeCell.m"
-                  timestampString = "538580812.835849"
+                  timestampString = "538643051.989664"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "99"
                   endingLineNumber = "99"
-                  offsetFromSymbolStart = "464">
+                  offsetFromSymbolStart = "382">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -67,12 +67,12 @@
                   moduleName = "DDAYGO"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhangpeng/Desktop/%E4%BB%A3%E7%A0%81/DDAYGO/DDAYGO/ViewController/Method/LPDQuoteImagesView/Classes/LPDPhotoArrangeCell.m"
-                  timestampString = "538580812.8373311"
+                  timestampString = "538643051.991237"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "101"
                   endingLineNumber = "101"
-                  offsetFromSymbolStart = "64">
+                  offsetFromSymbolStart = "51">
                </Location>
             </Locations>
          </BreakpointContent>

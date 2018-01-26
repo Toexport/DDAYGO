@@ -372,10 +372,9 @@
         if (indexPath.section == 3) {
         return 190;
     }else if (indexPath.section == 4) {
-            return ZP_Width / 4;
-//        }
+            return ZP_Width / 4 + 35;
     }else {
-        return ZP_Width / 3 * 2 + 35;
+        return (ZP_Width / 3 +35)* 2+30;
         
     }
 

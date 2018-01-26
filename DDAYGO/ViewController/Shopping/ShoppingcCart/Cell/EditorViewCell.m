@@ -143,12 +143,22 @@
 
 
 - (void)cellWithModel:(ZP_CartsModel *)model {
-    
     [_Mainfigure sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:nil];;
     _titleLabel.text = model.productname;
     _MerchandiseIntroducedLabel.text = model.productremark;
-    _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",model.colorname];
-    _SizeLanbel.text = [NSString stringWithFormat:@"尺碼:%@",model.normname];
+    if (model.colorname.length < 1) {
+        _descLabel.hidden = YES;//你自己看 model 。colorename 是不是等于nil、
+    }else {
+        _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",model.colorname];
+    }
+    if (model.normname.length < 1) {
+        _SizeLanbel.hidden = YES;
+    }else {
+        _SizeLanbel.text = [NSString stringWithFormat:@"尺碼:%@",model.normname];
+    }
+    
+//    _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",model.colorname];
+//    _SizeLanbel.text = [NSString stringWithFormat:@"尺碼:%@",model.normname];
     _numLabel.text = [NSString stringWithFormat:@"%@",model.amount];
 }
 

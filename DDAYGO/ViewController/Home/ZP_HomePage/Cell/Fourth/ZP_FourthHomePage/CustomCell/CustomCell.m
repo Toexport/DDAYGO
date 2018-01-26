@@ -24,9 +24,13 @@
     //    图片
     UIImageView * imageView1 = [UIImageView new];
     [self addSubview:imageView1];
+    [imageView1 setContentScaleFactor:[[UIScreen mainScreen] scale]];
+    imageView1.contentMode =  UIViewContentModeScaleAspectFill;
+    imageView1.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    imageView1.clipsToBounds  = YES;
     [imageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(2.5);
-        make.right.equalTo(self).offset(-3);
+        make.right.equalTo(self).offset(-5);
         make.bottom.equalTo(self).offset(-2.5);
         make.width.mas_offset(70);
         make.height.mas_offset(70);

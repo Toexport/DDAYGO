@@ -212,7 +212,6 @@
 		C43987811FF4C67100044E21 /* SupplierTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C439877F1FF4C67100044E21 /* SupplierTableViewCell.xib */; };
 		C4399D6F1FCE84A000B7B96D /* LotteryController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4399D691FCE849F00B7B96D /* LotteryController.m */; };
 		C4399D701FCE84A000B7B96D /* LotteryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4399D6A1FCE849F00B7B96D /* LotteryController.xib */; };
-		C43A6E8D2018B06A000F84BA /* DDAYGO IHTTP协议1.0.docx in Resources */ = {isa = PBXBuildFile; fileRef = C43A6E8C2018B06A000F84BA /* DDAYGO IHTTP协议1.0.docx */; };
 		C43DE4DE200355AF002AB8D2 /* LanguageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C43DE4DB200355AF002AB8D2 /* LanguageController.m */; };
 		C43DE4DF200355AF002AB8D2 /* LanguageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43DE4DD200355AF002AB8D2 /* LanguageController.xib */; };
 		C4411D8C200EFB4900CE906F /* AboutDDAYGOController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4411D8A200EFB4900CE906F /* AboutDDAYGOController.m */; };
@@ -391,6 +390,7 @@
 		C49B32221FD5A995007632F2 /* ZP_ExtractController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C49B32201FD5A995007632F2 /* ZP_ExtractController.xib */; };
 		C49B32271FD5AC9E007632F2 /* ZP_ExtractCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C49B32251FD5AC9E007632F2 /* ZP_ExtractCell.m */; };
 		C49B32281FD5AC9E007632F2 /* ZP_ExtractCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C49B32261FD5AC9E007632F2 /* ZP_ExtractCell.xib */; };
+		C4A3FFD3201B03C7001BCB30 /* DDAYGO IHTTP协议1.0.docx in Resources */ = {isa = PBXBuildFile; fileRef = C4A3FFD2201B03C7001BCB30 /* DDAYGO IHTTP协议1.0.docx */; };
 		C4AD0752200C7A5D00B8FF6E /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0730200C7A5D00B8FF6E /* .gitkeep */; };
 		C4AD0753200C7A5D00B8FF6E /* LPDImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0731200C7A5D00B8FF6E /* LPDImagePickerController.bundle */; };
 		C4AD0754200C7A5D00B8FF6E /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0733200C7A5D00B8FF6E /* .gitkeep */; };
@@ -853,7 +853,6 @@
 		C4399D681FCE849F00B7B96D /* LotteryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryController.h; sourceTree = "<group>"; };
 		C4399D691FCE849F00B7B96D /* LotteryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryController.m; sourceTree = "<group>"; };
 		C4399D6A1FCE849F00B7B96D /* LotteryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LotteryController.xib; sourceTree = "<group>"; };
-		C43A6E8C2018B06A000F84BA /* DDAYGO IHTTP协议1.0.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0.docx"; sourceTree = "<group>"; };
 		C43DE4DB200355AF002AB8D2 /* LanguageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageController.m; sourceTree = "<group>"; };
 		C43DE4DC200355AF002AB8D2 /* LanguageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageController.h; sourceTree = "<group>"; };
 		C43DE4DD200355AF002AB8D2 /* LanguageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageController.xib; sourceTree = "<group>"; };
@@ -1170,6 +1169,7 @@
 		C49B32241FD5AC9E007632F2 /* ZP_ExtractCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_ExtractCell.h; sourceTree = "<group>"; };
 		C49B32251FD5AC9E007632F2 /* ZP_ExtractCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_ExtractCell.m; sourceTree = "<group>"; };
 		C49B32261FD5AC9E007632F2 /* ZP_ExtractCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZP_ExtractCell.xib; sourceTree = "<group>"; };
+		C4A3FFD2201B03C7001BCB30 /* DDAYGO IHTTP协议1.0.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0.docx"; sourceTree = "<group>"; };
 		C4AD0730200C7A5D00B8FF6E /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		C4AD0731200C7A5D00B8FF6E /* LPDImagePickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LPDImagePickerController.bundle; sourceTree = "<group>"; };
 		C4AD0733200C7A5D00B8FF6E /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -1327,7 +1327,7 @@
 		063FE0441F614D24009910FF /* DDAYGO */ = {
 			isa = PBXGroup;
 			children = (
-				C43A6E8C2018B06A000F84BA /* DDAYGO IHTTP协议1.0.docx */,
+				C4A3FFD2201B03C7001BCB30 /* DDAYGO IHTTP协议1.0.docx */,
 				C4411D91200F626100CE906F /* 加载_ios */,
 				0641BB971F67B60B00E72FEF /* Testbag */,
 				063FE0AE1F615CEB009910FF /* ViewController */,
@@ -4307,7 +4307,7 @@
 				C4535E3E1FC5654500DFFD62 /* PayMoneyCell.xib in Resources */,
 				0682BE6B1F906D7B00894F4E /* Shopping2.png in Resources */,
 				C492A17E1FD0ECB7009FF57B /* ZP_HistoryVetController.xib in Resources */,
-				C43A6E8D2018B06A000F84BA /* DDAYGO IHTTP协议1.0.docx in Resources */,
+				C4A3FFD3201B03C7001BCB30 /* DDAYGO IHTTP协议1.0.docx in Resources */,
 				06F5722B1F9F1E8700D61FDB /* OrderManagerCollectionViewCell.xib in Resources */,
 				C4D9E70E1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib in Resources */,
 				064449A61F6A9B250004DFE4 /* LICENSE in Resources */,

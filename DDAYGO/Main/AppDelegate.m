@@ -50,16 +50,12 @@
 
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
-    
     if ([viewController isKindOfClass:[UINavigationController class]]) {
-        
         UINavigationController * nav = viewController;
         UIViewController *firstVC = [nav.viewControllers firstObject];
-        
         UINavigationController *homeVC = tabBarController.selectedViewController;
         if ([firstVC isMemberOfClass:[HomePageViewController class]]) {
             return YES;
-            
         }
         else if ([firstVC isMemberOfClass:[ClassificationViewController class]]) {
             return YES;
@@ -72,9 +68,7 @@
                 LogregisterController * Login = [[LogregisterController alloc]init];
                 [homeVC pushViewController:Login animated:YES];
                 [SVProgressHUD showErrorWithStatus:@"请登录"];
-                
                 return NO;}
-            
         }
         else if ([firstVC isMemberOfClass:[OrderViewController class]]) {
             if (Token.length > 0) {
@@ -85,32 +79,25 @@
                 [homeVC pushViewController:Login animated:YES];
                 [SVProgressHUD showErrorWithStatus:@"请登录"];
                 return NO;
-                
             }
-            
         }
         else {
             if (Token.length > 0) {
                 return YES;
-                
             }else {
                 //跳转到登录
                 LogregisterController * Login = [[LogregisterController alloc]init];
                 [homeVC pushViewController:Login animated:YES];
                 [SVProgressHUD showErrorWithStatus:@"请登录"];
                 return NO;
-                
             }
-            
         }
-        
     }
     else {
         return YES;
     }
 
 }
-    
 
 - (void)initUserDefaultConfig {
     NSString * themeName = [[NSUserDefaults standardUserDefaults] objectForKey:kThemeChangedNotification];

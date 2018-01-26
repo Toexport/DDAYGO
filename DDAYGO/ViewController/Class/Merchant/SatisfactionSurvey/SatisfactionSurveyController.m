@@ -26,6 +26,7 @@
 - (void)initUI {
     self.title = NSLocalizedString(@"满意度调查", nil);
     [self.tableView registerNib:[UINib nibWithNibName:@"SatisfactionSurveyCell" bundle:nil] forCellReuseIdentifier:@"SatisfactionSurveyCell"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 }

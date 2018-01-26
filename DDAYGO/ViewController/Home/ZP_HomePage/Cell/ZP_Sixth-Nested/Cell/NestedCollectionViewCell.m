@@ -22,19 +22,24 @@
     //    主图
     UIImageView * imageView = [UIImageView new];
     [self addSubview:imageView];
+    [imageView setContentScaleFactor:[[UIScreen mainScreen] scale]];
+    imageView.contentMode =  UIViewContentModeScaleAspectFill;
+    imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    imageView.clipsToBounds  = YES;
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(1);
         make.top.equalTo(self).offset(-1);
         make.right.equalTo(self).offset(-1);
-        make.bottom.equalTo(self).offset(-50);
+//        make.bottom.equalTo(self).offset(-50);
         make.width.mas_offset(ZP_Width / 3-1);
+        make.height.mas_offset(ZP_Width / 3);
     }];
     _imageView = imageView;
     
     //    文字介绍
     UILabel * introduceLabel = [UILabel new];
     introduceLabel.textColor = ZP_HomeTitleTypefaceCorlor;
-    introduceLabel.textAlignment = NSTextAlignmentCenter;
+    introduceLabel.textAlignment = NSTextAlignmentLeft;
     introduceLabel.lineBreakMode = NSLineBreakByWordWrapping; //文字分行
     introduceLabel.numberOfLines = 0;
     introduceLabel.font = ZP_TrademarkFont;
@@ -42,7 +47,7 @@
     [introduceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(5);
         make.right.equalTo(self).offset(-5);
-        make.bottom.equalTo(imageView).offset(10);
+        make.bottom.equalTo(imageView).offset(15);
     }];
     _introduceLabel = introduceLabel;
     
@@ -54,7 +59,7 @@
     [self addSubview:PreferentialLabel];
     [PreferentialLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(5);
-        make.top.equalTo(introduceLabel).offset(20);
+        make.bottom.equalTo(introduceLabel).offset(15);
     }];
     _PreferentialLabel = PreferentialLabel;
     

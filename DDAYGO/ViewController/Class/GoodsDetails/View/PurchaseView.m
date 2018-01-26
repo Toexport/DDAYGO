@@ -44,7 +44,6 @@
 }
 
 -(void)initChooseView{
-    
     CGFloat maxY = 0;
     CGFloat height = 0;
     for (int i = 0; i < self.standardValueList.count; i ++) {
@@ -115,19 +114,27 @@
 }
 
 - (void)buttonClick:(UIButton *)sender {
-    if (_numLabel.text.integerValue) {
-        _numLabel.text = [NSString stringWithFormat:@"%ld",_numLabel.text.integerValue - 1];
+//    if (_numLabel.text.integerValue) {
+//        _numLabel.text = [NSString stringWithFormat:@"%ld",_numLabel.text.integerValue - 1];
+//    }
+    if ([_numLabel.text integerValue] <= 1) {
+        [SVProgressHUD showErrorWithStatus:@"购买数量不能少于1"];
+        _numLabel.text = @"1";
+        return;
+    }else {
+        _numLabel.text = [NSString stringWithFormat:@"%ld",[_numLabel.text integerValue]-1];
+//        self.btnClickBlock(_numLabel.text);
     }
 }
 
 - (void)addClick:(UIButton *)sender {
+    
     _numLabel.text = [NSString stringWithFormat:@"%ld",_numLabel.text.integerValue + 1];
 }
 
 #pragma mark - - - -立即购买
 - (void)immedPayBtnClick{
     NSLog(@"im go pay");
-    
     if ( _modelArr.count > 0) {
         int a = 0;
         for (int i=0; i < _standardList.count; i++) {
@@ -184,6 +191,7 @@
         [[NSNotificationCenter defaultCenter]postNotificationName:@"Confirm" object:nil];
     }else{
         NSLog(@"没有选择数量");
+        [SVProgressHUD showErrorWithStatus:@"没有选择数量"];
     }
     
     
@@ -293,6 +301,7 @@
     }];
     
 }
+
 -(NSMutableArray *)rankArray {
     
     if (_rankArray == nil) {

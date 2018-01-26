@@ -15,6 +15,13 @@
     // Initialization code
 }
 
-
+- (UIImageView *)productImageView {
+    [_productImageView setContentScaleFactor:[[UIScreen mainScreen] scale]];
+    _productImageView.contentMode =  UIViewContentModeScaleAspectFill;
+    _productImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    _productImageView.layer.contentsGravity = kCAGravityResizeAspectFill;
+    _productImageView.clipsToBounds  = YES;
+    return _productImageView;
+}
 
 @end

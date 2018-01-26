@@ -36,7 +36,7 @@
     layout.minimumLineSpacing = 1;
     layout.minimumInteritemSpacing = 1;
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    UICollectionView * bottomCV = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 35, ZP_Width, ZP_Width / 3 * 2) collectionViewLayout:layout];
+    UICollectionView * bottomCV = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 35, ZP_Width,( ZP_Width / 3+35)*2) collectionViewLayout:layout];
     bottomCV.backgroundColor = [UIColor whiteColor];
     bottomCV.scrollEnabled = NO;
     bottomCV.delegate = self;
@@ -48,7 +48,6 @@
 
 
 - (void)initUI {
-    
 //  标题
     UILabel * titleLabel = [UILabel new];
     titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -72,10 +71,9 @@
     [self.contentView addSubview:moreBut];
     [moreBut addTarget:self action:@selector(moreBut:) forControlEvents:UIControlEventTouchUpInside];
     [moreBut mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self).offset(-10);
         make.top.equalTo(self).offset(7);
         make.width.mas_offset(60);
-        make.height.mas_offset(15);
+        make.height.mas_offset(20);
     }];
     
 //  分割线
@@ -93,7 +91,6 @@
 
 // 更多精选
 - (void)moreBut:(UIButton *)sender {
-    
     NSLog(@"更多...");
 }
 
@@ -121,7 +118,7 @@
     if (self.ArrData.count < 1) {
         return CGSizeMake(CGFLOAT_MIN, CGFLOAT_MIN);
     }
-    return CGSizeMake(ZP_Width/3-1, ZP_Width / 3);
+    return CGSizeMake(ZP_Width/3-1, ZP_Width / 3+ 35);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {

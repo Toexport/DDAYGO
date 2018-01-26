@@ -529,7 +529,7 @@
 - (void)ClearingBut:(UIButton *)sender {
     _stockids = nil;
     _modelstockid = nil;
-    [self updateData:sender.tag]; // 就是这个问题
+    [self updateData:sender.tag];
     if ([self YESOrNoPush]) {
         if (sender.selected) {
 #pragma make -- 提示框

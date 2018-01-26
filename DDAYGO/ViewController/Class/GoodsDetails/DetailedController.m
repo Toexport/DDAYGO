@@ -357,10 +357,8 @@
     }];
 }
 
-
 //这里才是点击的事件（评价详情按钮）,
 - (IBAction)cpnrAction:(id)sender {
-    
     if (_pjArr.count >0) {
 //        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }else {
@@ -370,7 +368,6 @@
 }
 
 - (IBAction)qupjAction:(id)sender {
-    
     if (_typeArr.count > 0) {
 //    NSIndexPath * index = [NSIndexPath indexPathForRow:0 inSection:1];
 //        [self.detailTableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:YES];
@@ -480,7 +477,6 @@
         }
     }else{
         return 0;
-        
     }
     return self.productArray.count;
 }
@@ -490,20 +486,16 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-   
     if (indexPath.section == 0) {
         ProductTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ProductTableViewCell"];
         [cell.productImageView sd_setImageWithURL:self.productArray[indexPath.row]];
-        
         return cell;
     } else
         if (indexPath.section == 1) {
-        
         EvaluateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EvaluateTableViewCell"];
         NSDictionary * dic = self.evaluateArray[indexPath.row];
         [cell updateData:dic];
         return cell;
-        
     }else {
             TextdetailsViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TextdetailsViewCell"];
             return cell;
@@ -515,6 +507,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    这里不是写死啦？
+//    有什么办法解决吗，是要找后台吗，还是什么   你自己叫他返回宽高· ·图片的宽高，有没有那种不知道宽高的方法来识别
+//    那你自己算吧· 你自己获取图片自己算 反正图片已经不变形了  你自己看着办
     if (indexPath.section == 0) {
         if (_productArray.count > 0) {
             return ZP_Width;
@@ -523,7 +518,7 @@
     } else
          if (indexPath.section == 1){
              if (_evaluateArray.count > 0) {
-                 return 192;
+                 return ZP_Width;
              }
         return CGFLOAT_MIN;
          }else {
@@ -537,9 +532,17 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    return 30;
+    return 20;
 }
-
+////然后根据具体的业务场景去写逻辑就可以了,比如
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+//    //Tip:我们可以通过打印touch.view来看看具体点击的view是具体是什么名称,像点击UITableViewCell时响应的View则是UITableViewCellContentView.
+//    if ([NSStringFromClass([touch.view class])    isEqualToString:@"detailTableView"]) {
+//        //返回为NO则屏蔽手势事件
+//        return NO;
+//    }
+//    return YES;
+//}
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, ZP_Width - 8, 30)];
     label.backgroundColor = [UIColor whiteColor];
