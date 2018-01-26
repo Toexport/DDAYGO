@@ -24,9 +24,12 @@
 }
 
 // 订单协议
-+ (void)requestGetorders:(NSDictionary *)Appraise success:(void (^)(id))success failure:(void (^)(NSError *))failure {
-    
-    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getorders?",URLAPI] parameters:Appraise success:^(id responseObject) {
++ (void)requestGetorders:(NSDictionary *)Getorders success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+//    getorders?sta=-1&days=365&orderno=&token=f5df6b85e6cf5aea8db091635cac7976&page=1&pagesize=30
+//    getorders?sta=-1&days=365&orderno=&token=f5df6b85e6cf5aea8db091635cac7976&page=1&pagesize=30&days=365&orderno=&page=1&pagesize=30&sta=-1&token=f5df6b85e6cf5aea8db091635cac7976
+    NSString * strURL = [NSString stringWithFormat:@"%@getorders?sta=%@&days=%@&orderno=%@&token=%@&page=%@&pagesize=%@",URLAPI,Getorders[@"sta"],Getorders[@"days"],Getorders[@"orderno"],Getorders[@"token"],Getorders[@"page"],Getorders[@"pagesize"]];
+    NSString * str = [strURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [ZP_NetorkingTools GET:str parameters:nil success:^(id responseObject) {
         
         success(responseObject);
         
@@ -53,7 +56,6 @@
         failure(error);
     }];
 }
-
 
 // 67) 获取退换货申请页面商品信息
 + (void)requestRequestRefund: (NSDictionary *)RequestRefund success:(void (^)(id))success failure:(void (^)(NSError *))failure {

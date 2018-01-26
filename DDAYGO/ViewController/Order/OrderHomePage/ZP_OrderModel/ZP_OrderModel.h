@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+@class OrderModel;
 @class OrdersdetailModel;
+@interface OrderModel1 : NSObject
+//总订单数
+@property (nonatomic, strong) NSNumber * datacount;
+@property (nonatomic, strong) NSArray<OrderModel *> * datalist;
++ (NSMutableArray *)arrayWithOrderArray:(NSArray *)array;
+@end
+
+
 @interface OrderModel : NSObject
 //收货地址ID
 @property (nonatomic, strong) NSNumber * addressid;

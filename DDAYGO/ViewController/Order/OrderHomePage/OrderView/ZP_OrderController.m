@@ -56,6 +56,8 @@
     [super viewDidLoad];
     [self addUI];
     //数据都写在这个页面·刷新什么的都在这个页面写·
+
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -70,9 +72,16 @@
 - (void)addRefresh {
     self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsData removeAllObjects];
-        _i = 0;
+        _i = _newsData;
         [self getDataWithState];
     }];
+
+//    [self.tableview.mj_header beginRefreshing];
+//    self.tableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+//         [self.newsData removeAllObjects];
+//        _i+=10;
+//        [self getDataWithState];
+//    }];
 }
 
 // UI
@@ -90,12 +99,12 @@
 
 // 订单协议
 - (void)getDataWithState {
-    
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     NSInteger i;
     if ([_titleStr isEqualToString:NSLocalizedString(@"all", nil)]) {
         dic[@"sta"] = @"-1";
         i = 0;
+        
     }
     if ([_titleStr isEqualToString:NSLocalizedString(@"Waiting payment", nil)]) {
         dic[@"sta"] = @"1";
@@ -111,7 +120,6 @@
     }
     if ([_titleStr isEqualToString:NSLocalizedString(@"evaluation", nil)]) {
         dic[@"sta"] = @"4";
-        
         i = 4;
     }
     UIButton * but = [self.titleView viewWithTag:666 + i];
@@ -119,29 +127,79 @@
     dic[@"days"] = @"365";
     dic[@"token"] = Token;
     dic[@"orderno"] = @"";
+    dic[@"page"] = @"1";
+    dic[@"pagesize"] = @"30";
     [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
     [ZP_OrderTool requestGetorders:dic success:^(id json) {
-        ZPLog(@"%@",json);
         if (json) {
-            self.newsData = json;
+//            self.newsData = json;  //这个是刷新
             [self successful];
         }else{
             [self networkProblems];
         }
-        if ([json isKindOfClass:[NSDictionary class]]) {
-            return ;
-        }
-        self.newsData = [OrderModel arrayWithArray:json];
+        self.newsData = [OrderModel arrayWithArray:json[@"datalist"]];
+        ZPLog(@"%@",json);
 //         小红点数据
-        if (self.newsData.count > 0) {
-            but.badgeValue = [NSString stringWithFormat:@"%ld",self.newsData.count];
+// 订单协议（此方法只是为了加载导航栏上的数字）
+        if (i == 0) {
+            [self getDataWithState:1];
+            [self getDataWithState:2];
+            [self getDataWithState:3];
+            [self getDataWithState:4];
+        }
+        NSNumber * datacount =json[@"datacount"];
+        if ([datacount intValue] > 0) {
+            but.badgeValue = [NSString stringWithFormat:@"%@",datacount];
             but.badgeBGColor = [UIColor orangeColor];
         }else {
             but.badgeValue = nil;
             but.badgeBGColor = [UIColor whiteColor];
         }
     [self.tableview.mj_header endRefreshing];  // 結束刷新
+//    [self.tableview.mj_footer endRefreshing];  // 結束刷新
     [self.tableview reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+        [self loading];
+    }];
+}
+//**********************
+// 订单协议（此方法只是为了加载导航栏上的数字）
+- (void)getDataWithState:(NSInteger )i {
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    switch (i) {
+        case 1:
+            dic[@"sta"] = @"1";
+            break;
+        case 2:
+            dic[@"sta"] = @"2";
+            break;
+        case 3:
+            dic[@"sta"] = @"3";
+            break;
+        case 4:
+            dic[@"sta"] = @"4";
+            break;
+        default:
+            break;
+    }
+    UIButton * but = [self.titleView viewWithTag:666 + i];
+    NSLog(@"but = %@",but.titleLabel.text);
+    dic[@"days"] = @"365";
+    dic[@"token"] = Token;
+    dic[@"orderno"] = @"";
+    dic[@"page"] = @"1";
+    dic[@"pagesize"] = @"30";
+    [ZP_OrderTool requestGetorders:dic success:^(id json) {
+        NSNumber * datacount =json[@"datacount"];
+        if ([datacount intValue] > 0) {
+            but.badgeValue = [NSString stringWithFormat:@"%@",datacount];
+            but.badgeBGColor = [UIColor orangeColor];
+        }else {
+            but.badgeValue = nil;
+            but.badgeBGColor = [UIColor whiteColor];
+        }
+        [self.tableview reloadData];
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
         [self loading];
@@ -192,7 +250,6 @@
             if ([obj[@"result"]isEqualToString:@"ok"]) {
                 [self getDataWithState];
                 [self.newsData removeObjectAtIndex:sender.tag];
-                
                 [SVProgressHUD showSuccessWithStatus:@"刪除成功"];
             }else
                 if ([obj[@"result"]isEqualToString:@"time_error"]) {

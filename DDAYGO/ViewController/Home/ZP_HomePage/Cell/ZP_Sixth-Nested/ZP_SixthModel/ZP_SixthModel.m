@@ -7,7 +7,7 @@
 //
 
 #import "ZP_SixthModel.h"
-
+#import "PrefixHeader.pch"
 @implementation ZP_SixthModel
 + (instancetype) GetSixthData:(NSDictionary *)dic {
     return [[self alloc]initWithSixthData:dic];
@@ -31,7 +31,7 @@
     NSMutableArray * arr = [[NSMutableArray alloc]init];
     for (NSDictionary * dic in array) {
         ZP_SixthModel * model = [[ZP_SixthModel alloc]init];
-        model.defaultimg = [NSString stringWithFormat:@"http://www.ddaygo.com%@", dic[@"defaultimg"]];
+        model.defaultimg = [NSString stringWithFormat:@"%@%@",ImgAPI,dic[@"defaultimg"]];
         model.productname = dic[@"productname"];
         model.productid = dic[@"productid"];
         model.PreferentialLabel = [NSString stringWithFormat:@"%@", dic[@"productprice"]];

@@ -71,6 +71,7 @@
     [self.contentView addSubview:moreBut];
     [moreBut addTarget:self action:@selector(moreBut:) forControlEvents:UIControlEventTouchUpInside];
     [moreBut mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-10);
         make.top.equalTo(self).offset(7);
         make.width.mas_offset(60);
         make.height.mas_offset(20);

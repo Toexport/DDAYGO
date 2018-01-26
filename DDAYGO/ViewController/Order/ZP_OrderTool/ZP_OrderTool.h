@@ -14,7 +14,7 @@
 + (void)requestAppraise:(NSDictionary *)Appraise success:(void (^)(id))success failure:(void (^)(NSError *))failure;
 
 // 订单协议
-+ (void)requestGetorders:(NSDictionary *)Appraise success:(void (^)(id))success failure:(void (^)(NSError *))failure;
++ (void)requestGetorders:(NSDictionary *)Getorders success:(void (^)(id))success failure:(void (^)(NSError *))failure;
 // 删除订单
 + (void)requestDeleteOrder:(NSDictionary *)DeleteOrder success:(void (^)(id))success failure:(void (^)(NSError *))failure;
 // 获取退换货原因列表
