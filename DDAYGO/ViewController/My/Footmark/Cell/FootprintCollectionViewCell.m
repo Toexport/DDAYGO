@@ -18,22 +18,21 @@
 - (void)FootprintCollection:(ZP_FootprintModel1 *)model {
     [_defaultimg sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
     if ([model.state intValue] == 4) {
-        __defaultimgImageVIew.hidden = NO;
-        __defaultimgImageVIew.backgroundColor = [UIColor clearColor];
-        __defaultimgImageVIew.image = [UIImage imageNamed:@"bg_footprint_frame"];
-        
-//        _defaultimg.alpha = 0.5;
-//        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, __defaultimgImageVIew.frame.size.width / 2, __defaultimgImageVIew.frame.size.width / 2, 15)];
-        __defaltLabel.center = __defaultimgImageVIew.center;
-        __defaltLabel.text = NSLocalizedString(@"已失效", nil);
-        [__defaltLabel setTextColor:[UIColor whiteColor]];
-        __defaltLabel.textAlignment = NSTextAlignmentCenter;
-//       __defaltLabel.font = [UIFont systemFontOfSize:14];
-        [__defaultimgImageVIew addSubview:__defaltLabel];
+        _defaultimgImageVIew.hidden = NO;
+        _defaultimgImageVIew.backgroundColor = [UIColor clearColor];
+        _defaultimgImageVIew.image = [UIImage imageNamed:@"bg_footprint_frame"];
+        _defaltLabel.center = _defaultimgImageVIew.center;
+        _defaltLabel.text = NSLocalizedString(@"已失效", nil);
+        [_defaltLabel setTextColor:[UIColor whiteColor]];
+        _defaltLabel.textAlignment = NSTextAlignmentCenter;
+        [_defaultimgImageVIew addSubview:_defaltLabel];
     }else{
         
     [_defaultimg sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
-
+//        [_defaultimg setContentScaleFactor:[[UIScreen mainScreen] scale]];
+//        _defaultimg.contentMode =  UIViewContentModeScaleAspectFill;
+//        _defaultimg.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+//        _defaultimg.clipsToBounds  = YES;
     }
     _productname.text = model.productname;
     _productprice.text = [NSString stringWithFormat:@"%@",model.productprice];

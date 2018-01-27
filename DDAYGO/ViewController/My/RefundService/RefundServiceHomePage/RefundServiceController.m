@@ -65,7 +65,7 @@
 
 // 70) 获取退换货记录列表
 - (void)AllData {
-    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
+//    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     dic[@"page"] = @"1";
@@ -89,7 +89,7 @@
 
 // 数据为空时加载此动画
 -(void)loading{
-    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+//    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
     __weak typeof(self)weakSelf = self;
     [ReloadView showToView:self.view touch:^{
         [weakSelf AllData];
@@ -102,7 +102,7 @@
 }
 -(void)networkProblems{
     __weak typeof(self)weakSelf = self;
-    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+//    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
     [ReloadView showToView:self.view touch:^{
      [weakSelf AllData];
     }];

@@ -26,7 +26,7 @@
                             <constraint firstAttribute="width" constant="20" id="5fV-Yh-SWL"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_retreat_left" translatesAutoresizingMaskIntoConstraints="NO" id="14b-ff-tae">
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_retreat_left" translatesAutoresizingMaskIntoConstraints="NO" id="14b-ff-tae">
                         <rect key="frame" x="102.5" y="12" width="8" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="hla-ry-xS8"/>
@@ -79,36 +79,12 @@
                         <rect key="frame" x="0.0" y="37" width="320" height="100"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner_jiazai.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="LMa-zG-wsx">
-                                <rect key="frame" x="8" y="8" width="72" height="84"/>
+                                <rect key="frame" x="8" y="8" width="75" height="85"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="84" id="GDH-WL-DgR"/>
-                                    <constraint firstAttribute="width" constant="72" id="wms-i6-dOe"/>
+                                    <constraint firstAttribute="height" constant="85" id="GDH-WL-DgR"/>
+                                    <constraint firstAttribute="width" constant="75" id="wms-i6-dOe"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjg-gg-3PT">
-                                <rect key="frame" x="88" y="14" width="224" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="dUQ-Z1-q67"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="Valvola ">
-                                        <attributes>
-                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="法莫拉天然植物萃取保加利亚玫瑰纯露">
-                                        <attributes>
-                                            <font key="NSFont" size="13" name=".PingFangSC-Regular"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="200ML">
-                                        <attributes>
-                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVV-gO-0Tm">
                                 <rect key="frame" x="88" y="51" width="0.0" height="15"/>
                                 <constraints>
@@ -136,6 +112,30 @@
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjg-gg-3PT">
+                                <rect key="frame" x="88" y="8" width="224" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="dUQ-Z1-q67"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Valvola ">
+                                        <attributes>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="法莫拉天然植物萃取保加利亚玫瑰纯露">
+                                        <attributes>
+                                            <font key="NSFont" size="13" name=".PingFangSC-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="200ML">
+                                        <attributes>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -145,12 +145,12 @@
                             <constraint firstItem="LMa-zG-wsx" firstAttribute="leading" secondItem="TC5-Tr-wyh" secondAttribute="leading" constant="8" id="AQZ-90-0cP"/>
                             <constraint firstItem="RDr-k0-fKa" firstAttribute="top" secondItem="DVV-gO-0Tm" secondAttribute="bottom" constant="5" id="D7e-7d-YdD"/>
                             <constraint firstItem="LMa-zG-wsx" firstAttribute="top" secondItem="TC5-Tr-wyh" secondAttribute="top" constant="8" id="FrI-k0-Vle"/>
-                            <constraint firstItem="Zjg-gg-3PT" firstAttribute="top" secondItem="TC5-Tr-wyh" secondAttribute="top" constant="14" id="bod-8o-JjG"/>
-                            <constraint firstItem="Zjg-gg-3PT" firstAttribute="leading" secondItem="LMa-zG-wsx" secondAttribute="trailing" constant="8" id="foa-J5-w9O"/>
-                            <constraint firstItem="35g-1X-Ztc" firstAttribute="leading" secondItem="LMa-zG-wsx" secondAttribute="trailing" constant="8" id="mN8-HX-KPv"/>
-                            <constraint firstItem="DVV-gO-0Tm" firstAttribute="top" secondItem="Zjg-gg-3PT" secondAttribute="bottom" constant="2" id="t5q-lA-N9U"/>
+                            <constraint firstItem="Zjg-gg-3PT" firstAttribute="top" secondItem="TC5-Tr-wyh" secondAttribute="top" constant="8" id="bod-8o-JjG"/>
+                            <constraint firstItem="Zjg-gg-3PT" firstAttribute="leading" secondItem="LMa-zG-wsx" secondAttribute="trailing" constant="5" id="foa-J5-w9O"/>
+                            <constraint firstItem="35g-1X-Ztc" firstAttribute="leading" secondItem="LMa-zG-wsx" secondAttribute="trailing" constant="5" id="mN8-HX-KPv"/>
+                            <constraint firstItem="DVV-gO-0Tm" firstAttribute="top" secondItem="Zjg-gg-3PT" secondAttribute="bottom" constant="8" id="t5q-lA-N9U"/>
                             <constraint firstAttribute="trailing" secondItem="Zjg-gg-3PT" secondAttribute="trailing" constant="8" id="tGZ-0o-0b3"/>
-                            <constraint firstItem="DVV-gO-0Tm" firstAttribute="leading" secondItem="LMa-zG-wsx" secondAttribute="trailing" constant="8" id="zCA-vo-Not"/>
+                            <constraint firstItem="DVV-gO-0Tm" firstAttribute="leading" secondItem="LMa-zG-wsx" secondAttribute="trailing" constant="5" id="zCA-vo-Not"/>
                         </constraints>
                     </view>
                 </subviews>

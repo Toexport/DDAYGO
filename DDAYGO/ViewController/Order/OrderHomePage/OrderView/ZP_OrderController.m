@@ -129,7 +129,7 @@
     dic[@"orderno"] = @"";
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"30";
-    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
+//    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
     [ZP_OrderTool requestGetorders:dic success:^(id json) {
         if (json) {
 //            self.newsData = json;  //这个是刷新
@@ -208,7 +208,7 @@
 
 // 重新加载数据
 -(void)loading {
-    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+//    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
     __weak typeof(self)weakSelf = self;
     [ReloadView showToView:self.view touch:^{
         [weakSelf getDataWithState];
@@ -223,7 +223,7 @@
 
 -(void)networkProblems {
     __weak typeof(self)weakSelf = self;
-    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+//    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
     [ReloadView showToView:self.view touch:^{
         [weakSelf getDataWithState];
     }];

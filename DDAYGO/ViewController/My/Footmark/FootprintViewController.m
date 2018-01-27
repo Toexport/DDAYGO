@@ -95,7 +95,7 @@
     FootprintCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FootprintCollectionViewCell" forIndexPath:indexPath];
     cell.deleBtn.tag = indexPath.row;
     [cell.deleBtn addTarget:self action:@selector(deleBtn:) forControlEvents:UIControlEventTouchUpInside];
-//    ZP_FootprintModel1 *model1 = model.historyArray[0];
+    
     [cell FootprintCollection:model];
     
     return cell;

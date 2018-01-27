@@ -25,9 +25,9 @@
     [self.backgroundView addGestureRecognizer:tap];
     
     self.standardList = @[NSLocalizedString(@"商品类型", nil),NSLocalizedString(@"", nil)];
-    
-    self.standardTypeList = @[NSLocalizedString(@"商品規格", nil),NSLocalizedString(@"購買數量", nil)];
-    
+//
+    self.standardTypeList = @[NSLocalizedString(@"商品規格", nil),NSLocalizedString(@"", nil)];
+    self.standardTypeList = @[NSLocalizedString(@"", nil),NSLocalizedString(@"購買數量", nil)];
 // 商品价格
     self.chooseView = [[ChooseView alloc] initWithFrame:CGRectMake(0, screen_Height, screen_Width, screen_Height)];
     self.chooseView.headImage.image = [UIImage imageNamed:@"bingli"];
@@ -139,6 +139,10 @@
         
 #pragma mark - - - -立即购买
 - (void)immedPayBtnClick{
+    if (_model.productamount.integerValue <= 0) {
+        [SVProgressHUD showErrorWithStatus:@"库存不足"];
+        return;
+    }else {
     NSLog(@"im go pay");
     if ( _modelArr.count > 0) {
         int a = 0;
@@ -201,10 +205,14 @@
     
     
 }
+}
 #pragma mark - - - - 加入购物车
 -(void)addGoodsCartBtnClick {
     NSLog(@"add cart");
-    
+    if (_model.productamount.integerValue <= 0) {
+        [SVProgressHUD showErrorWithStatus:@"库存不足"];
+        return;
+    }else {
     if ( _modelArr.count > 0) {
         int a = 0;
         for (int i=0; i < _standardList.count; i++) {
@@ -266,7 +274,7 @@
         NSLog(@"没有选择数量");
     }
 }
-
+}
 #pragma mark --立即购买
 -(void)chooseViewClick{
     //    NSLog(@"--------");

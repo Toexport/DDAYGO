@@ -42,7 +42,6 @@
             self.title = @"退款";
 //            NSLog(@"%d",a);
             break;
-            
         case 1:
             self.title = @"退货退款";
 //            NSLog(@"%d",a);
@@ -74,6 +73,7 @@
     dic[@"token"] = Token;
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
     dic[@"countrycode"] = str;
+    
     if (self.type == 666) {
         self.title = self.STrtltle;
         dic[@"oid"] = self.Oid;
@@ -125,7 +125,6 @@
 }
 
 - (void)ExchangeDeatils:(ExchangeDetailsModel *)model {
-    
     self.OrderNumberLabel.text = [model.ordersnumber stringValue];
     self.RequestTypeLabel.text = [model.returntype stringValue];
 //    NSLog(@"%@",model.returntype);
@@ -216,25 +215,33 @@
     }
     self.LogisticsLabel.text = model.logisticname;
     [self.imageview1 sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI,model.logisticimg]] placeholderImage:[UIImage imageNamed:@""]];
+    [self.imageview1 setContentScaleFactor:[[UIScreen mainScreen] scale]];
+    self.imageview1.contentMode =  UIViewContentModeScaleAspectFill;
+    self.imageview1.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    self.imageview1.clipsToBounds  = YES;
 }
 
 - (void)ExchangeDeatils1:(ExchangeDetailsModel *)model1 {
     [self.Mainimageview sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI,model1.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
+    [self.Mainimageview setContentScaleFactor:[[UIScreen mainScreen] scale]];
+    self.Mainimageview.contentMode =  UIViewContentModeScaleAspectFill;
+    self.Mainimageview.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    self.Mainimageview.clipsToBounds  = YES;
     self.TitleLabel.text = model1.productname;
-//    if (model1.colorname.length < 1) {
-//        self.YanseLable.hidden = YES;
-//        self.YansesLabel.hidden = YES;
-//    }else {
-//        self.YanseLable.text = model1.colorname;
-//        self.YansesLabel.text = @"颜色";
-//    }
-//    if (model1.normname.length < 1) {
-//        self.ChimaLabel.hidden = YES;
-//        self.ChimaaLabel.hidden = YES;
-//    }else {
-//        self.ChimaLabel.text = model1.normname;
-//        self.ChimaaLabel.text = @"尺码";
-//    }
+    if (model1.colorname.length < 1) {
+        self.YanseLable.hidden = YES;
+        self.YansesLabel.hidden = YES;
+    }else {
+        self.YanseLable.text = model1.colorname;
+        self.YansesLabel.text = @"颜色";
+    }
+    if (model1.normname.length < 1) {
+        self.ChimaLabel.hidden = YES;
+        self.ChimaaLabel.hidden = YES;
+    }else {
+        self.ChimaLabel.text = model1.normname;
+        self.ChimaaLabel.text = @"尺码";
+    }
     self.NumberLabel.text = [model1.amount stringValue];
 }
 

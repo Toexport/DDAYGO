@@ -42,7 +42,6 @@
 @implementation ConfirmViewController
 
 - (void)viewDidLoad {
-    
     [self addRefresh];
     ZPLog(@"_stockid = %@",_stockid);
     _dataArrar = [NSMutableArray array];
@@ -199,7 +198,6 @@
 //    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
     NSDictionary * dic = @{@"countrycode":@"886"};
     [ZP_shoopingTool requetMethodpay:dic success:^(id obj) {
-        
         ConfirmPayView * PayView = [[ConfirmPayView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         PayView.AmountLabel.text = _PriceLabel.text;
         PayView.dataArray = [ZP_ConfirmPayModel arrayWithArray:obj];
@@ -292,11 +290,10 @@
         NSDictionary * dic = obj;
         allMoney = [NSString stringWithFormat:@"%@",obj[@"allamount"]];
         self.NewData = [ZP_InformationModel arrayWithArray:dic[@"carts"]];
-        
         NSArray *arr = [ZP_InformationModel arrayWithArray:dic[@"cartshop"]];
         ZP_InformationModel * modell = arr[0];
         NSLog(@"shop name = %@",modell.shopname);
-        self.merchantsLabel.text = modell.shopname;
+//        self.merchantsLabel.text = modell.shopname;
         ZP_ExpressDeliveryModel * model = [[ZP_ExpressDeliveryModel alloc] init];
         model.freightamount = dic[@"freightamount"];
         model.chooselogistic = dic[@"chooselogistic"];
@@ -546,19 +543,18 @@
             make.left.equalTo(myView).offset(5);
             make.top.equalTo(myView).offset(20);
         }];
-        
         //    商家名字
         UILabel * merchantsLabel = [UILabel new];
         merchantsLabel.textAlignment = NSTextAlignmentLeft;
         merchantsLabel.textColor = ZP_textblack;
-        merchantsLabel.text = NSLocalizedString(model.shopname, nil);
+        merchantsLabel.text = @"dszkjbxz";
         merchantsLabel.font = ZP_titleFont;
         [myView addSubview:merchantsLabel];
         [merchantsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(myView).offset(30);
             make.top.equalTo(myView).offset(20);
         }];
-        self.merchantsLabel = merchantsLabel;
+        self.merchantsLabel = _merchantsLabel;
         return myView;
         
     }else {

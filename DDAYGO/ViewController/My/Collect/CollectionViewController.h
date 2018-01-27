@@ -10,4 +10,5 @@
 #import "collectionModel.h"
 @interface CollectionViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView * tableView;
+@property (nonatomic, strong) collectionModel * model;
 @end

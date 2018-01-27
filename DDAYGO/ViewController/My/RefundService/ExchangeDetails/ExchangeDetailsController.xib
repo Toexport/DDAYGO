@@ -97,9 +97,9 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4u-EB-hlK">
-                                            <rect key="frame" x="106" y="19" width="300" height="25"/>
+                                            <rect key="frame" x="106" y="19" width="300" height="32"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="25" id="BJM-6S-k99"/>
+                                                <constraint firstAttribute="height" constant="32" id="BJM-6S-k99"/>
                                             </constraints>
                                             <attributedString key="attributedText">
                                                 <fragment content=".">
@@ -110,6 +110,7 @@
                                                 </fragment>
                                             </attributedString>
                                             <nil key="highlightedColor"/>
+                                            <size key="shadowOffset" width="0.0" height="0.0"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="颜色:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0a-s2-YKf">
                                             <rect key="frame" x="106" y="52" width="29" height="15"/>
@@ -176,18 +177,18 @@
                                         <constraint firstItem="d4u-EB-hlK" firstAttribute="leading" secondItem="kX5-4Z-qUU" secondAttribute="trailing" constant="8" id="Sqd-iK-Ml3"/>
                                         <constraint firstItem="klo-UL-8gf" firstAttribute="leading" secondItem="T0a-s2-YKf" secondAttribute="trailing" constant="5" id="VFe-GA-voe"/>
                                         <constraint firstItem="cqy-tp-eQF" firstAttribute="leading" secondItem="T0a-s2-YKf" secondAttribute="leading" id="WL7-x5-mJW"/>
-                                        <constraint firstItem="Pqq-hI-n64" firstAttribute="top" secondItem="d4u-EB-hlK" secondAttribute="bottom" constant="8" id="Zvj-Ns-G5v"/>
-                                        <constraint firstItem="T0a-s2-YKf" firstAttribute="top" secondItem="d4u-EB-hlK" secondAttribute="bottom" constant="8" id="aE6-AR-tNg"/>
+                                        <constraint firstItem="Pqq-hI-n64" firstAttribute="top" secondItem="d4u-EB-hlK" secondAttribute="bottom" constant="1" id="Zvj-Ns-G5v"/>
+                                        <constraint firstItem="T0a-s2-YKf" firstAttribute="top" secondItem="d4u-EB-hlK" secondAttribute="bottom" constant="1" id="aE6-AR-tNg"/>
                                         <constraint firstItem="kX5-4Z-qUU" firstAttribute="top" secondItem="UOr-mp-IaP" secondAttribute="top" constant="12" id="gYa-RQ-sO8"/>
                                         <constraint firstItem="cqy-tp-eQF" firstAttribute="leading" secondItem="kX5-4Z-qUU" secondAttribute="trailing" constant="8" id="iTS-m7-mCq"/>
                                         <constraint firstItem="d4u-EB-hlK" firstAttribute="top" secondItem="UOr-mp-IaP" secondAttribute="top" constant="19" id="lvF-uM-dbC"/>
                                         <constraint firstAttribute="height" constant="130" id="oyv-qh-qd0"/>
-                                        <constraint firstItem="cqC-tq-zp3" firstAttribute="top" secondItem="d4u-EB-hlK" secondAttribute="bottom" constant="8" id="viG-RM-jID"/>
+                                        <constraint firstItem="cqC-tq-zp3" firstAttribute="top" secondItem="d4u-EB-hlK" secondAttribute="bottom" constant="1" id="viG-RM-jID"/>
                                         <constraint firstItem="Pqq-hI-n64" firstAttribute="leading" secondItem="klo-UL-8gf" secondAttribute="trailing" constant="5" id="wBU-Af-5KS"/>
                                         <constraint firstItem="W4b-cD-Tag" firstAttribute="leading" secondItem="cqy-tp-eQF" secondAttribute="trailing" constant="5" id="wXQ-Ng-MUi"/>
                                         <constraint firstItem="kX5-4Z-qUU" firstAttribute="leading" secondItem="UOr-mp-IaP" secondAttribute="leading" constant="8" id="xoQ-ai-b6W"/>
                                         <constraint firstItem="W4b-cD-Tag" firstAttribute="top" secondItem="T0a-s2-YKf" secondAttribute="bottom" constant="8" id="z7T-0z-yF6"/>
-                                        <constraint firstItem="klo-UL-8gf" firstAttribute="top" secondItem="d4u-EB-hlK" secondAttribute="bottom" constant="8" id="zGo-ut-b35"/>
+                                        <constraint firstItem="klo-UL-8gf" firstAttribute="top" secondItem="d4u-EB-hlK" secondAttribute="bottom" constant="1" id="zGo-ut-b35"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="申请类型:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJl-Df-f9J">

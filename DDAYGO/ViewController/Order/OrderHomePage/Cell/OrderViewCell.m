@@ -31,7 +31,7 @@
     [self.contentView addSubview:OrderLabel];
     [OrderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(5);
-        make.top.equalTo(self).offset(5);
+        make.top.equalTo(self).offset(10);
     }];
     _OrderLabel = OrderLabel;
     
@@ -112,6 +112,7 @@
     [merchantsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(FigureImage).offset(95);
         make.top.equalTo(DateLabel).offset(20);
+        make.height.mas_offset(15);
     }];
     _merchantsLabel = merchantsLabel;
     
@@ -224,7 +225,7 @@
     CountLabel.text = NSLocalizedString(@"合計:", nil);
     [self.contentView addSubview:CountLabel];
     [CountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(TrademarkImage).offset(10);
+        make.right.equalTo(self).offset(-165);
         make.bottom.equalTo(Backgroundview).offset(25);
     }];
     _CountLabel = CountLabel;

@@ -14,7 +14,7 @@
     for (NSDictionary * dic in array) {
         MerchantModel * model = [[MerchantModel alloc]init];
         model.defaultimg = [NSString stringWithFormat:@"%@%@",ImgAPI,dic[@"defaultimg"]];
-        model.productprice = dic[@"peramount"];
+        model.productprice = dic[@"productprice"];
         model.productname = dic[@"productname"];
         model.cp = dic[@"cp"];
         model.productid = dic[@"productid"];

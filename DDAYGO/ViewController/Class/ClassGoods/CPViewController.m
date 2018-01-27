@@ -279,21 +279,30 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    ZP_ClassGoodsModel * model = nil;
+    if (indexPath.row < [self.newsData count]) {
+        model = [self.newsData objectAtIndex:indexPath.row];
+    }
     static NSString * identify = @"cell";
     CPCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
     [cell sizeToFit];
-    ZP_ClassGoodsModel * model = self.newsData[indexPath.row];
+//    ZP_ClassGoodsModel * model = self.newsData[indexPath.row];
     [cell cellWithdic:model];
     return cell;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    ZP_ClassGoodsModel * model = nil;
+    if (indexPath.row > [self.newsData count]) {
+        model = [self.newsData objectAtIndex:indexPath.row];
+    }
     static NSString * header = @"ReusableView";
     UICollectionReusableView * headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:header forIndexPath:indexPath];
     return headerView;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString * detaled = @"DetailedController";
     DetailedController * Detailed = [[DetailedController alloc]initWithNibName:detaled bundle:nil];
     ZP_ClassGoodsModel * model = self.newsData[indexPath.row];

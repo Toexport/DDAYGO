@@ -47,6 +47,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addRefresh];
+    [self getshopinfos];
     [self addUI];
     [self setUpNavgationBar]; //navigationBar
     [self getproductfilter:100];
@@ -410,9 +411,14 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    MerchantModel * model = nil;
+    if (indexPath.row < [_newsarray count]) {
+        model = [_newsarray objectAtIndex:indexPath.row];
+    }
     static NSString * identify = @"cell";
     MerchantCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
-    MerchantModel * model = _newsarray[indexPath.row];
+    
+//    MerchantModel * model = _newsarray[indexPath.row];
     [cell merchant:model];
     
     return cell;
@@ -423,8 +429,12 @@
     return headerView;
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    MerchantModel * model = nil;
+    if (indexPath.row < [_newsarray count]) {//无论你武功有多高，有时也会忘记加
+        model = [_newsarray objectAtIndex:indexPath.row];
+    }
     DetailedController * detaile = [[DetailedController alloc]init];
-    MerchantModel * model = _newsarray[indexPath.row];
+//    MerchantModel * model = _newsarray[indexPath.row];
     [self.navigationController pushViewController:detaile animated:YES];
     detaile.productId = model.productid;
     NSLog(@"选中%ld",(long)indexPath.item);

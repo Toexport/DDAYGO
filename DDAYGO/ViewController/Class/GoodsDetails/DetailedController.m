@@ -99,6 +99,10 @@
             ZP_GoodDetailsModel *model = _normsArr[i];
             _ShopImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ZP_Width * i, 0, ZP_Width, self.onScrollView.height)];
             [_ShopImageView sd_setImageWithURL:[NSURL URLWithString:model.cnimg] placeholderImage:[UIImage imageNamed:@""]];
+//            [_ShopImageView setContentScaleFactor:[[UIScreen mainScreen] scale]];
+//            _ShopImageView.contentMode =  UIViewContentModeScaleAspectFill;
+//            _ShopImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+//            _ShopImageView.clipsToBounds  = YES;
             [self.onScrollView addSubview:_ShopImageView];
         }
         self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(self.smallScrollView.center.x - 19.5, self.smallScrollView.size.height - 37, 39, 37)];
@@ -113,6 +117,10 @@
         self.onScrollViewWidth.constant = ZP_Width * 1;
         for (int i = 0; i < 1; i ++) {
             _ShopImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ZP_Width * i, 0, ZP_Width, self.onScrollView.height)];
+//            [_ShopImageView setContentScaleFactor:[[UIScreen mainScreen] scale]];
+//            _ShopImageView.contentMode =  UIViewContentModeScaleAspectFill;
+//            _ShopImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+//            _ShopImageView.clipsToBounds  = YES;
             [self.onScrollView addSubview:_ShopImageView];
         }
         self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(self.smallScrollView.center.x - 19.5, self.smallScrollView.size.height - 37, 39, 37)];
@@ -492,11 +500,10 @@
         [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.productArray[indexPath.row]] options:0 progress:nil completed:^(UIImage * image, NSError * error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
             // 主线程刷新UI
             dispatch_async(dispatch_get_main_queue(), ^{
-                
                 cell.productImageView.image = image;
                 if (self.imageHeight != ZP_Width * image.size.height / image.size.width) {
                     self.imageHeight = ZP_Width * image.size.height / image.size.width;
-                    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:0];
+//                    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:0];
                     self.scrollView.contentSize =CGSizeMake(ZP_Width,ZP_height + self.imageHeight -120);
                 }
             });

@@ -71,7 +71,7 @@
 }
 // 获取购物车数据
 - (void)allData {
-    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
+//    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
     [ZP_shoopingTool requesshoppingData:Token success:^(id obj) {
         if (obj) {
             self.selectArray = obj;
@@ -544,6 +544,10 @@
             [alert addAction:cancelAction];
             [self presentViewController:alert animated:YES completion:nil];
         }else {
+//            if (_model.productamount.integerValue <= 0) {
+//                [SVProgressHUD showErrorWithStatus:@"库存不足"];
+//                return;
+//            }else {
             ConfirmViewController * Confirm = [[ConfirmViewController alloc]init];
             Confirm.model = _model;
             Confirm.stockidsString = _stockids;
@@ -551,10 +555,12 @@
             self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
             self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
         }
+        
     }else {
         [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"You have not selected goods ", nil)];
         NSLog(@"没选选中，不跳");
     }
+    
 }
 
 // 设置按钮取消高亮属性
@@ -778,7 +784,7 @@
 
 -(void)loading{
     //    [self endFreshing];
-    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+//    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
     __weak typeof(self)weakSelf = self;
     [ReloadView showToView:self.view touch:^{
         [weakSelf allData];
@@ -793,7 +799,7 @@
 
 -(void)networkProblems{
     __weak typeof(self)weakSelf = self;
-    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+//    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
     [ReloadView showToView:self.view touch:^{
         [weakSelf allData];
     }];

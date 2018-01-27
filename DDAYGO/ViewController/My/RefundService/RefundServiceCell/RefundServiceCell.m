@@ -15,12 +15,7 @@
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-- (UIImageView *)productImageView {
+- (UIImageView *)MaimImageView {
     [_MaimImageView setContentScaleFactor:[[UIScreen mainScreen] scale]];
     _MaimImageView.contentMode =  UIViewContentModeScaleAspectFill;
     _MaimImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;

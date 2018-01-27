@@ -28,7 +28,6 @@
         _showYImageVIew.hidden = NO;
         _showYImageVIew.image = [UIImage imageNamed:@"bg_footprint_frame"];
         _showYImageVIew.backgroundColor = [UIColor clearColor];
-
         _zhuangtaiLabel.center = _ShopimageView.center;
         _zhuangtaiLabel.text = NSLocalizedString(@"已失效", nil);
         [_zhuangtaiLabel setTextColor:[UIColor whiteColor]];
@@ -38,6 +37,10 @@
     }else{
         
     [_ShopimageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
+        [_ShopimageView setContentScaleFactor:[[UIScreen mainScreen] scale]];
+        _ShopimageView.contentMode =  UIViewContentModeScaleAspectFill;
+        _ShopimageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+        _ShopimageView.clipsToBounds  = YES;
     }
     _priceLabel.text = [NSString stringWithFormat:@"%@",model.productprice];
      NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
