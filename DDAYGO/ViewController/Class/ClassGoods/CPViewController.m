@@ -17,6 +17,7 @@
 @interface CPViewController ()<UIScrollViewDelegate> {
     int _i;
     NSArray * array;
+    NSInteger _indexTag;
 }
 #define fDeviceWidth ([UIScreen mainScreen].bounds.size.width)
 #define fDeviceHeight ([UIScreen mainScreen].bounds.size.height)
@@ -43,8 +44,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _indexTag = 0;
+    _priceStrTag = @"asc";
     [self initUI];
-    [self allData];
+    [self allData:100];
     [self addRefresh];
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
@@ -78,6 +82,11 @@
             _btn = btn;
             _btn.selected = YES;
         }
+#warning 默认图片
+        if (i == 3) {
+//            m默认图片
+            [btn setImage:[UIImage imageNamed:@"icon_shop_classification_01"] forState:UIControlStateNormal];
+        }
         [topView addSubview:btn];
     }
     [self.view addSubview:topView];
@@ -88,6 +97,7 @@
     lastView.contentSize = CGSizeMake(ZP_Width * 4, 0);
     lastView.pagingEnabled  = YES;
     lastView.showsHorizontalScrollIndicator = NO;
+    lastView.showsVerticalScrollIndicator = NO;
     lastView.delegate = self;
     [self.view addSubview:lastView];
     self.lastView = lastView;
@@ -155,48 +165,72 @@
 }
 
 - (void)btnClickAction:(UIButton *)sender {
-    [self allData];
+    _indexTag = sender.tag-100;
+    if (sender.tag -100 == 3) {
+        sender.selected = !sender.selected;
+        if (sender.selected) {
+#warning 选中
+            [sender setImage:[UIImage imageNamed:@"icon_shop_classification_02"] forState:UIControlStateNormal];
+            _priceStrTag = @"asc";
+        }else {
+#warning 取消选中
+            [sender setImage:[UIImage imageNamed:@"icon_shop_classification_03"] forState:UIControlStateNormal];
+            _priceStrTag = @"desc";
+        }
+    [self allData:sender.tag];
+    self.lastView.contentOffset = CGPointMake((sender.tag -100) * ZP_Width, 0);
+    [UIView animateWithDuration:0.2 animations:^{
+        self.line.x = sender.x;
+    }];
+}else {
+    [self allData:sender.tag];
+//    [self allData];
     self.btn.selected = NO;
     sender.selected = YES;
     self.btn = sender;
     self.lastView.contentOffset = CGPointMake((sender.tag - 100) * ZP_Width, 0);
-    
     [UIView animateWithDuration:0.2 animations:^{
-        
-        self.line.x = sender.x;
-        
+    self.line.x = sender.x;
     }];
+   }
 }
 //  数据
-- (void)allData {
+- (void)allData:(NSInteger)tag {
     NSString *str;
     if (_keyword.length > 0) {
         str = _keyword;
     }else{
         str = @"";
     }
-    NSDictionary * dic = @{@"seq":@"desc",@"countrycode":@"886",@"word":str,@"fatherid":_fatherId,@"page":@"1",@"pagesize":@"30",};
+    NSDictionary * dic = @{@"seq":_priceStrTag,@"countrycode":@"886",@"word":str,@"fatherid":_fatherId,@"page":@"1",@"pagesize":@"30",};
 
     [ZP_ClassViewTool requMerchandise:dic WithIndex:0 success:^(id obj) {
-        if (_newsData.count < 1) {
+       // if (_newsData.count < 1) {
             NSDictionary * dict = obj;
             [SVProgressHUD dismiss];
             ZPLog(@"%@",obj);
             self.dicts = dict[@"datalist"];
             NSArray * arr = dict[@"datalist"];
             self.newsData = [ZP_ClassGoodsModel arrayWithArray:arr];
-        }else{
-            return ;
+   //     }else{
+   //         return ;
 //        NSLog(@"%ld",(unsigned long)arr.count);
+    //    }
+        if (_indexTag == 0) {
+            [self.collectionView1 reloadData];
+            [self.collectionView1.mj_header endRefreshing];  // 結束下拉刷新
+        }else if (_indexTag == 1){
+            [self.collectionView2 reloadData];
+            [self.collectionView2.mj_header endRefreshing];  // 結束下拉刷新
+        }else if (_indexTag == 2){
+             [self.collectionView3 reloadData];
+            [self.collectionView3.mj_header endRefreshing];  // 結束下拉刷新
+        }else{
+            [self.collectionView4 reloadData];
+            [self.collectionView4.mj_header endRefreshing];  // 結束下拉刷新
         }
-        [self.collectionView1 reloadData];
-        [self.collectionView2 reloadData];
-        [self.collectionView3 reloadData];
-        [self.collectionView4 reloadData];
-        [self.collectionView1.mj_header endRefreshing];  // 結束下拉刷新
-        [self.collectionView2.mj_header endRefreshing];  // 結束下拉刷新
-        [self.collectionView3.mj_header endRefreshing];  // 結束下拉刷新
-        [self.collectionView4.mj_header endRefreshing];  // 結束下拉刷新
+
+
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
         NSLog(@"%@",error);
@@ -204,10 +238,12 @@
     }];
 
 }
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
 //    NSLog(@"go");
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"relodClassDaTa" object:nil];
+ //   [[NSNotificationCenter defaultCenter]postNotificationName:@"relodClassDaTa" object:nil];
     NSInteger tag = scrollView.contentOffset.x/ZP_Width;
+    _indexTag = tag;
     UIButton * button = [self.topView viewWithTag:tag + 100];
     self.btn.selected = NO;
     button.selected = YES;
@@ -317,23 +353,23 @@
     //    下拉刷新
     self.collectionView1.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsData removeAllObjects];
-        _i = 0;
-        [self allData];
+     //   _i = 0;
+        [self allData:100];
     }];
     self.collectionView2.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsData removeAllObjects];
-        _i = 0;
-        [self allData];
+    //    _i = 0;
+        [self allData:100];
     }];
     self.collectionView3.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsData removeAllObjects];
-        _i = 0;
-        [self allData];
+    //    _i = 0;
+        [self allData:100];
     }];
     self.collectionView4.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsData removeAllObjects];
-        _i = 0;
-        [self allData];
+     //   _i = 0;
+        [self allData:100];
     }];
 }
 
@@ -341,24 +377,16 @@
     [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
     __weak typeof(self)weakSelf = self;
     [ReloadView showToView:self.view touch:^{
-        [weakSelf allData];
+        [weakSelf allData:100];
         [ReloadView dismissFromView:weakSelf.view];
     }];
-}
-
--(void)successful {
-    [self.collectionView1 reloadData];
-    [self.collectionView2 reloadData];
-    [self.collectionView3 reloadData];
-    [self.collectionView4 reloadData];
-    [ZPProgressHUD dismiss];
 }
 
 -(void)networkProblems{
     __weak typeof(self)weakSelf = self;
     [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
     [ReloadView showToView:self.view touch:^{
-        [weakSelf allData];
+        [weakSelf allData:100];
     }];
     
     return;

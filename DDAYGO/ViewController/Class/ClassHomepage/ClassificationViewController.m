@@ -10,7 +10,7 @@
 #import "LeftTableViewCell.h"
 #import "RightTableViewCell.h"
 #import "PrefixHeader.pch"
-#import "CPViewController.h"
+#import "CPerViewController.h"
 #import "FourthViewCell.h"
 #import "ZP_ClassViewTool.h"
 #import "ZP_LeftModel.h"
@@ -140,7 +140,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (tableView == self.rightTableView) {
-        CPViewController * CVPView = [[CPViewController alloc]init];
+        CPerViewController * CVPView = [[CPerViewController alloc]init];
         ZP_RightModel * model = self.rightData[@(self.leftSelectRow)][indexPath.row];
         CVPView.fatherId = model.fatherid;
         CVPView.titleString = model.contentLabel;

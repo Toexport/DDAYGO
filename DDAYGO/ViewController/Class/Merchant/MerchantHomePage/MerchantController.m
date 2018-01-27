@@ -455,6 +455,7 @@
     [self.newsarray removeAllObjects];
     _i = 0;
     [self getshopinfos];
+        [self getproductfilter:100];
     }];
     self.collectionView2.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsarray removeAllObjects];

@@ -180,6 +180,8 @@
 		C409F8901FA1E280009DE7B1 /* ZP_ZeroModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C409F88F1FA1E280009DE7B1 /* ZP_ZeroModel.m */; };
 		C4137E811FB9A2A20072B1CA /* ZP_FrontPageReceivingAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4137E801FB9A2A20072B1CA /* ZP_FrontPageReceivingAddressModel.m */; };
 		C41CBE2F1FF7EEB000F9B227 /* ZP_LotteryHistoricalBettingNumberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C41CBE2E1FF7EEB000F9B227 /* ZP_LotteryHistoricalBettingNumberModel.m */; };
+		C41CBE3D201CB0BD00F9B227 /* CPerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41CBE3C201CB0BD00F9B227 /* CPerViewController.m */; };
+		C41CBE40201CB45200F9B227 /* CPCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41CBE3F201CB45200F9B227 /* CPCollectionViewController.m */; };
 		C41FF4DA1FFF53F7009B720D /* ZP_InstructionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41FF4DC1FFF53F7009B720D /* ZP_InstructionController.xib */; };
 		C420EDE51FF3D397005ECE30 /* UIViewController+LLProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = C420EDE31FF3D396005ECE30 /* UIViewController+LLProgress.m */; };
 		C420EDE81FF3D7E9005ECE30 /* CALayer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C420EDE71FF3D7E9005ECE30 /* CALayer+UIColor.m */; };
@@ -777,6 +779,10 @@
 		C4137E801FB9A2A20072B1CA /* ZP_FrontPageReceivingAddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_FrontPageReceivingAddressModel.m; sourceTree = "<group>"; };
 		C41CBE2D1FF7EEB000F9B227 /* ZP_LotteryHistoricalBettingNumberModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_LotteryHistoricalBettingNumberModel.h; sourceTree = "<group>"; };
 		C41CBE2E1FF7EEB000F9B227 /* ZP_LotteryHistoricalBettingNumberModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_LotteryHistoricalBettingNumberModel.m; sourceTree = "<group>"; };
+		C41CBE3B201CB0BD00F9B227 /* CPerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPerViewController.h; sourceTree = "<group>"; };
+		C41CBE3C201CB0BD00F9B227 /* CPerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPerViewController.m; sourceTree = "<group>"; };
+		C41CBE3E201CB45200F9B227 /* CPCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPCollectionViewController.h; sourceTree = "<group>"; };
+		C41CBE3F201CB45200F9B227 /* CPCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPCollectionViewController.m; sourceTree = "<group>"; };
 		C41FF4DB1FFF53F7009B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ZP_InstructionController.xib; sourceTree = "<group>"; };
 		C41FF4DE1FFF53FC009B720D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ZP_InstructionController.strings; sourceTree = "<group>"; };
 		C41FF4E01FFF5401009B720D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ZP_InstructionController.strings"; sourceTree = "<group>"; };
@@ -3437,6 +3443,10 @@
 			children = (
 				C47E75B71FB5A1C7009F279A /* CPViewController.h */,
 				C47E75B81FB5A1C7009F279A /* CPViewController.m */,
+				C41CBE3B201CB0BD00F9B227 /* CPerViewController.h */,
+				C41CBE3C201CB0BD00F9B227 /* CPerViewController.m */,
+				C41CBE3E201CB45200F9B227 /* CPCollectionViewController.h */,
+				C41CBE3F201CB45200F9B227 /* CPCollectionViewController.m */,
 				C47E75B41FB5A1C7009F279A /* Cell */,
 				C47E75B91FB5A1C7009F279A /* ZP_ClassGoodsModel */,
 			);
@@ -4523,6 +4533,7 @@
 				06418F511F7A076A00479523 /* MASConstraint.m in Sources */,
 				C4C4D1531FF6823D0075D8D8 /* Supplier1ViewController.m in Sources */,
 				065B3CDF1F984F8A00A8E6D6 /* TADotView.m in Sources */,
+				C41CBE3D201CB0BD00F9B227 /* CPerViewController.m in Sources */,
 				C45F22E21FA05B3D00F5DB41 /* ZP_NetorkingTools.m in Sources */,
 				065B3CE11F984F8A00A8E6D6 /* SDCollectionViewCell.m in Sources */,
 				C4535E341FC55EA200DFFD62 /* ZP_ExpressDeliveryCell.m in Sources */,
@@ -4700,6 +4711,7 @@
 				C45F22D11FA05A9E00F5DB41 /* UITabBarItem+Theme.m in Sources */,
 				C45F22EE1FA0746300F5DB41 /* UIButton+UIButtonImageWithLable.m in Sources */,
 				C42F07021FFE2D8000B3D510 /* ZP_InstructionBetModel.m in Sources */,
+				C41CBE40201CB45200F9B227 /* CPCollectionViewController.m in Sources */,
 				0642497F1F99DD3600340EBA /* PayPassController.m in Sources */,
 				C45F22DE1FA05AB900F5DB41 /* UIColor+Extension.m in Sources */,
 				064449B21F6A9B250004DFE4 /* MJRefreshGifHeader.m in Sources */,

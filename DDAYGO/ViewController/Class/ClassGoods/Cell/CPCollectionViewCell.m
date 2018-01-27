@@ -18,6 +18,7 @@
     }
     return self;
 }
+
 - (void)initUI {
 //    图片
     self.backgroundColor = [UIColor whiteColor];
