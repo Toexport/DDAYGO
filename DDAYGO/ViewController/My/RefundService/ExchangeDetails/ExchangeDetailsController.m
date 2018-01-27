@@ -221,20 +221,20 @@
 - (void)ExchangeDeatils1:(ExchangeDetailsModel *)model1 {
     [self.Mainimageview sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI,model1.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
     self.TitleLabel.text = model1.productname;
-    if (model1.colorname.length < 1) {
-        self.YanseLable.hidden = YES;
-        self.YansesLabel.hidden = YES;
-    }else {
-        self.YanseLable.text = model1.colorname;
-        self.YansesLabel.text = @"颜色";
-    }
-    if (model1.normname.length < 1) {
-        self.ChimaLabel.hidden = YES;
-        self.ChimaaLabel.hidden = YES;
-    }else {
-        self.ChimaLabel.text = model1.normname;
-        self.ChimaaLabel.text = @"尺码";
-    }
+//    if (model1.colorname.length < 1) {
+//        self.YanseLable.hidden = YES;
+//        self.YansesLabel.hidden = YES;
+//    }else {
+//        self.YanseLable.text = model1.colorname;
+//        self.YansesLabel.text = @"颜色";
+//    }
+//    if (model1.normname.length < 1) {
+//        self.ChimaLabel.hidden = YES;
+//        self.ChimaaLabel.hidden = YES;
+//    }else {
+//        self.ChimaLabel.text = model1.normname;
+//        self.ChimaaLabel.text = @"尺码";
+//    }
     self.NumberLabel.text = [model1.amount stringValue];
 }
 
