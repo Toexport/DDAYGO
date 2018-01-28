@@ -210,30 +210,6 @@
     }];
 }
 
-// 重新加载数据
--(void)loading {
-//    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
-    __weak typeof(self)weakSelf = self;
-    [ReloadView showToView:self.view touch:^{
-        [weakSelf getDataWithState];
-        [ReloadView dismissFromView:weakSelf.view];
-    }];
-}
-
--(void)successful {
-    [self.tableview reloadData];
-    [ZPProgressHUD dismiss];
-}
-
--(void)networkProblems {
-    __weak typeof(self)weakSelf = self;
-//    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
-    [ReloadView showToView:self.view touch:^{
-        [weakSelf getDataWithState];
-    }];
-    return;
-}
-
 // 删除订单协议
 - (void)DeleteOrderBut:(UIButton *)sender {
 #pragma make -- 提示框
@@ -378,6 +354,30 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+// 重新加载数据
+-(void)loading {
+    //    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    __weak typeof(self)weakSelf = self;
+    [ReloadView showToView:self.view touch:^{
+        [weakSelf getDataWithState];
+        [ReloadView dismissFromView:weakSelf.view];
+    }];
+}
+
+-(void)successful {
+    [self.tableview reloadData];
+    [ZPProgressHUD dismiss];
+}
+
+-(void)networkProblems {
+    __weak typeof(self)weakSelf = self;
+    //    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    [ReloadView showToView:self.view touch:^{
+        [weakSelf getDataWithState];
+    }];
+    return;
 }
 
 @end
