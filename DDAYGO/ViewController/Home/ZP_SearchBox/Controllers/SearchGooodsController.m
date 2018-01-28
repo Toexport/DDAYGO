@@ -13,7 +13,7 @@
 #import "UIView+Extension.h"
 #import "UIColor+Extension.h"
 #import "ZP_ClassViewTool.h"
-#import "CPViewController.h"
+#import "CPerViewController.h"
 @interface SearchGooodsController () <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource,UINavigationControllerDelegate>
 @property (nonatomic, weak) SearchBar * searchBar;
 @property (nonatomic, strong)NSArray * dataArray;
@@ -81,8 +81,7 @@
     NSLog(@"go - > %@ --- %@",keywords,newStr);
     if (newStr.length > 0 ) {
         NSLog(@"go");
-        CPViewController * CVPView = [[CPViewController alloc]init];
-        //你自己看  你写了是1  我就想不通那里难 ·你找了· 有问题你自己都不找·
+        CPerViewController * CVPView = [[CPerViewController alloc]init];
         CVPView.fatherId = [NSNumber numberWithInteger:0];
         CVPView.keyword = newStr;
         CVPView.titleString = @"搜索";

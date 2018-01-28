@@ -33,6 +33,7 @@
 }
 
 - (void)initView{
+    
     UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc]init];
     _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, self.view.height) collectionViewLayout:flowLayout];
     
@@ -71,7 +72,7 @@
         str = @"";
     }
     self.newsData = [[NSMutableArray alloc]init];
-    NSDictionary * dic = @{@"seq":@"asc",@"countrycode":@"886",@"word":str,@"fatherid":_fatherId,@"page":@"1",@"pagesize":@"30",};
+    NSDictionary * dic = @{@"seq":_priceStrTag,@"countrycode":@"886",@"word":str,@"fatherid":_fatherId,@"page":@"1",@"pagesize":@"30",};
     
     [ZP_ClassViewTool requMerchandise:dic WithIndex:self.type success:^(id obj) {
         // if (_newsData.count < 1) {

@@ -24,6 +24,8 @@
 #import "RequestReplaceController.h"
 #import "UIButton+Badge.h"
 #import "ExchangeDetailsController.h"
+#import "OrdeHeadViewCell.h"
+#import "OrdeTailViewCell.h"
 @interface ZP_OrderController ()<FSPageContentViewDelegate,FSSegmentTitleViewDelegate> {
     int _i;
     NSArray * dataArray;
@@ -90,6 +92,8 @@
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width , ZP_height - NavBarHeight - 85)];
     self.tableview.backgroundColor = ZP_Graybackground;
     [self.tableview registerClass:[OrderViewCell class] forCellReuseIdentifier:@"orderViewCell"];
+//    [self.tableview registerClass:[OrdeHeadViewCell class] forCellReuseIdentifier:@"OrdeHeadViewCell"];
+//    [self.tableview registerClass:[OrdeTailViewCell class] forCellReuseIdentifier:@"OrdeTailViewCell"];
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
     self.tableview.backgroundColor = ZP_Graybackground;
@@ -295,6 +299,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (indexPath.row == 0) {
+//        OrdeHeadViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"OrdeHeadViewCell"];
+//        return cell;
+//    }else if(indexPath.row == 1) {
+    
     static NSString * ID = @"orderViewCell";
     OrderModel * model = self.newsData[indexPath.section];
     OrderViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
@@ -348,11 +357,23 @@
         [self.navigationController pushViewController:responses animated:YES];
     };
     return cell;
-    
+//    }else {
+//        OrdeTailViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"OrdeTailViewCell"];
+//        return cell;
+//    }
 }
 
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (indexPath.row == 0) {
+//        return 40;
+//    }else if(indexPath.row == 1){
     return 230;
+        
+//    }else {
+//        return 80;
+//    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

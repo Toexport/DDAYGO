@@ -13,7 +13,7 @@
 #import "ZP_PositionModel.h"
 #import "DetailedController.h"
 #import "myNavigationController.h"
-#import "CPViewController.h"
+#import "CPerViewController.h"
 #import "ZP_FifthModel.h"
 #import "ZP_SixthModel.h"
 #import "ZP_ZeroModel.h"
@@ -281,7 +281,7 @@
             FirstViewCell * cell = [tableView dequeueReusableCellWithIdentifier: FirstID];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
             cell.firstBlock = ^(NSInteger tag, NSString *name) {
-                CPViewController * CVPView = [[CPViewController alloc]init];
+                CPerViewController * CVPView = [[CPerViewController alloc]init];
                 CVPView.fatherId =[NSNumber numberWithInteger:tag];
                 CVPView.titleString = name;
                 [self.navigationController pushViewController:CVPView animated:YES];

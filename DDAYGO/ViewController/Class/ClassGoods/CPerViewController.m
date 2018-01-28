@@ -63,7 +63,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.title = _titleString;
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     [self initView];
@@ -79,12 +79,17 @@
         button.titleLabel.font = ZP_titleFont;
         [button addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         button.tag=i;
+#warning 默认图片
+        if (i == 3) {
+            //            m默认图片
+            [button setImage:[UIImage imageNamed:@"icon_shop_classification_01"] forState:UIControlStateNormal];
+            _priceStrTag = @"asc";
+        }
         [self.topView addSubview:button];
     }
     self.line.x = 0;
     for (NSInteger j =0; j<_titleArray.count; j++) {
         CPCollectionViewController * vc = [[CPCollectionViewController alloc]init];
-        
         vc.fatherId = self.fatherId;
         vc.nameStr = self.nameStr;
         vc.titleString = self.titleString;
@@ -98,16 +103,13 @@
     self.contentScrollView.contentOffset = CGPointMake(0, 0);
    // UIViewController * vcs = self.childViewControllers[0];
     
-    
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     NSInteger tag = scrollView.contentOffset.x/ZP_Width;
     _indexTag = tag;
-    
     self.contentScrollView.contentOffset = CGPointMake(tag*ZP_Width, 0);
     UIViewController * vcs = self.childViewControllers[tag];
-    
     vcs.view.frame = CGRectMake(tag*ZP_Width, 0, ZP_Width, self.contentScrollView.frame.size.height);
     [UIView animateWithDuration:0.1 animations:^{
         self.line.x = (ZP_Width/4)*tag;
@@ -115,14 +117,26 @@
 }
 
 - (void)btnClick:(UIButton *)button{
+    _indexTag = button.tag;
+    if (button.tag == 3) {
+        button.selected = !button.selected;
+        if (button.selected) {
+#warning 选中
+            [button setImage:[UIImage imageNamed:@"icon_shop_classification_02"] forState:UIControlStateNormal];
+            _priceStrTag = @"asc";
+        }else {
+#warning 取消选中
+            [button setImage:[UIImage imageNamed:@"icon_shop_classification_03"] forState:UIControlStateNormal];
+            _priceStrTag = @"desc";
+        }
+    }else {
     self.contentScrollView.contentOffset = CGPointMake(button.tag*ZP_Width, 0);
     UIViewController * vcs = self.childViewControllers[button.tag];
-    
     vcs.view.frame = CGRectMake(button.tag*ZP_Width, 0, ZP_Width, self.contentScrollView.frame.size.height);
     [UIView animateWithDuration:0.1 animations:^{
         self.line.x = (ZP_Width/4)*button.tag;
     }];
 }
-
+}
 
 @end
