@@ -46,6 +46,7 @@
 @property (weak, nonatomic) IBOutlet UIButton * ljgmBtn;
 @property (weak, nonatomic) IBOutlet UIButton * jrgwcBtn;
 @property (nonatomic, strong) ZP_GoodDetailsModel * model;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeight;
 
 
 @property (nonatomic, strong) NSArray * normsArr;
@@ -56,6 +57,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cpsmHeight;
 @property (nonatomic, strong) NSMutableArray *evaluateArray;
 @property (nonatomic, assign) NSInteger imageHeight;  //详情图片的高度
+@property (nonatomic, strong) NSMutableDictionary *imageDic;  //详情图片的高度
 
 @end
 
@@ -141,6 +143,7 @@
         return;
     }
     NSDictionary * dic;
+    self.imageDic = [NSMutableDictionary dictionary];
     if (Token) {
         dic = @{@"productid":_productId,@"token":Token};
     } else {
@@ -369,7 +372,7 @@
 //这里才是点击的事件（评价详情按钮）,
 - (IBAction)cpnrAction:(id)sender {
     if (_pjArr.count >0) {
-//        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }else {
         ZPLog(@"----==");
     }
@@ -377,8 +380,8 @@
 }
 
 - (IBAction)qupjAction:(id)sender {
-    if (_typeArr.count > 0) {
-//    NSIndexPath * index = [NSIndexPath indexPathForRow:0 inSection:1];
+    if (self.evaluateArray.count>0) {
+    NSIndexPath * index = [NSIndexPath indexPathForRow:0 inSection:1];
 //        [self.detailTableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }else {
 //        [SVProgressHUD showInfoWithStatus:@"数据加载失败!"];
@@ -389,7 +392,7 @@
 
 - (IBAction)shfwAction:(id)sender {
     
-    if (_normsArr.count > 0) {
+    if (self.productArray.count > 0) {
 //        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }else {
         
@@ -500,15 +503,18 @@
         [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.productArray[indexPath.row]] options:0 progress:nil completed:^(UIImage * image, NSError * error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
             // 主线程刷新UI
             dispatch_async(dispatch_get_main_queue(), ^{
-                cell.productImageView.image = image;
-                if (self.imageHeight != ZP_Width * image.size.height / image.size.width) {
-                    self.imageHeight = ZP_Width * image.size.height / image.size.width;
-//                    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:0];
-                    self.scrollView.contentSize =CGSizeMake(ZP_Width,ZP_height + self.imageHeight -120);
+                if (!self.imageDic[@(indexPath.row).stringValue]) {
+                    self.imageDic[@(indexPath.row).stringValue] = @(ZP_Width * image.size.height / image.size.width);
+                    cell.productImageView.image = image;
+                    self.imageHeight += ZP_Width * image.size.height / image.size.width;
+
+                    self.scrollView.contentSize =CGSizeMake(ZP_Width,574>self.imageHeight?self.imageHeight+574:525+574);
+                    //ZP_height + self.imageHeight -150
+                    self.tableViewHeight.constant = 574>self.imageHeight?self.imageHeight:525;
+                    [tableView reloadData];
                 }
             });
         }];
-//        [cell.productImageView sd_setImageWithURL:self.productArray[indexPath.row]];
         return cell;
     } else
         if (indexPath.section == 1) {
