@@ -91,13 +91,14 @@
     self.line.x = 0;
     for (NSInteger j =0; j<_titleArray.count; j++) {
         CPCollectionViewController * vc = [[CPCollectionViewController alloc]init];
-        vc.view.tag = j;
+        
         vc.fatherId = self.fatherId;
         vc.nameStr = self.nameStr;
         vc.titleString = self.titleString;
         vc.keyword = self.keyword;
         vc.priceStrTag = self.priceStrTag;
         vc.type = j;
+        vc.view.tag = j+1000;
         [self addChildViewController:vc];
         [self.contentScrollView addSubview:vc.view];
         vc.view.frame = CGRectMake(j*ZP_Width, 0, ZP_Width, self.contentScrollView.height);
@@ -131,15 +132,15 @@
             _priceStrTag = @"desc";
         }
         button.selected = !button.selected;
-//        for (CPCollectionViewController * vcs in self.childViewControllers) {
-//            if (vcs.view.tag == button.tag) {
-//                vcs.priceStrTag = _priceStrTag;
-//                [vcs allData];
-//            }
-//        }
-        CPCollectionViewController * vcs = (CPCollectionViewController *)self.childViewControllers[button.tag];
-        vcs.priceStrTag = _priceStrTag;
-        [vcs allData];
+        for (CPCollectionViewController * vcs in self.childViewControllers) {
+            if (vcs.view.tag == 1000) {
+                vcs.priceStrTag = _priceStrTag;
+                [vcs allData];
+            }
+        }
+//        CPCollectionViewController * vcs = (CPCollectionViewController *)self.childViewControllers[button.tag];
+//        vcs.priceStrTag = _priceStrTag;
+//        [vcs allData];
     }else {
         self.contentScrollView.contentOffset = CGPointMake(button.tag*ZP_Width, 0);
         UIViewController * vcs = self.childViewControllers[button.tag];
