@@ -66,7 +66,7 @@
 
 // UI
 -(void)addUI {
-    NSArray * allTitle = @[NSLocalizedString(@"店鋪首頁", nil),NSLocalizedString(@"最新", nil),NSLocalizedString(@"好評", nil),NSLocalizedString(@"價格", nil)];
+    NSArray * allTitle = @[NSLocalizedString(@"Acquiescence", nil),NSLocalizedString(@"Sales Volume", nil),NSLocalizedString(@"Latest", nil),NSLocalizedString(@"Price", nil)];
     UIImageView * imageview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 150)];
     _imageview = imageview;
     imageview.backgroundColor = [UIColor whiteColor];
@@ -123,7 +123,6 @@
     [ZP_ClassViewTool requestGetshopinfos:dic success:^(id obj) {
         self.title = obj[@"shopname"];
         self.NameLabel = dic[@"shopname"];
-//        图片本来就没有   -> 默认图片
         [self.imageview sd_setImageWithURL:[NSURL URLWithString:obj[@"shopdetail"]] placeholderImage:[UIImage imageNamed:@""]];
         ZPLog(@"%@",obj);
     } failure:^(NSError *error) {
@@ -243,7 +242,7 @@
 #warning 选中
 //          这里设置button 按钮 图片
             [sender setImage:[UIImage imageNamed:@"icon_shop_classification_02"] forState:UIControlStateNormal];
-            _priceStrTag = @"asc";//jiang降 等下你自己调
+            _priceStrTag = @"asc";
             NSLog(@"选择状态");
         }else{
 #warning 取消选中

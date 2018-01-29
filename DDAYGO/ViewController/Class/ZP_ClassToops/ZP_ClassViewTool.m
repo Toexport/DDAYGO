@@ -33,11 +33,7 @@
 //  商品分类
 + (void)requMerchandise:(NSDictionary *)spfl WithIndex:(NSUInteger)index success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     NSArray * arr = @[@"default",@"sale",@"price",@"time"];
-
-    
-//    http://192.168.0.117:7000/api/Test/productfilter?fatherid=&sort=&seq=&word=&countrycode=&page=&pagesize=
-//    http://192.168.0.117:7000/api/Test/productfilter?seq=&countrycode=&word=&fatherid=&sort=&page=&pagesize=
-
+//    productfilter?fatherid=1&sort=default&seq=desc&word=&countrycode=886&page=1&pagesize=30
     [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@productfilter?seq=%@&countrycode=%@&word=%@&fatherid=%@&sort=%@&page=%@&pagesize=%@",URLAPI,spfl[@"seq"],spfl[@"countrycode"],spfl[@"word"],spfl[@"fatherid"],arr[index],spfl[@"page"],spfl[@"pagesize"]] parameters:nil success:^(NSDictionary *responseObject) {
         //        ZPLog(@"%@",responseObject);
         success(responseObject);

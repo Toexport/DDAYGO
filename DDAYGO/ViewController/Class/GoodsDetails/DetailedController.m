@@ -145,9 +145,10 @@
     NSDictionary * dic;
     self.imageDic = [NSMutableDictionary dictionary];
     if (Token) {
+        
         dic = @{@"productid":_productId,@"token":Token};
     } else {
-        dic = @{@"productid":_productId};
+        dic = @{@"productid":_productId,@"token":@""};
     }
     [ZP_ClassViewTool requDetails:dic success:^(id obj) {
         if (obj) {
@@ -159,6 +160,7 @@
         ZPLog(@"%@",obj);
         NSDictionary * asdic = [obj[@"productdetail"] firstObject];
         NSString * asdtring = asdic[@"content"];
+        
         self.productArray = [asdtring componentsSeparatedByString:@","];
         [self.detailTableView reloadData];
         NSDictionary * tempDic = @{@"productid":_productId,@"page":@(1),@"pagesize":@(5)};

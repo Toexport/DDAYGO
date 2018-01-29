@@ -14,10 +14,10 @@
 #import "ClassificationViewController.h"
 #import "ZP_ClassGoodsModel.h"
 #import "CPCollectionViewController.h"
-
 @interface CPerViewController ()<UIScrollViewDelegate>
 {
     NSInteger  _indexTag;
+    UIButton * button;
 }
 @property (nonatomic, strong) NSArray * titleArray;
 @property (nonatomic, strong) UIScrollView * contentScrollView;
@@ -41,6 +41,7 @@
 }
 
 -(UIView *)topView {
+    
     if (!_topView) {
         UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 37)];
         line.backgroundColor = [UIColor whiteColor];
@@ -70,7 +71,7 @@
 }
 
 - (void)initView{
-    _titleArray =  @[NSLocalizedString(@"Acquiescence", nil),NSLocalizedString(@"Sales Volume", nil),NSLocalizedString(@"Latest", nil),NSLocalizedString(@"Price", nil)];;
+    _titleArray =  @[NSLocalizedString(@"Acquiescence", nil),NSLocalizedString(@"Sales Volume", nil),NSLocalizedString(@"Latest", nil),NSLocalizedString(@"Price", nil)];
     for (NSInteger i = 0; i<_titleArray.count; i++) {
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(i*(ZP_Width/4), 0, ZP_Width/4, 34);
@@ -81,9 +82,9 @@
         button.tag=i;
 #warning 默认图片
         if (i == 3) {
-            //            m默认图片
+//          默认图片
             [button setImage:[UIImage imageNamed:@"icon_shop_classification_01"] forState:UIControlStateNormal];
-            _priceStrTag = @"asc";
+           
         }
         [self.topView addSubview:button];
     }
@@ -105,7 +106,7 @@
     
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     NSInteger tag = scrollView.contentOffset.x/ZP_Width;
     _indexTag = tag;
     self.contentScrollView.contentOffset = CGPointMake(tag*ZP_Width, 0);
@@ -116,27 +117,30 @@
     }];
 }
 
-- (void)btnClick:(UIButton *)button{
-    _indexTag = button.tag;
+- (void)btnClick:(UIButton *)button {
+    _indexTag = button.tag ;
     if (button.tag == 3) {
-        button.selected = !button.selected;
         if (button.selected) {
 #warning 选中
             [button setImage:[UIImage imageNamed:@"icon_shop_classification_02"] forState:UIControlStateNormal];
             _priceStrTag = @"asc";
-        }else {
+        } else {
 #warning 取消选中
             [button setImage:[UIImage imageNamed:@"icon_shop_classification_03"] forState:UIControlStateNormal];
             _priceStrTag = @"desc";
         }
+        button.selected = !button.selected;
+        CPCollectionViewController * vcs = (CPCollectionViewController *)self.childViewControllers[button.tag];
+        vcs.priceStrTag = _priceStrTag;
+        [vcs allData];
     }else {
-    self.contentScrollView.contentOffset = CGPointMake(button.tag*ZP_Width, 0);
-    UIViewController * vcs = self.childViewControllers[button.tag];
-    vcs.view.frame = CGRectMake(button.tag*ZP_Width, 0, ZP_Width, self.contentScrollView.frame.size.height);
-    [UIView animateWithDuration:0.1 animations:^{
-        self.line.x = (ZP_Width/4)*button.tag;
+        self.contentScrollView.contentOffset = CGPointMake(button.tag*ZP_Width, 0);
+        UIViewController * vcs = self.childViewControllers[button.tag];
+        vcs.view.frame = CGRectMake(button.tag*ZP_Width, 0, ZP_Width, self.contentScrollView.frame.size.height);
+        }
+        [UIView animateWithDuration:0.1 animations:^{
+          self.line.x = (ZP_Width/4)*button.tag;
     }];
-}
 }
 
 @end

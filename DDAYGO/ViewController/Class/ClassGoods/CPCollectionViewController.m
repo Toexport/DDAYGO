@@ -25,14 +25,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
     [self initView];
     [self allData];
     [self addRefresh];
 }
 
-- (void)initView{
+- (void)initView {
     
     UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc]init];
     _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, self.view.height) collectionViewLayout:flowLayout];
@@ -45,56 +43,53 @@
     flowLayout.minimumInteritemSpacing = 0;
     //    边距
     flowLayout.sectionInset = UIEdgeInsetsMake(0, 5, 5, 5);
-    
     //注册cell和ReusableView（相当于头部）
     static NSString * Cell = @"cell";
     [_collectionView registerClass:[CPCollectionViewCell class] forCellWithReuseIdentifier:Cell];
     static NSString * reusableView = @"ReusableView";
  [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:reusableView];
-    
     //     代理
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
-
-    
     //    自适应大小
     _collectionView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight;
-    
     [self.view addSubview:_collectionView];
 }
 
+// 获取数据
 - (void)allData {
-    NSString *str;
+    NSString * str;
     if (_keyword.length > 0) {
         str = _keyword;
     }else{
         str = @"";
     }
+   
     self.newsData = [[NSMutableArray alloc]init];
-    NSDictionary * dic = @{@"seq":_priceStrTag,@"countrycode":@"886",@"word":str,@"fatherid":_fatherId,@"page":@"1",@"pagesize":@"30",};
-    
+//    NSDictionary * dic = @{@"seq":_priceStrTag,@"countrycode":@"886",@"word":str,@"fatherid":_fatherId,@"page":@"1",@"pagesize":@"30"};
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    dic[@"seq"] = _priceStrTag;
+    dic[@"countrycode"] = @"886";
+    dic[@"word"] = str;
+    dic[@"fatherid"] = _fatherId;
+    dic[@"page"] = @"1";
+    dic[@"pagesize"] = @"30";
     [ZP_ClassViewTool requMerchandise:dic WithIndex:self.type success:^(id obj) {
-        // if (_newsData.count < 1) {
         NSDictionary * dict = obj;
         [SVProgressHUD dismiss];
         ZPLog(@"%@",obj);
-//        self.dicts = dict[@"datalist"];
         NSArray * arr = dict[@"datalist"];
         self.newsData = [ZP_ClassGoodsModel arrayWithArray:arr];
         [self.collectionView reloadData];
         [self.collectionView.mj_header endRefreshing];  // 結束下拉刷新
-        
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
         NSLog(@"%@",error);
         
     }];
-    
 }
-
 #pragma make - 创建collectionView代理
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
     return self.newsData.count;
 }
 
@@ -110,7 +105,6 @@
     static NSString * identify = @"cell";
     CPCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
     [cell sizeToFit];
-    //    ZP_ClassGoodsModel * model = self.newsData[indexPath.row];
     [cell cellWithdic:model];
     return cell;
 }
@@ -137,7 +131,7 @@
 
 // 刷新
 - (void)addRefresh {
-    //    下拉刷新
+//    下拉刷新
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsData removeAllObjects];
         //   _i = 0;

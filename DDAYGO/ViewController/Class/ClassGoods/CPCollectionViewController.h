@@ -21,5 +21,9 @@
 @property (nonatomic, strong) NSString * priceStrTag;
 
 @property (nonatomic, strong) UILabel * RemindLabel;
+
 @property (nonatomic, assign) NSInteger type;
+
+- (void)allData;
+
 @end
