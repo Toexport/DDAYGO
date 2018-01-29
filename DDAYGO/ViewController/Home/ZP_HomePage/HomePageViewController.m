@@ -26,7 +26,7 @@
 @property (nonatomic, strong) NSMutableArray * SixthArrData;
 @property (nonatomic, strong) NSArray * postionArray;
 @property (nonatomic, strong) NSArray * dataArray;
-@property (nonatomic, strong) NSArray * bannerArray;
+@property (nonatomic, strong) NSMutableArray * bannerArray;
 @property (nonatomic, strong) NSArray * ForurthArray;
 @property (nonatomic, strong) NSArray * SecondArray;
 @property (nonatomic, strong) PositionView * position;
@@ -220,7 +220,7 @@
     }else {
         sendCode = @886;
     }
-    NSDictionary * dict = @{@"count":@"5",@"countrycode":sendCode};
+    NSDictionary * dict = @{@"count":@"6",@"countrycode":sendCode};
     [ZP_HomeTool requestSellLikeHotCakes:dict success:^(id obj) {
         ZPLog(@"%@",obj);
         NSArray * arr = obj;
@@ -248,7 +248,7 @@
     }else{
         sendCode = @886;
     }
-    NSDictionary * dict = @{@"acount":@"5",@"countrycode":sendCode};
+    NSDictionary * dict = @{@"acount":@"6",@"countrycode":sendCode};
     [ZP_HomeTool requSelectLikeHotCakes:dict success:^(id obj) {
         NSArray * arr = obj;
         ZPLog(@"%@",arr);
@@ -256,13 +256,11 @@
         [self.tableView reloadData];
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
-        //        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Select erchandise ach Month", nil)];
     }];
 }
 
 #pragma mark -- tabeView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return 1;
 }
 
@@ -288,7 +286,6 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.arr = _bannerArray;
         cell.finishBlock = ^(id response) {
-            
         };
         return cell;
     }else
@@ -304,9 +301,7 @@
             };
             return cell;
     
-        }else
-    
-            if (indexPath.section == 2){
+        }else if (indexPath.section == 2){
                 static NSString * SecondID = @"Secondcell";
                 SecondViewCell * cell = [tableView dequeueReusableCellWithIdentifier: SecondID];
 

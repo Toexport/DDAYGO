@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSString * eeceiptphone;  // 号码
 @property (nonatomic, strong) NSString * email; //  电子邮件
 @property (nonatomic, strong) NSString * zipcode;  //  邮编
-@property (nonatomic, strong) NSNumber * isdefault;
+@property (nonatomic, strong) NSNumber * isdefault; 
 
 + (instancetype)GetFrontPageReceivingAddress:(NSDictionary *) dic;
 

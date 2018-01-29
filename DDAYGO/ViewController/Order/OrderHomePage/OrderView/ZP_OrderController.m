@@ -108,7 +108,6 @@
     if ([_titleStr isEqualToString:NSLocalizedString(@"all", nil)]) {
         dic[@"sta"] = @"-1";
         i = 0;
-        
     }
     if ([_titleStr isEqualToString:NSLocalizedString(@"Waiting payment", nil)]) {
         dic[@"sta"] = @"1";

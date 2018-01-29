@@ -31,7 +31,7 @@
     [self.contentView addSubview:OrderLabel];
     [OrderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(5);
-        make.top.equalTo(self).offset(10);
+        make.top.equalTo(self).offset(5);
     }];
     _OrderLabel = OrderLabel;
     
@@ -46,10 +46,11 @@
     
     //  日期
     ZP_GeneralLabel * DateLabel = [ZP_GeneralLabel initWithtextLabel:_DateLabel.text textColor:ZP_textblack font:ZP_introduceFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+//    DateLabel.text = @"111111";
     [self.contentView addSubview:DateLabel];
     [DateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(5);
-        make.top.equalTo(IDLabel).offset(20);
+        make.top.equalTo(IDLabel).offset(15);
     }];
     _DateLabel = DateLabel;
     
@@ -407,7 +408,7 @@
     _merchantsLabel.text = [NSString stringWithFormat:@"%@",model.shopname];
     _titleLabel.text = dic.productname;
     if (dic.colorname.length < 1) {
-        _DateLabel.hidden = YES;
+        _descLabel.hidden = YES;
     }else {
        _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",dic.colorname];
     }

@@ -78,12 +78,13 @@
 - (void)search:(NSString *)keywords{
     
     NSString * newStr = [keywords stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSLog(@"go - > %@ --- %@",keywords,newStr);
+    NSString * searchKit = [newStr stringByAddingPercentEscapesUsingEncoding:kCFStringEncodingUTF8];
+    NSLog(@"go - > %@ --- %@,kkk_> %@",keywords,newStr,searchKit);
     if (newStr.length > 0 ) {
         NSLog(@"go");
         CPerViewController * CVPView = [[CPerViewController alloc]init];
         CVPView.fatherId = [NSNumber numberWithInteger:0];
-        CVPView.keyword = newStr;
+        CVPView.keyword = searchKit;
         CVPView.titleString = @"搜索";
         [ZPProgressHUD showWithStatus:@"正在搜索..." maskType:ZPProgressHUDMaskTypeBlack];
         [self.navigationController pushViewController:CVPView animated:YES];

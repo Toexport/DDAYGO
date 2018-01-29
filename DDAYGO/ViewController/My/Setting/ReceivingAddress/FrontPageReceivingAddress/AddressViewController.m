@@ -22,7 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = NSLocalizedString(@"收貨地址", nil);
-    
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     [self.tableView registerNib:[UINib nibWithNibName:@"AddressTableViewCell" bundle:nil] forCellReuseIdentifier:@"AddressTableViewCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
@@ -88,12 +87,11 @@
     AddressTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"AddressTableViewCell" forIndexPath:indexPath];
     ZP_FrontPageReceivingAddressModel * model = self.newsData[indexPath.section];
 //    默认地址
-        cell.defBtn.tag = indexPath.row;
+        cell.defBtn.tag = indexPath.section;
         [cell.defBtn addTarget:self action:@selector(seleClick:) forControlEvents:UIControlEventTouchUpInside];
 //    删除
-        cell.DeletingBut.tag = indexPath.row;
+        cell.DeletingBut.tag = indexPath.section;
         [cell.DeletingBut addTarget:self action:@selector(DeletingClick:) forControlEvents:UIControlEventTouchUpInside];
-
     [cell cellWithdic:model];
     cell.finishBlock = ^(id response) {//在这里传点击编辑的数据
         EditViewController * viewController = [[EditViewController alloc] init];
@@ -106,11 +104,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ZP_FrontPageReceivingAddressModel * model = self.newsData[indexPath.row];
+    ZP_FrontPageReceivingAddressModel * model = self.newsData[indexPath.section];
     if (self.popBlock) {
         self.popBlock(model);
     }
-    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -120,7 +117,6 @@
 
 //默认地址
 - (void)seleClick:(UIButton *)btn {
-    
     if (!btn.selected) {
         btn.selected = !btn.selected;
         if (btn.selected) {
@@ -131,16 +127,24 @@
             [ZP_MyTool requestDefaultAddress:dic success:^(id obj) {
                 ZPLog(@"%@",obj);
                 if ([obj[@"result"] isEqualToString:@"ok"]) {
-                [SVProgressHUD showSuccessWithStatus:@"設置成功"];
-                
-                }else {
                     
+                    for (NSInteger i = 0; i < _newsData.count; i++) {
+
+                        ZP_FrontPageReceivingAddressModel *model = _newsData[i];
+                        NSLog(@"%@",model);
+                        if (btn.tag == i) {
+                            model.isdefault = @(YES);
+                        }else {
+                            model.isdefault = @(NO);
+                    }
+                    [self.tableView reloadData];
+                }
+                [SVProgressHUD showSuccessWithStatus:@"設置成功"];
+                }else {
                 ZPLog(@"失败");
                 }
-                
             } failure:^(NSError *errpr) {
             }];
-            
             for (int i = 0; i < self.newsData.count; i ++) {
                 AddressTableViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
                 if (i == btn.tag) {
