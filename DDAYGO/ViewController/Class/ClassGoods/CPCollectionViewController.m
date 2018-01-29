@@ -16,7 +16,9 @@
 
 #define fDeviceWidth ([UIScreen mainScreen].bounds.size.width)
 #define fDeviceHeight ([UIScreen mainScreen].bounds.size.height)
-@interface CPCollectionViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface CPCollectionViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>{
+    int _i;
+}
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) NSMutableArray * newsData;
 @end
@@ -101,6 +103,7 @@
             self.newsData = [ZP_ClassGoodsModel arrayWithArray:arr];
             [self.collectionView reloadData];
             [self.collectionView.mj_header endRefreshing];  // 結束下拉刷新
+            [self.collectionView.mj_footer endRefreshing];
         });
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
@@ -154,7 +157,12 @@
 //    下拉刷新
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsData removeAllObjects];
-        //   _i = 0;
+           _i = 0;
+        [self allData];
+    }];
+    self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self.newsData removeAllObjects];
+        _i = 10;
         [self allData];
     }];
 }

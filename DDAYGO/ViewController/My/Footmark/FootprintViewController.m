@@ -11,9 +11,11 @@
 #import "FootprintCollectionViewCell.h"
 #import "PrefixHeader.pch"
 #import "ZP_MyTool.h"
+#import "DetailedController.h"
 @interface FootprintViewController ()
 
 @property (nonatomic, strong)NSMutableArray * newsData;
+@property (nonatomic, strong) ZP_FootprintModel1 * model1;
 @end
 
 @implementation FootprintViewController
@@ -83,9 +85,7 @@
 }
 #pragma mark --- collectionView delegate
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
     return self.newsData.count;
 }
 
@@ -113,10 +113,14 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    DetailedController * detailed = [[DetailedController alloc]init];
+//    detailed.fatherId = _model1.collectionid;
+    [self.navigationController pushViewController:detailed animated:YES];
+    ZPLog(@"%ld",indexPath.row);
+    
 }
 
 - (NSMutableArray *)newsData {
-    
     if (!_newsData) {
         _newsData = [NSMutableArray array];
     }
