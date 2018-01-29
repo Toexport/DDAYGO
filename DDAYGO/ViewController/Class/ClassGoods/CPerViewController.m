@@ -91,6 +91,7 @@
     self.line.x = 0;
     for (NSInteger j =0; j<_titleArray.count; j++) {
         CPCollectionViewController * vc = [[CPCollectionViewController alloc]init];
+        vc.view.tag = j;
         vc.fatherId = self.fatherId;
         vc.nameStr = self.nameStr;
         vc.titleString = self.titleString;
@@ -130,6 +131,12 @@
             _priceStrTag = @"desc";
         }
         button.selected = !button.selected;
+//        for (CPCollectionViewController * vcs in self.childViewControllers) {
+//            if (vcs.view.tag == button.tag) {
+//                vcs.priceStrTag = _priceStrTag;
+//                [vcs allData];
+//            }
+//        }
         CPCollectionViewController * vcs = (CPCollectionViewController *)self.childViewControllers[button.tag];
         vcs.priceStrTag = _priceStrTag;
         [vcs allData];
