@@ -424,6 +424,10 @@
 		C4B04DA82008B9A9009F7AF9 /* SelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B04DA72008B9A9009F7AF9 /* SelectModel.m */; };
 		C4B04DAF20092652009F7AF9 /* RequestReplaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B04DAD20092652009F7AF9 /* RequestReplaceController.m */; };
 		C4B04DB020092652009F7AF9 /* RequestReplaceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B04DAE20092652009F7AF9 /* RequestReplaceController.xib */; };
+		C4BF36ED201EBC2700C55DCA /* NnestedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BF36EB201EBC2700C55DCA /* NnestedCollectionViewCell.m */; };
+		C4BF36EE201EBC2700C55DCA /* NnestedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4BF36EC201EBC2700C55DCA /* NnestedCollectionViewCell.xib */; };
+		C4BF36F5201F166B00C55DCA /* YLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BF36F1201F166A00C55DCA /* YLButton.m */; };
+		C4BF36F6201F166B00C55DCA /* UIButton+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BF36F4201F166B00C55DCA /* UIButton+Layout.m */; };
 		C4C4D1461FF64A810075D8D8 /* SupplierViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C4D1441FF64A810075D8D8 /* SupplierViewCell2.m */; };
 		C4C4D1471FF64A810075D8D8 /* SupplierViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C4D1451FF64A810075D8D8 /* SupplierViewCell2.xib */; };
 		C4C4D1531FF6823D0075D8D8 /* Supplier1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C4D1511FF6823D0075D8D8 /* Supplier1ViewController.m */; };
@@ -1232,6 +1236,13 @@
 		C4B04DAC20092652009F7AF9 /* RequestReplaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestReplaceController.h; sourceTree = "<group>"; };
 		C4B04DAD20092652009F7AF9 /* RequestReplaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestReplaceController.m; sourceTree = "<group>"; };
 		C4B04DAE20092652009F7AF9 /* RequestReplaceController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestReplaceController.xib; sourceTree = "<group>"; };
+		C4BF36EA201EBC2700C55DCA /* NnestedCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NnestedCollectionViewCell.h; sourceTree = "<group>"; };
+		C4BF36EB201EBC2700C55DCA /* NnestedCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NnestedCollectionViewCell.m; sourceTree = "<group>"; };
+		C4BF36EC201EBC2700C55DCA /* NnestedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NnestedCollectionViewCell.xib; sourceTree = "<group>"; };
+		C4BF36F0201F166A00C55DCA /* YLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLButton.h; sourceTree = "<group>"; };
+		C4BF36F1201F166A00C55DCA /* YLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLButton.m; sourceTree = "<group>"; };
+		C4BF36F3201F166B00C55DCA /* UIButton+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Layout.h"; sourceTree = "<group>"; };
+		C4BF36F4201F166B00C55DCA /* UIButton+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Layout.m"; sourceTree = "<group>"; };
 		C4C4D1431FF64A810075D8D8 /* SupplierViewCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupplierViewCell2.h; sourceTree = "<group>"; };
 		C4C4D1441FF64A810075D8D8 /* SupplierViewCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SupplierViewCell2.m; sourceTree = "<group>"; };
 		C4C4D1451FF64A810075D8D8 /* SupplierViewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SupplierViewCell2.xib; sourceTree = "<group>"; };
@@ -1661,6 +1672,8 @@
 		065099C51F62334F002F62D4 /* Method */ = {
 			isa = PBXGroup;
 			children = (
+				C4BF36F2201F166B00C55DCA /* UIButton+Layout */,
+				C4BF36EF201F166A00C55DCA /* YLButton */,
 				C4AD072E200C7A5D00B8FF6E /* LPDQuoteImagesView */,
 				C47901D51FF7303C0027AABD /* JXPopoverView */,
 				C479C6881FE3CB5800A58A2A /* MJExtension */,
@@ -2456,6 +2469,9 @@
 			children = (
 				C409F8691FA17336009DE7B1 /* NestedCollectionViewCell.h */,
 				C409F86A1FA17336009DE7B1 /* NestedCollectionViewCell.m */,
+				C4BF36EA201EBC2700C55DCA /* NnestedCollectionViewCell.h */,
+				C4BF36EB201EBC2700C55DCA /* NnestedCollectionViewCell.m */,
+				C4BF36EC201EBC2700C55DCA /* NnestedCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -3981,6 +3997,24 @@
 			path = RequestReplaceHomePage;
 			sourceTree = "<group>";
 		};
+		C4BF36EF201F166A00C55DCA /* YLButton */ = {
+			isa = PBXGroup;
+			children = (
+				C4BF36F0201F166A00C55DCA /* YLButton.h */,
+				C4BF36F1201F166A00C55DCA /* YLButton.m */,
+			);
+			path = YLButton;
+			sourceTree = "<group>";
+		};
+		C4BF36F2201F166B00C55DCA /* UIButton+Layout */ = {
+			isa = PBXGroup;
+			children = (
+				C4BF36F3201F166B00C55DCA /* UIButton+Layout.h */,
+				C4BF36F4201F166B00C55DCA /* UIButton+Layout.m */,
+			);
+			path = "UIButton+Layout";
+			sourceTree = "<group>";
+		};
 		C4D2FEA41FD5197E00F546AB /* ZP_QrCodeModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -4321,6 +4355,7 @@
 				C4D2FEF41FD5636C00F546AB /* 商店管理_spec_spec.png in Resources */,
 				C4535E3E1FC5654500DFFD62 /* PayMoneyCell.xib in Resources */,
 				0682BE6B1F906D7B00894F4E /* Shopping2.png in Resources */,
+				C4BF36EE201EBC2700C55DCA /* NnestedCollectionViewCell.xib in Resources */,
 				C492A17E1FD0ECB7009FF57B /* ZP_HistoryVetController.xib in Resources */,
 				C4A3FFD3201B03C7001BCB30 /* DDAYGO IHTTP协议1.0.docx in Resources */,
 				06F5722B1F9F1E8700D61FDB /* OrderManagerCollectionViewCell.xib in Resources */,
@@ -4544,6 +4579,7 @@
 				C4535E341FC55EA200DFFD62 /* ZP_ExpressDeliveryCell.m in Sources */,
 				C47750851FBADDAA00AE8B3F /* ZP_HomePageModel.m in Sources */,
 				C4D2FEA71FD519A100F546AB /* ZP_QrCodeModel.m in Sources */,
+				C4BF36ED201EBC2700C55DCA /* NnestedCollectionViewCell.m in Sources */,
 				C47901DD1FF7303C0027AABD /* JXPopoverView.m in Sources */,
 				06F5721C1F9F1E8700D61FDB /* AllCategoriesView.m in Sources */,
 				06F571AB1F9F193300D61FDB /* QRCodeReaderView.m in Sources */,
@@ -4567,6 +4603,7 @@
 				C47BBBF91FE5128F0000FFE6 /* ZP_CheckMoreModel.m in Sources */,
 				C4AD0761200C7A5D00B8FF6E /* NSBundle+LPDImagePicker.m in Sources */,
 				C47E763A1FB5A1C7009F279A /* ZP_GoodDetailsModel.m in Sources */,
+				C4BF36F5201F166B00C55DCA /* YLButton.m in Sources */,
 				06F572401F9F204F00D61FDB /* BillDetailViewController.m in Sources */,
 				06F5722C1F9F1E8700D61FDB /* OrderManagerViewController.m in Sources */,
 				C45F23501FA087A600F5DB41 /* ZP_FourthModel.m in Sources */,
@@ -4721,6 +4758,7 @@
 				0642497F1F99DD3600340EBA /* PayPassController.m in Sources */,
 				C45F22DE1FA05AB900F5DB41 /* UIColor+Extension.m in Sources */,
 				064449B21F6A9B250004DFE4 /* MJRefreshGifHeader.m in Sources */,
+				C4BF36F6201F166B00C55DCA /* UIButton+Layout.m in Sources */,
 				C4AD0756200C7A5D00B8FF6E /* LPDAssetModel.m in Sources */,
 				C47E75861FB573F2009F279A /* ZP_HomeTool.m in Sources */,
 				C47E76341FB5A1C7009F279A /* ChooseRank.m in Sources */,

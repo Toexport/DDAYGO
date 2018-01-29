@@ -47,7 +47,7 @@
     [introduceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(5);
         make.right.equalTo(self).offset(-5);
-        make.bottom.equalTo(imageView).offset(15);
+        make.bottom.equalTo(imageView).offset(ZP_Width/ 3 + 50 );
     }];
     _introduceLabel = introduceLabel;
     

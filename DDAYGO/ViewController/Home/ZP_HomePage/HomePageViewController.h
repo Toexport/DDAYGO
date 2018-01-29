@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "YLButton.h"
+#import "UIButton+Layout.h"
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 @interface HomePageViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView * tableView;
 

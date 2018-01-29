@@ -69,9 +69,9 @@
         [self allData];
     }
 }
-// 获取购物车数据
+
+// 获取购物车数据（获取接口）
 - (void)allData {
-//    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
     [ZP_shoopingTool requesshoppingData:Token success:^(id obj) {
         if (obj) {
             self.selectArray = obj;
@@ -461,7 +461,7 @@
     }
 }
 
-//不一样· 反正现在能实现·就不要动
+
 - (void)updateDataa:(NSInteger)tag {
 //  更新选中数量
     NSInteger count = 0;
@@ -568,7 +568,7 @@
     sender.highlighted = NO;
 }
 
-//删除按钮
+//删除按钮（删除接口）
 - (void) shangchuBut:(UIButton *)but {
 //   响应事件
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
@@ -718,7 +718,7 @@
         make.left.equalTo(_Shopchoosebuttom).offset(25);
         make.top.equalTo(myView).offset(15);
         make.height.mas_offset(15);
-        make.width.mas_offset(80);
+//        make.width.mas_offset(80);
     }];
     _merchantsLabel = merchantsLabel;
     
@@ -744,7 +744,7 @@
     return 0.1;
 }
 
-// 侧滑
+// 侧滑（删除接口）
 - (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (@available(iOS 11.0, *)) {
         UIContextualAction *deleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"刪除" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
@@ -778,13 +778,12 @@
 }
 
 - (void)didReceiveMemoryWarning {
-    
     [super didReceiveMemoryWarning];
 }
 
 -(void)loading{
     //    [self endFreshing];
-//    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
     __weak typeof(self)weakSelf = self;
     [ReloadView showToView:self.view touch:^{
         [weakSelf allData];
@@ -799,7 +798,7 @@
 
 -(void)networkProblems{
     __weak typeof(self)weakSelf = self;
-//    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
     [ReloadView showToView:self.view touch:^{
         [weakSelf allData];
     }];

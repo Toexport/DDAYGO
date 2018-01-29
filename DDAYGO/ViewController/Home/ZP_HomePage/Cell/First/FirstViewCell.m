@@ -18,7 +18,7 @@
     self = [super initWithStyle:style reuseIdentifier:@"First"];
     if (self) {
         self.contentView.userInteractionEnabled = YES;
-        [self Alldata];
+        [self Alldata:CountCode];
     }
     return self;
 }
@@ -76,9 +76,16 @@
     
 }
 
-- (void)Alldata {
+- (void)Alldata:(NSNumber *)code {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    dic[@"countrycode"] = @"886";
+    NSNumber *sendCode;
+    if ([code intValue] > 0) {
+        sendCode = code;
+    }else {
+        sendCode = @886;
+        CountCode = @886;
+    }
+    dic[@"countrycode"] = sendCode;
     [ZP_HomeTool requesFirst:dic success:^(id obj) {
         ZPLog(@"%@",obj);
         NSArray *ARR = [ZP_FirstModel mj_objectArrayWithKeyValuesArray:obj];

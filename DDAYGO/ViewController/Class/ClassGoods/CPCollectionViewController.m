@@ -36,7 +36,6 @@
     
     UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc]init];
     _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, self.view.height) collectionViewLayout:flowLayout];
-    
     _collectionView.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
     //     每个Cell大小
     flowLayout.itemSize = CGSizeMake((fDeviceWidth - 20)/2, (fDeviceHeight - 20) / 3 + 20);
@@ -127,7 +126,6 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     static NSString * detaled = @"DetailedController";
     DetailedController * Detailed = [[DetailedController alloc]initWithNibName:detaled bundle:nil];
     ZP_ClassGoodsModel * model = self.newsData[indexPath.row];

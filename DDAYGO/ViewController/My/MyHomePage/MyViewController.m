@@ -233,7 +233,6 @@
         model.collecedcount = obj[@"collecedcount"];
         model.historycount = obj[@"historycount"];
         [self setAllDatas:model];
-        
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
         _SdglLayoutConstraint.constant = CGFLOAT_MIN;
@@ -394,6 +393,7 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
     self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
 }
+
 // 设置
 - (IBAction)settingAction:(id)sender {
     SettingViewController * settingViewController = [[SettingViewController alloc] init];

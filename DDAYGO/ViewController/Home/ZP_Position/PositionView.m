@@ -77,7 +77,6 @@
 }
 
 - (void)Position:(NSArray *)sup {
-    
     self.arr = sup;
     NSInteger num = 0;
     int z = 0;
@@ -86,11 +85,11 @@
         if (i>0 && i%2==0) {
             z ++;
         }
-        UIView * view = [[UIView alloc]initWithFrame:CGRectMake((i-z*2) * (ZP_Width-40) / 2 + 5, z * 45 + 65, (ZP_Width-40) / 2 - 5, 1)];
+        UIView * view = [[UIView alloc]initWithFrame:CGRectMake((i-z*2) * (ZP_Width-40) / 2 + 5, z * 45 + 110, (ZP_Width-40) / 2 - 5, 0.5)];
         [view setBackgroundColor:ZP_DeepBlue];
         
         [self.contentView addSubview:view];
-        UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake((i-z*2) * ZP_Width / 2 + 10 , z * 45 + 70, ZP_Width / 2- 40 , 35)];
+        UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake((i-z*2) * ZP_Width / 2 + 10 , z * 45 + 70, ZP_Width / 2- 40 , 35)];
         btn.titleLabel.font = ZP_titleFont;
         [btn setTitleColor:ZP_textblack forState:UIControlStateNormal];
         

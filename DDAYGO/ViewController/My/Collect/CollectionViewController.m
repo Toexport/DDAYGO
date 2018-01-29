@@ -84,27 +84,32 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
     cell.CollectionBut.tag = indexPath.row;
     [cell.CollectionBut addTarget:self action:@selector(CollectionBut:) forControlEvents:UIControlEventTouchUpInside];
-    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageTag)];
-    [cell.ShopimageView addGestureRecognizer:tapGesture];
-    cell.ShopimageView.userInteractionEnabled = YES;
+//    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageTag)];
+//    [cell.ShopimageView addGestureRecognizer:tapGesture];
+//    cell.ShopimageView.userInteractionEnabled = YES;
     cell.model = _model;
     return cell;
 }
 
-// image点击事件
-- (void)imageTag {
-    DetailedController * detailed = [[DetailedController alloc]init];
-    detailed.productId =_model.productid;
-    [self.navigationController pushViewController:detailed animated:YES];
-}
+//// image点击事件
+//- (void)imageTag {
+//
+////    aid
+////    collectionid
+////productid
+//    [self.navigationController pushViewController:detailed animated:YES];
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 102;
 }
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//
-//    ZPLog(@"%ld",indexPath.row);
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DetailedController * detailed = [[DetailedController alloc]init];
+    detailed.productId =_model.productid;
+    detailed.fatherId = _model.collectionid;
+    [self.navigationController pushViewController:detailed animated:YES];
+    ZPLog(@"%ld",indexPath.row);
+}
 @end
 

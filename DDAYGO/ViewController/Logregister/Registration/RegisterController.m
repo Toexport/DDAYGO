@@ -113,7 +113,6 @@
         ZPLog(@"同意协议");
         return;
     }
-    
     [SVProgressHUD showWithStatus:@"正在注册。。。"];
     [self allData];
  
@@ -127,7 +126,6 @@
     dict[@"emailverify"] = self.ZPEmailTextFiled.textField.text;
 //这里是不是国家
     dict[@"countrycode"] = self.CountCode;
-    
     [ZP_LoginTool requestRegiser:dict success:^(id obj) {
         ZPLog(@"%@",obj);
         NSDictionary * dic = obj;

@@ -29,6 +29,7 @@
 @property (nonatomic, strong) NSArray * bannerArray;
 @property (nonatomic, strong) NSArray * ForurthArray;
 @property (nonatomic, strong) NSArray * SecondArray;
+@property (nonatomic, strong) PositionView * position;
 
 @end
 
@@ -39,8 +40,8 @@
     [self initUI];
     [self searchBox];
     [self registration];
-    [self FifthallData];
-    [self SixthAllData];
+    [self FifthallData:CountCode];
+    [self SixthAllData:CountCode];
     [self addRefresh];
     [self getadvertlist];
     [self bestSelling];
@@ -68,21 +69,17 @@
     searchBar.adjustsImageWhenHighlighted = NO;
     self.navigationItem.titleView = searchBar;
     
-    //  位置按钮
-    self.chooseCityBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    self.chooseCityBtn.frame =CGRectMake(0, 0, 60.0f, 25.0f);
-    // _chooseCityBtn.imageEdgeInsets = UIEdgeInsetsMake(6, 0, 15, 35);
-    self.chooseCityBtn.contentEdgeInsets = UIEdgeInsetsMake(6, -15, 6, 5);
-    self.chooseCityBtn.titleLabel.font = ZP_stockFont;
-    [self.chooseCityBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.chooseCityBtn setTitle:NSLocalizedString(@"臺灣", nil) forState:UIControlStateNormal];
-    [self.chooseCityBtn setImage:[UIImage imageNamed:@"ic_home_down"] forState:(UIControlStateNormal)];
-    CGFloat imageWidth = self.chooseCityBtn.imageView.bounds.size.width;
-    CGFloat labelWidth = self.chooseCityBtn.titleLabel.bounds.size.width;
-    self.chooseCityBtn.imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth , 0, -labelWidth);
-    self.self.chooseCityBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -imageWidth, 0, imageWidth);
-    [self.chooseCityBtn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.chooseCityBtn];
+//  位置按钮
+    _chooseCityBtn = [YLButton buttonWithType:(UIButtonTypeCustom)];
+    _chooseCityBtn.frame = CGRectMake(0, 0, 30.0f, 25.0f);
+    _chooseCityBtn.titleLabel.font = ZP_TooBarFont;
+    [_chooseCityBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_chooseCityBtn setTitle:NSLocalizedString(@"臺灣", nil) forState:UIControlStateNormal];
+    [_chooseCityBtn setImage:[UIImage imageNamed:@"ic_home_down"] forState:(UIControlStateNormal)];
+    [_chooseCityBtn sizeToFit];
+    _chooseCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [_chooseCityBtn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:_chooseCityBtn];
 }
 
 // 刷新
@@ -91,9 +88,8 @@
         [self.SixthArrData removeAllObjects];
         _i = 0;
         [self allData];
-        [self FifthallData];
+        [self FifthallData:CountCode];  //带参数刷新
     }];
-    
 }
 
 //  搜索框点击事件
@@ -121,17 +117,26 @@
         if (![MyViewController sharedInstanceTool].hasRemind) {
             //            [MyViewController sharedInstanceTool].hasRemind = YES;
             [self PositionallData];
+            
             NSLog(@"位置");
-            PositionView * position = [[PositionView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)];
+            _position = [[PositionView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)];
             //数据
-            [position Position:_postionArray];
+            [_position Position:_postionArray];
             //返回
-            position.ThirdBlock = ^(NSString *ContStr,NSNumber *code) {
+            _position.ThirdBlock = ^(NSString *ContStr,NSNumber *code) {
                 NSLog(@"c = %@",ContStr);
                 [_chooseCityBtn setTitle:NSLocalizedString(ContStr, nil) forState:UIControlStateNormal];
+                CountCode = code;
+                [_chooseCityBtn sizeToFit];
+//                [_chooseCityBtn setNeedsLayout];
+                
+                [self SixthAllData:code];
+                [self FifthallData:code];
+//
+//
             };
             //  显示
-            [position showInView:self.navigationController.view];
+            [_position showInView:self.navigationController.view];
         }
     } else {
         ZPLog(@"已登錄");
@@ -143,10 +148,11 @@
 - (void)PositionallData {
     [ZP_HomeTool requesPosition:nil success:^(id obj) {
         _postionArray= [ZP_PositionModel arrayWithArray:obj];
+        [_position Position:_postionArray];
         ZPLog(@"%@",obj);
+        
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
-        //        [SVProgressHUD showInfoWithStatus: NSLocalizedString(@"Server link failed", nil)];
     }];
 }
 
@@ -155,7 +161,6 @@
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"adcode"] = @"AD001";
     [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
-        
         ZPLog(@"%@",obj);
         _bannerArray = [ZP_ZeroModel mj_objectArrayWithKeyValuesArray:obj];
         [self.tableView reloadData];
@@ -208,8 +213,14 @@
 }
 
 // FifthAlldata
-- (void)FifthallData {
-    NSDictionary * dict = @{@"count":@"5",@"countrycode":@"886"};
+- (void)FifthallData:(NSNumber *)code {
+    NSNumber * sendCode;
+    if ([code intValue] > 0) {
+        sendCode = code;
+    }else {
+        sendCode = @886;
+    }
+    NSDictionary * dict = @{@"count":@"5",@"countrycode":sendCode};
     [ZP_HomeTool requestSellLikeHotCakes:dict success:^(id obj) {
         ZPLog(@"%@",obj);
         NSArray * arr = obj;
@@ -221,18 +232,23 @@
             }
         }else {
             self.newsData2 = arra;
+            self.newsData = arra;
         }
         [self.tableView reloadData];
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
-        //        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
     }];
 }
 
 // SixthArrData
-- (void)SixthAllData {
-    
-    NSDictionary * dict = @{@"acount":@"5",@"countrycode":@"886"};
+- (void)SixthAllData:(NSNumber *)code {
+    NSNumber *sendCode;
+    if ([code intValue] > 0) {
+        sendCode = code;
+    }else{
+        sendCode = @886;
+    }
+    NSDictionary * dict = @{@"acount":@"5",@"countrycode":sendCode};
     [ZP_HomeTool requSelectLikeHotCakes:dict success:^(id obj) {
         NSArray * arr = obj;
         ZPLog(@"%@",arr);
@@ -337,7 +353,9 @@
             if (indexPath.section ==4){
                 static NSString * FifthID = @"ceaaa";
                 FifthViewCell * cell = [tableView dequeueReusableCellWithIdentifier: FifthID];
+                NSLog(@"arr == %ld",self.newsData.count);
                  cell.arrData = self.newsData;
+                NSLog(@"cell = %ld",cell.arrData.count);
                 cell.ThirdBlock = ^(NSInteger tag) {
                     ZPLog(@"%ld",tag);
                     DetailedController * viewController = [[DetailedController alloc] init];
@@ -376,7 +394,8 @@
     }else if (indexPath.section == 4) {
             return ZP_Width / 4 + 35;
     }else {
-        return (ZP_Width / 3 +35)* 2+30;
+//        return (ZP_Width / 3 +35)* 2+57;
+         return (ZP_Width / 3 + 45) * 2 + 30;
         
     }
 

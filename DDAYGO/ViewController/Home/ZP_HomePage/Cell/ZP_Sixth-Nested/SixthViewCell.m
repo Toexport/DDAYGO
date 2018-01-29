@@ -8,7 +8,7 @@
 
 #import "SixthViewCell.h"
 #import "PrefixHeader.pch"
-#import "NestedCollectionViewCell.h"
+#import "NnestedCollectionViewCell.h"
 //#import "ZP_HomeTool.h"
 #import "ZP_HttpConst.h"
 #import "ZP_SixthModel.h"
@@ -43,7 +43,9 @@
     bottomCV.dataSource = self;
     [self addSubview:bottomCV];
     self.bottomCV = bottomCV;
-    [bottomCV registerClass:[NestedCollectionViewCell class] forCellWithReuseIdentifier:@"Nestedcell"];
+//    [bottomCV registerClass:[NestedCollectionViewCell class] forCellWithReuseIdentifier:@"Nestedcell"];
+    [bottomCV registerNib:[UINib nibWithNibName:@"NnestedCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"NnestedCollectionViewCell"];
+    
 }
 
 
@@ -101,7 +103,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    NestedCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Nestedcell" forIndexPath:indexPath];
+    NnestedCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"NnestedCollectionViewCell" forIndexPath:indexPath];
     ZP_SixthModel * model = self.ArrData[indexPath.row];
     [cell cellWithdic:model];
     return cell;
@@ -116,10 +118,10 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.ArrData.count < 1) {
-        return CGSizeMake(CGFLOAT_MIN, CGFLOAT_MIN);
-    }
-    return CGSizeMake(ZP_Width/3-1, ZP_Width / 3+ 35);
+//    if (self.ArrData.count < 1) {
+//        return CGSizeMake(CGFLOAT_MIN, CGFLOAT_MIN);
+//    }
+    return CGSizeMake(ZP_Width/3-1, (ZP_Width / 3+ 40));
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {

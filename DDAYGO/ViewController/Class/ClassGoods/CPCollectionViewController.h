@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CPCollectionViewController : UIViewController
+
 @property (nonatomic, strong) NSNumber * fatherId;
 
 @property (nonatomic, strong) NSString * nameStr;
