@@ -165,45 +165,6 @@
         make.bottom.equalTo(SharacterLabel).offset(0);
     }];
     _QuantityLabel = QuantityLabel;
-    
-////  合计
-//    ZP_GeneralLabel * CountLabel = [ZP_GeneralLabel initWithtextLabel:_CountLabel.text textColor:ZP_textblack font:ZP_addBtnTextdetaFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-//    CountLabel.text = NSLocalizedString(@"合計:", nil);
-//    [self.contentView addSubview:CountLabel];
-//    [CountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.right.equalTo(self).offset(-165);
-//        make.bottom.equalTo(Backgroundview).offset(25);
-//    }];
-//    _CountLabel = CountLabel;
-//
-////  金额
-//    ZP_GeneralLabel * AmountLabel = [ZP_GeneralLabel initWithtextLabel:_AmountLabel.text textColor:ZP_textblack font:ZP_addBtnTextdetaFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-//    [self.contentView addSubview:AmountLabel];
-//    [AmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(CountLabel).offset(38);
-//        make.top.equalTo(CountLabel).offset(0);
-//    }];
-//    _AmountLabel = AmountLabel;
-//
-////  运费
-//    ZP_GeneralLabel * FreightLabel = [ZP_GeneralLabel initWithtextLabel:_FreightLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-//    FreightLabel.text = NSLocalizedString(@"(運費", nil);
-//    [self.contentView addSubview:FreightLabel];
-//    [FreightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(AmountLabel).offset(75);
-//        make.top.equalTo(AmountLabel).offset(+2);
-//    }];
-//    _FreightLabel = FreightLabel;
-//
-////  快递费
-//    ZP_GeneralLabel * ExpressFeeLabel = [ZP_GeneralLabel initWithtextLabel:_ExpressFeeLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-////    ExpressFeeLabel.text = @"0.00";
-//    [self.contentView addSubview:ExpressFeeLabel];
-//    _ExpressFeeLabel = ExpressFeeLabel;
-//    [ExpressFeeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(FreightLabel).offset(35);
-//        make.top.equalTo(FreightLabel).offset(0);
-//    }];
 }
 
 - (void)InformationWithDic:(OrdersdetailModel *)dic WithModel:(OrderModel *)model {

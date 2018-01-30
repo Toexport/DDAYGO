@@ -58,7 +58,6 @@
     
     //  快递费
     ZP_GeneralLabel * ExpressFeeLabel = [ZP_GeneralLabel initWithtextLabel:_ExpressFeeLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    //    ExpressFeeLabel.text = @"0.00";
     [self.contentView addSubview:ExpressFeeLabel];
     _ExpressFeeLabel = ExpressFeeLabel;
     [ExpressFeeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -116,7 +115,6 @@
     _OnceagainBut = OnceagainBut;
 }
 
-
 - (void)InformationWithDic:(OrdersdetailModel *)dic WithModel:(OrderModel *)model {
     int a = [dic.state intValue];
     NSLog(@"Stata = %D",a);
@@ -128,20 +126,17 @@
             _OnceagainBut.userInteractionEnabled = NO;
             break;
         case 1:
-//            _TradingLabel.text = @"待付款";
             [_OnceagainBut setTitle:@"付款" forState:UIControlStateNormal];
 //            _DeleteBut.hidden = NO;
-            //            [_AppraiseBut setTitle:@"取消訂單" forState:UIControlStateNormal];
+//            [_AppraiseBut setTitle:@"取消訂單" forState:UIControlStateNormal];
             _AppraiseBut.hidden = YES;
-            //例如 --点击第一个看能不能点击
+//例如 --点击第一个看能不能点击
             //            NSLog(@"Stata = %D",a);
             _AppraiseBut.userInteractionEnabled = NO;
             //            ZPLog(@"Stata = %D",a);
             break;
             //          退款
         case 2:
-//            _TradingLabel.text = @"待發貨";
-//            _DeleteBut.hidden = YES;
             [_OnceagainBut setTitle:@"退款" forState:UIControlStateNormal];
             _OnceagainBut.backgroundColor = nil;
             [self.OnceagainBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
@@ -152,8 +147,6 @@
             break;
             
         case 3:
-//            _TradingLabel.text = @"待收貨";
-//            _DeleteBut.hidden = YES;
             [_OnceagainBut setTitle:@"確認收貨" forState:UIControlStateNormal];
             [_AppraiseBut setTitle:@"退换货" forState:UIControlStateNormal];
             //            NSLog(@"Stata = %D",a);
@@ -161,13 +154,11 @@
             //            ZPLog(@"Stata = %D",a);
             break;
         case 4:
-//            _TradingLabel.text = @"交易成功";
-//            _DeleteBut.hidden = NO;
             [_OnceagainBut setTitle:@"評價" forState:UIControlStateNormal];
             _OnceagainBut.backgroundColor = nil;
             [self.OnceagainBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
-            //            [_AppraiseBut setTitle:@"评价" forState:UIControlStateNormal];
-            //        你是根据这个有判断是否隐藏 不是根据4，不是更具4的
+//            [_AppraiseBut setTitle:@"评价" forState:UIControlStateNormal];
+//        你是根据这个有判断是否隐藏 不是根据4，不是更具4的
             if ([_model.reviewscount integerValue] == 0) {
                 //                ／／你看下你的意思啊· 你是等于0
                 _OnceagainBut.hidden = NO;
@@ -178,8 +169,6 @@
             //            ZPLog(@"Stata = %D",a);
             break;
         case 5:
-//            _TradingLabel.text = @"交易成功";
-//            _DeleteBut.hidden = YES;
             //            [_OnceagainBut setTitle:@"再次購買" forState:UIControlStateNormal];
             //            [_OnceagainBut setTitle:@"评价" forState:UIControlStateNormal];
             _AppraiseBut.hidden = YES;
@@ -187,18 +176,14 @@
             //            ZPLog(@"Stata = %D",a);
             break;
         case 6:
-//            _TradingLabel.text = @"退款/售后";
-//            _DeleteBut.hidden = YES;
             [_OnceagainBut setTitle:@"查看详情" forState:UIControlStateNormal];
             _OnceagainBut.hidden = NO;
             _AppraiseBut.hidden = YES;
             //            ZPLog(@"Stata = %D",a);
             break;
         case 7:
-//            _TradingLabel.text = @"换货中";
             _OnceagainBut.backgroundColor = nil;
             [self.OnceagainBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
-//            _DeleteBut.hidden = YES;
             [_OnceagainBut setTitle:@"查看详情" forState:UIControlStateNormal];
             _OnceagainBut.hidden = NO;
             _AppraiseBut.hidden = YES;

@@ -48,7 +48,7 @@
     }];
     _DateLabel = DateLabel;
     
-//     删除订单按钮
+//    删除订单按钮
     UIButton * DeleteBut = [UIButton buttonWithType:UIButtonTypeSystem];
     [DeleteBut setBackgroundImage:[UIImage imageNamed:@"ic_footprint_delete_normal"] forState:UIControlStateNormal];
     //    [DeleteBut addTarget:self action:@selector(DeleteBut:) forControlEvents:UIControlEventTouchUpInside];
@@ -78,7 +78,6 @@
     ZPLog(@"Stata = %D",a);
     switch (a) {
         case 0:
-            
             break;
         case 1:
            _TradingLabel.text = @"待付款";

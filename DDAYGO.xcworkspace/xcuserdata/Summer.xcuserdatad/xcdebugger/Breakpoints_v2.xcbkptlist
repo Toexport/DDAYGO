@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DDAYGO/ViewController/Order/OrderHomePage/OrderView/ZP_OrderController.m"
-            timestampString = "539009873.384146"
+            filePath = "DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+            timestampString = "539017222.992332"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
-            landmarkName = "-getDataWithState"
+            startingLineNumber = "629"
+            endingLineNumber = "629"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

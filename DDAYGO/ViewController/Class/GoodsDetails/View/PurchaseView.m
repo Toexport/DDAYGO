@@ -14,7 +14,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
     self.backgroundView = [[UIView alloc] initWithFrame:self.bounds];
     [self addSubview:self.backgroundView];
     self.userInteractionEnabled = YES;
@@ -23,9 +22,7 @@
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
     self.backgroundView.userInteractionEnabled = YES;
     [self.backgroundView addGestureRecognizer:tap];
-    
     self.standardList = @[NSLocalizedString(@"商品类型", nil),NSLocalizedString(@"", nil)];
-//
     self.standardTypeList = @[NSLocalizedString(@"商品規格", nil),NSLocalizedString(@"", nil)];
     self.standardTypeList = @[NSLocalizedString(@"", nil),NSLocalizedString(@"購買數量", nil)];
 // 商品价格

@@ -59,6 +59,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addUI];
+    [self addRefresh];
     //数据都写在这个页面·刷新什么的都在这个页面写·
 
 
@@ -189,7 +190,6 @@
             but.badgeBGColor = [UIColor whiteColor];
         }
 /********************/
-        
     [self.tableview.mj_header endRefreshing];  // 結束刷新
     [self.tableview reloadData];
     } failure:^(NSError *error) {
@@ -197,8 +197,9 @@
         [self loading];
     }];
 }
-//**********************
-// 订单协议（此方法只是为了加载导航栏上的数字）
+
+/**********************/
+// 订单协议（此方法只是为了加载导航栏上的个数）
 - (void)getDataWithState:(NSInteger )i {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     switch (i) {
@@ -219,6 +220,7 @@
     }
     UIButton * but = [self.titleView viewWithTag:666 + i];
     NSLog(@"but = %@",but.titleLabel.text);
+/**********************/
     dic[@"days"] = @"365";
     dic[@"token"] = Token;
     dic[@"orderno"] = @"";

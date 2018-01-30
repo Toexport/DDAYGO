@@ -60,7 +60,7 @@
         make.right.equalTo(Mainfigure).offset(ZP_Width - 35 -95);
     }];
     
-    //     商品介绍
+//     商品介绍
     ZP_GeneralLabel * MerchandiseIntroducedLabel = [ZP_GeneralLabel initWithtextLabel:_MerchandiseIntroducedLabel.text textColor:ZP_TypefaceColor font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     MerchandiseIntroducedLabel.lineBreakMode = NSLineBreakByWordWrapping; //文字分行
     MerchandiseIntroducedLabel.numberOfLines = 0;
@@ -151,7 +151,7 @@
     _titleLabel.text = model.productname;
     _MerchandiseIntroducedLabel.text = model.productremark;
     if (model.colorname.length < 1) {
-        _descLabel.hidden = YES;//你自己看 model 。colorename 是不是等于nil、
+        _descLabel.hidden = YES;
     }else {
         _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",model.colorname];
     }
@@ -160,14 +160,10 @@
     }else {
         _SizeLanbel.text = [NSString stringWithFormat:@"尺碼:%@",model.normname];
     }
-    
-//    _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",model.colorname];
-//    _SizeLanbel.text = [NSString stringWithFormat:@"尺碼:%@",model.normname];
     _numLabel.text = [NSString stringWithFormat:@"%@",model.amount];
 }
 
 - (void)buttonClick:(UIButton *)sender {
-
     if ([_numLabel.text integerValue] <= 1) {
         [SVProgressHUD showErrorWithStatus:@"购买数量不能少于1"];
         _numLabel.text = @"1";
@@ -179,16 +175,16 @@
 }
 
 - (void)addClick:(UIButton *)sender {
-    ZP_ShoppingModel * model = [[ZP_ShoppingModel alloc]init];
-    if (model.productamount.integerValue < [_numLabel.text integerValue]) {
+    
+    if (self.productamountmodel.productamount.integerValue <= [_numLabel.text integerValue]) {
         [SVProgressHUD showErrorWithStatus:@"购买数量不能大于库存"];
+        ZPLog(@"%@",self.productamountmodel.productamount);
         return;
     }else {
     _numLabel.text = [NSString stringWithFormat:@"%ld",[_numLabel.text integerValue]+1];
     self.btnClickBlock(_numLabel.text);
 }
 }
-
 //  筛选
 - (void)ScreeningBut:(UIButton *)sender {
     NSLog(@"筛选");

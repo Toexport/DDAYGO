@@ -12,8 +12,6 @@
 @class ZP_CartsShopModel;
 
 @interface ZP_ShoppingModel : NSObject
-
-
 /**运费总金额*/
 @property (nonatomic, strong) NSNumber * freightamount;
 /**订单总金额*/
@@ -23,7 +21,7 @@
 /**
  *商品库存数量
  */
-@property (nonatomic, strong) NSNumber *productamount;
+@property (nonatomic, strong) NSNumber * productamount;
 
 @property (nonatomic, strong) NSArray<ZP_CartsModel *> *carts;
 @property (nonatomic, strong) NSArray<ZP_CartsShopModel *> *cartshop;
@@ -46,7 +44,6 @@
 @property (nonatomic, strong) NSNumber * weight;
 @property (nonatomic, strong) NSNumber * priceamount;
 @property (nonatomic, strong) NSNumber * productcost;
-
 @property (nonatomic, strong) NSString * createtime;
 @property (nonatomic, strong) NSString * productname;
 @property (nonatomic, strong) NSString * defaultimg;
@@ -54,7 +51,6 @@
 @property (nonatomic, strong) NSString * colorname;
 @property (nonatomic, strong) NSString * normname;
 @property (nonatomic, strong) NSString * suppliername;
-
 + (NSMutableArray *)arrayWithArray:(NSArray *)array;
 
 @end

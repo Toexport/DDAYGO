@@ -14,9 +14,10 @@
 #import "ZP_ClassViewTool.h"
 #import "collectionModel.h"
 #import "DetailedController.h"
-@interface CollectionViewController () {
-    NSArray *_dataArray;
+@interface CollectionViewController (){
+    int _i;
 }
+@property (nonatomic, strong) NSMutableArray * dataArray;
 @end
 @implementation CollectionViewController
 
@@ -34,7 +35,21 @@
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
-
+// 刷新
+- (void)addRefresh {
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.dataArray removeAllObjects];
+        _i = _dataArray;
+        [self getData];
+    }];
+    
+    //    [self.tableview.mj_header beginRefreshing];
+    //    self.tableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+    //         [self.newsData removeAllObjects];
+    //        _i+=10;
+    //        [self getDataWithState];
+    //    }];
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self getData];
@@ -47,6 +62,7 @@
     [ZP_MyTool requestgetcollections:dic success:^(id json) {
         ZPLog(@"%@",json);
     _dataArray = [collectionModel arrayWithArray:json[@"list"]];
+    [self.tableView.mj_header endRefreshing];
     [self.tableView reloadData];
     } failure:^(NSError *error) {
         ZPLog(@"error");
@@ -57,7 +73,7 @@
     //取消收藏
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     collectionModel * model = _dataArray[sender.tag];
-    dic[@"productid"] = model.productid; // 这个为空
+    dic[@"productid"] = model.productid;
     dic[@"token"] = Token;
     [ZP_ClassViewTool requCancelshoucang:dic success:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"ok"]) {

@@ -86,6 +86,7 @@
 // 获取购物车数据（获取接口）
 - (void)allData {
     [ZP_shoopingTool requesshoppingData:Token success:^(id obj) {
+        ZPLog(@"%@",obj);
         if (obj) {
             self.selectArray = obj;
             [self successful];
@@ -119,7 +120,6 @@
                 mustr = [NSString stringWithFormat:@"%ld",model.array.count +[mustr integerValue]];
             }];
             self.navigationController.tabBarItem.badgeValue = mustr;
-            
             [self updateData:0];
             [self.tableView reloadData];
             
@@ -137,7 +137,6 @@
     } failure:^(NSError *error) {
         [self loading];
     }];
-    
 }
 
 // 刷新
@@ -319,7 +318,6 @@
 
 #pragma mark -- cell 选中
 - (void)selectClick:(UIButton *)sender {
-    
     NSInteger section = sender.tag / 100;
     NSInteger row = sender.tag % 100;
     ZP_CartsShopModel * models = self.nameArray[section];
@@ -329,18 +327,14 @@
         return;
     }
     sender.selected =! sender.selected;
-    
     if (!_bjBool) {
         ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
         cell.buttom.selected = sender.selected;
-        
     }
     else {
         EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
         cell.button.selected = sender.selected;
-        
     }
-    
     [self updataMoneyOrNum];
 }
 
@@ -353,13 +347,10 @@
     NSInteger data = 0;
     NSInteger dataCount = 0;
     
-    
     NSInteger section = tag / 100;
     NSInteger row = tag % 100;
-    
     ZP_CartsShopModel * models = self.nameArray[section];
     ZP_CartsModel * model = models.array[row];
-    
     
     for (int i = 0; i < models.array.count; i ++) {
         if (!_bjBool) {
@@ -515,7 +506,6 @@
         [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"You have not selected goods ", nil)];
         NSLog(@"没选选中，不跳");
     }
-    
 }
 
 // 设置按钮取消高亮属性
@@ -531,7 +521,6 @@
     dic[@"stockid"] = _modelstockid;
     dic[@"token"] = Token;
     [ZP_shoopingTool requesscartitemdelte:dic success:^(id obj) {
-        
         if ([obj[@"result"]isEqualToString:@"ok"]) {
             [self allData];
             [SVProgressHUD showSuccessWithStatus:@"刪除成功!"];
@@ -547,7 +536,6 @@
 }
 
 - (BOOL)YESOrNoPush {
-    
     [self.nameArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         ZP_CartsShopModel *model = obj;
         
@@ -635,6 +623,7 @@
             [_selectArray replaceObjectAtIndex:indexPath.row withObject:str];
             NSLog(@"shu liang = %@",str); //这个就是数量
             _numstr = str;
+//            ZP_CartsModel
             _cardid = model.cartid;
             NSLog(@"- num = %@,cardid = %@",_numstr,_cardid);
         };

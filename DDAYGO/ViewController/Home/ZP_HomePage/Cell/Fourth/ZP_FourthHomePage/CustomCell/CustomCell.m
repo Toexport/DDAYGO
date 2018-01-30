@@ -122,9 +122,9 @@
 - (void)cellWithdic:(ZP_FourthModel *)model {
     [_imageView1 sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
     _introduceLabel.text = model.productname;
-    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
-    _CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
-    _PreferentialLabel.text = [NSString stringWithFormat:@"%@",model.PreferentialLabel]; // 优惠价格
+//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+//    _CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+    _PreferentialLabel.text = [NSString stringWithFormat:@"NT%@",model.PreferentialLabel]; // 优惠价格
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
     _TrademarkLabel.text = model.TrademarkLabel;
 }

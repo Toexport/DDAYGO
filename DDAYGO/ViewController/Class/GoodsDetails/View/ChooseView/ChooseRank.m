@@ -24,9 +24,7 @@
 
         self.frame = frame;
         self.title = title;
-
         self.rankArray = [NSArray arrayWithArray:titleArr];
-        
         [self rankView];
     }
     return self;

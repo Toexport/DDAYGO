@@ -129,7 +129,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     DetailedController * detailed = [[DetailedController alloc]init];
-//    detailed.fatherId = _model1.productid;
+    detailed.fatherId = _model1.productid;
     [self.navigationController pushViewController:detailed animated:YES];
     ZPLog(@"%ld",indexPath.row);
     
