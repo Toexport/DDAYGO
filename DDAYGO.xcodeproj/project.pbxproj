@@ -171,6 +171,19 @@
 		4D0948F21FDD9BDC00FC4BCA /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0948F01FDD9BDC00FC4BCA /* ProductTableViewCell.xib */; };
 		4D0949001FDEF77500FC4BCA /* EvaluateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0948FE1FDEF77400FC4BCA /* EvaluateTableViewCell.m */; };
 		4D0949011FDEF77500FC4BCA /* EvaluateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0948FF1FDEF77500FC4BCA /* EvaluateTableViewCell.xib */; };
+		4DCDA7782020D5B700ED64DC /* MyOrderTopTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDA75F2020D5B600ED64DC /* MyOrderTopTabBar.m */; };
+		4DCDA7792020D5B700ED64DC /* TabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDA7612020D5B600ED64DC /* TabButton.m */; };
+		4DCDA77A2020D5B700ED64DC /* global.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDA7642020D5B600ED64DC /* global.m */; };
+		4DCDA77B2020D5B700ED64DC /* BuyMiddleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCDA7672020D5B700ED64DC /* BuyMiddleView.xib */; };
+		4DCDA77C2020D5B700ED64DC /* BGCenterLineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDA7682020D5B700ED64DC /* BGCenterLineLabel.m */; };
+		4DCDA77D2020D5B700ED64DC /* BuyBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCDA7692020D5B700ED64DC /* BuyBottomView.xib */; };
+		4DCDA77E2020D5B700ED64DC /* BuyTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCDA76A2020D5B700ED64DC /* BuyTopView.xib */; };
+		4DCDA77F2020D5B700ED64DC /* BuyTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDA76C2020D5B700ED64DC /* BuyTopView.m */; };
+		4DCDA7802020D5B700ED64DC /* BuyBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDA76F2020D5B700ED64DC /* BuyBottomView.m */; };
+		4DCDA7812020D5B700ED64DC /* BuyMiddleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDA7712020D5B700ED64DC /* BuyMiddleView.m */; };
+		4DCDA7822020D5B700ED64DC /* BuyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DCDA7752020D5B700ED64DC /* BuyViewController.xib */; };
+		4DCDA7832020D5B700ED64DC /* BuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDA7762020D5B700ED64DC /* BuyViewController.m */; };
+		4DCDA7842020D5B700ED64DC /* NaviBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDA7772020D5B700ED64DC /* NaviBase.m */; };
 		6FA32ACCA83E0A32B68FDCFC /* libPods-DDAYGO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC9B15E33AA25F355BC51C7 /* libPods-DDAYGO.a */; };
 		C40763711FF50E9A00180975 /* IQTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C407636F1FF50E9A00180975 /* IQTableView.m */; };
 		C407AC131FD7E917004A8DE8 /* 提现记录_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = C407AC121FD7E916004A8DE8 /* 提现记录_spec.png */; };
@@ -770,6 +783,28 @@
 		4D0948FD1FDEF77400FC4BCA /* EvaluateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateTableViewCell.h; sourceTree = "<group>"; };
 		4D0948FE1FDEF77400FC4BCA /* EvaluateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateTableViewCell.m; sourceTree = "<group>"; };
 		4D0948FF1FDEF77500FC4BCA /* EvaluateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluateTableViewCell.xib; sourceTree = "<group>"; };
+		4DCDA75E2020D5B600ED64DC /* TabButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabButton.h; sourceTree = "<group>"; };
+		4DCDA75F2020D5B600ED64DC /* MyOrderTopTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderTopTabBar.m; sourceTree = "<group>"; };
+		4DCDA7602020D5B600ED64DC /* MyOrderTopTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderTopTabBar.h; sourceTree = "<group>"; };
+		4DCDA7612020D5B600ED64DC /* TabButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabButton.m; sourceTree = "<group>"; };
+		4DCDA7632020D5B600ED64DC /* global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = global.h; sourceTree = "<group>"; };
+		4DCDA7642020D5B600ED64DC /* global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = global.m; sourceTree = "<group>"; };
+		4DCDA7672020D5B700ED64DC /* BuyMiddleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyMiddleView.xib; sourceTree = "<group>"; };
+		4DCDA7682020D5B700ED64DC /* BGCenterLineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGCenterLineLabel.m; sourceTree = "<group>"; };
+		4DCDA7692020D5B700ED64DC /* BuyBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyBottomView.xib; sourceTree = "<group>"; };
+		4DCDA76A2020D5B700ED64DC /* BuyTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyTopView.xib; sourceTree = "<group>"; };
+		4DCDA76B2020D5B700ED64DC /* BuyMiddleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyMiddleView.h; sourceTree = "<group>"; };
+		4DCDA76C2020D5B700ED64DC /* BuyTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyTopView.m; sourceTree = "<group>"; };
+		4DCDA76D2020D5B700ED64DC /* BuyBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyBottomView.h; sourceTree = "<group>"; };
+		4DCDA76E2020D5B700ED64DC /* BGCenterLineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGCenterLineLabel.h; sourceTree = "<group>"; };
+		4DCDA76F2020D5B700ED64DC /* BuyBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyBottomView.m; sourceTree = "<group>"; };
+		4DCDA7702020D5B700ED64DC /* BuyTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyTopView.h; sourceTree = "<group>"; };
+		4DCDA7712020D5B700ED64DC /* BuyMiddleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyMiddleView.m; sourceTree = "<group>"; };
+		4DCDA7732020D5B700ED64DC /* BuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyViewController.h; sourceTree = "<group>"; };
+		4DCDA7742020D5B700ED64DC /* NaviBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviBase.h; sourceTree = "<group>"; };
+		4DCDA7752020D5B700ED64DC /* BuyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyViewController.xib; sourceTree = "<group>"; };
+		4DCDA7762020D5B700ED64DC /* BuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyViewController.m; sourceTree = "<group>"; };
+		4DCDA7772020D5B700ED64DC /* NaviBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaviBase.m; sourceTree = "<group>"; };
 		6A14FE6EC0BD7CDD0156BD7F /* Pods-DDAYGO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDAYGO.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDAYGO/Pods-DDAYGO.release.xcconfig"; sourceTree = "<group>"; };
 		949508FD8C61CA662D6E2034 /* Pods-DDAYGO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDAYGO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDAYGO/Pods-DDAYGO.debug.xcconfig"; sourceTree = "<group>"; };
 		C407636F1FF50E9A00180975 /* IQTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTableView.m; sourceTree = "<group>"; };
@@ -2455,6 +2490,65 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4DCDA75D2020D5B600ED64DC /* MyOrderTopTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				4DCDA75E2020D5B600ED64DC /* TabButton.h */,
+				4DCDA75F2020D5B600ED64DC /* MyOrderTopTabBar.m */,
+				4DCDA7602020D5B600ED64DC /* MyOrderTopTabBar.h */,
+				4DCDA7612020D5B600ED64DC /* TabButton.m */,
+			);
+			path = MyOrderTopTabBar;
+			sourceTree = "<group>";
+		};
+		4DCDA7622020D5B600ED64DC /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				4DCDA7632020D5B600ED64DC /* global.h */,
+				4DCDA7642020D5B600ED64DC /* global.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		4DCDA7652020D5B700ED64DC /* GoodsAndBuyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4DCDA7662020D5B700ED64DC /* View */,
+				4DCDA7722020D5B700ED64DC /* ViewController */,
+			);
+			path = GoodsAndBuyViewController;
+			sourceTree = "<group>";
+		};
+		4DCDA7662020D5B700ED64DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4DCDA7672020D5B700ED64DC /* BuyMiddleView.xib */,
+				4DCDA7682020D5B700ED64DC /* BGCenterLineLabel.m */,
+				4DCDA7692020D5B700ED64DC /* BuyBottomView.xib */,
+				4DCDA76A2020D5B700ED64DC /* BuyTopView.xib */,
+				4DCDA76B2020D5B700ED64DC /* BuyMiddleView.h */,
+				4DCDA76C2020D5B700ED64DC /* BuyTopView.m */,
+				4DCDA76D2020D5B700ED64DC /* BuyBottomView.h */,
+				4DCDA76E2020D5B700ED64DC /* BGCenterLineLabel.h */,
+				4DCDA76F2020D5B700ED64DC /* BuyBottomView.m */,
+				4DCDA7702020D5B700ED64DC /* BuyTopView.h */,
+				4DCDA7712020D5B700ED64DC /* BuyMiddleView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4DCDA7722020D5B700ED64DC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4DCDA7732020D5B700ED64DC /* BuyViewController.h */,
+				4DCDA7742020D5B700ED64DC /* NaviBase.h */,
+				4DCDA7752020D5B700ED64DC /* BuyViewController.xib */,
+				4DCDA7762020D5B700ED64DC /* BuyViewController.m */,
+				4DCDA7772020D5B700ED64DC /* NaviBase.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		C40580FC200351EA0033C010 /* LanguangHomePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -3576,6 +3670,9 @@
 		C47E75D41FB5A1C7009F279A /* GoodsDetails */ = {
 			isa = PBXGroup;
 			children = (
+				4DCDA7652020D5B700ED64DC /* GoodsAndBuyViewController */,
+				4DCDA75D2020D5B600ED64DC /* MyOrderTopTabBar */,
+				4DCDA7622020D5B600ED64DC /* Tools */,
 				C47E75DD1FB5A1C7009F279A /* DetailedController.h */,
 				C47E75DE1FB5A1C7009F279A /* DetailedController.m */,
 				C47E765F1FB5A5A6009F279A /* DetailedController.xib */,
@@ -4288,12 +4385,14 @@
 				C4411DA8200F626200CE906F /* iconn_no_network@3x.png in Resources */,
 				C4411DB0200F626200CE906F /* loading5.png in Resources */,
 				C4411D8D200EFB4900CE906F /* AboutDDAYGOController.xib in Resources */,
+				4DCDA77D2020D5B700ED64DC /* BuyBottomView.xib in Resources */,
 				06F572211F9F1E8700D61FDB /* BillViewController.xib in Resources */,
 				C4AD0753200C7A5D00B8FF6E /* LPDImagePickerController.bundle in Resources */,
 				06F5716C1F9F15CE00D61FDB /* CollectionTableViewCell.xib in Resources */,
 				C4411DAB200F626200CE906F /* loading11.png in Resources */,
 				06F571901F9F16E600D61FDB /* NewsTableViewCell.xib in Resources */,
 				06621DB91F9758AE0030983F /* ForgetPswController.xib in Resources */,
+				4DCDA77E2020D5B700ED64DC /* BuyTopView.xib in Resources */,
 				06F571D61F9F1A7900D61FDB /* ResetPasswordViewController.xib in Resources */,
 				C435174C1FB2ACE80066302E /* OrdersViewController.xib in Resources */,
 				0682BE6D1F90725700894F4E /* img_home_advertisemen.png in Resources */,
@@ -4361,6 +4460,7 @@
 				C492A1BC1FD15189009FF57B /* 扫码付款状态.png in Resources */,
 				064249821F99F36000340EBA /* PayPassController.xib in Resources */,
 				C47BBBF11FE510600000FFE6 /* ZP_DetailsSistoryAwardTableViewCell.xib in Resources */,
+				4DCDA7822020D5B700ED64DC /* BuyViewController.xib in Resources */,
 				06F571DA1F9F1A7900D61FDB /* AddressViewController.xib in Resources */,
 				06F571DE1F9F1A7900D61FDB /* AddAddressViewController.xib in Resources */,
 				C41FF4DA1FFF53F7009B720D /* ZP_InstructionController.xib in Resources */,
@@ -4378,6 +4478,7 @@
 				C4535E3E1FC5654500DFFD62 /* PayMoneyCell.xib in Resources */,
 				0682BE6B1F906D7B00894F4E /* Shopping2.png in Resources */,
 				C4BF36EE201EBC2700C55DCA /* NnestedCollectionViewCell.xib in Resources */,
+				4DCDA77B2020D5B700ED64DC /* BuyMiddleView.xib in Resources */,
 				C492A17E1FD0ECB7009FF57B /* ZP_HistoryVetController.xib in Resources */,
 				C4A3FFD3201B03C7001BCB30 /* DDAYGO IHTTP协议1.0.docx in Resources */,
 				06F5722B1F9F1E8700D61FDB /* OrderManagerCollectionViewCell.xib in Resources */,
@@ -4529,6 +4630,7 @@
 				C4AD0767200C963E00B8FF6E /* RefundServiceModel.m in Sources */,
 				C4AD075C200C7A5D00B8FF6E /* LPDPhotoPreviewCell.m in Sources */,
 				C45FAF961FCD688000BD4CE1 /* UIView+Frame.m in Sources */,
+				4DCDA7782020D5B700ED64DC /* MyOrderTopTabBar.m in Sources */,
 				065099DF1F6247F7002F62D4 /* UIImage+Extension.m in Sources */,
 				C42A17451FF2544100680F92 /* tableHeadView1.m in Sources */,
 				06F5710A1F9F0D3A00D61FDB /* OrderViewController.m in Sources */,
@@ -4548,8 +4650,10 @@
 				C42A17411FF2532400680F92 /* BetTableViewMyCell2.m in Sources */,
 				C40763711FF50E9A00180975 /* IQTableView.m in Sources */,
 				C47901DC1FF7303C0027AABD /* JXPopoverAction.m in Sources */,
+				4DCDA7832020D5B700ED64DC /* BuyViewController.m in Sources */,
 				06621DAD1F9758720030983F /* TextView.m in Sources */,
 				C420EDE81FF3D7E9005ECE30 /* CALayer+UIColor.m in Sources */,
+				4DCDA7812020D5B700ED64DC /* BuyMiddleView.m in Sources */,
 				C425BEB41FC832140097DB8F /* ZP_FootprintModel.m in Sources */,
 				C4D9E7071FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.m in Sources */,
 				C43987801FF4C67100044E21 /* SupplierTableViewCell.m in Sources */,
@@ -4559,6 +4663,7 @@
 				0662AB341F9592A50031F22B /* VPImageCropperViewController.m in Sources */,
 				C47E762F1FB5A1C7009F279A /* DetailedViewCell.m in Sources */,
 				C477507E1FBA990E00AE8B3F /* ZP_PositionModel.m in Sources */,
+				4DCDA77F2020D5B700ED64DC /* BuyTopView.m in Sources */,
 				C4411D8C200EFB4900CE906F /* AboutDDAYGOController.m in Sources */,
 				C44D6D111FD8CF070002DAF2 /* PayViewController.m in Sources */,
 				064449AD1F6A9B250004DFE4 /* MJRefreshAutoNormalFooter.m in Sources */,
@@ -4632,6 +4737,7 @@
 				C44D6D0F1FD8CF070002DAF2 /* PayViewCell.m in Sources */,
 				C425BEAA1FC813C30097DB8F /* FSSegmentTitleView.m in Sources */,
 				C4AD075B200C7A5D00B8FF6E /* LPDPhotoPickerController.m in Sources */,
+				4DCDA7792020D5B700ED64DC /* TabButton.m in Sources */,
 				C4AD0757200C7A5D00B8FF6E /* LPDImageManager.m in Sources */,
 				C45F22E51FA0617E00F5DB41 /* ZP_HttpConst.m in Sources */,
 				C409F86E1FA17336009DE7B1 /* NestedCollectionViewCell.m in Sources */,
@@ -4660,6 +4766,7 @@
 				064449A81F6A9B250004DFE4 /* MJRefreshBackFooter.m in Sources */,
 				C420EDE51FF3D397005ECE30 /* UIViewController+LLProgress.m in Sources */,
 				C47212B81FB1A5DC0055578E /* CustomCell.m in Sources */,
+				4DCDA7842020D5B700ED64DC /* NaviBase.m in Sources */,
 				C47E75911FB57846009F279A /* ZP_ShoppingModel.m in Sources */,
 				06F571141F9F0D6800D61FDB /* AppraiseViewCell.m in Sources */,
 				C47E764D1FB5A1C7009F279A /* ZP_ClassViewTool.m in Sources */,
@@ -4680,10 +4787,12 @@
 				064449AC1F6A9B250004DFE4 /* MJRefreshAutoGifFooter.m in Sources */,
 				06621D9A1F9757B40030983F /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				C45F22CD1FA05A8E00F5DB41 /* ThemeManager.m in Sources */,
+				4DCDA7802020D5B700ED64DC /* BuyBottomView.m in Sources */,
 				C41CBE2F1FF7EEB000F9B227 /* ZP_LotteryHistoricalBettingNumberModel.m in Sources */,
 				065B3CDE1F984F8A00A8E6D6 /* TAAnimatedDotView.m in Sources */,
 				C47E76451FB5A1C7009F279A /* ShoplntroductionCell.m in Sources */,
 				C479C6A41FE3CB5800A58A2A /* MJPropertyKey.m in Sources */,
+				4DCDA77C2020D5B700ED64DC /* BGCenterLineLabel.m in Sources */,
 				06F572301F9F1E8700D61FDB /* OrderSearchView.m in Sources */,
 				C4AD0760200C7A5D00B8FF6E /* LPDVideoPlayerController.m in Sources */,
 				C4B04DA82008B9A9009F7AF9 /* SelectModel.m in Sources */,
@@ -4709,6 +4818,7 @@
 				065B3CE21F984F8A00A8E6D6 /* SDCycleScrollView.m in Sources */,
 				C47BBC041FF40A180000FFE6 /* ZP_HistoryModel.m in Sources */,
 				064AB1951F73B2FF007FE5F0 /* MainViewController.m in Sources */,
+				4DCDA77A2020D5B700ED64DC /* global.m in Sources */,
 				06418F571F7A076A00479523 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				C45F233B1FA0757A00F5DB41 /* ThirdViewCell.m in Sources */,
 				C47E76221FB5A1C7009F279A /* CPCollectionViewCell.m in Sources */,

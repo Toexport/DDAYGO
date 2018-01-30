@@ -19,7 +19,7 @@
 @property (nonatomic, strong) UILabel * numLabel;  // 数量
 @property (nonatomic, strong) UIButton * addButton;  // 增加
 @property (nonatomic, copy) void (^btnClickBlock) (NSString * str);
-//@property (nonatomic, strong) ZP_ShoppingModel * productamountmodel; // 库存
+@property (nonatomic, strong) ZP_ShoppingModel * productamountmodel; // 库存
 - (void)cellWithModel:(ZP_CartsModel *)model;
 @end
 

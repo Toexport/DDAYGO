@@ -13,6 +13,7 @@
 #import "ZP_ClassViewTool.h"
 #import "ClassificationViewController.h"
 #import "ZP_ClassGoodsModel.h"
+#import "BuyViewController.h"
 
 #define fDeviceWidth ([UIScreen mainScreen].bounds.size.width)
 #define fDeviceHeight ([UIScreen mainScreen].bounds.size.height)
@@ -143,8 +144,10 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString * detaled = @"DetailedController";
-    DetailedController * Detailed = [[DetailedController alloc]initWithNibName:detaled bundle:nil];
+    //    static NSString * detaled = @"DetailedController";
+    static NSString * detaled = @"BuyViewController";
+    //    DetailedController * Detailed = [[DetailedController alloc]initWithNibName:detaled bundle:nil];
+    BuyViewController * Detailed = [[BuyViewController alloc]initWithNibName:detaled bundle:nil];
     ZP_ClassGoodsModel * model = self.newsData[indexPath.row];
     Detailed.fatherId = _fatherId;
     Detailed.productId = model.productid;

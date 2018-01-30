@@ -17,6 +17,7 @@
 #import "ZP_FifthModel.h"
 #import "ZP_SixthModel.h"
 #import "ZP_ZeroModel.h"
+#import "BuyViewController.h"
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource> {
      int _i;
 }
@@ -336,7 +337,9 @@
                 
             };
             cell.FourthBlock = ^(NSInteger tag){
-                DetailedController *viewController = [[DetailedController alloc] init];
+                static NSString * detaled = @"BuyViewController";
+                BuyViewController * viewController = [[BuyViewController alloc]initWithNibName:detaled bundle:nil];
+//                DetailedController *viewController = [[DetailedController alloc] init];
                 viewController.productId = @(tag);
                 [self.navigationController pushViewController:viewController animated:YES];
             };
@@ -353,7 +356,9 @@
                 NSLog(@"cell = %ld",cell.arrData.count);
                 cell.ThirdBlock = ^(NSInteger tag) {
                     ZPLog(@"%ld",tag);
-                    DetailedController * viewController = [[DetailedController alloc] init];
+                    static NSString * detaled = @"BuyViewController";
+                    BuyViewController * viewController = [[BuyViewController alloc]initWithNibName:detaled bundle:nil];
+//                    DetailedController * viewController = [[DetailedController alloc] init];
                     viewController.productId = @(tag);
                     [self.navigationController pushViewController:viewController animated:YES];
                 };
@@ -365,7 +370,9 @@
             SixthViewCell * cell = [tableView dequeueReusableCellWithIdentifier: SixthID];
             cell.ArrData = self.SixthArrData;
             cell.ThirdBlock = ^(NSInteger tag){
-                DetailedController * viewController = [[DetailedController alloc] init];
+                static NSString * detaled = @"BuyViewController";
+                BuyViewController * viewController = [[BuyViewController alloc]initWithNibName:detaled bundle:nil];
+//                DetailedController * viewController = [[DetailedController alloc] init];
                 viewController.productId = @(tag);
                 [self.navigationController pushViewController:viewController animated:YES];
             };
