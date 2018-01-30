@@ -51,12 +51,11 @@
 //     货币符号
     ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_HomePreferentialpriceTypefaceCorlor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self addSubview:CurrencySymbolLabel];
-    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
-    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(60);
         make.left.equalTo(self).offset(5);
     }];
+    _CurrencySymbolLabel = CurrencySymbolLabel;
     //    优惠价格
     ZP_GeneralLabel * PreferentialLabel = [ZP_GeneralLabel initWithtextLabel:_PreferentialLabel.text textColor:ZP_HomePreferentialpriceTypefaceCorlor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self addSubview:PreferentialLabel];
@@ -123,6 +122,8 @@
 - (void)cellWithdic:(ZP_FourthModel *)model {
     [_imageView1 sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
     _introduceLabel.text = model.productname;
+    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+    _CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     _PreferentialLabel.text = [NSString stringWithFormat:@"%@",model.PreferentialLabel]; // 优惠价格
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
     _TrademarkLabel.text = model.TrademarkLabel;

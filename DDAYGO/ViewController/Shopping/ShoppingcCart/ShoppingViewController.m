@@ -13,9 +13,11 @@
 #import "ConfirmViewController.h"
 #import "ZP_ShoppingModel.h"
 #import "EditorViewCell.h"
+
+#import "ShoppingHeadView.h"
+
 @interface ShoppingViewController ()<UITableViewDelegate,UITableViewDataSource,UIViewControllerPreviewingDelegate> {
     NSInteger allNum;
-    NSArray * nameArray;
     BOOL _bjBool;
     NSString * _modelstockid;
     int _i;
@@ -24,17 +26,26 @@
 @property (nonatomic, strong) NSMutableArray * indexArray;
 @property (nonatomic, strong) NSMutableArray * selectArray;
 @property (nonatomic, strong) NSMutableArray * dataArray;;
+
+@property(nonatomic,strong) NSMutableArray * nameArray;
+
 @property(nonatomic,strong) UITableView * tableView;
 @property(nonatomic,strong) ZP_ShoppingModel * model;
 @property(nonatomic,strong) NSString * stockids;
 @property(nonatomic,strong) NSString * numstr;  //数量
 @property(nonatomic,strong) NSNumber * cardid;  //cardid
 
-
-
 @end
 
 @implementation ShoppingViewController
+
+- (NSMutableArray *)nameArray
+{
+    if (!_nameArray) {
+        _nameArray = [NSMutableArray array];
+    }
+    return _nameArray;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -90,18 +101,32 @@
             NSDictionary * dic = [obj firstObject];
             _model = [ZP_ShoppingModel CreateWithDict:[obj firstObject]];
             _dataArray = [ZP_CartsModel arrayWithArray:dic[@"cart"]];
-            nameArray = [ZP_CartsShopModel arrayWithArray:obj];
+            
+            //有几组商家
+            self.nameArray = [ZP_CartsShopModel arrayWithArray:obj];
+            
+            //一共数量
             _selectArray = [[NSMutableArray alloc]init];
-            for (ZP_CartsModel * model in _dataArray) {
-                [_selectArray addObject:model.amount];
-            }
-            self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld",_dataArray.count];
-            [self updateData:1];
+            
+            static NSString * mustr ;//一共有多少个产品
+            mustr = nil;
+            [self.nameArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                ZP_CartsShopModel *model = obj;
+                NSLog(@"每组产品的详细%ld",model.array.count);
+                for (ZP_CartsModel * model1 in model.array) {
+                    [_selectArray addObject:model1.amount];
+                }
+                mustr = [NSString stringWithFormat:@"%ld",model.array.count +[mustr integerValue]];
+            }];
+            self.navigationController.tabBarItem.badgeValue = mustr;
+            
+            [self updateData:0];
             [self.tableView reloadData];
+            
         }else{
             NSLog(@"go");
             _dataArray = nil;
-            nameArray= nil;
+            self.nameArray= nil;
             _selectArray = nil;
             _AllButton.selected = NO;
             _PriceLabel.text = @"0";
@@ -117,7 +142,7 @@
 
 // 刷新
 - (void)addRefresh {
-//   下拉刷新
+    //   下拉刷新
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.selectAllArray removeAllObjects];
         [self.indexArray removeAllObjects];
@@ -200,7 +225,7 @@
     self.tableView.separatorStyle = NO;
     [self.view addSubview:self.tableView];
     
-//   注册
+    //   注册
     [self.tableView registerClass:[ShoppingCell class] forCellReuseIdentifier:@"shoppingCell"];
     [self.tableView registerClass:[EditorViewCell class] forCellReuseIdentifier:@"editorViewCell"];
     UIView * bottomView = [UIView new];
@@ -208,7 +233,7 @@
     bottomView.frame = CGRectMake(0, ZP_height - TabbarHeight - 50 - NavBarHeight, ZP_Width, 50);
     [self.view addSubview:bottomView];
     
-//   全选按钮
+    //   全选按钮
     self.AllButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.AllButton.layer.masksToBounds = YES;
     self.AllButton.layer.cornerRadius = self.AllButton.frame.size.height/2;
@@ -243,7 +268,7 @@
     }];
     _PriceLabel = PriceLabel;
     
-//   货币符号
+    //   货币符号
     ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
     CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
@@ -254,7 +279,7 @@
     }];
     _CurrencySymbolLabel = CurrencySymbolLabel;
     
-//   合计
+    //   合计
     ZP_GeneralLabel * StatisticsLabel = [ZP_GeneralLabel initWithtextLabel:_StatisticsLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     StatisticsLabel.text = NSLocalizedString(@"Total", nil);
     [bottomView addSubview:StatisticsLabel];
@@ -264,7 +289,7 @@
     }];
     _StatisticsLabel = StatisticsLabel;
     
-//  结算按钮
+    //  结算按钮
     UIButton * ClearingBut = [UIButton new];
     ClearingBut.backgroundColor = ZP_pricebackground;
     [ClearingBut setTitle:NSLocalizedString(@"Clearing", nil) forState:UIControlStateNormal];
@@ -279,7 +304,7 @@
     }];
     _ClearingButt = ClearingBut;
     
-//    运费Label
+    //    运费Label
     ZP_GeneralLabel * FreightLabel = [ZP_GeneralLabel initWithtextLabel:_FreightLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     FreightLabel.text = NSLocalizedString(@"不含运费", nil);
     [bottomView addSubview:FreightLabel];
@@ -290,16 +315,24 @@
     }];
 }
 
-//  全选
+#pragma mark -- cell 选中
 - (void)selectClick:(UIButton *)sender {
+    
+    NSInteger section = sender.tag / 100;
+    NSInteger row = sender.tag % 100;
+    ZP_CartsShopModel * models = self.nameArray[section];
+    ZP_CartsModel * model = models.array[row];
+    
+    NSLog(@"model %@",model.amount);
+    
     if (_dataArray.count == 0) {
         sender.selected = sender.selected;
     }else {
         sender.selected =! sender.selected;
         if (self.AllButton == sender ) {
-            for (int i = 0; i < _dataArray.count; i ++) {
+            for (int i = 0; i < models.array.count; i ++) {
                 if (!_bjBool) {
-                    ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+                    ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
                     cell.buttom.selected = sender.selected;
                     if (cell.buttom.selected == YES && ![_selectAllArray containsObject:@(cell.buttom.tag)]) {
                         [_selectAllArray addObject:@(cell.buttom.tag)];
@@ -308,7 +341,7 @@
                     }
                 }
                 else {
-                    EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+                    EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
                     cell.button.selected = sender.selected;
                     if (cell.button.selected == YES && ![_selectAllArray containsObject:@(cell.button.tag)]) {
                         [_selectAllArray addObject:@(cell.button.tag)];
@@ -319,7 +352,7 @@
             }
         } else {
             if (!_bjBool) {
-                ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
+                ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
                 cell.buttom.selected = sender.selected;
                 if (cell.buttom.selected == YES && ![_selectAllArray containsObject:@(cell.buttom.tag)]) {
                     [_selectAllArray addObject:@(cell.buttom.tag)];
@@ -327,8 +360,8 @@
                     [_selectAllArray removeObject:@(cell.buttom.tag)];
                 }
             }else {
-                EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
-                cell.button.selected = sender.selected;
+                EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+                //                cell.button.selected = sender.selected;
                 if (cell.button.selected == YES && ![_selectAllArray containsObject:@(cell.button.tag)]) {
                     [_selectAllArray addObject:@(cell.button.tag)];
                 }else{
@@ -398,17 +431,25 @@
 }
 
 - (void)updateData:(NSInteger)tag {
-//   更新选中数量
+    //   更新选中数量
+    _stockids = nil;
+    _modelstockid = nil;
     NSInteger count = 0;
     NSInteger data = 0;
     NSInteger dataCount = 0;
-    for (int i = 0; i < _dataArray.count; i ++) {
+    
+    
+    NSInteger section = tag / 100;
+    NSInteger row = tag % 100;
+    
+    ZP_CartsShopModel * models = self.nameArray[section];
+    ZP_CartsModel * model = models.array[row];
+    
+    
+    for (int i = 0; i < models.array.count; i ++) {
         if (!_bjBool) {
-            ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+            ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
             if (cell.buttom.selected ) {
-                ZP_CartsShopModel * models = nameArray[0];
-                ZP_CartsModel * model = models.array[i];
-                NSLog(@"%@-%@",model.productprice,model.amount);
                 dataCount += [cell.QuantityLabel.text integerValue];
                 data += [cell.QuantityLabel.text integerValue] * [model.productprice floatValue];
                 count ++;
@@ -421,7 +462,8 @@
             }
         }else{
             EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-            ZP_CartsModel *model = _dataArray[i];
+            //            ZP_CartsModel *model = _dataArray[i];
+            NSLog(@"---- %d",cell.button.selected);
             if (cell.button.selected ) {
                 data += [cell.numLabel.text integerValue] * [model.productprice floatValue];
                 dataCount += [cell.numLabel.text integerValue];
@@ -441,15 +483,21 @@
             }
         }
     }
-    if (count == _dataArray.count) {
-        self.AllButton.selected = YES;
-        self.Shopchoosebuttom.selected = YES;
+    
+    //每组的button
+    UIButton *but = [self.view viewWithTag:666 +section];
+    //每组全选
+    if (count == models.array.count) {
+        //        self.AllButton.selected = YES;
+        but.selected = YES;
+        //        self.Shopchoosebuttom.selected = YES;
     } else {
-        self.AllButton.selected = NO;
-        self.Shopchoosebuttom.selected = NO;
+        //        self.AllButton.selected = NO;
+        //        self.Shopchoosebuttom.selected = NO;
+        but.selected = NO;
     }
     
-//   更新合计数据
+    //   更新合计数据
     self.PriceLabel.text = [@(data) stringValue];
     if (_bjBool) {
         [self.ClearingButt setTitle:@"删除" forState: UIControlStateNormal];
@@ -463,7 +511,9 @@
 
 
 - (void)updateDataa:(NSInteger)tag {
-//  更新选中数量
+    //  更新选中数量
+    _stockids = nil;
+    _modelstockid = nil;
     NSInteger count = 0;
     NSInteger data = 0;
     NSInteger dataCount = 0;
@@ -471,7 +521,7 @@
         if (!_bjBool) {
             ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
             if (cell.buttom.selected ) {
-                ZP_CartsShopModel * models = nameArray[0];
+                ZP_CartsShopModel * models = self.nameArray[0];
                 ZP_CartsModel * model = models.array[i];
                 dataCount += [cell.QuantityLabel.text integerValue];
                 data += [cell.QuantityLabel.text integerValue] * [model.productprice floatValue];
@@ -511,7 +561,7 @@
         self.Shopchoosebuttom.selected = NO;
     }
     
-//   更新合计数据
+    //   更新合计数据
     self.PriceLabel.text = [@(data) stringValue];
     if (_bjBool) {
         [self.ClearingButt setTitle:@"删除" forState: UIControlStateNormal];
@@ -527,10 +577,8 @@
 #pragma mark - 结算
 //  结算按钮
 - (void)ClearingBut:(UIButton *)sender {
-    _stockids = nil;
-    _modelstockid = nil;
-    [self updateData:sender.tag];
-    if ([self YESOrNoPush]) {
+    
+    if (_stockids.length > 0 || _modelstockid.length > 0) {
         if (sender.selected) {
 #pragma make -- 提示框
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"確定要刪除嗎？",nil) preferredStyle:UIAlertControllerStyleAlert];
@@ -544,10 +592,7 @@
             [alert addAction:cancelAction];
             [self presentViewController:alert animated:YES completion:nil];
         }else {
-//            if (_model.productamount.integerValue <= 0) {
-//                [SVProgressHUD showErrorWithStatus:@"库存不足"];
-//                return;
-//            }else {
+            
             ConfirmViewController * Confirm = [[ConfirmViewController alloc]init];
             Confirm.model = _model;
             Confirm.stockidsString = _stockids;
@@ -570,9 +615,9 @@
 
 //删除按钮（删除接口）
 - (void) shangchuBut:(UIButton *)but {
-//   响应事件
+    //   响应事件
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    ZP_CartsShopModel * models = nameArray[0];
+    //    ZP_CartsShopModel * models = self.nameArray[0];
     dic[@"stockid"] = _modelstockid;
     dic[@"token"] = Token;
     [ZP_shoopingTool requesscartitemdelte:dic success:^(id obj) {
@@ -592,33 +637,48 @@
 }
 
 - (BOOL)YESOrNoPush {
-    for (int i = 0; i < _dataArray.count; i ++) {
-        if (!_bjBool) {
-            ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-            if (cell.buttom.selected) {
-                return YES;
-            }
-        }else{
-            EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-            if (cell.button.selected) {
-                return YES;
-            }
-        }
-    }
-    return NO;
+    
+    [self.nameArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        ZP_CartsShopModel *model = obj;
+        
+        //        for (int i = 0; i < model.array.count; i ++)
+        //        {
+        //            if (!_bjBool) {
+        //                ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        //                if (cell.buttom.selected) {
+        //                    return YES;
+        //                }}
+        //            }else{
+        //                EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        //                if (cell.button.selected) {
+        //                    return YES;
+        //                }
+        //            }
+        //        }
+        
+        
+    }];
+    return YES;
+    
+    
 }
 
 #pragma mark tableviewdelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (nameArray.count) {
-        return nameArray.count;
+    if (self.nameArray.count>0) {
+        return self.nameArray.count;
     }
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    ZP_CartsShopModel * model = nameArray[section];
-    return model.array.count;
+    if (self.nameArray.count > 0) {
+        ZP_CartsShopModel * model = self.nameArray[section];
+        return model.array.count;
+    }else{
+        return 0;
+    }
+    
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -630,17 +690,16 @@
         ShoppingCell * cell = [tableView dequeueReusableCellWithIdentifier:@"shoppingCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
         self.tableView.tableFooterView = [[UIView alloc] init];
-        ZP_CartsShopModel * models = nameArray[indexPath.section];
+        ZP_CartsShopModel * models = self.nameArray[indexPath.section];
         ZP_CartsModel * model = models.array[indexPath.row];
-        cell.buttom.tag = indexPath.row;
+        cell.buttom.tag = indexPath.section *100 + indexPath.row;
         if ([_selectAllArray containsObject:@(indexPath.row)]) {
             cell.buttom.selected = YES;
         }else{
             cell.buttom.selected = NO;
         }
         [cell.buttom addTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
-        NSString * str = _selectArray[indexPath.row];
-        [cell cellWithModel:model andIndexObject:str];
+        [cell cellWithModel:model andIndexObject:[model.amount stringValue]];
         return cell;
     }
     else{
@@ -651,9 +710,9 @@
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
         self.tableView.tableFooterView = [[UIView alloc] init];
-        ZP_CartsShopModel * models = nameArray[indexPath.section];
+        ZP_CartsShopModel * models = self.nameArray[indexPath.section];
         ZP_CartsModel *model = models.array[indexPath.row];
-        cell.button.tag = indexPath.row;
+        cell.button.tag = indexPath.section *100 + indexPath.row;
         if ([_selectAllArray containsObject:@(indexPath.row)]) {
             cell.button.selected = YES;
         }else{
@@ -681,65 +740,71 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     ZP_CartsShopModel * model;
-    if (nameArray.count > 0) {
-        model = nameArray[section];
+    if (self.nameArray.count > 0) {
+        model = self.nameArray[section];
     } else {
         return nil;
     }
-    UIView * myView = [[UIView alloc]init];
-    self.tableView.tableHeaderView = myView; // 表头跟着cell一起滚动
-    [myView setBackgroundColor:[UIColor whiteColor]];
+    ShoppingHeadView *view = [[[NSBundle mainBundle] loadNibNamed:@"ShoppingHeadView" owner:nil options:nil] firstObject];
+    view.TitleLabel.text = model.shopname;
+    view.sectionAllButtion.tag = 666 + section;
+    [view.sectionAllButtion addTarget:self action:@selector(sectionShop:) forControlEvents:UIControlEventTouchUpInside];
+    NSLog(@"shopname = %@",model.shopname);
     
-    //  商店选择按钮
-    self.Shopchoosebuttom = [UIButton buttonWithType:UIButtonTypeCustom];
-    if (self.AllButton.selected == YES) {
-        self.Shopchoosebuttom.selected = YES;
+    return view;
+}
+
+#pragma mark -- 表头选中
+- (void)sectionShop:(UIButton *)but{
+    
+    // 更新选中数量
+    NSInteger count = 0;
+    NSInteger data = 0;
+    NSInteger dataCount = 0;
+    
+    but.selected = !but.selected;
+    //全选选中
+    if (but.selected) {
+        ZP_CartsShopModel * models = self.nameArray[but.tag - 666];
+        for (int i = 0; i < models.array.count; i ++) {
+            ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:but.tag - 666]];
+            cell.buttom.selected = YES;
+            ZP_CartsModel * model = models.array[i];
+            dataCount += [cell.QuantityLabel.text integerValue];
+            data += [cell.QuantityLabel.text integerValue] * [model.productprice floatValue];
+            count ++;
+            NSString *str = [NSString stringWithFormat:@"%@_%@",model.stockid,model.amount];
+            if (_stockids.length > 0) {
+                _stockids = [_stockids stringByAppendingString:[NSString stringWithFormat:@",%@",str]];
+            }else{
+                _stockids = str;
+            }
+        }
+        [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算(%ld)",(long)dataCount] forState: UIControlStateNormal];
+        self.PriceLabel.text = [@(data) stringValue];
+        allNum = dataCount;
     }else{
-        self.Shopchoosebuttom.selected = NO;
+        ZP_CartsShopModel * models = self.nameArray[but.tag - 666];
+        for (int i = 0; i < models.array.count; i ++) {
+            ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:but.tag - 666]];
+            cell.buttom.selected = NO;
+            _stockids = nil;
+        }
+        [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算"] forState: UIControlStateNormal];
+        self.PriceLabel.text = @"0";
+        allNum = 0;
     }
-    [self.Shopchoosebuttom setImage:[UIImage imageNamed:@"ic_Shopping_Choice_normal"] forState:UIControlStateNormal];
-    [self.Shopchoosebuttom setImage:[UIImage imageNamed:@"ic_Shopping_Choice_pressed"] forState:UIControlStateSelected];
-    self.Shopchoosebuttom.layer.masksToBounds = YES;
-    self.Shopchoosebuttom.layer.cornerRadius = self.Shopchoosebuttom.frame.size.height/2;
-    self.Shopchoosebuttom.layer.borderColor = [UIColor clearColor].CGColor;
-    self.Shopchoosebuttom.layer.borderWidth = 1;
-    [self.Shopchoosebuttom addTarget:self action:@selector(ShopClick:) forControlEvents:UIControlEventTouchUpInside];
-    [myView addSubview:self.Shopchoosebuttom];
-    [self.Shopchoosebuttom mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(myView).offset(5);
-        make.top.equalTo(myView).offset(10);
-    }];
     
-    //  店铺名称
-    ZP_GeneralLabel * merchantsLabel = [ZP_GeneralLabel initWithtextLabel:_merchantsLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    merchantsLabel.text = NSLocalizedString(model.shopname, nil);
-    [myView addSubview:merchantsLabel];
-    [merchantsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_Shopchoosebuttom).offset(25);
-        make.top.equalTo(myView).offset(15);
-        make.height.mas_offset(15);
-//        make.width.mas_offset(80);
-    }];
-    _merchantsLabel = merchantsLabel;
-    
-    //  横线
-    UIView * view0 = [UIView new];
-    view0.backgroundColor = ZP_Graybackground;
-    [myView addSubview:view0];
-    [view0 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(myView).offset(5);  // 左
-        make.right.equalTo(myView).offset(ZP_Width - 5); // 长
-        make.bottom.equalTo(myView).offset(- 0); // 下
-        make.height.mas_equalTo(1); // 高
-    }];
-    return myView;
 }
 
 //  设置表头高度
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    ZP_CartsShopModel * model = nameArray[section];
-    if (model.array.count > 0) {
-        return 40;
+    
+    if (self.nameArray.count > 0) {
+        ZP_CartsShopModel * model = self.nameArray[section];
+        if (model.array.count > 0) {
+            return 40;
+        }
     }
     return 0.1;
 }
@@ -748,7 +813,7 @@
 - (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (@available(iOS 11.0, *)) {
         UIContextualAction *deleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"刪除" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
-            ZP_CartsShopModel * models = nameArray[indexPath.section];
+            ZP_CartsShopModel * models = self.nameArray[indexPath.section];
             ZP_CartsModel * model = models.array[indexPath.row];
             NSMutableDictionary * dic = [NSMutableDictionary dictionary];
             dic[@"stockid"] = model.stockid;
@@ -757,7 +822,8 @@
                 NSLog(@"%@",obj);
                 [models.array removeObjectAtIndex:indexPath.row]; //接口成功啦 才成功的情况下写这一句代码-这个要在成功的时候写
                 if (models.array.count == 0) {
-                    nameArray = nil;
+                    //                    nameArray = nil;
+                    [self.nameArray removeObjectAtIndex:indexPath.section];
                     self.navigationController.tabBarItem.badgeValue = nil;
                 }else{
                     self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld",models.array.count];

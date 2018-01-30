@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSString * cp; // 商品cp
 @property (nonatomic, strong) NSNumber * state;  // 商品状态
 @property (nonatomic, strong) NSNumber * historyid;
+@property (nonatomic, strong) NSNumber * productid;  //商品ID
 
 + (instancetype)gEtFootprint1:(NSDictionary *)Dic;
 

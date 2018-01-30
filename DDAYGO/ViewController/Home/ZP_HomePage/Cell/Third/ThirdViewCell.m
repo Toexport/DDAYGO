@@ -23,7 +23,6 @@
     for (int z = 0; z <= 4; z ++) {
         
         for (int i = 0; i <= 1; i ++) {
-            
             UIView * titiView =[UIView new];
             [titiView setBackgroundColor:ZP_textWite];
             [self.contentView addSubview:titiView];
@@ -45,7 +44,6 @@
             _Titlelabel = Titlelabel;
             UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i * ZP_Width / 2, z * 35 + 35 , ZP_Width / 2, 35)];
             imageView.tag = num;
-            
             [imageView setImage:[UIImage imageNamed:@"Third"]];
             imageView.userInteractionEnabled = YES;
             UITapGestureRecognizer  * singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(buttonType:)];

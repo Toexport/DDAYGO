@@ -43,7 +43,7 @@
 - (void)getData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
-    dic[@"screen"] = @1;
+    dic[@"screen"] = @0;
     [ZP_MyTool requestgetcollections:dic success:^(id json) {
         ZPLog(@"%@",json);
     _dataArray = [collectionModel arrayWithArray:json[@"list"]];
@@ -106,8 +106,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DetailedController * detailed = [[DetailedController alloc]init];
-    detailed.productId =_model.productid;
-    detailed.fatherId = _model.collectionid;
+    detailed.productId =self.model.productid;
+//    detailed.fatherId = _model.collectionid;
     [self.navigationController pushViewController:detailed animated:YES];
     ZPLog(@"%ld",indexPath.row);
 }

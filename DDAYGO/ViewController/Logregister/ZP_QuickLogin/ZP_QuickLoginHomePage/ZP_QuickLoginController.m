@@ -159,15 +159,12 @@
         NSDictionary * adic = obj;
         ZPLog(@"%@",obj);
         //目前不是参数的类型··可能会崩,s
-       
         if ([adic[@"result"]isEqualToString:@"first_login"]) {
             [SVProgressHUD showInfoWithStatus:@"首次登錄改成"];
-            
         }else {
             if ([adic[@"result"]isEqualToString:@"ok"]) {
                 Token = obj[@"token"];
                 ZPICUEToken = obj[@"icuetoken"];
-                
                 [[NSUserDefaults standardUserDefaults] setObject:Token forKey:@"token"];// Token缓存本地
                 [[NSUserDefaults standardUserDefaults] setObject:ZPICUEToken forKey:@"icuetoken"];
                 [[NSUserDefaults standardUserDefaults] setObject:obj[@"symbol"] forKey:@"symbol"]; // 货币符号缓存本地

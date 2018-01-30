@@ -92,8 +92,6 @@
 - (void)FSContenViewDidEndDecelerating:(FSPageContentView *)contentView startIndex:(NSInteger)startIndex endIndex:(NSInteger)endIndex {
     NSLog(@"111 %ld- %ld",(long)endIndex,(long)startIndex);
     self.titleView.selectIndex = endIndex;
-    
-    //    self.title = self.titleView.titlesArr[endIndex];
 }
 
 //  搜索框点击事件

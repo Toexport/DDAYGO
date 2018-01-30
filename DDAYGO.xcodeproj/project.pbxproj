@@ -184,6 +184,8 @@
 		C41CBE40201CB45200F9B227 /* CPCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41CBE3F201CB45200F9B227 /* CPCollectionViewController.m */; };
 		C41CBE43201DDA5700F9B227 /* OrdeHeadViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C41CBE42201DDA5700F9B227 /* OrdeHeadViewCell.m */; };
 		C41CBE46201DDAB800F9B227 /* OrdeTailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C41CBE45201DDAB800F9B227 /* OrdeTailViewCell.m */; };
+		C41E9C332020254500E6F5E2 /* ShoppingHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41E9C322020254500E6F5E2 /* ShoppingHeadView.xib */; };
+		C41E9C352020259F00E6F5E2 /* ShoppingHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = C41E9C342020259F00E6F5E2 /* ShoppingHeadView.m */; };
 		C41FF4DA1FFF53F7009B720D /* ZP_InstructionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41FF4DC1FFF53F7009B720D /* ZP_InstructionController.xib */; };
 		C420EDE51FF3D397005ECE30 /* UIViewController+LLProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = C420EDE31FF3D396005ECE30 /* UIViewController+LLProgress.m */; };
 		C420EDE81FF3D7E9005ECE30 /* CALayer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C420EDE71FF3D7E9005ECE30 /* CALayer+UIColor.m */; };
@@ -792,6 +794,9 @@
 		C41CBE42201DDA5700F9B227 /* OrdeHeadViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrdeHeadViewCell.m; sourceTree = "<group>"; };
 		C41CBE44201DDAB800F9B227 /* OrdeTailViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrdeTailViewCell.h; sourceTree = "<group>"; };
 		C41CBE45201DDAB800F9B227 /* OrdeTailViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrdeTailViewCell.m; sourceTree = "<group>"; };
+		C41E9C302020253800E6F5E2 /* ShoppingHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingHeadView.h; sourceTree = "<group>"; };
+		C41E9C322020254500E6F5E2 /* ShoppingHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingHeadView.xib; sourceTree = "<group>"; };
+		C41E9C342020259F00E6F5E2 /* ShoppingHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingHeadView.m; sourceTree = "<group>"; };
 		C41FF4DB1FFF53F7009B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ZP_InstructionController.xib; sourceTree = "<group>"; };
 		C41FF4DE1FFF53FC009B720D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ZP_InstructionController.strings; sourceTree = "<group>"; };
 		C41FF4E01FFF5401009B720D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ZP_InstructionController.strings"; sourceTree = "<group>"; };
@@ -1896,6 +1901,9 @@
 		06F570E61F9F0ABA00D61FDB /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				C41E9C302020253800E6F5E2 /* ShoppingHeadView.h */,
+				C41E9C342020259F00E6F5E2 /* ShoppingHeadView.m */,
+				C41E9C322020254500E6F5E2 /* ShoppingHeadView.xib */,
 				06F570E71F9F0ABA00D61FDB /* ShoppingCell.h */,
 				06F570E81F9F0ABA00D61FDB /* ShoppingCell.m */,
 				C45FAF3B1FCD48CC00BD4CE1 /* EditorViewCell.h */,
@@ -4303,6 +4311,7 @@
 				C4632E13200633E30029AA87 /* RefundServiceCell.xib in Resources */,
 				06F572291F9F1E8700D61FDB /* OrderDetailViewController.xib in Resources */,
 				C4411DB1200F626200CE906F /* loading6.png in Resources */,
+				C41E9C332020254500E6F5E2 /* ShoppingHeadView.xib in Resources */,
 				06F572331F9F1E8700D61FDB /* ReceivingViewCell.xib in Resources */,
 				C4411DAF200F626200CE906F /* loading4.png in Resources */,
 				C435171F1FB2AC180066302E /* ConcernShopTableViewCell.xib in Resources */,
@@ -4747,6 +4756,7 @@
 				C479C6A61FE3CB5800A58A2A /* NSObject+MJClass.m in Sources */,
 				06F571E11F9F1A7900D61FDB /* SelectPhotoManager.m in Sources */,
 				0641BBDF1F67F9E400E72FEF /* UIImageView+WebCache.m in Sources */,
+				C41E9C352020259F00E6F5E2 /* ShoppingHeadView.m in Sources */,
 				C4411D90200F368100CE906F /* UIButton+Badge.m in Sources */,
 				C472F1331FE299E00031D7B5 /* ZP_CheckMoreController.m in Sources */,
 				C425BEA91FC813C30097DB8F /* FSPageContentView.m in Sources */,

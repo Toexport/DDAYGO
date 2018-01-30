@@ -45,6 +45,7 @@
         self.productprice = [NSString stringWithFormat:@"%@",dic[@"productprice"]];
         self.cp = [NSString stringWithFormat:@"%@",dic[@"cp"]];
         self.state = dic[@"state"];
+        self.productid = dic[@"productid"];
     }
     return self;
 }
@@ -62,6 +63,7 @@
             model.productprice = [NSString stringWithFormat:@"%@",dic[@"productprice"]];
             model.cp = [NSString stringWithFormat:@"%@",dic[@"cp"]];
             model.historyid = dic[@"historyid"];
+            model.productid = dic[@"productid"];
             model.state = dic[@"state"];
             [arr addObject:model];
         }

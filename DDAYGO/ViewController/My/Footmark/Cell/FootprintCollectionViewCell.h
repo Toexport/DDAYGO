@@ -19,5 +19,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *defaltLabel;
 
 - (void)FootprintCollection:(ZP_FootprintModel1 *)model;
-
 @end

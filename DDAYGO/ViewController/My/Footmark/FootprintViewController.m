@@ -34,8 +34,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
 }
+
 // 获取数据
 - (void)allData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
@@ -51,7 +51,6 @@
                 [self.newsData addObject:model1];
             }];
         }];
-        
         [self.collectionView reloadData];
     } failure:^(NSError * error) {
         ZPLog(@"error");
@@ -63,7 +62,6 @@
     if (self.newsData.count == 0) {
         return;
     }
-    
     ZP_FootprintModel1 *model = self.newsData[btn.tag];
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
@@ -114,7 +112,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     DetailedController * detailed = [[DetailedController alloc]init];
-//    detailed.fatherId = _model1.collectionid;
+//    detailed.fatherId = _model1.productid;
     [self.navigationController pushViewController:detailed animated:YES];
     ZPLog(@"%ld",indexPath.row);
     

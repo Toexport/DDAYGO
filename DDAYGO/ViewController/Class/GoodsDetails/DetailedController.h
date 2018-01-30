@@ -22,7 +22,6 @@
 @property (weak, nonatomic) IBOutlet UIView * shfwBottomView;
 @property (weak, nonatomic) IBOutlet UIView * qbpjBottomView;
 @property (weak, nonatomic) IBOutlet UIButton * xzflBtn;
-
 @property (nonatomic, strong) NSNumber * productId;
 @property (nonatomic, strong) NSNumber * fatherId;
 

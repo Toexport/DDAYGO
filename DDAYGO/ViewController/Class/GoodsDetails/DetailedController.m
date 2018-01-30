@@ -145,7 +145,6 @@
     NSDictionary * dic;
     self.imageDic = [NSMutableDictionary dictionary];
     if (Token) {
-        
         dic = @{@"productid":_productId,@"token":Token};
     } else {
         dic = @{@"productid":_productId,@"token":@""};

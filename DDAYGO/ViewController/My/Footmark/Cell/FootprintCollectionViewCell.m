@@ -25,13 +25,19 @@
         _defaltLabel.text = NSLocalizedString(@"已失效", nil);
         [_defaltLabel setTextColor:[UIColor whiteColor]];
         _defaltLabel.textAlignment = NSTextAlignmentCenter;
+        
+        [_defaultimgImageVIew setContentScaleFactor:[[UIScreen mainScreen] scale]];
+        _defaultimgImageVIew.contentMode =  UIViewContentModeScaleAspectFill;
+        _defaultimgImageVIew.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+//        _defaultimgImageVIew.clipsToBounds = YES;
         [_defaultimgImageVIew addSubview:_defaltLabel];
     }else{
         
     [_defaultimg sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
-//        [_defaultimg setContentScaleFactor:[[UIScreen mainScreen] scale]];
-//        _defaultimg.contentMode =  UIViewContentModeScaleAspectFill;
-//        _defaultimg.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+        _defaultimg.frame = CGRectMake(_defaultimg.frame.origin.x, _defaultimg.frame.origin.y, _defaultimg.frame.size.width, _defaultimg.frame.size.height);
+    [_defaultimg setContentScaleFactor:[[UIScreen mainScreen] scale]];
+    _defaultimg.contentMode =  UIViewContentModeScaleAspectFill;
+    _defaultimg.autoresizingMask = UIViewAutoresizingFlexibleHeight;
 //        _defaultimg.clipsToBounds  = YES;
     }
     _productname.text = model.productname;
@@ -41,4 +47,5 @@
     _cp.text = [NSString stringWithFormat:@"%@",model.cp];
     
 }
+
 @end

@@ -38,7 +38,6 @@
         
         //        dict[NSForegroundColorAttributeName] = [UIColor colorWithHexString:mainFont];
         [navBar setTitleTextAttributes:dict];
-        
         //未渐变时延时@"#e64a3d"
         [navBar setBackgroundColor:[UIColor whiteColor]];
         [navBar setBarTintColor:[UIColor whiteColor]];

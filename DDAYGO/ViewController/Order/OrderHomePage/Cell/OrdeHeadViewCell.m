@@ -20,17 +20,17 @@
 }
 
 - (void)initUI {
-    //  订单号
+//  订单号
     ZP_GeneralLabel * OrderLabel = [ZP_GeneralLabel initWithtextLabel:_OrderLabel.text textColor:ZP_textblack font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:nil];
     OrderLabel.text = NSLocalizedString(@"訂單號:", nil);
     [self.contentView addSubview:OrderLabel];
     [OrderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(5);
-        make.top.equalTo(self).offset(10);
+        make.top.equalTo(self).offset(7);
     }];
     _OrderLabel = OrderLabel;
     
-    //  ID号
+//  ID号
     ZP_GeneralLabel * IDLabel = [ZP_GeneralLabel initWithtextLabel:_IDLabel.text textColor:ZP_textblack font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self.contentView addSubview:IDLabel];
     [IDLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -39,16 +39,16 @@
     }];
     _IDLabel = IDLabel;
     
-    //  日期
+//  日期
     ZP_GeneralLabel * DateLabel = [ZP_GeneralLabel initWithtextLabel:_DateLabel.text textColor:ZP_textblack font:ZP_introduceFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self.contentView addSubview:DateLabel];
     [DateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(5);
-        make.top.equalTo(IDLabel).offset(20);
+        make.top.equalTo(IDLabel).offset(15);
     }];
     _DateLabel = DateLabel;
     
-    //     删除订单按钮
+//     删除订单按钮
     UIButton * DeleteBut = [UIButton buttonWithType:UIButtonTypeSystem];
     [DeleteBut setBackgroundImage:[UIImage imageNamed:@"ic_footprint_delete_normal"] forState:UIControlStateNormal];
     //    [DeleteBut addTarget:self action:@selector(DeleteBut:) forControlEvents:UIControlEventTouchUpInside];
@@ -61,7 +61,7 @@
     }];
     _DeleteBut = DeleteBut;
     
-    //  交易状态
+//  交易状态
     ZP_GeneralLabel * TradingLabel = [ZP_GeneralLabel initWithtextLabel:_TradingLabel.text textColor:ZP_typefaceOrangeColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:nil];
     [self.contentView addSubview:TradingLabel];
     [TradingLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -69,12 +69,48 @@
         make.right.equalTo(DeleteBut).offset(-25);
     }];
     _TradingLabel = TradingLabel;
-    
 }
+
 - (void)InformationWithDic:(OrdersdetailModel *)dic WithModel:(OrderModel *)model {
-    
     _IDLabel.text = [NSString stringWithFormat:@"%@",dic.ordersnumber];
     _DateLabel.text = model.createtime;
+    int a = [dic.state intValue];
+    ZPLog(@"Stata = %D",a);
+    switch (a) {
+        case 0:
+            
+            break;
+        case 1:
+           _TradingLabel.text = @"待付款";
+            _DeleteBut.hidden = NO;
+            break;
+        case 2:
+            _TradingLabel.text = @"待發貨";
+            _DeleteBut.hidden = YES;
+            break;
+        case 3:
+            _TradingLabel.text = @"待收貨";
+            _DeleteBut.hidden = YES;
+            break;
+        case 4:
+            _TradingLabel.text = @"交易成功";
+            _DeleteBut.hidden = NO;
+            break;
+        case 5:
+            _TradingLabel.text = @"交易成功";
+            _DeleteBut.hidden = YES;
+            break;
+        case 6:
+            _TradingLabel.text = @"退款/售后";
+            _DeleteBut.hidden = YES;
+            break;
+        case 7:
+            _TradingLabel.text = @"换货中";
+            _DeleteBut.hidden = YES;
+            break;
+        default:
+            break;
+    }
 }
 @end
 
