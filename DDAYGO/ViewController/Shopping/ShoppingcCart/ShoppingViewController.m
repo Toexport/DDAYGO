@@ -69,6 +69,7 @@
     [super viewWillAppear:animated];
     _AllButton.selected = NO;
     if (!DD_HASLOGIN) {
+        
         if (![MyViewController sharedInstanceTool].hasRemind) {
             [MyViewController sharedInstanceTool].hasRemind = YES;
             LogregisterController *viewcontroller = [[LogregisterController alloc] init];
@@ -92,6 +93,7 @@
             [self networkProblems];
         }
         ZPLog(@"%@",obj);
+        
         if ([obj isKindOfClass:[NSDictionary class]]) {
             NSLog(@"go");
             [self.tableView reloadData];
@@ -102,13 +104,10 @@
             NSDictionary * dic = [obj firstObject];
             _model = [ZP_ShoppingModel CreateWithDict:[obj firstObject]];
             _dataArray = [ZP_CartsModel arrayWithArray:dic[@"cart"]];
-            
             //有几组商家
             self.nameArray = [ZP_CartsShopModel arrayWithArray:obj];
-            
             //一共数量
             _selectArray = [[NSMutableArray alloc]init];
-            
             static NSString * mustr ;//一共有多少个产品
             mustr = nil;
             [self.nameArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

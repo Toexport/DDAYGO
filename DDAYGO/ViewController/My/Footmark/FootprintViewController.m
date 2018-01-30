@@ -12,7 +12,9 @@
 #import "PrefixHeader.pch"
 #import "ZP_MyTool.h"
 #import "DetailedController.h"
-@interface FootprintViewController ()
+@interface FootprintViewController (){
+    int _i;
+}
 
 @property (nonatomic, strong)NSMutableArray * newsData;
 @property (nonatomic, strong) ZP_FootprintModel1 * model1;
@@ -24,12 +26,28 @@
     [super viewDidLoad];
     self.title = NSLocalizedString(@"footprint", nil);
     [self allData];
+    [self addRefresh];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     [self.collectionView registerNib:[UINib nibWithNibName:@"FootprintCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"FootprintCollectionViewCell"];
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 //    self.collectionView.alwaysBounceVertical = YES;
     
+}
+// 刷新
+- (void)addRefresh {
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.newsData removeAllObjects];
+        _i = _newsData;
+        [self allData];
+    }];
+    
+    //    [self.tableview.mj_header beginRefreshing];
+    //    self.tableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+    //         [self.newsData removeAllObjects];
+    //        _i+=10;
+    //        [self getDataWithState];
+    //    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -51,6 +69,7 @@
                 [self.newsData addObject:model1];
             }];
         }];
+        [self.collectionView.mj_header endRefreshing];  // 結束刷新
         [self.collectionView reloadData];
     } failure:^(NSError * error) {
         ZPLog(@"error");
@@ -88,12 +107,10 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     ZP_FootprintModel1 *model = self.newsData[indexPath.row];
     FootprintCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FootprintCollectionViewCell" forIndexPath:indexPath];
     cell.deleBtn.tag = indexPath.row;
     [cell.deleBtn addTarget:self action:@selector(deleBtn:) forControlEvents:UIControlEventTouchUpInside];
-    
     [cell FootprintCollection:model];
     
     return cell;
@@ -102,7 +119,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CGFloat width=(self.view.frame.size.width-55)/3;
-    return CGSizeMake(width, width *137 / 110);
+    return CGSizeMake(width, width *137 / 100);
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {

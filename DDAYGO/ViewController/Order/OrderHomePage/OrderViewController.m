@@ -44,7 +44,6 @@
     } else {
     }
 }
-
 - (void)setUpNavgationBar {
     ZPSearchBarBUtton * searchBar = [ZPSearchBarBUtton buttonWithType:UIButtonTypeCustom];
     searchBar.width = 30;

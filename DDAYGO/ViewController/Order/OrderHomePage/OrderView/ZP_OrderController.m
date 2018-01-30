@@ -134,8 +134,35 @@
     dic[@"orderno"] = @"";
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"30";
-//    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
     [ZP_OrderTool requestGetorders:dic success:^(id json) {
+        if ([json[@"result"]isEqualToString:@"token_not_exist"]) {
+            Token = nil;
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
+            ZPICUEToken = nil;
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+#pragma make -- 提示框
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                ZPLog(@"取消");
+            }];
+            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+               
+                [self.navigationController popToRootViewControllerAnimated:NO];
+                //跳转
+                if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+                    UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
+                    [tbvc setSelectedIndex:0];
+                }
+            }];
+            [alert addAction:defaultAction];
+            [alert addAction:cancelAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+/*****************************/
         if (json) {
 //            self.newsData = json;  //这个是刷新
             [self successful];
@@ -161,7 +188,7 @@
             but.badgeValue = nil;
             but.badgeBGColor = [UIColor whiteColor];
         }
-        /********************/
+/********************/
         
     [self.tableview.mj_header endRefreshing];  // 結束刷新
     [self.tableview reloadData];
@@ -274,33 +301,32 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 3;
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         OrdeHeadViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"OrdeHeadViewCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-         OrderModel * model = self.newsData[indexPath.section];
-         OrdersdetailModel * model2;
+        OrderModel * model = self.newsData[indexPath.section];
+        OrdersdetailModel * model2;
         model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail.firstObject];
-        cell.DeleteBut.tag = indexPath.row;
+        cell.DeleteBut.tag = indexPath.section;
         [cell.DeleteBut addTarget:self action:@selector(DeleteOrderBut:) forControlEvents:UIControlEventTouchUpInside];
         [cell InformationWithDic:model2 WithModel:model];
         return cell;
-    }else  if(indexPath.row == 1) {
-    static NSString * ID = @"orderViewCell";
-    OrderModel * model = self.newsData[indexPath.section];
-    OrderViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.tableview.tableFooterView = [[UIView alloc]init];
-    OrdersdetailModel * model2;
-//    if (![_titleStr isEqualToString:@"評價"]) {
-         model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail.firstObject];
-        [cell InformationWithDic:model2 WithModel:model];
-//    }else {
-//    [cell InformationWithDic:nil WithModel:model];
-//    }
-    return cell;
+    }else
+        if(indexPath.row == 1) {
+           static NSString * ID = @"orderViewCell";
+           OrderModel * model = self.newsData[indexPath.section];
+           OrderViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
+           cell.selectionStyle = UITableViewCellSelectionStyleNone;
+           self.tableview.tableFooterView = [[UIView alloc]init];
+           OrdersdetailModel * model2;
+           model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail.firstObject];
+           [cell InformationWithDic:model2 WithModel:model];
+//         [cell InformationWithDic:nil WithModel:model];
+           return cell;
     }else {
         OrdeTailViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"OrdeTailViewCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -321,31 +347,28 @@
             self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
             self.hidesBottomBarWhenPushed = NO;
         };
-        
-        //   评论
+//   评论
         cell.appraiseBlock = ^(AppraiseController* response) {
             NSLog(@" --- count --- %ld",model.ordersdetail.count);
             response.model = model;
             response.num = indexPath.row;
             [self.navigationController pushViewController:response animated:YES];
-            
         };
-        //   申请退款
+//   申请退款
         cell.appraiseBlock = ^(RequestRefundController* response) {
-            
             [self.navigationController pushViewController:response animated:YES];
         };
         
-        //   退换货
+//   退换货
         cell.appraiseBlock = ^(ExchangeDetailsController* response) {
             [self.navigationController pushViewController:response animated:YES];
         };
         
-        //   查看详细 -- 再次购买
+//   查看详细 -- 再次购买
         cell.onceagainBlock = ^(id response) {
             [self.navigationController pushViewController:response animated:YES];
         };
-        //     確認收貨
+//     確認收貨
         cell.appraiseBlock = ^(AppraiseController* responses) {
             [self.navigationController pushViewController:responses animated:YES];
         };
@@ -356,10 +379,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         return 40;
-    }else if(indexPath.row == 1){
-    return 150;
+    }else
+        if (indexPath.row == 1){
+           return 110;
     }else {
-        return 40;
+           return 70;
     }
 }
 

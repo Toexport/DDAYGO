@@ -166,53 +166,49 @@
     }];
     _QuantityLabel = QuantityLabel;
     
-//  合计
-    ZP_GeneralLabel * CountLabel = [ZP_GeneralLabel initWithtextLabel:_CountLabel.text textColor:ZP_textblack font:ZP_addBtnTextdetaFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    CountLabel.text = NSLocalizedString(@"合計:", nil);
-    [self.contentView addSubview:CountLabel];
-    [CountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self).offset(-165);
-        make.bottom.equalTo(Backgroundview).offset(25);
-    }];
-    _CountLabel = CountLabel;
-    
-//  金额
-    ZP_GeneralLabel * AmountLabel = [ZP_GeneralLabel initWithtextLabel:_AmountLabel.text textColor:ZP_textblack font:ZP_addBtnTextdetaFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    [self.contentView addSubview:AmountLabel];
-    [AmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(CountLabel).offset(38);
-        make.top.equalTo(CountLabel).offset(0);
-    }];
-    _AmountLabel = AmountLabel;
-    
-//  运费
-    ZP_GeneralLabel * FreightLabel = [ZP_GeneralLabel initWithtextLabel:_FreightLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    FreightLabel.text = NSLocalizedString(@"(運費", nil);
-    [self.contentView addSubview:FreightLabel];
-    [FreightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(AmountLabel).offset(75);
-        make.top.equalTo(AmountLabel).offset(+2);
-    }];
-    _FreightLabel = FreightLabel;
-    
-//  快递费
-    ZP_GeneralLabel * ExpressFeeLabel = [ZP_GeneralLabel initWithtextLabel:_ExpressFeeLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-//    ExpressFeeLabel.text = @"0.00";
-    [self.contentView addSubview:ExpressFeeLabel];
-    _ExpressFeeLabel = ExpressFeeLabel;
-    [ExpressFeeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(FreightLabel).offset(35);
-        make.top.equalTo(FreightLabel).offset(0);
-    }];
+////  合计
+//    ZP_GeneralLabel * CountLabel = [ZP_GeneralLabel initWithtextLabel:_CountLabel.text textColor:ZP_textblack font:ZP_addBtnTextdetaFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+//    CountLabel.text = NSLocalizedString(@"合計:", nil);
+//    [self.contentView addSubview:CountLabel];
+//    [CountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.equalTo(self).offset(-165);
+//        make.bottom.equalTo(Backgroundview).offset(25);
+//    }];
+//    _CountLabel = CountLabel;
+//
+////  金额
+//    ZP_GeneralLabel * AmountLabel = [ZP_GeneralLabel initWithtextLabel:_AmountLabel.text textColor:ZP_textblack font:ZP_addBtnTextdetaFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+//    [self.contentView addSubview:AmountLabel];
+//    [AmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(CountLabel).offset(38);
+//        make.top.equalTo(CountLabel).offset(0);
+//    }];
+//    _AmountLabel = AmountLabel;
+//
+////  运费
+//    ZP_GeneralLabel * FreightLabel = [ZP_GeneralLabel initWithtextLabel:_FreightLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+//    FreightLabel.text = NSLocalizedString(@"(運費", nil);
+//    [self.contentView addSubview:FreightLabel];
+//    [FreightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(AmountLabel).offset(75);
+//        make.top.equalTo(AmountLabel).offset(+2);
+//    }];
+//    _FreightLabel = FreightLabel;
+//
+////  快递费
+//    ZP_GeneralLabel * ExpressFeeLabel = [ZP_GeneralLabel initWithtextLabel:_ExpressFeeLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+////    ExpressFeeLabel.text = @"0.00";
+//    [self.contentView addSubview:ExpressFeeLabel];
+//    _ExpressFeeLabel = ExpressFeeLabel;
+//    [ExpressFeeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(FreightLabel).offset(35);
+//        make.top.equalTo(FreightLabel).offset(0);
+//    }];
 }
 
 - (void)InformationWithDic:(OrdersdetailModel *)dic WithModel:(OrderModel *)model {
     [_FigureImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI,dic.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
-    //自己看你的数据· ·你有解析出来··
-    // 你数据放在上面啦？ 
-    
     NSLog(@"%@",dic.defaultimg);
-    
     _merchantsLabel.text = [NSString stringWithFormat:@"%@",model.shopname];
     _titleLabel.text = dic.productname;
     if (dic.colorname.length < 1) {
@@ -225,8 +221,6 @@
     }else {
         _SizeLabel.text = [NSString stringWithFormat:@"尺碼:%@",dic.normname];
     }
-    _AmountLabel.text = [NSString stringWithFormat:@"NT%@",model.ordersamount];
-    _ExpressFeeLabel.text = [NSString stringWithFormat:@"NT%@)",model.freight]; // 运费
     _PreferentialLabel.text = [NSString stringWithFormat:@"%@",dic.price];
 //    _priceLabel.text = [NSString stringWithFormat:@"NT%@",dic.cost];
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];

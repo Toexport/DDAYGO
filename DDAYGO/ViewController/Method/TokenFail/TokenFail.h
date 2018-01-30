@@ -7,22 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
-/**Token*/
-NSString * Token = nil;
-
-NSString * ZPICUEToken = nil;
-
-NSNumber * CountCode = nil;
-
-NSString * Symbol = nil;
-
-NSString * countrycode = nil;
-
-NSString * result = nil;
-
-NSString * state = nil;
+///**Token*/
+//NSString * Token = nil;
+//
+//NSString * ZPICUEToken = nil;
+//
+//NSNumber * CountCode = nil;
+//
+//NSString * Symbol = nil;
+//
+//NSString * countrycode = nil;
+//
+//NSString * result = nil;
+//
+//NSString * state = nil;
 
 @interface TokenFail : NSObject
 
-+ (void)Tkkenstr:(NSString *)str;
+//+ (void)Tkkenstr:(NSString *)str;
 @end

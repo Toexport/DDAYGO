@@ -196,20 +196,20 @@
     dic[@"nonce"] = @(i);
     [ZP_MyTool requestSetHomePage:dic success:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
+            Token = nil;
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
+            ZPICUEToken = nil;
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
+            [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线",nil) preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
             }];
             UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                Token = nil;
-                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
-                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
-                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
-                ZPICUEToken = nil;
-                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
-                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
-                [[NSUserDefaults standardUserDefaults]synchronize];
                 [self.navigationController popToRootViewControllerAnimated:NO];
                 //跳转
                 if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {

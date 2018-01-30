@@ -27,6 +27,45 @@
 }
 
 - (void)initUI {
+    //  合计
+    ZP_GeneralLabel * CountLabel = [ZP_GeneralLabel initWithtextLabel:_CountLabel.text textColor:ZP_textblack font:ZP_addBtnTextdetaFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    CountLabel.text = NSLocalizedString(@"合計:", nil);
+    [self.contentView addSubview:CountLabel];
+    [CountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-165);
+        make.top.equalTo(self).offset(8);
+    }];
+    _CountLabel = CountLabel;
+    
+    //  金额
+    ZP_GeneralLabel * AmountLabel = [ZP_GeneralLabel initWithtextLabel:_AmountLabel.text textColor:ZP_textblack font:ZP_addBtnTextdetaFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    [self.contentView addSubview:AmountLabel];
+    [AmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(CountLabel).offset(38);
+        make.top.equalTo(CountLabel).offset(0);
+    }];
+    _AmountLabel = AmountLabel;
+    
+    //  运费
+    ZP_GeneralLabel * FreightLabel = [ZP_GeneralLabel initWithtextLabel:_FreightLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    FreightLabel.text = NSLocalizedString(@"(運費", nil);
+    [self.contentView addSubview:FreightLabel];
+    [FreightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(AmountLabel).offset(75);
+        make.top.equalTo(AmountLabel).offset(+2);
+    }];
+    _FreightLabel = FreightLabel;
+    
+    //  快递费
+    ZP_GeneralLabel * ExpressFeeLabel = [ZP_GeneralLabel initWithtextLabel:_ExpressFeeLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    //    ExpressFeeLabel.text = @"0.00";
+    [self.contentView addSubview:ExpressFeeLabel];
+    _ExpressFeeLabel = ExpressFeeLabel;
+    [ExpressFeeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(FreightLabel).offset(35);
+        make.top.equalTo(FreightLabel).offset(0);
+    }];
+    
     //  左边按钮
     UIButton * AppraiseBut = [UIButton buttonWithType:UIButtonTypeSystem];
     AppraiseBut.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
@@ -38,7 +77,7 @@
     [self.contentView addSubview:AppraiseBut];
     [AppraiseBut mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-75);
-        make.bottom.equalTo(self).offset(-8);
+        make.bottom.equalTo(self).offset(-15);
         make.width.mas_equalTo(60);
     }];
     _AppraiseBut = AppraiseBut;
@@ -89,7 +128,9 @@
             _OnceagainBut.userInteractionEnabled = NO;
             break;
         case 1:
+//            _TradingLabel.text = @"待付款";
             [_OnceagainBut setTitle:@"付款" forState:UIControlStateNormal];
+//            _DeleteBut.hidden = NO;
             //            [_AppraiseBut setTitle:@"取消訂單" forState:UIControlStateNormal];
             _AppraiseBut.hidden = YES;
             //例如 --点击第一个看能不能点击
@@ -99,6 +140,8 @@
             break;
             //          退款
         case 2:
+//            _TradingLabel.text = @"待發貨";
+//            _DeleteBut.hidden = YES;
             [_OnceagainBut setTitle:@"退款" forState:UIControlStateNormal];
             _OnceagainBut.backgroundColor = nil;
             [self.OnceagainBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
@@ -109,6 +152,8 @@
             break;
             
         case 3:
+//            _TradingLabel.text = @"待收貨";
+//            _DeleteBut.hidden = YES;
             [_OnceagainBut setTitle:@"確認收貨" forState:UIControlStateNormal];
             [_AppraiseBut setTitle:@"退换货" forState:UIControlStateNormal];
             //            NSLog(@"Stata = %D",a);
@@ -116,6 +161,8 @@
             //            ZPLog(@"Stata = %D",a);
             break;
         case 4:
+//            _TradingLabel.text = @"交易成功";
+//            _DeleteBut.hidden = NO;
             [_OnceagainBut setTitle:@"評價" forState:UIControlStateNormal];
             _OnceagainBut.backgroundColor = nil;
             [self.OnceagainBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
@@ -131,6 +178,8 @@
             //            ZPLog(@"Stata = %D",a);
             break;
         case 5:
+//            _TradingLabel.text = @"交易成功";
+//            _DeleteBut.hidden = YES;
             //            [_OnceagainBut setTitle:@"再次購買" forState:UIControlStateNormal];
             //            [_OnceagainBut setTitle:@"评价" forState:UIControlStateNormal];
             _AppraiseBut.hidden = YES;
@@ -138,12 +187,15 @@
             //            ZPLog(@"Stata = %D",a);
             break;
         case 6:
+//            _TradingLabel.text = @"退款/售后";
+//            _DeleteBut.hidden = YES;
             [_OnceagainBut setTitle:@"查看详情" forState:UIControlStateNormal];
             _OnceagainBut.hidden = NO;
             _AppraiseBut.hidden = YES;
             //            ZPLog(@"Stata = %D",a);
             break;
         case 7:
+//            _TradingLabel.text = @"换货中";
             _OnceagainBut.backgroundColor = nil;
             [self.OnceagainBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
 //            _DeleteBut.hidden = YES;
@@ -155,6 +207,8 @@
         default:
             break;
     }
+    _AmountLabel.text = [NSString stringWithFormat:@"NT%@",model.ordersamount];
+    _ExpressFeeLabel.text = [NSString stringWithFormat:@"NT%@)",model.freight]; // 运费
     _model = dic;
     _model2 = model;
 }

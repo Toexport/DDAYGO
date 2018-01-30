@@ -48,7 +48,6 @@
 @property (nonatomic, strong) ZP_GoodDetailsModel * model;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeight;
 
-
 @property (nonatomic, strong) NSArray * normsArr;
 @property (nonatomic, strong) NSArray * typeArr;
 @property (nonatomic, strong) NSArray * pjArr;

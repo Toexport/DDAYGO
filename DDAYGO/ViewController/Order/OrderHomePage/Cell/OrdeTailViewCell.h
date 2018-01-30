@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "ZP_OrderModel.h"
 @interface OrdeTailViewCell : UITableViewCell
+@property (nonatomic, strong) UILabel * CountLabel;         // 合计
+@property (nonatomic, strong) UILabel * AmountLabel;       // 金额
+@property (nonatomic, strong) UILabel * FreightLabel;     // 快递
+@property (nonatomic, strong) UILabel * ExpressFeeLabel; // 快递费
+/********************************************************/
 @property (nonatomic, strong) UIButton * AppraiseBut;      // 评价
 //@property (nonatomic, strong) UIButton * LogisticsBut;    // 物流
 @property (nonatomic, strong) UIButton * OnceagainBut;   // 再次购买

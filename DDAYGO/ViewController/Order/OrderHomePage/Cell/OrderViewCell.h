@@ -24,10 +24,10 @@
 @property (nonatomic, strong) UILabel * QuantityLabel;      //  数量
 ///**********************************************************/
 ///*********************************************************/
-@property (nonatomic, strong) UILabel * CountLabel;         // 合计
-@property (nonatomic, strong) UILabel * AmountLabel;       // 金额
-@property (nonatomic, strong) UILabel * FreightLabel;     // 快递
-@property (nonatomic, strong) UILabel * ExpressFeeLabel; // 快递费
+//@property (nonatomic, strong) UILabel * CountLabel;         // 合计
+//@property (nonatomic, strong) UILabel * AmountLabel;       // 金额
+//@property (nonatomic, strong) UILabel * FreightLabel;     // 快递
+//@property (nonatomic, strong) UILabel * ExpressFeeLabel; // 快递费
 /********************************************************/
 /*******************************************************/
 

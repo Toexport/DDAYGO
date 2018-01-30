@@ -50,19 +50,16 @@
         [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
         [[UINavigationBar appearance] setTranslucent:NO];
     }
-    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     //将系统的设置不可用
     self.interactivePopGestureRecognizer.delegate = self;
     
 }
 
-- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (self.childViewControllers.count > 0) {//非根控制器
         viewController.hidesBottomBarWhenPushed = YES;
         [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
@@ -79,8 +76,7 @@
 
 #pragma mark - 手势代理
 //手势是否应该被识别
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
-{
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     if (self.childViewControllers.count > 1) {
         return YES;
     }else{

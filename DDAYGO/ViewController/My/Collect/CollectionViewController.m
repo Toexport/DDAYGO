@@ -91,18 +91,11 @@
     return cell;
 }
 
-//// image点击事件
-//- (void)imageTag {
-//
-////    aid
-////    collectionid
-////productid
-//    [self.navigationController pushViewController:detailed animated:YES];
-//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 102;
 }
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DetailedController * detailed = [[DetailedController alloc]init];
@@ -111,5 +104,8 @@
     [self.navigationController pushViewController:detailed animated:YES];
     ZPLog(@"%ld",indexPath.row);
 }
+
+
+
 @end
 

@@ -415,59 +415,54 @@
             [cell InformationWithDic:model];
             return cell;
             
-        }else
-            if (indexPath.section ==2){
-                static NSString * ExpressDeliveryID = @"expressDeliveryCell";
-                ZP_ExpressDeliveryCell * cell = [tableView dequeueReusableCellWithIdentifier:ExpressDeliveryID];
-                self.tableView.tableFooterView = [[UIView alloc]init];
-                ZP_ExpressDeliveryModel * model = self.ConfirmArray[indexPath.row];
-                [cell ExpressDevliveryDic:model];
-                return cell;
+    }else
+        if (indexPath.section ==2){
+            static NSString * ExpressDeliveryID = @"expressDeliveryCell";
+            ZP_ExpressDeliveryCell * cell = [tableView dequeueReusableCellWithIdentifier:ExpressDeliveryID];
+            self.tableView.tableFooterView = [[UIView alloc]init];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;  // 取消cell点击变灰
+            ZP_ExpressDeliveryModel * model = self.ConfirmArray[indexPath.row];
+            [cell ExpressDevliveryDic:model];
+            return cell;
                 
-            }else
-                if (indexPath.section == 3){
-                    static NSString * messageID = @"messageViewCell";
-                    ZP_MessageViewCell * cell = [tableView dequeueReusableCellWithIdentifier:messageID];
-                    cell.selectionStyle = UITableViewCellSelectionStyleNone;  // 取消cell点击变灰
-                    self.tableView.tableFooterView = [[UIView alloc]init];
-                    if (self.NewData.count > indexPath.row) {
-                        cell.allMoney = allMoney;
-                        cell.allCount = allCount;
-                        ZP_InformationModel * model = self.NewData[indexPath.row];
-                        [cell MessageDic:model];
-                    }
-                    
-                    return cell;
-                    
-                }else {
-                    static NSString * AnonymityID = @"anonymity";
-                    ZP_AnonymityViewCell * cell = [tableView dequeueReusableCellWithIdentifier:AnonymityID];
-                    cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
-                    [cell.AnonymousButton removeTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
+    }else
+        if (indexPath.section == 3){
+            static NSString * messageID = @"messageViewCell";
+            ZP_MessageViewCell * cell = [tableView dequeueReusableCellWithIdentifier:messageID];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;  // 取消cell点击变灰
+            self.tableView.tableFooterView = [[UIView alloc]init];
+            if (self.NewData.count > indexPath.row) {
+                cell.allMoney = allMoney;
+                cell.allCount = allCount;
+                ZP_InformationModel * model = self.NewData[indexPath.row];
+                [cell MessageDic:model];
+            }
+            return cell;
+    }else {
+            static NSString * AnonymityID = @"anonymity";
+            ZP_AnonymityViewCell * cell = [tableView dequeueReusableCellWithIdentifier:AnonymityID];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
+            [cell.AnonymousButton removeTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
                     [cell.AnonymousButton addTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
-                    return cell;
+            return cell;
                     
-                }
-}
+        }
+    }
+
 - (void)selectClick:(UIButton *)sup {
-    
     if (sup.selected == 0) {
         NSLog(@"取消");
     }else
         if (sup.selected == 1) {
             NSLog(@"选中");
-        }
-    
+    }
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (indexPath.section == 0) {
-        
         return 90;
-        
     }else
         if (indexPath.section == 1){
-            
             return 95;
             
     }else

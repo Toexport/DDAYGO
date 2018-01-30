@@ -163,15 +163,10 @@
 - (void)InformationWithDic:(ZP_InformationModel *)model {
     [_FigureImage sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
     _titleLabel.text = model.productname;
-////    _descLabel.text = dic[@"desc"];
-//    _CurrencySymbolLabel.text = @"NT";
    _PreferentialLabel.text = [NSString stringWithFormat:@"%@",model.productprice]; // 优惠价格
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
     _TrademarkLabel.text = model.cp;
     _QuantityLabel.text = model.amount;
-
-//    _TotalLabel.text = model[@"Quantiy"];
-//    CGFloat f = [[[@"Preferential"] stringByReplacingOccurrencesOfString:@"NT" withString:@""] floatValue];
     _ComputationsLabel.text = [NSString stringWithFormat:@"NT%.2f",model.amount.intValue * model.productprice.floatValue];
 
 }
