@@ -348,7 +348,7 @@
         model.freightamount = dic[@"freightamount"];
         model.chooselogistic = dic[@"chooselogistic"];
         model.allamount = dic[@"allamount"];
-//        model.amount = dic[@"amount"];
+        model.amount = dic[@"amount"];
         [_ConfirmArray addObject:model];
         [self upfataStatisticsLabel];
         [self.tableView reloadData];
@@ -378,14 +378,12 @@
 
 #pragma Mark - TableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     return 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (0 == section) {
         return _dataArrar.count;
-        
     }else
         if (1 == section) {
             //        return InformatonArray.count;
@@ -394,7 +392,6 @@
             if (2 == section) {
                 return self.ConfirmArray.count;
             }else {
-                
                 return _dataArrar.count;
             }
 }
@@ -554,7 +551,7 @@
             make.left.equalTo(myView).offset(30);
             make.top.equalTo(myView).offset(20);
         }];
-        self.merchantsLabel = _merchantsLabel;
+        merchantsLabel = _merchantsLabel;
         return myView;
         
     }else {

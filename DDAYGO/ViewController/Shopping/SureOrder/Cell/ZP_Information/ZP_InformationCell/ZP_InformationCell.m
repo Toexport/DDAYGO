@@ -103,7 +103,7 @@
     UIImageView * TrademarkImage = [UIImageView new];
     [self.contentView addSubview:TrademarkImage];
     [TrademarkImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self).offset(-60); // 右
+        make.right.equalTo(self).offset(-75); // 右
         make.top.equalTo(PreferentialLabel).offset(0);
         make.width.mas_offset(15);
         make.height.mas_offset(15);
@@ -121,18 +121,6 @@
         make.top.equalTo(TrademarkImage).offset(2.5);
     }];
     _TrademarkLabel = TrademarkLabel;
-    
-////  竖线
-//    UIView * VerticalView = [UIView new];
-//    VerticalView.layer.borderWidth = 1;
-//    VerticalView.backgroundColor = ZP_TabBarTextColor;
-//    [self.contentView addSubview:VerticalView];
-//    [VerticalView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self).offset(-80);
-//        make.top.equalTo(self).offset(70);
-//        make.height.mas_equalTo(20);
-//        make.width.mas_equalTo(1);
-//    }];
 
 //  符号X
     UILabel * SharacterLabel = [UILabel new];

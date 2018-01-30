@@ -186,6 +186,7 @@
 		C41CBE46201DDAB800F9B227 /* OrdeTailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C41CBE45201DDAB800F9B227 /* OrdeTailViewCell.m */; };
 		C41E9C332020254500E6F5E2 /* ShoppingHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41E9C322020254500E6F5E2 /* ShoppingHeadView.xib */; };
 		C41E9C352020259F00E6F5E2 /* ShoppingHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = C41E9C342020259F00E6F5E2 /* ShoppingHeadView.m */; };
+		C41E9C39202081E700E6F5E2 /* TokenFail.m in Sources */ = {isa = PBXBuildFile; fileRef = C41E9C38202081E700E6F5E2 /* TokenFail.m */; };
 		C41FF4DA1FFF53F7009B720D /* ZP_InstructionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41FF4DC1FFF53F7009B720D /* ZP_InstructionController.xib */; };
 		C420EDE51FF3D397005ECE30 /* UIViewController+LLProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = C420EDE31FF3D396005ECE30 /* UIViewController+LLProgress.m */; };
 		C420EDE81FF3D7E9005ECE30 /* CALayer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C420EDE71FF3D7E9005ECE30 /* CALayer+UIColor.m */; };
@@ -797,6 +798,8 @@
 		C41E9C302020253800E6F5E2 /* ShoppingHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingHeadView.h; sourceTree = "<group>"; };
 		C41E9C322020254500E6F5E2 /* ShoppingHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingHeadView.xib; sourceTree = "<group>"; };
 		C41E9C342020259F00E6F5E2 /* ShoppingHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingHeadView.m; sourceTree = "<group>"; };
+		C41E9C37202081E700E6F5E2 /* TokenFail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenFail.h; sourceTree = "<group>"; };
+		C41E9C38202081E700E6F5E2 /* TokenFail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenFail.m; sourceTree = "<group>"; };
 		C41FF4DB1FFF53F7009B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ZP_InstructionController.xib; sourceTree = "<group>"; };
 		C41FF4DE1FFF53FC009B720D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ZP_InstructionController.strings; sourceTree = "<group>"; };
 		C41FF4E01FFF5401009B720D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ZP_InstructionController.strings"; sourceTree = "<group>"; };
@@ -1677,6 +1680,7 @@
 		065099C51F62334F002F62D4 /* Method */ = {
 			isa = PBXGroup;
 			children = (
+				C41E9C36202081B900E6F5E2 /* TokenFail */,
 				C4BF36F2201F166B00C55DCA /* UIButton+Layout */,
 				C4BF36EF201F166A00C55DCA /* YLButton */,
 				C4AD072E200C7A5D00B8FF6E /* LPDQuoteImagesView */,
@@ -2527,6 +2531,15 @@
 				C41CBE2E1FF7EEB000F9B227 /* ZP_LotteryHistoricalBettingNumberModel.m */,
 			);
 			path = ZP_LotteryHistoricalBettingNumberModel;
+			sourceTree = "<group>";
+		};
+		C41E9C36202081B900E6F5E2 /* TokenFail */ = {
+			isa = PBXGroup;
+			children = (
+				C41E9C37202081E700E6F5E2 /* TokenFail.h */,
+				C41E9C38202081E700E6F5E2 /* TokenFail.m */,
+			);
+			path = TokenFail;
 			sourceTree = "<group>";
 		};
 		C425BEA31FC813C30097DB8F /* OrderView */ = {
@@ -4741,6 +4754,7 @@
 				C47E76261FB5A1C7009F279A /* LeftTableViewCell.m in Sources */,
 				064449B01F6A9B250004DFE4 /* MJRefreshBackNormalFooter.m in Sources */,
 				4D0949001FDEF77500FC4BCA /* EvaluateTableViewCell.m in Sources */,
+				C41E9C39202081E700E6F5E2 /* TokenFail.m in Sources */,
 				0641BBDD1F67F9E400E72FEF /* UIImage+MultiFormat.m in Sources */,
 				C47096B31FB07144006EA52C /* NSBundle+Language.m in Sources */,
 				06F5716D1F9F15CE00D61FDB /* CollectionViewController.m in Sources */,

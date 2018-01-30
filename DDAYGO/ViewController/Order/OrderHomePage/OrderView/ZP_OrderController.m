@@ -40,6 +40,8 @@
 @property (nonatomic, strong) FSPageContentView * pageContentView;
 
 @property (nonatomic, strong) NSMutableArray * newsData;
+//@property (nonatomic, strong) NSMutableArray * OrderArray;
+//@property (nonatomic, strong) NSMutableArray * OrderArray2;
 @end
 
 @implementation ZP_OrderController
@@ -88,7 +90,6 @@
 
 // UI
 -(void)addUI {
-    
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width , ZP_height - NavBarHeight - 85)];
     self.tableview.backgroundColor = ZP_Graybackground;
     [self.tableview registerClass:[OrderViewCell class] forCellReuseIdentifier:@"orderViewCell"];
@@ -163,7 +164,6 @@
         /********************/
         
     [self.tableview.mj_header endRefreshing];  // 結束刷新
-//    [self.tableview.mj_footer endRefreshing];  // 結束刷新
     [self.tableview reloadData];
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
@@ -247,7 +247,6 @@
             ZPLog(@"%@",error);
         }];
     }];
-    
     [alert addAction:defaultAction];
     [alert addAction:cancelAction];
     [self presentViewController:alert animated:YES completion:nil];
@@ -270,7 +269,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.newsData.count;;
+    return self.newsData.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -288,7 +287,6 @@
         [cell.DeleteBut addTarget:self action:@selector(DeleteOrderBut:) forControlEvents:UIControlEventTouchUpInside];
         [cell InformationWithDic:model2 WithModel:model];
         return cell;
-        
     }else  if(indexPath.row == 1) {
     static NSString * ID = @"orderViewCell";
     OrderModel * model = self.newsData[indexPath.section];

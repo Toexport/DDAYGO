@@ -190,7 +190,7 @@
     FreightLabel.text = NSLocalizedString(@"(運費", nil);
     [self.contentView addSubview:FreightLabel];
     [FreightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(AmountLabel).offset(70);
+        make.left.equalTo(AmountLabel).offset(75);
         make.top.equalTo(AmountLabel).offset(+2);
     }];
     _FreightLabel = FreightLabel;
@@ -208,6 +208,11 @@
 
 - (void)InformationWithDic:(OrdersdetailModel *)dic WithModel:(OrderModel *)model {
     [_FigureImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI,dic.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
+    //自己看你的数据· ·你有解析出来··
+    // 你数据放在上面啦？ 
+    
+    NSLog(@"%@",dic.defaultimg);
+    
     _merchantsLabel.text = [NSString stringWithFormat:@"%@",model.shopname];
     _titleLabel.text = dic.productname;
     if (dic.colorname.length < 1) {

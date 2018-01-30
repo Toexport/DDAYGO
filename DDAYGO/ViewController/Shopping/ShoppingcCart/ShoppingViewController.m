@@ -67,6 +67,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    _AllButton.selected = NO;
     if (!DD_HASLOGIN) {
         if (![MyViewController sharedInstanceTool].hasRemind) {
             [MyViewController sharedInstanceTool].hasRemind = YES;
@@ -156,6 +157,8 @@
 // 完成按钮
 - (void)CompleteBut:(UIButton *) sender {
     //79) 修改購物車商品數量
+    _AllButton.selected = NO;
+    _PriceLabel.text = @"0";
     NSMutableDictionary * dictt = [NSMutableDictionary dictionary];
     dictt[@"token"] = Token;
     dictt[@"cartid"] = _cardid;
@@ -166,7 +169,7 @@
             [SVProgressHUD showErrorWithStatus:@"库存不足"];
         }
         [self allData];
-        [self.tableView reloadData];
+//        [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];  // 結束刷新
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
@@ -243,7 +246,7 @@
     [self.AllButton setTitle:NSLocalizedString(@"Select", nil) forState:UIControlStateNormal];
     self.AllButton.titleLabel.font = ZP_TooBarFont;
     [self.AllButton setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
-    [self.AllButton addTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.AllButton addTarget:self action:@selector(selectaAllClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.AllButton setImage:[UIImage imageNamed:@"ic_Shopping_Choice_normal"] forState:UIControlStateNormal];
     [self.AllButton setImage:[UIImage imageNamed:@"ic_Shopping_Choice_pressed"] forState:UIControlStateSelected];
     [bottomView addSubview:self.AllButton];
@@ -322,113 +325,26 @@
     NSInteger row = sender.tag % 100;
     ZP_CartsShopModel * models = self.nameArray[section];
     ZP_CartsModel * model = models.array[row];
-    
-    NSLog(@"model %@",model.amount);
-    
-    if (_dataArray.count == 0) {
-        sender.selected = sender.selected;
-    }else {
-        sender.selected =! sender.selected;
-        if (self.AllButton == sender ) {
-            for (int i = 0; i < models.array.count; i ++) {
-                if (!_bjBool) {
-                    ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
-                    cell.buttom.selected = sender.selected;
-                    if (cell.buttom.selected == YES && ![_selectAllArray containsObject:@(cell.buttom.tag)]) {
-                        [_selectAllArray addObject:@(cell.buttom.tag)];
-                    }else{
-                        [_selectAllArray removeObject:@(cell.buttom.tag)];
-                    }
-                }
-                else {
-                    EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
-                    cell.button.selected = sender.selected;
-                    if (cell.button.selected == YES && ![_selectAllArray containsObject:@(cell.button.tag)]) {
-                        [_selectAllArray addObject:@(cell.button.tag)];
-                    }else{
-                        [_selectAllArray removeObject:@(cell.button.tag)];
-                    }
-                }
-            }
-        } else {
-            if (!_bjBool) {
-                ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
-                cell.buttom.selected = sender.selected;
-                if (cell.buttom.selected == YES && ![_selectAllArray containsObject:@(cell.buttom.tag)]) {
-                    [_selectAllArray addObject:@(cell.buttom.tag)];
-                }else{
-                    [_selectAllArray removeObject:@(cell.buttom.tag)];
-                }
-            }else {
-                EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
-                //                cell.button.selected = sender.selected;
-                if (cell.button.selected == YES && ![_selectAllArray containsObject:@(cell.button.tag)]) {
-                    [_selectAllArray addObject:@(cell.button.tag)];
-                }else{
-                    [_selectAllArray removeObject:@(cell.button.tag)];
-                }
-            }
-        }
-        [self updateData:sender.tag];
+    NSLog(@"model - %@",model.amount);
+    if (models.array.count == 0) {
+        return;
     }
+    sender.selected =! sender.selected;
+    
+    if (!_bjBool) {
+        ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+        cell.buttom.selected = sender.selected;
+        
+    }
+    else {
+        EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+        cell.button.selected = sender.selected;
+        
+    }
+    
+    [self updataMoneyOrNum];
 }
 
-//  店铺选择按钮
-- (void)ShopClick:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    if (sender.selected == YES) {
-        self.AllButton.selected = YES;
-    }else{
-        self.AllButton.selected = NO;
-    }
-    if (self.Shopchoosebuttom == sender) {
-        for (int i = 0; i < _dataArray.count; i ++) {
-            if (!_bjBool) {
-                ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-                cell.buttom.selected = sender.selected;
-                if (cell.buttom.selected == YES && ![_selectAllArray containsObject:@(cell.buttom.tag)]) {
-                    [_selectAllArray addObject:@(cell.buttom.tag)];
-                }else{
-                    [_selectAllArray removeObject:@(cell.buttom.tag)];
-                }
-            }else{
-                EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-                cell.button.selected = sender.selected;
-                if (cell.button.selected == YES && ![_selectAllArray containsObject:@(cell.button.tag)]) {
-                    [_selectAllArray addObject:@(cell.button.tag)];
-                }else{
-                    [_selectAllArray removeObject:@(cell.button.tag)];
-                }
-            }
-        }
-    } else {
-        if (!_bjBool) {
-            ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
-            cell.buttom.selected = sender.selected;
-            if (cell.buttom.selected == YES && ![_selectAllArray containsObject:@(cell.buttom.tag)]) {
-                [_selectAllArray addObject:@(cell.buttom.tag)];
-            }else{
-                [_selectAllArray removeObject:@(cell.buttom.tag)];
-            }
-        }else{
-            EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
-            cell.button.selected = sender.selected;
-            if (cell.button.selected == YES && ![_selectAllArray containsObject:@(cell.button.tag)]) {
-                [_selectAllArray addObject:@(cell.button.tag)];
-            }else{
-                [_selectAllArray removeObject:@(cell.button.tag)];
-            }
-        }
-    }
-    [self updateDataa:sender.tag];
-    if (_bjBool) {
-        //编辑的按钮文字
-        [_ClearingButt setTitle:@"删除" forState:UIControlStateNormal];
-    }else{
-        //不是编辑的按钮文字
-        [_ClearingButt setTitle:@"结算" forState:UIControlStateNormal];
-    }
-}
 
 - (void)updateData:(NSInteger)tag {
     //   更新选中数量
@@ -462,7 +378,6 @@
             }
         }else{
             EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-            //            ZP_CartsModel *model = _dataArray[i];
             NSLog(@"---- %d",cell.button.selected);
             if (cell.button.selected ) {
                 data += [cell.numLabel.text integerValue] * [model.productprice floatValue];
@@ -488,12 +403,8 @@
     UIButton *but = [self.view viewWithTag:666 +section];
     //每组全选
     if (count == models.array.count) {
-        //        self.AllButton.selected = YES;
         but.selected = YES;
-        //        self.Shopchoosebuttom.selected = YES;
     } else {
-        //        self.AllButton.selected = NO;
-        //        self.Shopchoosebuttom.selected = NO;
         but.selected = NO;
     }
     
@@ -629,8 +540,8 @@
             if ([obj[@"result"]isEqualToString:@"failure"]) {
                 [SVProgressHUD showInfoWithStatus:@"删除失敗"];
             }
-        [_tableView reloadData];
-        [self.tableView.mj_header endRefreshing];  // 結束刷新
+        //        [_tableView reloadData];
+        //        [self.tableView.mj_header endRefreshing];  // 結束刷新
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
     }];
@@ -718,7 +629,7 @@
         }else{
             cell.button.selected = NO;
         }
-        [cell.button removeTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
+        //        [cell.button removeTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
         [cell.button addTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
         [cell cellWithModel:model];
         cell.btnClickBlock = ^(NSString *str) {
@@ -766,35 +677,69 @@
     //全选选中
     if (but.selected) {
         ZP_CartsShopModel * models = self.nameArray[but.tag - 666];
-        for (int i = 0; i < models.array.count; i ++) {
-            ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:but.tag - 666]];
-            cell.buttom.selected = YES;
-            ZP_CartsModel * model = models.array[i];
-            dataCount += [cell.QuantityLabel.text integerValue];
-            data += [cell.QuantityLabel.text integerValue] * [model.productprice floatValue];
-            count ++;
-            NSString *str = [NSString stringWithFormat:@"%@_%@",model.stockid,model.amount];
-            if (_stockids.length > 0) {
-                _stockids = [_stockids stringByAppendingString:[NSString stringWithFormat:@",%@",str]];
-            }else{
-                _stockids = str;
+        if (!_bjBool) {
+            
+            for (int i = 0; i < models.array.count; i ++) {
+                ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:but.tag - 666]];
+                cell.buttom.selected = YES;
+                ZP_CartsModel * model = models.array[i];
+                dataCount += [cell.QuantityLabel.text integerValue];
+                data += [cell.QuantityLabel.text integerValue] * [model.productprice floatValue];
+                count ++;
+                NSString *str = [NSString stringWithFormat:@"%@_%@",model.stockid,model.amount];
+                if (_stockids.length > 0) {
+                    _stockids = [_stockids stringByAppendingString:[NSString stringWithFormat:@",%@",str]];
+                }else{
+                    _stockids = str;
+                }
             }
+            [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算(%ld)",(long)dataCount] forState: UIControlStateNormal];
+            self.PriceLabel.text = [@(data) stringValue];
+            allNum = dataCount;
+        }else{
+            for (int i = 0; i < models.array.count; i ++) {
+                EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:but.tag - 666]];
+                cell.button.selected = YES;
+                ZP_CartsModel * model = models.array[i];
+                data += [cell.numLabel.text integerValue] * [model.productprice floatValue];
+                dataCount += [cell.numLabel.text integerValue];
+                count ++;
+                NSString *str = [NSString stringWithFormat:@"%@_%@",model.stockid,model.amount];
+                NSString *str1 = [NSString stringWithFormat:@"%@",model.stockid];
+                if (_modelstockid.length > 0) {
+                    _modelstockid = [_modelstockid stringByAppendingString:[NSString stringWithFormat:@",%@",str1]];
+                }else{
+                    _modelstockid = str1;
+                }
+                if (_stockids.length > 0) {
+                    _stockids = [_stockids stringByAppendingString:[NSString stringWithFormat:@",%@",str]];
+                }else{
+                    _stockids = str;
+                }            }
         }
-        [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算(%ld)",(long)dataCount] forState: UIControlStateNormal];
-        self.PriceLabel.text = [@(data) stringValue];
-        allNum = dataCount;
+        
     }else{
         ZP_CartsShopModel * models = self.nameArray[but.tag - 666];
-        for (int i = 0; i < models.array.count; i ++) {
-            ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:but.tag - 666]];
-            cell.buttom.selected = NO;
-            _stockids = nil;
+        if (!_bjBool) {
+            
+            for (int i = 0; i < models.array.count; i ++) {
+                ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:but.tag - 666]];
+                cell.buttom.selected = NO;
+                _stockids = nil;
+            }
+            [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算"] forState: UIControlStateNormal];
+            self.PriceLabel.text = @"0";
+            allNum = 0;
+        }else{
+            for (int i = 0; i < models.array.count; i ++) {
+                EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:but.tag - 666]];
+                cell.button.selected = NO;
+                _modelstockid = nil;
+            }
         }
-        [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算"] forState: UIControlStateNormal];
-        self.PriceLabel.text = @"0";
-        allNum = 0;
+        
     }
-    
+    [self updataMoneyOrNum];
 }
 
 //  设置表头高度
@@ -858,7 +803,7 @@
 }
 
 -(void)successful {
-    [self.tableView reloadData];
+    //    [self.tableView reloadData];
     [ZPProgressHUD dismiss];
 }
 
@@ -871,5 +816,162 @@
     
     return;
 }
+
+
+
+#pragma mark -- 全选
+- (void)selectaAllClick:(UIButton *)but{
+    _stockids = nil;
+    _modelstockid = nil;
+    if (self.nameArray.count < 1) {
+        return;
+    }
+    but.selected = !but.selected;
+    
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [self.nameArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [dic setObject:obj forKey:@(idx)];
+    }];
+    NSInteger count = 0;
+    NSInteger data = 0;
+    NSInteger dataCount = 0;
+    for (int j = 0; j < dic.allKeys.count; j++) {
+        ZP_CartsShopModel *model = [dic objectForKey:@(j)];
+        UIButton *sectionbut = [self.view viewWithTag:666 +j];
+        sectionbut.selected = but.selected;
+        for (int i = 0; i < model.array.count; i ++) {
+            if (!_bjBool) {
+                ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+                ZP_CartsModel * model2 = model.array[i];
+                cell.buttom.selected = but.selected;
+                if (but.selected) {
+                    dataCount += [cell.QuantityLabel.text integerValue];
+                    data += [cell.QuantityLabel.text integerValue] * [model2.productprice floatValue];
+                    count ++;
+                }else{
+                    dataCount = 0;
+                    data = 0;
+                    count = 0;
+                }
+                NSString *str = [NSString stringWithFormat:@"%@_%@",model2.stockid,model2.amount];
+                if (_stockids.length > 0) {
+                    _stockids = [_stockids stringByAppendingString:[NSString stringWithFormat:@",%@",str]];
+                }else{
+                    _stockids = str;
+                }
+                
+            }else{
+                EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+                ZP_CartsModel * model2 = model.array[i];
+                cell.button.selected = but.selected;
+                if (but.selected) {
+                    data += [cell.numLabel.text integerValue] * [model2.productprice floatValue];
+                    dataCount += [cell.numLabel.text integerValue];
+                    count ++;
+                }else{
+                    data = 0;
+                    dataCount= 0;
+                    count =0;
+                }
+                NSString *str = [NSString stringWithFormat:@"%@_%@",model2.stockid,model2.amount];
+                NSString *str1 = [NSString stringWithFormat:@"%@",model2.stockid];
+                if (_modelstockid.length > 0) {
+                    _modelstockid = [_modelstockid stringByAppendingString:[NSString stringWithFormat:@",%@",str1]];
+                }else{
+                    _modelstockid = str1;
+                }
+                if (_stockids.length > 0) {
+                    _stockids = [_stockids stringByAppendingString:[NSString stringWithFormat:@",%@",str]];
+                }else{
+                    _stockids = str;
+                }
+            }
+        }
+    }
+    
+    self.PriceLabel.text = [@(data) stringValue];
+    if (_bjBool) {
+        [self.ClearingButt setTitle:@"删除" forState: UIControlStateNormal];
+    }else{
+        if (dataCount == 0) {
+            [self.ClearingButt setTitle:@"结算" forState: UIControlStateNormal];
+        }else{
+            [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算(%ld)",(long)dataCount] forState: UIControlStateNormal];}
+    }
+}
+
+- (void)updataMoneyOrNum {
+    _stockids = nil;
+    _modelstockid = nil;
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [self.nameArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [dic setObject:obj forKey:@(idx)];
+    }];
+    
+    NSInteger count = 0;
+    NSInteger data = 0;
+    NSInteger dataCount = 0;
+    _AllButton.selected = YES;
+    for (int j = 0; j < dic.allKeys.count; j++) {
+        ZP_CartsShopModel *model = [dic objectForKey:@(j)];
+        UIButton *sectionbut = [self.view viewWithTag:666 +j];
+        sectionbut.selected = YES;
+        for (int i = 0; i < model.array.count; i ++) {
+            if (!_bjBool) {
+                ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+                ZP_CartsModel * model2 = model.array[i];
+                if (cell.buttom.selected) {
+                    dataCount += [cell.QuantityLabel.text integerValue];
+                    data += [cell.QuantityLabel.text integerValue] * [model2.productprice floatValue];
+                    count ++;
+                    NSString *str = [NSString stringWithFormat:@"%@_%@",model2.stockid,model2.amount];
+                    if (_stockids.length > 0) {
+                        _stockids = [_stockids stringByAppendingString:[NSString stringWithFormat:@",%@",str]];
+                    }else{
+                        _stockids = str;
+                    }
+                }else{
+                    sectionbut.selected = NO;
+                    _AllButton.selected = NO;
+                }
+                
+            }else{
+                EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+                ZP_CartsModel * model2 = model.array[i];
+                if (cell.button.selected ) {
+                    data += [cell.numLabel.text integerValue] * [model2.productprice floatValue];
+                    dataCount += [cell.numLabel.text integerValue];
+                    count ++;
+                    NSString *str = [NSString stringWithFormat:@"%@_%@",model2.stockid,model2.amount];
+                    NSString *str1 = [NSString stringWithFormat:@"%@",model2.stockid];
+                    if (_modelstockid.length > 0) {
+                        _modelstockid = [_modelstockid stringByAppendingString:[NSString stringWithFormat:@",%@",str1]];
+                    }else{
+                        _modelstockid = str1;
+                    }
+                    if (_stockids.length > 0) {
+                        _stockids = [_stockids stringByAppendingString:[NSString stringWithFormat:@",%@",str]];
+                    }else{
+                        _stockids = str;
+                    }
+                }else{
+                    sectionbut.selected = NO;
+                    _AllButton.selected = NO;
+                }
+            }
+        }
+    }
+    
+    self.PriceLabel.text = [@(data) stringValue];
+    if (_bjBool) {
+        [self.ClearingButt setTitle:@"删除" forState: UIControlStateNormal];
+    }else{
+        if (dataCount == 0) {
+            [self.ClearingButt setTitle:@"结算" forState: UIControlStateNormal];
+        }else{
+            [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算(%ld)",(long)dataCount] forState: UIControlStateNormal];}
+    }
+}
+
 @end
 

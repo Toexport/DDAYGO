@@ -42,7 +42,6 @@
             self.hidesBottomBarWhenPushed = NO;
         }
     } else {
-//                [self allData];
     }
 }
 
@@ -58,6 +57,7 @@
 }
 
 - (void)initUI {
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = ZP_WhiteColor;
     self.titleView = [[FSSegmentTitleView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 40) titles:@[NSLocalizedString(@"all", nil),NSLocalizedString(@"Waiting payment", nil),NSLocalizedString(@"Wait delivery", nil),NSLocalizedString(@"Waiting goods", nil),NSLocalizedString(@"evaluation", nil)] delegate:self indicatorType:FSIndicatorTypeEqualTitle];
@@ -68,7 +68,6 @@
     self.titleView.indicatorColor = [UIColor orangeColor];
     [self.view addSubview:_titleView];
     
-    
     NSMutableArray *childVCs = [[NSMutableArray alloc]init];
     [@[NSLocalizedString(@"all", nil),NSLocalizedString(@"Waiting payment", nil),NSLocalizedString(@"Wait delivery", nil),NSLocalizedString(@"Waiting goods", nil),NSLocalizedString(@"evaluation", nil)] enumerateObjectsUsingBlock:^(NSString * obj, NSUInteger idx, BOOL * _Nonnull stop) {
         ZP_OrderController * vc = [[ZP_OrderController alloc]init];
@@ -77,7 +76,6 @@
         vc.num = idx;
         [childVCs addObject:vc];
     }];
-
     self.pageContentView = [[FSPageContentView alloc]initWithFrame:CGRectMake(0,  40, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.frame)  - 40) childVCs:childVCs parentVC:self delegate:self];
     [self.view addSubview:_pageContentView];
 }
