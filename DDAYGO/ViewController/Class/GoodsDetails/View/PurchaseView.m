@@ -22,8 +22,6 @@
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
     self.backgroundView.userInteractionEnabled = YES;
     [self.backgroundView addGestureRecognizer:tap];
-    self.standardList = @[NSLocalizedString(@"商品类型", nil),NSLocalizedString(@"", nil)];
-    self.standardTypeList = @[NSLocalizedString(@"商品規格", nil),NSLocalizedString(@"購買數量", nil)];
 //    self.standardTypeList = @[NSLocalizedString(@"", nil),NSLocalizedString(@"購買數量", nil)];
 // 商品价格
     self.chooseView = [[ChooseView alloc] initWithFrame:CGRectMake(0, screen_Height, screen_Width, screen_Height)];
@@ -451,6 +449,11 @@
     
     self.standardValueList = @[arr,@[]];
     
+    if (arr.count == 0) {
+        self.standardTypeList = @[@"",NSLocalizedString(@"購買數量", nil)];
+    } else {
+        self.standardTypeList = @[NSLocalizedString(@"商品規格", nil),NSLocalizedString(@"購買數量", nil)];
+    }
     [self initChooseView];
 }
 
@@ -467,7 +470,11 @@
     }
     
     self.standardValueTypeList = @[arr,@[]];
-    
+    if (arr.count == 0) {
+        self.standardList = @[@"",@""];
+    } else {
+        self.standardList = @[NSLocalizedString(@"商品类型", nil),NSLocalizedString(@"", nil)];
+    }
     //    [self initChooseView];
 }
 @end

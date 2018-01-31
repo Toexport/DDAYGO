@@ -99,11 +99,8 @@
     [self.detailTableview registerNib:[UINib nibWithNibName:@"ProductTableViewCell" bundle:nil] forCellReuseIdentifier:@"ProductTableViewCell"];
     [self.detailTableview registerNib:[UINib nibWithNibName:@"EvaluateTableViewCell" bundle:nil] forCellReuseIdentifier:@"EvaluateTableViewCell"];
     self.detailTableview.rowHeight=UITableViewAutomaticDimension;//高度设置为自适应
-    self.detailTableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        if (self.) {
-            <#statements#>
-        }
-    }];
+//    self.detailTableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//    }];
     
     [self allData];
     [self evaluation];
