@@ -161,6 +161,8 @@
         _SizeLanbel.text = [NSString stringWithFormat:@"尺碼:%@",model.normname];
     }
     _numLabel.text = [NSString stringWithFormat:@"%@",model.amount];
+    _productamountmodel = model;
+
 }
 
 - (void)buttonClick:(UIButton *)sender {

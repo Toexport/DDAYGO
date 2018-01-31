@@ -174,6 +174,19 @@
 
 // 获取数据
 - (void)allData {
+//    if (self.type == 666) {
+//        if (nil == _productId) {
+//            return;
+//        }
+//        NSDictionary * dic;
+//        self.imageDic = [NSMutableDictionary dictionary];
+//        if (Token) {
+//            
+//            dic = @{@"productid":_productId,@"token":Token};
+//        } else {
+//            dic = @{@"productid":_productId,@"token":@""};
+//        }
+//    }else
     if (nil == _productId) {
         return;
     }
@@ -195,9 +208,7 @@
         ZPLog(@"%@",obj);
         NSDictionary * asdic = [obj[@"productdetail"] firstObject];
         NSString * asdtring = asdic[@"content"];
-        
         self.productArray = [asdtring componentsSeparatedByString:@","];
-        
         [self.detailTableView reloadData];
         NSDictionary * tempDic = @{@"productid":_productId,@"page":@(1),@"pagesize":@(5)};
         [ZP_ClassViewTool requEvaluates:tempDic success:^(id obj) {
@@ -240,7 +251,6 @@
 }
 
 -(void)successful {
-    
     [self.detailTableView reloadData];
     [ZPProgressHUD dismiss];
 }
@@ -611,7 +621,6 @@
         label.hidden = YES;
     }
     return label;
-    //你来看这个，看看是不说手势冲突了
 }
 
 
@@ -662,6 +671,7 @@
     
     BuyMiddleView* middleView = [BuyMiddleView view];
     self.middleView = middleView;
+    [middleView.ClassificationBut addTarget:self action:@selector(ClassificationButt) forControlEvents:UIControlEventTouchUpInside];
     middleView.frame = CGRectMake(0,CGRectGetMaxY(topView.frame) + 10, screenW, MiddleViewH);
     [firstPageView addSubview:middleView];
     [self.MyScrollView addSubview:firstPageView];
@@ -711,6 +721,34 @@
     [secondPageView addSubview:tableview];
     [self.MyScrollView addSubview:secondPageView];
 }
+
+// 选择分类规格
+- (void)ClassificationButt {
+    ZPLog(@"11111");
+    DD_CHECK_HASLONGIN;
+    if (!self.purchaseView) {
+        static NSString * purchasseID = @"PurchaseView";
+        self.purchaseView = [[NSBundle mainBundle] loadNibNamed:purchasseID owner:self options:nil].firstObject;
+        self.purchaseView.frame = self.view.frame;
+        self.purchaseView.model = _model;
+        self.purchaseView.modeltypeArr = _typeArr;
+        self.purchaseView.modelArr = _normsArr;
+        [self.view addSubview:self.purchaseView];
+    }
+    [self.purchaseView show:^(id response) {
+        NSLog(@"re = %@",response);
+        [self.xzflBtn setTitle:response forState:UIControlStateNormal];
+    }];
+    __weak typeof(self) _weakSelf = self;
+    self.purchaseView.finishBtnBlock = ^(id response) {
+        NSLog(@"go");
+        _weakSelf.hidesBottomBarWhenPushed = YES;
+        _weakSelf.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
+        _weakSelf.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+        [_weakSelf.navigationController pushViewController:response animated:YES];
+    };
+}
+
 #pragma -- <UIScrollViewDelegate>
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     NSLog(@" --== %f",scrollView.contentOffset.y);

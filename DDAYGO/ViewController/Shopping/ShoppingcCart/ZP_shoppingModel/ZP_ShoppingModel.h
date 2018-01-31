@@ -21,7 +21,7 @@
 /**
  *商品库存数量
  */
-@property (nonatomic, strong) NSNumber * productamount;
+
 
 @property (nonatomic, strong) NSArray<ZP_CartsModel *> *carts;
 @property (nonatomic, strong) NSArray<ZP_CartsShopModel *> *cartshop;
@@ -51,6 +51,8 @@
 @property (nonatomic, strong) NSString * colorname;
 @property (nonatomic, strong) NSString * normname;
 @property (nonatomic, strong) NSString * suppliername;
+@property (nonatomic, strong) NSNumber * productamount;
+
 + (NSMutableArray *)arrayWithArray:(NSArray *)array;
 
 @end

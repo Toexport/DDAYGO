@@ -112,7 +112,7 @@
             static NSString * mustr ;//一共有多少个产品
             mustr = nil;
             [self.nameArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                ZP_CartsShopModel *model = obj;
+                ZP_CartsShopModel * model = obj;
                 NSLog(@"每组产品的详细%ld",model.array.count);
                 for (ZP_CartsModel * model1 in model.array) {
                     [_selectArray addObject:model1.amount];
@@ -250,8 +250,8 @@
     [bottomView addSubview:self.AllButton];
     self.AllButton = self.AllButton;
     [self.AllButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(bottomView).offset(5); // 左边
-        make.bottom.equalTo(bottomView).offset(-15); // 下边
+        make.left.equalTo(bottomView).offset(- 10); // 左边
+        make.bottom.equalTo(bottomView).offset(- 15); // 下边
         make.width.mas_offset(80);
         make.height.mas_offset(20);
     }];
@@ -478,7 +478,6 @@
 #pragma mark - 结算
 //  结算按钮
 - (void)ClearingBut:(UIButton *)sender {
-    
     if (_stockids.length > 0 || _modelstockid.length > 0) {
         if (sender.selected) {
 #pragma make -- 提示框
@@ -492,19 +491,25 @@
             [alert addAction:defaultAction];
             [alert addAction:cancelAction];
             [self presentViewController:alert animated:YES completion:nil];
+            
         }else {
             
-            ConfirmViewController * Confirm = [[ConfirmViewController alloc]init];
-            Confirm.model = _model;
-            Confirm.stockidsString = _stockids;
-            [self.navigationController pushViewController:Confirm animated:YES];
-            self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
-            self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-        }
+//            if (self.nameArray.count <= 1) {
+                ConfirmViewController * Confirm = [[ConfirmViewController alloc]init];
+                Confirm.model = _model;
+                Confirm.stockidsString = _stockids;
+                [self.navigationController pushViewController:Confirm animated:YES];
+                self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
+                self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+                return;
+//            }else {
+//            ZPLog(@"11111");
+//           }
+       }
         
     }else {
         [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"You have not selected goods ", nil)];
-        NSLog(@"没选选中，不跳");
+        ZPLog(@"没选选中，不跳");
     }
 }
 
@@ -531,7 +536,7 @@
         //        [_tableView reloadData];
         //        [self.tableView.mj_header endRefreshing];  // 結束刷新
     } failure:^(NSError *error) {
-        NSLog(@"%@",error);
+        ZPLog(@"%@",error);
     }];
 }
 
@@ -621,11 +626,11 @@
         [cell cellWithModel:model];
         cell.btnClickBlock = ^(NSString *str) {
             [_selectArray replaceObjectAtIndex:indexPath.row withObject:str];
-            NSLog(@"shu liang = %@",str); //这个就是数量
+           ZPLog(@"shu liang = %@",str); //这个就是数量
             _numstr = str;
 //            ZP_CartsModel
             _cardid = model.cartid;
-            NSLog(@"- num = %@,cardid = %@",_numstr,_cardid);
+            ZPLog(@"- num = %@,cardid = %@",_numstr,_cardid);
         };
         return cell;
     }
@@ -648,7 +653,7 @@
     view.TitleLabel.text = model.shopname;
     view.sectionAllButtion.tag = 666 + section;
     [view.sectionAllButtion addTarget:self action:@selector(sectionShop:) forControlEvents:UIControlEventTouchUpInside];
-    NSLog(@"shopname = %@",model.shopname);
+    ZPLog(@"shopname = %@",model.shopname);
     
     return view;
 }
@@ -959,6 +964,16 @@
         }else{
             [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算(%ld)",(long)dataCount] forState: UIControlStateNormal];}
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    NSLog(@"go ");
+    return 10.0f;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 10)];
+    v.backgroundColor = ZP_Graybackground;
+    return v;
 }
 
 @end

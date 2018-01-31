@@ -205,7 +205,7 @@
         };
         PayView.ConfirmPayMoneyBlock = ^(id response) {
             ZP_ConfirmPayModel * model = response;
-            NSLog(@"payname = %@",model.payname);
+            ZPLog(@"payname = %@",model.payname);
             ZP_ComfirmModel *modell = _dataArrar[0];
             NSMutableDictionary *dic =[NSMutableDictionary dictionary];
             dic[@"token"] = Token;
@@ -230,7 +230,7 @@
                 [weakView removeView];
                 [self.navigationController pushViewController:web animated:YES];
             } failure:^(NSError *error) {
-                NSLog(@"%@",error);
+                ZPLog(@"%@",error);
 //                [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
             }];
 //            }
@@ -259,7 +259,7 @@
         } else {
             [modelArr enumerateObjectsUsingBlock:^(ZP_ComfirmModel *model, NSUInteger idx, BOOL * _Nonnull stop) {
                 if ([model.isdefault isEqualToNumber:@1]) {
-                    NSLog(@"%@",model.isdefault);
+                    ZPLog(@"%@",model.isdefault);
                     self.merchantsLabel.text = model.receiptname;
                     [_dataArrar addObject:model];
                 }
@@ -292,8 +292,8 @@
         self.NewData = [ZP_InformationModel arrayWithArray:dic[@"carts"]];
         NSArray *arr = [ZP_InformationModel arrayWithArray:dic[@"cartshop"]];
         ZP_InformationModel * modell = arr[0];
-        NSLog(@"shop name = %@",modell.shopname);
-//        self.merchantsLabel.text = modell.shopname;
+        ZPLog(@"shop name = %@",modell.shopname);
+        self.merchantsLabel.text = modell.shopname;
         ZP_ExpressDeliveryModel * model = [[ZP_ExpressDeliveryModel alloc] init];
         model.freightamount = dic[@"freightamount"];
         model.chooselogistic = dic[@"chooselogistic"];
@@ -324,7 +324,7 @@
     dic[@"stockids"] = self.stockidsString;
     [ZP_shoopingTool requesMakeSureOrder:dic success:^(id obj) {
         //        NSDictionary * dic = obj;
-        NSLog(@"freightamount : %@",obj[@"freightamount"]);
+        ZPLog(@"freightamount : %@",obj[@"freightamount"]);
 //      self.ConfirmArray = [ZP_ExpressDeliveryModel arrayWithArray:obj[@"freightamount"]];
         
         [self.tableView reloadData];
@@ -508,7 +508,6 @@
 
 //  表头
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
     if (section ==1) {
         ZP_CartsShopModel *model = _nameArray[section-1];
         UIView * myView = [[UIView alloc]init];

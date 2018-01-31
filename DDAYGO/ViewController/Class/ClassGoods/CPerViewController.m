@@ -8,7 +8,7 @@
 
 #import "CPerViewController.h"
 #import "CPCollectionViewCell.h"
-#import "DetailedController.h"
+//#import "DetailedController.h"
 #import "PrefixHeader.pch"
 #import "ZP_ClassViewTool.h"
 #import "ClassificationViewController.h"

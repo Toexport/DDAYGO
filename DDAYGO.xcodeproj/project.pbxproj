@@ -1451,7 +1451,6 @@
 			isa = PBXGroup;
 			children = (
 				06F571031F9F0D3A00D61FDB /* OrderHomePage */,
-				06F5710B1F9F0D6800D61FDB /* Appraise */,
 				06F571161F9F0DFF00D61FDB /* CheckLogistics */,
 				C4B04D94200889C8009F7AF9 /* RequestRefund */,
 				C4B04D8F200889C8009F7AF9 /* RequestReplace */,
@@ -4108,6 +4107,7 @@
 		C4B04DAB20092652009F7AF9 /* RequestReplaceHomePage */ = {
 			isa = PBXGroup;
 			children = (
+				06F5710B1F9F0D6800D61FDB /* Appraise */,
 				C4B04DAC20092652009F7AF9 /* RequestReplaceController.h */,
 				C4B04DAD20092652009F7AF9 /* RequestReplaceController.m */,
 				C4B04DAE20092652009F7AF9 /* RequestReplaceController.xib */,

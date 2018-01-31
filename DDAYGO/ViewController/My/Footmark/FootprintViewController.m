@@ -11,7 +11,7 @@
 #import "FootprintCollectionViewCell.h"
 #import "PrefixHeader.pch"
 #import "ZP_MyTool.h"
-#import "DetailedController.h"
+#import "BuyViewController.h"
 @interface FootprintViewController (){
     int _i;
 }
@@ -32,7 +32,6 @@
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 //    self.collectionView.alwaysBounceVertical = YES;
-    
 }
 // 刷新
 - (void)addRefresh {
@@ -63,7 +62,7 @@
     [ZP_MyTool requtsFootprint:dic success:^(id obj) {
         ZPLog(@"%@",obj);
         NSDictionary * dic = obj;
-        NSArray *arr = [ZP_FootprintModel arrayWithArray:dic[@"historyslist"]];
+        NSArray * arr = [ZP_FootprintModel arrayWithArray:dic[@"historyslist"]];
         [arr enumerateObjectsUsingBlock:^(ZP_FootprintModel *model, NSUInteger idx, BOOL * _Nonnull stop) {
             [model.historyArray enumerateObjectsUsingBlock:^(ZP_FootprintModel1 *model1, NSUInteger idx, BOOL * _Nonnull stop) {
                 [self.newsData addObject:model1];
@@ -128,11 +127,11 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    DetailedController * detailed = [[DetailedController alloc]init];
-    detailed.fatherId = _model1.productid;
-    [self.navigationController pushViewController:detailed animated:YES];
+     ZP_FootprintModel1 *model = self.newsData[indexPath.row];
+    BuyViewController * ByView = [[BuyViewController alloc]init];
+    ByView.productId = model.productid;
+    [self.navigationController pushViewController:ByView animated:YES];
     ZPLog(@"%ld",indexPath.row);
-    
 }
 
 - (NSMutableArray *)newsData {

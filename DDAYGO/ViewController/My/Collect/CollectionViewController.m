@@ -13,7 +13,7 @@
 #import "ZP_MyTool.h"
 #import "ZP_ClassViewTool.h"
 #import "collectionModel.h"
-#import "DetailedController.h"
+#import "BuyViewController.h"
 @interface CollectionViewController (){
     int _i;
 }
@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
+    [self addRefresh];
     self.title = NSLocalizedString(@"collect", nil);
 }
 
@@ -35,6 +36,7 @@
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
+
 // 刷新
 - (void)addRefresh {
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -58,7 +60,7 @@
 - (void)getData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
-    dic[@"screen"] = @0;
+    dic[@"screen"] = @1;
     [ZP_MyTool requestgetcollections:dic success:^(id json) {
         ZPLog(@"%@",json);
     _dataArray = [collectionModel arrayWithArray:json[@"list"]];
@@ -95,7 +97,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-   _model = _dataArray[indexPath.row];
+   collectionModel * model = _dataArray[indexPath.row];
     CollectionTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CollectionTableViewCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
     cell.CollectionBut.tag = indexPath.row;
@@ -103,10 +105,9 @@
 //    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageTag)];
 //    [cell.ShopimageView addGestureRecognizer:tapGesture];
 //    cell.ShopimageView.userInteractionEnabled = YES;
-    cell.model = _model;
+    cell.model = model;
     return cell;
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 102;
@@ -114,14 +115,22 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DetailedController * detailed = [[DetailedController alloc]init];
-    detailed.productId =self.model.productid;
-//    detailed.fatherId = _model.collectionid;
-    [self.navigationController pushViewController:detailed animated:YES];
+    collectionModel * model = _dataArray[indexPath.row];
+    BuyViewController * ByView = [[BuyViewController alloc]init];
+    ByView.productId = model.productid;
+    [self.navigationController pushViewController:ByView animated:YES];
     ZPLog(@"%ld",indexPath.row);
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    NSLog(@"go ");
+    return 10.0f;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 10)];
+    v.backgroundColor = ZP_Graybackground;
+    return v;
+}
 
 @end
 

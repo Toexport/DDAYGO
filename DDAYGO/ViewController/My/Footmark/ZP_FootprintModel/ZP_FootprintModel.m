@@ -11,7 +11,6 @@
 @implementation ZP_FootprintModel
 
 + (NSMutableArray *)arrayWithArray:(NSArray *)array {
-    
     NSMutableArray * arr = [[NSMutableArray alloc]init];
     if (array.count > 0) {
         for (NSDictionary * dic in array) {
@@ -56,7 +55,6 @@
     if (array.count > 0) {
         
         for (NSDictionary * dic in array) {
-            
             ZP_FootprintModel1 * model = [[ZP_FootprintModel1 alloc]init];
             model.defaultimg = [NSString stringWithFormat:@"%@%@",ImgAPI,dic[@"defaultimg"]];
             model.productname = dic[@"productname"];

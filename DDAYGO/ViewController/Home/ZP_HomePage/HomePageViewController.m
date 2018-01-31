@@ -11,7 +11,6 @@
 #import "Pop-upPrefixHeader.pch"
 #import "ZP_HomeTool.h"
 #import "ZP_PositionModel.h"
-#import "DetailedController.h"
 #import "myNavigationController.h"
 #import "CPerViewController.h"
 #import "ZP_FifthModel.h"

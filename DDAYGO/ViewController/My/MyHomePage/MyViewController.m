@@ -191,6 +191,9 @@
 //  个人资料
 - (void)allData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    if (Token.length < 1) {
+        return;
+    }
     dic[@"token"] = Token;
     int i = arc4random_uniform(999);  // 随机数
     dic[@"nonce"] = @(i);

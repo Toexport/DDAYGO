@@ -106,6 +106,9 @@
 
 // 订单协议
 - (void)getDataWithState {
+    if (Token.length < 1) {
+        return;
+    }
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     NSInteger i;
     if ([_titleStr isEqualToString:NSLocalizedString(@"all", nil)]) {

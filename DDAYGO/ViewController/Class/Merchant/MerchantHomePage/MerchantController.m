@@ -11,7 +11,7 @@
 #import "PrefixHeader.pch"
 #import "Pop-upMenuModle.h"
 #import "ClassificationViewController.h"
-#import "DetailedController.h"
+#import "BuyViewController.h"
 #import "Pop-upPrefixHeader.pch"
 #import "ShopIntroductionViewController.h"
 #import "SatisfactionSurveyController.h"
@@ -432,10 +432,10 @@
     if (indexPath.row < [_newsarray count]) {//无论你武功有多高，有时也会忘记加
         model = [_newsarray objectAtIndex:indexPath.row];
     }
-    DetailedController * detaile = [[DetailedController alloc]init];
+    BuyViewController * BuyView = [[BuyViewController alloc]init];
 //    MerchantModel * model = _newsarray[indexPath.row];
-    [self.navigationController pushViewController:detaile animated:YES];
-    detaile.productId = model.productid;
+    [self.navigationController pushViewController:BuyView animated:YES];
+    BuyView.productId = model.productid;
     NSLog(@"选中%ld",(long)indexPath.item);
 }
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {

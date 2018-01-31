@@ -51,6 +51,7 @@
         model.cp = dic[@"cp"];
         model.stockid = dic[@"stockid"];
         model.cartid = dic[@"cartid"];
+        model.productamount = dic[@"productamount"];
         [arr addObject:model];
     }
     return arr;
