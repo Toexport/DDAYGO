@@ -1,9 +1,9 @@
 //
 //  NaviBase.h
-//  BGTaobao
+//  DDAYGO
 //
-//  Created by huangzhibiao on 16/1/7.
-//  Copyright © 2016年 haiwang. All rights reserved.
+//  Created by Login on 2017/9/14.
+//  Copyright © 2017年 Summer. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -312,6 +312,7 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
 }
 
+//选择分类规格
 - (IBAction)xzflAction:(UIButton *)sender {
     DD_CHECK_HASLONGIN;
     if (!self.purchaseView) {
@@ -323,7 +324,6 @@
         self.purchaseView.modelArr = _normsArr;
         [self.view addSubview:self.purchaseView];
     }
-    
     [self.purchaseView show:^(id response) {
         NSLog(@"re = %@",response);
         [self.xzflBtn setTitle:response forState:UIControlStateNormal];
@@ -391,7 +391,6 @@
 }
 
 - (IBAction)shfwAction:(id)sender {
-    
     if (self.productArray.count > 0) {
 //        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }else {

@@ -1,9 +1,9 @@
 //
 //  BuyTopView.m
-//  testLogin
+//  DDAYGO
 //
-//  Created by huangzhibiao on 15/12/21.
-//  Copyright © 2015年 haiwang. All rights reserved.
+//  Created by Login on 2017/9/14.
+//  Copyright © 2017年 Summer. All rights reserved.
 //
 
 #import "BuyTopView.h"

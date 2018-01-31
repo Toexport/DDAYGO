@@ -2493,9 +2493,9 @@
 		4DCDA75D2020D5B600ED64DC /* MyOrderTopTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				4DCDA75E2020D5B600ED64DC /* TabButton.h */,
-				4DCDA75F2020D5B600ED64DC /* MyOrderTopTabBar.m */,
 				4DCDA7602020D5B600ED64DC /* MyOrderTopTabBar.h */,
+				4DCDA75F2020D5B600ED64DC /* MyOrderTopTabBar.m */,
+				4DCDA75E2020D5B600ED64DC /* TabButton.h */,
 				4DCDA7612020D5B600ED64DC /* TabButton.m */,
 			);
 			path = MyOrderTopTabBar;
@@ -2513,8 +2513,8 @@
 		4DCDA7652020D5B700ED64DC /* GoodsAndBuyViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4DCDA7662020D5B700ED64DC /* View */,
 				4DCDA7722020D5B700ED64DC /* ViewController */,
+				4DCDA7662020D5B700ED64DC /* View */,
 			);
 			path = GoodsAndBuyViewController;
 			sourceTree = "<group>";
@@ -2522,17 +2522,17 @@
 		4DCDA7662020D5B700ED64DC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4DCDA7672020D5B700ED64DC /* BuyMiddleView.xib */,
-				4DCDA7682020D5B700ED64DC /* BGCenterLineLabel.m */,
-				4DCDA7692020D5B700ED64DC /* BuyBottomView.xib */,
-				4DCDA76A2020D5B700ED64DC /* BuyTopView.xib */,
 				4DCDA76B2020D5B700ED64DC /* BuyMiddleView.h */,
-				4DCDA76C2020D5B700ED64DC /* BuyTopView.m */,
-				4DCDA76D2020D5B700ED64DC /* BuyBottomView.h */,
-				4DCDA76E2020D5B700ED64DC /* BGCenterLineLabel.h */,
-				4DCDA76F2020D5B700ED64DC /* BuyBottomView.m */,
-				4DCDA7702020D5B700ED64DC /* BuyTopView.h */,
 				4DCDA7712020D5B700ED64DC /* BuyMiddleView.m */,
+				4DCDA7672020D5B700ED64DC /* BuyMiddleView.xib */,
+				4DCDA76E2020D5B700ED64DC /* BGCenterLineLabel.h */,
+				4DCDA7682020D5B700ED64DC /* BGCenterLineLabel.m */,
+				4DCDA76D2020D5B700ED64DC /* BuyBottomView.h */,
+				4DCDA76F2020D5B700ED64DC /* BuyBottomView.m */,
+				4DCDA7692020D5B700ED64DC /* BuyBottomView.xib */,
+				4DCDA7702020D5B700ED64DC /* BuyTopView.h */,
+				4DCDA76C2020D5B700ED64DC /* BuyTopView.m */,
+				4DCDA76A2020D5B700ED64DC /* BuyTopView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2541,9 +2541,9 @@
 			isa = PBXGroup;
 			children = (
 				4DCDA7732020D5B700ED64DC /* BuyViewController.h */,
-				4DCDA7742020D5B700ED64DC /* NaviBase.h */,
-				4DCDA7752020D5B700ED64DC /* BuyViewController.xib */,
 				4DCDA7762020D5B700ED64DC /* BuyViewController.m */,
+				4DCDA7752020D5B700ED64DC /* BuyViewController.xib */,
+				4DCDA7742020D5B700ED64DC /* NaviBase.h */,
 				4DCDA7772020D5B700ED64DC /* NaviBase.m */,
 			);
 			path = ViewController;
