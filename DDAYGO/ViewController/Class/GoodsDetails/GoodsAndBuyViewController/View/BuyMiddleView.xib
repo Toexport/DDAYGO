@@ -34,7 +34,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="ClassificationBut" destination="JYn-Va-ZtN" id="UIS-w0-JXk"/>
+                <outlet property="xzflBtn" destination="JYn-Va-ZtN" id="a51-AX-GOK"/>
             </connections>
             <point key="canvasLocation" x="365.5" y="426.5"/>
         </view>

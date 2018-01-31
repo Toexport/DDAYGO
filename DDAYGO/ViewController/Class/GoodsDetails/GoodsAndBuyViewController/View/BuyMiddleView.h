@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface BuyMiddleView : UIView
-@property (weak, nonatomic) IBOutlet UIButton * ClassificationBut; // 分类规格
-
+@property (weak, nonatomic) IBOutlet UIButton * xzflBtn; // 分类规格
 + (instancetype)view;
 
 @end

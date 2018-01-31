@@ -12,7 +12,6 @@
 #import "BuyTopView.h"
 #import "BuyMiddleView.h"
 #import "MyOrderTopTabBar.h"
-#import "MJRefresh.h"
 #import "NaviBase.h"
 
 #define TopViewH 484
@@ -47,7 +46,7 @@
 @property (weak, nonatomic) UIScrollView *MyScrollView;
 @property (weak, nonatomic) BuyTopView* topView;
 @property (weak, nonatomic) BuyMiddleView* middleView;
-@property (weak, nonatomic) UITableView* detailTableview;
+@property (strong, nonatomic) UITableView* detailTableview;
 @property (assign, nonatomic)float TopViewScale;
 
 /********源文件属性********/
@@ -62,7 +61,6 @@
 @property (weak, nonatomic) IBOutlet UILabel * productidLable;
 @property (strong, nonatomic) IBOutlet UILabel * ShoppingIdLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *detailViewTop;
-@property (weak, nonatomic) IBOutlet UITableView * detailTableView;
 @property (nonatomic, strong) NSArray * array;
 @property (nonatomic, strong) UIWindow * window;
 @property (nonatomic, strong) ProductDescriptionView * productDescriptionView;
@@ -85,6 +83,7 @@
 @property (nonatomic, strong) NSMutableDictionary *imageDic;  //详情图片的高度
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (nonatomic, assign) NSInteger selectIndex;
 
 @end
 
@@ -97,13 +96,20 @@
 }
 
 - (void)initSource {
+    [self.detailTableview registerNib:[UINib nibWithNibName:@"ProductTableViewCell" bundle:nil] forCellReuseIdentifier:@"ProductTableViewCell"];
+    [self.detailTableview registerNib:[UINib nibWithNibName:@"EvaluateTableViewCell" bundle:nil] forCellReuseIdentifier:@"EvaluateTableViewCell"];
+    self.detailTableview.rowHeight=UITableViewAutomaticDimension;//高度设置为自适应
+    self.detailTableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        if (self.) {
+            <#statements#>
+        }
+    }];
+    
     [self allData];
     [self evaluation];
     self.titleLabel.text = self.title ? self.title : @"商品详情";
     self.navigationController.navigationBar.hidden = YES;
-    [self.detailTableView registerNib:[UINib nibWithNibName:@"ProductTableViewCell" bundle:nil] forCellReuseIdentifier:@"ProductTableViewCell"];
-    [self.detailTableView registerNib:[UINib nibWithNibName:@"EvaluateTableViewCell" bundle:nil] forCellReuseIdentifier:@"EvaluateTableViewCell"];
-    self.detailTableView.rowHeight=UITableViewAutomaticDimension;//高度设置为自适应
+    
     self.shfwBottomView.hidden = YES;
     self.qbpjBottomView.hidden = YES;
     self.evaluateArray = [NSMutableArray array];
@@ -209,7 +215,7 @@
         NSDictionary * asdic = [obj[@"productdetail"] firstObject];
         NSString * asdtring = asdic[@"content"];
         self.productArray = [asdtring componentsSeparatedByString:@","];
-        [self.detailTableView reloadData];
+        [self.detailTableview reloadData];
         NSDictionary * tempDic = @{@"productid":_productId,@"page":@(1),@"pagesize":@(5)};
         [ZP_ClassViewTool requEvaluates:tempDic success:^(id obj) {
             [self.evaluateArray addObject:obj];
@@ -251,7 +257,7 @@
 }
 
 -(void)successful {
-    [self.detailTableView reloadData];
+    [self.detailTableview reloadData];
     [ZPProgressHUD dismiss];
 }
 
@@ -361,7 +367,7 @@
     
     [self.purchaseView show:^(id response) {
         NSLog(@"re = %@",response);
-        [self.xzflBtn setTitle:response forState:UIControlStateNormal];
+        [self.middleView.xzflBtn setTitle:response forState:UIControlStateNormal];
     }];
     __weak typeof(self) _weakSelf = self;
     self.purchaseView.finishBtnBlock = ^(id response) {
@@ -404,57 +410,6 @@
     }];
 }
 
-//这里才是点击的事件（评价详情按钮）,
-- (IBAction)cpnrAction:(id)sender {
-    if (_pjArr.count >0) {
-        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    }else {
-        ZPLog(@"----==");
-    }
-    [self updateDetailView:0];
-}
-
-- (IBAction)qupjAction:(id)sender {
-    if (self.evaluateArray.count>0) {
-        NSIndexPath * index = [NSIndexPath indexPathForRow:0 inSection:1];
-        //        [self.detailTableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    }else {
-        //        [SVProgressHUD showInfoWithStatus:@"数据加载失败!"];
-        //        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_pjArr.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-    }
-    [self updateDetailView:1];
-}
-
-- (IBAction)shfwAction:(id)sender {
-    
-    if (self.productArray.count > 0) {
-        //        [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    }else {
-        
-        if (_typeArr.count == 0) {
-            //            [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_pjArr.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-        }else{
-            //            [self.detailTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_typeArr.count-1 inSection:1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-        }
-        
-    }
-    [self updateDetailView:2];
-}
-
-- (void)updateDetailView:(NSInteger)index {
-    self.cpnrBottomView.hidden = YES;
-    self.qbpjBottomView.hidden = YES;
-    self.shfwBottomView.hidden = YES;
-    
-    if (index == 0) {
-        self.cpnrBottomView.hidden = NO;;
-    } else if (index == 1) {
-        self.qbpjBottomView.hidden = NO;
-    } else {
-        self.shfwBottomView.hidden = NO;
-    }
-}
-
 //立即购买
 - (IBAction)ligmAction:(UIButton *)sender {
     DD_CHECK_HASLONGIN;
@@ -469,7 +424,7 @@
         [self.view addSubview:self.purchaseView];
     }
     [self.purchaseView show:^(id response) {
-        [self.xzflBtn setTitle:response forState:UIControlStateNormal];
+        [self.middleView.xzflBtn setTitle:response forState:UIControlStateNormal];
     }];
     __weak typeof(self) _weakSelf = self;
     self.purchaseView.finishBtnBlock = ^(id response) {
@@ -495,7 +450,7 @@
     }
     [self.purchaseView show:^(id response) {
         NSLog(@"re = %@",response);
-        [self.xzflBtn setTitle:response forState:UIControlStateNormal];
+        [self.middleView.xzflBtn setTitle:response forState:UIControlStateNormal];
     }];
     __weak typeof(self) _weakSelf = self;
     self.purchaseView.finishBtnBlock = ^(id response) {
@@ -509,58 +464,69 @@
 
 #pragma mark  --- tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"- %ld - %ld -",self.productArray.count,self.evaluateArray.count);
-    if (section == 0) {
-        if (self.productArray.count>0) {
+    switch (self.selectIndex) {
+        case 0:
+        {
             return self.productArray.count;
-        }else{
-            return 0;
         }
-    }else if (section == 1){
-        if (self.evaluateArray.count>0) {
+            break;
+        case 1:
+        {
+            
+            if (self.evaluateArray.count == 0) {
+                tableView.hidden = YES;
+            }
             return self.evaluateArray.count;
-        }else{
+        }
+            break;
+        case 2:
+        {
             return 0;
         }
-    }else{
-        return 0;
+            break;
+        default:
+            return 0;
+            break;
     }
-    return self.productArray.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        ProductTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ProductTableViewCell"];
-        [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.productArray[indexPath.row]] options:0 progress:nil completed:^(UIImage * image, NSError * error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-            // 主线程刷新UI
-            dispatch_async(dispatch_get_main_queue(), ^{
+    switch (self.selectIndex) {
+        case 0:
+        {
+            ProductTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ProductTableViewCell"];
+            [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.productArray[indexPath.row]] options:0 progress:nil completed:^(UIImage * image, NSError * error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                cell.productImageView.image = image;
                 if (!self.imageDic[@(indexPath.row).stringValue]) {
                     self.imageDic[@(indexPath.row).stringValue] = @(ZP_Width * image.size.height / image.size.width);
-                    cell.productImageView.image = image;
-                    self.imageHeight += ZP_Width * image.size.height / image.size.width;
-                    
-                    self.scrollView.contentSize =CGSizeMake(ZP_Width,574>self.imageHeight?self.imageHeight+574:525+574);
-                    //ZP_height + self.imageHeight -150
-                    self.tableViewHeight.constant = 574>self.imageHeight?self.imageHeight:525;
                     [tableView reloadData];
                 }
-            });
-        }];
-        return cell;
-    } else
-        if (indexPath.section == 1) {
+            }];
+            return cell;
+        }
+            break;
+        case 1:
+        {
             EvaluateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EvaluateTableViewCell"];
             NSDictionary * dic = self.evaluateArray[indexPath.row];
             [cell updateData:dic];
             return cell;
-        }else {
+        }
+            break;
+        case 2:
+        {
             TextdetailsViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TextdetailsViewCell"];
             return cell;
         }
+            break;
+        default:
+            return nil;
+            break;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -568,18 +534,41 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (self.selectIndex) {
+            //self.imageDic
+        case 0:
+        {
+            return [self.imageDic[@(indexPath.row).stringValue] integerValue];
+        }
+            break;
+        case 1:
+        {
+            return 192;
+        }
+            break;
+        case 2:
+        {
+            return 100;
+        }
+            break;
+            
+        default:
+            return 0;
+            break;
+    }
     if (indexPath.section == 0) {
         if (_productArray.count > 0) {
             return ZP_Width;
         }
         return CGFLOAT_MIN;
-    } else
+    } else {
         if (indexPath.section == 1){
             return self.imageHeight;
             return CGFLOAT_MIN;
         }else {
             return 0;
         }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -634,12 +623,7 @@
     self.extendedLayoutIncludesOpaqueBars = YES;
     [self initView];
 }
--(void)viewDidDisappear:(BOOL)animated{
-    //释放下拉刷新内存
-//    [self.header free];
-    [self.MyScrollView removeFromSuperview];
-    [super viewDidDisappear:animated];
-}
+
 -(UIScrollView *)MyScrollView{
     if (_MyScrollView == nil) {
         UIScrollView* scroll = [[UIScrollView alloc] init];
@@ -671,7 +655,7 @@
     
     BuyMiddleView* middleView = [BuyMiddleView view];
     self.middleView = middleView;
-    [middleView.ClassificationBut addTarget:self action:@selector(ClassificationButt) forControlEvents:UIControlEventTouchUpInside];
+    [middleView.xzflBtn addTarget:self action:@selector(ClassificationButt) forControlEvents:UIControlEventTouchUpInside];
     middleView.frame = CGRectMake(0,CGRectGetMaxY(topView.frame) + 10, screenW, MiddleViewH);
     [firstPageView addSubview:middleView];
     [self.MyScrollView addSubview:firstPageView];
@@ -694,6 +678,17 @@
     tabBar.delegate = self;
     self.TopTabBar = tabBar;
     [secondPageView addSubview:tabBar];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_evaluate_nocontent"]];
+    imageView.frame = CGRectMake(ZP_Width/2-40,SecondPageTop/2-40, 80, 80);
+    [secondPageView addSubview:imageView];
+    UILabel *label = [[UILabel alloc] init];
+    label.text = @"暂无评论内容哦";
+    label.textColor = [UIColor darkGrayColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.frame = CGRectMake(0, imageView.y+imageView.height+5, secondPageView.width, 20);
+    [secondPageView addSubview:label];
+    
     //初始化一个UITableView
     UITableView* tableview = [[UITableView alloc] init];
     self.detailTableview = tableview;
@@ -701,22 +696,6 @@
     tableview.delegate = self;
     tableview.tag = 1;
     tableview.frame = CGRectMake(0, CGRectGetMaxY(tabBar.frame)+10, screenW,secondPageView.frame.size.height - tabBar.frame.size.height-10);
-//    MJRefreshHeaderView* RheaderView = [MJRefreshHeaderView header];
-//    RheaderView.scrollView = tableview;
-//    self.header = RheaderView;
-//    RheaderView.beginRefreshingBlock = ^(MJRefreshBaseView* refreshView){
-//        NSOperationQueue* Queue = [[NSOperationQueue alloc] init];
-//        [Queue addOperationWithBlock:^{
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [UIView animateWithDuration:0.5 animations:^{
-//                    self.MyScrollView.contentOffset = CGPointMake(0, 0);
-//                } completion:^(BOOL finished) {
-//                    self.MyScrollView.scrollEnabled = YES;
-//                }];
-//                [self.header endRefreshing];
-//            });
-//        }];
-//    };
 
     [secondPageView addSubview:tableview];
     [self.MyScrollView addSubview:secondPageView];
@@ -737,7 +716,7 @@
     }
     [self.purchaseView show:^(id response) {
         NSLog(@"re = %@",response);
-        [self.xzflBtn setTitle:response forState:UIControlStateNormal];
+        [self.middleView.xzflBtn setTitle:response forState:UIControlStateNormal];
     }];
     __weak typeof(self) _weakSelf = self;
     self.purchaseView.finishBtnBlock = ^(id response) {
@@ -786,7 +765,11 @@
 
 #pragma -- MyOrderTopTabBarDelegate(顶部标题栏delegate)
 -(void)tabBar:(MyOrderTopTabBar *)tabBar didSelectIndex:(NSInteger)index{
-    NSLog(@"点击了 －－－ %ld",index);
+    self.selectIndex = index;
+    if (self.detailTableview.hidden) {
+        self.detailTableview.hidden = NO;
+    }
+    [self.detailTableview reloadData];
 }
 
 #pragma mark =============================框架代码=============================
