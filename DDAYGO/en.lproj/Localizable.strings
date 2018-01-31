@@ -146,8 +146,9 @@
 "footprint" = "footprint";
 "store management" = "store management";
 "withdraw money" = "withdraw money";
-"" = "";
-"" = "";
+"Privacy policy" = "Privacy policy";
+"terms service" = "terms service";
+"exchange process" = "exchange process";
 /* *
  * 登录注册
  * */

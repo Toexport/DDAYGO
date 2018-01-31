@@ -8,13 +8,16 @@
 
 #import "ZP_PayView.h"
 #import "PrefixHeader.pch"
+#import "PayMoneyViewCell.h"
+#import "PayPassController.h"
+#import "PayFailController.h"
 #define kATTR_VIEW_HEIGHT (kHeight-215)
 
 ///******* 屏幕尺寸 *******/
 #define     kWidth      [UIScreen mainScreen].bounds.size.width - 30
-#define     kHeight     [UIScreen mainScreen].bounds.size.height - 5
+#define     kHeight     [UIScreen mainScreen].bounds.size.height - 50
 
-@interface ZP_PayView ()<UIGestureRecognizerDelegate>
+@interface ZP_PayView ()<UIGestureRecognizerDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UIView * contentView;
 @property (nonatomic, strong) UIButton * Creditcardbut;
 @property (nonatomic, strong) UIButton * ICUEbut;
@@ -38,7 +41,7 @@
  *  设置视图的基本内容
  */
 - (void)setupViews {
-    //  添加手势，点击背景视图消失
+//  添加手势，点击背景视图消失
     UIView * bounceView = [UIView new];
     bounceView.backgroundColor = [UIColor whiteColor];
     bounceView.layer.cornerRadius = 5.0;// View圆角弧度
@@ -51,7 +54,7 @@
         make.bottom.equalTo(self).offset(0);
         make.width.mas_offset(ZP_Width);
     }];
-    //  取消按钮
+//  取消按钮
     UIButton * Cancelbut = [UIButton buttonWithType:UIButtonTypeCustom];
     [Cancelbut setImage:[UIImage imageNamed:@"ic_payment_cancel"] forState:UIControlStateNormal];
     [Cancelbut addTarget:self action:@selector(cancelbut:) forControlEvents:UIControlEventTouchUpInside];
@@ -63,11 +66,11 @@
         make.left.equalTo(bounceView).offset(10);
         make.top.equalTo(bounceView).offset(10);
     }];
-    //  标题
+//  标题
     UILabel * titleLabel = [UILabel new];
     titleLabel.textColor = [UIColor blackColor];
     titleLabel.textColor = ZP_textblack;
-    titleLabel.text = @"确认付款";
+    titleLabel.text = NSLocalizedString(@"选择支付方式", nil);
     titleLabel.numberOfLines = 0;
     titleLabel.font = ZP_addBtnTextdetaFont;
     [bounceView addSubview:titleLabel];
@@ -85,102 +88,26 @@
             }
         }
     }
-    
+//    货币符号
+    ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_textblack font:ZP_AmountTextFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+    [bounceView addSubview:CurrencySymbolLabel];
+    [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self).offset(260);
+        make.left.equalTo(self).offset(ZP_Width / 2 - 30);
+    }];
     //  金额
-    UILabel * AmountLabel = [UILabel new];
-    AmountLabel.textColor = [UIColor blackColor];
-    AmountLabel.textColor = ZP_textblack;
-    //    AmountLabel.text = @"￥600.00";
-    AmountLabel.font = ZP_AmountTextFont;
+    ZP_GeneralLabel * AmountLabel = [ZP_GeneralLabel initWithtextLabel:_AmountLabel.text textColor:ZP_textblack font:ZP_AmountTextFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [bounceView addSubview:AmountLabel];
     [AmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(280); // 上面
-        make.left.equalTo(self).offset(ZP_Width / 2 - 50); // 左边
+        make.top.equalTo(CurrencySymbolLabel).offset(0); // 上面
+        make.left.equalTo(CurrencySymbolLabel).offset(35); // 左边
     }];
     _AmountLabel = AmountLabel;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSDictionary * dic = _InformatonArray[0];
-        CGFloat f = [[dic[@"Preferential"] stringByReplacingOccurrencesOfString:@"NT" withString:@""] floatValue];
-        CGFloat r = [dic[@"Cost"] floatValue];
-        _AmountLabel.text = [NSString stringWithFormat:@"NT%.2f",f* [dic[@"Quantiy"] floatValue] + r];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.contentView addSubview:self.tableView];
     });
-    
-    
-    //  信用卡image
-    UIImageView * Creditcardimageview = [UIImageView new];
-    [bounceView addSubview:Creditcardimageview];
-    Creditcardimageview.image = [UIImage imageNamed:@"icon_creditcard"];
-    [Creditcardimageview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(bounceView).offset(10);
-        make.top.equalTo(bounceView).offset(165);
-    }];
-    
-    //  信用卡支付
-    UILabel * CreditcardLabel = [UILabel new];
-    CreditcardLabel.textColor = [UIColor blackColor];
-    CreditcardLabel.textColor = ZP_textblack;
-    CreditcardLabel.text = NSLocalizedString(@"信用卡支付", nil);
-    CreditcardLabel.font = ZP_addBtnTextdetaFont;
-    [bounceView addSubview:CreditcardLabel];
-    [CreditcardLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(bounceView).offset(45);
-        make.top.equalTo(bounceView).offset(170);
-    }];
-    
-    //  信用卡选择按钮
-    UIButton * Creditcardbut = [UIButton new];
-    [Creditcardbut setImage:[UIImage imageNamed:@"icon_payment_selected_pressed"] forState:UIControlStateNormal];
-    [Creditcardbut setImage:[UIImage imageNamed:@"icon_payment_selected_normal"] forState:UIControlStateSelected];
-    [Creditcardbut addTarget:self action:@selector(creditcardbut:) forControlEvents:UIControlEventTouchUpInside];
-    Creditcardbut.layer.masksToBounds = YES;
-    Creditcardbut.layer.cornerRadius = Creditcardbut.frame.size.height / 2;
-    Creditcardbut.layer.borderColor = [UIColor clearColor].CGColor;
-    Creditcardbut.layer.borderWidth = 1;
-    [Creditcardbut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
-    [bounceView addSubview:Creditcardbut];
-    _Creditcardbut = Creditcardbut;
-    [Creditcardbut mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(bounceView).offset(-15);
-        make.top.equalTo(bounceView).offset(165);
-    }];
-    
-    //  ICUEimage
-    UIImageView * ICUEimageview = [UIImageView new];
-    [bounceView addSubview:ICUEimageview];
-    ICUEimageview.image = [UIImage imageNamed:@"ic_icue_coins"];
-    [ICUEimageview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(bounceView).offset(10);
-        make.top.equalTo(bounceView).offset(215);
-    }];
-    
-    //  ICUE支付
-    ZP_GeneralLabel * ICUELabel = [UILabel new];
-    ICUELabel.textColor = [UIColor blackColor];
-    ICUELabel.textColor = ZP_textblack;
-    ICUELabel.text = NSLocalizedString(@"ICUE支付", nil);
-    ICUELabel.font = ZP_addBtnTextdetaFont;
-    [bounceView addSubview:ICUELabel];
-    [ICUELabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(bounceView).offset(45);
-        make.top.equalTo(bounceView).offset(220);
-    }];
-    
-    //  ICUE选择按钮
-    UIButton * ICUEbut = [UIButton new];
-    [ICUEbut setImage:[UIImage imageNamed:@"icon_payment_selected_normal"] forState:UIControlStateNormal];
-    [ICUEbut setImage:[UIImage imageNamed:@"icon_payment_selected_pressed"] forState:UIControlStateSelected];
-    [ICUEbut addTarget:self action:@selector(iCUEbut:) forControlEvents:UIControlEventTouchUpInside];
-    ICUEbut.layer.masksToBounds = YES;
-    ICUEbut.layer.cornerRadius = ICUEbut.frame.size.height / 2;
-    ICUEbut.layer.borderColor = [UIColor clearColor].CGColor;
-    ICUEbut.layer.borderWidth = 1;
-    [ICUEbut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
-    _ICUEbut = ICUEbut;
-    [bounceView addSubview:ICUEbut];
-    [ICUEbut mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(bounceView).offset(-15);
-        make.top.equalTo(bounceView).offset(215);
-    }];
     
     //  支付按钮
     UIButton * Paybut = [UIButton new];
@@ -198,30 +125,32 @@
         make.height.mas_offset(40);
     }];
 }
-#pragma mark - 按钮选择
-//  信用卡选择按钮
-- (void)creditcardbut:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    _Creditcardbut.selected = NO;
-    if (_Creditcardbut == sender) {
-        _ICUEbut.selected = NO;
-    }
-    NSLog(@"选中信用卡");
-}
-
-//  ICUE 按钮选择
-- (void)iCUEbut:(UIButton *)sender {
-    _ICUEbut.selected = YES;
-    if (_ICUEbut == sender) {
-        _Creditcardbut.selected = YES;
-    }
-    NSLog(@"选中IUCE");
-}
 
 #pragma mark - 点击支付按钮
 - (void)paybut:(UIButton *)sender {
+    for (int i = 0; i < self.dataArray.count; i ++) {
+        PayMoneyViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        if (cell.PayBut.selected) {
+            ZP_PayModel *model = _dataArray[i];
+            NSLog(@"选择支付的名字为：%@",model.payname);
+            if (self.ConfirmPayMoneyBlock) {
+                self.ConfirmPayMoneyBlock(model);
+            }
+        }
+    }
     
-        NSLog(@"支付");
+    if (_Creditcardbut.selected == _Creditcardbut.selected) {
+        PayPassController * paypass = [[PayPassController alloc] init];
+        if (self.confirmPayBlock) {
+            self.confirmPayBlock(paypass);
+        }
+    }else if (_ICUEbut.selected == _ICUEbut.selected) {
+        
+        PayFailController * PayFail = [[PayFailController alloc] init];
+        if (self.PayFailBlock) {
+            self.PayFailBlock(PayFail);
+        }
+    }
 }
 
 #pragma mark - 点击事件
@@ -236,7 +165,6 @@
 #pragma mark - UIGestureRecognizerDelegate
 //  确定点击范围
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
-    
     if ([touch.view isDescendantOfView:self.contentView]) {
         return NO;
     }
@@ -253,7 +181,6 @@
     [view addSubview:self];
     __weak typeof(self) _weakSelf = self;
     self.contentView.frame = CGRectMake(15, kHeight, kWidth, kATTR_VIEW_HEIGHT);;
-    
     [UIView animateWithDuration:0.3 animations:^{
         _weakSelf.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
         _weakSelf.contentView.frame = CGRectMake(15, kHeight - kATTR_VIEW_HEIGHT, kWidth, kATTR_VIEW_HEIGHT);
@@ -273,5 +200,70 @@
     }];
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataArray.count;
+//    return 3;
+}
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ZP_PayModel * model = _dataArray[indexPath.row];
+    PayMoneyViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"PayMoneyViewCell"];
+//    cell.backgroundColor = [UIColor yellowColor];
+    cell.PayBut.tag = indexPath.row;
+    [cell.PayImageView sd_setImageWithURL:[NSURL URLWithString:model.logourl]placeholderImage:nil];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell.PayBut addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    cell.PayLabel.text = model.payname;
+    return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    //    return CGFLOAT_MIN;
+    return 5.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return nil;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return nil;
+}
+
+- (void)btnClick:(UIButton *)btn {
+    if (!btn.selected) {
+        btn.selected = !btn.selected;
+        if (btn.selected) {
+            for (int i = 0; i < self.dataArray.count; i ++) {
+                PayMoneyViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+                if (i == btn.tag) {}
+                else{cell.PayBut.selected = NO;}
+            }
+        }
+    }
+}
+
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 100, ZP_Width, self.contentView.frame.size.height - 100 - 60) style:UITableViewStyleGrouped];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        [_tableView registerNib:[UINib nibWithNibName:@"PayMoneyViewCell" bundle:nil] forCellReuseIdentifier:@"PayMoneyViewCell"];
+    }
+    return _tableView;
+}
+
+//- (void)setAmountLabel:(UILabel *)AmountLabel {
+//
+//    //    _AmountLabel.text = [NSString stringWithFormat:@"NT%.2f",AmountLabel.text.floatValue];
+//}
+
+- (void)setDataArray:(NSArray *)dataArray {
+    _dataArray = dataArray;
+    [_tableView reloadData];
+    NSLog(@"%ld",(unsigned long)self.dataArray.count);
+}
 @end

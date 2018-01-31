@@ -44,7 +44,7 @@
                             <rect key="frame" x="58" y="265" width="242" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="titleStr" value="请输入账号"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="titleStr" value="请输入帐号"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
                                     <integer key="value" value="0"/>
                                 </userDefinedRuntimeAttribute>

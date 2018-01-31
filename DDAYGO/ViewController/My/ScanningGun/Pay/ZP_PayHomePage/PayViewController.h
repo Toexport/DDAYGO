@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITableView * tableView;
 @property (nonatomic, strong) NSString * Oid;
 @property (nonatomic, strong) NSString * Oname;
+@property (nonatomic, strong) UILabel * PriceLabel; //  总金额
 
 
 @end

@@ -7,19 +7,20 @@
 //
 
 #import "PayViewCell.h"
+#import "PrefixHeader.pch"
 @implementation PayViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    _PayTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
 }
 
 - (IBAction)Determine:(id)sender {
-    
     if (_PayTextField.text.length>0) {
         self.PayBlock(_PayTextField.text);
-        
     }else{
         NSLog(@"money not empty！");
+        [ZPProgressHUD showErrorWithStatus:@"请输入金额"];
     }
 }
 

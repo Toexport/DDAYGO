@@ -29,9 +29,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入付款金额" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f8A-eo-dVF">
-                        <rect key="frame" x="96" y="176" width="90" height="25"/>
+                        <rect key="frame" x="96" y="176" width="150" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="90" id="WK7-sK-tCQ"/>
+                            <constraint firstAttribute="width" constant="150" id="WK7-sK-tCQ"/>
                             <constraint firstAttribute="height" constant="25" id="jq1-Ep-jwx"/>
                         </constraints>
                         <nil key="textColor"/>

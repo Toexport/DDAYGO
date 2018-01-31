@@ -277,7 +277,6 @@
 - (void)setDataArray:(NSArray *)dataArray {
     _dataArray = dataArray;
     [_tableView reloadData];
-
     NSLog(@"%ld",(unsigned long)self.dataArray.count);
 }
 

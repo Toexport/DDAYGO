@@ -200,6 +200,10 @@
 		C41E9C332020254500E6F5E2 /* ShoppingHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41E9C322020254500E6F5E2 /* ShoppingHeadView.xib */; };
 		C41E9C352020259F00E6F5E2 /* ShoppingHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = C41E9C342020259F00E6F5E2 /* ShoppingHeadView.m */; };
 		C41E9C39202081E700E6F5E2 /* TokenFail.m in Sources */ = {isa = PBXBuildFile; fileRef = C41E9C38202081E700E6F5E2 /* TokenFail.m */; };
+		C41E9C3B20219A8100E6F5E2 /* 产品详情无评价_spec - 副本.png in Resources */ = {isa = PBXBuildFile; fileRef = C41E9C3A20219A8100E6F5E2 /* 产品详情无评价_spec - 副本.png */; };
+		C41E9C3F2021A3E000E6F5E2 /* ZP_PayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C41E9C3E2021A3E000E6F5E2 /* ZP_PayModel.m */; };
+		C41E9C432021A6DA00E6F5E2 /* PayMoneyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C41E9C412021A6DA00E6F5E2 /* PayMoneyViewCell.m */; };
+		C41E9C442021A6DA00E6F5E2 /* PayMoneyViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41E9C422021A6DA00E6F5E2 /* PayMoneyViewCell.xib */; };
 		C41FF4DA1FFF53F7009B720D /* ZP_InstructionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41FF4DC1FFF53F7009B720D /* ZP_InstructionController.xib */; };
 		C420EDE51FF3D397005ECE30 /* UIViewController+LLProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = C420EDE31FF3D396005ECE30 /* UIViewController+LLProgress.m */; };
 		C420EDE81FF3D7E9005ECE30 /* CALayer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C420EDE71FF3D7E9005ECE30 /* CALayer+UIColor.m */; };
@@ -835,6 +839,12 @@
 		C41E9C342020259F00E6F5E2 /* ShoppingHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingHeadView.m; sourceTree = "<group>"; };
 		C41E9C37202081E700E6F5E2 /* TokenFail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenFail.h; sourceTree = "<group>"; };
 		C41E9C38202081E700E6F5E2 /* TokenFail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenFail.m; sourceTree = "<group>"; };
+		C41E9C3A20219A8100E6F5E2 /* 产品详情无评价_spec - 副本.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "产品详情无评价_spec - 副本.png"; sourceTree = "<group>"; };
+		C41E9C3D2021A3E000E6F5E2 /* ZP_PayModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_PayModel.h; sourceTree = "<group>"; };
+		C41E9C3E2021A3E000E6F5E2 /* ZP_PayModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_PayModel.m; sourceTree = "<group>"; };
+		C41E9C402021A6DA00E6F5E2 /* PayMoneyViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayMoneyViewCell.h; sourceTree = "<group>"; };
+		C41E9C412021A6DA00E6F5E2 /* PayMoneyViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayMoneyViewCell.m; sourceTree = "<group>"; };
+		C41E9C422021A6DA00E6F5E2 /* PayMoneyViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayMoneyViewCell.xib; sourceTree = "<group>"; };
 		C41FF4DB1FFF53F7009B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ZP_InstructionController.xib; sourceTree = "<group>"; };
 		C41FF4DE1FFF53FC009B720D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ZP_InstructionController.strings; sourceTree = "<group>"; };
 		C41FF4E01FFF5401009B720D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ZP_InstructionController.strings"; sourceTree = "<group>"; };
@@ -1391,6 +1401,7 @@
 			isa = PBXGroup;
 			children = (
 				C4A3FFD2201B03C7001BCB30 /* DDAYGO IHTTP协议1.0.docx */,
+				C41E9C3A20219A8100E6F5E2 /* 产品详情无评价_spec - 副本.png */,
 				C4411D91200F626100CE906F /* 加载_ios */,
 				0641BB971F67B60B00E72FEF /* Testbag */,
 				063FE0AE1F615CEB009910FF /* ViewController */,
@@ -2635,6 +2646,15 @@
 			path = TokenFail;
 			sourceTree = "<group>";
 		};
+		C41E9C3C2021A3C600E6F5E2 /* ZP_PayModel */ = {
+			isa = PBXGroup;
+			children = (
+				C41E9C3D2021A3E000E6F5E2 /* ZP_PayModel.h */,
+				C41E9C3E2021A3E000E6F5E2 /* ZP_PayModel.m */,
+			);
+			path = ZP_PayModel;
+			sourceTree = "<group>";
+		};
 		C425BEA31FC813C30097DB8F /* OrderView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2776,6 +2796,7 @@
 				C44D6D0D1FD8CF070002DAF2 /* PayViewController.m */,
 				C44D6D0E1FD8CF070002DAF2 /* PayViewController.xib */,
 				C44D6D081FD8CF070002DAF2 /* Cell */,
+				C41E9C3C2021A3C600E6F5E2 /* ZP_PayModel */,
 			);
 			path = ZP_PayHomePage;
 			sourceTree = "<group>";
@@ -2795,6 +2816,9 @@
 			children = (
 				C44D6D141FD8CF7D0002DAF2 /* ZP_PayView.h */,
 				C44D6D151FD8CF7D0002DAF2 /* ZP_PayView.m */,
+				C41E9C402021A6DA00E6F5E2 /* PayMoneyViewCell.h */,
+				C41E9C412021A6DA00E6F5E2 /* PayMoneyViewCell.m */,
+				C41E9C422021A6DA00E6F5E2 /* PayMoneyViewCell.xib */,
 			);
 			path = ZP_PayView;
 			sourceTree = "<group>";
@@ -4413,6 +4437,7 @@
 				C4632E0E200633CC0029AA87 /* RefundServiceController.xib in Resources */,
 				06F571D41F9F1A7900D61FDB /* DialogBox.xib in Resources */,
 				C4910F701FFC6D24006DA5B9 /* ddg_advertising.png in Resources */,
+				C41E9C3B20219A8100E6F5E2 /* 产品详情无评价_spec - 副本.png in Resources */,
 				C472F1391FE29A060031D7B5 /* ZP_CheckMoreCell.xib in Resources */,
 				06F5721D1F9F1E8700D61FDB /* AllCategoriesView.xib in Resources */,
 				C4411DAE200F626200CE906F /* loading3.png in Resources */,
@@ -4452,6 +4477,7 @@
 				06F571D81F9F1A7900D61FDB /* EditViewController.xib in Resources */,
 				06F572411F9F204F00D61FDB /* BillDetailViewController.xib in Resources */,
 				C4B04DB020092652009F7AF9 /* RequestReplaceController.xib in Resources */,
+				C41E9C442021A6DA00E6F5E2 /* PayMoneyViewCell.xib in Resources */,
 				C47096931FB04998006EA52C /* BindingEmailController.xib in Resources */,
 				C47E762A1FB5A1C7009F279A /* RightTableViewCell.xib in Resources */,
 				C472F1341FE299E00031D7B5 /* ZP_CheckMoreController.xib in Resources */,
@@ -4672,6 +4698,7 @@
 				06F571D91F9F1A7900D61FDB /* AddressViewController.m in Sources */,
 				C45F233C1FA0757A00F5DB41 /* ZeroViewCell.m in Sources */,
 				C47901DE1FF7303C0027AABD /* JXPopoverViewCell.m in Sources */,
+				C41E9C432021A6DA00E6F5E2 /* PayMoneyViewCell.m in Sources */,
 				064449AF1F6A9B250004DFE4 /* MJRefreshBackGifFooter.m in Sources */,
 				06418F531F7A076A00479523 /* MASLayoutConstraint.m in Sources */,
 				064249861F99FBEB00340EBA /* PayFailController.m in Sources */,
@@ -4754,6 +4781,7 @@
 				C4535E2C1FC55A7F00DFFD62 /* ZP_ConfirmViewCell.m in Sources */,
 				06F5711D1F9F0DFF00D61FDB /* LogistcsController.m in Sources */,
 				06418F541F7A076A00479523 /* MASViewAttribute.m in Sources */,
+				C41E9C3F2021A3E000E6F5E2 /* ZP_PayModel.m in Sources */,
 				06F571911F9F16E600D61FDB /* NewsViewController.m in Sources */,
 				C47096921FB04998006EA52C /* BindingEmailController.m in Sources */,
 				C4535E201FC5086800DFFD62 /* ZP_ConfirmPayModel.m in Sources */,

@@ -94,7 +94,6 @@
             [self networkProblems];
         }
         ZPLog(@"%@",obj);
-        
         if ([obj isKindOfClass:[NSDictionary class]]) {
             NSLog(@"go");
             [self.tableView reloadData];
@@ -491,9 +490,7 @@
             [alert addAction:defaultAction];
             [alert addAction:cancelAction];
             [self presentViewController:alert animated:YES completion:nil];
-            
         }else {
-            
 //            if (self.nameArray.count <= 1) {
                 ConfirmViewController * Confirm = [[ConfirmViewController alloc]init];
                 Confirm.model = _model;
@@ -506,7 +503,6 @@
 //            ZPLog(@"11111");
 //           }
        }
-        
     }else {
         [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"You have not selected goods ", nil)];
         ZPLog(@"没选选中，不跳");
@@ -642,7 +638,6 @@
 
 // 表头
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
     ZP_CartsShopModel * model;
     if (self.nameArray.count > 0) {
         model = self.nameArray[section];
@@ -654,7 +649,6 @@
     view.sectionAllButtion.tag = 666 + section;
     [view.sectionAllButtion addTarget:self action:@selector(sectionShop:) forControlEvents:UIControlEventTouchUpInside];
     ZPLog(@"shopname = %@",model.shopname);
-    
     return view;
 }
 
@@ -927,7 +921,6 @@
                     sectionbut.selected = NO;
                     _AllButton.selected = NO;
                 }
-                
             }else{
                 EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
                 ZP_CartsModel * model2 = model.array[i];
@@ -954,7 +947,6 @@
             }
         }
     }
-    
     self.PriceLabel.text = [@(data) stringValue];
     if (_bjBool) {
         [self.ClearingButt setTitle:@"删除" forState: UIControlStateNormal];
@@ -976,5 +968,8 @@
     return v;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ZPLog(@"%ld",indexPath.row);
+}
 @end
 

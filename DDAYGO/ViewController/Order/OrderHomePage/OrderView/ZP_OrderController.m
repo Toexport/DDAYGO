@@ -306,7 +306,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 3;
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -373,7 +372,7 @@
         cell.onceagainBlock = ^(id response) {
             [self.navigationController pushViewController:response animated:YES];
         };
-//     確認收貨
+//    確認收貨
         cell.appraiseBlock = ^(AppraiseController* responses) {
             [self.navigationController pushViewController:responses animated:YES];
         };

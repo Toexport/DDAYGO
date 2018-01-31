@@ -64,12 +64,10 @@
 }
 
 #pragma mark -UIWebViewDelegate
--(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSLog(@"当前连接--》%@",request.URL.absoluteString);
 //用一个字符串来接受  全局的· 后面要用
     _str = request.URL.absoluteString;
-    
     [SVProgressHUD showWithStatus:@"正在努力加载ing......请再稍等一下下~"]; // 菊花
     
     return YES;
@@ -132,7 +130,6 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"连接失败%@",error);
     [SVProgressHUD dismiss];
-    
 }
 
 

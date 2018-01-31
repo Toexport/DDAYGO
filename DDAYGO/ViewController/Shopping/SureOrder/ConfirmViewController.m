@@ -68,7 +68,10 @@
         messageArray = @[@{@"Computations":@"",@"num":@""}];
     }
 }
-
+//- (void)viewDidAppear:(BOOL)animated {
+//    [super viewDidAppear:animated];
+//    [self getAddData];
+//}
 // 刷新
 - (void)addRefresh {
 //    下拉刷新
@@ -169,7 +172,6 @@
 //  组头
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    
     if (section ==1) {
         return 40;
     }else if (section == 4) {
@@ -186,7 +188,6 @@
         AddAddressViewController *viewController = [[AddAddressViewController alloc] init];
         [self.navigationController pushViewController:viewController animated:YES];
         viewController.contentDic = @{@"asd":@(YES)};
-        
     } else {
         [self ConfirmData];
         
@@ -195,7 +196,6 @@
 
 // 选择支付方式数据
 - (void)ConfirmData {
-//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
     NSDictionary * dic = @{@"countrycode":@"886"};
     [ZP_shoopingTool requetMethodpay:dic success:^(id obj) {
         ConfirmPayView * PayView = [[ConfirmPayView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -206,7 +206,7 @@
         PayView.ConfirmPayMoneyBlock = ^(id response) {
             ZP_ConfirmPayModel * model = response;
             ZPLog(@"payname = %@",model.payname);
-            ZP_ComfirmModel *modell = _dataArrar[0];
+            ZP_ComfirmModel * modell = _dataArrar[0];
             NSMutableDictionary *dic =[NSMutableDictionary dictionary];
             dic[@"token"] = Token;
             dic[@"adsid"] = modell.addressid;
@@ -274,8 +274,8 @@
 //        }];
         [self.tableView reloadData];
     } failure:^(NSError * error) {
-//        ZPLog(@"%@",error);
-        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
+        ZPLog(@"%@",error);
+//        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 
@@ -302,7 +302,8 @@
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSError * error) {
-        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
+        ZPLog(@"%@",error);
+//        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 
@@ -326,7 +327,6 @@
         //        NSDictionary * dic = obj;
         ZPLog(@"freightamount : %@",obj[@"freightamount"]);
 //      self.ConfirmArray = [ZP_ExpressDeliveryModel arrayWithArray:obj[@"freightamount"]];
-        
         [self.tableView reloadData];
     } failure:^(NSError * error) {
         [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
