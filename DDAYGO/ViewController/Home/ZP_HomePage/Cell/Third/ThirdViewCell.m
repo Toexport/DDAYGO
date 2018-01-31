@@ -41,7 +41,7 @@
                 make.top.equalTo(titiView).offset(10);
                 make.left.equalTo(titiView).offset(5);
             }];
-            _Titlelabel = Titlelabel;
+            self.Titlelabel = Titlelabel;
             UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i * ZP_Width / 2, z * 35 + 35 , ZP_Width / 2, 35)];
             imageView.tag = num;
             [imageView setImage:[UIImage imageNamed:@"Third"]];

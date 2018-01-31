@@ -72,7 +72,6 @@
     NSLog(@"选中%ld",(long)indexPath.item);
 }
 
-
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(ZP_Width/4-1, ZP_Width / 4 + 35);
 }

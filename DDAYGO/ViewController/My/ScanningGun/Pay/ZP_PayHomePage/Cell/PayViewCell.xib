@@ -64,7 +64,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="向商家" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1BL-Tv-JPo">
-                        <rect key="frame" x="75" y="113" width="43" height="20"/>
+                        <rect key="frame" x="74.5" y="113" width="43" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="wXx-Yn-cVC"/>
                         </constraints>
@@ -73,7 +73,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="“阿芙专卖店”" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhi-Jr-6eT">
-                        <rect key="frame" x="118" y="113" width="85" height="20"/>
+                        <rect key="frame" x="117.5" y="113" width="85" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="JUv-c5-mGd"/>
                         </constraints>
@@ -82,7 +82,7 @@
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="付款" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCy-Q9-Lu6">
-                        <rect key="frame" x="203" y="113" width="29" height="20"/>
+                        <rect key="frame" x="202.5" y="113" width="29" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="adl-nA-uBO"/>
                         </constraints>
@@ -91,7 +91,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_payment_defaulthead" translatesAutoresizingMaskIntoConstraints="NO" id="ZsY-p0-Rvw">
-                        <rect key="frame" x="128" y="22" width="65" height="65"/>
+                        <rect key="frame" x="127.5" y="22" width="65" height="65"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="65" id="2Fp-rD-jmT"/>
                             <constraint firstAttribute="height" constant="65" id="sfB-XW-CzC"/>
@@ -107,6 +107,7 @@
                     <constraint firstItem="uBR-Qo-kme" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="17" id="G6j-wL-aqE"/>
                     <constraint firstItem="nCy-Q9-Lu6" firstAttribute="leading" secondItem="Jhi-Jr-6eT" secondAttribute="trailing" id="H2Y-gp-FPS"/>
                     <constraint firstItem="nCy-Q9-Lu6" firstAttribute="centerY" secondItem="Jhi-Jr-6eT" secondAttribute="centerY" id="NLJ-8I-J6P"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="f8A-eo-dVF" secondAttribute="trailing" constant="58" id="O6e-P3-sXW"/>
                     <constraint firstItem="f8A-eo-dVF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="80" id="PMM-vP-Cse"/>
                     <constraint firstItem="Jhi-Jr-6eT" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="PoQ-HF-HmU"/>
                     <constraint firstItem="tHV-aM-oxI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="17" id="StP-lp-4EU"/>

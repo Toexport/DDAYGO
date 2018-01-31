@@ -305,89 +305,96 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+ 
+    OrderModel * model = self.newsData[section];
+    return 2+model.ordersdetail.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    OrderModel * model = self.newsData[indexPath.section];
     if (indexPath.row == 0) {
         OrdeHeadViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"OrdeHeadViewCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        OrderModel * model = self.newsData[indexPath.section];
         OrdersdetailModel * model2;
         model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail.firstObject];
         cell.DeleteBut.tag = indexPath.section;
         [cell.DeleteBut addTarget:self action:@selector(DeleteOrderBut:) forControlEvents:UIControlEventTouchUpInside];
         [cell InformationWithDic:model2 WithModel:model];
         return cell;
-    }else
-        if(indexPath.row == 1) {
-           static NSString * ID = @"orderViewCell";
-           OrderModel * model = self.newsData[indexPath.section];
-           OrderViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
-           cell.selectionStyle = UITableViewCellSelectionStyleNone;
-           self.tableview.tableFooterView = [[UIView alloc]init];
-           OrdersdetailModel * model2;
-           model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail.firstObject];
-           [cell InformationWithDic:model2 WithModel:model];
-//         [cell InformationWithDic:nil WithModel:model];
-           return cell;
-    }else {
-        OrdeTailViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"OrdeTailViewCell"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        OrderModel * model = self.newsData[indexPath.section];
-        cell.AppraiseBut.tag = indexPath.row;
-        cell.OnceagainBut.tag = indexPath.row;
-        OrdersdetailModel * model2;
-        if (![_titleStr isEqualToString:@"評價"]) {
-            model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail.firstObject];
-            [cell InformationWithDic:model2 WithModel:model];
-        }else {
-            [cell InformationWithDic:nil WithModel:model];
+    }
+    else
+        if (indexPath.row == 1+model.ordersdetail.count) {
+            OrdeTailViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"OrdeTailViewCell"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.AppraiseBut.tag = indexPath.row;
+            cell.OnceagainBut.tag = indexPath.row;
+            OrdersdetailModel * model2;
+            if (![_titleStr isEqualToString:@"評價"]) {
+                model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail.firstObject];
+                [cell InformationWithDic:model2 WithModel:model];
+            }else {
+                [cell InformationWithDic:nil WithModel:model];
+            }
+            cell.finishBlock = ^(id response) {
+                self.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:response animated:YES];
+                self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
+                self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+                self.hidesBottomBarWhenPushed = NO;
+            };
+            //   评论
+            cell.appraiseBlock = ^(AppraiseController* response) {
+                NSLog(@" --- count --- %ld",model.ordersdetail.count);
+                response.model = model;
+                response.num = indexPath.row;
+                [self.navigationController pushViewController:response animated:YES];
+            };
+            //   申请退款
+            cell.appraiseBlock = ^(RequestRefundController* response) {
+                [self.navigationController pushViewController:response animated:YES];
+            };
+            
+            //   退换货
+            cell.appraiseBlock = ^(ExchangeDetailsController* response) {
+                [self.navigationController pushViewController:response animated:YES];
+            };
+            
+            //   查看详细 -- 再次购买
+            cell.onceagainBlock = ^(id response) {
+                [self.navigationController pushViewController:response animated:YES];
+            };
+            //    確認收貨
+            cell.appraiseBlock = ^(AppraiseController* responses) {
+                [self.navigationController pushViewController:responses animated:YES];
+            };
+            return cell;
         }
-        cell.finishBlock = ^(id response) {
-            self.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:response animated:YES];
-            self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
-            self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-            self.hidesBottomBarWhenPushed = NO;
-        };
-//   评论
-        cell.appraiseBlock = ^(AppraiseController* response) {
-            NSLog(@" --- count --- %ld",model.ordersdetail.count);
-            response.model = model;
-            response.num = indexPath.row;
-            [self.navigationController pushViewController:response animated:YES];
-        };
-//   申请退款
-        cell.appraiseBlock = ^(RequestRefundController* response) {
-            [self.navigationController pushViewController:response animated:YES];
-        };
-        
-//   退换货
-        cell.appraiseBlock = ^(ExchangeDetailsController* response) {
-            [self.navigationController pushViewController:response animated:YES];
-        };
-        
-//   查看详细 -- 再次购买
-        cell.onceagainBlock = ^(id response) {
-            [self.navigationController pushViewController:response animated:YES];
-        };
-//    確認收貨
-        cell.appraiseBlock = ^(AppraiseController* responses) {
-            [self.navigationController pushViewController:responses animated:YES];
-        };
-        return cell;
+        else{
+            static NSString * ID = @"orderViewCell";
+            OrderViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.backgroundColor = ZP_DeepBlue;
+            self.tableview.tableFooterView = [[UIView alloc]init];
+            OrdersdetailModel * model2;
+            model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail[indexPath.row-1]];
+            [cell InformationWithDic:model2 WithModel:model];
+            //         [cell InformationWithDic:nil WithModel:model];
+            return cell;
+            
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    OrderModel * model = self.newsData[indexPath.section];
     if (indexPath.row == 0) {
         return 40;
-    }else
-        if (indexPath.row == 1){
-           return 110;
-    }else {
-           return 70;
+    }
+    else if (indexPath.row == 1+model.ordersdetail.count)
+    {
+        return 70;
+    }
+    else{
+        return 110.5;
     }
 }
 

@@ -491,17 +491,17 @@
             [alert addAction:cancelAction];
             [self presentViewController:alert animated:YES completion:nil];
         }else {
-//            if (self.nameArray.count <= 1) {
+            if (![self YESOrNoPush]) {
+                NSLog(@" duo xuan ");
+                [ZPProgressHUD showErrorWithStatus:NSLocalizedString(@"暂不支持多家商店购买", nil)];
+            }else{
                 ConfirmViewController * Confirm = [[ConfirmViewController alloc]init];
                 Confirm.model = _model;
                 Confirm.stockidsString = _stockids;
                 [self.navigationController pushViewController:Confirm animated:YES];
                 self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
                 self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-                return;
-//            }else {
-//            ZPLog(@"11111");
-//           }
+            }
        }
     }else {
         [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"You have not selected goods ", nil)];
@@ -537,26 +537,49 @@
 }
 
 - (BOOL)YESOrNoPush {
+    NSMutableArray *selearr = [NSMutableArray array];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [self.nameArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        ZP_CartsShopModel *model = obj;
-        
-        //        for (int i = 0; i < model.array.count; i ++)
-        //        {
-        //            if (!_bjBool) {
-        //                ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-        //                if (cell.buttom.selected) {
-        //                    return YES;
-        //                }}
-        //            }else{
-        //                EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-        //                if (cell.button.selected) {
-        //                    return YES;
-        //                }
-        //            }
-        //        }
-        
-        
+        [dic setObject:obj forKey:@(idx)];
     }];
+    
+    int a = 0;
+    int b = 0;
+    for (int j = 0; j < dic.allKeys.count; j++) {
+        ZP_CartsShopModel *model = [dic objectForKey:@(j)];
+        UIButton *sectionbut = [self.view viewWithTag:666 +j];
+        if (sectionbut.selected) {
+            a++;
+        }
+        for (int i = 0; i < model.array.count; i ++) {
+            if (!_bjBool) {
+                ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+                if (cell.buttom.selected) {
+                    b = j *200 +i;
+                    [selearr addObject:@(b)];
+                }
+            }else {
+                EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+
+                if (cell.button.selected ) {
+                    
+                }else{
+
+                }
+            }
+        }
+    }
+    if (a > 1) {
+        return NO;
+    }
+    NSNumber *d = selearr.firstObject;
+    for (NSNumber *c in selearr) {
+        if ([c intValue] -100 >= [d intValue]) {
+            return NO;
+        }
+    }
+    
+    
     return YES;
     
     
@@ -779,33 +802,6 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)loading{
-    //    [self endFreshing];
-    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
-    __weak typeof(self)weakSelf = self;
-    [ReloadView showToView:self.view touch:^{
-        [weakSelf allData];
-        [ReloadView dismissFromView:weakSelf.view];
-    }];
-}
-
--(void)successful {
-    //    [self.tableView reloadData];
-    [ZPProgressHUD dismiss];
-}
-
--(void)networkProblems{
-    __weak typeof(self)weakSelf = self;
-    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
-    [ReloadView showToView:self.view touch:^{
-        [weakSelf allData];
-    }];
-    
-    return;
-}
-
-
-
 #pragma mark -- 全选
 - (void)selectaAllClick:(UIButton *)but{
     _stockids = nil;
@@ -835,7 +831,7 @@
                     dataCount += [cell.QuantityLabel.text integerValue];
                     data += [cell.QuantityLabel.text integerValue] * [model2.productprice floatValue];
                     count ++;
-                }else{
+                }else {
                     dataCount = 0;
                     data = 0;
                     count = 0;
@@ -847,7 +843,7 @@
                     _stockids = str;
                 }
                 
-            }else{
+            }else {
                 EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
                 ZP_CartsModel * model2 = model.array[i];
                 cell.button.selected = but.selected;
@@ -917,11 +913,11 @@
                     }else{
                         _stockids = str;
                     }
-                }else{
+                }else {
                     sectionbut.selected = NO;
                     _AllButton.selected = NO;
                 }
-            }else{
+            }else {
                 EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
                 ZP_CartsModel * model2 = model.array[i];
                 if (cell.button.selected ) {
@@ -958,10 +954,15 @@
     }
 }
 
+
+
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     NSLog(@"go ");
     return 10.0f;
 }
+
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 10)];
     v.backgroundColor = ZP_Graybackground;
@@ -970,6 +971,30 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ZPLog(@"%ld",indexPath.row);
+}
+
+//  jiazai shuji
+-(void)loading{
+    //    [self endFreshing];
+    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    __weak typeof(self)weakSelf = self;
+    [ReloadView showToView:self.view touch:^{
+        [weakSelf allData];
+        [ReloadView dismissFromView:weakSelf.view];
+    }];
+}
+
+-(void)successful {
+    [ZPProgressHUD dismiss];
+}
+
+-(void)networkProblems{
+    __weak typeof(self)weakSelf = self;
+    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    [ReloadView showToView:self.view touch:^{
+        [weakSelf allData];
+    }];
+    return;
 }
 @end
 

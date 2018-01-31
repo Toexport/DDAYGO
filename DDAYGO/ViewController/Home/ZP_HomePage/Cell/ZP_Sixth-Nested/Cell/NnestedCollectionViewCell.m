@@ -17,10 +17,10 @@
 }
 
 - (void)cellWithdic:(ZP_SixthModel *)model {
-    [_ImageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
-    _titleLabel.text = model.productname;
-    _priceLabel.text = [NSString stringWithFormat:@"NT%@", model.PreferentialLabel];
-    _TrademarkLabel.text = model.TrademarkLabel;
+    [self.ImageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
+    self.titleLabel.text = model.productname;
+    self.priceLabel.text = [NSString stringWithFormat:@"NT%@", model.PreferentialLabel];
+    self.TrademarkLabel.text = model.TrademarkLabel;
 }
 
 @end

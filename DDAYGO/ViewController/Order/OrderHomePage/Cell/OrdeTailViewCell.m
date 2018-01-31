@@ -224,7 +224,6 @@
             // 退款详情
             ExchangeDetailsController * ExchangeDetails = [[ExchangeDetailsController alloc]init];
             ExchangeDetails.Oid = _model.ordersnumber;// 传过去的数据(订单号)
-//            ExchangeDetails.STrtltle = @"换货";
             ExchangeDetails.type = 777;
             if (self.onceagainBlock) {
                 self.onceagainBlock(ExchangeDetails);
@@ -236,7 +235,6 @@
             // 退款详情
             ExchangeDetailsController * ExchangeDetails = [[ExchangeDetailsController alloc]init];
             ExchangeDetails.Oid = _model.ordersnumber;// 传过去的数据(订单号)
-//            ExchangeDetails.STrtltle = @"换货";
             ExchangeDetails.type = 666;
             if (self.onceagainBlock) {
                 self.onceagainBlock(ExchangeDetails);
@@ -291,7 +289,7 @@
         }
             break;
         case 3:{
-            //       确认收货
+//       确认收货
             
             [self requestConfirmreceipt];
         }
@@ -303,8 +301,7 @@
 
 // 确认收货
 - (void)requestConfirmreceipt {
-    
-    //    確認收貨
+//    確認收貨
     NSMutableDictionary * dicc = [NSMutableDictionary dictionary];
     dicc[@"token"] = Token;
     dicc[@"oid"] = self.model.ordersnumber;

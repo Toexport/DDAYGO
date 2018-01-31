@@ -34,7 +34,7 @@
         make.width.mas_offset(ZP_Width / 3-1);
         make.height.mas_offset(ZP_Width / 3);
     }];
-    _imageView = imageView;
+    self.imageView = imageView;
     
     //    文字介绍
     UILabel * introduceLabel = [UILabel new];
@@ -49,7 +49,7 @@
         make.right.equalTo(self).offset(-5);
         make.bottom.equalTo(imageView).offset(ZP_Width/ 3 + 50 );
     }];
-    _introduceLabel = introduceLabel;
+    self.introduceLabel = introduceLabel;
     
 //    优惠价格
     UILabel * PreferentialLabel = [UILabel new];
@@ -61,7 +61,7 @@
         make.left.equalTo(self).offset(5);
         make.bottom.equalTo(introduceLabel).offset(15);
     }];
-    _PreferentialLabel = PreferentialLabel;
+    self.PreferentialLabel = PreferentialLabel;
     
 //    商标
     UIImageView * TrademarkImage = [UIImageView new];
@@ -72,7 +72,7 @@
         make.width.mas_offset(10);
         make.height.mas_offset(10);
     }];
-    _TrademarkImage = TrademarkImage;
+    self.TrademarkImage = TrademarkImage;
     
     //    商标编号
     UILabel * TrademarkLabel = [UILabel new];
@@ -85,7 +85,7 @@
         make.top.equalTo(TrademarkImage).offset(0);
         make.height.mas_offset(10);
     }];
-    _TrademarkLabel = TrademarkLabel;
+    self.TrademarkLabel = TrademarkLabel;
     
     //    分割线
     UIView * view1 = [UIView new];
@@ -111,11 +111,11 @@
 }
 
 - (void)cellWithdic:(ZP_SixthModel *)model {
-    [_imageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
-    _introduceLabel.text = model.productname;
-    _PreferentialLabel.text = [NSString stringWithFormat:@"NT%@", model.PreferentialLabel];
-    _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
-    _TrademarkLabel.text = model.TrademarkLabel;
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
+    self.introduceLabel.text = model.productname;
+    self.PreferentialLabel.text = [NSString stringWithFormat:@"NT%@", model.PreferentialLabel];
+    self.TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
+    self.TrademarkLabel.text = model.TrademarkLabel;
     
 }
 

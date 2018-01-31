@@ -70,16 +70,16 @@
     self.navigationItem.titleView = searchBar;
     
 //  位置按钮
-    _chooseCityBtn = [YLButton buttonWithType:(UIButtonTypeCustom)];
-    _chooseCityBtn.frame = CGRectMake(0, 0, 30.0f, 25.0f);
-    _chooseCityBtn.titleLabel.font = ZP_TooBarFont;
-    [_chooseCityBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_chooseCityBtn setTitle:NSLocalizedString(@"臺灣", nil) forState:UIControlStateNormal];
-    [_chooseCityBtn setImage:[UIImage imageNamed:@"ic_home_down"] forState:(UIControlStateNormal)];
-    [_chooseCityBtn sizeToFit];
-    _chooseCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    [_chooseCityBtn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:_chooseCityBtn];
+    self.chooseCityBtn = [YLButton buttonWithType:(UIButtonTypeCustom)];
+    self.chooseCityBtn.frame = CGRectMake(0, 0, 30.0f, 25.0f);
+    self.chooseCityBtn.titleLabel.font = ZP_TooBarFont;
+    [self.chooseCityBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.chooseCityBtn setTitle:NSLocalizedString(@"臺灣", nil) forState:UIControlStateNormal];
+    [self.chooseCityBtn setImage:[UIImage imageNamed:@"ic_home_down"] forState:(UIControlStateNormal)];
+    [self.chooseCityBtn sizeToFit];
+    self.chooseCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [self.chooseCityBtn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.chooseCityBtn];
 }
 
 // 刷新
@@ -119,16 +119,16 @@
             [self PositionallData];
             
             NSLog(@"位置");
-            _position = [[PositionView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)];
+            self.position = [[PositionView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)];
             //数据
-            [_position Position:_postionArray];
+            [self.position Position:_postionArray];
             //返回
-            _position.ThirdBlock = ^(NSString *ContStr,NSNumber *code) {
+            self.position.ThirdBlock = ^(NSString *ContStr,NSNumber *code) {
                 NSLog(@"c = %@",ContStr);
-                [_chooseCityBtn setTitle:NSLocalizedString(ContStr, nil) forState:UIControlStateNormal];
+                [self.chooseCityBtn setTitle:NSLocalizedString(ContStr, nil) forState:UIControlStateNormal];
                 CountCode = code;
-                [_chooseCityBtn sizeToFit];
-//                [_chooseCityBtn setNeedsLayout];
+                [self.chooseCityBtn sizeToFit];
+//                [self.chooseCityBtn setNeedsLayout];
                 
                 [self SixthAllData:code];
                 [self FifthallData:code];
@@ -136,7 +136,7 @@
 //
             };
             //  显示
-            [_position showInView:self.navigationController.view];
+            [self.position showInView:self.navigationController.view];
         }
     } else {
         ZPLog(@"已登錄");
@@ -147,8 +147,8 @@
 //  定位数据
 - (void)PositionallData {
     [ZP_HomeTool requesPosition:nil success:^(id obj) {
-        _postionArray= [ZP_PositionModel arrayWithArray:obj];
-        [_position Position:_postionArray];
+        self.postionArray= [ZP_PositionModel arrayWithArray:obj];
+        [self.position Position:self.postionArray];
         ZPLog(@"%@",obj);
         
     } failure:^(NSError *error) {
@@ -162,7 +162,7 @@
     dic[@"adcode"] = @"AD001";
     [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
         ZPLog(@"%@",obj);
-        _bannerArray = [ZP_ZeroModel mj_objectArrayWithKeyValuesArray:obj];
+        self.bannerArray = [ZP_ZeroModel mj_objectArrayWithKeyValuesArray:obj];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
@@ -175,7 +175,7 @@
     dic[@"adcode"] = @"AD004";
     [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
         ZPLog(@"%@",obj);
-        _ForurthArray = [ZP_ZeroModel mj_objectArrayWithKeyValuesArray:obj];
+        self.ForurthArray = [ZP_ZeroModel mj_objectArrayWithKeyValuesArray:obj];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
@@ -187,7 +187,7 @@
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"adcode"] = @"AD003";
     [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
-        _SecondArray = [ZP_ZeroModel mj_objectArrayWithKeyValuesArray:obj];
+        self.SecondArray = [ZP_ZeroModel mj_objectArrayWithKeyValuesArray:obj];
         ZPLog(@"%@",obj);
         [self.tableView reloadData];
     } failure:^(NSError *error) {
@@ -199,7 +199,7 @@
 - (void)allData {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
+//        [self.tableView.mj_footer endRefreshing];
     });
     [ZP_HomeTool requestSellLikeHotCakes:nil success:^(id obj) {
         ZPLog(@"%@",obj);
@@ -268,7 +268,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSInteger number = 4;
     if (self.newsData.count > 0) {
-        ZPLog(@"_____");
+//        ZPLog(@"_____");
         number ++;
     }
     if (self.SixthArrData.count > 0) {
@@ -284,7 +284,7 @@
         static NSString * ZeroID = @"ceaa";
        ZeroViewCell * cell =  [tableView dequeueReusableCellWithIdentifier:ZeroID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.arr = _bannerArray;
+        cell.arr = self.bannerArray;
         cell.finishBlock = ^(id response) {
         };
         return cell;
@@ -306,7 +306,7 @@
                 SecondViewCell * cell = [tableView dequeueReusableCellWithIdentifier: SecondID];
 
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
-                [cell Second:_SecondArray];
+                [cell Second:self.SecondArray];
                 cell.SecondBlock = ^(NSInteger tag){
 //                    DetailedController *viewController = [[DetailedController alloc] init];
 //        //                self.hidesBottomBarWhenPushed = YES;
@@ -330,8 +330,8 @@
             static NSString * FourthID = @"Fourthcell";
             FourthViewCell * cell = [tableView dequeueReusableCellWithIdentifier:FourthID];
             cell.arrDara = self.newsData2;
-//            cell.arr = _ForurthArray;
-            [cell inisWithArray:_ForurthArray];
+//            cell.arr = self.ForurthArray;
+            [cell inisWithArray:self.ForurthArray];
             cell.fourthBlock1 = ^(id response) {
                 
             };

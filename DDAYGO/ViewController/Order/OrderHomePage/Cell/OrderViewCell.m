@@ -15,7 +15,9 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:@"orderViewCell"];
     if (self) {
-        [self initUI];
+        
+    [self initUI];
+        
     }
     return self;
 }
@@ -165,6 +167,11 @@
         make.bottom.equalTo(SharacterLabel).offset(0);
     }];
     _QuantityLabel = QuantityLabel;
+    
+//     下划线
+//    UIView * UnderlineView = [UIView new];
+//    UnderlineView.backgroundColor = ZP_WhiteColor;
+    
 }
 
 - (void)InformationWithDic:(OrdersdetailModel *)dic WithModel:(OrderModel *)model {

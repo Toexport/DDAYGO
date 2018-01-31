@@ -35,10 +35,10 @@
         make.width.mas_offset(70);
         make.height.mas_offset(70);
     }];
-    _imageView1 = imageView1;
+    self.imageView1 = imageView1;
     
     //  文字介绍
-    ZP_GeneralLabel * introduceLabel = [ZP_GeneralLabel initWithtextLabel:_introduceLabel.text textColor:ZP_HomeTitleTypefaceCorlor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    ZP_GeneralLabel * introduceLabel = [ZP_GeneralLabel initWithtextLabel:self.introduceLabel.text textColor:ZP_HomeTitleTypefaceCorlor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     introduceLabel.lineBreakMode = NSLineBreakByWordWrapping; //文字分行
     introduceLabel.numberOfLines = 2;
     [self addSubview:introduceLabel];
@@ -47,23 +47,23 @@
         make.left.equalTo(self).offset(5);
         make.right.equalTo(imageView1).offset(-75);
     }];
-    _introduceLabel = introduceLabel;
+    self.introduceLabel = introduceLabel;
 //     货币符号
-    ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_HomePreferentialpriceTypefaceCorlor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:self.CurrencySymbolLabel.text textColor:ZP_HomePreferentialpriceTypefaceCorlor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self addSubview:CurrencySymbolLabel];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(60);
         make.left.equalTo(self).offset(5);
     }];
-    _CurrencySymbolLabel = CurrencySymbolLabel;
+    self.CurrencySymbolLabel = CurrencySymbolLabel;
     //    优惠价格
-    ZP_GeneralLabel * PreferentialLabel = [ZP_GeneralLabel initWithtextLabel:_PreferentialLabel.text textColor:ZP_HomePreferentialpriceTypefaceCorlor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
+    ZP_GeneralLabel * PreferentialLabel = [ZP_GeneralLabel initWithtextLabel:self.PreferentialLabel.text textColor:ZP_HomePreferentialpriceTypefaceCorlor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self addSubview:PreferentialLabel];
     [PreferentialLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(CurrencySymbolLabel).offset(0);
         make.left.equalTo(CurrencySymbolLabel).offset(18.5);
     }];
-    _PreferentialLabel = PreferentialLabel;
+    self.PreferentialLabel = PreferentialLabel;
     
 //    //    价格
 //    ZP_GeneralLabel * PriceLabel = [ZP_GeneralLabel initWithtextLabel:_PriceLabel.text textColor:ZP_HomeTitlepriceTypefaceColor font:ZP_introduceFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
@@ -72,7 +72,7 @@
 //        make.top.equalTo(self).offset(60);
 //        make.left.equalTo(self).offset(5);
 //    }];
-//    _PriceLabel = PriceLabel;
+//    self.PriceLabel = PriceLabel;
 //
 //    //    横线
 //    UIView * Crossview = [UIView new];
@@ -95,7 +95,7 @@
         make.height.mas_offset(15);
         
     }];
-    _TrademarkImage = TrademarkImage;
+    self.TrademarkImage = TrademarkImage;
     
 //    商标编号
     ZP_GeneralLabel * TrademarkLabel = [ZP_GeneralLabel initWithtextLabel:_TrademarkLabel.text textColor:ZP_HomeTitlepriceTypefaceColor font:ZP_introduceFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
@@ -105,7 +105,7 @@
         make.top.equalTo(TrademarkImage).offset(2.5);
 //        make.width.mas_offset(40);
     }];
-    _TrademarkLabel = TrademarkLabel;
+    self.TrademarkLabel = TrademarkLabel;
     
     //    分割线
     UIView * view1 = [UIView new];
@@ -120,13 +120,13 @@
 }
 
 - (void)cellWithdic:(ZP_FourthModel *)model {
-    [_imageView1 sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
-    _introduceLabel.text = model.productname;
+    [self.imageView1 sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
+    self.introduceLabel.text = model.productname;
 //    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
-//    _CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
-    _PreferentialLabel.text = [NSString stringWithFormat:@"NT%@",model.PreferentialLabel]; // 优惠价格
-    _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
-    _TrademarkLabel.text = model.TrademarkLabel;
+//    self.CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+    self.PreferentialLabel.text = [NSString stringWithFormat:@"NT%@",model.PreferentialLabel]; // 优惠价格
+    self.TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
+    self.TrademarkLabel.text = model.TrademarkLabel;
 }
 
 

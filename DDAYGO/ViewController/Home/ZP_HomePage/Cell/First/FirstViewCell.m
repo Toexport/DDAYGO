@@ -26,7 +26,7 @@
 - (void)first:(NSArray *)sup {
     NSMutableArray * arr = [NSMutableArray array];
     NSMutableArray * arrar = [NSMutableArray array];
-    _Allarr = sup;
+    self.Allarr = sup;
     NSMutableArray * arrid = [NSMutableArray array];
     for (ZP_FirstModel * model in sup) {
         [arr addObject:model.menuname];
@@ -100,7 +100,7 @@
     
     NSMutableArray * arrid = [NSMutableArray array];
     
-    for (ZP_FirstModel * model in _Allarr) {
+    for (ZP_FirstModel * model in self.Allarr) {
         [arrid addObject:model.typeid];
         if ([model.typeid integerValue] == sender.tag) {
             self.firstBlock(sender.tag,model.menuname);
