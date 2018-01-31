@@ -11,6 +11,7 @@
 @interface ZP_ConfirmWebController ()<UIWebViewDelegate> {
     
     UIWebView * webView;
+    
 }
 
 @end
