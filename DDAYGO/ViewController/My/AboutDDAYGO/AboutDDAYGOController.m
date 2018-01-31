@@ -27,8 +27,9 @@
 }
 // 隐藏政策
 - (IBAction)PrivacyPolicyBut:(id)sender {
-    
     RegistrationAgreementController * RegistrationAgreement = [[RegistrationAgreementController alloc]init];
+    RegistrationAgreement.title = @"隱私政策";
+    RegistrationAgreement.type = 111;
     [self.navigationController pushViewController:RegistrationAgreement animated:YES];
     
 }
@@ -36,10 +37,15 @@
 //服务条款
 - (IBAction)termsServiceBut:(id)sender {
     RegistrationAgreementController * RegistrationAgreement = [[RegistrationAgreementController alloc]init];
+    RegistrationAgreement.title = @"服務條款";
+    RegistrationAgreement.type = 222;
     [self.navigationController pushViewController:RegistrationAgreement animated:YES];
 }
 // 退换货流程
 - (IBAction)ReturnProcessBut:(id)sender {
-    
+    RegistrationAgreementController * RegistrationAgreement = [[RegistrationAgreementController alloc]init];
+    RegistrationAgreement.title = @"退換貨流程";
+    RegistrationAgreement.type = 333;
+    [self.navigationController pushViewController:RegistrationAgreement animated:YES];
 }
 @end

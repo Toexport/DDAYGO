@@ -12,5 +12,5 @@
     UIWebView * webView;
     UIActivityIndicatorView *activityIndicator;
 }
-
+@property (nonatomic, assign) NSInteger type; // 识别号
 @end

@@ -12,7 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *ReuqestRefundScrollView; // 滚动视图
 @property (nonatomic, strong) NSString * OrderStr;
 @property (nonatomic, assign) NSInteger type; // 识别号
-@property (nonatomic, strong) NSString * titleStr; // 标题
+//@property (nonatomic, strong) NSString * titleStr; // 标题
 @property (nonatomic, strong)NSNumber * oid; // 订单号
 /** 第1个View */
 @property (weak, nonatomic) IBOutlet UIView * view1;

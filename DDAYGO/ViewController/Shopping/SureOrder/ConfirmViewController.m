@@ -260,7 +260,7 @@
             [modelArr enumerateObjectsUsingBlock:^(ZP_ComfirmModel *model, NSUInteger idx, BOOL * _Nonnull stop) {
                 if ([model.isdefault isEqualToNumber:@1]) {
                     ZPLog(@"%@",model.isdefault);
-                    self.merchantsLabel.text = model.receiptname;
+//                    self.merchantsLabel.text = model.receiptname;
                     [_dataArrar addObject:model];
                 }
             }];
@@ -509,7 +509,8 @@
 //  表头
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section ==1) {
-        ZP_CartsShopModel *model = _nameArray[section-1];
+//        ZP_CartsShopModel * model = _nameArray[section-1];
+//        ZP_ComfirmModel * model = _dataArrar[indexPath.row];
         UIView * myView = [[UIView alloc]init];
         //        if (1 == section) {
         //        self.tableView.tableHeaderView = myView; // 表头跟着cell一起滚动
@@ -539,6 +540,7 @@
         merchantsLabel.textAlignment = NSTextAlignmentLeft;
         merchantsLabel.textColor = ZP_textblack;
         merchantsLabel.text = @"dszkjbxz";
+//        merchantsLabel.text = model.shopname;
         merchantsLabel.font = ZP_titleFont;
         [myView addSubview:merchantsLabel];
         [merchantsLabel mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -26,11 +26,11 @@
     [super viewDidLoad];
     [self initUI];
     if (self.type == 555) {
-        self.title = self.titleStr;
+        self.title = NSLocalizedString(@"换货", nil);
         _view4.hidden = NO;
     }else
     if (self.type == 666) {
-        self.title = self.titleStr;
+        self.title = NSLocalizedString(@"换货", nil);
         _view4.hidden = NO;
     }else {
         self.title = NSLocalizedString(@"退款", nil);
