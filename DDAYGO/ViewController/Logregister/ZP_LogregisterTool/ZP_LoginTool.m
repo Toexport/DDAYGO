@@ -19,26 +19,6 @@
     } failure:^(NSError *error) {
         failure(error);
     }];
-    
-//register?email=zach45666&pwd=999999&countrycode=886&emailverify=1138276415@qq.com
-//    [ZP_NetorkingTools POST:[NSString stringWithFormat:@"http://www.ddaygo.com/api/Test/Register?email=%@&pwd=%@&vcode=%@&countrycode=%@",Regiser[@"email"],Regiser[@"pwd"],Regiser[@"vcode"],Regiser[@"countrycode"]] parameters:nil success:^(NSDictionary *responseObject) {
-//        success(responseObject);
-//        NSLog(@"%@",responseObject);
-//
-//    } failure:^(NSError *error) {
-//
-//        failure(error);
-//    }];
-    
-    
-    /* ---- 这才是post 请求%@
-     [ZP_NetorkingTools POST:@"www.ddaygo.com/api/Test/Register?" parameters:sd success:^(NSDictionary *responseObject) {
-     success(responseObject);
-     NSLog(@"%@",responseObject);
-     } failure:^(NSError *error) {
-     failure(error);
-     }];
-     */
 }
 
 //  登录

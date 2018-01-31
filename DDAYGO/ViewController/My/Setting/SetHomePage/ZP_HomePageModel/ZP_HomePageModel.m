@@ -7,7 +7,7 @@
 //
 
 #import "ZP_HomePageModel.h"
-
+#import "PrefixHeader.pch"
 @implementation ZP_HomePageModel
 + (instancetype)gEtHomePage:(NSDictionary *)Dic {
     return [[self alloc]initWithHomePageData:Dic];
@@ -15,7 +15,7 @@
 
 - (instancetype)initWithHomePageData:(NSDictionary *)dic {
     if (self == [super init]) {
-        self.avatarimg = [NSString stringWithFormat:@"http://www.ddaygo.com%@",dic[@"avatarimg"]];
+        self.avatarimg = [NSString stringWithFormat:@"%@%@",ImgAPI,dic[@"avatarimg"]];
         self.nickname = dic[@"nickname"];
         self.realname = dic[@"realname"];
         self.icueaccount = dic[@"icueaccount"];
@@ -37,7 +37,7 @@
     NSMutableArray * arr = [[NSMutableArray alloc]init];
     for (NSDictionary * dic in array) {
         ZP_HomePageModel * model = [[ZP_HomePageModel alloc]init];
-        model.avatarimg = [NSString stringWithFormat:@"http://www.ddaygo.com%@",dic[@"avatarimg"]];
+        model.avatarimg = [NSString stringWithFormat:@"%@%@",ImgAPI,dic[@"avatarimg"]];
         model.nickname = dic[@"nickname"];
         model.realname = dic[@"realname"];
         model.icueaccount = dic[@"icueaccount"];

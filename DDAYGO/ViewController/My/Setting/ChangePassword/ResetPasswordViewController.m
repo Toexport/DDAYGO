@@ -57,7 +57,6 @@
 
 // 确定按钮
 - (IBAction)DetermineBut:(id)sender {
-    
     if (self.newpwTextfield.text.length < 6 || self.newpwTextfield.text.length > 20) {
         [SVProgressHUD showInfoWithStatus:@"密碼位數不能小於6大於20"];
         ZPLog(@"密码不足6位");
@@ -71,7 +70,7 @@
     if (self.newpwTextfield.text != self.againpwTextfield.text) {
         [SVProgressHUD showInfoWithStatus:@"兩次密碼不一致"];
     }else {
-    [SVProgressHUD showWithStatus:@"正在登录。。。"];
+    [SVProgressHUD showWithStatus:@"请稍后。。。"];
     [self allData];
     }
 }
@@ -94,13 +93,6 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
             UITabBarController * tbvc  = [[UIApplication sharedApplication] keyWindow].rootViewController;
             [tbvc setSelectedIndex:0];
-//            for (UIViewController *controller in self.navigationController.viewControllers) {
-//                if ([controller isKindOfClass:[HomeViewController class]]) {
-//                    [self.navigationController popToViewController:controller animated:YES];
-//
-//                }
-//            }
-            
         }else
             if ([obj[@"result"]isEqualToString:@"token_err"]) {
                 [SVProgressHUD showInfoWithStatus:@"令牌無效"];

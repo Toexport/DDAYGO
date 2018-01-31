@@ -32,7 +32,6 @@
     for (NSDictionary * dic in array) {
         ZP_PayModel * model = [[ZP_PayModel alloc]init];
         model.logourl = dic[@"logourl"];
-        //        [NSString stringWithFormat:@"http://www.ddaygo.com%@", dic[@"logourl"]];;
         model.payid = dic[@"payid"];
         model.payname = dic[@"payname"];
         [arr addObject:model];

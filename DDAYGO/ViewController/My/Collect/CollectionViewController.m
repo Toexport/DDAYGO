@@ -113,15 +113,14 @@
     return 102;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    collectionModel * model = _dataArray[indexPath.row];
+    BuyViewController * ByView = [[BuyViewController alloc]init];
+    ByView.productId = model.productid;
+    [self.navigationController pushViewController:ByView animated:YES];
+    ZPLog(@"%ld",indexPath.row);
+}
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    collectionModel * model = _dataArray[indexPath.row];
-//    BuyViewController * ByView = [[BuyViewController alloc]init];
-//    ByView.productId = model.productid;
-//    [self.navigationController pushViewController:ByView animated:YES];
-//    ZPLog(@"%ld",indexPath.row);
-//}
-//
 //- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
 //    NSLog(@"go ");
 //    return 10.0f;

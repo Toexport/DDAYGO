@@ -14,31 +14,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-//    [self initUI];
     
 }
-
-//- (void)initUI {
-
-    //  1.创建滤镜对象
-//        CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
-    //
-    //  2.恢复默认设置
-//        [filter setDefaults];
-    //
-    ////  3.设置数据
-    ////    NSString *info = @"http://www.ddaygo.com/api/Test/getqrcode?token=&nonce=123";
-    ////    NSString * info = @"H7XVKDMECZQ=";
-    ////    NSString * info = @"http://www.ddaygo.com/api/Test/getqrcodepaylink?token=ec77b922d25bb303f27f63d23de84f73&amount=100&shopcode=H7XVKDMECZQ=&countrycode=886&payway=allpay_balance&icuetoken=nil";
-    //
-//        NSData *infoData = [info dataUsingEncoding:NSUTF8StringEncoding];
-//        [filter setValue:infoData forKeyPath:@"inputMessage"];
-//
-//        // 4.生成二维码
-//        CIImage * outputImage = [filter outputImage];
-//
-//        self.imageview.image = [outputImage createNonInterpolatedWithSize:150];
-//}
 
 - (void)getInitWithUrl:(NSString *)url {
 
@@ -58,7 +35,6 @@
 
 // 4.生成二维码
     CIImage * outputImage = [filter outputImage];
-
     self.imageview.image = [self createNonInterpolatedUIImageFormCIImage:outputImage withSize:ZP_Width - 100];
     self.imageview.image = [outputImage createNonInterpolatedWithSize:150];
     self.imageview.image = [self createNonInterpolatedUIImageFormCIImage:outputImage withSize:ZP_Width - 150];

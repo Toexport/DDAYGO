@@ -23,8 +23,8 @@
     self.backgroundView.userInteractionEnabled = YES;
     [self.backgroundView addGestureRecognizer:tap];
     self.standardList = @[NSLocalizedString(@"商品类型", nil),NSLocalizedString(@"", nil)];
-    self.standardTypeList = @[NSLocalizedString(@"商品規格", nil),NSLocalizedString(@"", nil)];
-    self.standardTypeList = @[NSLocalizedString(@"", nil),NSLocalizedString(@"購買數量", nil)];
+    self.standardTypeList = @[NSLocalizedString(@"商品規格", nil),NSLocalizedString(@"購買數量", nil)];
+//    self.standardTypeList = @[NSLocalizedString(@"", nil),NSLocalizedString(@"購買數量", nil)];
 // 商品价格
     self.chooseView = [[ChooseView alloc] initWithFrame:CGRectMake(0, screen_Height, screen_Width, screen_Height)];
     self.chooseView.headImage.image = [UIImage imageNamed:@"bingli"];
@@ -195,12 +195,10 @@
             self.finishBtnBlock(Confirm);
         }
         [[NSNotificationCenter defaultCenter]postNotificationName:@"Confirm" object:nil];
-    }else{
+    }else {
         NSLog(@"没有选择数量");
         [SVProgressHUD showErrorWithStatus:@"没有选择数量"];
     }
-    
-    
 }
 }
 #pragma mark - - - - 加入购物车

@@ -293,10 +293,11 @@
         NSArray *arr = [ZP_InformationModel arrayWithArray:dic[@"cartshop"]];
         ZP_InformationModel * modell = arr[0];
         ZPLog(@"shop name = %@",modell.shopname);
-        self.merchantsLabel.text = modell.shopname;
+//        self.merchantsLabel.text = modell.shopname;
         ZP_ExpressDeliveryModel * model = [[ZP_ExpressDeliveryModel alloc] init];
         model.freightamount = dic[@"freightamount"];
         model.chooselogistic = dic[@"chooselogistic"];
+        _merchantsLabel.text = [NSString stringWithFormat:@"%@",modell.shopname];
         [_ConfirmArray addObject:model];
         [self upfataStatisticsLabel];
         [self.tableView reloadData];
@@ -367,7 +368,7 @@
         dic[@"logistic"] = @1;
         dic[@"payway"] = @"allpay_creditcard";
         dic[@"leavemsg"] = @"";
-        dic[@"icuetoken"] = @"";
+        dic[@"icuetoken"] = ZPICUEToken;
     [ZP_shoopingTool requesOrdersPay:dic success:^(id obj) {
         ZPLog(@"%@",obj);
     } failure:^(NSError * error) {
@@ -482,7 +483,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (indexPath.section == 0 && !self.noEdit) {
         self.hidesBottomBarWhenPushed = YES;
         AddressViewController * addres = [[AddressViewController alloc]init];
@@ -502,7 +502,6 @@
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
         self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
         self.hidesBottomBarWhenPushed = YES;
-        
     }
 }
 
@@ -527,7 +526,7 @@
             make.bottom.equalTo(myView).offset(-30);
         }];
         
-        //   商家图片
+//   商家图片
         UIImageView * merchantsImage = [UIImageView new];
         merchantsImage.image = [UIImage imageNamed:@"ic_order_store"];
         [myView addSubview:merchantsImage];
@@ -535,7 +534,7 @@
             make.left.equalTo(myView).offset(5);
             make.top.equalTo(myView).offset(20);
         }];
-        //    商家名字
+//    商家名字
         UILabel * merchantsLabel = [UILabel new];
         merchantsLabel.textAlignment = NSTextAlignmentLeft;
         merchantsLabel.textColor = ZP_textblack;
