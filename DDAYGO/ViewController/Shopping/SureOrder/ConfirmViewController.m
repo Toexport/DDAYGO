@@ -384,7 +384,7 @@
         return _dataArrar.count;
     }else
         if (1 == section) {
-            return self.NewData.count;
+            return 1;
     }else
         if (2 == section) {
             //        return InformatonArray.count;

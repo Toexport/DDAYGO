@@ -417,7 +417,7 @@
     [ZP_MyTool requestBte:dic uccess:^(id obj) {
         ZPLog(@"%@",obj);
         if ([obj[@"result"]isEqualToString:@"time_err"]) {
-            [SVProgressHUD showInfoWithStatus:@"還沒到開放時間"];
+            [SVProgressHUD showInfoWithStatus:@"您派派彩彩劵不足,不能提交"];
         }
         ZPLog(@"%@",obj);
     } failure:^(NSError * error) {
