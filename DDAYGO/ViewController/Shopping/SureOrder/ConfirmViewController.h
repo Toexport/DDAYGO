@@ -27,8 +27,6 @@
 @property (nonatomic, copy) NSString * jump_HeadURL;
 @property (nonatomic, copy) NSString * jump_URL;
 
-
-
 /**购物车*/
 @property (nonatomic, strong) NSArray * dataArray;
 @property (nonatomic, strong) NSArray * nameArray;

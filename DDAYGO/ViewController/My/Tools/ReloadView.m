@@ -7,7 +7,7 @@
 //
 
 #import "ReloadView.h"
-
+#import "PrefixHeader.pch"
 @interface ReloadView ()
 @property (nonatomic, weak)UIImageView *imageView;
 //@property (nonatomic, strong) UILabel * label;
@@ -15,8 +15,8 @@
 
 @implementation ReloadView
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
+    
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
@@ -27,8 +27,9 @@
 
 //设置imgaeView
 - (void)setupImageView{
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iconn_no_network@3x"]];
-//    UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(30, 30, 80, 15)];
+//    UIImageView * imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iconn_no_network@3x"]];
+    UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(ZP_Width / 2, ZP_height / 2 + 100,30, 30)];
+    [imageView setImage:[UIImage imageNamed:@"iconn_no_network"]];
 //    label.text = @"网络异常，请检查您的网络";
 //    [self addSubview:label];
     [self addSubview:imageView];

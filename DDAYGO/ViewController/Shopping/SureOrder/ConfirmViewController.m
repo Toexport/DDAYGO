@@ -19,6 +19,7 @@
 #import "PrefixHeader.pch"
 #import "ZP_ConfirmPayModel.h"
 #import "ZP_shoopingTool.h"
+#import "ZP_BusinessNameCell.h"
 #import "ZP_InformationModel.h"
 #import "ZP_ComfirmModel.h"
 #import "ZP_ConfirmPayModel.h"
@@ -36,7 +37,7 @@
 @property(nonatomic,strong)NSMutableArray * dataArrar;
 @property (nonatomic, strong)NSMutableArray * NewData;
 @property (nonatomic, strong) NSMutableArray * ConfirmArray;
-@property (nonatomic, strong) UILabel * merchantsLabel;
+
 @end
 
 @implementation ConfirmViewController
@@ -68,10 +69,7 @@
         messageArray = @[@{@"Computations":@"",@"num":@""}];
     }
 }
-//- (void)viewDidAppear:(BOOL)animated {
-//    [super viewDidAppear:animated];
-//    [self getAddData];
-//}
+
 // 刷新
 - (void)addRefresh {
 //    下拉刷新
@@ -96,11 +94,13 @@
     
 //  注册
     static NSString * ConfirmViewID = @"confirmViewCell";
+    static NSString * BusinessNameID = @"ZP_BusinessNameCell";
     static NSString * InformationID = @"informationCell";
     static NSString * AnonymityViewID = @"anonymity";
     static NSString * messageID = @"messageViewCell";
     static NSString * ExpressDeliveryID = @"expressDeliveryCell";
     [self.tableView registerClass:[ZP_ConfirmViewCell class] forCellReuseIdentifier:ConfirmViewID];
+    [self.tableView registerClass:[ZP_BusinessNameCell class] forCellReuseIdentifier:BusinessNameID];
     [self.tableView registerClass:[ZP_InformationCell class] forCellReuseIdentifier:InformationID];
     [self.tableView registerClass:[ZP_ExpressDeliveryCell class] forCellReuseIdentifier:ExpressDeliveryID];
     [self.tableView registerClass:[ZP_MessageViewCell class] forCellReuseIdentifier:messageID];
@@ -218,10 +218,6 @@
             if (self.ordersnumber) {
                 dic[@"ordersnumber"] = self.ordersnumber;
             }
-//            没数据，等下次在加
-//            if (_type == 666) {
-//                ZPLog(@"666");
-//            }else {
             __weak typeof(PayView) weakView = PayView;
             [ZP_shoopingTool requessaddorderpay:dic noEdit:self.noEdit success:^(id obj) {
                 ZP_ConfirmWebController * web = [[ZP_ConfirmWebController alloc]init];
@@ -291,16 +287,17 @@
         allMoney = [NSString stringWithFormat:@"%@",obj[@"allamount"]];
         self.NewData = [ZP_InformationModel arrayWithArray:dic[@"carts"]];
         NSArray *arr = [ZP_InformationModel arrayWithArray:dic[@"cartshop"]];
+         [self.tableView reloadData];
         ZP_InformationModel * modell = arr[0];
         ZPLog(@"shop name = %@",modell.shopname);
 //        self.merchantsLabel.text = modell.shopname;
         ZP_ExpressDeliveryModel * model = [[ZP_ExpressDeliveryModel alloc] init];
         model.freightamount = dic[@"freightamount"];
         model.chooselogistic = dic[@"chooselogistic"];
-        _merchantsLabel.text = [NSString stringWithFormat:@"%@",modell.shopname];
+//        _merchantsLabel.text = [NSString stringWithFormat:@"%@",modell.shopname];
         [_ConfirmArray addObject:model];
         [self upfataStatisticsLabel];
-        [self.tableView reloadData];
+
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
@@ -379,7 +376,7 @@
 
 #pragma Mark - TableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 5;
+    return 6;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -387,14 +384,17 @@
         return _dataArrar.count;
     }else
         if (1 == section) {
+            return self.NewData.count;
+    }else
+        if (2 == section) {
             //        return InformatonArray.count;
             return self.NewData.count;
-        }else
-            if (2 == section) {
-                return self.ConfirmArray.count;
-            }else {
-                return _dataArrar.count;
-            }
+    }else
+        if (3 == section) {
+            return self.ConfirmArray.count;
+    }else {
+            return _dataArrar.count;
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
@@ -407,7 +407,16 @@
         return cell;
         
     }else
-        if (indexPath.section == 1){
+        if (indexPath.section == 1) {
+            static NSString * ID = @"ZP_BusinessNameCell";
+            ZP_BusinessNameCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
+            self.tableView.tableFooterView = [[UIView alloc]init];
+            ZP_InformationModel * model = self.NewData[indexPath.row];
+            [cell InformationModel:model];
+            return cell;
+    }else
+        if (indexPath.section == 2){
             static NSString * ID = @"informationCell";
             ZP_InformationCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
@@ -417,7 +426,7 @@
             return cell;
             
     }else
-        if (indexPath.section ==2){
+        if (indexPath.section ==3){
             static NSString * ExpressDeliveryID = @"expressDeliveryCell";
             ZP_ExpressDeliveryCell * cell = [tableView dequeueReusableCellWithIdentifier:ExpressDeliveryID];
             self.tableView.tableFooterView = [[UIView alloc]init];
@@ -427,7 +436,7 @@
             return cell;
                 
     }else
-        if (indexPath.section == 3){
+        if (indexPath.section == 4){
             static NSString * messageID = @"messageViewCell";
             ZP_MessageViewCell * cell = [tableView dequeueReusableCellWithIdentifier:messageID];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;  // 取消cell点击变灰
@@ -444,7 +453,7 @@
             ZP_AnonymityViewCell * cell = [tableView dequeueReusableCellWithIdentifier:AnonymityID];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
             [cell.AnonymousButton removeTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
-                    [cell.AnonymousButton addTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.AnonymousButton addTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
             return cell;
                     
         }
@@ -463,21 +472,18 @@
     if (indexPath.section == 0) {
         return 90;
     }else
-        if (indexPath.section == 1){
-            return 95;
-            
+        if (indexPath.section == 1) {
+            return 30;
     }else
         if (indexPath.section == 2){
-                
-            return 45;
-                
+            return 95;
     }else
         if (indexPath.section == 3){
-                    
+            return 45;
+    }else
+        if (indexPath.section == 4){
             return 90;
-                    
     }else {
-                    
         return 45;
     }
 }
@@ -503,56 +509,6 @@
         self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
         self.hidesBottomBarWhenPushed = YES;
     }
-}
-
-//  表头
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (section ==1) {
-//        ZP_CartsShopModel * model = _nameArray[section-1];
-//        ZP_ComfirmModel * model = _dataArrar[indexPath.row];
-        UIView * myView = [[UIView alloc]init];
-        //        if (1 == section) {
-        //        self.tableView.tableHeaderView = myView; // 表头跟着cell一起滚动
-        //        }
-        [myView setBackgroundColor:[UIColor whiteColor]];
-        /********************************************/
-        UIView * view = [[UIView alloc]init];
-        [view setBackgroundColor:ZP_Graybackground];
-        [myView addSubview:view];
-        [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(myView).offset(0);
-            make.right.equalTo(myView).offset(0);
-            make.top.equalTo(myView).offset(1);
-            make.bottom.equalTo(myView).offset(-30);
-        }];
-        
-//   商家图片
-        UIImageView * merchantsImage = [UIImageView new];
-        merchantsImage.image = [UIImage imageNamed:@"ic_order_store"];
-        [myView addSubview:merchantsImage];
-        [merchantsImage mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(myView).offset(5);
-            make.top.equalTo(myView).offset(20);
-        }];
-//    商家名字
-        UILabel * merchantsLabel = [UILabel new];
-        merchantsLabel.textAlignment = NSTextAlignmentLeft;
-        merchantsLabel.textColor = ZP_textblack;
-        merchantsLabel.text = @"dszkjbxz";
-//        merchantsLabel.text = model.shopname;
-        merchantsLabel.font = ZP_titleFont;
-        [myView addSubview:merchantsLabel];
-        [merchantsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(myView).offset(30);
-            make.top.equalTo(myView).offset(20);
-        }];
-        merchantsLabel = _merchantsLabel;
-        return myView;
-        
-    }else {
-        return 0;
-    }
-    
 }
 
 @end

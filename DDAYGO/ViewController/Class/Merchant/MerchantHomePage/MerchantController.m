@@ -428,6 +428,7 @@
     return headerView;
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+//     判断是否越界
     MerchantModel * model = nil;
     if (indexPath.row < [_newsarray count]) {//无论你武功有多高，有时也会忘记加
         model = [_newsarray objectAtIndex:indexPath.row];

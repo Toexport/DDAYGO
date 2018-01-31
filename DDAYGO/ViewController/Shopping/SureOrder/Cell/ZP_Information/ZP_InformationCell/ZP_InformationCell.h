@@ -29,6 +29,5 @@
 @property (nonatomic, strong) UILabel * CurrencySymbolLabel;  // 货币符号
 @property (nonatomic, strong) UILabel * MessageLabel;        // 卖家留言
 @property (nonatomic, strong) UILabel * SharacterLabel;     // X 符号
-
-- (void)InformationWithDic:(ZP_InformationModel *)dic;
+- (void)InformationWithDic:(ZP_InformationModel *)model;
 @end

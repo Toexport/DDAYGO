@@ -305,13 +305,17 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
- 
     OrderModel * model = self.newsData[section];
     return 2+model.ordersdetail.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    OrderModel * model = self.newsData[indexPath.section];
+//     判断数组是否越界
+    OrderModel * model = nil;
+    if (indexPath.section < [self.newsData count]) {
+        model = [self.newsData objectAtIndex:indexPath.section];
+    }
+//    OrderModel * model = self.newsData[indexPath.section];
     if (indexPath.row == 0) {
         OrdeHeadViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"OrdeHeadViewCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -398,9 +402,10 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//}
 
 // 重新加载数据
 -(void)loading {

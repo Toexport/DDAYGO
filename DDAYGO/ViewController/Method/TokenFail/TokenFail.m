@@ -9,7 +9,7 @@
 #import "TokenFail.h"
 
 @implementation TokenFail
-//
+
 //+ (void)Tkkenstr:(NSString *)str {
 //    Token = nil;
 //    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];

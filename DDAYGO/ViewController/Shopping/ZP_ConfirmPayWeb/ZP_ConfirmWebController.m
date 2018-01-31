@@ -34,31 +34,11 @@
         make.bottom.equalTo(self.view).offset(0);
     }];
     webView.delegate = self;
-    
-//    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_UrlStr]]];
-//    NSMutableURLRequest * requestShare = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:_UrlStr]];
-//    [requestShare setHTTPMethod:@"POST"];
-//    [webView loadRequest:requestShare];
-    
     NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[_jump_HeadURL stringByAppendingString:@"?"]]];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:[_jump_URL dataUsingEncoding:NSUTF8StringEncoding]];
-    
     [webView loadRequest:request];
     [self.view addSubview:webView];
-    
-    
-//    _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-//    _webView.delegate = self;
-//    NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[_jump_HeadURL stringByAppendingString:@"?"]]];
-//    [request setHTTPMethod:@"POST"];
-//    [request setHTTPBody:[_jump_URL dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    [_webView loadRequest:request];
-//    ZPLog(@"url : %@",request);
-//    NSLog(@"oid = %@",_Oid);
-//    
-//    [self.view addSubview:_webView];
     
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"ic_bar_return"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
@@ -89,7 +69,6 @@
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    
     NSLog(@"连接失败%@",error);
     [SVProgressHUD dismiss];
     

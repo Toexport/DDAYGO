@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-///**Token*/
+/**Token*/
 //NSString * Token = nil;
 //
 //NSString * ZPICUEToken = nil;
