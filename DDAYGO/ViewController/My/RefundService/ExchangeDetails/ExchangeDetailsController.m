@@ -75,7 +75,7 @@
     dic[@"countrycode"] = str;
     
     if (self.type == 666) {
-        self.title = self.STrtltle;
+        self.title = @"退货退款";
         dic[@"oid"] = self.Oid;
         [ZP_MyTool requestGetrefundinfoOrder:dic success:^(id obj) {
 //            ZPLog(@"%@",obj);
@@ -98,7 +98,7 @@
 //        self.RequestServiceBut.hidden = YES;
     }else
         if (self.type == 777) {
-            self.title = self.STrtltle;
+            self.title = @"退货退款";
             dic[@"oid"] = self.Oid;
             [ZP_MyTool requestGetrefundinfoOrder:dic success:^(id obj) {
                 //            ZPLog(@"%@",obj);
@@ -110,6 +110,7 @@
                 ZPLog(@"%@",error);
             }];
     }else{
+//        self.title = @"退货退款";
         dic[@"refundid"] = self.Oid;
         [ZP_MyTool requestGetrefundinfo:dic success:^(id obj) {
 //            ZPLog(@"%@",obj);
