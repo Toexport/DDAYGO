@@ -80,9 +80,9 @@
     [ZP_ClassViewTool requMerchandise:dic WithIndex:self.type success:^(id obj) {
         NSDictionary * dict = obj;
         [SVProgressHUD dismiss];
-//        ZPLog(@"%@",obj);
         NSArray * arr ;
         NSMutableArray *tempArray = [NSMutableArray arrayWithArray:dict[@"datalist"]];
+        
        arr = [tempArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
             ZPLog(@"obj1:%lu--obj2:%lu",[obj1[@"productprice"] longValue],[obj2[@"productprice"] longValue]);
             if ([_priceStrTag isEqualToString:@"desc"]) {

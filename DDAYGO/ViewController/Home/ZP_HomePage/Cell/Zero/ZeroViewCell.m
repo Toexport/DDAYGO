@@ -36,8 +36,7 @@
 }
 
 
-- (SDCycleScrollView *)scrollView
-{
+- (SDCycleScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, ZP_Width, zeroHeight) delegate:self placeholderImage:[UIImage imageNamed:@""]];
 //        [_scrollView addObject:[NSString stringWithFormat:@"%@%@",ImgAPI,[model.imgurl stringByReplacingOccurrencesOfString:@"~" withString:@""]]];

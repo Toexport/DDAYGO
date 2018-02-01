@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"正在支付，请稍后...";
     self.view.backgroundColor = [UIColor whiteColor];
         [self setupWebView];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor whiteColor]}];
@@ -38,6 +39,7 @@
     UIViewController *viewController = array.firstObject;
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self.navigationController popToRootViewControllerAnimated:NO];
+        [SVProgressHUD dismiss];
         viewController.tabBarController.selectedIndex = 3;
     }]];
     
@@ -125,7 +127,6 @@
     }
 }
 
-//stageuser001/test1234 //28939
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"连接失败%@",error);

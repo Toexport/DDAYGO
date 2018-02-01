@@ -8,7 +8,6 @@
 
 #import "CPerViewController.h"
 #import "CPCollectionViewCell.h"
-//#import "DetailedController.h"
 #import "PrefixHeader.pch"
 #import "ZP_ClassViewTool.h"
 #import "ClassificationViewController.h"
@@ -84,14 +83,12 @@
         if (i == 3) {
 //          默认图片
             [button setImage:[UIImage imageNamed:@"icon_shop_classification_01"] forState:UIControlStateNormal];
-           
         }
         [self.topView addSubview:button];
     }
     self.line.x = 0;
     for (NSInteger j =0; j<_titleArray.count; j++) {
         CPCollectionViewController * vc = [[CPCollectionViewController alloc]init];
-        
         vc.fatherId = self.fatherId;
         vc.nameStr = self.nameStr;
         vc.titleString = self.titleString;
@@ -138,9 +135,6 @@
                 [vcs allData];
             }
         }
-//        CPCollectionViewController * vcs = (CPCollectionViewController *)self.childViewControllers[button.tag];
-//        vcs.priceStrTag = _priceStrTag;
-//        [vcs allData];
     }else {
         self.contentScrollView.contentOffset = CGPointMake(button.tag*ZP_Width, 0);
         UIViewController * vcs = self.childViewControllers[button.tag];

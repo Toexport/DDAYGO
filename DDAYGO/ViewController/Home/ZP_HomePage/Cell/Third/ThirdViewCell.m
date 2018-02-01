@@ -21,7 +21,6 @@
     
     NSInteger num = 0;
     for (int z = 0; z <= 4; z ++) {
-        
         for (int i = 0; i <= 1; i ++) {
             UIView * titiView =[UIView new];
             [titiView setBackgroundColor:ZP_textWite];

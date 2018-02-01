@@ -131,6 +131,13 @@
                 [self networkProblems];
             }
             ZPLog(@"%@",obj);
+            if (obj == 0) {
+                UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(ZP_Width / 2, ZP_Width / 2, 100, 15)];
+                label.text = @"暂无商品~";
+                label.textColor = [UIColor darkGrayColor];
+                label.textAlignment = NSTextAlignmentCenter;
+                [self.tableView addSubview:label];
+            }
             if ([obj isKindOfClass:[NSDictionary class]]) {
                 NSLog(@"go");
                 [self.tableView reloadData];
