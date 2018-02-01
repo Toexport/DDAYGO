@@ -52,24 +52,24 @@
 /********源文件属性********/
 //**Xib 拖过来然后填写数据**/
 @property (nonatomic, strong)UIImageView * ShopImageView;
-@property (weak, nonatomic) IBOutlet UILabel * ShopNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel * CurrencySymbolLabel;
-@property (weak, nonatomic) IBOutlet UILabel * ShopMoneyLabel;
-@property (weak, nonatomic) IBOutlet UILabel * ShopOldMoneyLabel;
-@property (weak, nonatomic) IBOutlet UILabel * quantityLable;
-@property (weak, nonatomic) IBOutlet UILabel * peramountLable;
-@property (weak, nonatomic) IBOutlet UILabel * productidLable;
-@property (strong, nonatomic) IBOutlet UILabel * ShoppingIdLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *detailViewTop;
+//@property (weak, nonatomic) IBOutlet UILabel * ShopNameLabel;
+//@property (weak, nonatomic) IBOutlet UILabel * CurrencySymbolLabel;
+//@property (weak, nonatomic) IBOutlet UILabel * ShopMoneyLabel;
+//@property (weak, nonatomic) IBOutlet UILabel * ShopOldMoneyLabel;
+//@property (weak, nonatomic) IBOutlet UILabel * quantityLable;
+//@property (weak, nonatomic) IBOutlet UILabel * peramountLable;
+//@property (weak, nonatomic) IBOutlet UILabel * productidLable;
+//@property (strong, nonatomic) IBOutlet UILabel * ShoppingIdLabel;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *detailViewTop;
 @property (nonatomic, strong) NSArray * array;
 @property (nonatomic, strong) UIWindow * window;
 @property (nonatomic, strong) ProductDescriptionView * productDescriptionView;
 @property (nonatomic, strong) PurchaseView * purchaseView;
 @property (nonatomic ,strong) NSMutableArray * newsData;
-@property (weak, nonatomic) IBOutlet UIButton * ljgmBtn;
-@property (weak, nonatomic) IBOutlet UIButton * jrgwcBtn;
+//@property (weak, nonatomic) IBOutlet UIButton * ljgmBtn;
+//@property (weak, nonatomic) IBOutlet UIButton * jrgwcBtn;
 @property (nonatomic, strong) ZP_GoodDetailsModel * model;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeight;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeight;
 
 
 @property (nonatomic, strong) NSArray * normsArr;
@@ -77,7 +77,7 @@
 @property (nonatomic, strong) NSArray * pjArr;
 @property (nonatomic, strong) NSMutableArray * productArray;
 @property (nonatomic, strong) NSMutableArray * textdetaArray;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cpsmHeight;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cpsmHeight;
 @property (nonatomic, strong) NSMutableArray *evaluateArray;
 @property (nonatomic, assign) NSInteger imageHeight;  //详情图片的高度
 @property (nonatomic, strong) NSMutableDictionary *imageDic;  //详情图片的高度
@@ -106,7 +106,6 @@
 //    [self evaluation];
     self.titleLabel.text = self.title ? self.title : @"商品详情";
     self.navigationController.navigationBar.hidden = YES;
-    
     self.shfwBottomView.hidden = YES;
     self.qbpjBottomView.hidden = YES;
     
@@ -159,7 +158,6 @@
         self.pageControl.numberOfPages = 1;
         self.pageControl.currentPage = 0;
         [self.scrollView addSubview:self.pageControl];
-        
         [self.shoucangBtn resizeWithDistance:5];
         [self.gouwuBtn resizeWithDistance:5];
         [self.dianpuBtn resizeWithDistance:5];
@@ -169,19 +167,6 @@
 
 // 获取数据
 - (void)allData {
-//    if (self.type == 666) {
-//        if (nil == _productId) {
-//            return;
-//        }
-//        NSDictionary * dic;
-//        self.imageDic = [NSMutableDictionary dictionary];
-//        if (Token) {
-//            
-//            dic = @{@"productid":_productId,@"token":Token};
-//        } else {
-//            dic = @{@"productid":_productId,@"token":@""};
-//        }
-//    }else
     if (nil == _productId) {
         return;
     }
@@ -226,7 +211,6 @@
             }
         }
         _model = model;
-        [self getDataWithModel:model];
 
     } failure:^(NSError * error) {
         [self loading];
@@ -242,19 +226,19 @@
     }];
 }
 
-//填写数据
-- (void)getDataWithModel:(ZP_GoodDetailsModel *)model {
-    if (_normsArr.count < 1){
-        [self getimageData];
-        [_ShopImageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
-    }
-    _ShopNameLabel.text = model.productname;
-    _ShopMoneyLabel.text = model.productprice;
-    _quantityLable.text = model.productamount;
-    _peramountLable.text = model.peramount;
-    _productidLable.text = model.productid;
-    _ShoppingIdLabel.text = model.TrademarkLabel;
-}
+////填写数据
+//- (void)getDataWithModel:(ZP_GoodDetailsModel *)model {
+//    if (_normsArr.count < 1){
+//        [self getimageData];
+//        [_ShopImageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
+//    }
+//    _ShopNameLabel.text = model.productname;
+//    _ShopMoneyLabel.text = model.productprice;
+//    _quantityLable.text = model.productamount;
+//    _peramountLable.text = model.peramount;
+//    _productidLable.text = model.productid;
+//    _ShoppingIdLabel.text = model.TrademarkLabel;
+//}
 
 #pragma mark  - - 收藏
 - (IBAction)shoucangAction:(UIButton *)sender {
@@ -477,7 +461,7 @@
         case 1:
         {
             EvaluateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EvaluateTableViewCell"];
-            EvaluateModel *model =self.evaluateArray[indexPath.row];
+            EvaluateModel * model = self.evaluateArray[indexPath.row];
             [cell Evaluatemodel:model];
             return cell;
         }

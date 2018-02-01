@@ -35,7 +35,6 @@
     [IQKeyboardManager sharedManager].enable = YES;
     [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
     
-    
     [self MainViewController];
     [self initUserDefaultConfig];
     return YES;

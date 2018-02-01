@@ -377,18 +377,16 @@
 
 
 - (void)updateData:(NSInteger)tag {
-    //   更新选中数量
+//   更新选中数量
     _stockids = nil;
     _modelstockid = nil;
     NSInteger count = 0;
     NSInteger data = 0;
     NSInteger dataCount = 0;
-    
     NSInteger section = tag / 100;
     NSInteger row = tag % 100;
     ZP_CartsShopModel * models = self.nameArray[section];
     ZP_CartsModel * model = models.array[row];
-    
     for (int i = 0; i < models.array.count; i ++) {
         if (!_bjBool) {
             ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
@@ -426,16 +424,16 @@
         }
     }
     
-    //每组的button
+//每组的button
     UIButton *but = [self.view viewWithTag:666 +section];
-    //每组全选
+//每组全选
     if (count == models.array.count) {
         but.selected = YES;
     } else {
         but.selected = NO;
     }
     
-    //   更新合计数据
+//   更新合计数据
     self.PriceLabel.text = [@(data) stringValue];
     if (_bjBool) {
         [self.ClearingButt setTitle:@"删除" forState: UIControlStateNormal];
@@ -447,9 +445,8 @@
     }
 }
 
-
 - (void)updateDataa:(NSInteger)tag {
-    //  更新选中数量
+//  更新选中数量
     _stockids = nil;
     _modelstockid = nil;
     NSInteger count = 0;
@@ -499,7 +496,7 @@
         self.Shopchoosebuttom.selected = NO;
     }
     
-    //   更新合计数据
+//   更新合计数据
     self.PriceLabel.text = [@(data) stringValue];
     if (_bjBool) {
         [self.ClearingButt setTitle:@"删除" forState: UIControlStateNormal];
@@ -515,6 +512,7 @@
 #pragma mark - 结算
 //  结算按钮
 - (void)ClearingBut:(UIButton *)sender {
+    
     if (_stockids.length > 0 || _modelstockid.length > 0) {
         if (sender.selected) {
 #pragma make -- 提示框
@@ -554,9 +552,8 @@
 
 //删除按钮（删除接口）
 - (void) shangchuBut:(UIButton *)but {
-    //   响应事件
+//   响应事件
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    //    ZP_CartsShopModel * models = self.nameArray[0];
     dic[@"stockid"] = _modelstockid;
     dic[@"token"] = Token;
     [ZP_shoopingTool requesscartitemdelte:dic success:^(id obj) {
@@ -615,11 +612,7 @@
             return NO;
         }
     }
-    
-    
     return YES;
-    
-    
 }
 
 #pragma mark tableviewdelegate
@@ -654,12 +647,10 @@
         if (indexPath.section < [self.nameArray count]) {
             models = [self.nameArray objectAtIndex:indexPath.section];
         }
-//        ZP_CartsShopModel * models = self.nameArray[indexPath.section];
         ZP_CartsModel * model = nil;
         if (indexPath.section < [models.array count]) {
             model = [models.array objectAtIndex:indexPath.row];
         }
-//        ZP_CartsModel * model = models.array[indexPath.row];
         cell.buttom.tag = indexPath.section *100 + indexPath.row;
         if ([_selectAllArray containsObject:@(indexPath.row)]) {
             cell.buttom.selected = YES;
@@ -686,14 +677,12 @@
         }else{
             cell.button.selected = NO;
         }
-        //        [cell.button removeTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
         [cell.button addTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
         [cell cellWithModel:model];
         cell.btnClickBlock = ^(NSString *str) {
             [_selectArray replaceObjectAtIndex:indexPath.row withObject:str];
            ZPLog(@"shu liang = %@",str); //这个就是数量
             _numstr = str;
-//            ZP_CartsModel
             _cardid = model.cartid;
             ZPLog(@"- num = %@,cardid = %@",_numstr,_cardid);
         };
@@ -724,17 +713,16 @@
 #pragma mark -- 表头选中
 - (void)sectionShop:(UIButton *)but{
     
-    // 更新选中数量
+// 更新选中数量
     NSInteger count = 0;
     NSInteger data = 0;
     NSInteger dataCount = 0;
     
     but.selected = !but.selected;
-    //全选选中
+//全选选中
     if (but.selected) {
         ZP_CartsShopModel * models = self.nameArray[but.tag - 666];
         if (!_bjBool) {
-            
             for (int i = 0; i < models.array.count; i ++) {
                 ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:but.tag - 666]];
                 cell.buttom.selected = YES;
@@ -800,7 +788,6 @@
 
 //  设置表头高度
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    
     if (self.nameArray.count > 0) {
         ZP_CartsShopModel * model = self.nameArray[section];
         if (model.array.count > 0) {
@@ -823,7 +810,6 @@
                 NSLog(@"%@",obj);
                 [models.array removeObjectAtIndex:indexPath.row]; //接口成功啦 才成功的情况下写这一句代码-这个要在成功的时候写
                 if (models.array.count == 0) {
-                    //                    nameArray = nil;
                     [self.nameArray removeObjectAtIndex:indexPath.section];
                     self.navigationController.tabBarItem.badgeValue = nil;
                 }else{
@@ -835,7 +821,7 @@
                 NSLog(@"%@",error);
             }];
         }];
-        //也可以设置图片
+//也可以设置图片
         deleteAction.backgroundColor = [UIColor redColor];
         UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration configurationWithActions:@[deleteAction]];
         return config;
@@ -1000,10 +986,6 @@
     }
 }
 
-
-
-
-
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     NSLog(@"go ");
     return 10.0f;
@@ -1019,9 +1001,8 @@
     ZPLog(@"%ld",indexPath.row);
 }
 
-//  jiazai shuji
+//  加载数据
 -(void)loading{
-    //    [self endFreshing];
     [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
     __weak typeof(self)weakSelf = self;
     [ReloadView showToView:self.view touch:^{
