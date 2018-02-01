@@ -196,7 +196,6 @@
 		C41E9C332020254500E6F5E2 /* ShoppingHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41E9C322020254500E6F5E2 /* ShoppingHeadView.xib */; };
 		C41E9C352020259F00E6F5E2 /* ShoppingHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = C41E9C342020259F00E6F5E2 /* ShoppingHeadView.m */; };
 		C41E9C39202081E700E6F5E2 /* TokenFail.m in Sources */ = {isa = PBXBuildFile; fileRef = C41E9C38202081E700E6F5E2 /* TokenFail.m */; };
-		C41E9C3B20219A8100E6F5E2 /* 产品详情无评价_spec - 副本.png in Resources */ = {isa = PBXBuildFile; fileRef = C41E9C3A20219A8100E6F5E2 /* 产品详情无评价_spec - 副本.png */; };
 		C41E9C3F2021A3E000E6F5E2 /* ZP_PayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C41E9C3E2021A3E000E6F5E2 /* ZP_PayModel.m */; };
 		C41E9C432021A6DA00E6F5E2 /* PayMoneyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C41E9C412021A6DA00E6F5E2 /* PayMoneyViewCell.m */; };
 		C41E9C442021A6DA00E6F5E2 /* PayMoneyViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41E9C422021A6DA00E6F5E2 /* PayMoneyViewCell.xib */; };
@@ -833,7 +832,6 @@
 		C41E9C342020259F00E6F5E2 /* ShoppingHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingHeadView.m; sourceTree = "<group>"; };
 		C41E9C37202081E700E6F5E2 /* TokenFail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenFail.h; sourceTree = "<group>"; };
 		C41E9C38202081E700E6F5E2 /* TokenFail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TokenFail.m; sourceTree = "<group>"; };
-		C41E9C3A20219A8100E6F5E2 /* 产品详情无评价_spec - 副本.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "产品详情无评价_spec - 副本.png"; sourceTree = "<group>"; };
 		C41E9C3D2021A3E000E6F5E2 /* ZP_PayModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_PayModel.h; sourceTree = "<group>"; };
 		C41E9C3E2021A3E000E6F5E2 /* ZP_PayModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_PayModel.m; sourceTree = "<group>"; };
 		C41E9C402021A6DA00E6F5E2 /* PayMoneyViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayMoneyViewCell.h; sourceTree = "<group>"; };
@@ -1399,7 +1397,6 @@
 			isa = PBXGroup;
 			children = (
 				C44A08FA20229D22000024F9 /* DDAYGO IHTTP协议1.0.docx */,
-				C41E9C3A20219A8100E6F5E2 /* 产品详情无评价_spec - 副本.png */,
 				C4411D91200F626100CE906F /* 加载_ios */,
 				0641BB971F67B60B00E72FEF /* Testbag */,
 				063FE0AE1F615CEB009910FF /* ViewController */,
@@ -4477,7 +4474,6 @@
 				C4632E0E200633CC0029AA87 /* RefundServiceController.xib in Resources */,
 				06F571D41F9F1A7900D61FDB /* DialogBox.xib in Resources */,
 				C4910F701FFC6D24006DA5B9 /* ddg_advertising.png in Resources */,
-				C41E9C3B20219A8100E6F5E2 /* 产品详情无评价_spec - 副本.png in Resources */,
 				C472F1391FE29A060031D7B5 /* ZP_CheckMoreCell.xib in Resources */,
 				06F5721D1F9F1E8700D61FDB /* AllCategoriesView.xib in Resources */,
 				C4411DAE200F626200CE906F /* loading3.png in Resources */,

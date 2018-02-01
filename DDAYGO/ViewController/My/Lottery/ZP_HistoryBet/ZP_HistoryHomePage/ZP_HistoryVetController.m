@@ -227,7 +227,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ZP_DetailsSistoryAwardController * DetailsSistoryAward = [[ZP_DetailsSistoryAwardController alloc]init];
-    ZP_HistoryModel * model = self.newsData[indexPath.row];
+    ZP_HistoryModel * model = self.newsData[indexPath.section];
     DetailsSistoryAward.pollid = model.pollid;
     DetailsSistoryAward.title = [NSString stringWithFormat:@"第%@期",model.yyyy];
     [self.navigationController pushViewController:DetailsSistoryAward animated:YES];

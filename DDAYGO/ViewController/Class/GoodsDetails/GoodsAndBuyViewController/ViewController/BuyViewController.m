@@ -43,7 +43,7 @@
 
 /*********框架属性*********/
 @property(nonatomic,weak)MyOrderTopTabBar* TopTabBar;
-@property (weak, nonatomic) UIScrollView *MyScrollView;
+@property (weak, nonatomic) UIScrollView * MyScrollView;
 @property (weak, nonatomic) BuyTopView* topView;
 @property (weak, nonatomic) BuyMiddleView* middleView;
 @property (strong, nonatomic) UITableView* detailTableview;
@@ -52,24 +52,12 @@
 /********源文件属性********/
 //**Xib 拖过来然后填写数据**/
 @property (nonatomic, strong)UIImageView * ShopImageView;
-//@property (weak, nonatomic) IBOutlet UILabel * ShopNameLabel;
-//@property (weak, nonatomic) IBOutlet UILabel * CurrencySymbolLabel;
-//@property (weak, nonatomic) IBOutlet UILabel * ShopMoneyLabel;
-//@property (weak, nonatomic) IBOutlet UILabel * ShopOldMoneyLabel;
-//@property (weak, nonatomic) IBOutlet UILabel * quantityLable;
-//@property (weak, nonatomic) IBOutlet UILabel * peramountLable;
-//@property (weak, nonatomic) IBOutlet UILabel * productidLable;
-//@property (strong, nonatomic) IBOutlet UILabel * ShoppingIdLabel;
-//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *detailViewTop;
 @property (nonatomic, strong) NSArray * array;
 @property (nonatomic, strong) UIWindow * window;
 @property (nonatomic, strong) ProductDescriptionView * productDescriptionView;
 @property (nonatomic, strong) PurchaseView * purchaseView;
 @property (nonatomic ,strong) NSMutableArray * newsData;
-//@property (weak, nonatomic) IBOutlet UIButton * ljgmBtn;
-//@property (weak, nonatomic) IBOutlet UIButton * jrgwcBtn;
 @property (nonatomic, strong) ZP_GoodDetailsModel * model;
-//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeight;
 
 
 @property (nonatomic, strong) NSArray * normsArr;
@@ -108,8 +96,6 @@
     self.navigationController.navigationBar.hidden = YES;
     self.shfwBottomView.hidden = YES;
     self.qbpjBottomView.hidden = YES;
-    
-    
     [self.view bringSubviewToFront:self.headView];
 }
 
@@ -181,7 +167,6 @@
     [ZP_ClassViewTool requDetails:dic success:^(id obj) {
         if (obj) {
             self.productArray = obj;
-         
         }else{
             [self networkProblems];
         }
@@ -191,7 +176,10 @@
         self.productArray = [asdtring componentsSeparatedByString:@","];
         NSDictionary * tempDic = @{@"productid":_productId,@"page":@(1),@"pagesize":@(5)};
         [ZP_ClassViewTool requEvaluates:tempDic success:^(id obj) {
-            self.evaluateArray = [EvaluateModel mj_keyValuesArrayWithObjectArray:obj[@"reviewlist"][@"ReviewsData"]];
+//            NSArray *tempArray = obj[@"reviewslist"][@"ReviewsData"];
+//            self.evaluateArray = [EvaluateModel mj_keyValuesArrayWithObjectArray:obj[@"reviewslist"][@"ReviewsData"]];
+            self.evaluateArray = [EvaluateModel mj_objectArrayWithKeyValuesArray:obj[@"reviewslist"][@"ReviewsData"]];
+            
             [self successful];
             NSLog(@"%@",obj);
         } failure:^(NSError *error) {
@@ -211,7 +199,6 @@
             }
         }
         _model = model;
-
     } failure:^(NSError * error) {
         [self loading];
         ZPLog(@"%@", error);
@@ -226,59 +213,49 @@
     }];
 }
 
-////填写数据
-//- (void)getDataWithModel:(ZP_GoodDetailsModel *)model {
-//    if (_normsArr.count < 1){
-//        [self getimageData];
-//        [_ShopImageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
-//    }
-//    _ShopNameLabel.text = model.productname;
-//    _ShopMoneyLabel.text = model.productprice;
-//    _quantityLable.text = model.productamount;
-//    _peramountLable.text = model.peramount;
-//    _productidLable.text = model.productid;
-//    _ShoppingIdLabel.text = model.TrademarkLabel;
-//}
-
 #pragma mark  - - 收藏
-- (IBAction)shoucangAction:(UIButton *)sender {
+- (void)extracted:(UIButton *)sender {
     DD_CHECK_HASLONGIN;
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     dic[@"productid"] = _model.productid;
     dic[@"token"] = Token;
     if (!sender.selected) {
-        //收藏
-        [ZP_ClassViewTool requshoucang:dic success:^(id obj) {
-            sender.selected = !sender.selected;
-            if ([obj[@"result"]isEqualToString:@"ok"]) {
-                [SVProgressHUD showSuccessWithStatus:@"收藏成功!"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"collected"]) {
-                    [SVProgressHUD showInfoWithStatus:@"已收藏"];
-                }else
-                    if ([obj[@"result"]isEqualToString:@"failure"]) {
-                        [SVProgressHUD showInfoWithStatus:@"操作失败"];
-                    }
-        } failure:^(NSError *error) {
-            NSLog(@"error %@",error);
-        }];
-    }else{
-        //取消收藏
-        [ZP_ClassViewTool requCancelshoucang:dic success:^(id obj) {
-            sender.selected = !sender.selected;
-            if ([obj[@"result"]isEqualToString:@"ok"]) {
-                [SVProgressHUD showSuccessWithStatus:@"取消成功!"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"count"]) {
-                    [SVProgressHUD showInfoWithStatus:@"0"];
-                }else
-                    if ([obj[@"result"]isEqualToString:@"failure"]) {
-                        [SVProgressHUD showInfoWithStatus:@"操作失败"];
-                    }
-        } failure:^(NSError *error) {
-            NSLog(@"error %@",error);
-        }];
+//收藏
+    [ZP_ClassViewTool requshoucang:dic success:^(id obj) {
+        sender.selected = !sender.selected;
+        if ([obj[@"result"]isEqualToString:@"ok"]) {
+            [SVProgressHUD showSuccessWithStatus:@"收藏成功!"];
+        }else
+            if ([obj[@"result"]isEqualToString:@"collected"]) {
+                [SVProgressHUD showInfoWithStatus:@"已收藏"];
+        }else
+             if ([obj[@"result"]isEqualToString:@"failure"]) {
+                 [SVProgressHUD showInfoWithStatus:@"操作失败"];
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"error %@",error);
+    }];
+  }else{
+    //取消收藏
+    [ZP_ClassViewTool requCancelshoucang:dic success:^(id obj) {
+        sender.selected = !sender.selected;
+        if ([obj[@"result"]isEqualToString:@"ok"]) {
+            [SVProgressHUD showSuccessWithStatus:@"取消成功!"];
+        }else
+            if ([obj[@"result"]isEqualToString:@"count"]) {
+                [SVProgressHUD showInfoWithStatus:@"0"];
+        }else
+            if ([obj[@"result"]isEqualToString:@"failure"]) {
+                [SVProgressHUD showInfoWithStatus:@"操作失败"];
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"error %@",error);
+    }];
     }
+}
+
+- (IBAction)shoucangAction:(UIButton *)sender {
+    [self extracted:sender];
 }
 
 - (IBAction)ShoppingCartAction:(id)sender {
@@ -289,6 +266,7 @@
         [tbvc setSelectedIndex:2];
     }
 }
+
 // 商家按钮
 - (IBAction)dianpuAction:(id)sender {
 //    DD_CHECK_HASLONGIN;
@@ -310,7 +288,6 @@
         self.purchaseView.modelArr = _normsArr;
         [self.view addSubview:self.purchaseView];
     }
-    
     [self.purchaseView show:^(id response) {
         NSLog(@"re = %@",response);
         [self.middleView.xzflBtn setTitle:response forState:UIControlStateNormal];
@@ -335,24 +312,6 @@
     }
     [self.productDescriptionView show];
 }
-
-//// 获取评价数据
-//- (void)evaluation {
-//    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-//    dic[@"productid"] = _productId;
-//    dic[@"page"] = @"1";
-//    dic[@"pagesize"] = @"5";
-//    [ZP_ClassViewTool requEvaluates:dic success:^(id obj) {
-//        NSLog(@"go? %@",obj);
-//        _pjArr = obj;
-//        if (obj == nil) {
-//            ZPLog(@"-----");
-//        }
-//        ZPLog(@"%@",obj);
-//    } failure:^(NSError *error) {
-//        ZPLog(@"%@",error);
-//    }];
-//}
 
 //立即购买
 - (IBAction)ligmAction:(UIButton *)sender {
@@ -416,7 +375,6 @@
             break;
         case 1:
         {
-            
             if (self.evaluateArray.count == 0) {
                 tableView.hidden = YES;
             }
@@ -439,7 +397,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
     switch (self.selectIndex) {
         case 0:
         {
@@ -453,14 +410,13 @@
                         [tableView reloadData];
                     }
                 }
-                
             }];
             return cell;
         }
             break;
         case 1:
         {
-            EvaluateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EvaluateTableViewCell"];
+            EvaluateTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EvaluateTableViewCell"];
             EvaluateModel * model = self.evaluateArray[indexPath.row];
             [cell Evaluatemodel:model];
             return cell;
@@ -508,7 +464,7 @@
             break;
         case 1:
         {
-            return 192;
+            return 111;
         }
             break;
         case 2:
@@ -544,34 +500,23 @@
     
     return 20;
 }
-////然后根据具体的业务场景去写逻辑就可以了,比如
-//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-//    //Tip:我们可以通过打印touch.view来看看具体点击的view是具体是什么名称,像点击UITableViewCell时响应的View则是UITableViewCellContentView.
-//    if ([NSStringFromClass([touch.view class])    isEqualToString:@"detailTableView"]) {
-//        //返回为NO则屏蔽手势事件
-//        return NO;
-//    }
-//    return YES;
-//}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, ZP_Width - 8, 30)];
     label.backgroundColor = [UIColor whiteColor];
     if (section == 0) {
-        //        label.text = @"产品内容";
         if (_productArray.count < 1) {
             label.hidden = YES;
         }else{
             label.hidden = NO;
         }
     } else if (section == 1) {
-        //        label.text = @"全部评价";
         if (_evaluateArray.count < 1) {
             label.hidden = YES;
         }else{
             label.hidden = NO;
         }
     } else {
-        //        label.text = @"售后服务";
         label.hidden = YES;
     }
     return label;
@@ -634,7 +579,7 @@
  */
 -(void)addSecondPageTopTabBar{
     //初始化第二个页面的父亲view
-    UIView* secondPageView = [[UIView alloc] init];
+    UIView * secondPageView = [[UIView alloc] init];
     secondPageView.frame = CGRectMake(0, SecondPageTop, screenW, screenH-NaviBarH-BottomH);
     NSArray* array  = @[@"产品内容",@"产品评价",@"售后服务"];
     MyOrderTopTabBar* tabBar = [[MyOrderTopTabBar alloc] initWithArray:array] ;
@@ -655,7 +600,7 @@
     [secondPageView addSubview:label];
     
     //初始化一个UITableView
-    UITableView* tableview = [[UITableView alloc] init];
+    UITableView * tableview = [[UITableView alloc] init];
     self.detailTableview = tableview;
     tableview.dataSource = self;
     tableview.delegate = self;
@@ -668,7 +613,6 @@
 
 // 选择分类规格
 - (void)ClassificationButt {
-    ZPLog(@"11111");
     DD_CHECK_HASLONGIN;
     if (!self.purchaseView) {
         static NSString * purchasseID = @"PurchaseView";
@@ -700,7 +644,6 @@
         if(scrollView.contentOffset.y<0){
             if(self.TopViewScale<1.01){
                 self.TopViewScale += 0.00015f;
-//                [self.topView.icon_img setTransform:CGAffineTransformScale(self.topView.icon_img.transform, self.TopViewScale, self.TopViewScale)];
             }
             scrollView.contentOffset = CGPointMake(0, 0);
         }else{

@@ -28,7 +28,8 @@
 //}
 
 - (void)Evaluatemodel:(EvaluateModel *)model {
-    [self.AvatarImageView sd_setImageWithURL:[NSURL URLWithString:model.avatar]placeholderImage:[UIImage imageNamed:@""]];
+    NSString *asd = ImgAPI;
+    [self.AvatarImageView sd_setImageWithURL:[NSURL URLWithString:[asd stringByAppendingString:model.avatar]]placeholderImage:[UIImage imageNamed:@""]];
     self.usernameLabel.text = model.realname;
     self.timeLabel.text = model.createtime;
     self.commodityLabel.text = model.reviewscontent;
