@@ -476,11 +476,8 @@
             break;
         case 1:
         {
-            //都没走这里 //自己打印数据把
             EvaluateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EvaluateTableViewCell"];
-//            NSDictionary * dic = self.evaluateArray[indexPath.row];
             EvaluateModel *model =self.evaluateArray[indexPath.row];
-//            [cell updateData:dic];
             [cell Evaluatemodel:model];
             return cell;
         }

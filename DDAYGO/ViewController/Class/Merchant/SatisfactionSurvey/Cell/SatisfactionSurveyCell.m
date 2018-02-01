@@ -32,9 +32,7 @@
             if (i < startCount) {
                 button.hidden = NO;
             } else {
-
                 [button setBackgroundImage:[UIImage imageNamed:@"ic_evaluate_star_normal"] forState:UIControlStateNormal];
-//                button.hidden = YES;
             }
         }
     }
