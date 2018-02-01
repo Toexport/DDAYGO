@@ -79,9 +79,9 @@
     
     NSString * newStr = [keywords stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString * searchKit = [newStr stringByAddingPercentEscapesUsingEncoding:kCFStringEncodingUTF8];
-    NSLog(@"go - > %@ --- %@,kkk_> %@",keywords,newStr,searchKit);
+    ZPLog(@"go - > %@ --- %@,kkk_> %@",keywords,newStr,searchKit);
     if (newStr.length > 0 ) {
-        NSLog(@"go");
+        ZPLog(@"go");
         CPerViewController * CVPView = [[CPerViewController alloc]init];
         CVPView.fatherId = [NSNumber numberWithInteger:0];
         CVPView.keyword = searchKit;
@@ -90,7 +90,7 @@
         [self.navigationController pushViewController:CVPView animated:YES];
     }else{
     [SVProgressHUD showInfoWithStatus:@"請輸入你要寻找的商品"];
-        NSLog(@"no go");
+        ZPLog(@"no go");
     }
 }
 

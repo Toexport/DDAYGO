@@ -113,7 +113,7 @@
 }
 
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
-    NSLog(@"---点击了第%ld张图片", (long)index);
+    ZPLog(@"---点击了第%ld张图片", (long)index);
     if (self.fourthBlock1) {
         self.fourthBlock1(@(index));
     }
@@ -173,6 +173,6 @@
         ZP_FourthModel * model = self.arrDara[indexPath.row];
         self.FourthBlock([model.producid longLongValue]);
     }
-        NSLog(@"111");
+        ZPLog(@"111");
 }
 @end

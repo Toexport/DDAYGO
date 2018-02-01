@@ -84,7 +84,7 @@
         NSArray * arr ;
         NSMutableArray *tempArray = [NSMutableArray arrayWithArray:dict[@"datalist"]];
        arr = [tempArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
-            NSLog(@"obj1:%lu--obj2:%lu",[obj1[@"productprice"] longValue],[obj2[@"productprice"] longValue]);
+            ZPLog(@"obj1:%lu--obj2:%lu",[obj1[@"productprice"] longValue],[obj2[@"productprice"] longValue]);
             if ([_priceStrTag isEqualToString:@"desc"]) {
                 if ([obj1[@"productprice"] longValue] > [obj2[@"productprice"] longValue]) {
                     return NSOrderedDescending;
@@ -99,7 +99,7 @@
                 return NSOrderedAscending;
             }
         }];
-        NSLog(@"_priceStrTag - %@",_priceStrTag);
+        ZPLog(@"_priceStrTag - %@",_priceStrTag);
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             self.newsData = [ZP_ClassGoodsModel arrayWithArray:arr];
             [self.collectionView reloadData];
@@ -108,7 +108,7 @@
         });
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
-        NSLog(@"%@",error);
+        ZPLog(@"%@",error);
         
     }];
 }

@@ -65,7 +65,7 @@
     [btn addTarget:self action:@selector(TabBtnClick:) forControlEvents:UIControlEventTouchDown];
     [self addSubview:btn];
     [btn setTag:self.subviews.count-2];
-    //NSLog(@"按钮tag == %ld",self.subviews.count - 2);
+    //ZPLog(@"按钮tag == %ld",self.subviews.count - 2);
     if(2 == self.subviews.count){
         [self TabBtnClick:btn];
     }
@@ -89,7 +89,7 @@
             view.frame = CGRectMake(0, btnH - [global pxTopt:bottomViewW], btnW,[global pxTopt:bottomViewW]);
         }
     }
-    //NSLog(@"按钮数量 == %ld",self.subviews.count);
+    //ZPLog(@"按钮数量 == %ld",self.subviews.count);
 }
 
 /**

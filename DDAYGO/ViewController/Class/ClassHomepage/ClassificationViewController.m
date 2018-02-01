@@ -73,7 +73,7 @@
         [self getRightItemDataWithProducttypeid:0];
         [self.leftTableView reloadData];
     } failure:^(NSError *error) {
-        NSLog(@"%@",error);
+        ZPLog(@"%@",error);
 //        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
   }];
 }
@@ -83,14 +83,14 @@
     ZP_LeftModel *Molde =self.newsData[producttypeid];
     NSDictionary * dictt = @{@"level":@"2",@"language":@"zh-tw",@"fatherid":[Molde.producttypeid stringValue]};
 //     NSDictionary * dictt = @{@"level":@"2",@"language":@"zh-tw",@"fatherid": [NSString stringWithFormat:@"producttypeid+%ld",producttypeid]};
-    NSLog(@"%@",dictt);
+    ZPLog(@"%@",dictt);
     [ZP_ClassViewTool requClassIficationrj:dictt success:^(id obj) {
         ZPLog(@"%@",obj);
         NSArray * arr = obj;
         [self.rightData setObject:[ZP_RightModel arrayWithArray:arr] forKey:@(producttypeid)];
         [self.rightTableView reloadData];
     } failure:^(NSError *error) {
-        NSLog(@"%@",error);
+        ZPLog(@"%@",error);
 //        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
     }];
 }

@@ -86,6 +86,7 @@
 - (void)addRefresh {
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.SixthArrData removeAllObjects];
+        
         _i = 0;
         [self allData];
         [self FifthallData:CountCode];  //带参数刷新
@@ -97,7 +98,7 @@
     SearchGooodsController * search = [SearchGooodsController new];
     myNavigationController * login = [[myNavigationController alloc]initWithRootViewController:search];
     [self presentViewController:login animated:YES completion:nil];
-    NSLog(@"搜索框");
+    ZPLog(@"搜索框");
 }
 
 //  注册
@@ -118,13 +119,13 @@
             //            [MyViewController sharedInstanceTool].hasRemind = YES;
             [self PositionallData];
             
-            NSLog(@"位置");
+            ZPLog(@"位置");
             self.position = [[PositionView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)];
             //数据
             [self.position Position:_postionArray];
             //返回
             self.position.ThirdBlock = ^(NSString *ContStr,NSNumber *code) {
-                NSLog(@"c = %@",ContStr);
+                ZPLog(@"c = %@",ContStr);
                 [self.chooseCityBtn setTitle:NSLocalizedString(ContStr, nil) forState:UIControlStateNormal];
                 CountCode = code;
                 [self.chooseCityBtn sizeToFit];
@@ -236,7 +237,7 @@
         }
         [self.tableView reloadData];
     } failure:^(NSError *error) {
-        NSLog(@"%@",error);
+        ZPLog(@"%@",error);
     }];
 }
 
@@ -350,9 +351,9 @@
             if (indexPath.section ==4){
                 static NSString * FifthID = @"ceaaa";
                 FifthViewCell * cell = [tableView dequeueReusableCellWithIdentifier: FifthID];
-                NSLog(@"arr == %ld",self.newsData.count);
+                ZPLog(@"arr == %ld",self.newsData.count);
                  cell.arrData = self.newsData;
-                NSLog(@"cell = %ld",cell.arrData.count);
+                ZPLog(@"cell = %ld",cell.arrData.count);
                 cell.ThirdBlock = ^(NSInteger tag) {
                     ZPLog(@"%ld",tag);
                     static NSString * detaled = @"BuyViewController";
@@ -413,7 +414,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     //    return CGFLOAT_MIN;
-    NSLog(@"go ");
+    ZPLog(@"go ");
     if (section == 0) {
         return 0.0001;
     }else

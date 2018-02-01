@@ -94,7 +94,7 @@
 
 // 更多精选
 - (void)moreBut:(UIButton *)sender {
-    NSLog(@"更多...");
+    ZPLog(@"更多...");
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -114,7 +114,7 @@
         ZP_SixthModel *model = self.ArrData[indexPath.row];
         self.ThirdBlock([model.productid longValue]);
     }
-    NSLog(@"选中%ld",(long)indexPath.item);
+    ZPLog(@"选中%ld",(long)indexPath.item);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

@@ -63,13 +63,13 @@
 } 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%ld",indexPath.row);
+    ZPLog(@"%ld",indexPath.row);
     if (self.ThirdBlock) {
         ZP_FifthModel * model = self.arrData[indexPath.row];
         self.ThirdBlock([model.producid longValue]);
         
     }
-    NSLog(@"选中%ld",(long)indexPath.item);
+    ZPLog(@"选中%ld",(long)indexPath.item);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

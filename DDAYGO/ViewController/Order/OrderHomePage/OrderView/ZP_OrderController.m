@@ -77,7 +77,7 @@
 - (void)addRefresh {
     self.tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsData removeAllObjects];
-        _i = _newsData;
+        _i = 0;
         [self getDataWithState];
     }];
 
@@ -107,6 +107,7 @@
 // 订单协议
 - (void)getDataWithState {
     if (Token.length < 1) {
+        [self.tableview.mj_header endRefreshing];
         return;
     }
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
@@ -140,6 +141,7 @@
     dic[@"pagesize"] = @"30";
     [ZP_OrderTool requestGetorders:dic success:^(id json) {
         if ([json[@"result"]isEqualToString:@"token_not_exist"]) {
+//            [self.tableview.mj_header endRefreshing];  // 結束刷新
             Token = nil;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
@@ -152,6 +154,11 @@
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
+                UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(ZP_Width / 2, ZP_Width / 2- 50, 50, 15)];
+                [label setTextColor:ZP_TypefaceColor];
+                label.font = ZP_stockFont;
+                label.text = @"请登录";
+                [self.view addSubview:label];
             }];
             UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                
@@ -196,6 +203,7 @@
     [self.tableview.mj_header endRefreshing];  // 結束刷新
     [self.tableview reloadData];
     } failure:^(NSError *error) {
+//        [self.tableview.mj_header endRefreshing];  // 結束刷新
         NSLog(@"%@",error);
         [self loading];
     }];

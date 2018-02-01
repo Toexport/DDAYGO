@@ -45,7 +45,7 @@
             make.height.mas_equalTo(1); // 高
             make.width.mas_offset(ZP_Width-5);
         }];
-        NSLog(@"%f",ZP_Width);
+        ZPLog(@"%f",ZP_Width);
         for (int i = 0; i <= 3; i ++) {
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i * ZP_Width / 4 , z * ZP_Width / 4 , ZP_Width / 4 , ZP_Width / 4 )];
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * ZP_Width / 4 + (ZP_Width / 4 - 55/414.0*ZP_Width) / 2  , z * ZP_Width / 4 + (ZP_Width / 4 - 55/414.0*ZP_Width) / 2 - 10, 55/414.0*ZP_Width , 55/414.0*ZP_Width )];

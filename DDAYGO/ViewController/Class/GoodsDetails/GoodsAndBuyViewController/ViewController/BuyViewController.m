@@ -98,6 +98,7 @@
 - (void)initSource {
     [self.detailTableview registerNib:[UINib nibWithNibName:@"ProductTableViewCell" bundle:nil] forCellReuseIdentifier:@"ProductTableViewCell"];
     [self.detailTableview registerNib:[UINib nibWithNibName:@"EvaluateTableViewCell" bundle:nil] forCellReuseIdentifier:@"EvaluateTableViewCell"];
+    self.detailTableview.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
     self.detailTableview.rowHeight=UITableViewAutomaticDimension;//高度设置为自适应
 //    self.detailTableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
 //    }];
@@ -133,7 +134,7 @@
 //updateViewConstraints
 - (void)getimageData {
     if (_normsArr.count > 0) {
-        NSLog(@"%ld",_normsArr.count);
+        ZPLog(@"%ld",_normsArr.count);
         self.onScrollViewWidth.constant = ZP_Width * _normsArr.count;
         for (int i = 0; i < _normsArr.count; i ++) {
             ZP_GoodDetailsModel *model = _normsArr[i];
@@ -216,10 +217,10 @@
         NSDictionary * tempDic = @{@"productid":_productId,@"page":@(1),@"pagesize":@(5)};
         [ZP_ClassViewTool requEvaluates:tempDic success:^(id obj) {
             [self.evaluateArray addObject:obj];
-            NSLog(@"%@",obj);
+            ZPLog(@"%@",obj);
         } failure:^(NSError *error) {
             //            [self loading];
-            NSLog(@"%@",error);
+            ZPLog(@"%@",error);
         }];
         
         ZP_GoodDetailsModel * model = [ZP_GoodDetailsModel getGoodDetailsData:obj[@"products"][0]];
@@ -311,7 +312,7 @@
                         [SVProgressHUD showInfoWithStatus:@"操作失败"];
                     }
         } failure:^(NSError *error) {
-            NSLog(@"error %@",error);
+            ZPLog(@"error %@",error);
         }];
     }else{
         //取消收藏
@@ -327,7 +328,7 @@
                         [SVProgressHUD showInfoWithStatus:@"操作失败"];
                     }
         } failure:^(NSError *error) {
-            NSLog(@"error %@",error);
+            ZPLog(@"error %@",error);
         }];
     }
 }
@@ -363,12 +364,12 @@
     }
     
     [self.purchaseView show:^(id response) {
-        NSLog(@"re = %@",response);
+        ZPLog(@"re = %@",response);
         [self.middleView.xzflBtn setTitle:response forState:UIControlStateNormal];
     }];
     __weak typeof(self) _weakSelf = self;
     self.purchaseView.finishBtnBlock = ^(id response) {
-        NSLog(@"go");
+        ZPLog(@"go");
         _weakSelf.hidesBottomBarWhenPushed = YES;
         _weakSelf.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
         _weakSelf.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -394,7 +395,7 @@
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"5";
     [ZP_ClassViewTool requEvaluates:dic success:^(id obj) {
-        NSLog(@"go? %@",obj);
+        ZPLog(@"go? %@",obj);
         
         //        这里到时候需要根据 接口返回的类型来判断，不然一样会奔溃·
         _pjArr = obj;
@@ -414,7 +415,7 @@
         static NSString * purchasseID = @"PurchaseView";
         self.purchaseView = [[NSBundle mainBundle] loadNibNamed:purchasseID owner:self options:nil].firstObject;
         self.purchaseView.frame = self.view.frame;
-        NSLog(@"%@",_model.productamount);
+        ZPLog(@"%@",_model.productamount);
         self.purchaseView.model = _model;
         self.purchaseView.modeltypeArr = _typeArr;
         self.purchaseView.modelArr = _normsArr;
@@ -425,7 +426,7 @@
     }];
     __weak typeof(self) _weakSelf = self;
     self.purchaseView.finishBtnBlock = ^(id response) {
-        NSLog(@"go");
+        ZPLog(@"go");
         _weakSelf.hidesBottomBarWhenPushed = YES;
         _weakSelf.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:_weakSelf action:nil];  // 隐藏返回按钮上的文字
         _weakSelf.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -446,12 +447,12 @@
         [self.view addSubview:self.purchaseView];
     }
     [self.purchaseView show:^(id response) {
-        NSLog(@"re = %@",response);
+        ZPLog(@"re = %@",response);
         [self.middleView.xzflBtn setTitle:response forState:UIControlStateNormal];
     }];
     __weak typeof(self) _weakSelf = self;
     self.purchaseView.finishBtnBlock = ^(id response) {
-        NSLog(@"go");
+        ZPLog(@"go");
         _weakSelf.hidesBottomBarWhenPushed = YES;
         _weakSelf.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
         _weakSelf.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -532,7 +533,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (self.selectIndex) {
-            //self.imageDic
         case 0:
         {
             return [self.imageDic[@(indexPath.row).stringValue] integerValue];
@@ -540,7 +540,7 @@
             break;
         case 1:
         {
-            return 192;
+            return 111;
         }
             break;
         case 2:
@@ -573,37 +573,25 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    
     return 20;
 }
-////然后根据具体的业务场景去写逻辑就可以了,比如
-//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-//    //Tip:我们可以通过打印touch.view来看看具体点击的view是具体是什么名称,像点击UITableViewCell时响应的View则是UITableViewCellContentView.
-//    if ([NSStringFromClass([touch.view class])    isEqualToString:@"detailTableView"]) {
-//        //返回为NO则屏蔽手势事件
-//        return NO;
-//    }
-//    return YES;
-//}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, ZP_Width - 8, 30)];
     label.backgroundColor = [UIColor whiteColor];
     if (section == 0) {
-        //        label.text = @"产品内容";
         if (_productArray.count < 1) {
             label.hidden = YES;
         }else{
             label.hidden = NO;
         }
     } else if (section == 1) {
-        //        label.text = @"全部评价";
         if (_evaluateArray.count < 1) {
             label.hidden = YES;
         }else{
             label.hidden = NO;
         }
     } else {
-        //        label.text = @"售后服务";
         label.hidden = YES;
     }
     return label;
@@ -661,6 +649,7 @@
     // 设置scrollview内容区域大小
     self.MyScrollView.contentSize = CGSizeMake(screenW, (SecondPageTop)*2+86);
 }
+
 /**
  添加第二个页面顶部tabBar
  */
@@ -712,12 +701,12 @@
         [self.view addSubview:self.purchaseView];
     }
     [self.purchaseView show:^(id response) {
-        NSLog(@"re = %@",response);
+        ZPLog(@"re = %@",response);
         [self.middleView.xzflBtn setTitle:response forState:UIControlStateNormal];
     }];
     __weak typeof(self) _weakSelf = self;
     self.purchaseView.finishBtnBlock = ^(id response) {
-        NSLog(@"go");
+        ZPLog(@"go");
         _weakSelf.hidesBottomBarWhenPushed = YES;
         _weakSelf.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
         _weakSelf.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -727,7 +716,7 @@
 
 #pragma -- <UIScrollViewDelegate>
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@" --== %f",scrollView.contentOffset.y);
+    ZPLog(@" --== %f",scrollView.contentOffset.y);
     if(scrollView.tag == 0){
         if(scrollView.contentOffset.y<0){
             if(self.TopViewScale<1.01){
@@ -749,7 +738,7 @@
     }
 }
 -(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
-    NSLog(@" endd-- %f",self.TopViewScale);
+    ZPLog(@" endd-- %f",self.TopViewScale);
     self.TopViewScale = 1.0;
     [UIView animateWithDuration:0.5 animations:^{
 //        [self.topView.icon_img setTransform:CGAffineTransformIdentity];//恢复原来的大小
@@ -757,7 +746,7 @@
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    //NSLog(@" -- %f",scrollView.contentOffset.y);
+    //ZPLog(@" -- %f",scrollView.contentOffset.y);
 }
 
 #pragma -- MyOrderTopTabBarDelegate(顶部标题栏delegate)

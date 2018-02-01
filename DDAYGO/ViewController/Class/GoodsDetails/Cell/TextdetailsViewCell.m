@@ -63,7 +63,6 @@
 }
 
 - (void)cellWithdic:(NSDictionary *)dic {
-    
     _titleLabel.text = @"title";
     _preferentialLabel.text = dic[@"preferential"];
     _priceLabel.text = dic[@"price"];

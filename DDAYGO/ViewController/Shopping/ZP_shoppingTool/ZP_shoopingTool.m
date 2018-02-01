@@ -75,8 +75,8 @@
 // 获取购物车信息
 + (void)requesshoppingData:(NSString *)token success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
     [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@cart?token=%@",URLAPI,token] parameters:nil success:^(id responseObject) {
+        
         success(responseObject);
-        //        ZPLog(@"%@",responseObject);
     } failure:^(NSError *error) {
         failure(error);
     }];

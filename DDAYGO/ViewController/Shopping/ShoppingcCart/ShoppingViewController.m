@@ -85,54 +85,92 @@
 
 // 获取购物车数据（获取接口）
 - (void)allData {
+    if (Token.length < 1) {
+        _dataArray = nil;
+        self.nameArray= nil;
+        _selectArray = nil;
+        [self.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
+        return;
+    }
     [ZP_shoopingTool requesshoppingData:Token success:^(id obj) {
-        ZPLog(@"%@",obj);
-        if (obj) {
-            self.selectArray = obj;
-            [self successful];
-        }else{
-            [self networkProblems];
-        }
-        ZPLog(@"%@",obj);
         if ([obj isKindOfClass:[NSDictionary class]]) {
-            NSLog(@"go");
-            [self.tableView reloadData];
-            return ;
-        }
-        NSArray *arr = obj;
-        if (arr.count > 0) {
-            NSDictionary * dic = [obj firstObject];
-            _model = [ZP_ShoppingModel CreateWithDict:[obj firstObject]];
-            _dataArray = [ZP_CartsModel arrayWithArray:dic[@"cart"]];
-            //有几组商家
-            self.nameArray = [ZP_CartsShopModel arrayWithArray:obj];
-            //一共数量
-            _selectArray = [[NSMutableArray alloc]init];
-            static NSString * mustr ;//一共有多少个产品
-            mustr = nil;
-            [self.nameArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                ZP_CartsShopModel * model = obj;
-                NSLog(@"每组产品的详细%ld",model.array.count);
-                for (ZP_CartsModel * model1 in model.array) {
-                    [_selectArray addObject:model1.amount];
-                }
-                mustr = [NSString stringWithFormat:@"%ld",model.array.count +[mustr integerValue]];
-            }];
-            self.navigationController.tabBarItem.badgeValue = mustr;
-            [self updateData:0];
-            [self.tableView reloadData];
-            
+            if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
+                Token = nil;
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
+                ZPICUEToken = nil;
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
+                [[NSUserDefaults standardUserDefaults]synchronize];
+#pragma make -- 提示框
+                UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                    ZPLog(@"取消");
+
+                }];
+                UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                    [self.navigationController popToRootViewControllerAnimated:NO];
+                    //跳转
+                    if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+                        UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
+                        [tbvc setSelectedIndex:0];
+                    }
+                }];
+                [alert addAction:defaultAction];
+                [alert addAction:cancelAction];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+            ZPLog(@"%@",obj);
         }else{
-            NSLog(@"go");
-            _dataArray = nil;
-            self.nameArray= nil;
-            _selectArray = nil;
-            _AllButton.selected = NO;
-            _PriceLabel.text = @"0";
-            self.navigationController.tabBarItem.badgeValue = nil;
-            [self.tableView reloadData];
+            if (obj) {
+                self.selectArray = obj;
+                [self successful];
+            }else{
+                [self networkProblems];
+            }
+            ZPLog(@"%@",obj);
+            if ([obj isKindOfClass:[NSDictionary class]]) {
+                NSLog(@"go");
+                [self.tableView reloadData];
+                return ;
+            }
+            NSArray *arr = obj;
+            if (arr.count > 0) {
+                NSDictionary * dic = [obj firstObject];
+                _model = [ZP_ShoppingModel CreateWithDict:[obj firstObject]];
+                _dataArray = [ZP_CartsModel arrayWithArray:dic[@"cart"]];
+                //有几组商家
+                self.nameArray = [ZP_CartsShopModel arrayWithArray:obj];
+                //一共数量
+                _selectArray = [[NSMutableArray alloc]init];
+                static NSString * mustr ;//一共有多少个产品
+                mustr = nil;
+                [self.nameArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    ZP_CartsShopModel * model = obj;
+                    NSLog(@"每组产品的详细%ld",model.array.count);
+                    for (ZP_CartsModel * model1 in model.array) {
+                        [_selectArray addObject:model1.amount];
+                    }
+                    mustr = [NSString stringWithFormat:@"%ld",model.array.count +[mustr integerValue]];
+                }];
+                self.navigationController.tabBarItem.badgeValue = mustr;
+                [self updateData:0];
+                [self.tableView reloadData];
+                
+            }else{
+                NSLog(@"go");
+                _dataArray = nil;
+                self.nameArray= nil;
+                _selectArray = nil;
+                _AllButton.selected = NO;
+                _PriceLabel.text = @"0";
+                self.navigationController.tabBarItem.badgeValue = nil;
+                [self.tableView reloadData];
+            }
         }
-        [self.tableView.mj_header endRefreshing];  // 結束刷新
+      [self.tableView.mj_header endRefreshing];  // 結束刷新
     } failure:^(NSError *error) {
         [self loading];
     }];
@@ -529,8 +567,7 @@
             if ([obj[@"result"]isEqualToString:@"failure"]) {
                 [SVProgressHUD showInfoWithStatus:@"删除失敗"];
             }
-        //        [_tableView reloadData];
-        //        [self.tableView.mj_header endRefreshing];  // 結束刷新
+
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
     }];
@@ -608,12 +645,21 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (_bjBool == NO) {
         ShoppingCell * cell = [tableView dequeueReusableCellWithIdentifier:@"shoppingCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
         self.tableView.tableFooterView = [[UIView alloc] init];
-        ZP_CartsShopModel * models = self.nameArray[indexPath.section];
-        ZP_CartsModel * model = models.array[indexPath.row];
+        ZP_CartsShopModel * models = nil;
+        if (indexPath.section < [self.nameArray count]) {
+            models = [self.nameArray objectAtIndex:indexPath.section];
+        }
+//        ZP_CartsShopModel * models = self.nameArray[indexPath.section];
+        ZP_CartsModel * model = nil;
+        if (indexPath.section < [models.array count]) {
+            model = [models.array objectAtIndex:indexPath.row];
+        }
+//        ZP_CartsModel * model = models.array[indexPath.row];
         cell.buttom.tag = indexPath.section *100 + indexPath.row;
         if ([_selectAllArray containsObject:@(indexPath.row)]) {
             cell.buttom.selected = YES;

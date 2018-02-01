@@ -37,10 +37,18 @@
 @property(nonatomic,strong)NSMutableArray * dataArrar;
 @property (nonatomic, strong)NSMutableArray * NewData;
 @property (nonatomic, strong) NSMutableArray * ConfirmArray;
+@property (nonatomic, strong) ZP_InformationModel * nameModel;
 
 @end
 
 @implementation ConfirmViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    [self getAddData];
+}
+
 
 - (void)viewDidLoad {
     [self addRefresh];
@@ -53,11 +61,11 @@
     // 666shi 订单界面
     if (self.type == 666) {
         [self Mainorder];
-        [self getAddData];
+//        [self getAddData];
         ZPLog(@"^^^");
     } else {
 //        购物车界面
-         [self getAddData];
+//         [self getAddData];
          [self MakeSureOrder];
     }
         [self ExpressDelivery];
@@ -190,7 +198,6 @@
         viewController.contentDic = @{@"asd":@(YES)};
     } else {
         [self ConfirmData];
-        
     }
 }
 
@@ -227,14 +234,11 @@
                 [self.navigationController pushViewController:web animated:YES];
             } failure:^(NSError *error) {
                 ZPLog(@"%@",error);
-//                [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
             }];
-//            }
             };
         [PayView showInView:self.view];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-//        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 
@@ -247,6 +251,7 @@
         ZPLog(@"%@",obj);
         NSDictionary * dic = obj;
         NSArray * modelArr = [ZP_ComfirmModel arrayWithArray:dic[@"receipts"]];
+        NSMutableArray *dataarr = [NSMutableArray array];
         if (modelArr.count == 0) {
             [SVProgressHUD showErrorWithStatus:@"請添加地址"];
             AddAddressViewController * viewController = [[AddAddressViewController alloc] init];
@@ -256,18 +261,11 @@
             [modelArr enumerateObjectsUsingBlock:^(ZP_ComfirmModel *model, NSUInteger idx, BOOL * _Nonnull stop) {
                 if ([model.isdefault isEqualToNumber:@1]) {
                     ZPLog(@"%@",model.isdefault);
-//                    self.merchantsLabel.text = model.receiptname;
-                    [_dataArrar addObject:model];
+                    [dataarr addObject:model];
                 }
             }];
         }
-//        [modelArr enumerateObjectsUsingBlock:^(ZP_ComfirmModel *model, NSUInteger idx, BOOL * _Nonnull stop) {
-//            if ([model.isdefault isEqualToNumber:@1]) {
-//                ZPLog(@"%@",model.isdefault);
-//                self.merchantsLabel.text = model.receiptname;
-//                [_dataArrar addObject:model];
-//            }
-//        }];
+        _dataArrar = dataarr;
         [self.tableView reloadData];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
@@ -288,9 +286,8 @@
         self.NewData = [ZP_InformationModel arrayWithArray:dic[@"carts"]];
         NSArray *arr = [ZP_InformationModel arrayWithArray:dic[@"cartshop"]];
          [self.tableView reloadData];
-        ZP_InformationModel * modell = arr[0];
-        ZPLog(@"shop name = %@",modell.shopname);
-//        self.merchantsLabel.text = modell.shopname;
+        _nameModel= arr[0];
+
         ZP_ExpressDeliveryModel * model = [[ZP_ExpressDeliveryModel alloc] init];
         model.freightamount = dic[@"freightamount"];
         model.chooselogistic = dic[@"chooselogistic"];
@@ -392,7 +389,7 @@
     }else
         if (3 == section) {
             return self.ConfirmArray.count;
-    }else {
+    }else { 
             return _dataArrar.count;
     }
 }
@@ -412,8 +409,7 @@
             ZP_BusinessNameCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
             self.tableView.tableFooterView = [[UIView alloc]init];
-            ZP_InformationModel * model = self.NewData[indexPath.row];
-            [cell InformationModel:model];
+            [cell InformationModel:_nameModel];
             return cell;
     }else
         if (indexPath.section == 2){
