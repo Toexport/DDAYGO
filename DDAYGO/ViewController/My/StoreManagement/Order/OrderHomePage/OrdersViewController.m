@@ -11,7 +11,7 @@
 #import "OrderManagerViewController.h"
 #import "PrefixHeader.pch"
 @interface OrdersViewController ()
-
+@property (nonatomic ,strong) NoDataView *noDataView;
 @end
 
 @implementation OrdersViewController

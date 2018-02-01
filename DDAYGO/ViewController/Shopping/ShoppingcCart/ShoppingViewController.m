@@ -34,6 +34,7 @@
 @property(nonatomic,strong) NSString * stockids;
 @property(nonatomic,strong) NSString * numstr;  //数量
 @property(nonatomic,strong) NSNumber * cardid;  //cardid
+@property (nonatomic, strong) NoDataView * noDataView;
 
 @end
 
@@ -63,6 +64,11 @@
         self.tableView.estimatedSectionHeaderHeight = 0;
         self.tableView.estimatedSectionFooterHeight = 0;
     }
+    
+    [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
+        self.noDataView = response;
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -635,6 +641,9 @@
         ZP_CartsShopModel * model = self.nameArray[section];
         return model.array.count;
     }else{
+        if (self.noDataView) {
+            tableView.hidden = YES;
+        }
         return 0;
     }
     
