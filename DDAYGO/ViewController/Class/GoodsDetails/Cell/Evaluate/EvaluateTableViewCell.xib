@@ -28,7 +28,6 @@
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Ep-JX-Rb4">
                         <rect key="frame" x="16" y="11" width="40" height="40"/>
-                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="0MP-3i-bis"/>
                             <constraint firstAttribute="width" constant="40" id="L1Q-cj-J5m"/>
@@ -122,6 +121,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="AvatarImageView" destination="9Ep-JX-Rb4" id="fLS-Ms-APa"/>
                 <outlet property="commodityBtn1" destination="dsr-1L-7qn" id="GUc-4U-e7r"/>
                 <outlet property="commodityBtn2" destination="Krm-nm-jyZ" id="OkR-4U-gdN"/>
                 <outlet property="commodityBtn3" destination="TVR-P0-Q1H" id="NzN-sN-uap"/>

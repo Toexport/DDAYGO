@@ -339,6 +339,7 @@
     switch (tag) {
         case 0:
             dic[@"sort"] = @"sale"; //销量
+            
             break;
         case 1:
             dic[@"sort"] = @"time"; //最新
@@ -371,6 +372,7 @@
                 case 0:
                 [self.collectionView1 reloadData];
                 [self.collectionView1.mj_header endRefreshing];  // 結束下拉刷新
+                
             break;
                 case 1:
                 [self.collectionView2 reloadData];
@@ -405,7 +407,6 @@
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    
     return 1;
 }
 
@@ -416,8 +417,6 @@
     }
     static NSString * identify = @"cell";
     MerchantCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
-    
-//    MerchantModel * model = _newsarray[indexPath.row];
     [cell merchant:model];
     
     return cell;
@@ -474,6 +473,5 @@
     }];
     
 }
-
 
 @end

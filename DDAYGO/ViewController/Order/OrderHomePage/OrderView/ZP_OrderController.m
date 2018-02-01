@@ -40,8 +40,6 @@
 @property (nonatomic, strong) FSPageContentView * pageContentView;
 
 @property (nonatomic, strong) NSMutableArray * newsData;
-//@property (nonatomic, strong) NSMutableArray * OrderArray;
-//@property (nonatomic, strong) NSMutableArray * OrderArray2;
 @end
 
 @implementation ZP_OrderController

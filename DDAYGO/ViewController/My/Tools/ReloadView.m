@@ -27,9 +27,8 @@
 
 //设置imgaeView
 - (void)setupImageView{
-//    UIImageView * imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iconn_no_network@3x"]];
-    UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(ZP_Width / 2, ZP_height / 2 + 100,30, 30)];
-    [imageView setImage:[UIImage imageNamed:@"iconn_no_network"]];
+    UIImageView * imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iconn_no_network@3x"]];
+//    UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(ZP_Width / 2, ZP_height -imageView.frame.size.width, ZP_height, 15)];
 //    label.text = @"网络异常，请检查您的网络";
 //    [self addSubview:label];
     [self addSubview:imageView];

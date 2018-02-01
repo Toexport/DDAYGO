@@ -91,6 +91,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.evaluateArray = [NSMutableArray array];
     [self initFrameWords];
     [self initSource];
 }
@@ -100,17 +101,15 @@
     [self.detailTableview registerNib:[UINib nibWithNibName:@"EvaluateTableViewCell" bundle:nil] forCellReuseIdentifier:@"EvaluateTableViewCell"];
     self.detailTableview.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
     self.detailTableview.rowHeight=UITableViewAutomaticDimension;//高度设置为自适应
-//    self.detailTableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-//    }];
     
     [self allData];
-    [self evaluation];
+//    [self evaluation];
     self.titleLabel.text = self.title ? self.title : @"商品详情";
     self.navigationController.navigationBar.hidden = YES;
     
     self.shfwBottomView.hidden = YES;
     self.qbpjBottomView.hidden = YES;
-    self.evaluateArray = [NSMutableArray array];
+    
     
     [self.view bringSubviewToFront:self.headView];
 }
@@ -134,16 +133,12 @@
 //updateViewConstraints
 - (void)getimageData {
     if (_normsArr.count > 0) {
-        ZPLog(@"%ld",_normsArr.count);
+        NSLog(@"%ld",_normsArr.count);
         self.onScrollViewWidth.constant = ZP_Width * _normsArr.count;
         for (int i = 0; i < _normsArr.count; i ++) {
             ZP_GoodDetailsModel *model = _normsArr[i];
             _ShopImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ZP_Width * i, 0, ZP_Width, self.onScrollView.height)];
             [_ShopImageView sd_setImageWithURL:[NSURL URLWithString:model.cnimg] placeholderImage:[UIImage imageNamed:@""]];
-            //            [_ShopImageView setContentScaleFactor:[[UIScreen mainScreen] scale]];
-            //            _ShopImageView.contentMode =  UIViewContentModeScaleAspectFill;
-            //            _ShopImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-            //            _ShopImageView.clipsToBounds  = YES;
             [self.onScrollView addSubview:_ShopImageView];
         }
         self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(self.smallScrollView.center.x - 19.5, self.smallScrollView.size.height - 37, 39, 37)];
@@ -158,10 +153,6 @@
         self.onScrollViewWidth.constant = ZP_Width * 1;
         for (int i = 0; i < 1; i ++) {
             _ShopImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ZP_Width * i, 0, ZP_Width, self.onScrollView.height)];
-            //            [_ShopImageView setContentScaleFactor:[[UIScreen mainScreen] scale]];
-            //            _ShopImageView.contentMode =  UIViewContentModeScaleAspectFill;
-            //            _ShopImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-            //            _ShopImageView.clipsToBounds  = YES;
             [self.onScrollView addSubview:_ShopImageView];
         }
         self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(self.smallScrollView.center.x - 19.5, self.smallScrollView.size.height - 37, 39, 37)];
@@ -205,7 +196,7 @@
     [ZP_ClassViewTool requDetails:dic success:^(id obj) {
         if (obj) {
             self.productArray = obj;
-            [self successful];
+         
         }else{
             [self networkProblems];
         }
@@ -213,16 +204,14 @@
         NSDictionary * asdic = [obj[@"productdetail"] firstObject];
         NSString * asdtring = asdic[@"content"];
         self.productArray = [asdtring componentsSeparatedByString:@","];
-        [self.detailTableview reloadData];
         NSDictionary * tempDic = @{@"productid":_productId,@"page":@(1),@"pagesize":@(5)};
         [ZP_ClassViewTool requEvaluates:tempDic success:^(id obj) {
-            [self.evaluateArray addObject:obj];
-            ZPLog(@"%@",obj);
+            self.evaluateArray = [EvaluateModel mj_keyValuesArrayWithObjectArray:obj[@"reviewlist"][@"ReviewsData"]];
+            [self successful];
+            NSLog(@"%@",obj);
         } failure:^(NSError *error) {
-            //            [self loading];
-            ZPLog(@"%@",error);
+            NSLog(@"%@",error);
         }];
-        
         ZP_GoodDetailsModel * model = [ZP_GoodDetailsModel getGoodDetailsData:obj[@"products"][0]];
         _shoucangBtn.selected = [model.state boolValue];
         [self.topView updateInfoWithModel:model];
@@ -238,42 +227,17 @@
         }
         _model = model;
         [self getDataWithModel:model];
+
     } failure:^(NSError * error) {
         [self loading];
         ZPLog(@"%@", error);
     }];
 }
 
-
--(void)loading {
-    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
-    __weak typeof(self)weakSelf = self;
-    [ReloadView showToView:self.view touch:^{
-        [weakSelf allData];
-        [ReloadView dismissFromView:weakSelf.view];
-    }];
-}
-
--(void)successful {
-    [self.detailTableview reloadData];
-    [ZPProgressHUD dismiss];
-}
-
--(void)networkProblems{
-    __weak typeof(self)weakSelf = self;
-    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
-    [ReloadView showToView:self.view touch:^{
-        [weakSelf allData];
-    }];
-    return;
-}
-
 - (void)getRightItemDataWithProducttypeid:(NSInteger)producttypeid {
     NSDictionary * dictt = @{@"productid":@"2",@"fatherid":[@(producttypeid + 1) stringValue]};
     [ZP_ClassViewTool requClassIficationrj:dictt success:^(id obj) {
-        //        ZPLog(@"%@",obj);
     } failure:^(NSError *error) {
-        //        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
         ZPLog(@"%@",error);
     }];
 }
@@ -312,7 +276,7 @@
                         [SVProgressHUD showInfoWithStatus:@"操作失败"];
                     }
         } failure:^(NSError *error) {
-            ZPLog(@"error %@",error);
+            NSLog(@"error %@",error);
         }];
     }else{
         //取消收藏
@@ -328,7 +292,7 @@
                         [SVProgressHUD showInfoWithStatus:@"操作失败"];
                     }
         } failure:^(NSError *error) {
-            ZPLog(@"error %@",error);
+            NSLog(@"error %@",error);
         }];
     }
 }
@@ -341,9 +305,9 @@
         [tbvc setSelectedIndex:2];
     }
 }
-
+// 商家按钮
 - (IBAction)dianpuAction:(id)sender {
-    DD_CHECK_HASLONGIN;
+//    DD_CHECK_HASLONGIN;
     MerchantController * Merchant = [[MerchantController alloc]init];
     Merchant.Supplieerid = self.model.supplierid;
     Merchant.fatherId = _fatherId;
@@ -364,12 +328,12 @@
     }
     
     [self.purchaseView show:^(id response) {
-        ZPLog(@"re = %@",response);
+        NSLog(@"re = %@",response);
         [self.middleView.xzflBtn setTitle:response forState:UIControlStateNormal];
     }];
     __weak typeof(self) _weakSelf = self;
     self.purchaseView.finishBtnBlock = ^(id response) {
-        ZPLog(@"go");
+        NSLog(@"go");
         _weakSelf.hidesBottomBarWhenPushed = YES;
         _weakSelf.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
         _weakSelf.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -388,25 +352,23 @@
     [self.productDescriptionView show];
 }
 
-// 获取评价数据
-- (void)evaluation {
-    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    dic[@"productid"] = _productId;
-    dic[@"page"] = @"1";
-    dic[@"pagesize"] = @"5";
-    [ZP_ClassViewTool requEvaluates:dic success:^(id obj) {
-        ZPLog(@"go? %@",obj);
-        
-        //        这里到时候需要根据 接口返回的类型来判断，不然一样会奔溃·
-        _pjArr = obj;
-        if (obj == nil) {
-            ZPLog(@"-----");
-        }
-        ZPLog(@"%@",obj);
-    } failure:^(NSError *error) {
-        ZPLog(@"%@",error);
-    }];
-}
+//// 获取评价数据
+//- (void)evaluation {
+//    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+//    dic[@"productid"] = _productId;
+//    dic[@"page"] = @"1";
+//    dic[@"pagesize"] = @"5";
+//    [ZP_ClassViewTool requEvaluates:dic success:^(id obj) {
+//        NSLog(@"go? %@",obj);
+//        _pjArr = obj;
+//        if (obj == nil) {
+//            ZPLog(@"-----");
+//        }
+//        ZPLog(@"%@",obj);
+//    } failure:^(NSError *error) {
+//        ZPLog(@"%@",error);
+//    }];
+//}
 
 //立即购买
 - (IBAction)ligmAction:(UIButton *)sender {
@@ -415,7 +377,7 @@
         static NSString * purchasseID = @"PurchaseView";
         self.purchaseView = [[NSBundle mainBundle] loadNibNamed:purchasseID owner:self options:nil].firstObject;
         self.purchaseView.frame = self.view.frame;
-        ZPLog(@"%@",_model.productamount);
+        NSLog(@"%@",_model.productamount);
         self.purchaseView.model = _model;
         self.purchaseView.modeltypeArr = _typeArr;
         self.purchaseView.modelArr = _normsArr;
@@ -426,7 +388,7 @@
     }];
     __weak typeof(self) _weakSelf = self;
     self.purchaseView.finishBtnBlock = ^(id response) {
-        ZPLog(@"go");
+        NSLog(@"go");
         _weakSelf.hidesBottomBarWhenPushed = YES;
         _weakSelf.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:_weakSelf action:nil];  // 隐藏返回按钮上的文字
         _weakSelf.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -447,12 +409,12 @@
         [self.view addSubview:self.purchaseView];
     }
     [self.purchaseView show:^(id response) {
-        ZPLog(@"re = %@",response);
+        NSLog(@"re = %@",response);
         [self.middleView.xzflBtn setTitle:response forState:UIControlStateNormal];
     }];
     __weak typeof(self) _weakSelf = self;
     self.purchaseView.finishBtnBlock = ^(id response) {
-        ZPLog(@"go");
+        NSLog(@"go");
         _weakSelf.hidesBottomBarWhenPushed = YES;
         _weakSelf.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
         _weakSelf.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -493,25 +455,33 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
     switch (self.selectIndex) {
         case 0:
         {
             ProductTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ProductTableViewCell"];
             [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.productArray[indexPath.row]] options:0 progress:nil completed:^(UIImage * image, NSError * error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                 cell.productImageView.image = image;
-                if (!self.imageDic[@(indexPath.row).stringValue]) {
-                    self.imageDic[@(indexPath.row).stringValue] = @(ZP_Width * image.size.height / image.size.width);
-                    [tableView reloadData];
+//                NSLog(@"%f - %f",image.size.height,image.size.width);
+                if (image) {
+                    if (!self.imageDic[@(indexPath.row).stringValue]) {
+                        self.imageDic[@(indexPath.row).stringValue] = @(ZP_Width * image.size.height / image.size.width);
+                        [tableView reloadData];
+                    }
                 }
+                
             }];
             return cell;
         }
             break;
         case 1:
         {
+            //都没走这里 //自己打印数据把
             EvaluateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EvaluateTableViewCell"];
-            NSDictionary * dic = self.evaluateArray[indexPath.row];
-            [cell updateData:dic];
+//            NSDictionary * dic = self.evaluateArray[indexPath.row];
+            EvaluateModel *model =self.evaluateArray[indexPath.row];
+//            [cell updateData:dic];
+            [cell Evaluatemodel:model];
             return cell;
         }
             break;
@@ -531,16 +501,33 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (BOOL)isPureFloat:(NSString *)string{
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    float val;
+    return [scan scanFloat:&val] && [scan isAtEnd];
+}
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (self.selectIndex) {
+            //self.imageDic
         case 0:
         {
-            return [self.imageDic[@(indexPath.row).stringValue] integerValue];
+            NSLog(@"%@",self.imageDic[@(indexPath.row).stringValue]); // man 所以是数据问题·  不是cgfloat
+//            NSLog(@"bool = %d",[self isPureFloat:self.imageDic[@(indexPath.row).stringValue]]);
+//            if ([self isPureFloat:self.imageDic[@(indexPath.row).stringValue]]) {
+//                NSLog(@"go");
+                return [self.imageDic[@(indexPath.row).stringValue] integerValue];
+//            }else{
+//                NSLog(@"no bu");
+//                return CGFLOAT_MIN;
+
+           
         }
             break;
         case 1:
         {
-            return 111;
+            return 192;
         }
             break;
         case 2:
@@ -573,25 +560,37 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
     return 20;
 }
-
+////然后根据具体的业务场景去写逻辑就可以了,比如
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+//    //Tip:我们可以通过打印touch.view来看看具体点击的view是具体是什么名称,像点击UITableViewCell时响应的View则是UITableViewCellContentView.
+//    if ([NSStringFromClass([touch.view class])    isEqualToString:@"detailTableView"]) {
+//        //返回为NO则屏蔽手势事件
+//        return NO;
+//    }
+//    return YES;
+//}
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, ZP_Width - 8, 30)];
     label.backgroundColor = [UIColor whiteColor];
     if (section == 0) {
+        //        label.text = @"产品内容";
         if (_productArray.count < 1) {
             label.hidden = YES;
         }else{
             label.hidden = NO;
         }
     } else if (section == 1) {
+        //        label.text = @"全部评价";
         if (_evaluateArray.count < 1) {
             label.hidden = YES;
         }else{
             label.hidden = NO;
         }
     } else {
+        //        label.text = @"售后服务";
         label.hidden = YES;
     }
     return label;
@@ -649,7 +648,6 @@
     // 设置scrollview内容区域大小
     self.MyScrollView.contentSize = CGSizeMake(screenW, (SecondPageTop)*2+86);
 }
-
 /**
  添加第二个页面顶部tabBar
  */
@@ -701,12 +699,12 @@
         [self.view addSubview:self.purchaseView];
     }
     [self.purchaseView show:^(id response) {
-        ZPLog(@"re = %@",response);
+        NSLog(@"re = %@",response);
         [self.middleView.xzflBtn setTitle:response forState:UIControlStateNormal];
     }];
     __weak typeof(self) _weakSelf = self;
     self.purchaseView.finishBtnBlock = ^(id response) {
-        ZPLog(@"go");
+        NSLog(@"go");
         _weakSelf.hidesBottomBarWhenPushed = YES;
         _weakSelf.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
         _weakSelf.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -716,7 +714,7 @@
 
 #pragma -- <UIScrollViewDelegate>
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    ZPLog(@" --== %f",scrollView.contentOffset.y);
+    NSLog(@" --== %f",scrollView.contentOffset.y);
     if(scrollView.tag == 0){
         if(scrollView.contentOffset.y<0){
             if(self.TopViewScale<1.01){
@@ -738,7 +736,7 @@
     }
 }
 -(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
-    ZPLog(@" endd-- %f",self.TopViewScale);
+    NSLog(@" endd-- %f",self.TopViewScale);
     self.TopViewScale = 1.0;
     [UIView animateWithDuration:0.5 animations:^{
 //        [self.topView.icon_img setTransform:CGAffineTransformIdentity];//恢复原来的大小
@@ -746,7 +744,7 @@
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    //ZPLog(@" -- %f",scrollView.contentOffset.y);
+    //NSLog(@" -- %f",scrollView.contentOffset.y);
 }
 
 #pragma -- MyOrderTopTabBarDelegate(顶部标题栏delegate)
@@ -759,5 +757,28 @@
 }
 
 #pragma mark =============================框架代码=============================
+
+-(void)loading {
+    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    __weak typeof(self)weakSelf = self;
+    [ReloadView showToView:self.view touch:^{
+        [weakSelf allData];
+        [ReloadView dismissFromView:weakSelf.view];
+    }];
+}
+
+-(void)successful {
+    [self.detailTableview reloadData];
+    [ZPProgressHUD dismiss];
+}
+
+-(void)networkProblems{
+    __weak typeof(self)weakSelf = self;
+    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    [ReloadView showToView:self.view touch:^{
+        [weakSelf allData];
+    }];
+    return;
+}
 
 @end

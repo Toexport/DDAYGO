@@ -138,16 +138,16 @@
 
 // 获取数据
 - (void)allData {
-//    if (nil == _productId) {
-//        return;
-//    }
+    if (nil == _productId) {
+        return;
+    }
     NSDictionary * dic;
-//    self.imageDic = [NSMutableDictionary dictionary];
-//    if (Token) {
-//        dic = @{@"productid":_productId,@"token":Token};
-//    } else {
-//        dic = @{@"productid":_productId,@"token":@""};
-//    }
+    self.imageDic = [NSMutableDictionary dictionary];
+    if (Token) {
+        dic = @{@"productid":_productId,@"token":Token};
+    } else {
+        dic = @{@"productid":_productId,@"token":@""};
+    }
     [ZP_ClassViewTool requDetails:dic success:^(id obj) {
         if (obj) {
             self.productArray = obj;
@@ -519,7 +519,7 @@
         if (indexPath.section == 1) {
         EvaluateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EvaluateTableViewCell"];
         NSDictionary * dic = self.evaluateArray[indexPath.row];
-        [cell updateData:dic];
+//        [cell updateData:dic];
         return cell;
     }else {
             TextdetailsViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TextdetailsViewCell"];
