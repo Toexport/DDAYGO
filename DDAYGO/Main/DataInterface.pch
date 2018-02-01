@@ -9,19 +9,19 @@
 #ifndef DataInterface_pch
 #define DataInterface_pch
 //  外网
-//#define URLAPI @"http://www.ddaygo.com/api/v1/"
+#define URLAPI @"http://www.ddaygo.com/api/v1/"
 //内网
-#define URLAPI @"http://192.168.0.117:7000/api/v1/"
+//#define URLAPI @"http://192.168.0.117:7000/api/v1/"
 // HomePage(首页接口)
 //国家列表
 #define Psoitions @"getcountry"
 
 //图片拼接接口
 //外网
-//#define ImgAPI @"http://www.ddaygo.com"
+#define ImgAPI @"http://www.ddaygo.com"
 
 //内网
-#define ImgAPI @"http://192.168.0.117:7000"
+//#define ImgAPI @"http://192.168.0.117:7000"
 
 // 首页展示
 //#define ItemAPI @"home/nav"
