@@ -58,6 +58,7 @@
         ZP_PayView * payView = [[ZP_PayView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         payView.AmountLabel.text = money;
         payView.dataArray = _dataArrar;
+//        payView.
         payView.confirmPayBlock = ^(id response) {
         };
         payView.ConfirmPayMoneyBlock = ^(id response) {
@@ -67,9 +68,10 @@
             dic[@"token"] = Token;
             dic[@"amount"] = money; // 这个是在view上选择支付金额（手动输入）
             dic[@"shopcode"] = self.Oid; // 这个必须要
-            dic[@"countrycode"] = @"886"; // 国别
-            dic[@"payway"] = model.payid; // 支付方式
-            dic[@"icuetoken"] = ZPICUEToken; // ICUEToken
+            dic[@"countrycode"] = @"886";
+            //    dic[@"payway"] = @"esafe_creditcard";   // 这个是在view上选择支付方式
+            dic[@"payway"] = model.payid;
+            dic[@"icuetoken"] = ZPICUEToken;
              __weak typeof(payView) weakView = payView;
             //    这是是在选择支付方式后点击确定后跳转的数据加OID回调
             [ZP_MyTool requesQrCodePay:dic success:^(id obj) {

@@ -14,8 +14,7 @@
 #import "PayPassController.h"
 #import "PayFailController.h"
 #import "OrderViewController.h"
-@interface DataViewController ()<UIWebViewDelegate>
-{
+@interface DataViewController ()<UIWebViewDelegate> {
     UIWebView * _webView;
     NSString * _str;
 }
@@ -27,9 +26,8 @@
     [super viewDidLoad];
     self.title = @"正在支付,请稍后...";
     self.view.backgroundColor = [UIColor whiteColor];
-        [self setupWebView];
+    [self setupWebView];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor whiteColor]}];
-
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"ic_bar_return"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
 }
 
@@ -42,11 +40,8 @@
         [SVProgressHUD dismiss];
         viewController.tabBarController.selectedIndex = 3;
     }]];
-    
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
     }]];
-    
     [self presentViewController:alert animated:YES completion:nil];
 }
 
@@ -60,41 +55,30 @@
     [_webView loadRequest:request];
     ZPLog(@"url : %@",request);
     NSLog(@"oid = %@",_Oid);
+    
+//    NSURL * url = [NSURL URLWithString: _jump_HeadURL];
+//    NSString * body = _jump_URL;
+//    NSMutableURLRequest * request = [[NSMutableURLRequest alloc]initWithURL: url];
+//    [request setHTTPMethod: @"POST"];
+//    [request setHTTPBody: [body dataUsingEncoding: NSUTF8StringEncoding]];
+//    [_webView loadRequest: request];
     [self.view addSubview:_webView];
 }
 
 #pragma mark -UIWebViewDelegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    ZPLog(@"当前连接--》%@",request.URL.absoluteString);
+    NSLog(@"当前连接--》%@",request.URL.absoluteString);
 //用一个字符串来接受  全局的· 后面要用
     _str = request.URL.absoluteString;
     [SVProgressHUD showWithStatus:@"正在努力加载ing......请再稍等一下下~"]; // 菊花
-    
     return YES;
 }
 
-///**清除缓存和cookie*/
-//- (void)cleanCacheAndCookie {
-//    //清除cookies
-//    NSHTTPCookie * cookie;
-//    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-//    for (cookie in [storage cookies]){
-//        [storage deleteCookie:cookie];
-//    }
-//    //清除UIWebView的缓存
-//    [[NSURLCache sharedURLCache] removeAllCachedResponses];
-//    NSURLCache * cache = [NSURLCache sharedURLCache];
-//    [cache removeAllCachedResponses];
-//    [cache setDiskCapacity:0];
-//    [cache setMemoryCapacity:0];
-//}
+// 结束加载
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    
-    NSLog(@"finish");
 //    这里调用接口·
-    [_webView removeFromSuperview];
+    [SVProgressHUD dismiss];
     if ([_str containsString:@"getpayresult"]) {
-        [_webView removeFromSuperview];
         NSMutableDictionary * dic = [NSMutableDictionary dictionary];
         dic[@"poid"] = self.Oid;
         [ZP_MyTool requesOrdPay:dic uccess:^(id obj) {
@@ -112,15 +96,12 @@
                 if ([obj[@"result"] isEqualToString:@"oid_err"]) {
                     [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"訂單號不能為空", nil)];
             }
-            
+            ZPLog(@"%@",obj);
         } failure:^(NSError * error) {
             ZPLog(@"%@",error);
-//            [SVProgressHUD showInfoWithStatus:@"服務器連接失敗"];
         }];
         [SVProgressHUD dismiss];
     }else{
-        
-//      [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"連接錯誤", nil)];
         
     }
 }
@@ -131,5 +112,12 @@
     [SVProgressHUD dismiss];
 }
 
-
+// 关闭侧滑
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    // 禁用返回手势
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
+}
 @end

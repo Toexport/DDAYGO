@@ -50,6 +50,7 @@
     UIViewController * viewController = array.firstObject;
     [alert addAction:[UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self.navigationController popToRootViewControllerAnimated:NO];
+        [SVProgressHUD dismiss];
         viewController.tabBarController.selectedIndex = 3;
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

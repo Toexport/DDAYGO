@@ -206,7 +206,7 @@
                 but.badgeBGColor = [UIColor whiteColor];
             }else{
             but.badgeValue = [NSString stringWithFormat:@"%@",datacount];
-                but.badgeBGColor = [UIColor orangeColor];}
+                but.badgeBGColor = [UIColor redColor];}
         }else {
             but.badgeValue = nil;
             but.badgeBGColor = [UIColor whiteColor];
@@ -258,7 +258,7 @@
                 but.badgeBGColor = [UIColor whiteColor];
             }else{
                 but.badgeValue = [NSString stringWithFormat:@"%@",datacount];
-                but.badgeBGColor = [UIColor orangeColor];}
+                but.badgeBGColor = [UIColor redColor];}
         }else {
             but.badgeValue = nil;
             but.badgeBGColor = [UIColor whiteColor];

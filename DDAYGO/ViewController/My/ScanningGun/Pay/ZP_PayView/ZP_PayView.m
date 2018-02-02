@@ -76,7 +76,7 @@
     [bounceView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(215); // 上面
-        make.left.equalTo(self).offset(ZP_Width / 2  - 30); // 左边
+        make.left.equalTo(self).offset(ZP_Width / 2  - 50); // 左边
     }];
     
     for (int z = 0; z <= 3; z ++) {
@@ -95,7 +95,7 @@
     [bounceView addSubview:CurrencySymbolLabel];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(260);
-        make.left.equalTo(self).offset(ZP_Width / 2 - 30);
+        make.left.equalTo(self).offset(ZP_Width / 2 - 50);
     }];
     //  金额
     ZP_GeneralLabel * AmountLabel = [ZP_GeneralLabel initWithtextLabel:_AmountLabel.text textColor:ZP_textblack font:ZP_AmountTextFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
