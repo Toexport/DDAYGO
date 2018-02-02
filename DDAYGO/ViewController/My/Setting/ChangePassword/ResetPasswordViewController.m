@@ -70,7 +70,7 @@
     if (self.newpwTextfield.text != self.againpwTextfield.text) {
         [SVProgressHUD showInfoWithStatus:@"兩次密碼不一致"];
     }else {
-    [SVProgressHUD showWithStatus:@"请稍后。。。"];
+    [SVProgressHUD showWithStatus:@"请稍后..."];
     [self allData];
     }
 }

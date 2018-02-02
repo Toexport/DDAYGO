@@ -38,7 +38,7 @@
 @property (nonatomic, strong)UITableView * tableview;
 
 @property (nonatomic, strong) FSPageContentView * pageContentView;
-
+@property (nonatomic, strong) NoDataView * noDataView;
 @property (nonatomic, strong) NSMutableArray * newsData;
 @end
 
@@ -58,6 +58,10 @@
     [super viewDidLoad];
     [self addUI];
     [self addRefresh];
+    [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
+        self.noDataView = response;
+        [self.tableview reloadData];
+    }];
     //数据都写在这个页面·刷新什么的都在这个页面写·
 
 
@@ -311,8 +315,18 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    OrderModel * model = self.newsData[section];
-    return 2+model.ordersdetail.count;
+    if (self.newsData.count > 0) {
+        OrderModel * model = self.newsData[section];
+        self.tableview.hidden = NO;
+        self.noDataView.hidden = YES;
+        return 2+model.ordersdetail.count;
+    }else {
+        if (self.noDataView) {
+            self.tableview.hidden = YES;
+            self.noDataView.hidden = NO;
+        }
+        return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

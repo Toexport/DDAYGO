@@ -191,7 +191,13 @@
         }else {
             if ([adic[@"result"]isEqualToString:@"token_err"]) {
                 [SVProgressHUD showInfoWithStatus:@"token 已存在"];
-                                    }
+    
+        }else {
+            if ([dict[@"result"]isEqualToString:@"isnot_agent"]) {
+                [SVProgressHUD showInfoWithStatus:@"账号非代理商"];
+                
+                                     }
+                                   }
                                 }
                             }
                         }

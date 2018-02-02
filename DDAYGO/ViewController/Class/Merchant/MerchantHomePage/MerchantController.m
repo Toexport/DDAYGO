@@ -30,6 +30,7 @@
 @property (nonatomic, strong)UILabel * line;
 @property (nonatomic, strong) NSMutableArray * newsarray;
 @property (nonatomic, strong) NSString * NameLabel;
+@property (nonatomic, strong) NoDataView * NoDataView;
 
 @end
 
@@ -53,6 +54,13 @@
     [self getproductfilter:100];
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
+    [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
+        self.NoDataView = response;
+        [self.collectionView1 reloadData];
+        [self.collectionView2 reloadData];
+        [self.collectionView3 reloadData];
+        [self.collectionView4 reloadData];
+    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -403,7 +411,24 @@
 
 #pragma make - 创建collectionView代理
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _newsarray.count;
+    if (self.newsarray.count > 0) {
+        self.collectionView1.hidden = NO;
+        self.collectionView2.hidden = NO;
+        self.collectionView3.hidden = NO;
+        self.collectionView4.hidden = NO;
+        self.NoDataView.hidden = YES;
+        return self.newsarray.count;
+    }else {
+        if (self.NoDataView) {
+            self.collectionView1.hidden = YES;
+            self.collectionView2.hidden = YES;
+            self.collectionView3.hidden = YES;
+            self.collectionView4.hidden = YES;
+            self.NoDataView.hidden = NO;
+        }
+        return 0;
+    }
+    
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

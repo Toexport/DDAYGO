@@ -15,7 +15,7 @@
 @interface ZP_HistoryVetController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView * tableView;
 @property (nonatomic, strong)NSMutableArray * newsData;
-//@property (nonatomic, strong) NSMutableArray * allData;
+@property (nonatomic, strong) NoDataView * NoDataView;
 @end
 
 @implementation ZP_HistoryVetController
@@ -27,7 +27,6 @@
 //    [self initTableHeadView];
 }
 - (void)initUI {
-    
     self.title = NSLocalizedString(@"歷史開獎", nil);
     [self.tableView registerNib:[UINib nibWithNibName:@"ZP_HistoryBetCell" bundle:nil] forCellReuseIdentifier:@"ZP_HistoryBetCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
@@ -38,7 +37,10 @@
         self.tableView.estimatedSectionHeaderHeight = 0;
         self.tableView.estimatedSectionFooterHeight = 0;
     }
-    
+    [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
+        self.NoDataView = response;
+        [self.tableView reloadData];
+    }];
 }
 
 
@@ -198,7 +200,18 @@
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
-    return self.newsData.count;
+    if (self.newsData.count > 0) {
+        self.tableView.hidden = NO;
+        self.NoDataView.hidden = YES;
+        return self.newsData.count;
+    }else {
+        if (self.NoDataView) {
+            self.tableView.hidden = NO;
+            self.NoDataView.hidden = YES;
+        }
+        return 0;
+    }
+    
 }
 
 /*设置标题头的宽度*/

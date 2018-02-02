@@ -22,6 +22,7 @@
 }
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) NSMutableArray * newsData;
+@property (nonatomic, strong) NoDataView * NoDataView;
 @end
 
 @implementation CPCollectionViewController
@@ -31,6 +32,10 @@
     [self initView];
     [self allData];
     [self addRefresh];
+    [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
+        self.NoDataView = response;
+        [self.collectionView reloadData];
+    }];
 }
 
 - (void)initView {
@@ -114,7 +119,17 @@
 }
 #pragma make - 创建collectionView代理
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.newsData.count;
+    if (self.newsData.count > 0) {
+        self.collectionView.hidden = NO;
+        self.NoDataView.hidden = YES;
+        return self.newsData.count;
+    }else {
+        if (self.NoDataView) {
+            self.collectionView.hidden = YES;
+            self.NoDataView.hidden = NO;
+        }
+        return 0;
+    }
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

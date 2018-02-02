@@ -27,9 +27,9 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="绑定介绍人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h3n-zm-Vfg">
-                            <rect key="frame" x="72" y="91" width="240" height="30"/>
+                            <rect key="frame" x="41" y="91" width="271" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="240" id="fhb-CD-vmH"/>
+                                <constraint firstAttribute="width" constant="271" id="fhb-CD-vmH"/>
                             </constraints>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -43,7 +43,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqE-ha-3tL">
-                            <rect key="frame" x="16" y="196" width="288" height="35"/>
+                            <rect key="frame" x="16" y="171" width="288" height="35"/>
                             <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="a8d-ZF-Yv6"/>
@@ -67,7 +67,7 @@
                         <constraint firstItem="rko-tf-gA9" firstAttribute="leading" secondItem="NAi-6J-0BE" secondAttribute="leading" constant="16" id="Ita-OI-uI2"/>
                         <constraint firstItem="h3n-zm-Vfg" firstAttribute="top" secondItem="NAi-6J-0BE" secondAttribute="top" constant="91" id="LFa-SY-3Ik"/>
                         <constraint firstAttribute="trailing" secondItem="rko-tf-gA9" secondAttribute="trailing" id="M10-gL-Tjr"/>
-                        <constraint firstItem="lqE-ha-3tL" firstAttribute="top" secondItem="rko-tf-gA9" secondAttribute="bottom" constant="75" id="fzt-Xy-sif"/>
+                        <constraint firstItem="lqE-ha-3tL" firstAttribute="top" secondItem="rko-tf-gA9" secondAttribute="bottom" constant="50" id="fzt-Xy-sif"/>
                         <constraint firstAttribute="trailing" secondItem="lqE-ha-3tL" secondAttribute="trailing" constant="16" id="lqh-AK-8Be"/>
                         <constraint firstItem="lqE-ha-3tL" firstAttribute="centerX" secondItem="NAi-6J-0BE" secondAttribute="centerX" id="o05-Fp-cUb"/>
                         <constraint firstAttribute="bottom" secondItem="lqE-ha-3tL" secondAttribute="bottom" constant="337" id="pAP-l4-Asd"/>

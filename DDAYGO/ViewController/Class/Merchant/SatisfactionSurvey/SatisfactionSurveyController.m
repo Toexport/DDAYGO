@@ -14,6 +14,7 @@
 #import "ZP_ClassViewTool.h"
 @interface SatisfactionSurveyController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray * NewsData;
+@property (nonatomic, strong) NoDataView * NoDataView;
 @end
 
 @implementation SatisfactionSurveyController
@@ -21,6 +22,10 @@
     [super viewDidLoad];
     [self initUI];
     [self Getshopreviews];
+    [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
+        self.NoDataView = response;
+        [self.tableView reloadData];
+    }];
 }
 // UI
 - (void)initUI {
@@ -29,6 +34,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
 }
 
 // 76) 获取店铺评论
@@ -52,8 +58,14 @@
 #pragma mark --- tableviewdelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (self.NewsData.count > 0) {
+        self.tableView.hidden = NO;
+        self.NoDataView.hidden = YES;
         return self.NewsData.count;
     }else {
+        if (self.NoDataView) {
+            self.tableView.hidden = YES;
+            self.NoDataView.hidden = NO;
+        }
     return 0;
     }
 }
@@ -71,7 +83,6 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     return 120;
 }
 

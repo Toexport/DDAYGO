@@ -429,7 +429,6 @@
 
 // 收藏
 - (IBAction)scAction:(id)sender {
-    
     CollectionViewController *collectionViewController = [[CollectionViewController alloc] init];
     [self.navigationController pushViewController:collectionViewController animated:YES];
     self.navigationController.navigationBar.tintColor = ZP_WhiteColor;

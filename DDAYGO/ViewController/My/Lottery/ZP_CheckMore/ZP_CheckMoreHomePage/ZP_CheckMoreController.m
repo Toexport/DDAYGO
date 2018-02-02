@@ -13,6 +13,7 @@
 @interface ZP_CheckMoreController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView * tableview;
 @property (nonatomic, strong) NSMutableArray * newsData;
+@property (nonatomic, strong) NoDataView * NoDataView;
 @end
 
 @implementation ZP_CheckMoreController
@@ -29,6 +30,10 @@
         self.tableview.estimatedSectionHeaderHeight = 0;
         self.tableview.estimatedSectionFooterHeight = 0;
     }
+    [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
+        self.NoDataView = response;
+        [self.tableview reloadData];
+    }];
 }
 
 - (void)initTableHeadView {
@@ -128,7 +133,17 @@
     ZPLog(@"按钮");
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
-    return self.newsData.count;
+    if (self.newsData.count > 0) {
+        self.tableview.hidden = NO;
+        self.NoDataView.hidden = YES;
+        return self.newsData.count;
+    }else {
+        if (self.NoDataView) {
+            self.tableview.hidden = YES;
+            self.NoDataView.hidden = NO;
+        }
+        return 0;
+    }
 }
 
 /*设置标题头的宽度*/

@@ -76,7 +76,7 @@
     [self.contentView addSubview:AppraiseBut];
     [AppraiseBut mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-75);
-        make.bottom.equalTo(self).offset(-15);
+        make.bottom.equalTo(self).offset(-10);
         make.width.mas_equalTo(60);
     }];
     _AppraiseBut = AppraiseBut;

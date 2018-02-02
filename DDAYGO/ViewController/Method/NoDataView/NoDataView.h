@@ -2,7 +2,7 @@
 //  NoDataView.h
 //  DDAYGO
 //
-//  Created by 赵宁 on 2018/2/1.
+//  Created by Summer on 2018/2/1.
 //  Copyright © 2018年 Summer. All rights reserved.
 //
 

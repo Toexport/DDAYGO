@@ -86,7 +86,6 @@
 
 // NavButton
 - (void)addNavigationBar {
-    
     __weak LotteryController *controller = self;
     [self addNavigationBarItemWithType:LLNavigationBarItemTypeRightFirst handler:^(UIButton *button) {
        

@@ -35,7 +35,7 @@
     self.packView = [[UIView alloc] initWithFrame:self.frame];
     self.packView.y = 0;
     
-    //    分割线
+//    分割线
     UILabel *line = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, screen_Width, 0.3)];
     line.backgroundColor = ZP_DeepBlue;
     [self.packView addSubview:line];

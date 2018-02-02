@@ -17,6 +17,7 @@
     int _i;
 }
 @property (nonatomic, strong) NSMutableArray * dataarray;
+@property (nonatomic, strong) NoDataView * NoDataView;
 @end
 
 @implementation RefundServiceController
@@ -41,6 +42,10 @@
         self.tableview.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         self.tableview.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
         self.tableview.scrollIndicatorInsets = self.tableview.contentInset;
+        [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
+            self.NoDataView = response;
+            [self.tableview reloadData];
+        }];
     }
 }
 
@@ -116,7 +121,18 @@
 }
 // 分组
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.dataarray.count;
+    if (self.dataarray.count > 0) {
+        self.tableview.hidden = NO;
+        self.NoDataView.hidden = YES;
+        return self.dataarray.count;
+    }else {
+        if (self.NoDataView) {
+            self.tableview.hidden = YES;
+            self.NoDataView.hidden = NO;
+        }
+        return 0;
+    }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

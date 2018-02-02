@@ -168,7 +168,6 @@
 		06F572421F9F204F00D61FDB /* SearchTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F5723E1F9F204F00D61FDB /* SearchTimeViewController.m */; };
 		06F572431F9F204F00D61FDB /* SearchTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06F5723F1F9F204F00D61FDB /* SearchTimeViewController.xib */; };
 		4DA1D7F220236E2300D652A6 /* NoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA1D7F120236E2300D652A6 /* NoDataView.m */; };
-		4DA1D7F420236E3100D652A6 /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA1D7F320236E3100D652A6 /* NoDataView.xib */; };
 		4DCDA7782020D5B700ED64DC /* MyOrderTopTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDA75F2020D5B600ED64DC /* MyOrderTopTabBar.m */; };
 		4DCDA7792020D5B700ED64DC /* TabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDA7612020D5B600ED64DC /* TabButton.m */; };
 		4DCDA77A2020D5B700ED64DC /* global.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCDA7642020D5B600ED64DC /* global.m */; };
@@ -209,6 +208,7 @@
 		C425BEAA1FC813C30097DB8F /* FSSegmentTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C425BEA81FC813C30097DB8F /* FSSegmentTitleView.m */; };
 		C425BEB01FC818480097DB8F /* ZP_OrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = C425BEAF1FC818480097DB8F /* ZP_OrderController.m */; };
 		C425BEB41FC832140097DB8F /* ZP_FootprintModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C425BEB31FC832140097DB8F /* ZP_FootprintModel.m */; };
+		C427F67D202419C900364CBF /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C427F67F202419C900364CBF /* NoDataView.xib */; };
 		C42A17311FF252F400680F92 /* BetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A172E1FF252F300680F92 /* BetViewController.m */; };
 		C42A17321FF252F400680F92 /* BetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C42A172F1FF252F300680F92 /* BetViewController.xib */; };
 		C42A173C1FF2532400680F92 /* BetTableViewMyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A17331FF2532300680F92 /* BetTableViewMyCell.m */; };
@@ -784,7 +784,6 @@
 		0BC9B15E33AA25F355BC51C7 /* libPods-DDAYGO.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DDAYGO.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DA1D7F020236E2300D652A6 /* NoDataView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoDataView.h; sourceTree = "<group>"; };
 		4DA1D7F120236E2300D652A6 /* NoDataView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoDataView.m; sourceTree = "<group>"; };
-		4DA1D7F320236E3100D652A6 /* NoDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoDataView.xib; sourceTree = "<group>"; };
 		4DCDA75E2020D5B600ED64DC /* TabButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabButton.h; sourceTree = "<group>"; };
 		4DCDA75F2020D5B600ED64DC /* MyOrderTopTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderTopTabBar.m; sourceTree = "<group>"; };
 		4DCDA7602020D5B600ED64DC /* MyOrderTopTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderTopTabBar.h; sourceTree = "<group>"; };
@@ -861,6 +860,10 @@
 		C425BEAF1FC818480097DB8F /* ZP_OrderController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_OrderController.m; sourceTree = "<group>"; };
 		C425BEB21FC832140097DB8F /* ZP_FootprintModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_FootprintModel.h; sourceTree = "<group>"; };
 		C425BEB31FC832140097DB8F /* ZP_FootprintModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_FootprintModel.m; sourceTree = "<group>"; };
+		C427F67E202419C900364CBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NoDataView.xib; sourceTree = "<group>"; };
+		C427F681202419CB00364CBF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NoDataView.strings; sourceTree = "<group>"; };
+		C427F683202419CD00364CBF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/NoDataView.strings"; sourceTree = "<group>"; };
+		C427F685202419CE00364CBF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/NoDataView.strings"; sourceTree = "<group>"; };
 		C42A172E1FF252F300680F92 /* BetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BetViewController.m; sourceTree = "<group>"; };
 		C42A172F1FF252F300680F92 /* BetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BetViewController.xib; sourceTree = "<group>"; };
 		C42A17301FF252F300680F92 /* BetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BetViewController.h; sourceTree = "<group>"; };
@@ -2507,7 +2510,7 @@
 			children = (
 				4DA1D7F020236E2300D652A6 /* NoDataView.h */,
 				4DA1D7F120236E2300D652A6 /* NoDataView.m */,
-				4DA1D7F320236E3100D652A6 /* NoDataView.xib */,
+				C427F67F202419C900364CBF /* NoDataView.xib */,
 			);
 			path = NoDataView;
 			sourceTree = "<group>";
@@ -4494,7 +4497,7 @@
 				06F5721D1F9F1E8700D61FDB /* AllCategoriesView.xib in Resources */,
 				C4411DAE200F626200CE906F /* loading3.png in Resources */,
 				C4D2FEB41FD552A000F546AB /* YueTixianController.xib in Resources */,
-				4DA1D7F420236E3100D652A6 /* NoDataView.xib in Resources */,
+				C427F67D202419C900364CBF /* NoDataView.xib in Resources */,
 				C4AD0752200C7A5D00B8FF6E /* .gitkeep in Resources */,
 				0662AB5E1F9610BF0031F22B /* LogregisterController.xib in Resources */,
 				C47212AC1FB18A4E0055578E /* SettingViewController.xib in Resources */,
@@ -5057,6 +5060,17 @@
 				C41FF4E21FFF5404009B720D /* zh-Hant */,
 			);
 			name = ZP_InstructionController.xib;
+			sourceTree = "<group>";
+		};
+		C427F67F202419C900364CBF /* NoDataView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C427F67E202419C900364CBF /* Base */,
+				C427F681202419CB00364CBF /* en */,
+				C427F683202419CD00364CBF /* zh-Hans */,
+				C427F685202419CE00364CBF /* zh-Hant */,
+			);
+			name = NoDataView.xib;
 			sourceTree = "<group>";
 		};
 		C43517211FB2AC180066302E /* ConcernShopTableViewCell.xib */ = {

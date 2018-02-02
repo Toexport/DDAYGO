@@ -13,7 +13,6 @@
 #import "ConfirmViewController.h"
 #import "ZP_ShoppingModel.h"
 #import "EditorViewCell.h"
-
 #import "ShoppingHeadView.h"
 
 @interface ShoppingViewController ()<UITableViewDelegate,UITableViewDataSource,UIViewControllerPreviewingDelegate> {
@@ -34,6 +33,7 @@
 @property(nonatomic,strong) NSString * stockids;
 @property(nonatomic,strong) NSString * numstr;  //数量
 @property(nonatomic,strong) NSNumber * cardid;  //cardid
+
 @property (nonatomic, strong) NoDataView * noDataView;
 
 @end
@@ -50,7 +50,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     _bjBool = NO;
     _selectAllArray = [[NSMutableArray alloc]init];
     [self setUpNavgationBar];
@@ -75,7 +74,6 @@
     [super viewWillAppear:animated];
     _AllButton.selected = NO;
     if (!DD_HASLOGIN) {
-        
         if (![MyViewController sharedInstanceTool].hasRemind) {
             [MyViewController sharedInstanceTool].hasRemind = YES;
             LogregisterController *viewcontroller = [[LogregisterController alloc] init];
@@ -137,13 +135,6 @@
                 [self networkProblems];
             }
             ZPLog(@"%@",obj);
-            if (obj == 0) {
-                UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(ZP_Width / 2, ZP_Width / 2, 100, 15)];
-                label.text = @"暂无商品~";
-                label.textColor = [UIColor darkGrayColor];
-                label.textAlignment = NSTextAlignmentCenter;
-                [self.tableView addSubview:label];
-            }
             if ([obj isKindOfClass:[NSDictionary class]]) {
                 NSLog(@"go");
                 [self.tableView reloadData];
@@ -438,7 +429,7 @@
     }
     
 //每组的button
-    UIButton *but = [self.view viewWithTag:666 +section];
+    UIButton * but = [self.view viewWithTag:666 +section];
 //每组全选
     if (count == models.array.count) {
         but.selected = YES;
@@ -584,8 +575,8 @@
 }
 
 - (BOOL)YESOrNoPush {
-    NSMutableArray *selearr = [NSMutableArray array];
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    NSMutableArray * selearr = [NSMutableArray array];
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     [self.nameArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [dic setObject:obj forKey:@(idx)];
     }];
@@ -607,7 +598,6 @@
                 }
             }else {
                 EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
-
                 if (cell.button.selected ) {
                     
                 }else{
@@ -639,14 +629,17 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.nameArray.count > 0) {
         ZP_CartsShopModel * model = self.nameArray[section];
+        self.tableView.hidden = NO;
+        self.noDataView.hidden = YES;
         return model.array.count;
-    }else{
-        if (self.noDataView) {
-            tableView.hidden = YES;
+    }
+    else{
+        if (self.noDataView ) {
+            self.tableView.hidden = YES;
+            self.noDataView.hidden = NO;
         }
         return 0;
     }
-    
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -733,7 +726,6 @@
     NSInteger count = 0;
     NSInteger data = 0;
     NSInteger dataCount = 0;
-    
     but.selected = !but.selected;
 //全选选中
     if (but.selected) {

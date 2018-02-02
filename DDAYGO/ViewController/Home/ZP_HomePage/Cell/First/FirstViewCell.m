@@ -36,15 +36,15 @@
     
     NSInteger num = 0;
     for (int z = 0; z <= 1; z ++) {
-        UIView * view = [UIView new];
-        view.backgroundColor = ZP_Graybackground;
-        [self.contentView addSubview:view];
-        [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self).offset(5);
-            make.top.equalTo(self).offset(ZP_Width/2/2-0.5); // 高
-            make.height.mas_equalTo(1); // 高
-            make.width.mas_offset(ZP_Width-5);
-        }];
+//        UIView * view = [UIView new];
+//        view.backgroundColor = ZP_Graybackground;
+//        [self.contentView addSubview:view];
+//        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.equalTo(self).offset(5);
+//            make.top.equalTo(self).offset(ZP_Width/2/2-0.5); // 高
+//            make.height.mas_equalTo(1); // 高
+//            make.width.mas_offset(ZP_Width-5);
+//        }];
         ZPLog(@"%f",ZP_Width);
         for (int i = 0; i <= 3; i ++) {
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i * ZP_Width / 4 , z * ZP_Width / 4 , ZP_Width / 4 , ZP_Width / 4 )];

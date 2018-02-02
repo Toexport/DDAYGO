@@ -18,6 +18,7 @@
     int _i;
 }
 @property (nonatomic, strong) NSMutableArray * dataArray;
+@property (nonatomic, strong) NoDataView * noDataView; // 数据为空加载次view
 @end
 @implementation CollectionViewController
 
@@ -26,6 +27,10 @@
     [self initUI];
     [self addRefresh];
     self.title = NSLocalizedString(@"collect", nil);
+    [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
+        self.noDataView = response;
+        [self.tableView reloadData];
+    }];
 }
 
 //UI
@@ -93,7 +98,18 @@
 
 #pragma mark ---tableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _dataArray.count;
+    if (self.dataArray.count > 0) {
+        self.tableView.hidden = NO;
+        self.noDataView.hidden = YES;
+        return self.dataArray.count;
+    }else {
+        if (self.noDataView) {
+            self.tableView.hidden = YES;
+            self.noDataView.hidden = NO;
+        }
+        return 0;
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

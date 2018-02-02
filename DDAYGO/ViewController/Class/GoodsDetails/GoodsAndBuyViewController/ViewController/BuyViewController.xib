@@ -29,7 +29,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyv-kf-DKo">
-                            <rect key="frame" x="8" y="15" width="44" height="44"/>
+                            <rect key="frame" x="8" y="18" width="44" height="44"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="44" id="Mc9-EK-nKI"/>
@@ -41,7 +41,7 @@
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdD-00-Uj3">
-                            <rect key="frame" x="255" y="15" width="44" height="44"/>
+                            <rect key="frame" x="255" y="18" width="44" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="Ou1-qc-HJu"/>
                                 <constraint firstAttribute="width" constant="44" id="yL6-ic-0nG"/>
@@ -49,7 +49,7 @@
                             <state key="normal" image="ic_details_share"/>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCO-my-IEv">
-                            <rect key="frame" x="319" y="15" width="44" height="44"/>
+                            <rect key="frame" x="319" y="18" width="44" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="44" id="1zQ-LA-hS4"/>
                                 <constraint firstAttribute="height" constant="44" id="OIW-HI-CBW"/>
@@ -66,13 +66,13 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="2Sq-gn-7QL"/>
-                        <constraint firstItem="GCO-my-IEv" firstAttribute="top" secondItem="hvo-bP-Cgu" secondAttribute="top" constant="15" id="Kre-d9-Hch"/>
+                        <constraint firstItem="GCO-my-IEv" firstAttribute="top" secondItem="hvo-bP-Cgu" secondAttribute="top" constant="18" id="Kre-d9-Hch"/>
                         <constraint firstItem="vgo-8v-KYi" firstAttribute="centerX" secondItem="hvo-bP-Cgu" secondAttribute="centerX" id="MTC-Vv-Bzy"/>
                         <constraint firstItem="GCO-my-IEv" firstAttribute="leading" secondItem="gdD-00-Uj3" secondAttribute="trailing" constant="20" id="P4S-gH-dsk"/>
                         <constraint firstItem="vgo-8v-KYi" firstAttribute="centerY" secondItem="hvo-bP-Cgu" secondAttribute="centerY" id="R9y-IO-RcQ"/>
                         <constraint firstItem="yyv-kf-DKo" firstAttribute="leading" secondItem="hvo-bP-Cgu" secondAttribute="leading" constant="8" id="Twq-ch-0Rb"/>
-                        <constraint firstItem="gdD-00-Uj3" firstAttribute="top" secondItem="hvo-bP-Cgu" secondAttribute="top" constant="15" id="Zs7-Lq-60I"/>
-                        <constraint firstItem="yyv-kf-DKo" firstAttribute="top" secondItem="hvo-bP-Cgu" secondAttribute="top" constant="15" id="d4i-jv-MeA"/>
+                        <constraint firstItem="gdD-00-Uj3" firstAttribute="top" secondItem="hvo-bP-Cgu" secondAttribute="top" constant="18" id="Zs7-Lq-60I"/>
+                        <constraint firstItem="yyv-kf-DKo" firstAttribute="top" secondItem="hvo-bP-Cgu" secondAttribute="top" constant="18" id="d4i-jv-MeA"/>
                         <constraint firstAttribute="trailing" secondItem="GCO-my-IEv" secondAttribute="trailing" constant="12" id="scy-HP-2gD"/>
                     </constraints>
                 </view>

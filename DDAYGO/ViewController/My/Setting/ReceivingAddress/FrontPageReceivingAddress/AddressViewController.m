@@ -15,6 +15,7 @@
 @interface AddressViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong)NSMutableArray * newsData;
+@property (nonatomic, strong) NoDataView * NoDataView;
 @end
 
 @implementation AddressViewController
@@ -28,6 +29,10 @@
     UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"新增地址", nil)  style:UIBarButtonItemStylePlain target:self action:@selector(addAddress)];
     self.navigationItem.rightBarButtonItem = item;
     [self.navigationItem.rightBarButtonItem setTintColor:[UIColor whiteColor]];
+    [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
+        self.NoDataView = response;
+        [self.tableView reloadData];
+    }];
 }
 //  生命周期
 - (void)viewWillAppear:(BOOL)animated {
@@ -77,7 +82,17 @@
     return headerView;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.newsData.count;
+    if (self.newsData.count > 0) {
+        self.tableView.hidden = NO;
+        self.NoDataView.hidden = YES;
+        return self.newsData.count;
+    }else {
+        if (self.NoDataView) {
+            self.tableView.hidden = YES;
+            self.NoDataView.hidden = NO;
+        }
+        return 0;
+    }
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;

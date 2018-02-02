@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong)NSMutableArray * newsData;
 @property (nonatomic, strong) ZP_FootprintModel1 * model1;
+@property (nonatomic, strong) NoDataView * NoDataView;
 @end
 
 @implementation FootprintViewController
@@ -32,6 +33,10 @@
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 //    self.collectionView.alwaysBounceVertical = YES;
+    [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
+        self.NoDataView = response;
+        [self.collectionView reloadData];
+    }];
 }
 // 刷新
 - (void)addRefresh {
@@ -102,7 +107,17 @@
 #pragma mark --- collectionView delegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.newsData.count;
+    if (self.newsData.count > 0) {
+        self.collectionView.hidden = NO;
+        self.NoDataView.hidden = YES;
+        return self.newsData.count;
+    }else {
+        if (self.NoDataView) {
+            self.collectionView.hidden = YES;
+            self.NoDataView.hidden = NO;
+    }
+        return 0;
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

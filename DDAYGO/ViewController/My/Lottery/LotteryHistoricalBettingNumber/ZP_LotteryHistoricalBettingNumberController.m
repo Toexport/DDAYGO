@@ -17,9 +17,8 @@
 
 @property (nonatomic, strong) NSMutableArray * secData;
 @property (nonatomic, strong) NSMutableArray * rowData;
-
 @property (nonatomic, strong) NSMutableDictionary * allData;
-
+@property (nonatomic, strong) NoDataView * NoDataView;
 @end
 
 
@@ -76,6 +75,10 @@
         self.tableView.estimatedSectionHeaderHeight = 0;
         self.tableView.estimatedSectionFooterHeight = 0;
     }
+    [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
+        self.NoDataView = response;
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)initTableHeadView {
@@ -127,10 +130,10 @@
     dic[@"pagesize"] = @"6";
     [ZP_MyTool requestHistoricalBet:dic uccess:^(id obj) {
          ZPLog(@"%@",obj);
-        if ([obj isKindOfClass:[NSDictionary class]]) {
-            [SVProgressHUD showErrorWithStatus:@"無數據"];
-            return ;
-        }
+//        if ([obj isKindOfClass:[NSDictionary class]]) {
+//            [SVProgressHUD showErrorWithStatus:@"無數據"];
+//            return ;
+//        }
         ZP_LotteryHistoricalBettingNumberModel *model1 = [ZP_LotteryHistoricalBettingNumberModel mj_objectWithKeyValues:obj[0]];
         [self.secData addObject:model1];
         [self settitltHade:model1];
@@ -187,7 +190,17 @@
 
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
-    return self.rowData.count;
+    if (self.rowData.count > 0) {
+        self.tableView.hidden = NO;
+        self.NoDataView.hidden = YES;
+        return self.rowData.count;
+    }else {
+        if (self.NoDataView) {
+            self.tableView.hidden = YES;
+            self.NoDataView.hidden = NO;
+        }
+        return 0;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

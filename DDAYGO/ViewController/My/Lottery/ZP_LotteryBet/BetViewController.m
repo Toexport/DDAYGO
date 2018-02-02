@@ -404,7 +404,6 @@
 
 // 下注
 - (IBAction)sureBut:(id)sender {
-    
     [self AllData];
 }
 
@@ -418,7 +417,10 @@
         ZPLog(@"%@",obj);
         if ([obj[@"result"]isEqualToString:@"time_err"]) {
             [SVProgressHUD showInfoWithStatus:@"您派派彩彩劵不足,不能提交"];
-        }
+        }else
+            if ([obj[@"result"]isEqualToString:@"count_err"]) {
+                [SVProgressHUD showInfoWithStatus:@"您派派彩彩劵不足,不能提交"];
+            }
         ZPLog(@"%@",obj);
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
