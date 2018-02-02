@@ -83,6 +83,7 @@
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"30";
     [ZP_ClassViewTool requMerchandise:dic WithIndex:self.type success:^(id obj) {
+
         NSDictionary * dict = obj;
         [SVProgressHUD dismiss];
         NSArray * arr ;

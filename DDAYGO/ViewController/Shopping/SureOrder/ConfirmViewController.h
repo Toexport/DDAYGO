@@ -16,7 +16,7 @@
 @property (nonatomic, assign) NSInteger shopNum;
 @property (nonatomic, strong) NSString * shopMoney;
 @property (nonatomic, strong) NSNumber * stockid;
-
+@property (nonatomic, strong) NSString * shopname;
 @property (nonatomic, strong) UILabel * StatisticsLabel; //  合计
 @property (nonatomic, strong) UILabel * PriceLabel; //  总金额
 @property (nonatomic, strong) UILabel * CurrencySymbolLabel; //货币符号

@@ -60,6 +60,9 @@
     self.title = NSLocalizedString(@"確認訂單", nil);
     // 666shi 订单界面
     if (self.type == 666) {
+//        ZP_BusinessNameCell * cell = [[ZP_BusinessNameCell alloc]init];
+//        cell.merchantsLabel.text = self.shopname;
+        
         [self Mainorder];
 //        [self getAddData];
         ZPLog(@"^^^");
@@ -409,7 +412,10 @@
             ZP_BusinessNameCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
             self.tableView.tableFooterView = [[UIView alloc]init];
-            [cell InformationModel:_nameModel];
+            if (_type == 666) {
+                cell.merchantsLabel.text = self.shopname;
+            }else{
+                [cell InformationModel:_nameModel];}
             return cell;
     }else
         if (indexPath.section == 2){
@@ -420,7 +426,6 @@
             ZP_InformationModel * model = self.NewData[indexPath.row];
             [cell InformationWithDic:model];
             return cell;
-            
     }else
         if (indexPath.section ==3){
             static NSString * ExpressDeliveryID = @"expressDeliveryCell";
@@ -451,7 +456,6 @@
             [cell.AnonymousButton removeTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
             [cell.AnonymousButton addTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
             return cell;
-                    
         }
     }
 

@@ -57,11 +57,9 @@
     NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[_jump_HeadURL stringByAppendingString:@"?"]]];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:[_jump_URL dataUsingEncoding:NSUTF8StringEncoding]];
-    
     [_webView loadRequest:request];
     ZPLog(@"url : %@",request);
     NSLog(@"oid = %@",_Oid);
-    
     [self.view addSubview:_webView];
 }
 

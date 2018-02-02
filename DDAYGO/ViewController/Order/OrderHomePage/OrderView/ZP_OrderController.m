@@ -112,11 +112,13 @@
         [self.tableview.mj_header endRefreshing];
         return;
     }
+    
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     NSInteger i;
     if ([_titleStr isEqualToString:NSLocalizedString(@"all", nil)]) {
         dic[@"sta"] = @"-1";
         i = 0;
+       
     }
     if ([_titleStr isEqualToString:NSLocalizedString(@"Waiting payment", nil)]) {
         dic[@"sta"] = @"1";
@@ -135,6 +137,7 @@
         i = 4;
     }
     UIButton * but = [self.titleView viewWithTag:666 + i];
+  
     NSLog(@"but = %@",but.titleLabel.text);
     dic[@"days"] = @"365";
     dic[@"token"] = Token;
@@ -148,9 +151,12 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
+            
             ZPICUEToken = nil;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
+            [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
+            [[SDImageCache sharedImageCache] clearDisk];
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
@@ -194,9 +200,13 @@
             [self getDataWithState:4];
         }
         NSNumber * datacount =json[@"datacount"];
-        if ([datacount intValue] > 0) { 
+        if ([datacount intValue] > 0) {
+            if (i == 0) {
+                but.badgeValue = nil;
+                but.badgeBGColor = [UIColor whiteColor];
+            }else{
             but.badgeValue = [NSString stringWithFormat:@"%@",datacount];
-            but.badgeBGColor = [UIColor orangeColor];
+                but.badgeBGColor = [UIColor orangeColor];}
         }else {
             but.badgeValue = nil;
             but.badgeBGColor = [UIColor whiteColor];
@@ -213,10 +223,12 @@
 /**********************/
 // 订单协议（此方法只是为了加载导航栏上的个数）
 - (void)getDataWithState:(NSInteger )i {
+      UIButton * but = [self.titleView viewWithTag:666 + i];
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     switch (i) {
         case 1:
             dic[@"sta"] = @"1";
+
             break;
         case 2:
             dic[@"sta"] = @"2";
@@ -230,7 +242,7 @@
         default:
             break;
     }
-    UIButton * but = [self.titleView viewWithTag:666 + i];
+  
     NSLog(@"but = %@",but.titleLabel.text);
 /**********************/
     dic[@"days"] = @"365";
@@ -241,8 +253,12 @@
     [ZP_OrderTool requestGetorders:dic success:^(id json) {
         NSNumber * datacount = json[@"datacount"];
         if ([datacount intValue] > 0) {
-            but.badgeValue = [NSString stringWithFormat:@"%@",datacount];
-            but.badgeBGColor = [UIColor orangeColor];
+            if (i == 0) {
+                but.badgeValue = nil;
+                but.badgeBGColor = [UIColor whiteColor];
+            }else{
+                but.badgeValue = [NSString stringWithFormat:@"%@",datacount];
+                but.badgeBGColor = [UIColor orangeColor];}
         }else {
             but.badgeValue = nil;
             but.badgeBGColor = [UIColor whiteColor];

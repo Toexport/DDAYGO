@@ -271,6 +271,7 @@
             confirm.stockidsString = [NSString stringWithFormat:@"%@_%@",_model.stockid,_model.amount];
             confirm.noEdit = YES;
             confirm.ordersnumber = _model2.ordersnumber;
+            confirm.shopname = _model2.shopname;
             confirm.type = 666;
             if (self.onceagainBlock) {
                 self.onceagainBlock(confirm);

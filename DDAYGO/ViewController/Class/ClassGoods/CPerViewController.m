@@ -35,12 +35,23 @@
         _contentScrollView.showsVerticalScrollIndicator = NO;
         _contentScrollView.delegate = self;
         [self.view addSubview:_contentScrollView];
+      
+        
     }
     return _contentScrollView;
 }
+// 设置contentScrollView不能左右滚动
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    scrollView.bounces = (scrollView.contentOffset.y <= 10) ? NO : YES;
+    CGPoint offset = scrollView.contentOffset;
+    if (offset.y <= 0) {
+        offset.y = 0;
+    }
+    self.contentScrollView.contentOffset = offset;
+    
+}
 
 -(UIView *)topView {
-    
     if (!_topView) {
         UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 37)];
         line.backgroundColor = [UIColor whiteColor];
@@ -62,7 +73,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.title = _titleString;
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
@@ -101,7 +111,6 @@
         vc.view.frame = CGRectMake(j*ZP_Width, 0, ZP_Width, self.contentScrollView.height);
     }
     self.contentScrollView.contentOffset = CGPointMake(0, 0);
-   // UIViewController * vcs = self.childViewControllers[0];
     
 }
 

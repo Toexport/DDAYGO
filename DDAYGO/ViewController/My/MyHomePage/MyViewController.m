@@ -46,10 +46,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSData * data  = [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
-    [_headImageBut setImage:[UIImage imageWithData:data] forState:UIControlStateNormal];
-    _headImageBut.layer.cornerRadius = 42;
-    _headImageBut.layer.masksToBounds = YES;
+   
+    
 }
 
 // 生命周期
@@ -59,7 +57,11 @@
     [self initUI];
     [self LoginJudde];
     [self loginAllData];
-
+    [self allData];
+    NSData * data  = [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
+    [self.headImageBut setImage:[UIImage imageWithData:data] forState:UIControlStateNormal];
+    self.headImageBut.layer.cornerRadius = 42;
+    self.headImageBut.layer.masksToBounds = YES;
 }
 
 //- (void) Supplier {
@@ -185,7 +187,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
-    [self allData];
+   
 }
 
 //  个人资料
@@ -203,9 +205,13 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
+            [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
+    
             ZPICUEToken = nil;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
+            [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
+            [[SDImageCache sharedImageCache] clearDisk];
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
@@ -223,17 +229,18 @@
             [alert addAction:defaultAction];
             [alert addAction:cancelAction];
             [self presentViewController:alert animated:YES completion:nil];
+        }else{
+            ZPLog(@"%@",obj);
+            ZP_HomePageModel * model = [[ZP_HomePageModel alloc]init];
+            model.nickname = obj[@"nickname"];
+            model.avatarimg = [NSString stringWithFormat:@"%@%@",ImgAPI,obj[@"avatarimg"]];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.headImageBut sd_setBackgroundImageWithURL:[NSURL URLWithString:model.avatarimg] forState:UIControlStateNormal];
+            });
+            [self MyViewData:model];
+            NSData * data =  [NSData dataWithContentsOfURL:[NSURL URLWithString:model.avatarimg]];
+            [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
         }
-        ZPLog(@"%@",obj);
-        ZP_HomePageModel * model = [[ZP_HomePageModel alloc]init];
-        model.nickname = obj[@"nickname"];
-        model.avatarimg = [NSString stringWithFormat:@"%@%@",ImgAPI,obj[@"avatarimg"]];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.headImageBut sd_setBackgroundImageWithURL:[NSURL URLWithString:model.avatarimg] forState:UIControlStateNormal];
-        });
-        [self MyViewData:model];
-        NSData * data =  [NSData dataWithContentsOfURL:[NSURL URLWithString:model.avatarimg]];
-        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
     } failure:^(NSError * error) {
         _SdglLayoutConstraint.constant = CGFLOAT_MIN;
         _sdglView.hidden = YES;

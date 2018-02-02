@@ -73,6 +73,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     _AllButton.selected = NO;
+
     if (!DD_HASLOGIN) {
         if (![MyViewController sharedInstanceTool].hasRemind) {
             [MyViewController sharedInstanceTool].hasRemind = YES;
@@ -97,6 +98,7 @@
         [self.tableView.mj_header endRefreshing];
         return;
     }
+    
     [ZP_shoopingTool requesshoppingData:Token success:^(id obj) {
         if ([obj isKindOfClass:[NSDictionary class]]) {
             if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
@@ -104,9 +106,12 @@
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
+                
                 ZPICUEToken = nil;
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
+                [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
+                [[SDImageCache sharedImageCache] clearDisk];
                 [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
                 UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
@@ -238,6 +243,7 @@
     sup.selected = !sup.selected;
     _bjBool = !_bjBool;
     if (_bjBool == YES) {
+        _AllButton.selected = NO;
         _StatisticsLabel.hidden = YES;
         _CurrencySymbolLabel.hidden = YES;
         _FreightLabel.hidden = YES;
@@ -247,6 +253,7 @@
         [sup addTarget:self action:@selector(CompleteBut:) forControlEvents:UIControlEventTouchUpInside];
         [self.ClearingButt setTitle:NSLocalizedString(@"delete",nil) forState: UIControlStateNormal];
     }else{
+        _AllButton.selected = NO;
         _StatisticsLabel.hidden = NO;
         _PriceLabel.hidden = NO;
         _FreightLabel.hidden = NO;
