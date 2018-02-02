@@ -33,7 +33,6 @@
         UILabel * merchantsLabel = [UILabel new];
         merchantsLabel.textAlignment = NSTextAlignmentLeft;
         merchantsLabel.textColor = ZP_textblack;
-        merchantsLabel.text = @"dszkjbxz";
         merchantsLabel.font = ZP_titleFont;
         [self addSubview:merchantsLabel];
         [merchantsLabel mas_makeConstraints:^(MASConstraintMaker *make) {

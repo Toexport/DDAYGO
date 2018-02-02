@@ -42,6 +42,7 @@
 }
 
 - (void)initWithINstruction:(ZP_InstructionBetModel *)model {
+    
     NSArray * arr =  [InstructionBetModel mj_objectArrayWithKeyValuesArray:model.lotterywin];
     InstructionBetModel * model1 = arr[0];
     _referAndBonusLabel1.text = [model1.winamount stringValue];

@@ -27,7 +27,7 @@
     MessageLabel.textAlignment = NSTextAlignmentLeft;
     MessageLabel.textColor = ZP_textblack;
     MessageLabel.font = ZP_titleFont;
-    MessageLabel.text = NSLocalizedString(@"賣家留言:", nil);
+    MessageLabel.text = NSLocalizedString(@"買家留言:", nil);
     [self.contentView addSubview:MessageLabel];
     [MessageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(5);

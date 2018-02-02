@@ -14,11 +14,11 @@
 
 @interface ZP_LotteryHistoricalBettingNumberController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong)  UITableView * tableView;
-
 @property (nonatomic, strong) NSMutableArray * secData;
 @property (nonatomic, strong) NSMutableArray * rowData;
 @property (nonatomic, strong) NSMutableDictionary * allData;
-//@property (nonatomic, strong) NoDataView * NoDataView;
+@property (nonatomic, strong) NoDataView * NoDataView;
+
 @end
 
 
@@ -50,6 +50,7 @@
     [super viewDidLoad];
     [self initUI];
     [self AllData];
+    self.NoDataView.backgroundColor = [UIColor whiteColor];
 }
 
 - (UITableView *)tableView {
@@ -75,19 +76,17 @@
         self.tableView.estimatedSectionHeaderHeight = 0;
         self.tableView.estimatedSectionFooterHeight = 0;
     }
-//    [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
-//        self.NoDataView = response;
-//        [self.tableView reloadData];
-//    }];
+    
+    [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
+        self.NoDataView = response;
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)initTableHeadView {
-    UIView *myView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 30)];
-    //    self.tableview.tableHeaderView = myView; // 表头跟着cell一起滚动
+    UIView * myView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 30)];
     [myView setBackgroundColor:ZP_Graybackground];
-    //     标题1
     ZP_GeneralLabel * TitleLabel1 = [ZP_GeneralLabel initWithtextLabel:_TitleLabel1.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
-//    TitleLabel1.text = @"第201811期";
     [myView addSubview:TitleLabel1];
     _TitleLabel1 = TitleLabel1;
     [TitleLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -98,7 +97,6 @@
     
     //     标题2
     ZP_GeneralLabel * TitleLabel2 = [ZP_GeneralLabel initWithtextLabel:_TitleLabel2.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
-    TitleLabel2.text = @"";
     [myView addSubview:TitleLabel2];
     _TitleLabel2 = TitleLabel2;
     [TitleLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -109,7 +107,6 @@
     
 //    标题3
     ZP_GeneralLabel * titleLabel3 = [ZP_GeneralLabel initWithtextLabel:_TitleLabel3.text textColor:ZP_textblack font:ZP_TrademarkFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
-//    titleLabel3.text = @"2018-11-01 18:35:53";
     [myView addSubview:titleLabel3];
     _TitleLabel3 = titleLabel3;
     [titleLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -130,16 +127,15 @@
     dic[@"pagesize"] = @"6";
     [ZP_MyTool requestHistoricalBet:dic uccess:^(id obj) {
          ZPLog(@"%@",obj);
-//        if ([obj isKindOfClass:[NSDictionary class]]) {
+        if ([obj isKindOfClass:[NSDictionary class]]) {
 //            [SVProgressHUD showErrorWithStatus:@"無數據"];
-//            return ;
-//        }
+            return ;
+        }
         ZP_LotteryHistoricalBettingNumberModel *model1 = [ZP_LotteryHistoricalBettingNumberModel mj_objectWithKeyValues:obj[0]];
         [self.secData addObject:model1];
         [self settitltHade:model1];
         self.rowData= [ZP_LotteryHistoricalBettingNumberModel2 mj_objectArrayWithKeyValuesArray:model1.winorders];
         [self.tableView reloadData];
-       
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
     }];
@@ -152,55 +148,18 @@
     self.TitleLabel3.text = [NSString stringWithFormat:@"%@",model.createtime];
 }
 
-//////表头
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    UIView *myView = [[UIView alloc]initWithFrame:CGRectMake(0, 5, ZP_Width, 20)];
-//    [myView setBackgroundColor:ZP_WhiteColor];
-//    //     订单
-//    ZP_GeneralLabel * OrderLabel = [ZP_GeneralLabel initWithtextLabel:_OrderLabel.text textColor:ZP_textblack font:ZP_TrademarkFont textAlignment:NSTextAlignmentLeft bakcgroundColor:nil];
-//    OrderLabel.text = @"訂單號";
-//    [myView addSubview:OrderLabel];
-//    _OrderLabel = OrderLabel;
-//    [OrderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.leading.equalTo(myView).offset(8);
-//        make.centerY.equalTo(OrderLabel).offset(0);
-//        //        make.width.mas_equalTo(90);
-//        make.height.mas_equalTo(15);
-//    }];
-//
-//    //     订单号
-//    ZP_GeneralLabel * OrderNumberLabel = [ZP_GeneralLabel initWithtextLabel:_OrderNumberLabel.text textColor:ZP_textblack font:ZP_TrademarkFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-//    [myView addSubview:OrderNumberLabel];
-//    _OrderNumberLabel = OrderNumberLabel;
-// //多少期
-//    if (self.secData.count > 0) {
-//        //自己在这里写
-//        ZP_LotteryHistoricalBettingNumberModel *model = self.secData[0];
-//        _OrderNumberLabel.text = model.createtime;
-//    }
-//
-//    [OrderNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.leading.equalTo(OrderLabel.mas_trailing).offset(2);
-//        make.centerY.equalTo(OrderLabel).offset(0);
-//        //        make.width.mas_equalTo(90);
-//        make.height.mas_equalTo(15);
-//    }];
-//    return myView;
-//}
-
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
-//    if (self.rowData.count > 0) {
-//        self.tableView.hidden = NO;
-//        self.NoDataView.hidden = YES;
+    if (self.rowData.count > 0) {
+        self.tableView.hidden = NO;
+        self.NoDataView.hidden = YES;
         return self.rowData.count;
-//    }else {
-//        if (self.NoDataView) {
-//            self.tableView.hidden = YES;
-//            self.NoDataView.hidden = NO;
-//        }
-//        return 0;
-//    }
+    }else {
+        if (self.NoDataView) {
+            self.tableView.hidden = YES;
+            self.NoDataView.hidden = NO;
+        }
+        return 0;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -236,7 +195,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     ZP_LotteryHistoricalBettingNumberModel2 *model2  = self.rowData[indexPath.section];
     ZP_LotteryHistoricalBettingNumberCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ZP_LotteryHistoricalBettingNumberCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果

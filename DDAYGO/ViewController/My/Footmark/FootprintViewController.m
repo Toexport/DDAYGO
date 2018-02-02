@@ -131,7 +131,6 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     CGFloat width=(self.view.frame.size.width-55)/3;
     return CGSizeMake(width, width *137 / 100);
 }

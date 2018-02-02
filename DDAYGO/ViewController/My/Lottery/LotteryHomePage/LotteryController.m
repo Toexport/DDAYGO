@@ -218,7 +218,7 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
-// 历史填写
+// 历史提交號碼
 - (void)HistoricalBetAction {
     ZP_LotteryHistoricalBettingNumberController * LotteryHistoricalBettingNumber = [[ZP_LotteryHistoricalBettingNumberController alloc]init];
     [self.navigationController pushViewController:LotteryHistoricalBettingNumber animated:YES];
