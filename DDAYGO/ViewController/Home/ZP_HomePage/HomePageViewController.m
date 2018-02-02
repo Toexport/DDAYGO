@@ -378,7 +378,6 @@
             };
             cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
             return cell;
-            
     }
 }
 
@@ -413,7 +412,6 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    //    return CGFLOAT_MIN;
     ZPLog(@"go ");
     if (section == 0) {
         return 0.0001;

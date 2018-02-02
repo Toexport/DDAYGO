@@ -54,10 +54,7 @@
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"countrycode"] = @"886";
     [ZP_shoopingTool requetMethodpay:dic success:^(id obj) {
-        
-        
-       _dataArrar =   [ZP_PayModel arrayWithArray:obj];
-
+        _dataArrar = [ZP_PayModel arrayWithArray:obj];
         ZP_PayView * payView = [[ZP_PayView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         payView.AmountLabel.text = money;
         payView.dataArray = _dataArrar;

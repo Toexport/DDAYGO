@@ -98,6 +98,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *butt4;
 @property (weak, nonatomic) IBOutlet UIButton *butt5;
 @property (weak, nonatomic) IBOutlet UIButton *butt6;
+@property (weak, nonatomic) IBOutlet UILabel *tishiLabel;
 
 
 

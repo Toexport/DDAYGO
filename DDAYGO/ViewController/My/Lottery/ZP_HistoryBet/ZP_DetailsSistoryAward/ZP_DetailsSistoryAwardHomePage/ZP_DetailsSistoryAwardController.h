@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *button4;
 @property (weak, nonatomic) IBOutlet UIButton *button5;
 @property (weak, nonatomic) IBOutlet UIButton *button6;
+@property (weak, nonatomic) IBOutlet UILabel * tishiLabel;
 
 
 //奖项

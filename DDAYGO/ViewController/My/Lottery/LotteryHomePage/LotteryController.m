@@ -180,7 +180,7 @@
         _dingdanhaoLabel.hidden = NO;
         _SymbolLabel.hidden = NO;
         _XiazhushuliangLabel.hidden = NO;
-//        _lingjiangBtn.hidden = NO;
+        self.tishiLabel.hidden = YES;
         
         _OrderNumberLabel.text = [NSString stringWithFormat:@"%@",model6.lotteryoid];
         _XiazhushuliangLabel.text = [model6.buycount stringValue];
@@ -201,6 +201,7 @@
         _dingdanhaoLabel.hidden = YES;
         _SymbolLabel.hidden = YES;
         _XiazhushuliangLabel.hidden = YES;
+        self.tishiLabel.hidden = NO;
 //        _lingjiangBtn.hidden = NO;
         
 //        _OrderNumberLabel.text = nil;

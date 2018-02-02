@@ -279,9 +279,13 @@
 // 77) 根据大分类和子分类，获取该分类下产品，默认销量排序，支持排序最新，好评，价格
 - (void)getproductfilter:(NSInteger)tag {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    dic[@"token"] = Token;
+    if (Token) {
+        dic[@"token"] = Token;
+    }else {
+      dic[@"token"] = @"";
+    }
     dic[@"sid"] = self.Supplieerid;
-//    dic[@"fathid"] = self.Supplieerid;
+//    dic[@"fathid"] = self.fatherId;
     dic[@"fathid"] = @"0";
     dic[@"seq"] = _priceStrTag;
     dic[@"word"] = @"";
@@ -361,7 +365,12 @@
         default:
             break;
     }
-    dic[@"token"] = Token;
+//    dic[@"token"] = Token;
+    if (Token) {
+        dic[@"token"] = Token;
+    }else {
+        dic[@"token"] = @"";
+    }
     dic[@"sid"] = self.Supplieerid;
     //    dic[@"fathid"] = self.Supplieerid;
     dic[@"fathid"] = @"0";

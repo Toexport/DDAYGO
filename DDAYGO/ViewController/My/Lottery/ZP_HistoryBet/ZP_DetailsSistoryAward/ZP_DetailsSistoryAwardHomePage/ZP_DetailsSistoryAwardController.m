@@ -157,8 +157,13 @@
 
 #pragma mark -- tableview delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return self.model.lotteryorder.count;
+//    if (self.model.lotteryorder.count > 0) {
+//        self.tishiLabel.hidden = NO;
+        return self.model.lotteryorder.count;
+//    }else {
+//        self.tishiLabel.hidden = YES;
+//    }
+//    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -194,7 +194,7 @@
             [self getDataWithState:4];
         }
         NSNumber * datacount =json[@"datacount"];
-        if ([datacount intValue] > 0) {
+        if ([datacount intValue] > 0) { 
             but.badgeValue = [NSString stringWithFormat:@"%@",datacount];
             but.badgeBGColor = [UIColor orangeColor];
         }else {
@@ -205,7 +205,6 @@
     [self.tableview.mj_header endRefreshing];  // 結束刷新
     [self.tableview reloadData];
     } failure:^(NSError *error) {
-//        [self.tableview.mj_header endRefreshing];  // 結束刷新
         NSLog(@"%@",error);
         [self loading];
     }];

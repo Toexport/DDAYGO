@@ -96,8 +96,8 @@
             _DeleteBut.hidden = NO;
             break;
         case 5:
-            _TradingLabel.text = @"交易成功";
-            _DeleteBut.hidden = YES;
+            _TradingLabel.text = @"已取消";
+            _DeleteBut.hidden = NO;
             break;
         case 6:
             _TradingLabel.text = @"退款/售后";
