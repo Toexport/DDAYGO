@@ -35,7 +35,7 @@
         self.cycleScrollView.imageURLStringsGroup = @[model.defaultimg];
         self.shopNameLabel.text = model.productname;
         self.xlLabel.text = model.peramount;
-        self.yhLabel.text = [model.supplierid stringValue];
+        self.yhLabel.text = model.TrademarkLabel;
         self.ckLabel.text = model.productamount;
         self.spjgLabel.text = model.productprice;
     });
