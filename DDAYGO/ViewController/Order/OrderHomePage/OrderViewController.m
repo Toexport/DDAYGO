@@ -94,8 +94,9 @@
 //  搜索框点击事件
 - (void)onClikedSearchBar {
     SearchGooodsController * search = [SearchGooodsController new];
+    search.type = 666;
     UINavigationController * login = [[UINavigationController alloc]initWithRootViewController:search];
-    [self presentViewController:login animated:YES completion:nil];
+   [self presentViewController:login animated:YES completion:nil];
     NSLog(@"搜索框");
 }
 

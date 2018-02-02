@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSMutableArray * secData;
 @property (nonatomic, strong) NSMutableArray * rowData;
 @property (nonatomic, strong) NSMutableDictionary * allData;
-@property (nonatomic, strong) NoDataView * NoDataView;
+//@property (nonatomic, strong) NoDataView * NoDataView;
 @end
 
 
@@ -75,10 +75,10 @@
         self.tableView.estimatedSectionHeaderHeight = 0;
         self.tableView.estimatedSectionFooterHeight = 0;
     }
-    [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
-        self.NoDataView = response;
-        [self.tableView reloadData];
-    }];
+//    [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
+//        self.NoDataView = response;
+//        [self.tableView reloadData];
+//    }];
 }
 
 - (void)initTableHeadView {
@@ -189,18 +189,18 @@
 //}
 
 
--(NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
-    if (self.rowData.count > 0) {
-        self.tableView.hidden = NO;
-        self.NoDataView.hidden = YES;
+- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
+//    if (self.rowData.count > 0) {
+//        self.tableView.hidden = NO;
+//        self.NoDataView.hidden = YES;
         return self.rowData.count;
-    }else {
-        if (self.NoDataView) {
-            self.tableView.hidden = YES;
-            self.NoDataView.hidden = NO;
-        }
-        return 0;
-    }
+//    }else {
+//        if (self.NoDataView) {
+//            self.tableView.hidden = YES;
+//            self.NoDataView.hidden = NO;
+//        }
+//        return 0;
+//    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

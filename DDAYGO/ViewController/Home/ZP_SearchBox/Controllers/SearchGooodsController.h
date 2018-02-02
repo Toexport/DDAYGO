@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SearchGooodsController : UIViewController
+@property (nonatomic, assign) NSInteger type;
 
 @end

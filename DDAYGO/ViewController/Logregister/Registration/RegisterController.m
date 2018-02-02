@@ -39,7 +39,7 @@
 }
 // UI
 - (void)initUI {
-    self.title = NSLocalizedString(@"注册", nil);
+    self.title = NSLocalizedString(@"註冊", nil);
     [self ButStatusAttribute];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.RegisterscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐藏
@@ -54,7 +54,7 @@
 //    _ZPCodeTextField.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.ZPAccountNumberTextFiled.textField.keyboardType = UIKeyboardTypeASCIICapable;
     self.ZPEmailTextFiled.textField.keyboardType = UIKeyboardTypeASCIICapable;
-    [self.ZPCountryTextField.functionBtn setTitle:@"点击选择" forState:UIControlStateNormal];
+    [self.ZPCountryTextField.functionBtn setTitle:NSLocalizedString(@"點擊選擇", nil) forState:UIControlStateNormal];
     [self.ZPCountryTextField.functionBtn addTarget:self action:@selector(choseCountry) forControlEvents:UIControlEventTouchUpInside];
     self.ZPPswTextField.showBtn                    = NO;
     self.ZPPswTextField.showEyeBtn                 = YES;
@@ -80,7 +80,7 @@
 - (IBAction)rEgBut:(id)sender {
     
     if (![self JudgeTheillegalCharacter:self.ZPAccountNumberTextFiled.textField.text]) {
-        [SVProgressHUD showInfoWithStatus:@"账号格式不正确"];
+        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"帳號格式不正確", nil)];
         return;
     }
 //    if (_ZPEmailTextFiled.textField.text.length < 1) {
@@ -89,7 +89,7 @@
 //        return;
 //    }
     if (self.ZPPswTextField.textField.text.length < 6||self.ZPPswTextField.textField.text.length >20) {
-        [SVProgressHUD showInfoWithStatus:@"密码位数不能小于6大于20"];
+        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"密碼位數不能小於6大於20位", nil)];
         ZPLog(@"密码不足6位");
         return;
     }
@@ -104,16 +104,16 @@
 //        return;
 //    }
     if (self.ZPCountryTextField.textField.text.length < 1) {
-        [SVProgressHUD showInfoWithStatus:@"选择国家"];
+        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"選擇國家", nil)];
         ZPLog(@"选择国家");
         return;
     }
     if (!self.agreeBtn.selected) {
-        [SVProgressHUD showInfoWithStatus:@"同意协议"];
+        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"同意協議", nil)];
         ZPLog(@"同意协议");
         return;
     }
-    [SVProgressHUD showWithStatus:@"正在注册。。。"];
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"正在注冊...", nil)];
     [self allData];
  
 }
@@ -132,39 +132,39 @@
 //        if (![self JudgeTheillegalCharacter:_ZPAccountNumberTextFiled.textField.text]) {
             if ([dic[@"result"] isEqualToString:@"ok"]) {
                 NSLog(@"注册成功");
-                [SVProgressHUD showSuccessWithStatus:@"注册成功!"];
+                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"註冊成功", nil)];
                 CountCode = self.CountCode;   // 保存国家
                 [self.navigationController popViewControllerAnimated:YES];
             }else
                 if ([dic[@"result"] isEqualToString:@"sys_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"注册失败"];
+                    [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"註冊失敗", nil)];
             }else
                 if ([dic[@"result"] isEqualToString:@"email_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"账号为空错误"];
+                    [SVProgressHUD showInfoWithStatus:@"帳號不能為空"];
             }else
                 if ([dic[@"result"] isEqualToString:@"email_format_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"账号格式错误"];
+                    [SVProgressHUD showInfoWithStatus:@"帳號格式錯誤"];
             }else
                 if ([dic[@"result"] isEqualToString:@"email_key_err"]) {
                     [SVProgressHUD showInfoWithStatus:@"註冊帳號不能以ICUE开头"];
             }else
                 if ([dic[@"result"] isEqualToString:@"email_format2_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"注册账号不能含有ddaygo字符"];
+                    [SVProgressHUD showInfoWithStatus:@"註冊帳號不能含有ddaygo字符"];
             } else
                 if ([dic[@"result"] isEqualToString:@"pwd_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"密码为空错误"];
+                    [SVProgressHUD showInfoWithStatus:@"密碼不能為空"];
             }else
                 if ([dic[@"result"] isEqualToString:@"email_exist_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"账号已存在"];
+                    [SVProgressHUD showInfoWithStatus:@"帳號已存在"];
             }else
                 if ([dic[@"result"] isEqualToString:@"emailverify_formart_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"验证邮箱格式错误"];
+                    [SVProgressHUD showInfoWithStatus:@"郵箱格式錯誤"];
             }else
                 if ([dic[@"result"] isEqualToString:@"emailverify_exist_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"邮箱已被绑定"];
+                    [SVProgressHUD showInfoWithStatus:@"郵箱已被綁定"];
             }else
                 if ([dic[@"result"] isEqualToString:@"verify_send_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"邮箱验证信投递失败"];
+                    [SVProgressHUD showInfoWithStatus:@"郵箱驗證信投遞失敗"];
             }
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
@@ -237,9 +237,9 @@
         [position showInView:self.navigationController.view];
         
     } failure:^(NSError *error) {
-//        ZPLog(@"%@",error);
+        ZPLog(@"%@",error);
         self.ZPCountryTextField.functionBtn.userInteractionEnabled = YES;
-        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
+//        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
     }];
 }
 
@@ -252,7 +252,7 @@
 - (IBAction)userServerClick:(id)sender {
     RegistrationAgreementController * RegistrationAgreement = [[RegistrationAgreementController alloc]init];
     [self.navigationController pushViewController:RegistrationAgreement animated:YES];
-    ZPLog(@"用户服务协议 ");
+    ZPLog(@"用户服务协议");
 }
 #pragma mark - - - - - - - - - - - - - - - private methods 私有方法 - - - - - - - - - - - - - -
 - (BOOL)validateEmail:(NSString *)email {

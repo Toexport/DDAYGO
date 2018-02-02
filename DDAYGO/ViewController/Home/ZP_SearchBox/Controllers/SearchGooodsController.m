@@ -75,8 +75,16 @@
 }
 
 #pragma mark - 请求数据
-- (void)search:(NSString *)keywords{
-    
+- (void)search:(NSString *)keywords {
+    if (self.type == 666) {
+        NSString * newStr = [keywords stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSString * searchKit = [newStr stringByAddingPercentEscapesUsingEncoding:kCFStringEncodingUTF8];
+        ZPLog(@"go - > %@ --- %@,kkk_> %@",keywords,newStr,searchKit);
+        if (newStr.length > 0 ) {
+            ZPLog(@"go");
+            [SVProgressHUD showInfoWithStatus:@"暫無數據"];
+    }
+    }else {
     NSString * newStr = [keywords stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString * searchKit = [newStr stringByAddingPercentEscapesUsingEncoding:kCFStringEncodingUTF8];
     ZPLog(@"go - > %@ --- %@,kkk_> %@",keywords,newStr,searchKit);
@@ -91,12 +99,12 @@
     }else{
     [SVProgressHUD showInfoWithStatus:@"請輸入你要寻找的商品"];
         ZPLog(@"no go");
-    }
+        }
+      }
 }
 
 #pragma mark - action
 - (void)back {
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 //    [self.navigationController popViewControllerAnimated:YES];
 }
