@@ -89,7 +89,6 @@
     [self.detailTableview registerNib:[UINib nibWithNibName:@"EvaluateTableViewCell" bundle:nil] forCellReuseIdentifier:@"EvaluateTableViewCell"];
     self.detailTableview.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
     self.detailTableview.rowHeight=UITableViewAutomaticDimension;//高度设置为自适应
-    
     [self allData];
 //    [self evaluation];
     self.titleLabel.text = self.title ? self.title : @"商品详情";
@@ -111,6 +110,13 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
+- (void)updateViewConstraints {
+    [super updateViewConstraints];
+    [self.shoucangBtn resizeWithDistance:5];
+    [self.gouwuBtn resizeWithDistance:5];
+    [self.dianpuBtn resizeWithDistance:5];
+}
+
 - (IBAction)clickBackAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -130,9 +136,7 @@
         self.pageControl.numberOfPages = _normsArr.count;
         self.pageControl.currentPage = 0;
         [self.scrollView addSubview:self.pageControl];
-        [self.shoucangBtn resizeWithDistance:5];
-        [self.gouwuBtn resizeWithDistance:5];
-        [self.dianpuBtn resizeWithDistance:5];
+        
     }
     else{
         self.onScrollViewWidth.constant = ZP_Width * 1;
@@ -492,37 +496,6 @@
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0.1;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    
-    return 20;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, ZP_Width - 8, 30)];
-    label.backgroundColor = [UIColor whiteColor];
-    if (section == 0) {
-        if (_productArray.count < 1) {
-            label.hidden = YES;
-        }else{
-            label.hidden = NO;
-        }
-    } else if (section == 1) {
-        if (_evaluateArray.count < 1) {
-            label.hidden = YES;
-        }else{
-            label.hidden = NO;
-        }
-    } else {
-        label.hidden = YES;
-    }
-    return label;
-}
-
-
 #pragma mark =============================框架代码=============================
 /**
  添加导航栏背后的View
@@ -572,7 +545,7 @@
     //初始化第二个页面
     [self addSecondPageTopTabBar];
     // 设置scrollview内容区域大小
-    self.MyScrollView.contentSize = CGSizeMake(screenW, (SecondPageTop)*2+86);
+    self.MyScrollView.contentSize = CGSizeMake(screenW, SecondPageTop+screenH-BottomH-NaviBarH);
 }
 /**
  添加第二个页面顶部tabBar
@@ -650,25 +623,14 @@
             self.headView.backgroundColor = color(255.0,147.0,0.0, scrollView.contentOffset.y/(SecondPageTop-NaviBarH));
             self.titleLabel.alpha = scrollView.contentOffset.y/(SecondPageTop-NaviBarH);
         }
-        if(scrollView.contentOffset.y == (SecondPageTop)){
-            scrollView.scrollEnabled = NO;
+        if(scrollView.contentOffset.y > (SecondPageTop-NaviBarH)){
+            [scrollView setContentOffset:CGPointMake(0, SecondPageTop-NaviBarH)];
         }else if (scrollView.contentOffset.y == -NaviBarH && !scrollView.isDragging){
             [UIView animateWithDuration:0.3 animations:^{
                 scrollView.contentOffset = CGPointMake(0, 0);
             }];
         }else;
     }
-}
--(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
-    NSLog(@" endd-- %f",self.TopViewScale);
-    self.TopViewScale = 1.0;
-    [UIView animateWithDuration:0.5 animations:^{
-//        [self.topView.icon_img setTransform:CGAffineTransformIdentity];//恢复原来的大小
-    }];
-}
-
--(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    //NSLog(@" -- %f",scrollView.contentOffset.y);
 }
 
 #pragma -- MyOrderTopTabBarDelegate(顶部标题栏delegate)

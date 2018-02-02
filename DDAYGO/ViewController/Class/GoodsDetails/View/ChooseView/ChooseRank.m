@@ -38,7 +38,7 @@
 //    分割线
     UILabel *line = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, screen_Width, 0.3)];
     line.backgroundColor = ZP_DeepBlue;
-    [self.packView addSubview:line];
+//    [self.packView addSubview:line];
     
     UILabel *titleLB = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, screen_Width, 25)];
     titleLB.text = self.title;

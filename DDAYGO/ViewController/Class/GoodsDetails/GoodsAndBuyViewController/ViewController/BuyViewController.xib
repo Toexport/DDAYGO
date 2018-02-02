@@ -12,10 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BuyViewController">
             <connections>
-                <outlet property="dianpuBtn" destination="aFr-nf-baU" id="S5n-oA-zAe"/>
-                <outlet property="gouwuBtn" destination="cy4-nj-B1P" id="xF3-mA-53s"/>
+                <outlet property="dianpuBtn" destination="aFr-nf-baU" id="Oi3-ml-wYg"/>
+                <outlet property="gouwuBtn" destination="cy4-nj-B1P" id="trV-4E-VOo"/>
                 <outlet property="headView" destination="hvo-bP-Cgu" id="aID-cq-0YM"/>
-                <outlet property="shoucangBtn" destination="4Iy-iX-bhC" id="8PK-W0-vGg"/>
+                <outlet property="shoucangBtn" destination="4Iy-iX-bhC" id="hIe-0E-Eat"/>
                 <outlet property="titleLabel" destination="vgo-8v-KYi" id="9VI-n8-lG3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -87,7 +87,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Iy-iX-bhC">
-                            <rect key="frame" x="0.0" y="3" width="57" height="51"/>
+                            <rect key="frame" x="0.0" y="3" width="63.5" height="51"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" title="收藏" image="ic_collect_normal">
                                 <color key="titleColor" red="0.39995324609999999" green="0.40002685789999998" blue="0.39994865660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -98,7 +98,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cy4-nj-B1P">
-                            <rect key="frame" x="57" y="3" width="75" height="51"/>
+                            <rect key="frame" x="63.5" y="3" width="62" height="51"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" title="购物车" image="ic_details_shoppingcart">
                                 <color key="titleColor" red="0.39995324609999999" green="0.40002685789999998" blue="0.39994865660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -108,7 +108,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFr-nf-baU">
-                            <rect key="frame" x="132" y="3" width="56" height="51"/>
+                            <rect key="frame" x="125.5" y="3" width="62.5" height="51"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" title="店铺" image="ic_details_store">
                                 <color key="titleColor" red="0.39995324609999999" green="0.40002685789999998" blue="0.39994865660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -134,7 +134,7 @@
                         <constraint firstAttribute="height" constant="54" id="duM-9p-xvE"/>
                         <constraint firstAttribute="bottom" secondItem="4Iy-iX-bhC" secondAttribute="bottom" id="eQH-KE-AJ0"/>
                         <constraint firstItem="cy4-nj-B1P" firstAttribute="centerX" secondItem="H3x-WF-2es" secondAttribute="centerX" id="mlM-y1-3wq"/>
-                        <constraint firstItem="cy4-nj-B1P" firstAttribute="width" secondItem="H3x-WF-2es" secondAttribute="width" multiplier="0.4" id="s8S-3c-4iv"/>
+                        <constraint firstItem="cy4-nj-B1P" firstAttribute="width" secondItem="H3x-WF-2es" secondAttribute="width" multiplier="0.33" id="s8S-3c-4iv"/>
                         <constraint firstAttribute="bottom" secondItem="cy4-nj-B1P" secondAttribute="bottom" id="sfa-eF-p7X"/>
                         <constraint firstItem="Lby-45-DbS" firstAttribute="top" secondItem="H3x-WF-2es" secondAttribute="top" id="t1j-3l-UHX"/>
                     </constraints>
