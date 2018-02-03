@@ -309,7 +309,6 @@
             [cell Second:self.SecondArray];
             cell.SecondBlock = ^(NSInteger tag){
             };
-            
             return cell;
         }else
         /*************暂时不需要*************/
@@ -379,10 +378,10 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
+if (indexPath.section == 0) {
         return zeroHeight;
     }else if (indexPath.section == 1) {
-        return 200;
+        return zeroHeight + 35;
     }else
         if (indexPath.section == 2){
             return ZP_Width;
@@ -421,7 +420,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 10)];
+    UIView * v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 10)];
     return v;
 }
 @end
