@@ -105,7 +105,7 @@
         vc.keyword = self.keyword;
         vc.priceStrTag = self.priceStrTag;
         vc.type = j;
-        vc.view.tag = j+1000;
+        vc.view.tag = j;
         [self addChildViewController:vc];
         [self.contentScrollView addSubview:vc.view];
         vc.view.frame = CGRectMake(j*ZP_Width, 0, ZP_Width, self.contentScrollView.height);
@@ -115,6 +115,7 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
     NSInteger tag = scrollView.contentOffset.x/ZP_Width;
     _indexTag = tag;
     self.contentScrollView.contentOffset = CGPointMake(tag*ZP_Width, 0);
@@ -131,20 +132,18 @@
         if (button.selected) {
 #warning 选中
             [button setImage:[UIImage imageNamed:@"icon_shop_classification_02"] forState:UIControlStateNormal];
-            _priceStrTag = @"asc";
+            
+            _priceStrTag = @"desc";
         } else {
 #warning 取消选中
             [button setImage:[UIImage imageNamed:@"icon_shop_classification_03"] forState:UIControlStateNormal];
-            _priceStrTag = @"desc";
+            _priceStrTag = @"asc";
         }
         button.selected = !button.selected;
         for (CPCollectionViewController * vcs in self.childViewControllers) {
-            if (vcs.view.tag == 1000) {
                 vcs.priceStrTag = _priceStrTag;
                 [vcs allData];
             }
-        }
-    }else {
         self.contentScrollView.contentOffset = CGPointMake(button.tag*ZP_Width, 0);
         UIViewController * vcs = self.childViewControllers[button.tag];
         vcs.view.frame = CGRectMake(button.tag*ZP_Width, 0, ZP_Width, self.contentScrollView.frame.size.height);

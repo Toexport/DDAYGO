@@ -26,6 +26,7 @@
 #import "ExchangeDetailsController.h"
 #import "OrdeHeadViewCell.h"
 #import "OrdeTailViewCell.h"
+#import "BuyViewController.h"
 @interface ZP_OrderController ()<FSPageContentViewDelegate,FSSegmentTitleViewDelegate> {
     int _i;
     NSArray * dataArray;
@@ -437,10 +438,14 @@
     }
 }
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    OrdersdetailModel * model = self.newsData[indexPath.row];
+//    BuyViewController * ByView = [[BuyViewController alloc]init];
+//    ByView.productId = model.productid;
+//    [self.navigationController pushViewController:ByView animated:YES];
 //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//}
+    ZPLog(@"%ld",indexPath.row);
+}
 
 // 重新加载数据
 -(void)loading {

@@ -14,7 +14,7 @@
 #import "ZP_ShoppingModel.h"
 #import "EditorViewCell.h"
 #import "ShoppingHeadView.h"
-
+#import "BuyViewController.h"
 @interface ShoppingViewController ()<UITableViewDelegate,UITableViewDataSource,UIViewControllerPreviewingDelegate> {
     NSInteger allNum;
     BOOL _bjBool;
@@ -25,7 +25,6 @@
 @property (nonatomic, strong) NSMutableArray * indexArray;
 @property (nonatomic, strong) NSMutableArray * selectArray;
 @property (nonatomic, strong) NSMutableArray * dataArray;;
-
 @property(nonatomic,strong) NSMutableArray * nameArray;
 
 @property(nonatomic,strong) UITableView * tableView;
@@ -1013,7 +1012,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZPLog(@"%ld",indexPath.row);
+//    ZPLog(@"%ld",indexPath.row);
+//    ZP_CartsModel * model = _nameArray[indexPath.row];
+//    BuyViewController * ByView = [[BuyViewController alloc]init];
+//    ByView.productId = model.productid;
+//    [self.navigationController pushViewController:ByView animated:YES];
+    if (indexPath.row == 1) {
+        ZPLog(@"%ld",indexPath.row);
+    }
 }
 
 //  加载数据

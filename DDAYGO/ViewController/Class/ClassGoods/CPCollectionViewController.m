@@ -72,7 +72,6 @@
     }else{
         str = @"";
     }
-   
     self.newsData = [[NSMutableArray alloc]init];
 //    NSDictionary * dic = @{@"seq":_priceStrTag,@"countrycode":@"886",@"word":str,@"fatherid":_fatherId,@"page":@"1",@"pagesize":@"30"};
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
@@ -83,25 +82,21 @@
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"30";
     [ZP_ClassViewTool requMerchandise:dic WithIndex:self.type success:^(id obj) {
-
         NSDictionary * dict = obj;
         [SVProgressHUD dismiss];
         NSArray * arr ;
         NSMutableArray *tempArray = [NSMutableArray arrayWithArray:dict[@"datalist"]];
-        
        arr = [tempArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
             ZPLog(@"obj1:%lu--obj2:%lu",[obj1[@"productprice"] longValue],[obj2[@"productprice"] longValue]);
             if ([_priceStrTag isEqualToString:@"desc"]) {
                 if ([obj1[@"productprice"] longValue] > [obj2[@"productprice"] longValue]) {
                     return NSOrderedDescending;
                 }
-                
                 return NSOrderedAscending;
             } else {
                 if ([obj2[@"productprice"] longValue] > [obj1[@"productprice"] longValue]) {
                     return NSOrderedDescending;
                 }
-                
                 return NSOrderedAscending;
             }
         }];
@@ -160,9 +155,7 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    //    static NSString * detaled = @"DetailedController";
     static NSString * detaled = @"BuyViewController";
-    //    DetailedController * Detailed = [[DetailedController alloc]initWithNibName:detaled bundle:nil];
     BuyViewController * Detailed = [[BuyViewController alloc]initWithNibName:detaled bundle:nil];
     ZP_ClassGoodsModel * model = self.newsData[indexPath.row];
     Detailed.fatherId = _fatherId;
