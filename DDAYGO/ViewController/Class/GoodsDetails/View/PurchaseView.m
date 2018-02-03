@@ -445,14 +445,18 @@
         NSLog(@"_%@",model.productid);
     }
     
-    self.standardValueList = @[arr,@[]];
-    
     if (arr.count == 0) {
+        self.standardValueList = nil;
         self.standardTypeList = @[@"",NSLocalizedString(@"購買數量", nil)];
     } else {
+        self.standardValueList = @[arr,@[]];
         self.standardTypeList = @[NSLocalizedString(@"商品規格", nil),NSLocalizedString(@"購買數量", nil)];
     }
-    [self initChooseView];
+    if (self.standardTypeList.count == 0 && self.standardList.count == 0) {
+        
+    } else {
+        [self initChooseView];
+    }
 }
 
 - (void)setModeltypeArr:(NSArray *)modeltypeArr {
