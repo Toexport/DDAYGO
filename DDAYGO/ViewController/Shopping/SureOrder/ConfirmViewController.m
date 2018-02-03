@@ -25,6 +25,7 @@
 #import "ZP_ConfirmPayModel.h"
 #import "ZP_ConfirmWebController.h"
 #import "AddAddressViewController.h"
+#import "BuyViewController.h"
 
 @interface ConfirmViewController () <UITableViewDelegate, UITableViewDataSource> {
     NSArray * InformatonArray;
@@ -488,6 +489,7 @@
     }
 }
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && !self.noEdit) {
         self.hidesBottomBarWhenPushed = YES;
@@ -499,7 +501,6 @@
             models.receiptphone = model.eeceiptphone;
             models.addressdetail = model.addressdetail;
             models.addressid = model.addressid;
-            
             [self.dataArrar addObject:models];
             NSIndexSet * indexset = [NSIndexSet indexSetWithIndex:0];
             [self.tableView reloadSections:indexset withRowAnimation:UITableViewRowAnimationTop];
@@ -508,9 +509,14 @@
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
         self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
         self.hidesBottomBarWhenPushed = YES;
+    }else
+    if (indexPath.section == 2) {
+        ZP_InformationModel * model = self.NewData[indexPath.row];
+        BuyViewController * BuyView = [[BuyViewController alloc]init];
+        BuyView.productId = model.productid;
+        [self.navigationController pushViewController:BuyView animated:YES];
     }
-}
-
+ }
 @end
 
 
