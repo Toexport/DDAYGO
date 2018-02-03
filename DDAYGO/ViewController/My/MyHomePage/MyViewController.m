@@ -206,7 +206,6 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
             [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
-    
             ZPICUEToken = nil;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
@@ -305,17 +304,23 @@
         if ([obj[@"result"] isEqualToString:@"ok"]) {
             _RequestStatusStr = @(-1);
             _RequestStatusLabel.text = @"";
+            _kuohaoLabel1.text = @"";
+            _kuohaoLabel2.text = @"";
             _kuohaoLabel1.hidden = YES;
             _kuohaoLabel2.hidden = YES;
         }else{
             _kuohaoLabel1.hidden = NO;
             _kuohaoLabel2.hidden = NO;
+            _kuohaoLabel1.text = @"(";
+            _kuohaoLabel2.text = @")";
         }
         if (obj[@"state"]) {
             model.state = obj[@"state"];
         }else {
             model.state = @(-1);
             _RequestStatusLabel.text = nil;
+            _kuohaoLabel1.text = nil;
+            _kuohaoLabel2.text = nil;
             _SdglLayoutConstraint.constant = CGFLOAT_MIN;
             _sdglView.hidden = YES; //  默认隐藏商家
             self.XfjlLayoutConstraint.constant = 49;
@@ -323,7 +328,6 @@
             return ;
         }
         switch (model.state.integerValue) {
-
             case 0:
             {
                 self.reason = obj[@"reason"];
