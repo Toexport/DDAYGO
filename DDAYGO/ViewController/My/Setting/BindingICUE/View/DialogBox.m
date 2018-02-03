@@ -28,36 +28,63 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     _textfield.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
-//    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)]; // 觸發事件
     self.BGView.userInteractionEnabled = YES;
-//    [self.BGView addGestureRecognizer:tap];
     self.hidden = YES;
+    
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyBoardFrameChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    //监听键盘隐藏
+        [[NSNotificationCenter defaultCenter]addObserver:self
+                                                       selector:@selector(keybaordhide:)
+                                                           name:UIKeyboardWillHideNotification object:nil];
 }
 
+//当观察到键盘发生变化的通知后,就调用的方法
+- (void)keyBoardFrameChange:(NSNotification *)userInfo{
+    //    1.1获取变化的值
+    NSDictionary *keyBoardDict = userInfo.userInfo;
+    CGRect endKeyBoardFrame = [keyBoardDict[UIKeyboardFrameEndUserInfoKey]CGRectValue];
+    //这里减去的是你需要调整的view的高度,如果view是全屏幕的可以用此方法
+    CGFloat ty = endKeyBoardFrame.origin.y - [UIScreen mainScreen].bounds.size.height + 180;
+    //   1.2修改transform属性,让视图变化
+    //   1.3让修改有动画,获取动画的时间
+    CGFloat duration = [keyBoardDict[UIKeyboardAnimationDurationUserInfoKey]doubleValue];
+    [UIView animateWithDuration:duration animations:^{
+        self.dialogView.transform = CGAffineTransformMakeTranslation(0, ty);
+    }];
+}
 
-
+// 隐藏键盘
+- (void)keybaordhide:(NSNotification *)userInfo{
+    NSDictionary *keyBoardDict = userInfo.userInfo;
+    CGRect endKeyBoardFrame = [keyBoardDict[UIKeyboardFrameEndUserInfoKey]CGRectValue];
+    //这里减去的是你需要调整的view的高度,如果view是全屏幕的可以用此方法
+    CGFloat typp = endKeyBoardFrame.origin.y - [UIScreen mainScreen].bounds.size.height;
+    //   1.2修改transform属性,让视图变化
+    //   1.3让修改有动画,获取动画的时间
+    CGFloat duration = [keyBoardDict[UIKeyboardAnimationDurationUserInfoKey]doubleValue];
+    [UIView animateWithDuration:duration animations:^{
+        self.dialogView.transform = CGAffineTransformMakeTranslation(0, typp);
+    }];
+}
 // 取消
 - (IBAction)cancelAction:(id)sender {
+    [self.textfield endEditing:YES];
     ZPLog(@"qqqq");
     [self dismiss];
 }
 //確定
 - (IBAction)ensureAction:(id)sender {
+    [self.textfield endEditing:YES];
     if (self.textfield.text.length < 1) {
-        [SVProgressHUD showInfoWithStatus:@"輸入框不能為空"];
+        [SVProgressHUD showInfoWithStatus:@"輸入不能為空"];
     }else {
-    if (self.finishBlock) {
-        self.finishBlock(_textfield.text);
-    }
-    [self dismiss];
+        if (self.finishBlock) {
+            self.finishBlock(_textfield.text);
+        }
+        [self dismiss];
     }
     
 }
-
-//- (IBAction)icucEnsure:(id)sender {
-//    ZPLog(@"222");
-//    [self dismiss];
-//}
 
 - (void)showDialogBoxWithOperation:(DDAOperation)operation FinishBlock:(FinishBlock)finishBlock {
     
@@ -90,7 +117,7 @@
         self.BGView.alpha = 0.5;
         self.dialogView.alpha = 1;
     } completion:^(BOOL finished) {
-
+        
     }];
 }
 
@@ -110,4 +137,6 @@
     [self.textfield endEditing:YES];
     
 }
+
+
 @end

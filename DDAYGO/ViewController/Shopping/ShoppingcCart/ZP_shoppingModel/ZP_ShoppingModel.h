@@ -17,7 +17,7 @@
 /**订单总金额*/
 @property (nonatomic, strong) NSNumber * allamount;
 
-@property (nonatomic, strong) NSNumber *chooseadsid;
+@property (nonatomic, strong) NSNumber * chooseadsid;
 /**
  *商品库存数量
  */

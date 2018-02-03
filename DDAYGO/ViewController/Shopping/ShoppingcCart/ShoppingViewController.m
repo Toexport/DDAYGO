@@ -72,7 +72,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     _AllButton.selected = NO;
-
     if (!DD_HASLOGIN) {
         if (![MyViewController sharedInstanceTool].hasRemind) {
             [MyViewController sharedInstanceTool].hasRemind = YES;
@@ -97,7 +96,6 @@
         [self.tableView.mj_header endRefreshing];
         return;
     }
-    
     [ZP_shoopingTool requesshoppingData:Token success:^(id obj) {
         if ([obj isKindOfClass:[NSDictionary class]]) {
             if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
@@ -144,7 +142,7 @@
                 [self.tableView reloadData];
                 return ;
             }
-            NSArray *arr = obj;
+            NSArray * arr = obj;
             if (arr.count > 0) {
                 NSDictionary * dic = [obj firstObject];
                 _model = [ZP_ShoppingModel CreateWithDict:[obj firstObject]];
@@ -1012,14 +1010,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    ZPLog(@"%ld",indexPath.row);
-//    ZP_CartsModel * model = _nameArray[indexPath.row];
+    ZPLog(@"%ld",indexPath.row);
 //    BuyViewController * ByView = [[BuyViewController alloc]init];
 //    ByView.productId = model.productid;
 //    [self.navigationController pushViewController:ByView animated:YES];
-//    if (indexPath.row == 1) {
-//        ZPLog(@"%ld",indexPath.row);
-//    }
+
 }
 
 //  加载数据
