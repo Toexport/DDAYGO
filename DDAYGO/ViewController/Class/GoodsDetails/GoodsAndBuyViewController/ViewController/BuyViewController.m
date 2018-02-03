@@ -163,12 +163,41 @@
     NSDictionary * dic;
     self.imageDic = [NSMutableDictionary dictionary];
     if (Token) {
-        
         dic = @{@"productid":_productId,@"token":Token};
     } else {
         dic = @{@"productid":_productId,@"token":@""};
     }
     [ZP_ClassViewTool requDetails:dic success:^(id obj) {
+        if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
+            Token = nil;
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
+            [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
+            
+            ZPICUEToken = nil;
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
+            [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
+            [[SDImageCache sharedImageCache] clearDisk];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+#pragma make -- 提示框
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                ZPLog(@"取消");
+            }];
+            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                [self.navigationController popToRootViewControllerAnimated:NO];
+                //跳转
+                if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+                    UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
+                    [tbvc setSelectedIndex:0];
+                }
+            }];
+            [alert addAction:defaultAction];
+            [alert addAction:cancelAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }else {
         if (obj) {
             self.productArray = obj;
         }else{
@@ -180,15 +209,13 @@
         self.productArray = [asdtring componentsSeparatedByString:@","];
         NSDictionary * tempDic = @{@"productid":_productId,@"page":@(1),@"pagesize":@(5)};
         [ZP_ClassViewTool requEvaluates:tempDic success:^(id obj) {
-//            NSArray *tempArray = obj[@"reviewslist"][@"ReviewsData"];
-//            self.evaluateArray = [EvaluateModel mj_keyValuesArrayWithObjectArray:obj[@"reviewslist"][@"ReviewsData"]];
             self.evaluateArray = [EvaluateModel mj_objectArrayWithKeyValuesArray:obj[@"reviewslist"][@"ReviewsData"]];
-            
             [self successful];
             NSLog(@"%@",obj);
         } failure:^(NSError *error) {
             NSLog(@"%@",error);
         }];
+        }
         ZP_GoodDetailsModel * model = [ZP_GoodDetailsModel getGoodDetailsData:obj[@"products"][0]];
         _shoucangBtn.selected = [model.state boolValue];
         [self.topView updateInfoWithModel:model];
@@ -563,13 +590,14 @@
     [secondPageView addSubview:tabBar];
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_evaluate_nocontent"]];
-    imageView.frame = CGRectMake(ZP_Width/2-40,SecondPageTop/2-40, 80, 80);
+    imageView.frame = CGRectMake(ZP_Width/2 - 10,SecondPageTop/2 - 10, 40, 40);
     [secondPageView addSubview:imageView];
     UILabel *label = [[UILabel alloc] init];
-    label.text = @"暂无评论内容哦";
+    label.font = [UIFont systemFontOfSize:15];
+    label.text = NSLocalizedString(@"暫無評價內容哦", nil);
     label.textColor = [UIColor darkGrayColor];
     label.textAlignment = NSTextAlignmentCenter;
-    label.frame = CGRectMake(0, imageView.y+imageView.height+5, secondPageView.width, 20);
+    label.frame = CGRectMake(5, imageView.y+imageView.height+5, secondPageView.width, 20);
     [secondPageView addSubview:label];
     
     //初始化一个UITableView
