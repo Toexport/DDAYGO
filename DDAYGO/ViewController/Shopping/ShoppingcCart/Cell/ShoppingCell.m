@@ -188,7 +188,7 @@
     _titleLabel.text = model.productname;
     _MerchandiseIntroducedLabel.text = model.productremark;
     NSLog(@"%@",model.colorname);  //看到没有· 并不是空 可能是@”“ 可能是null 可能是nil  ·你说你的判断该怎么写
-//    length这个是什么意思 长度的· ·字符的长度 // 用点心吧
+//    length这个是什么意思 长度的· ·字符的长度
     if (model.colorname.length < 1) {
         _descLabel.hidden = YES;//你自己看 model 。colorename 是不是等于nil、
     }else {
@@ -205,86 +205,6 @@
     _QuantityLabel.text = [NSString stringWithFormat:@"%@",str];
     
 }
-
-///**
-// 编辑模式下的View
-// */
-//- (void)ininViewUI {
-//    UIView * EditorView = [UIView new];
-//    EditorView.backgroundColor = [UIColor orangeColor];
-//    [self.contentView addSubview:EditorView];
-//    [EditorView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self).offset(90);
-//        make.top.equalTo(self).offset(5);
-//        make.width.mas_offset(120);
-//    }];
-    //  筛选按钮
-//    UIButton * ScreeningBut = [UIButton new];
-//    [ScreeningBut setImage:[UIImage imageNamed:@"ic_shop_down"] forState:UIControlStateNormal];
-//    ScreeningBut.layer.borderColor = [UIColor clearColor].CGColor;
-//    ScreeningBut.layer.borderWidth = 1;
-//    [ScreeningBut addTarget:self action:@selector(ScreeningBut:) forControlEvents:UIControlEventTouchUpInside];
-//    [EditorView addSubview:ScreeningBut];
-//    [ScreeningBut mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(EditorView).offset(95);
-//        make.top.equalTo(EditorView).offset(55);
-//        make.width.mas_equalTo(15);
-//        make.height.mas_equalTo(15);
-//    }];
-//    //  背景
-//    UIView * backgroundView = [UIView new];
-//    backgroundView.layer.borderWidth = 1;
-//    backgroundView.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
-////    backgroundView.backgroundColor = [UIColor orangeColor];
-//    [EditorView addSubview:backgroundView];
-//    [backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(EditorView).offset(95);
-//        make.bottom.equalTo(self).offset(-23.5);
-//        make.height.mas_equalTo(20);
-//        make.width.mas_equalTo(100);
-//    }];
-//
-//    //  减少
-//    UIButton * Reducebutton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    Reducebutton.frame = CGRectMake(0, 0, 20, 20);
-//    [Reducebutton setImage:[UIImage imageNamed:@"ic_shopping_less"] forState:UIControlStateNormal];
-//    Reducebutton.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
-//    Reducebutton.layer.borderWidth = 1;
-//    [Reducebutton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-//    [backgroundView addSubview:Reducebutton];
-//    _Reducebutton = Reducebutton;
-//
-//    //  个数
-//    UILabel * numLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 60, 20)];
-//    numLabel.textAlignment = NSTextAlignmentCenter;
-//    numLabel.textColor = [UIColor blackColor];
-//    numLabel.text = @"0";
-//    numLabel.font = [UIFont systemFontOfSize:14];
-//    [backgroundView addSubview:numLabel];
-//    _numLabel = numLabel;
-//
-//    //  添加
-//    UIButton * addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    addButton.frame = CGRectMake(80, 0, 20, 20);
-//    [addButton setImage:[UIImage imageNamed:@"ic_shopping_add"] forState:UIControlStateNormal];
-//    addButton.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
-//    addButton.layer.borderWidth = 1;
-//    [addButton addTarget:self action:@selector(addClick:) forControlEvents:UIControlEventTouchUpInside];
-//    [backgroundView addSubview:addButton];
-//    _addButton = addButton;
-//
-//    //  分割线
-//    UIView * view1 = [UIView new];
-//    view1.backgroundColor = ZP_Graybackground;
-//    [self.contentView addSubview:view1];
-//    [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self).offset(100);
-//        make.right.equalTo(self).offset(ZP_Width); //长
-//        make.bottom.equalTo(self).offset(0); // 高
-//        make.height.mas_equalTo(1); // 高
-//    }];
-
-//}
 
 - (void)buttonClick:(UIButton *)sender {
     if ([_numLabel.text integerValue]<=0) {

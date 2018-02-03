@@ -1017,9 +1017,9 @@
 //    BuyViewController * ByView = [[BuyViewController alloc]init];
 //    ByView.productId = model.productid;
 //    [self.navigationController pushViewController:ByView animated:YES];
-    if (indexPath.row == 1) {
-        ZPLog(@"%ld",indexPath.row);
-    }
+//    if (indexPath.row == 1) {
+//        ZPLog(@"%ld",indexPath.row);
+//    }
 }
 
 //  加载数据

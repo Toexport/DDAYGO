@@ -29,7 +29,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJZ-6l-7xX">
                             <rect key="frame" x="8" y="16" width="359" height="14"/>
                             <attributedString key="attributedText">
-                                <fragment content=".">
+                                <fragment content=" ">
                                     <attributes>
                                         <font key="NSFont" size="12" name="Helvetica"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>

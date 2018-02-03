@@ -21,7 +21,7 @@
 
 @implementation BuyTopView
 
--(void)awakeFromNib{
+-(void)awakeFromNib {
     _cycleScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
     _cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
 }
@@ -32,20 +32,28 @@
 
 - (void)updateInfoWithModel:(ZP_GoodDetailsModel *)model {
     dispatch_async(dispatch_get_main_queue(), ^{
-//        if (model == NULL) {
-//            self.shopNameLabel.text = @"";
-//            self.xlLabel.text = @"";
-//            self.yhLabel.text = @"";
-//            self.ckLabel.text = @"";
-//            self.spjgLabel.text = @"";
-//        }else {
         self.cycleScrollView.imageURLStringsGroup = @[model.defaultimg];
-        self.shopNameLabel.text = model.productname;
-        self.xlLabel.text = model.peramount;
-        self.yhLabel.text = model.TrademarkLabel;
-        self.ckLabel.text = model.productamount;
-        self.spjgLabel.text = model.productprice;
-//        }
+         self.shopNameLabel.text = model.productname;
+        if ([model.peramount isEqualToString:@"(null)"]) {
+            self.xlLabel.hidden = YES;
+        }else {
+            self.xlLabel.text = model.peramount;
+        }
+        if ([model.TrademarkLabel isEqualToString:@"(null)"]) {
+            self.yhLabel.hidden = YES;
+        }else {
+            self.yhLabel.text = model.TrademarkLabel;
+        }
+        if ([model.productamount isEqualToString:@"(null)"]) {
+            self.ckLabel.hidden = YES;
+        }else {
+            self.ckLabel.text = model.productamount;
+        }
+        if ([model.productprice isEqualToString:@"(null)"]) {
+            self.spjgLabel.hidden = YES;
+        }else {
+            self.spjgLabel.text = model.productprice;
+        }
     });
 }
 

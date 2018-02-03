@@ -439,12 +439,21 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    OrdersdetailModel * model = self.newsData[indexPath.row];
-//    BuyViewController * ByView = [[BuyViewController alloc]init];
-//    ByView.productId = model.productid;
-//    [self.navigationController pushViewController:ByView animated:YES];
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ZPLog(@"%ld",indexPath.row);
+
+    if (indexPath.row == 0) {
+        ZPLog(@"%ld",indexPath.row);
+    }else
+        if (indexPath.row == 1) {
+        //    OrdersdetailModel * model = self.newsData[indexPath.row];
+        //    BuyViewController * ByView = [[BuyViewController alloc]init];
+        //    ByView.productId = model.productid;
+        //    [self.navigationController pushViewController:ByView animated:YES];
+        //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+            ZPLog(@"%ld",indexPath.row);
+        }else {
+          ZPLog(@"%ld",indexPath.row);
+        }
+    
 }
 
 // 重新加载数据
