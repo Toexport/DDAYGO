@@ -49,6 +49,7 @@
         model.productprice = dic[@"productprice"];
         model.amount = dic[@"amount"];
         model.cp = dic[@"cp"];
+        model.productid = dic[@"productid"];
         model.stockid = dic[@"stockid"];
         model.cartid = dic[@"cartid"];
         model.productamount = dic[@"productamount"];

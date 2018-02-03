@@ -439,15 +439,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1) {
+    if (indexPath.row > 0) {
+        OrderModel *model = self.newsData[indexPath.row-1];
         BuyViewController * ByView = [[BuyViewController alloc]init];
-        //            ByView.productId = self.productid;
-        //            [self.navigationController pushViewController:ByView animated:YES];
-        ZPLog(@"%ld",indexPath.row);
-    }else {
-        ZPLog(@"%ld",indexPath.row);
+        ByView.productId = model.productid;
+        [self.navigationController pushViewController:ByView animated:YES];
     }
-    
 }
 
 // 重新加载数据

@@ -35,7 +35,8 @@
 @property (nonatomic, strong) NSString * updatetime;
 // 交易状态
 @property (nonatomic, strong) NSString * state;
-
+//商品ID
+@property (nonatomic, strong) NSNumber * productid;
 /**商品默认图片*/
 @property (nonatomic, strong) NSString * defaultimg;
 

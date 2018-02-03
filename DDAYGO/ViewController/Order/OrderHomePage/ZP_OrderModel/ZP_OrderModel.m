@@ -26,6 +26,10 @@
     for (NSDictionary *dic in array) {
         OrderModel *model = [[OrderModel alloc]init];
         [model setValuesForKeysWithDictionary:dic];
+        NSArray *tempArray = dic[@"ordersdetail"];
+        NSDictionary *tempDic = tempArray.firstObject;
+        
+        model.productid = tempDic[@"productid"];
         [arr addObject:model];
     }
     return arr;
