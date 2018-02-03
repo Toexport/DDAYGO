@@ -510,13 +510,13 @@
         self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
         self.hidesBottomBarWhenPushed = YES;
     }else
-    if (indexPath.section == 2) {
-        ZP_InformationModel * model = self.NewData[indexPath.row];
-        BuyViewController * BuyView = [[BuyViewController alloc]init];
-        BuyView.productId = model.productid;
-        [self.navigationController pushViewController:BuyView animated:YES];
-    }
- }
+        if (indexPath.section == 2) {
+            ZP_InformationModel * model = self.NewData[indexPath.row];
+            BuyViewController * BuyView = [[BuyViewController alloc]init];
+            BuyView.productId = model.productid;
+            [self.navigationController pushViewController:BuyView animated:YES];
+        }
+}
 @end
 
 

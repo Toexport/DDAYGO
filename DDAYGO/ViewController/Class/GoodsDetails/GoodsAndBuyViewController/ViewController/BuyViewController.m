@@ -59,13 +59,11 @@
 @property (nonatomic ,strong) NSMutableArray * newsData;
 @property (nonatomic, strong) ZP_GoodDetailsModel * model;
 
-
 @property (nonatomic, strong) NSArray * normsArr;
 @property (nonatomic, strong) NSArray * typeArr;
 @property (nonatomic, strong) NSArray * pjArr;
 @property (nonatomic, strong) NSMutableArray * productArray;
 @property (nonatomic, strong) NSMutableArray * textdetaArray;
-//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cpsmHeight;
 @property (nonatomic, strong) NSMutableArray *evaluateArray;
 @property (nonatomic, assign) NSInteger imageHeight;  //详情图片的高度
 @property (nonatomic, strong) NSMutableDictionary *imageDic;  //详情图片的高度
@@ -90,8 +88,7 @@
     self.detailTableview.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
     self.detailTableview.rowHeight=UITableViewAutomaticDimension;//高度设置为自适应
     [self allData];
-//    [self evaluation];
-    self.titleLabel.text = self.title ? self.title : @"商品详情";
+    self.titleLabel.text = self.title ? self.title : NSLocalizedString(@"商品詳情", nil);
     self.navigationController.navigationBar.hidden = YES;
     self.shfwBottomView.hidden = YES;
     self.qbpjBottomView.hidden = YES;

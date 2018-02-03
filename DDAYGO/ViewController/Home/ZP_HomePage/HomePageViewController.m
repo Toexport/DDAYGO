@@ -283,7 +283,7 @@
     self.dataArray = @[@{@"title":NSLocalizedString( @"Best-selling products", nil)}];
     if (indexPath.section == 0) {
         static NSString * ZeroID = @"ceaa";
-       ZeroViewCell * cell =  [tableView dequeueReusableCellWithIdentifier:ZeroID];
+        ZeroViewCell * cell =  [tableView dequeueReusableCellWithIdentifier:ZeroID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.arr = self.bannerArray;
         cell.finishBlock = ^(id response) {
@@ -301,84 +301,81 @@
                 [self.navigationController pushViewController:CVPView animated:YES];
             };
             return cell;
-    
+            
         }else if (indexPath.section == 2){
-                static NSString * SecondID = @"Secondcell";
-                SecondViewCell * cell = [tableView dequeueReusableCellWithIdentifier: SecondID];
-
-                cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
-                [cell Second:self.SecondArray];
-                cell.SecondBlock = ^(NSInteger tag){
-//                    DetailedController *viewController = [[DetailedController alloc] init];
-//        //                self.hidesBottomBarWhenPushed = YES;
-//                    [self.navigationController pushViewController:viewController animated:YES];//                self.hidesBottomBarWhenPushed = NO;
-                };
-                return cell;
-            }else
-            /*************暂时不需要*************/
-        //        if (indexPath.section == 3){
-        //            static NSString * ThirdID = @"Thirdcell";
-        //            ThirdViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ThirdID];
-        //            cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
-        //            cell.ThirdBlock = ^(NSInteger tag){
-        //                DetailedController *viewController = [[DetailedController alloc] init];
-        //                [self.navigationController pushViewController:viewController animated:YES];
-        //            };
-        //            [cell Third:C];
-        //            return cell;
-        //    }else
-        if (indexPath.section == 3){
-            static NSString * FourthID = @"Fourthcell";
-            FourthViewCell * cell = [tableView dequeueReusableCellWithIdentifier:FourthID];
-            cell.arrDara = self.newsData2;
-//            cell.arr = self.ForurthArray;
-            [cell inisWithArray:self.ForurthArray];
-            cell.fourthBlock1 = ^(id response) {
-                
-            };
-            cell.FourthBlock = ^(NSInteger tag){
-                static NSString * detaled = @"BuyViewController";
-                BuyViewController * viewController = [[BuyViewController alloc]initWithNibName:detaled bundle:nil];
-//                DetailedController *viewController = [[DetailedController alloc] init];
-                viewController.productId = @(tag);
-                [self.navigationController pushViewController:viewController animated:YES];
-            };
+            static NSString * SecondID = @"Secondcell";
+            SecondViewCell * cell = [tableView dequeueReusableCellWithIdentifier: SecondID];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
-            NSDictionary * dic = self.dataArray[indexPath.row];
-            [cell InformationWithDic:dic];
+            [cell Second:self.SecondArray];
+            cell.SecondBlock = ^(NSInteger tag){
+            };
+            
             return cell;
         }else
-            if (indexPath.section ==4){
-                static NSString * FifthID = @"ceaaa";
-                FifthViewCell * cell = [tableView dequeueReusableCellWithIdentifier: FifthID];
-                ZPLog(@"arr == %ld",self.newsData.count);
-                 cell.arrData = self.newsData;
-                ZPLog(@"cell = %ld",cell.arrData.count);
-                cell.ThirdBlock = ^(NSInteger tag) {
-                    ZPLog(@"%ld",tag);
+        /*************暂时不需要*************/
+            //        if (indexPath.section == 3){
+            //            static NSString * ThirdID = @"Thirdcell";
+            //            ThirdViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ThirdID];
+            //            cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
+            //            cell.ThirdBlock = ^(NSInteger tag){
+            //                DetailedController *viewController = [[DetailedController alloc] init];
+            //                [self.navigationController pushViewController:viewController animated:YES];
+            //            };
+            //            [cell Third:C];
+            //            return cell;
+            //    }else
+            if (indexPath.section == 3){
+                static NSString * FourthID = @"Fourthcell";
+                FourthViewCell * cell = [tableView dequeueReusableCellWithIdentifier:FourthID];
+                cell.arrDara = self.newsData2;
+                //            cell.arr = self.ForurthArray;
+                [cell inisWithArray:self.ForurthArray];
+                cell.fourthBlock1 = ^(id response) {
+                    
+                };
+                cell.FourthBlock = ^(NSInteger tag){
                     static NSString * detaled = @"BuyViewController";
                     BuyViewController * viewController = [[BuyViewController alloc]initWithNibName:detaled bundle:nil];
-//                    DetailedController * viewController = [[DetailedController alloc] init];
+                    //                DetailedController *viewController = [[DetailedController alloc] init];
                     viewController.productId = @(tag);
                     [self.navigationController pushViewController:viewController animated:YES];
                 };
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
+                NSDictionary * dic = self.dataArray[indexPath.row];
+                [cell InformationWithDic:dic];
                 return cell;
-        }else {
-            
-            static NSString * SixthID = @"Fifthcell";
-            SixthViewCell * cell = [tableView dequeueReusableCellWithIdentifier: SixthID];
-            cell.ArrData = self.SixthArrData;
-            cell.ThirdBlock = ^(NSInteger tag){
-                static NSString * detaled = @"BuyViewController";
-                BuyViewController * viewController = [[BuyViewController alloc]initWithNibName:detaled bundle:nil];
-//                DetailedController * viewController = [[DetailedController alloc] init];
-                viewController.productId = @(tag);
-                [self.navigationController pushViewController:viewController animated:YES];
-            };
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
-            return cell;
-    }
+            }else
+                if (indexPath.section ==4){
+                    static NSString * FifthID = @"ceaaa";
+                    FifthViewCell * cell = [tableView dequeueReusableCellWithIdentifier: FifthID];
+                    ZPLog(@"arr == %ld",self.newsData.count);
+                    cell.arrData = self.newsData;
+                    ZPLog(@"cell = %ld",cell.arrData.count);
+                    cell.ThirdBlock = ^(NSInteger tag) {
+                        ZPLog(@"%ld",tag);
+                        static NSString * detaled = @"BuyViewController";
+                        BuyViewController * viewController = [[BuyViewController alloc]initWithNibName:detaled bundle:nil];
+                        //                    DetailedController * viewController = [[DetailedController alloc] init];
+                        viewController.productId = @(tag);
+                        [self.navigationController pushViewController:viewController animated:YES];
+                    };
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
+                    return cell;
+                }else {
+                    
+                    static NSString * SixthID = @"Fifthcell";
+                    SixthViewCell * cell = [tableView dequeueReusableCellWithIdentifier: SixthID];
+                    cell.ArrData = self.SixthArrData;
+                    cell.ThirdBlock = ^(NSInteger tag){
+                        static NSString * detaled = @"BuyViewController";
+                        BuyViewController * viewController = [[BuyViewController alloc]initWithNibName:detaled bundle:nil];
+                        //                DetailedController * viewController = [[DetailedController alloc] init];
+                        viewController.productId = @(tag);
+                        [self.navigationController pushViewController:viewController animated:YES];
+                    };
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
+                    return cell;
+                }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -388,17 +385,17 @@
         return 200;
     }else
         if (indexPath.section == 2){
-        return ZP_Width;
-    }else
-        if (indexPath.section == 3) {
-        return 190;
-    }else if (indexPath.section == 4) {
-            return ZP_Width / 4 + 35;
-    }else {
-//        return (ZP_Width / 3 +35)* 2+57;
-         return (ZP_Width / 3 + 45) * 2 + 30;
-        
-    }
+            return ZP_Width;
+        }else
+            if (indexPath.section == 3) {
+                return 190;
+            }else if (indexPath.section == 4) {
+                return ZP_Width / 4 + 35;
+            }else {
+                //        return (ZP_Width / 3 +35)* 2+57;
+                return (ZP_Width / 3 + 45) * 2 + 30;
+                
+            }
 
     ///**********暂时不需要***********/
 ////        if (indexPath.section == 3){

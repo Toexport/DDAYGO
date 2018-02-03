@@ -2682,8 +2682,6 @@
 		C425BEA31FC813C30097DB8F /* OrderView */ = {
 			isa = PBXGroup;
 			children = (
-				C4411D8F200F368100CE906F /* UIButton+Badge.h */,
-				C4411D8E200F368000CE906F /* UIButton+Badge.m */,
 				C425BEAE1FC818480097DB8F /* ZP_OrderController.h */,
 				C425BEAF1FC818480097DB8F /* ZP_OrderController.m */,
 				C425BEA41FC813C30097DB8F /* FSPageContentView.h */,
@@ -2691,6 +2689,8 @@
 				C425BEA61FC813C30097DB8F /* FSScrollContentView.h */,
 				C425BEA71FC813C30097DB8F /* FSSegmentTitleView.h */,
 				C425BEA81FC813C30097DB8F /* FSSegmentTitleView.m */,
+				C4411D8F200F368100CE906F /* UIButton+Badge.h */,
+				C4411D8E200F368000CE906F /* UIButton+Badge.m */,
 			);
 			path = OrderView;
 			sourceTree = "<group>";

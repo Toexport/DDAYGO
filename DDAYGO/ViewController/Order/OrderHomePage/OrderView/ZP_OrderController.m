@@ -440,14 +440,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-        if (indexPath.row == 1) {
-//            BuyViewController * ByView = [[BuyViewController alloc]init];
-////            ByView.productId = self.productid;
+    if (indexPath.section == 1) {
+        BuyViewController * ByView = [[BuyViewController alloc]init];
+//            ByView.productId = self.productid;
 //            [self.navigationController pushViewController:ByView animated:YES];
-            ZPLog(@"%ld",indexPath.row);
-        }else {
-          ZPLog(@"%ld",indexPath.row);
-        }
+        ZPLog(@"%ld",indexPath.row);
+    }else {
+        ZPLog(@"%ld",indexPath.row);
+    }
     
 }
 
