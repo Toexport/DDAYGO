@@ -103,7 +103,13 @@
         [[NSUserDefaults standardUserDefaults] setObject:aadic[@"countrycode"] forKey:@"countrycode"];  // 国别缓存本地
         [[NSUserDefaults standardUserDefaults] synchronize];  // 国别缓存本地
         [SVProgressHUD showSuccessWithStatus:@"登錄成功!"];
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+        NSArray *array = self.navigationController.viewControllers;
+        if (array.count > 2) {
+            [self.navigationController popToViewController:array[array.count-3] animated:YES];
+        } else {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
     }else {
         if ([obj[@"result"]isEqualToString:@"failure"]) {
             [SVProgressHUD showInfoWithStatus:@"登錄失敗"];
