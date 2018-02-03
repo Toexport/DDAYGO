@@ -15,7 +15,7 @@
 #import "CPCollectionViewController.h"
 @interface CPerViewController ()<UIScrollViewDelegate>
 {
-    NSInteger  _indexTag;
+    NSInteger  _indexTag; // 价格筛选
     UIButton * button;
 }
 @property (nonatomic, strong) NSArray * titleArray;

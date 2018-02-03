@@ -72,6 +72,7 @@
 //    ShoplntroducedModel * model = _NewsData[indexPath.row];
     ShoplntroductionCell * cell = [tableView dequeueReusableCellWithIdentifier:@"Shoplntroduction"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone; // 取消Cell变灰效果
+    cell.StorenameLabel.text = [NSString stringWithFormat:@"%@",self.Shoppname];
     self.tableview.tableFooterView = [[UIView alloc]init];
     if (_introductionDic.count>0 && _reviewgoodDic.count>0) {
         [cell ShoplntroducedCollection:_introductionDic andDic:_reviewgoodDic];

@@ -70,6 +70,7 @@
         [SVProgressHUD showInfoWithStatus:@"郵箱格式不正確"];
         return;
     }
+    
 //    if (_ZPCodeTextField.textField.text.length < 1) {
 //        [SVProgressHUD showInfoWithStatus:@"验证码不能为空"];
 //        ZPLog(@"请输入验证码");
@@ -80,7 +81,7 @@
 //        NSLog(@"请输入正确验证码");
 //        return;
 //    }
-//
+    [SVProgressHUD showWithStatus:@"请稍后..."];
     [self allData]; // 数据
 //    ZPLog(@"----");
 }

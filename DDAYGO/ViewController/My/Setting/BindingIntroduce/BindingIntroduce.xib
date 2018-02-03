@@ -26,7 +26,7 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NAi-6J-0BE">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="绑定介绍人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h3n-zm-Vfg">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="綁定介紹人" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h3n-zm-Vfg">
                             <rect key="frame" x="41" y="91" width="271" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="271" id="fhb-CD-vmH"/>
@@ -49,7 +49,7 @@
                                 <constraint firstAttribute="height" constant="35" id="a8d-ZF-Yv6"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" title="绑定">
+                            <state key="normal" title="綁定">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <userDefinedRuntimeAttributes>

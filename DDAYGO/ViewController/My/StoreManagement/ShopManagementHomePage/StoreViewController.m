@@ -92,8 +92,8 @@
         [self AllData:model];
         
     } failure:^(NSError * error) {
-//        ZPLog(@"%@",error);
-        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
+        ZPLog(@"%@",error);
+//        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 

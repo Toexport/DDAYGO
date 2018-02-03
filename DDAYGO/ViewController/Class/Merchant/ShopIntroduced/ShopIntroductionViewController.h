@@ -11,5 +11,5 @@
 @interface ShopIntroductionViewController : UIViewController
 
 @property (nonatomic, strong) NSNumber * SupplierID; // 供货商ID;
-
+@property (nonatomic, strong) NSString * Shoppname; // 店铺名字
 @end

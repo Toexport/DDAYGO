@@ -17,7 +17,7 @@
 
 @property (nonatomic, copy) NSString * keyword;
 
-@property (nonatomic, strong) NSString * priceStrTag;
+@property (nonatomic, strong) NSString * priceStrTag; //价格筛选
 
 @property (nonatomic, strong) UILabel * RemindLabel;
 @end

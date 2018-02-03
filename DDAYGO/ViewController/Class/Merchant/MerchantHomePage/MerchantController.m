@@ -233,6 +233,7 @@
         if (index ==0) {
             ShopIntroductionViewController * ShopIntroduction = [[ShopIntroductionViewController alloc]init];
             ShopIntroduction.SupplierID = self.Supplieerid;
+            ShopIntroduction.Shoppname = self.title;
             [self.navigationController pushViewController:ShopIntroduction animated:YES];
         }else {
             SatisfactionSurveyController * SatisfactionSurvey = [[SatisfactionSurveyController alloc]init];

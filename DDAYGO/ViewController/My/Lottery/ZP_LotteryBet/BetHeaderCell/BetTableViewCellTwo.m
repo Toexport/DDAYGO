@@ -20,17 +20,17 @@
 - (void)updateCount:(NSArray *)arr {
 
     [self removeAllSubviews];
-    CGFloat value = ZP_Width-109-30*6;
+    CGFloat value = ZP_Width-109-28*6;
     CGFloat superHeight = self.contentView.frame.size.height;
     for (int i = 0; i < arr.count; i ++) {
         UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
         
         if (value > 6 * 5) {
-            but.frame = CGRectMake(i * 35,(superHeight-30)/2, 30, 30);
+            but.frame = CGRectMake(i * 28,(superHeight-28)/2, 28, 28);
         } else if (value > 0) {
-            but.frame = CGRectMake(i * (30 + value/5),(superHeight-30)/2, 30, 30);
+            but.frame = CGRectMake(i * (28 + value/5),(superHeight-28)/2, 28, 28);
         } else {
-            but.frame = CGRectMake(i * (30 + value/5),(superHeight-(30 + value/5))/2, (30 + value/5), (30 + value/5));
+            but.frame = CGRectMake(i * (28 + value/5),(superHeight-(28 + value/5))/2, (28 + value/5), (28 + value/5));
         }
         
         [but setBackgroundImage:[UIImage imageNamed:@"bg_white_ball"] forState:UIControlStateNormal];

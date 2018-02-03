@@ -36,7 +36,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="隐私政策">
+                                    <state key="normal" title="隱私政策">
                                         <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
@@ -74,7 +74,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="服务条款">
+                                    <state key="normal" title="服務條款">
                                         <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
@@ -112,7 +112,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="退换货流程">
+                                    <state key="normal" title="退換貨流程">
                                         <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
@@ -136,7 +136,7 @@
                                 <constraint firstItem="uJk-YL-OQN" firstAttribute="leading" secondItem="ohs-gx-Yau" secondAttribute="leading" id="vSD-2T-E8Z"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前版本号:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kae-7p-aY0">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="當前版本號:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kae-7p-aY0">
                             <rect key="frame" x="122.5" y="189" width="75.5" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="FdM-fe-bDc"/>

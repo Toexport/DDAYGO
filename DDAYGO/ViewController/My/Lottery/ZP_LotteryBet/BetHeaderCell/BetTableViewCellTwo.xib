@@ -26,10 +26,10 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkD-wl-XK5">
-                        <rect key="frame" x="190" y="10" width="94" height="25"/>
+                        <rect key="frame" x="192" y="11.5" width="94" height="22"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3X-PV-juf">
-                                <rect key="frame" x="0.0" y="0.0" width="33" height="25"/>
+                                <rect key="frame" x="0.0" y="0.0" width="33" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="icon_lottery_jian"/>
                                 <userDefinedRuntimeAttributes>
@@ -42,7 +42,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5C-kD-KKU">
-                                <rect key="frame" x="33" y="0.0" width="28" height="25"/>
+                                <rect key="frame" x="33" y="0.0" width="28" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
@@ -57,7 +57,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmb-Vd-3Vm">
-                                <rect key="frame" x="61" y="0.0" width="33" height="25"/>
+                                <rect key="frame" x="61" y="0.0" width="33" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="icon_lottery_jia"/>
                                 <userDefinedRuntimeAttributes>
@@ -72,24 +72,28 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="width" constant="94" id="Gpy-uj-NkM"/>
-                            <constraint firstAttribute="height" constant="25" id="pKg-u0-lXr"/>
+                            <constraint firstAttribute="height" constant="22" id="pKg-u0-lXr"/>
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lih-5e-dph">
-                        <rect key="frame" x="296" y="12" width="19" height="22"/>
+                        <rect key="frame" x="296" y="14" width="16" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="OGW-Vh-Mdv"/>
+                            <constraint firstAttribute="width" constant="16" id="Pxl-yr-Wsh"/>
+                        </constraints>
                         <state key="normal" image="icon_lottery_trash_pressed">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Lih-5e-dph" firstAttribute="leading" secondItem="mkD-wl-XK5" secondAttribute="trailing" constant="12" id="6Xx-vT-6UN"/>
+                    <constraint firstItem="Lih-5e-dph" firstAttribute="leading" secondItem="mkD-wl-XK5" secondAttribute="trailing" constant="10" id="6Xx-vT-6UN"/>
                     <constraint firstItem="LXf-zP-vA2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="CUq-DT-ijO"/>
                     <constraint firstItem="LXf-zP-vA2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Oer-fl-BdQ"/>
                     <constraint firstItem="Lih-5e-dph" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="PeF-8S-CnX"/>
                     <constraint firstAttribute="trailing" secondItem="LXf-zP-vA2" secondAttribute="trailing" id="VDK-yb-Kz3"/>
                     <constraint firstItem="mkD-wl-XK5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="W8Y-lF-A8V"/>
-                    <constraint firstAttribute="trailing" secondItem="Lih-5e-dph" secondAttribute="trailing" constant="5" id="s48-hD-tBS"/>
+                    <constraint firstAttribute="trailing" secondItem="Lih-5e-dph" secondAttribute="trailing" constant="8" id="s48-hD-tBS"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

@@ -32,7 +32,6 @@
         _zhuangtaiLabel.text = NSLocalizedString(@"已失效", nil);
         [_zhuangtaiLabel setTextColor:[UIColor whiteColor]];
         _zhuangtaiLabel.textAlignment = NSTextAlignmentCenter;
-        //       __defaltLabel.font = [UIFont systemFontOfSize:14];
         [_zhuangtaiLabel addSubview:_showYImageVIew];
     }else{
         

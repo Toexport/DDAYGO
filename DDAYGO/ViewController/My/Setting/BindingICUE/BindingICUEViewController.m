@@ -57,6 +57,7 @@
         ZPLog(@"取消");
     }];
     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [SVProgressHUD showWithStatus:@"请稍后..."];
         [self allData];
     }];
     [alert addAction:defaultAction];

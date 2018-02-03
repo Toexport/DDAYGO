@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self ButStatusAttribute];
-    self.title = NSLocalizedString(@"綁定推薦人", nil);
+    self.title = NSLocalizedString(@"綁定介紹人", nil);
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.BindingIntroduceTextField.keyboardType = UIKeyboardTypeASCIICapable;
      self.BindingIntroduceTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
@@ -51,6 +51,7 @@
         ZPLog(@"取消");
     }];
     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [SVProgressHUD showWithStatus:@"请稍后..."];
         [self allData];
     }];
     [alert addAction:defaultAction];

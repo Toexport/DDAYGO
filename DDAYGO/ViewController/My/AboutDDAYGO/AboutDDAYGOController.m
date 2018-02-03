@@ -22,7 +22,7 @@
 
 // UI
 - (void)initUI {
-    self.title = NSLocalizedString(@"AboutDDAYGO", nil) ;
+    self.title = NSLocalizedString(@"About DDAYGO", nil) ;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_WhiteColor}];   // 更改导航栏字体颜色
 }
 // 隐藏政策
