@@ -25,19 +25,27 @@
     _cycleScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
     _cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
 }
-+ (instancetype)view
-{
+
++ (instancetype)view {
     return [[[NSBundle mainBundle] loadNibNamed:@"BuyTopView" owner:nil options:nil] firstObject];
 }
 
 - (void)updateInfoWithModel:(ZP_GoodDetailsModel *)model {
     dispatch_async(dispatch_get_main_queue(), ^{
+//        if (model == NULL) {
+//            self.shopNameLabel.text = @"";
+//            self.xlLabel.text = @"";
+//            self.yhLabel.text = @"";
+//            self.ckLabel.text = @"";
+//            self.spjgLabel.text = @"";
+//        }else {
         self.cycleScrollView.imageURLStringsGroup = @[model.defaultimg];
         self.shopNameLabel.text = model.productname;
         self.xlLabel.text = model.peramount;
         self.yhLabel.text = model.TrademarkLabel;
         self.ckLabel.text = model.productamount;
         self.spjgLabel.text = model.productprice;
+//        }
     });
 }
 

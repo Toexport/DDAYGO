@@ -69,9 +69,9 @@
 - (CGRect)menuFrame {
     
     CGFloat menuX = [UIScreen mainScreen].bounds.size.width - 110;
-    CGFloat menuY = 55 - 15 * WBNUMBER;
-    CGFloat width = self.menuWidth;
-    CGFloat heigh = 30 * WBNUMBER;
+    CGFloat menuY = 55 - 10 * WBNUMBER;
+    CGFloat width = self.menuWidth - 35;
+    CGFloat heigh = 25 * WBNUMBER;
     return (CGRect){menuX,menuY,width,heigh};
 }
 
