@@ -384,7 +384,7 @@ if (indexPath.section == 0) {
         return zeroHeight + 35;
     }else
         if (indexPath.section == 2){
-            return ZP_Width;
+            return ZP_Width/245*202;
         }else
             if (indexPath.section == 3) {
                 return 190;
