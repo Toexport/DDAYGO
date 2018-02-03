@@ -64,8 +64,6 @@
         [self.tableview reloadData];
     }];
     //数据都写在这个页面·刷新什么的都在这个页面写·
-
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -169,6 +167,7 @@
                 label.text = @"请登录";
                 [self.view addSubview:label];
             }];
+            
             UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                
                 [self.navigationController popToRootViewControllerAnimated:NO];
@@ -360,6 +359,7 @@
         cell.DeleteBut.tag = indexPath.section;
         [cell.DeleteBut addTarget:self action:@selector(DeleteOrderBut:) forControlEvents:UIControlEventTouchUpInside];
         [cell InformationWithDic:model2 WithModel:model];
+        
         return cell;
     }
     else
@@ -368,6 +368,7 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.AppraiseBut.tag = indexPath.row;
             cell.OnceagainBut.tag = indexPath.row;
+            
             OrdersdetailModel * model2;
             if (![_titleStr isEqualToString:@"評價"]) {
                 model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail.firstObject];
@@ -439,16 +440,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    if (indexPath.row == 0) {
-        ZPLog(@"%ld",indexPath.row);
-    }else
         if (indexPath.row == 1) {
-        //    OrdersdetailModel * model = self.newsData[indexPath.row];
-        //    BuyViewController * ByView = [[BuyViewController alloc]init];
-        //    ByView.productId = model.productid;
-        //    [self.navigationController pushViewController:ByView animated:YES];
-        //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//            BuyViewController * ByView = [[BuyViewController alloc]init];
+////            ByView.productId = self.productid;
+//            [self.navigationController pushViewController:ByView animated:YES];
             ZPLog(@"%ld",indexPath.row);
         }else {
           ZPLog(@"%ld",indexPath.row);

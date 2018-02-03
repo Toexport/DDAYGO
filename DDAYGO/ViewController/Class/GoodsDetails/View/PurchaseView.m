@@ -327,10 +327,8 @@
 }
 
 -(void)selectBtnTitle:(NSString *)title andBtn:(UIButton *)btn{
-    
     ZPLog(@"%ld",btn.tag);
     ZPLog(@"%@ - %@",title,btn.titleLabel.text);
-    
     [self.rankArray removeAllObjects];
     [self.rankArray2 removeAllObjects];
     

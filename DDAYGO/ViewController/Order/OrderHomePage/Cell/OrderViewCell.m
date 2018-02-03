@@ -190,10 +190,10 @@
         _SizeLabel.text = [NSString stringWithFormat:@"尺碼:%@",dic.normname];
     }
     _PreferentialLabel.text = [NSString stringWithFormat:@"%@",dic.price];
-//    _priceLabel.text = [NSString stringWithFormat:@"NT%@",dic.cost];
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
     _TrademarkLabel.text = [NSString stringWithFormat:@"%@",dic.cp];
     _QuantityLabel.text = [NSString stringWithFormat:@"%@",dic.amount];
+    
 
 }
 

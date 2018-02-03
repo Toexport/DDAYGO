@@ -95,7 +95,7 @@
 
 // UI
 - (void)initUI {
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height-49) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height - TabbarHeight - NavBarHeight) style:UITableViewStylePlain];
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;  // 隐藏tableview线条
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐藏
     self.tableView.backgroundColor = ZP_Graybackground;

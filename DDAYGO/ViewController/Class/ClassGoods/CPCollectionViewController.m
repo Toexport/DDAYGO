@@ -48,9 +48,9 @@
     //    横向
     flowLayout.minimumLineSpacing = 5;
     //    纵向
-    flowLayout.minimumInteritemSpacing = 0;
+    flowLayout.minimumInteritemSpacing = 5;
     //    边距
-    flowLayout.sectionInset = UIEdgeInsetsMake(0, 5, 5, 5);
+    flowLayout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
     //注册cell和ReusableView（相当于头部）
     static NSString * Cell = @"cell";
     [_collectionView registerClass:[CPCollectionViewCell class] forCellWithReuseIdentifier:Cell];
@@ -164,6 +164,9 @@
     [self.navigationController pushViewController:Detailed animated:YES];
 }
 
+//-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+//    return UIEdgeInsetsMake(10, 10, 10, 10);
+//}
 // 刷新
 - (void)addRefresh {
 //    下拉刷新
