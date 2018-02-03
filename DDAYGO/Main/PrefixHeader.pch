@@ -87,7 +87,9 @@
 //*/
 
 #define DEMO_CALL 1Check login status
-#define DD_CHECK_HASLONGIN if (!DD_HASLOGIN) {[SVProgressHUD showErrorWithStatus:@"请登录账户"];return;}
+#define DD_CHECK_HASLONGIN if (!DD_HASLOGIN){if ([self isKindOfClass:[UIViewController class]]) {\
+[self.navigationController pushViewController:[[LogregisterController alloc] init] animated:YES];\
+} else {[SVProgressHUD showErrorWithStatus:@"请登录账户"];}return;}
 
 #define DD_HASLOGIN (Token.length > 0)
 #define DD_TOKEN [[NSUserDefaults standardUserDefaults] objectForKey:@"token"]
