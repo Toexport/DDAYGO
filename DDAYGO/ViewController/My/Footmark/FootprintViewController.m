@@ -126,17 +126,16 @@
     cell.deleBtn.tag = indexPath.row;
     [cell.deleBtn addTarget:self action:@selector(deleBtn:) forControlEvents:UIControlEventTouchUpInside];
     [cell FootprintCollection:model];
-    
     return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat width=(self.view.frame.size.width-55)/3;
-    return CGSizeMake(width, width *137 / 100);
+    CGFloat width = (self.view.frame.size.width-55)/3;
+    return CGSizeMake(width + 5, width * 140 / 95);
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(10, 15, 10, 15);
+    return UIEdgeInsetsMake(10, 10, 10, 10);
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
