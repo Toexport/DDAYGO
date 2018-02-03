@@ -29,7 +29,7 @@
     [self Supplier];
     self.merchantscrollView.bounces = YES;
     // 因为需要上个接口的 sid 所以只有等 商家sid 获取成功后才能调用
-//    [self MerchantsBalance];
+    //    [self MerchantsBalance];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -51,21 +51,21 @@
     [ZP_MyTool requesSupplier:dic success:^(id obj) {
         ZPLog(@"%@",obj);
         
-//        1、直接 方法1
-//        [self MerchantsBalance:obj[@"result"]];
+        //        1、直接 方法1
+        //        [self MerchantsBalance:obj[@"result"]];
         
-//        2、全局 方法2
+        //        2、全局 方法2
         //38接口显示·返回只有2个结果·以防止崩溃·加判断
         if ([obj[@"result"] isEqualToString:@"no"]) {
             [SVProgressHUD showInfoWithStatus:@"供貨商不存在"];
-//            [self.navigationController popViewControllerAnimated:YES];
+            //            [self.navigationController popViewControllerAnimated:YES];
         }else {
             _sid = obj[@"result"];
             [self MerchantsBalance];
         }
-
+        
     } failure:^(NSError * error) {
-//        ZPLog(@"%@",error);
+        //        ZPLog(@"%@",error);
         [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
@@ -93,7 +93,7 @@
         
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-//        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
+        //        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 
@@ -119,24 +119,24 @@
 }
 
 /**暂不需要
-//  订单
-- (IBAction)orderAction:(id)sender {
-    self.hidesBottomBarWhenPushed = YES;
-    OrdersViewController *viewController = [[OrdersViewController alloc] init];
-    [self.navigationController pushViewController:viewController animated:YES];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-}
-
-//  账单
-- (IBAction)billAction:(id)sender {
-    self.hidesBottomBarWhenPushed = YES;
-    BillViewController *viewController = [[BillViewController alloc] init];
-    [self.navigationController pushViewController:viewController animated:YES];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-}
-*/
+ //  订单
+ - (IBAction)orderAction:(id)sender {
+ self.hidesBottomBarWhenPushed = YES;
+ OrdersViewController *viewController = [[OrdersViewController alloc] init];
+ [self.navigationController pushViewController:viewController animated:YES];
+ self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
+ self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+ }
+ 
+ //  账单
+ - (IBAction)billAction:(id)sender {
+ self.hidesBottomBarWhenPushed = YES;
+ BillViewController *viewController = [[BillViewController alloc] init];
+ [self.navigationController pushViewController:viewController animated:YES];
+ self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
+ self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+ }
+ */
 
 //  收款
 - (IBAction)receivingAction:(id)sender {

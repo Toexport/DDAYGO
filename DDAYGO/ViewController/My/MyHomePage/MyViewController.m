@@ -46,8 +46,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
-    
 }
 
 // 生命周期
@@ -65,13 +63,13 @@
 }
 
 //- (void) Supplier {
-    //     判断是否是供货商
+//     判断是否是供货商
 //    if (state.length == NO) {
 //        _SdglLayoutConstraint.constant = CGFLOAT_MIN;
 //        _sdglView.hidden = YES;
-        //        _viewLayoutConstraint.constant = 50.0;
+//        _viewLayoutConstraint.constant = 50.0;
 //    }
-    //     判断是否申请成功供货商
+//     判断是否申请成功供货商
 //    if (state.length == YES) {
 //        //        _SdglLayoutConstraint.constant = CGFLOAT_MIN;
 //        self.XfjlLayoutConstraint.constant = CGFLOAT_MIN;
@@ -135,7 +133,7 @@
     if (DD_HASLOGIN) {
         if (success) {
             success(nil);
-    }
+        }
     } else {
         if ([[NSUserDefaults standardUserDefaults] objectForKey:@"loginData"]) {
             NSDictionary * dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginData"];
@@ -144,33 +142,33 @@
                 NSDictionary * dic = obj;
                 [[NSUserDefaults standardUserDefaults] setObject:Token forKey:@"token"];
                 
-        if ([dic[@"result"] isEqualToString:@"ok"]) {
-            [ZP_LoginTool getAccountInfo:Token success:^(id obj) {
-                NSDictionary * tempDic = obj;
-                if (tempDic.allKeys.count > 1) {
-                    NSDictionary * asdic = @{@"address":tempDic[@"address"],@"aid":tempDic[@"aid"],@"avatarimg":tempDic[@"avatarimg"],@"countrycode":tempDic[@"countrycode"],@"email":tempDic[@"email"],@"nickname":tempDic[@"nickname"],@"phone":tempDic[@"phone"],@"realname":tempDic[@"realname"],@"sex":tempDic[@"sex"],@"state":tempDic[@"state"]};
-                    [[NSUserDefaults standardUserDefaults] setObject:asdic forKey:@"userInfo"];
+                if ([dic[@"result"] isEqualToString:@"ok"]) {
+                    [ZP_LoginTool getAccountInfo:Token success:^(id obj) {
+                        NSDictionary * tempDic = obj;
+                        if (tempDic.allKeys.count > 1) {
+                            NSDictionary * asdic = @{@"address":tempDic[@"address"],@"aid":tempDic[@"aid"],@"avatarimg":tempDic[@"avatarimg"],@"countrycode":tempDic[@"countrycode"],@"email":tempDic[@"email"],@"nickname":tempDic[@"nickname"],@"phone":tempDic[@"phone"],@"realname":tempDic[@"realname"],@"sex":tempDic[@"sex"],@"state":tempDic[@"state"]};
+                            [[NSUserDefaults standardUserDefaults] setObject:asdic forKey:@"userInfo"];
+                        }
+                        if (success) {
+                            success(nil);
+                        }
+                    } failure:^(NSError *error) {
+                        if (success) {
+                            success(nil);
+                        }
+                        NSLog(@"%@",error);
+                    }];
                 }
-        if (success) {
-             success(nil);
-            }
-        } failure:^(NSError *error) {
-        if (success) {
-            success(nil);
-            }
-            NSLog(@"%@",error);
-         }];
-        }
-       } failure:^(NSError *error) {
-        if (success) {
-            success(nil);
-        }
-        NSLog(@"%@",error);
-      }];
-      } else {
-          if (success) {
-              success(nil);
-            
+            } failure:^(NSError *error) {
+                if (success) {
+                    success(nil);
+                }
+                NSLog(@"%@",error);
+            }];
+        } else {
+            if (success) {
+                success(nil);
+                
             }
         }
     }
@@ -187,7 +185,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
-   
+    
 }
 
 //  个人资料
@@ -271,8 +269,8 @@
         ZPLog(@"%@",error);
         _SdglLayoutConstraint.constant = CGFLOAT_MIN;
         _sdglView.hidden = YES;
-//        _SdglLayoutConstraint.constant = CGFLOAT_MIN;
-//        _sdglView.hidden = YES;
+        //        _SdglLayoutConstraint.constant = CGFLOAT_MIN;
+        //        _sdglView.hidden = YES;
         _XfjlLayoutConstraint.constant = CGFLOAT_MIN;
         _xfjlView.hidden = YES;
     }];
@@ -282,7 +280,7 @@
     if (model.collecedcount == nil) {
         return;
     }else {
-    _CollectionLabel.text = [NSString stringWithFormat:@"%@",model.collecedcount];
+        _CollectionLabel.text = [NSString stringWithFormat:@"%@",model.collecedcount];
     }
     if (model.historycount == nil) {
         return;
@@ -381,8 +379,8 @@
     } failure:^(NSError * error) {
         _SdglLayoutConstraint.constant = CGFLOAT_MIN;
         _sdglView.hidden = YES;
-//        _SdglLayoutConstraint.constant = CGFLOAT_MIN;
-//        _sdglView.hidden = YES;
+        //        _SdglLayoutConstraint.constant = CGFLOAT_MIN;
+        //        _sdglView.hidden = YES;
         _XfjlLayoutConstraint.constant = CGFLOAT_MIN;
         _xfjlView.hidden = YES;
         ZPLog(@"%@",error);
@@ -404,9 +402,9 @@
     self.xfjlView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
     self.xfjlView.layer.shadowOffset = CGSizeMake(0, 0);
     self.xfjlView.layer.shadowOpacity = 0.3;
-//    self.zxxxView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
-//    self.zxxxView.layer.shadowOffset = CGSizeMake(0, 0);
-//    self.zxxxView.layer.shadowOpacity = 0.3;
+    //    self.zxxxView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+    //    self.zxxxView.layer.shadowOffset = CGSizeMake(0, 0);
+    //    self.zxxxView.layer.shadowOpacity = 0.3;
     self.scanView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
     self.scanView.layer.shadowOffset = CGSizeMake(0, 0);
     self.scanView.layer.shadowOpacity = 0.3;
@@ -468,15 +466,15 @@
 
 // 申请开店
 - (IBAction)sskdAction:(id)sender {
-        Supplier1ViewController * Supplier = [[Supplier1ViewController alloc]init];
-        Supplier.stausType = self.RequestStatusStr.integerValue;
-        Supplier.reason = self.reason;
+    Supplier1ViewController * Supplier = [[Supplier1ViewController alloc]init];
+    Supplier.stausType = self.RequestStatusStr.integerValue;
+    Supplier.reason = self.reason;
     ZPLog(@"%ld -- %ld",Supplier.stausType,self.RequestStatusStr.integerValue);
-        [self.navigationController pushViewController:Supplier animated:YES];
-        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
-        self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
-    }
- 
+    [self.navigationController pushViewController:Supplier animated:YES];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
+    self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
+}
+
 //}
 
 

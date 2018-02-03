@@ -39,8 +39,8 @@
     self.title = NSLocalizedString(@"ICUE快速登錄", nil);
     [self ButStatusAttribute];
     self.QuickLoginscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐
-//    _LoginBtn.layer.cornerRadius             = 8.0;
-//    _LoginBtn.layer.masksToBounds            = YES;
+    //    _LoginBtn.layer.cornerRadius             = 8.0;
+    //    _LoginBtn.layer.masksToBounds            = YES;
     self.ZPEmailTextField.textField.keyboardType = UIKeyboardTypeASCIICapable;
     self.ZPPswTextField.showBtn                  = NO;
     self.ZPPswTextField.showEyeBtn               = YES;
@@ -67,11 +67,11 @@
 - (IBAction)LoginClick:(id)sender {
     if (_ZPEmailTextField.textField.text.length < 1) {
         [SVProgressHUD showInfoWithStatus:@"邮箱不能为空"];
-         return;
+        return;
     }
     if (_ZPPswTextField.textField.text.length < 1) {
-      [SVProgressHUD showInfoWithStatus:@"密码不能为空"];
-         return;
+        [SVProgressHUD showInfoWithStatus:@"密码不能为空"];
+        return;
     }
     if (!_ProtocolBut.selected) {
         [SVProgressHUD showInfoWithStatus:@"请选择同意用户协议协议"];
@@ -80,9 +80,9 @@
     }
     
     _LoginBtn.userInteractionEnabled = NO;
-
+    
     [SVProgressHUD showWithStatus:@"正在登录。。。"];
-
+    
     [self AllData];
     ZPLog(@"数据");
 }
@@ -91,7 +91,7 @@
 //  数据 ICUE登入（如返回首次登入则调用55再请求）
 - (void)AllData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-
+    
     dic[@"acc"] = [_ZPEmailTextField.textField.text stringByReplacingOccurrencesOfString:@" " withString:@""]; // 防止輸入帶有空格
     dic[@"pwd"] = [_ZPPswTextField.textField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     [ZP_LoginTool requesForFirstTimeLogin:dic success:^(id obj) {
@@ -99,12 +99,12 @@
         NSDictionary * adic = obj;
         ZPLog(@"%@",obj);
         //目前不是参数的类型··可能会崩,s
-       
+        
         if ([adic[@"result"]isEqualToString:@"first_login"]) {
-          
+            
             [self getPosttion];  //  调用55的接口
         }else {
-             _LoginBtn.userInteractionEnabled = YES;
+            _LoginBtn.userInteractionEnabled = YES;
             if ([adic[@"result"]isEqualToString:@"ok"]) {
                 Token = obj[@"token"];
                 ZPICUEToken = obj[@"icuetoken"];
@@ -114,33 +114,33 @@
                 [[NSUserDefaults standardUserDefaults] setObject:obj[@"countrycode"] forKey:@"countrycode"];  // 国别缓存本地
                 [[NSUserDefaults standardUserDefaults] synchronize];  // 国别缓存本地
                 [SVProgressHUD showSuccessWithStatus:@"登錄成功!"];
-              
+                
                 [self.navigationController popToRootViewControllerAnimated:YES];
-        }else
-            if ([adic[@"result"]isEqualToString:@"failure"]) {
-//                [SVProgressHUD showInfoWithStatus:@"登錄失敗"];
-        }else
-            if ([adic[@"result"]isEqualToString:@"acc_pwd_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"賬號或密碼錯誤"];
-        }else
-            if ([adic[@"result"]isEqualToString:@"acc_null_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"賬號為空"];
-        }else
-            if ([adic[@"result"]isEqualToString:@"pwd_null_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"密碼為空"];
-        }else
-            if ([adic[@"result"]isEqualToString:@"sys_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"系統錯誤"];
-        }else
-            if ([adic[@"result"]isEqualToString:@"token_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"token 已存在"];
-
-            }
+            }else
+                if ([adic[@"result"]isEqualToString:@"failure"]) {
+                    //                [SVProgressHUD showInfoWithStatus:@"登錄失敗"];
+                }else
+                    if ([adic[@"result"]isEqualToString:@"acc_pwd_err"]) {
+                        [SVProgressHUD showInfoWithStatus:@"賬號或密碼錯誤"];
+                    }else
+                        if ([adic[@"result"]isEqualToString:@"acc_null_err"]) {
+                            [SVProgressHUD showInfoWithStatus:@"賬號為空"];
+                        }else
+                            if ([adic[@"result"]isEqualToString:@"pwd_null_err"]) {
+                                [SVProgressHUD showInfoWithStatus:@"密碼為空"];
+                            }else
+                                if ([adic[@"result"]isEqualToString:@"sys_err"]) {
+                                    [SVProgressHUD showInfoWithStatus:@"系統錯誤"];
+                                }else
+                                    if ([adic[@"result"]isEqualToString:@"token_err"]) {
+                                        [SVProgressHUD showInfoWithStatus:@"token 已存在"];
+                                        
+                                    }
         }
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-           _LoginBtn.userInteractionEnabled = YES;
-//        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
+        _LoginBtn.userInteractionEnabled = YES;
+        //        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
     }];
 }
 //  调用55的接口
@@ -154,7 +154,7 @@
     dict[@"acc"] = _ZPEmailTextField.textField.text;
     dict[@"pwd"] = _ZPPswTextField.textField.text;
     dict[@"countrycode"] = CountCode;
-
+    
     [ZP_LoginTool requsetICUELogin:dict success:^(id obj) {
         NSDictionary * adic = obj;
         ZPLog(@"%@",obj);
@@ -173,31 +173,31 @@
                 [SVProgressHUD showSuccessWithStatus:@"登錄成功!"];
                 [self.navigationController popToRootViewControllerAnimated:YES];
                 
-        }else {
-            if ([adic[@"result"]isEqualToString:@"failure"]) {
-                [SVProgressHUD showInfoWithStatus:@"登錄失敗"];
-        }else {
-            if ([adic[@"result"]isEqualToString:@"country_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"國家編碼錯誤"];
-        }else {
-            if ([adic[@"result"]isEqualToString:@"acc_null_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"賬號為空"];
-        }else {
-            if ([adic[@"result"]isEqualToString:@"pwd_null_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"密碼為空"];
-        }else {
-            if ([adic[@"result"]isEqualToString:@"sys_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"系統錯誤"];
-        }else {
-            if ([adic[@"result"]isEqualToString:@"token_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"token 已存在"];
-    
-        }else {
-            if ([dict[@"result"]isEqualToString:@"isnot_agent"]) {
-                [SVProgressHUD showInfoWithStatus:@"账号非代理商"];
-                
-                                     }
-                                   }
+            }else {
+                if ([adic[@"result"]isEqualToString:@"failure"]) {
+                    [SVProgressHUD showInfoWithStatus:@"登錄失敗"];
+                }else {
+                    if ([adic[@"result"]isEqualToString:@"country_err"]) {
+                        [SVProgressHUD showInfoWithStatus:@"國家編碼錯誤"];
+                    }else {
+                        if ([adic[@"result"]isEqualToString:@"acc_null_err"]) {
+                            [SVProgressHUD showInfoWithStatus:@"賬號為空"];
+                        }else {
+                            if ([adic[@"result"]isEqualToString:@"pwd_null_err"]) {
+                                [SVProgressHUD showInfoWithStatus:@"密碼為空"];
+                            }else {
+                                if ([adic[@"result"]isEqualToString:@"sys_err"]) {
+                                    [SVProgressHUD showInfoWithStatus:@"系統錯誤"];
+                                }else {
+                                    if ([adic[@"result"]isEqualToString:@"token_err"]) {
+                                        [SVProgressHUD showInfoWithStatus:@"token 已存在"];
+                                        
+                                    }else {
+                                        if ([dict[@"result"]isEqualToString:@"isnot_agent"]) {
+                                            [SVProgressHUD showInfoWithStatus:@"账号非代理商"];
+                                            
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -219,31 +219,31 @@
 - (void)PositionallData {
     
     [ZP_HomeTool requesPosition:nil success:^(id obj) {
-           _LoginBtn.userInteractionEnabled = YES;
+        _LoginBtn.userInteractionEnabled = YES;
         NSArray * arr = [ZP_PositionModel arrayWithArray:obj];
         PositionView * position = [[PositionView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)];
         [position Position:arr];
         position.ThirdBlock = ^(NSString *ContStr,NSNumber *code) {
             CountCode = code;
 #pragma make -- 提示框
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"地區一旦設置成功將無法更改！",nil) preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"地區一旦設置成功將無法更改！",nil) preferredStyle:UIAlertControllerStyleAlert];
             
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
-        }];
-    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-        // 接口55
-        [self ForFirstTimeLogin];
             }];
-    [alert addAction:defaultAction];
-    [alert addAction:cancelAction];
-    [self presentViewController:alert animated:YES completion:nil];
+            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                // 接口55
+                [self ForFirstTimeLogin];
+            }];
+            [alert addAction:defaultAction];
+            [alert addAction:cancelAction];
+            [self presentViewController:alert animated:YES completion:nil];
             
         };
         //  显示
         [position showInView:self.navigationController.view];
     } failure:^(NSError *error) {
-           _LoginBtn.userInteractionEnabled = YES;
+        _LoginBtn.userInteractionEnabled = YES;
         [SVProgressHUD showInfoWithStatus:@"網路連接失敗"];
     }];
 }

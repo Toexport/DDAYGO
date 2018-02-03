@@ -52,7 +52,7 @@
 - (IBAction)buildingAction:(id)sender {
 #pragma make -- 提示框
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"ICUE账号一旦绑定后将无法更改，您确定要绑定此ICUE账号吗？",nil) preferredStyle:UIAlertControllerStyleAlert];
-
+    
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         ZPLog(@"取消");
     }];
@@ -82,43 +82,43 @@
             if ([dic[@"result"]isEqualToString:@"icue_err"]) {
                 ZPLog(@"icue_err：icue號已被綁定");
                 [SVProgressHUD showInfoWithStatus:@"ICUE號已被綁定"];
-        }else
-            if ([dic[@"result"]isEqualToString:@"sys_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"服務器連接至火星"];
-                ZPLog(@"sys_err：系统错误");
-        }else
-            if ([dic[@"result"]isEqualToString:@"inter_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"服務器連接至火星"];
-                ZPLog(@"inter_err：网络错误");
-        }else
-            if ([dic[@"result"]isEqualToString:@"acc_pwd_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"賬號或密碼錯誤"];
-                ZPLog(@"acc_pwd_err：账号密码错误");
-        }else
-            if ([dic[@"result"]isEqualToString:@"invalid_user"]) {
-                [SVProgressHUD showInfoWithStatus:@"無效的賬戶"];
-                ZPLog(@"invalid_user:无效的账户");
-        }else
-            if ([dic[@"result"]isEqualToString:@"black_account"]) {
-                [SVProgressHUD showInfoWithStatus:@"黑名單用戶"];
-                ZPLog(@"black_account：黑名单用户");
-        }else
-            if ([dic[@"result"]isEqualToString:@"account_notexist"]) {
-                [SVProgressHUD showInfoWithStatus:@"賬戶不存在"];
-                ZPLog(@"account_notexist：账户不存在");
-        }else
-            if ([dic[@"result"]isEqualToString:@"permission_denied"]) {
-                [SVProgressHUD showInfoWithStatus:@"無權限"];
-                ZPLog(@"permission_denied：无权限");
-        }else
-            if ([dic[@"result"]isEqualToString:@"invalid_db_request"]) {
-                [SVProgressHUD showInfoWithStatus:@"服務器連接至火星"];
-                ZPLog(@"invalid_db_request:数据库请求错误");
-        }else
-            if ([dic[@"result"]isEqualToString:@"internal_error"]) {
-                [SVProgressHUD showInfoWithStatus:@"服務器連接至火星"];
-                ZPLog(@"internal_error：内部错误");
-      }
+            }else
+                if ([dic[@"result"]isEqualToString:@"sys_err"]) {
+                    [SVProgressHUD showInfoWithStatus:@"服務器連接至火星"];
+                    ZPLog(@"sys_err：系统错误");
+                }else
+                    if ([dic[@"result"]isEqualToString:@"inter_err"]) {
+                        [SVProgressHUD showInfoWithStatus:@"服務器連接至火星"];
+                        ZPLog(@"inter_err：网络错误");
+                    }else
+                        if ([dic[@"result"]isEqualToString:@"acc_pwd_err"]) {
+                            [SVProgressHUD showInfoWithStatus:@"賬號或密碼錯誤"];
+                            ZPLog(@"acc_pwd_err：账号密码错误");
+                        }else
+                            if ([dic[@"result"]isEqualToString:@"invalid_user"]) {
+                                [SVProgressHUD showInfoWithStatus:@"無效的賬戶"];
+                                ZPLog(@"invalid_user:无效的账户");
+                            }else
+                                if ([dic[@"result"]isEqualToString:@"black_account"]) {
+                                    [SVProgressHUD showInfoWithStatus:@"黑名單用戶"];
+                                    ZPLog(@"black_account：黑名单用户");
+                                }else
+                                    if ([dic[@"result"]isEqualToString:@"account_notexist"]) {
+                                        [SVProgressHUD showInfoWithStatus:@"賬戶不存在"];
+                                        ZPLog(@"account_notexist：账户不存在");
+                                    }else
+                                        if ([dic[@"result"]isEqualToString:@"permission_denied"]) {
+                                            [SVProgressHUD showInfoWithStatus:@"無權限"];
+                                            ZPLog(@"permission_denied：无权限");
+                                        }else
+                                            if ([dic[@"result"]isEqualToString:@"invalid_db_request"]) {
+                                                [SVProgressHUD showInfoWithStatus:@"服務器連接至火星"];
+                                                ZPLog(@"invalid_db_request:数据库请求错误");
+                                            }else
+                                                if ([dic[@"result"]isEqualToString:@"internal_error"]) {
+                                                    [SVProgressHUD showInfoWithStatus:@"服務器連接至火星"];
+                                                    ZPLog(@"internal_error：内部错误");
+                                                }
     } failure:^(NSError * error) {
         
     }];

@@ -36,16 +36,16 @@
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-//    self.BinDing.layer.cornerRadius = 8.0;
-//    self.BinDing.layer.masksToBounds = YES;
+    //    self.BinDing.layer.cornerRadius = 8.0;
+    //    self.BinDing.layer.masksToBounds = YES;
     self.ZPEmailTextFiled.textField.keyboardType = UIKeyboardTypeEmailAddress;
     self.ZPEmailTextFiled.textField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
-//    [_ZPCodeTextField.functionBtn addTarget:self action:@selector(getMSNCode) forControlEvents:UIControlEventTouchUpInside];
-//    _ZPCodeTextField.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    //    [_ZPCodeTextField.functionBtn addTarget:self action:@selector(getMSNCode) forControlEvents:UIControlEventTouchUpInside];
+    //    _ZPCodeTextField.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
-//    _ZPPswTextField.showBtn                    = NO;
-//    _ZPPswTextField.showEyeBtn                 = YES;
-//    [_ZPPswTextField.functionBtn addTarget:self action:@selector(secureTextEntry) forControlEvents:UIControlEventTouchUpInside];
+    //    _ZPPswTextField.showBtn                    = NO;
+    //    _ZPPswTextField.showEyeBtn                 = YES;
+    //    [_ZPPswTextField.functionBtn addTarget:self action:@selector(secureTextEntry) forControlEvents:UIControlEventTouchUpInside];
 }
 
 // 按钮状态属性
@@ -71,19 +71,19 @@
         return;
     }
     
-//    if (_ZPCodeTextField.textField.text.length < 1) {
-//        [SVProgressHUD showInfoWithStatus:@"验证码不能为空"];
-//        ZPLog(@"请输入验证码");
-//        return;
-//    }
-//    if (![_ZPCodeTextField.textField.text isEqualToString:_codeStr]) {
-//        [SVProgressHUD showInfoWithStatus:@"请输入正确验证码"];
-//        NSLog(@"请输入正确验证码");
-//        return;
-//    }
+    //    if (_ZPCodeTextField.textField.text.length < 1) {
+    //        [SVProgressHUD showInfoWithStatus:@"验证码不能为空"];
+    //        ZPLog(@"请输入验证码");
+    //        return;
+    //    }
+    //    if (![_ZPCodeTextField.textField.text isEqualToString:_codeStr]) {
+    //        [SVProgressHUD showInfoWithStatus:@"请输入正确验证码"];
+    //        NSLog(@"请输入正确验证码");
+    //        return;
+    //    }
     [SVProgressHUD showWithStatus:@"请稍后..."];
     [self allData]; // 数据
-//    ZPLog(@"----");
+    //    ZPLog(@"----");
 }
 
 // 绑定邮箱数据
@@ -99,29 +99,29 @@
         }else
             if ([obj[@"result"]isEqualToString:@"token_err"]) {
                 [SVProgressHUD showInfoWithStatus:@"令牌無效"];
-        }else
-            if ([obj[@"result"]isEqualToString:@"emailverify_null_er"]) {
-                [SVProgressHUD showInfoWithStatus:@"郵箱地址為空"];
-        }else
-            if ([obj[@"result"]isEqualToString:@"emailverify_format_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"郵箱地址格式錯誤"];
+            }else
+                if ([obj[@"result"]isEqualToString:@"emailverify_null_er"]) {
+                    [SVProgressHUD showInfoWithStatus:@"郵箱地址為空"];
+                }else
+                    if ([obj[@"result"]isEqualToString:@"emailverify_format_err"]) {
+                        [SVProgressHUD showInfoWithStatus:@"郵箱地址格式錯誤"];
                         
-        }else
-            if ([obj[@"result"]isEqualToString:@"emailverify_exist_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"郵箱地址也被綁定"];
-                
-        }else
-            if ([obj[@"result"]isEqualToString:@"failed_send_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"郵箱發送失敗"];
+                    }else
+                        if ([obj[@"result"]isEqualToString:@"emailverify_exist_err"]) {
+                            [SVProgressHUD showInfoWithStatus:@"郵箱地址也被綁定"];
+                            
+                        }else
+                            if ([obj[@"result"]isEqualToString:@"failed_send_err"]) {
+                                [SVProgressHUD showInfoWithStatus:@"郵箱發送失敗"];
                                 
-        }else
-            if ([obj[@"result"]isEqualToString:@"failed"]) {
-                [SVProgressHUD showInfoWithStatus:@"操作失敗"];
-        }
+                            }else
+                                if ([obj[@"result"]isEqualToString:@"failed"]) {
+                                    [SVProgressHUD showInfoWithStatus:@"操作失敗"];
+                                }
         
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-//        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
+        //        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
     }];
 }
 

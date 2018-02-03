@@ -33,13 +33,13 @@
             self.title = NSLocalizedString(@"服務條款", nil);
             [self.view addSubview: webView];
             [webView loadRequest:request];
-    }else
-        if (self.type == 333) {
-            NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/other/exchange"]];
-            self.title = NSLocalizedString(@"退換貨流程", nil);
-            [self.view addSubview: webView];
-            [webView loadRequest:request];
-    }
+        }else
+            if (self.type == 333) {
+                NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/other/exchange"]];
+                self.title = NSLocalizedString(@"退換貨流程", nil);
+                [self.view addSubview: webView];
+                [webView loadRequest:request];
+            }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

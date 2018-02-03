@@ -16,7 +16,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-      [self viewSetup];
+        [self viewSetup];
     }
     return self;
 }
@@ -34,7 +34,7 @@
 -(void)viewSetup {
     _titleLabel = [[UILabel alloc] init];
     _titleLabel.text = @"標題";
-//    _titleLabel.textColor = [UIColor colorWithHexString:fontGrey];
+    //    _titleLabel.textColor = [UIColor colorWithHexString:fontGrey];
     [_titleLabel setFont:ZP_addBtnTextdetaFont];
     [self addSubview:_titleLabel];
     _titleLabel.hidden = YES;
@@ -43,7 +43,7 @@
     _textField.secureTextEntry = NO;
     _textField.borderStyle = UITextBorderStyleNone;
     _textField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
-//    _textField.textColor = [UIColor colorWithHexString:mainFont];
+    //    _textField.textColor = [UIColor colorWithHexString:mainFont];
     [_textField setFont:ZP_addBtnTextdetaFont];
     [self addSubview:_textField];
     
@@ -55,7 +55,7 @@
     {
         [_functionBtn setTitle:_btnTitle forState:UIControlStateNormal];
     }
-
+    
     _functionBtn.titleLabel.font = ZP_addBtnTextdetaFont;
     [_functionBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_functionBtn setBackgroundColor:[UIColor colorWithHexString:@"#fda855"]];
@@ -68,8 +68,8 @@
     [self addSubview:line];
     
     
-//    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
-//    self.layer.borderWidth = 1;
+    //    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    //    self.layer.borderWidth = 1;
     
     _titleLabel.sd_layout
     .leftSpaceToView(self,10)
@@ -88,7 +88,7 @@
     .heightRatioToView(self,1)
     .topSpaceToView(self,-8)
     .widthIs(80);
-
+    
     
     line.sd_layout
     .leftSpaceToView(self, 0)

@@ -31,7 +31,7 @@
     self.title = NSLocalizedString(@"Login", nil) ;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
-//    self.LoginscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐藏
+    //    self.LoginscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐藏
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
@@ -43,8 +43,8 @@
 }
 // UI
 - (void)initUI {
-//    _LoginBtn.layer.cornerRadius             = 8.0;
-//    _LoginBtn.layer.masksToBounds            = YES;
+    //    _LoginBtn.layer.cornerRadius             = 8.0;
+    //    _LoginBtn.layer.masksToBounds            = YES;
     [self ButStatusAttribute];
     self.ZPEmailTextField.textField.keyboardType =  UIKeyboardTypeASCIICapable;
     self.ZPPswTextField.textField.keyboardType = UIKeyboardTypeDefault;
@@ -87,47 +87,47 @@
     dic[@"email"] = [self.ZPEmailTextField.textField.text stringByReplacingOccurrencesOfString:@" " withString:@""]; // 防止輸入帶有空格
     dic[@"pwd"] = [self md5:self.ZPPswTextField.textField.text];
     dic[@"countrycode"] = CountCode;
-//    NSLog(@"count %@",CountCode);
+    //    NSLog(@"count %@",CountCode);
     [[NSUserDefaults standardUserDefaults] setObject:dic forKey:@"loginData"];
     [ZP_LoginTool requestLogin:dic success:^(id obj) {
         NSLog(@"obj---%@",obj);
-    if ([obj[@"result"]isEqualToString:@"ok"]) {
-        NSDictionary * aadic = obj;
-        Token = aadic[@"token"];
-        [[NSUserDefaults standardUserDefaults] setObject:Token forKey:@"token"];// Token缓存本地
-        [[NSUserDefaults standardUserDefaults] synchronize]; // Token缓存本地
-        [[NSUserDefaults standardUserDefaults] setObject:aadic[@"symbol"] forKey:@"symbol"]; // 台币缓存本地
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        [[NSUserDefaults standardUserDefaults] setObject:aadic[@"result"] forKey:@"result"]; // 是否是供货商
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        [[NSUserDefaults standardUserDefaults] setObject:aadic[@"countrycode"] forKey:@"countrycode"];  // 国别缓存本地
-        [[NSUserDefaults standardUserDefaults] synchronize];  // 国别缓存本地
-        [SVProgressHUD showSuccessWithStatus:@"登錄成功!"];
-        
-        NSArray *array = self.navigationController.viewControllers;
-        if (array.count > 2) {
-            [self.navigationController popToViewController:array[array.count-3] animated:YES];
-        } else {
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        }
-    }else {
-        if ([obj[@"result"]isEqualToString:@"failure"]) {
-            [SVProgressHUD showInfoWithStatus:@"登錄失敗"];
+        if ([obj[@"result"]isEqualToString:@"ok"]) {
+            NSDictionary * aadic = obj;
+            Token = aadic[@"token"];
+            [[NSUserDefaults standardUserDefaults] setObject:Token forKey:@"token"];// Token缓存本地
+            [[NSUserDefaults standardUserDefaults] synchronize]; // Token缓存本地
+            [[NSUserDefaults standardUserDefaults] setObject:aadic[@"symbol"] forKey:@"symbol"]; // 台币缓存本地
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [[NSUserDefaults standardUserDefaults] setObject:aadic[@"result"] forKey:@"result"]; // 是否是供货商
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [[NSUserDefaults standardUserDefaults] setObject:aadic[@"countrycode"] forKey:@"countrycode"];  // 国别缓存本地
+            [[NSUserDefaults standardUserDefaults] synchronize];  // 国别缓存本地
+            [SVProgressHUD showSuccessWithStatus:@"登錄成功!"];
+            
+            NSArray *array = self.navigationController.viewControllers;
+            if (array.count > 2) {
+                [self.navigationController popToViewController:array[array.count-3] animated:YES];
+            } else {
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
         }else {
-            if ([obj[@"result"]isEqualToString:@"acc_pwd_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"賬號或密碼錯誤"];
-        }else {
-            if ([obj[@"result"]isEqualToString:@"acc_null_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"賬號為空"];
-        }else {
-            if ([obj[@"result"]isEqualToString:@"pwd_null_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"密碼為空"];
-        }else {
-            if ([obj[@"result"]isEqualToString:@"sys_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"系統錯誤"];
-        }else {
-            if ([obj[@"result"]isEqualToString:@"token_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"token 已存在"];
+            if ([obj[@"result"]isEqualToString:@"failure"]) {
+                [SVProgressHUD showInfoWithStatus:@"登錄失敗"];
+            }else {
+                if ([obj[@"result"]isEqualToString:@"acc_pwd_err"]) {
+                    [SVProgressHUD showInfoWithStatus:@"賬號或密碼錯誤"];
+                }else {
+                    if ([obj[@"result"]isEqualToString:@"acc_null_err"]) {
+                        [SVProgressHUD showInfoWithStatus:@"賬號為空"];
+                    }else {
+                        if ([obj[@"result"]isEqualToString:@"pwd_null_err"]) {
+                            [SVProgressHUD showInfoWithStatus:@"密碼為空"];
+                        }else {
+                            if ([obj[@"result"]isEqualToString:@"sys_err"]) {
+                                [SVProgressHUD showInfoWithStatus:@"系統錯誤"];
+                            }else {
+                                if ([obj[@"result"]isEqualToString:@"token_err"]) {
+                                    [SVProgressHUD showInfoWithStatus:@"token 已存在"];
                                 }
                             }
                         }
@@ -168,7 +168,7 @@
 -(NSString *)md5:(NSString *)input {
     const char * cStr = [input UTF8String];
     unsigned char digest[CC_MD5_DIGEST_LENGTH];
-//    CC_MD5(cStr, strlen(cStr),digest); // This is the md5 call
+    //    CC_MD5(cStr, strlen(cStr),digest); // This is the md5 call
     CC_MD5(cStr, (CC_LONG)strlen(cStr),digest); // This is the md5 call
     NSMutableString * output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH *2];
     for (int i = 0; i<CC_MD5_DIGEST_LENGTH; i ++) {

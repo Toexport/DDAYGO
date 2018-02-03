@@ -32,7 +32,7 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"FootprintCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"FootprintCollectionViewCell"];
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-//    self.collectionView.alwaysBounceVertical = YES;
+    //    self.collectionView.alwaysBounceVertical = YES;
     [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
         self.NoDataView = response;
         [self.collectionView reloadData];
@@ -115,7 +115,7 @@
         if (self.NoDataView) {
             self.collectionView.hidden = YES;
             self.NoDataView.hidden = NO;
-    }
+        }
         return 0;
     }
 }
@@ -140,7 +140,7 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-     ZP_FootprintModel1 *model = self.newsData[indexPath.row];
+    ZP_FootprintModel1 *model = self.newsData[indexPath.row];
     BuyViewController * ByView = [[BuyViewController alloc]init];
     ByView.productId = model.productid;
     [self.navigationController pushViewController:ByView animated:YES];

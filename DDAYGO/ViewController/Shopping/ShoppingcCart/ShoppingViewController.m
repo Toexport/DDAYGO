@@ -114,7 +114,7 @@
                 UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                     ZPLog(@"取消");
-
+                    
                 }];
                 UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                     [self.navigationController popToRootViewControllerAnimated:NO];
@@ -176,7 +176,7 @@
                 [self.tableView reloadData];
             }
         }
-      [self.tableView.mj_header endRefreshing];  // 結束刷新
+        [self.tableView.mj_header endRefreshing];  // 結束刷新
     } failure:^(NSError *error) {
         [self loading];
     }];
@@ -210,7 +210,7 @@
             [SVProgressHUD showErrorWithStatus:@"库存不足"];
         }
         [self allData];
-//        [self.tableView reloadData];
+        //        [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];  // 結束刷新
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
@@ -385,7 +385,7 @@
 
 
 - (void)updateData:(NSInteger)tag {
-//   更新选中数量
+    //   更新选中数量
     _stockids = nil;
     _modelstockid = nil;
     NSInteger count = 0;
@@ -432,16 +432,16 @@
         }
     }
     
-//每组的button
+    //每组的button
     UIButton * but = [self.view viewWithTag:666 +section];
-//每组全选
+    //每组全选
     if (count == models.array.count) {
         but.selected = YES;
     } else {
         but.selected = NO;
     }
     
-//   更新合计数据
+    //   更新合计数据
     self.PriceLabel.text = [@(data) stringValue];
     if (_bjBool) {
         [self.ClearingButt setTitle:@"删除" forState: UIControlStateNormal];
@@ -454,7 +454,7 @@
 }
 
 - (void)updateDataa:(NSInteger)tag {
-//  更新选中数量
+    //  更新选中数量
     _stockids = nil;
     _modelstockid = nil;
     NSInteger count = 0;
@@ -504,7 +504,7 @@
         self.Shopchoosebuttom.selected = NO;
     }
     
-//   更新合计数据
+    //   更新合计数据
     self.PriceLabel.text = [@(data) stringValue];
     if (_bjBool) {
         [self.ClearingButt setTitle:@"删除" forState: UIControlStateNormal];
@@ -546,7 +546,7 @@
                 self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
                 self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
             }
-       }
+        }
     }else {
         [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"You have not selected goods ", nil)];
         ZPLog(@"没选选中，不跳");
@@ -560,7 +560,7 @@
 
 //删除按钮（删除接口）
 - (void) shangchuBut:(UIButton *)but {
-//   响应事件
+    //   响应事件
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"stockid"] = _modelstockid;
     dic[@"token"] = Token;
@@ -572,7 +572,7 @@
             if ([obj[@"result"]isEqualToString:@"failure"]) {
                 [SVProgressHUD showInfoWithStatus:@"删除失敗"];
             }
-
+        
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
     }];
@@ -605,7 +605,7 @@
                 if (cell.button.selected ) {
                     
                 }else{
-
+                    
                 }
             }
         }
@@ -694,7 +694,7 @@
         [cell cellWithModel:model];
         cell.btnClickBlock = ^(NSString *str) {
             [_selectArray replaceObjectAtIndex:indexPath.row withObject:str];
-           ZPLog(@"shu liang = %@",str); //这个就是数量
+            ZPLog(@"shu liang = %@",str); //这个就是数量
             _numstr = str;
             _cardid = model.cartid;
             ZPLog(@"- num = %@,cardid = %@",_numstr,_cardid);
@@ -726,12 +726,12 @@
 #pragma mark -- 表头选中
 - (void)sectionShop:(UIButton *)but{
     
-// 更新选中数量
+    // 更新选中数量
     NSInteger count = 0;
     NSInteger data = 0;
     NSInteger dataCount = 0;
     but.selected = !but.selected;
-//全选选中
+    //全选选中
     if (but.selected) {
         ZP_CartsShopModel * models = self.nameArray[but.tag - 666];
         if (!_bjBool) {
@@ -833,7 +833,7 @@
                 NSLog(@"%@",error);
             }];
         }];
-//也可以设置图片
+        //也可以设置图片
         deleteAction.backgroundColor = [UIColor redColor];
         UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration configurationWithActions:@[deleteAction]];
         return config;
@@ -1011,10 +1011,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ZPLog(@"%ld",indexPath.row);
-//    BuyViewController * ByView = [[BuyViewController alloc]init];
-//    ByView.productId = model.productid;
-//    [self.navigationController pushViewController:ByView animated:YES];
-
+    //    BuyViewController * ByView = [[BuyViewController alloc]init];
+    //    ByView.productId = model.productid;
+    //    [self.navigationController pushViewController:ByView animated:YES];
+    
 }
 
 //  加载数据

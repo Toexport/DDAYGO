@@ -20,7 +20,7 @@
 }
 
 - (void)initUI {
-//  订单号
+    //  订单号
     ZP_GeneralLabel * OrderLabel = [ZP_GeneralLabel initWithtextLabel:_OrderLabel.text textColor:ZP_textblack font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:nil];
     OrderLabel.text = NSLocalizedString(@"訂單號:", nil);
     [self.contentView addSubview:OrderLabel];
@@ -30,7 +30,7 @@
     }];
     _OrderLabel = OrderLabel;
     
-//  ID号
+    //  ID号
     ZP_GeneralLabel * IDLabel = [ZP_GeneralLabel initWithtextLabel:_IDLabel.text textColor:ZP_textblack font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self.contentView addSubview:IDLabel];
     [IDLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -39,7 +39,7 @@
     }];
     _IDLabel = IDLabel;
     
-//  日期
+    //  日期
     ZP_GeneralLabel * DateLabel = [ZP_GeneralLabel initWithtextLabel:_DateLabel.text textColor:ZP_textblack font:ZP_introduceFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self.contentView addSubview:DateLabel];
     [DateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -48,7 +48,7 @@
     }];
     _DateLabel = DateLabel;
     
-//    删除订单按钮
+    //    删除订单按钮
     UIButton * DeleteBut = [UIButton buttonWithType:UIButtonTypeSystem];
     [DeleteBut setBackgroundImage:[UIImage imageNamed:@"ic_footprint_delete_normal"] forState:UIControlStateNormal];
     //    [DeleteBut addTarget:self action:@selector(DeleteBut:) forControlEvents:UIControlEventTouchUpInside];
@@ -61,7 +61,7 @@
     }];
     _DeleteBut = DeleteBut;
     
-//  交易状态
+    //  交易状态
     ZP_GeneralLabel * TradingLabel = [ZP_GeneralLabel initWithtextLabel:_TradingLabel.text textColor:ZP_typefaceOrangeColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:nil];
     [self.contentView addSubview:TradingLabel];
     [TradingLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -80,7 +80,7 @@
         case 0:
             break;
         case 1:
-           _TradingLabel.text = @"待付款";
+            _TradingLabel.text = @"待付款";
             _DeleteBut.hidden = NO;
             break;
         case 2:

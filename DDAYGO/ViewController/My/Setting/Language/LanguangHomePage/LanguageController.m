@@ -49,7 +49,7 @@
 
 // 完成按钮
 - (void)CompleteBut:(UIButton *)sender {
-
+    
     int a = 0;
     for (int i = 0; i < self.TitleArray.count; i ++ ) {
         UITableViewCell * cell = [self.tableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
@@ -69,7 +69,7 @@
             [self changeLanguageTo:@"zh-Hans"];
             break;
         case 3:
-             [self changeLanguageTo:@"zh-Hant"];
+            [self changeLanguageTo:@"zh-Hant"];
             break;
         default:
             break;
@@ -78,19 +78,19 @@
 
 // 语言设置
 - (void)changeLanguageTo:(NSString *)language {
-//  设置语言
+    //  设置语言
     [NSBundle setLanguage:language];
-
-//  然后将设置好的语言存储好，下次进来直接加载
+    
+    //  然后将设置好的语言存储好，下次进来直接加载
     [[NSUserDefaults standardUserDefaults] setObject:language forKey:@"Language"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-
-//  我们要把系统windown的rootViewController替换掉
+    
+    //  我们要把系统windown的rootViewController替换掉
     MainViewController * tabBar = [[MainViewController alloc] init];
     [UIApplication sharedApplication].keyWindow.rootViewController = tabBar;
-//  跳转到设置页
+    //  跳转到设置页
     tabBar.selectedIndex = 4;
-//    [self.navigationController popViewControllerAnimated:YES];
+    //    [self.navigationController popViewControllerAnimated:YES];
 }
 
 //适当的位置移除通知
@@ -113,7 +113,7 @@
     }
     cell.textLabel.text = self.TitleArray[indexPath.row];
     cell.textLabel.font = ZP_TooBarFont;
-//    [self.tableview deselectRowAtIndexPath:indexPath animated:YES]; // 点击cell时，让某行cell的选中状态消失
+    //    [self.tableview deselectRowAtIndexPath:indexPath animated:YES]; // 点击cell时，让某行cell的选中状态消失
     
     return cell;
 }
@@ -126,14 +126,13 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     return 45;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    //这里写你的选中颜色 
+    //这里写你的选中颜色
     NSIndexPath *oldIndex = [tableView indexPathForSelectedRow];
     [tableView cellForRowAtIndexPath:oldIndex].accessoryType = UITableViewCellAccessoryNone;
     [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;

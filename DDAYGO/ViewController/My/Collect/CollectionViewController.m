@@ -68,9 +68,9 @@
     dic[@"screen"] = @1;
     [ZP_MyTool requestgetcollections:dic success:^(id json) {
         ZPLog(@"%@",json);
-    _dataArray = [collectionModel arrayWithArray:json[@"list"]];
-    [self.tableView.mj_header endRefreshing];
-    [self.tableView reloadData];
+        _dataArray = [collectionModel arrayWithArray:json[@"list"]];
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
     } failure:^(NSError *error) {
         ZPLog(@"error");
     }];
@@ -90,7 +90,7 @@
         }else
             if ([obj[@"result"]isEqualToString:@"failure"]) {
                 [SVProgressHUD showInfoWithStatus:@"操作失败"];
-        }
+            }
     } failure:^(NSError *error) {
         NSLog(@"error %@",error);
     }];
@@ -113,14 +113,14 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-   collectionModel * model = _dataArray[indexPath.row];
+    collectionModel * model = _dataArray[indexPath.row];
     CollectionTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CollectionTableViewCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
     cell.CollectionBut.tag = indexPath.row;
     [cell.CollectionBut addTarget:self action:@selector(CollectionBut:) forControlEvents:UIControlEventTouchUpInside];
-//    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageTag)];
-//    [cell.ShopimageView addGestureRecognizer:tapGesture];
-//    cell.ShopimageView.userInteractionEnabled = YES;
+    //    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageTag)];
+    //    [cell.ShopimageView addGestureRecognizer:tapGesture];
+    //    cell.ShopimageView.userInteractionEnabled = YES;
     cell.model = model;
     return cell;
 }

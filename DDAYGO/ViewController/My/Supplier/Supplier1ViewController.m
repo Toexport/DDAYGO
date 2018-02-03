@@ -57,7 +57,7 @@
     
     
     // 直接显示的  self.noStoreView.hidden = YES;  self.sendingBtn.hidden = YES;
-
+    
     switch (self.stausType) {
         case -1:
         {
@@ -95,7 +95,7 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"SupplierTableViewCell" bundle:nil] forCellReuseIdentifier:@"SupplierTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"SupplierViewCell2" bundle:nil] forCellReuseIdentifier:@"SupplierViewCell2"];
-
+    
     _array = [NSArray arrayWithObjects:@"公司名稱:",@"統一編號:",@"公司人數:",@"註冊資本:",@"創立日期:",@"組織形態:",@"公司地址:",@"公司電話:",@"公司傳真(選填):",@"公司網址(選填):",@"聯繫人:",@"聯繫人郵箱:",@"聯繫電話:",@"經營項目:",@"合作項目:", nil];
     //这个数组是放 pl 的放进去·对应的放好
     _arrayP = [NSArray arrayWithObjects:@" ",@" ",@"如:50 - 100人",@" ",@"YYYY - MM -DD",@" ",@" ",@" ",@" ",@" ",@"聯繫人/職稱/分機",@" ",@" ",@" ",@" ", nil];
@@ -179,61 +179,61 @@
             }else
                 if ([obj[@"result"]isEqualToString:@"companyname_null_err"]) {
                     [SVProgressHUD showInfoWithStatus:@"公司名称为空"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"companycode_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"請輸入統一編號"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"poeplecount_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"請輸入公司人數"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"capital_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"請輸入註冊資本"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"companydate_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"請輸入創立日期"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"companydate_formart_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"創立日期格式錯誤,之間必須以英文-來分隔"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"address_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"請輸入公司地址"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"phone_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"請輸入公司電話"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"contact_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"請輸入聯繫人"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"contactphone_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"請輸入聯繫人電話"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"contactemail_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"請輸入聯繫人郵箱"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"contactemail_format_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"郵箱格式錯誤"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"companyproduct_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"請輸入經營項目"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"projectinfo_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"請輸入合作項目"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"sup_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"已是供貨商或正在申請供貨商"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"agt_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"已是代理商不能申请供货商"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"cname_er"]) {
-                    [SVProgressHUD showInfoWithStatus:@"公司名稱已存在"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"ccode_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"統一編號已存在"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"sys_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"添加失败"];
-            }
+                }else
+                    if ([obj[@"result"]isEqualToString:@"companycode_null_err"]) {
+                        [SVProgressHUD showInfoWithStatus:@"請輸入統一編號"];
+                    }else
+                        if ([obj[@"result"]isEqualToString:@"poeplecount_null_err"]) {
+                            [SVProgressHUD showInfoWithStatus:@"請輸入公司人數"];
+                        }else
+                            if ([obj[@"result"]isEqualToString:@"capital_null_err"]) {
+                                [SVProgressHUD showInfoWithStatus:@"請輸入註冊資本"];
+                            }else
+                                if ([obj[@"result"]isEqualToString:@"companydate_null_err"]) {
+                                    [SVProgressHUD showInfoWithStatus:@"請輸入創立日期"];
+                                }else
+                                    if ([obj[@"result"]isEqualToString:@"companydate_formart_err"]) {
+                                        [SVProgressHUD showInfoWithStatus:@"創立日期格式錯誤,之間必須以英文-來分隔"];
+                                    }else
+                                        if ([obj[@"result"]isEqualToString:@"address_null_err"]) {
+                                            [SVProgressHUD showInfoWithStatus:@"請輸入公司地址"];
+                                        }else
+                                            if ([obj[@"result"]isEqualToString:@"phone_null_err"]) {
+                                                [SVProgressHUD showInfoWithStatus:@"請輸入公司電話"];
+                                            }else
+                                                if ([obj[@"result"]isEqualToString:@"contact_null_err"]) {
+                                                    [SVProgressHUD showInfoWithStatus:@"請輸入聯繫人"];
+                                                }else
+                                                    if ([obj[@"result"]isEqualToString:@"contactphone_null_err"]) {
+                                                        [SVProgressHUD showInfoWithStatus:@"請輸入聯繫人電話"];
+                                                    }else
+                                                        if ([obj[@"result"]isEqualToString:@"contactemail_null_err"]) {
+                                                            [SVProgressHUD showInfoWithStatus:@"請輸入聯繫人郵箱"];
+                                                        }else
+                                                            if ([obj[@"result"]isEqualToString:@"contactemail_format_err"]) {
+                                                                [SVProgressHUD showInfoWithStatus:@"郵箱格式錯誤"];
+                                                            }else
+                                                                if ([obj[@"result"]isEqualToString:@"companyproduct_null_err"]) {
+                                                                    [SVProgressHUD showInfoWithStatus:@"請輸入經營項目"];
+                                                                }else
+                                                                    if ([obj[@"result"]isEqualToString:@"projectinfo_null_err"]) {
+                                                                        [SVProgressHUD showInfoWithStatus:@"請輸入合作項目"];
+                                                                    }else
+                                                                        if ([obj[@"result"]isEqualToString:@"sup_err"]) {
+                                                                            [SVProgressHUD showInfoWithStatus:@"已是供貨商或正在申請供貨商"];
+                                                                        }else
+                                                                            if ([obj[@"result"]isEqualToString:@"agt_err"]) {
+                                                                                [SVProgressHUD showInfoWithStatus:@"已是代理商不能申请供货商"];
+                                                                            }else
+                                                                                if ([obj[@"result"]isEqualToString:@"cname_er"]) {
+                                                                                    [SVProgressHUD showInfoWithStatus:@"公司名稱已存在"];
+                                                                                }else
+                                                                                    if ([obj[@"result"]isEqualToString:@"ccode_err"]) {
+                                                                                        [SVProgressHUD showInfoWithStatus:@"統一編號已存在"];
+                                                                                    }else
+                                                                                        if ([obj[@"result"]isEqualToString:@"sys_err"]) {
+                                                                                            [SVProgressHUD showInfoWithStatus:@"添加失败"];
+                                                                                        }
         ZPLog(@"%@",obj);
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
@@ -255,7 +255,7 @@
             cell2.TissueMorphologyLabel.text = @"請選擇組織形態";
             
         }
-//        [cell2.SelectBut addTarget:self action:@selector(actBut:) forControlEvents:UIControlEventTouchUpInside];
+        //        [cell2.SelectBut addTarget:self action:@selector(actBut:) forControlEvents:UIControlEventTouchUpInside];
         return cell2;
     }else {
         SupplierTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SupplierTableViewCell"];
@@ -283,26 +283,26 @@
         }
         if (indexPath.row == 3) {
             cell.textField.keyboardType = UIKeyboardTypeNumberPad;
-
+            
         }
         if (indexPath.row == 4) {
             cell.textField.keyboardType = UIKeyboardTypeASCIICapable;
-
+            
         }
         if (indexPath.row == 7) {
             cell.textField.keyboardType = UIKeyboardTypeNumberPad;
-
+            
         }
         if (indexPath.row == 8) {
             cell.textField.keyboardType = UIKeyboardTypeNumberPad;
-
+            
         }
         if (indexPath.row == 9) {
             cell.textField.keyboardType = UIKeyboardTypeASCIICapable;
         }
         
         if (indexPath.row == 10) {
-
+            
         }
         if (indexPath.row == 11) {
             cell.textField.keyboardType = UIKeyboardTypeASCIICapable;
@@ -408,6 +408,6 @@
         _PldataDic = [NSMutableDictionary dictionary];
     }
     return _PldataDic;
-    }
+}
 
 @end

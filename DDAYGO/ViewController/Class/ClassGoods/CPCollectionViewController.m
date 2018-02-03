@@ -55,7 +55,7 @@
     static NSString * Cell = @"cell";
     [_collectionView registerClass:[CPCollectionViewCell class] forCellWithReuseIdentifier:Cell];
     static NSString * reusableView = @"ReusableView";
- [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:reusableView];
+    [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:reusableView];
     //     代理
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
@@ -73,7 +73,7 @@
         str = @"";
     }
     self.newsData = [[NSMutableArray alloc]init];
-//    NSDictionary * dic = @{@"seq":_priceStrTag,@"countrycode":@"886",@"word":str,@"fatherid":_fatherId,@"page":@"1",@"pagesize":@"30"};
+    //    NSDictionary * dic = @{@"seq":_priceStrTag,@"countrycode":@"886",@"word":str,@"fatherid":_fatherId,@"page":@"1",@"pagesize":@"30"};
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"seq"] = _priceStrTag;
     dic[@"countrycode"] = @"886";
@@ -86,7 +86,7 @@
         [SVProgressHUD dismiss];
         NSArray * arr ;
         NSMutableArray *tempArray = [NSMutableArray arrayWithArray:dict[@"datalist"]];
-       arr = [tempArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
+        arr = [tempArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
             ZPLog(@"obj1:%lu--obj2:%lu",[obj1[@"productprice"] longValue],[obj2[@"productprice"] longValue]);
             if ([_priceStrTag isEqualToString:@"desc"]) {
                 if ([obj1[@"productprice"] longValue] > [obj2[@"productprice"] longValue]) {
@@ -169,10 +169,10 @@
 //}
 // 刷新
 - (void)addRefresh {
-//    下拉刷新
+    //    下拉刷新
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsData removeAllObjects];
-           _i = 0;
+        _i = 0;
         [self allData];
     }];
     self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{

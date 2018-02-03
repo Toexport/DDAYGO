@@ -16,13 +16,13 @@
     self = [super initWithStyle:style reuseIdentifier:@"orderViewCell"];
     if (self) {
         
-    [self initUI];
+        [self initUI];
         
     }
     return self;
 }
 - (void) initUI {
-//    背景view
+    //    背景view
     UIView * Backgroundview = [UIView new];
     Backgroundview.layer.borderWidth = 1;
     Backgroundview.backgroundColor = ZP_Graybackground;
@@ -37,8 +37,8 @@
     }];
     _Backgroundview = Backgroundview;
     
-/******************************************************/
-//  主图
+    /******************************************************/
+    //  主图
     UIImageView * FigureImage = [UIImageView new];
     [FigureImage setContentScaleFactor:[[UIScreen mainScreen] scale]];
     FigureImage.contentMode =  UIViewContentModeScaleAspectFill;
@@ -53,7 +53,7 @@
     }];
     _FigureImage = FigureImage;
     
-//  商家名字
+    //  商家名字
     ZP_GeneralLabel * merchantsLabel = [ZP_GeneralLabel  initWithtextLabel:_merchantsLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:merchantsLabel];
     [merchantsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -63,7 +63,7 @@
     }];
     _merchantsLabel = merchantsLabel;
     
-//  商品文字
+    //  商品文字
     ZP_GeneralLabel * titleLabel = [ZP_GeneralLabel initWithtextLabel:_titleLabel.text textColor:ZP_textblack font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     titleLabel.textColor = ZP_textblack;
     titleLabel.lineBreakMode = NSLineBreakByWordWrapping; //文字分行
@@ -73,12 +73,12 @@
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(FigureImage).offset(95);
         make.right.equalTo(self.Backgroundview).offset(-10);
-//        make.right.equalTo(Backgroundview).offset(-10);
+        //        make.right.equalTo(Backgroundview).offset(-10);
         make.top.equalTo(merchantsLabel).offset(15);
     }];
     _titleLabel = titleLabel;
     
-//  颜色分类
+    //  颜色分类
     ZP_GeneralLabel * descLabel = [ZP_GeneralLabel initWithtextLabel:_descLabel.text textColor:ZP_TypefaceColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:descLabel];
     [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -87,7 +87,7 @@
     }];
     _descLabel = descLabel;
     
-//  尺码
+    //  尺码
     ZP_GeneralLabel * SizeLabel = [ZP_GeneralLabel initWithtextLabel:_SizeLabel.text textColor:ZP_TypefaceColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:SizeLabel];
     [SizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -96,7 +96,7 @@
     }];
     _SizeLabel = SizeLabel;
     
-//  货币符号
+    //  货币符号
     ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_HomePreferentialpriceTypefaceCorlor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:CurrencySymbolLabel];
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
@@ -107,7 +107,7 @@
         make.height.mas_offset(15);
     }];
     
-//  优惠价格
+    //  优惠价格
     ZP_GeneralLabel * PreferentialLabel = [ZP_GeneralLabel initWithtextLabel:_PreferentialLabel.text textColor:ZP_HomePreferentialpriceTypefaceCorlor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:PreferentialLabel];
     [PreferentialLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -116,8 +116,8 @@
         make.height.mas_offset(15);
     }];
     _PreferentialLabel = PreferentialLabel;
-
-//  商标
+    
+    //  商标
     UIImageView * TrademarkImage = [UIImageView new];
     [self.Backgroundview addSubview:TrademarkImage];
     [TrademarkImage mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -128,7 +128,7 @@
     }];
     _TrademarkImage = TrademarkImage;
     
-//  商标编号
+    //  商标编号
     ZP_GeneralLabel * TrademarkLabel = [ZP_GeneralLabel initWithtextLabel:_TrademarkLabel.text textColor:ZP_textblack font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:TrademarkLabel];
     [TrademarkLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -137,7 +137,7 @@
     }];
     _TrademarkLabel = TrademarkLabel;
     
-//  竖线
+    //  竖线
     UIView * VerticalView = [UIView new];
     VerticalView.layer.borderWidth = 1;
     VerticalView.backgroundColor = ZP_TypefaceColor;
@@ -149,7 +149,7 @@
         make.width.mas_equalTo(1);
     }];
     
-//  符号X
+    //  符号X
     ZP_GeneralLabel * SharacterLabel = [ZP_GeneralLabel initWithtextLabel:_SharacterLabel.text textColor:ZP_TypefaceColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:SharacterLabel];
     SharacterLabel.text = @"X";
@@ -159,7 +159,7 @@
         make.bottom.equalTo(VerticalView).offset(+2);
     }];
     
-//  数量
+    //  数量
     ZP_GeneralLabel * QuantityLabel = [ZP_GeneralLabel initWithtextLabel:_QuantityLabel.text textColor:ZP_TypefaceColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:QuantityLabel];
     [QuantityLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -168,9 +168,9 @@
     }];
     _QuantityLabel = QuantityLabel;
     
-//     下划线
-//    UIView * UnderlineView = [UIView new];
-//    UnderlineView.backgroundColor = ZP_WhiteColor;
+    //     下划线
+    //    UIView * UnderlineView = [UIView new];
+    //    UnderlineView.backgroundColor = ZP_WhiteColor;
     
 }
 
@@ -182,7 +182,7 @@
     if (dic.colorname.length < 1) {
         _descLabel.hidden = YES;
     }else {
-       _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",dic.colorname];
+        _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",dic.colorname];
     }
     if (dic.normname.length < 1) {
         _SizeLabel.hidden = YES;
@@ -194,7 +194,7 @@
     _TrademarkLabel.text = [NSString stringWithFormat:@"%@",dic.cp];
     _QuantityLabel.text = [NSString stringWithFormat:@"%@",dic.amount];
     
-
+    
 }
 
 @end

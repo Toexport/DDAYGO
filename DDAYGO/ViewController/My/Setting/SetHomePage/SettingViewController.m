@@ -53,7 +53,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self setHead];
+    //    [self setHead];
     self.title = NSLocalizedString(@"Setting", nil) ;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_WhiteColor}];   // 更改导航栏字体颜色
 }
@@ -152,14 +152,14 @@
         NSData * data =  UIImageJPEGRepresentation(image, 1);
         [imageArray addObject:data];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
-//        这个封装可以上传多张图片
+        //        这个封装可以上传多张图片
         [ZP_MyTool RequestUploadavatarimg:@{@"token":DD_TOKEN} Data:imageArray success:^(id obj) {
             ZPLog(@"%@",obj);
             mySelf.headerImage.image = image;
-        [[MyViewController sharedInstanceTool].headImageBut setImage:image forState:UIControlStateNormal]; // 老重要了
+            [[MyViewController sharedInstanceTool].headImageBut setImage:image forState:UIControlStateNormal]; // 老重要了
         } failure:^(NSError *error) {
             ZPLog(@"%@",error.description);
-
+            
         }];
     };
     
@@ -190,7 +190,7 @@
 
 //  修改昵称
 - (IBAction)nichengAction:(id)sender {
-
+    
     [[DialogBox getInstance] showDialogBoxWithOperation:DDAModifyNickname FinishBlock:^(id response) {
         self.dataDic[@"nickname"] = (NSString *)response;
         [ZP_MyTool requesModifydata:self.dataDic uccess:^(id obj) {

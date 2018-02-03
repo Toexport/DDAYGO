@@ -38,7 +38,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self allData];
-//    [self DeletingClick:];
+    //    [self DeletingClick:];
     [_tableView reloadData]; // 刷新数据
     
 }
@@ -60,7 +60,7 @@
         self.newsData = [ZP_FrontPageReceivingAddressModel arrayWithArray:arr];
         [self.tableView reloadData];
     } failure:^(NSError * error) {
-//        ZPLog(@"%@",error);
+        //        ZPLog(@"%@",error);
         [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
@@ -101,12 +101,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AddressTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"AddressTableViewCell" forIndexPath:indexPath];
     ZP_FrontPageReceivingAddressModel * model = self.newsData[indexPath.section];
-//    默认地址
-        cell.defBtn.tag = indexPath.section;
-        [cell.defBtn addTarget:self action:@selector(seleClick:) forControlEvents:UIControlEventTouchUpInside];
-//    删除
-        cell.DeletingBut.tag = indexPath.section;
-        [cell.DeletingBut addTarget:self action:@selector(DeletingClick:) forControlEvents:UIControlEventTouchUpInside];
+    //    默认地址
+    cell.defBtn.tag = indexPath.section;
+    [cell.defBtn addTarget:self action:@selector(seleClick:) forControlEvents:UIControlEventTouchUpInside];
+    //    删除
+    cell.DeletingBut.tag = indexPath.section;
+    [cell.DeletingBut addTarget:self action:@selector(DeletingClick:) forControlEvents:UIControlEventTouchUpInside];
     [cell cellWithdic:model];
     cell.finishBlock = ^(id response) {//在这里传点击编辑的数据
         EditViewController * viewController = [[EditViewController alloc] init];
@@ -144,19 +144,19 @@
                 if ([obj[@"result"] isEqualToString:@"ok"]) {
                     
                     for (NSInteger i = 0; i < _newsData.count; i++) {
-
+                        
                         ZP_FrontPageReceivingAddressModel *model = _newsData[i];
                         NSLog(@"%@",model);
                         if (btn.tag == i) {
                             model.isdefault = @(YES);
                         }else {
                             model.isdefault = @(NO);
+                        }
+                        [self.tableView reloadData];
                     }
-                    [self.tableView reloadData];
-                }
-                [SVProgressHUD showSuccessWithStatus:@"設置成功"];
+                    [SVProgressHUD showSuccessWithStatus:@"設置成功"];
                 }else {
-                ZPLog(@"失败");
+                    ZPLog(@"失败");
                 }
             } failure:^(NSError *errpr) {
             }];
@@ -180,9 +180,9 @@
     
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         ZPLog(@"取消");
-         }];
+    }];
     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-         ZP_FrontPageReceivingAddressModel * model = self.newsData[sender.tag];
+        ZP_FrontPageReceivingAddressModel * model = self.newsData[sender.tag];
         NSMutableDictionary * dic = [NSMutableDictionary dictionary];
         dic[@"token"] = Token;
         dic[@"adsid"] = model.addressid;
@@ -193,16 +193,16 @@
             }else {
                 if ([obj[@"result"]isEqualToString:@"isdefault_err"]) {
                     [SVProgressHUD showInfoWithStatus:@"默認地址不能刪除"];
-            }else {
-                if ([obj[@"result"]isEqualToString:@"failure"]) {
-                    [SVProgressHUD showInfoWithStatus:@"操作失敗"];
+                }else {
+                    if ([obj[@"result"]isEqualToString:@"failure"]) {
+                        [SVProgressHUD showInfoWithStatus:@"操作失敗"];
+                    }
                 }
             }
-        }
-        ZPLog(@"%@",obj);
-    } failure:^(NSError * error) {
-//            ZPLog(@"%@",error);
-        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
+            ZPLog(@"%@",obj);
+        } failure:^(NSError * error) {
+            //            ZPLog(@"%@",error);
+            [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
         }];
     }];
     [alert addAction:defaultAction];

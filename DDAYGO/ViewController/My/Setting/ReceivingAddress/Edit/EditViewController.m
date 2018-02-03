@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self countrycode];
-     [self allData];
+    [self allData];
     self.title = @"編輯地址";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"保存", nil)  style:UIBarButtonItemStylePlain target:self action:@selector(EditAddress)];
@@ -84,13 +84,13 @@
         }else
             if ([dic[@"result"] isEqualToString:@"add_up_to_ten"]) {
                 [SVProgressHUD showInfoWithStatus:@"添加失败，最多添加10條數據喲"];
-        }else
-            if ([dic[@"result"] isEqualToString:@"sys_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"服務器連接至火星"];
-        }
+            }else
+                if ([dic[@"result"] isEqualToString:@"sys_err"]) {
+                    [SVProgressHUD showInfoWithStatus:@"服務器連接至火星"];
+                }
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-//        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
+        //        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
     }];
 }
 

@@ -346,22 +346,21 @@
 
 // 获取退换货详情（订单跳转）
 + (void)requestGetrefundinfoOrder:(NSDictionary *)GetrefundinfoOrder success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
-        [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getrefundinfo?token=%@&oid=%@&countrycode=%@",URLAPI,GetrefundinfoOrder[@"token"],GetrefundinfoOrder[@"oid"],GetrefundinfoOrder[@"countrycode"]] parameters:nil success:^(id responseObject) {
-            
-            success(responseObject);
-        } failure:^(NSError * error) {
-            failure(error);
-        }];
+    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getrefundinfo?token=%@&oid=%@&countrycode=%@",URLAPI,GetrefundinfoOrder[@"token"],GetrefundinfoOrder[@"oid"],GetrefundinfoOrder[@"countrycode"]] parameters:nil success:^(id responseObject) {
+        
+        success(responseObject);
+    } failure:^(NSError * error) {
+        failure(error);
+    }];
 }
 
 // 获取退换货详情（正常）
 + (void)requestGetrefundinfo:(NSDictionary *)Getrefundinfo success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
-
-        [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getrefundinfo?token=%@&refundid=%@&countrycode=%@",URLAPI,Getrefundinfo[@"token"],Getrefundinfo[@"refundid"],Getrefundinfo[@"countrycode"]] parameters:nil success:^(id responseObject) {
-            success(responseObject);
-        } failure:^(NSError * error) {
-            failure(error);
-        }];
+    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getrefundinfo?token=%@&refundid=%@&countrycode=%@",URLAPI,Getrefundinfo[@"token"],Getrefundinfo[@"refundid"],Getrefundinfo[@"countrycode"]] parameters:nil success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError * error) {
+        failure(error);
+    }];
 }
 
 //72) 更改退换货状态

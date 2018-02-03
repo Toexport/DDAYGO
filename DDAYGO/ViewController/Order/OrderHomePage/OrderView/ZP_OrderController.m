@@ -81,13 +81,13 @@
         _i = 0;
         [self getDataWithState];
     }];
-
-//    [self.tableview.mj_header beginRefreshing];
-//    self.tableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-//         [self.newsData removeAllObjects];
-//        _i+=10;
-//        [self getDataWithState];
-//    }];
+    
+    //    [self.tableview.mj_header beginRefreshing];
+    //    self.tableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+    //         [self.newsData removeAllObjects];
+    //        _i+=10;
+    //        [self getDataWithState];
+    //    }];
 }
 
 // UI
@@ -117,7 +117,7 @@
     if ([_titleStr isEqualToString:NSLocalizedString(@"all", nil)]) {
         dic[@"sta"] = @"-1";
         i = 0;
-       
+        
     }
     if ([_titleStr isEqualToString:NSLocalizedString(@"Waiting payment", nil)]) {
         dic[@"sta"] = @"1";
@@ -136,7 +136,6 @@
         i = 4;
     }
     UIButton * but = [self.titleView viewWithTag:666 + i];
-  
     NSLog(@"but = %@",but.titleLabel.text);
     dic[@"days"] = @"365";
     dic[@"token"] = Token;
@@ -145,7 +144,7 @@
     dic[@"pagesize"] = @"30";
     [ZP_OrderTool requestGetorders:dic success:^(id json) {
         if ([json[@"result"]isEqualToString:@"token_not_exist"]) {
-//            [self.tableview.mj_header endRefreshing];  // 結束刷新
+            //            [self.tableview.mj_header endRefreshing];  // 結束刷新
             Token = nil;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
@@ -169,7 +168,7 @@
             }];
             
             UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-               
+                
                 [self.navigationController popToRootViewControllerAnimated:NO];
                 //跳转
                 if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
@@ -181,9 +180,9 @@
             [alert addAction:cancelAction];
             [self presentViewController:alert animated:YES completion:nil];
         }
-/*****************************/
+        /*****************************/
         if (json) {
-//            self.newsData = json;  //这个是刷新
+            //            self.newsData = json;  //这个是刷新
             [self successful];
         }else{
             [self networkProblems];
@@ -191,8 +190,8 @@
         self.newsData = [OrderModel arrayWithArray:json[@"datalist"]];
         ZPLog(@"%@",json);
         ZPLog(@"%@",json[@"datalist"]);
-//         小红点数据
-// 订单协议（此方法只是为了加载导航栏上的数字）
+        //         小红点数据
+        // 订单协议（此方法只是为了加载导航栏上的数字）
         if (i == 0) {
             [self getDataWithState:1];
             [self getDataWithState:2];
@@ -205,15 +204,15 @@
                 but.badgeValue = nil;
                 but.badgeBGColor = [UIColor whiteColor];
             }else{
-            but.badgeValue = [NSString stringWithFormat:@"%@",datacount];
+                but.badgeValue = [NSString stringWithFormat:@"%@",datacount];
                 but.badgeBGColor = [UIColor redColor];}
         }else {
             but.badgeValue = nil;
             but.badgeBGColor = [UIColor whiteColor];
         }
-/********************/
-    [self.tableview.mj_header endRefreshing];  // 結束刷新
-    [self.tableview reloadData];
+        /********************/
+        [self.tableview.mj_header endRefreshing];  // 結束刷新
+        [self.tableview reloadData];
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
         [self loading];
@@ -223,12 +222,12 @@
 /**********************/
 // 订单协议（此方法只是为了加载导航栏上的个数）
 - (void)getDataWithState:(NSInteger )i {
-      UIButton * but = [self.titleView viewWithTag:666 + i];
+    UIButton * but = [self.titleView viewWithTag:666 + i];
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     switch (i) {
         case 1:
             dic[@"sta"] = @"1";
-
+            
             break;
         case 2:
             dic[@"sta"] = @"2";
@@ -242,9 +241,9 @@
         default:
             break;
     }
-  
+    
     NSLog(@"but = %@",but.titleLabel.text);
-/**********************/
+    /**********************/
     dic[@"days"] = @"365";
     dic[@"token"] = Token;
     dic[@"orderno"] = @"";
@@ -278,7 +277,7 @@
         ZPLog(@"取消");
     }];
     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-//        响应事件
+        //        响应事件
         if (self.newsData.count == 0) {
             return;
         }
@@ -294,10 +293,10 @@
             }else
                 if ([obj[@"result"]isEqualToString:@"time_error"]) {
                     [SVProgressHUD showInfoWithStatus:@"交易完成的訂單需要15天後才能刪除"];
-            }else
-                if ([obj[@"result"]isEqualToString:@"orders_state_error"]) {
-                    [SVProgressHUD showInfoWithStatus:@"此状态下暂不能删除"];
-            }
+                }else
+                    if ([obj[@"result"]isEqualToString:@"orders_state_error"]) {
+                        [SVProgressHUD showInfoWithStatus:@"此状态下暂不能删除"];
+                    }
             ZPLog(@"%@",obj);
             [self.tableview reloadData];
         } failure:^(NSError * error) {
@@ -321,7 +320,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 10)];
-      v.backgroundColor = ZP_Graybackground;
+    v.backgroundColor = ZP_Graybackground;
     return v;
 }
 
@@ -345,12 +344,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//     判断数组是否越界
+    //     判断数组是否越界
     OrderModel * model = nil;
     if (indexPath.section < [self.newsData count]) {
         model = [self.newsData objectAtIndex:indexPath.section];
     }
-//    OrderModel * model = self.newsData[indexPath.section];
+    //    OrderModel * model = self.newsData[indexPath.section];
     if (indexPath.row == 0) {
         OrdeHeadViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"OrdeHeadViewCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -422,7 +421,7 @@
             //         [cell InformationWithDic:nil WithModel:model];
             return cell;
             
-    }
+        }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -442,8 +441,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1) {
         BuyViewController * ByView = [[BuyViewController alloc]init];
-//            ByView.productId = self.productid;
-//            [self.navigationController pushViewController:ByView animated:YES];
+        //            ByView.productId = self.productid;
+        //            [self.navigationController pushViewController:ByView animated:YES];
         ZPLog(@"%ld",indexPath.row);
     }else {
         ZPLog(@"%ld",indexPath.row);

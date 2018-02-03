@@ -127,10 +127,10 @@
             break;
         case 1:
             [_OnceagainBut setTitle:@"付款" forState:UIControlStateNormal];
-//            _DeleteBut.hidden = NO;
-//            [_AppraiseBut setTitle:@"取消訂單" forState:UIControlStateNormal];
+            //            _DeleteBut.hidden = NO;
+            //            [_AppraiseBut setTitle:@"取消訂單" forState:UIControlStateNormal];
             _AppraiseBut.hidden = YES;
-//例如 --点击第一个看能不能点击
+            //例如 --点击第一个看能不能点击
             //            NSLog(@"Stata = %D",a);
             _AppraiseBut.userInteractionEnabled = NO;
             //            ZPLog(@"Stata = %D",a);
@@ -157,8 +157,8 @@
             [_OnceagainBut setTitle:@"評價" forState:UIControlStateNormal];
             _OnceagainBut.backgroundColor = nil;
             [self.OnceagainBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
-//            [_AppraiseBut setTitle:@"评价" forState:UIControlStateNormal];
-//        你是根据这个有判断是否隐藏 不是根据4，不是更具4的
+            //            [_AppraiseBut setTitle:@"评价" forState:UIControlStateNormal];
+            //        你是根据这个有判断是否隐藏 不是根据4，不是更具4的
             if ([_model.reviewscount integerValue] == 0) {
                 //                ／／你看下你的意思啊· 你是等于0
                 _OnceagainBut.hidden = NO;
@@ -290,7 +290,7 @@
         }
             break;
         case 3:{
-//       确认收货
+            //       确认收货
             
             [self requestConfirmreceipt];
         }
@@ -302,7 +302,7 @@
 
 // 确认收货
 - (void)requestConfirmreceipt {
-//    確認收貨
+    //    確認收貨
     NSMutableDictionary * dicc = [NSMutableDictionary dictionary];
     dicc[@"token"] = Token;
     dicc[@"oid"] = self.model.ordersnumber;

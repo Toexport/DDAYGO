@@ -27,7 +27,7 @@
     self.title = NSLocalizedString(@"提現記錄", nil);
     [self.tableView registerNib:[UINib nibWithNibName:@"ZP_ExtractCell" bundle:nil] forCellReuseIdentifier:@"ZP_ExtractCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-/**** IOS 11 ****/
+    /**** IOS 11 ****/
     if (@available(iOS 11.0, *)) {
         self.tableView.estimatedRowHeight = 0;
         self.tableView.estimatedSectionHeaderHeight = 0;
@@ -44,13 +44,13 @@
     dic[@"page"] = @"1";
     [ZP_MyTool requesWithdrawalRecord:dic uccess:^(id obj) {
         
-//        self.ExtractArr = [ZP_ExtractModel arrayWithArray:obj[@"list"]];
+        //        self.ExtractArr = [ZP_ExtractModel arrayWithArray:obj[@"list"]];
         self.ExtractArr = [ZP_ExtractModel mj_objectArrayWithKeyValuesArray:obj[@"list"]];
-    ZPLog(@"%@",obj);
+        ZPLog(@"%@",obj);
         [self.tableView reloadData];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-//        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
+        //        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 
@@ -103,7 +103,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-        return 1;
+    return 1;
 }
 
 #pragma mark --- 颜色
@@ -115,7 +115,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     ZP_ExtractModel * model = self.ExtractArr[indexPath.section];
     ZP_ExtractCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ZP_ExtractCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、

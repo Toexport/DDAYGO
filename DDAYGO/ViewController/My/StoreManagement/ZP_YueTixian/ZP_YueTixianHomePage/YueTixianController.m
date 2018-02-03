@@ -35,9 +35,9 @@
 
 - (void)Extract {
     ZPLog(@"跳转");
-        ZP_ExtractController * Extract = [[ZP_ExtractController alloc]init];
-        Extract.supplierId = self.SupplierId;
-        [self.navigationController pushViewController:Extract animated:YES];
+    ZP_ExtractController * Extract = [[ZP_ExtractController alloc]init];
+    Extract.supplierId = self.SupplierId;
+    [self.navigationController pushViewController:Extract animated:YES];
 }
 
 - (IBAction)CompleteButton:(id)sender {
@@ -71,7 +71,7 @@
         [SVProgressHUD showInfoWithStatus:@"请输入邮箱"];
         return;
     }
-        
+    
     [self AllData];
 }
 
@@ -82,7 +82,7 @@
     dic[@"sid"] = _SupplierId;
     dic[@"amount"] = _amountText.textField.text;
     dic[@"bankcardname"] = [_payeeText.textField.text stringByAddingPercentEscapesUsingEncoding:kCFStringEncodingUTF8];
-//    NSUTF8StringEncoding
+    //    NSUTF8StringEncoding
     dic[@"bankname"] = [_CollectingBankText.textField.text stringByAddingPercentEscapesUsingEncoding:kCFStringEncodingUTF8];
     dic[@"bankcardno"] = _PaymentAccountText.textField.text;
     dic[@"phone"] = _reservedPhoneText.textField.text;
