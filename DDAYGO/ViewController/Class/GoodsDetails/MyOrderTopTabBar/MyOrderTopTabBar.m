@@ -102,7 +102,7 @@
     sender.selected = YES;
     _lastBtn = sender;
     //底部指示view的动画
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         self.bottomView.frame = CGRectMake(sender.tag*self.btnW, self.btnH - [global pxTopt:bottomViewW], self.btnW, [global pxTopt:bottomViewW]);
     }];
     if([_delegate respondsToSelector:@selector(tabBar:didSelectIndex:)]){//判断代理有没有实现这个函数了

@@ -439,10 +439,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row > 0) {
-        OrderModel *model = self.newsData[indexPath.row-1];
+    if (indexPath.section < [self.newsData count]) {
+        OrderModel * model = [self.newsData objectAtIndex:indexPath.section];
+        OrdersdetailModel * model2;
+        model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail[indexPath.row-1]];
         BuyViewController * ByView = [[BuyViewController alloc]init];
-        ByView.productId = model.productid;
+        ByView.productId = model2.productid;
         [self.navigationController pushViewController:ByView animated:YES];
     }
 }
