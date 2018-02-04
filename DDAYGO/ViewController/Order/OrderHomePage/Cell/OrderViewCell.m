@@ -47,9 +47,9 @@
     [self.Backgroundview addSubview:FigureImage];
     [FigureImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(5);
-        make.top.equalTo(Backgroundview).offset(3);
-        make.width.mas_equalTo(85);
-        make.height.mas_equalTo(100 - 5);
+        make.top.equalTo(Backgroundview).offset(5);
+        make.width.mas_equalTo(100);
+        make.height.mas_equalTo(100);
     }];
     _FigureImage = FigureImage;
     
@@ -57,8 +57,8 @@
     ZP_GeneralLabel * merchantsLabel = [ZP_GeneralLabel  initWithtextLabel:_merchantsLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:merchantsLabel];
     [merchantsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(FigureImage).offset(95);
-        make.top.equalTo(Backgroundview).offset(3);
+        make.left.equalTo(FigureImage).offset(105);
+        make.top.equalTo(Backgroundview).offset(5);
         make.height.mas_offset(15);
     }];
     _merchantsLabel = merchantsLabel;
@@ -71,7 +71,7 @@
     titleLabel.font = ZP_titleFont;
     [self.Backgroundview addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(FigureImage).offset(95);
+        make.left.equalTo(FigureImage).offset(105);
         make.right.equalTo(self.Backgroundview).offset(-10);
         //        make.right.equalTo(Backgroundview).offset(-10);
         make.top.equalTo(merchantsLabel).offset(15);
@@ -82,7 +82,7 @@
     ZP_GeneralLabel * descLabel = [ZP_GeneralLabel initWithtextLabel:_descLabel.text textColor:ZP_TypefaceColor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [self.Backgroundview addSubview:descLabel];
     [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(FigureImage).offset(95);
+        make.left.equalTo(FigureImage).offset(105);
         make.bottom.equalTo(titleLabel).offset(15);
     }];
     _descLabel = descLabel;
@@ -102,7 +102,7 @@
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
     CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(FigureImage).offset(95);
+        make.left.equalTo(FigureImage).offset(105);
         make.bottom.equalTo(SizeLabel).offset(15);
         make.height.mas_offset(15);
     }];
