@@ -1010,10 +1010,15 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    BuyViewController * ByView = [[BuyViewController alloc]init];
-    ZP_CartsModel *model = _dataArray[indexPath.row];
-    ByView.productId = model.productid;
-    [self.navigationController pushViewController:ByView animated:YES];
+    if (indexPath.section < [self.nameArray count]) {
+        ZP_CartsShopModel * models = nil;
+        ZP_CartsModel * model = nil;
+        models = [self.nameArray objectAtIndex:indexPath.section];
+        model = [models.array objectAtIndex:indexPath.row];
+        BuyViewController * ByView = [[BuyViewController alloc]init];
+        ByView.productId = model.productid;
+        [self.navigationController pushViewController:ByView animated:YES];
+    }
 }
 
 //  加载数据
