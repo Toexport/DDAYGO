@@ -73,7 +73,6 @@
         str = @"";
     }
     self.newsData = [[NSMutableArray alloc]init];
-    //    NSDictionary * dic = @{@"seq":_priceStrTag,@"countrycode":@"886",@"word":str,@"fatherid":_fatherId,@"page":@"1",@"pagesize":@"30"};
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"seq"] = _priceStrTag;
     dic[@"countrycode"] = @"886";
@@ -85,7 +84,7 @@
         NSDictionary * dict = obj;
         [SVProgressHUD dismiss];
         NSArray * arr ;
-        NSMutableArray *tempArray = [NSMutableArray arrayWithArray:dict[@"datalist"]];
+        NSMutableArray * tempArray = [NSMutableArray arrayWithArray:dict[@"datalist"]];
         arr = [tempArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
             ZPLog(@"obj1:%lu--obj2:%lu",[obj1[@"productprice"] longValue],[obj2[@"productprice"] longValue]);
             if ([_priceStrTag isEqualToString:@"desc"]) {

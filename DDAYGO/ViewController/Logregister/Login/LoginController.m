@@ -104,7 +104,6 @@
             [[NSUserDefaults standardUserDefaults] setObject:aadic[@"countrycode"] forKey:@"countrycode"];  // 国别缓存本地
             [[NSUserDefaults standardUserDefaults] synchronize];  // 国别缓存本地
             [SVProgressHUD showSuccessWithStatus:@"登錄成功!"];
-            
             NSArray * array = self.navigationController.viewControllers;
             if (array.count > 2) {
                 [self.navigationController popToViewController:array[array.count-3] animated:YES];
