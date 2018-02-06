@@ -53,8 +53,8 @@
     ZP_GeneralLabel * PreferentialLabel = [ZP_GeneralLabel initWithtextLabel:_PreferentialLabel.text textColor:ZP_HomePreferentialpriceTypefaceCorlor font:ZP_introduceFont textAlignment:NSTextAlignmentCenter bakcgroundColor:ZP_WhiteColor];
     [self addSubview:PreferentialLabel];
     [PreferentialLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(5);
-        make.right.equalTo(imageView).offset(5);
+        make.left.equalTo(self).offset(1);
+        make.right.equalTo(imageView).offset(1);
         make.bottom.equalTo(TitleLabel).offset(15);
         make.height.mas_offset(15);
     }];
