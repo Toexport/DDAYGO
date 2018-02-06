@@ -85,7 +85,8 @@
 // 刷新
 - (void)addRefresh {
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self.SixthArrData removeAllObjects];
+//        [self.SixthArrData removeAllObjects];
+        [self FifthallData:CountCode];  //带参数刷新
         
         _i = 0;
         [self allData];
@@ -243,7 +244,7 @@
 
 // SixthArrData
 - (void)SixthAllData:(NSNumber *)code {
-    NSNumber *sendCode;
+    NSNumber * sendCode;
     if ([code intValue] > 0) {
         sendCode = code;
     }else{
