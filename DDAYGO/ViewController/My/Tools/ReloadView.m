@@ -29,7 +29,6 @@
 //设置imgaeView
 - (void)setupImageView{
     UIImageView * imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iconn_no_network"]];
-//    imageView.frame = [CGRectMake(0, 0, ZP_Width + 20, ZP_height)];
     imageView.frame = CGRectMake(ZP_Width / 2 - 15, ZP_height / 2 - 90, 30, 25);
     self.imageView.center = self.center;
     
