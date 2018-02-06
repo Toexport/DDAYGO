@@ -33,6 +33,9 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"ic_bar_return"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
     [self initUI];
     [self setUpNavgationBar];
+    
+    
+    
 }
 
 // 返回按钮
@@ -99,7 +102,6 @@
     dic[@"token"] = Token;
     if (_score1 < 1) {
         [SVProgressHUD showInfoWithStatus:@"請填寫您的評價"];
-        
         return;
     }
     if (_pjstr.length < 1) {
@@ -108,7 +110,6 @@
     }
     if (_Score2 < 1) {
         [SVProgressHUD showInfoWithStatus:@"請填寫您的評價"];
-//        [SVProgressHUD setForegroundColor:[UIColor blackColor]];
         return;
     }
     if (_jpstr.length < 1) {
@@ -140,10 +141,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         NSArray * A = @[@"a",@"b",@"c",@"d",@"e"];
-        
         NSString * AppraiseID = @"prefixHeader";
         AppraiseViewCell * cell = [tableView dequeueReusableCellWithIdentifier:AppraiseID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
+        NSLog(@"image url = %@",_model2.defaultimg);
+        [cell.FigureImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI,_model2.defaultimg]]];
         cell.scoreBlock = ^(NSInteger tag) {
             _score1 = tag;
             NSLog(@"%ld",(long)tag);
@@ -152,13 +154,9 @@
             _pjstr = title;
         };
         [cell score:A];
-        
-        NSDictionary * dic = dataArray[indexPath.row];
-        [cell Appraise:dic];
         return cell;
 
     }else {
-        
         NSArray * B = @[@"a",@"b",@"c",@"d",@"e"];
         NSString * ShopevaluationID = @"shopevaluation";
         ShopevaluationViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ShopevaluationID];

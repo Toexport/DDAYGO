@@ -21,11 +21,11 @@
 /**
  静态方法初始化
  */
-+(instancetype)tabbar;
++ (instancetype)tabbar;
 /**
  使用数组初始化
  */
--(instancetype)initWithArray:(NSArray*)array;
--(void)AddTarBarBtn:(NSString *)name;//添加顶部标题项的名字
--(void)TabBtnClick:(TabButton *)sender;//监听tabbar的点击
+- (instancetype)initWithArray:(NSArray*)array;
+- (void)AddTarBarBtn:(NSString *)name;//添加顶部标题项的名字
+- (void)TabBtnClick:(TabButton *)sender;//监听tabbar的点击
 @end

@@ -21,7 +21,7 @@
 
 - (void)score:(NSArray *)score;
 
-- (void)Appraise:(NSDictionary *)dic;
+//- (void)Appraise:(NSDictionary *)dic;
 
 
 @property (nonatomic, copy) void (^ savaData)(NSString *title);

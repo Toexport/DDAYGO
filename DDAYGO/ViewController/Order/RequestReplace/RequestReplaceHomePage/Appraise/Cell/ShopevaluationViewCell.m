@@ -88,8 +88,6 @@
     [Anonymousbutton setTitle:NSLocalizedString(@"匿名", nil) forState:UIControlStateNormal];
     Anonymousbutton.titleLabel.font = ZP_TooBarFont;
     [Anonymousbutton setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
-//    Anonymousbutton .contentEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
-//    Anonymousbutton.imageEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
     Anonymousbutton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     [Anonymousbutton setImage:[UIImage imageNamed:@"ic_Shopping_Choice_normal"] forState:UIControlStateNormal];
     [Anonymousbutton setImage:[UIImage imageNamed:@"ic_Shopping_Choice_pressed"] forState:UIControlStateSelected];
@@ -100,7 +98,7 @@
     [Anonymousbutton addTarget:self action:@selector(Anonymous:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:Anonymousbutton];
     [Anonymousbutton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(5);
+        make.left.equalTo(self).offset(- 10);
         make.bottom.equalTo(self).offset(-15);
         make.width.mas_offset(80);
         make.height.mas_offset(20);

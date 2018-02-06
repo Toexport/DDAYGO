@@ -241,8 +241,8 @@
             [[NSNotificationCenter defaultCenter]postNotificationName:@"ExchangeDetails" object:nil];
         }
             break;
-            
         case 4:{
+            // 评价
             if ([_model.reviewscount integerValue] == 0) {
                 AppraiseController * appistcs = [[AppraiseController alloc]init];
                 appistcs.ordersnumber = self.model.ordersnumber; // 传过去的数据(订单号)

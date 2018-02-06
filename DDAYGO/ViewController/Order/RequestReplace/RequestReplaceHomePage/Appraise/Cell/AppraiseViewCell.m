@@ -118,9 +118,9 @@
     }
 }
 
-- (void)Appraise:(NSDictionary *)dic {
-    _FigureImage.image = [UIImage imageNamed:@"Shopping"];
-}
+//- (void)Appraise:(NSDictionary *)dic {
+//    _FigureImage.image = [UIImage imageNamed:@"Shopping"];
+//}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if (self.savaData) {

@@ -47,7 +47,6 @@
 #import "NoDataView.h"
 
 //测试用这个
-
 #ifdef DEBUG
 #if TARGET_IPHONE_SIMULATOR//模拟器
 

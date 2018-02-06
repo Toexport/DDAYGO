@@ -23,11 +23,11 @@
 
 @implementation MyOrderTopTabBar
 
-+(instancetype)tabbar{
++ (instancetype)tabbar {
     return [[self alloc] init];
 }
 
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         UIView* bottomView = [[UIView alloc] init];
@@ -42,7 +42,7 @@
  使用字符数组初始化
  */
 
--(instancetype)initWithArray:(NSArray *)array{
+- (instancetype)initWithArray:(NSArray *)array {
     self = [super init];
     if (self) {
         for(NSString* name in array){
@@ -55,9 +55,8 @@
 /**
  添加顶部标题项的名字
  */
--(void)AddTarBarBtn:(NSString *)name{
-    
-    TabButton *btn = [TabButton buttonWithType:UIButtonTypeCustom];
+- (void)AddTarBarBtn:(NSString *)name {
+    TabButton * btn = [TabButton buttonWithType:UIButtonTypeCustom];
     [btn setTitle:name forState:UIControlStateNormal];
     [btn setTitleColor:color(33.0,33,33.0,1.0) forState:UIControlStateNormal];
     [btn setTitleColor:color(255.0,0.0,0.0,1.0) forState:UIControlStateSelected];
@@ -69,12 +68,12 @@
     if(2 == self.subviews.count){
         [self TabBtnClick:btn];
     }
-    
 }
+
 /**
  计算字view的frame
  */
--(void)layoutSubviews{
+- (void)layoutSubviews {
     NSInteger btnCount = self.subviews.count;
     CGFloat btnW = self.frame.size.width/(btnCount - 1);
     CGFloat btnH = self.frame.size.height;
@@ -95,8 +94,8 @@
 /**
  监听tabbar的点击
  */
--(void)TabBtnClick:(TabButton *)sender{
-    if(_lastBtn != nil){
+- (void)TabBtnClick:(TabButton *)sender {
+    if(_lastBtn != nil) {
         _lastBtn.selected = NO;
     }
     sender.selected = YES;
@@ -110,12 +109,5 @@
     }
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

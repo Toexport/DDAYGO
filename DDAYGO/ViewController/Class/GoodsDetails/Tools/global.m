@@ -13,7 +13,7 @@
 /**
  从像素px转换为ios的点阵pt
  */
-+(CGFloat)pxTopt:(CGFloat)px{
++ (CGFloat)pxTopt:(CGFloat)px {
     CGFloat standardPt = px/2.0;
     if (iphone5) {
         standardPt = (iphone5W/iphone6W)*standardPt;

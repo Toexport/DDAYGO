@@ -10,7 +10,8 @@
 #import "PrefixHeader.pch"
 @interface ReloadView ()
 @property (nonatomic, weak)UIImageView *imageView;
-//@property (nonatomic, strong) UILabel * label;
+@property (nonatomic, strong) UILabel * label1;
+@property (nonatomic, strong) UILabel * label2;
 @end
 
 @implementation ReloadView
@@ -27,30 +28,35 @@
 
 //设置imgaeView
 - (void)setupImageView{
-    UIImageView * imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iconn_no_network@3x"]];
-//    UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(ZP_Width / 2, ZP_height -imageView.frame.size.width, ZP_height, 15)];
-//    label.text = @"网络异常，请检查您的网络";
-//    [self addSubview:label];
+    UIImageView * imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iconn_no_network"]];
+//    imageView.frame = [CGRectMake(0, 0, ZP_Width + 20, ZP_height)];
+    imageView.frame = CGRectMake(ZP_Width / 2 - 15, ZP_height / 2 - 90, 30, 25);
+    self.imageView.center = self.center;
+    
+    UILabel * label1 = [[UILabel alloc]initWithFrame:CGRectMake(ZP_Width / 2 - 70,CGRectGetMaxY(imageView.frame)+ 20, 150, 15)];
+    label1.textAlignment = NSTextAlignmentCenter;
+    label1.text =NSLocalizedString(@"網路異常,請檢查您的網路", nil);
+    label1.font = ZP_stockFont;
+    
+    UILabel * label2 = [[UILabel alloc]initWithFrame:CGRectMake(ZP_Width / 2 - 20, CGRectGetMaxY(label1.frame) + 25, 50, 30)];
+    label2.text = NSLocalizedString(@"刷新", nil);
+    label2.textAlignment = NSTextAlignmentCenter;
+    label2.backgroundColor = [UIColor orangeColor];
+    label2.font = ZP_stockFont;
     [self addSubview:imageView];
+    [self addSubview:label1];
+    [self addSubview:label2];
     self.imageView = imageView;
-//    self.label = label;
+    self.label1 = label1;
+    self.label2 = label2;
 }
 
 - (void)layoutSubviews{
     [super layoutSubviews];
     //设置imageView的frame
-    self.imageView.center = self.center;
-//    self.label.center = self.center;
 }
 
 + (instancetype)reloadView{
-//    static LXReloadView *reloadView = nil;
-//    
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        reloadView = [[self alloc]init];
-//    });
-//    
     return [[self alloc]init];
 }
 
