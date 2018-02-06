@@ -26,7 +26,7 @@
 // 商品价格
     self.chooseView = [[ChooseView alloc] initWithFrame:CGRectMake(0, screen_Height, screen_Width, screen_Height)];
     self.chooseView.headImage.image = [UIImage imageNamed:@"bingli"];
-    self.chooseView.LB_stock.text = [NSString stringWithFormat:NSLocalizedString(@"库存:%@件", nil),@100];
+    self.chooseView.LB_stock.text = [NSString stringWithFormat:NSLocalizedString(@"Inventory:%@a", nil),@100];
     self.chooseView.LB_detail.text = nil;
     [self addSubview:self.chooseView];
     //    [self initChooseView];
@@ -113,7 +113,7 @@
 //        _numLabel.text = [NSString stringWithFormat:@"%ld",_numLabel.text.integerValue - 1];
 //    }
     if ([_numLabel.text integerValue] <= 1) {
-        [SVProgressHUD showErrorWithStatus:@"购买数量不能少于1"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"purchase quantity cannot be less than 1", nil)];
         _numLabel.text = @"1";
         return;
     }else {
@@ -124,7 +124,7 @@
 
 - (void)addClick:(UIButton *)sender {
     if (_model.productamount.integerValue <= [_numLabel.text integerValue]) {
-        [SVProgressHUD showErrorWithStatus:@"购买数量不能大于库存"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"purchase quantity should not be greater than the inventory", nil)];
         return;
     }else {
         _numLabel.text = [NSString stringWithFormat:@"%ld",[_numLabel.text integerValue]+1];
@@ -135,7 +135,7 @@
 #pragma mark - - - -立即购买
 - (void)immedPayBtnClick{
     if (_model.productamount.integerValue <= 0) {
-        [SVProgressHUD showErrorWithStatus:@"库存不足"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Insufficient inventory", nil)];
         return;
     }else {
     NSLog(@"im go pay");
@@ -154,7 +154,7 @@
             NSLog(@"规格有选中");
 //            [SVProgressHUD showErrorWithStatus:@"规格没有选中"];
         }else{
-            [SVProgressHUD showErrorWithStatus:@"规格没有选中"];
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"specification no selected", nil)];
             NSLog(@"规格没有选中");
             
             return;
@@ -181,7 +181,7 @@
         }else{
             //提示语
             NSLog(@"尺寸没有选中");
-            [SVProgressHUD showErrorWithStatus:@"没有选择尺寸"];
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"size No selection", nil)];
             return;
         }
         
@@ -195,7 +195,7 @@
         [[NSNotificationCenter defaultCenter]postNotificationName:@"Confirm" object:nil];
     }else {
         NSLog(@"没有选择数量");
-        [SVProgressHUD showErrorWithStatus:@"没有选择数量"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"number NO choices", nil)];
     }
 }
 }
@@ -203,7 +203,7 @@
 -(void)addGoodsCartBtnClick {
     NSLog(@"add cart");
     if (_model.productamount.integerValue <= 0) {
-        [SVProgressHUD showErrorWithStatus:@"库存不足"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Insufficient inventory", nil)];
         return;
     }else {
     if ( _modelArr.count > 0) {
@@ -255,9 +255,9 @@
         dic[@"token"] = Token;
         [ZP_ClassViewTool requAddToCart:dic success:^(id obj) {
             if ([obj[@"result"] isEqualToString:@"ok"]) {
-                [SVProgressHUD showSuccessWithStatus:@"添加成功"];
+                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Add success", nil)];
             } else {
-                [SVProgressHUD showErrorWithStatus:@"添加失敗"];
+                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Add failure", nil)];
             }
         } failure:^(NSError *error) {
             
@@ -300,7 +300,7 @@
                 self.finishBlock([NSString stringWithFormat:@"  %@",[self.selectKind stringByAppendingFormat:@"+%@件",self.numLabel.text]]);
             }
             else {
-                self.finishBlock(NSLocalizedString(@" 選擇分類/規格", nil));
+                self.finishBlock(NSLocalizedString(@"Select category/specification", nil));
             }
             
         }
@@ -422,7 +422,7 @@
     _model = model;
     self.chooseView.LB_price.text = model.productprice;
     self.chooseView.LB_CPLabel.text = model.TrademarkLabel;
-    self.chooseView.LB_stock.text = [NSString stringWithFormat:@"库存:%@件",model.productamount];
+    self.chooseView.LB_stock.text = [NSString stringWithFormat:@"Inventory:%@a",model.productamount];
     [self.chooseView.headImage sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@"bingli"]];
     NSLog(@"_____%@",model.productid);
     self.stockid = [NSNumber numberWithInt:[model.productid intValue]];
@@ -447,10 +447,10 @@
     
     if (arr.count == 0) {
         self.standardValueList = nil;
-        self.standardTypeList = @[@"",NSLocalizedString(@"購買數量", nil)];
+        self.standardTypeList = @[@"",NSLocalizedString(@"Purchase quantity", nil)];
     } else {
         self.standardValueList = @[arr,@[]];
-        self.standardTypeList = @[NSLocalizedString(@"商品規格", nil),NSLocalizedString(@"購買數量", nil)];
+        self.standardTypeList = @[NSLocalizedString(@"Product specifications", nil),NSLocalizedString(@"Purchase quantity", nil)];
     }
     if (self.standardTypeList.count == 0 && self.standardList.count == 0) {
         
@@ -475,7 +475,7 @@
     if (arr.count == 0) {
         self.standardList = @[@"",@""];
     } else {
-        self.standardList = @[NSLocalizedString(@"商品类型", nil),NSLocalizedString(@"", nil)];
+        self.standardList = @[NSLocalizedString(@"Commodity type", nil),NSLocalizedString(@"", nil)];
     }
     //    [self initChooseView];
 }

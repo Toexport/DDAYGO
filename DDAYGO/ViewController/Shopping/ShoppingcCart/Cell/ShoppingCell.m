@@ -192,12 +192,12 @@
     if (model.colorname.length < 1) {
         _descLabel.hidden = YES;//你自己看 model 。colorename 是不是等于nil、
     }else {
-        _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",model.colorname];
+        _descLabel.text = [NSString stringWithFormat:NSLocalizedString(@"color:%@,", nil),model.colorname];
     }
     if (model.normname.length < 1) {
         _SizeLabel.hidden = YES;
     }else {
-        _SizeLabel.text = [NSString stringWithFormat:@"尺碼:%@",model.normname];
+        _SizeLabel.text = [NSString stringWithFormat: NSLocalizedString(@"size:%@", nil),model.normname];
     }
     _PreferentialLabel.text = [NSString stringWithFormat:@"%@",model.productprice];
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];

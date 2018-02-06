@@ -66,11 +66,11 @@
 //  登录
 - (IBAction)LoginClick:(id)sender {
     if (_ZPEmailTextField.textField.text.length < 1) {
-        [SVProgressHUD showInfoWithStatus:@"邮箱不能为空"];
+        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"邮箱不能为空", nil)];
         return;
     }
     if (_ZPPswTextField.textField.text.length < 1) {
-        [SVProgressHUD showInfoWithStatus:@"密码不能为空"];
+        [SVProgressHUD showWithStatus:NSLocalizedString(@"密码不能为空", nil)];
         return;
     }
     if (!_ProtocolBut.selected) {
@@ -81,8 +81,7 @@
     
     _LoginBtn.userInteractionEnabled = NO;
     
-    [SVProgressHUD showWithStatus:@"正在登录。。。"];
-    
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"正在登錄...", nil)];
     [self AllData];
     ZPLog(@"数据");
 }
@@ -91,7 +90,6 @@
 //  数据 ICUE登入（如返回首次登入则调用55再请求）
 - (void)AllData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    
     dic[@"acc"] = [_ZPEmailTextField.textField.text stringByReplacingOccurrencesOfString:@" " withString:@""]; // 防止輸入帶有空格
     dic[@"pwd"] = [_ZPPswTextField.textField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     [ZP_LoginTool requesForFirstTimeLogin:dic success:^(id obj) {

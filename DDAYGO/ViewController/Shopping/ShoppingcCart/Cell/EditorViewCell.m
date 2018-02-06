@@ -153,12 +153,12 @@
     if (model.colorname.length < 1) {
         _descLabel.hidden = YES;
     }else {
-        _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",model.colorname];
+        _descLabel.text = [NSString stringWithFormat:NSLocalizedString(@"color:%@,", nil),model.colorname];
     }
     if (model.normname.length < 1) {
         _SizeLanbel.hidden = YES;
     }else {
-        _SizeLanbel.text = [NSString stringWithFormat:@"尺碼:%@",model.normname];
+        _SizeLanbel.text = [NSString stringWithFormat:NSLocalizedString(@"size:%@", nil),model.normname];
     }
     _numLabel.text = [NSString stringWithFormat:@"%@",model.amount];
     _productamountmodel = model;
@@ -167,7 +167,7 @@
 
 - (void)buttonClick:(UIButton *)sender {
     if ([_numLabel.text integerValue] <= 1) {
-        [SVProgressHUD showErrorWithStatus:@"购买数量不能少于1"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"purchase quantity cannot be less than 1", nil)];
         _numLabel.text = @"1";
         return;
     }else {
@@ -179,7 +179,7 @@
 - (void)addClick:(UIButton *)sender {
     
     if (self.productamountmodel.productamount.integerValue <= [_numLabel.text integerValue]) {
-        [SVProgressHUD showErrorWithStatus:@"购买数量不能大于库存"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"purchase quantity should not be greater than the inventory", nil)];
         ZPLog(@"%@",self.productamountmodel.productamount);
         return;
     }else {

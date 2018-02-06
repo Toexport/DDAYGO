@@ -108,11 +108,11 @@
                 [[SDImageCache sharedImageCache] clearDisk];
                 [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
-                UIAlertController * alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Prompt", nil) message:NSLocalizedString(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.",nil) preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                     ZPLog(@"取消");
                 }];
-                UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Determine",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                     [self.navigationController popToRootViewControllerAnimated:NO];
                     //跳转
                     if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
@@ -202,7 +202,7 @@
     [ZP_shoopingTool requestSetcartproductcount:dictt success:^(id obj) {
         ZPLog(@"%@",obj);
         if ([obj[@"result"] isEqualToString:@"stock_count_err"]) {
-            [SVProgressHUD showErrorWithStatus:@"库存不足"];
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Insufficient inventory", nil)];
         }
         [self allData];
         //        [self.tableView reloadData];
@@ -252,7 +252,7 @@
         _CurrencySymbolLabel.hidden = NO;
         _ClearingButt.selected = NO;
         [sup setTitle:NSLocalizedString(@"Edit", nil) forState:UIControlStateNormal];
-        [self.ClearingButt setTitle:NSLocalizedString(@"settlement", nil) forState: UIControlStateNormal];
+        [self.ClearingButt setTitle:NSLocalizedString(@"Clearing", nil) forState: UIControlStateNormal];
     }
     [self.tableView reloadData];
 }
@@ -325,7 +325,7 @@
     StatisticsLabel.text = NSLocalizedString(@"Total", nil);
     [bottomView addSubview:StatisticsLabel];
     [StatisticsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(CurrencySymbolLabel).offset(-28.5); // 左边
+        make.right.equalTo(CurrencySymbolLabel).offset(-20); // 左边
         make.bottom.equalTo(CurrencySymbolLabel).offset(0); // 下
     }];
     _StatisticsLabel = StatisticsLabel;
@@ -347,11 +347,11 @@
     
     //    运费Label
     ZP_GeneralLabel * FreightLabel = [ZP_GeneralLabel initWithtextLabel:_FreightLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    FreightLabel.text = NSLocalizedString(@"不含运费", nil);
+    FreightLabel.text = NSLocalizedString(@"Excluding freight costs", nil);
     [bottomView addSubview:FreightLabel];
     _FreightLabel = FreightLabel;
     [FreightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(ClearingBut).offset(-65); // 左边
+        make.right.equalTo(ClearingBut).offset(-105); // 左边
         make.top.equalTo(StatisticsLabel).offset(20); // 下
     }];
 }
@@ -439,12 +439,12 @@
     //   更新合计数据
     self.PriceLabel.text = [@(data) stringValue];
     if (_bjBool) {
-        [self.ClearingButt setTitle:@"删除" forState: UIControlStateNormal];
+        [self.ClearingButt setTitle:NSLocalizedString(@"delete", nil) forState: UIControlStateNormal];
     }else{
         if (dataCount == 0) {
-            [self.ClearingButt setTitle:@"结算" forState: UIControlStateNormal];
+            [self.ClearingButt setTitle:NSLocalizedString(@"Clearing", nil) forState: UIControlStateNormal];
         }else{
-            [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算(%ld)",(long)dataCount] forState: UIControlStateNormal];}
+            [self.ClearingButt setTitle:[NSString stringWithFormat:NSLocalizedString(@"Clearing(%ld)", nil),(long)dataCount] forState: UIControlStateNormal];}
     }
 }
 
@@ -502,12 +502,12 @@
     //   更新合计数据
     self.PriceLabel.text = [@(data) stringValue];
     if (_bjBool) {
-        [self.ClearingButt setTitle:@"删除" forState: UIControlStateNormal];
+        [self.ClearingButt setTitle:NSLocalizedString(@"delete", nil) forState: UIControlStateNormal];
     }else{
         if (dataCount == 0) {
-            [self.ClearingButt setTitle:@"结算" forState: UIControlStateNormal];
+            [self.ClearingButt setTitle:NSLocalizedString(@"Clearing", nil) forState: UIControlStateNormal];
         }else{
-            [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算(%ld)",(long)dataCount] forState: UIControlStateNormal];}
+            [self.ClearingButt setTitle:[NSString stringWithFormat:NSLocalizedString(@"Clearing(%ld)", nil),(long)dataCount] forState: UIControlStateNormal];}
     }
     allNum = dataCount;
 }
@@ -519,11 +519,11 @@
     if (_stockids.length > 0 || _modelstockid.length > 0) {
         if (sender.selected) {
 #pragma make -- 提示框
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"確定要刪除嗎？",nil) preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Prompt", nil) message:NSLocalizedString(@"Are you sure you want delete it?",nil) preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
             }];
-            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Determine",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 [self shangchuBut:sender];
             }];
             [alert addAction:defaultAction];
@@ -532,7 +532,7 @@
         }else {
             if (![self YESOrNoPush]) {
                 NSLog(@" duo xuan ");
-                [ZPProgressHUD showErrorWithStatus:NSLocalizedString(@"暂不支持多家商店购买", nil)];
+                [ZPProgressHUD showErrorWithStatus:NSLocalizedString(@"Do not support additional stores for the time being", nil)];
             }else{
                 ConfirmViewController * Confirm = [[ConfirmViewController alloc]init];
                 Confirm.model = _model;
@@ -562,10 +562,10 @@
     [ZP_shoopingTool requesscartitemdelte:dic success:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"ok"]) {
             [self allData];
-            [SVProgressHUD showSuccessWithStatus:@"刪除成功!"];
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Delete success", nil)];
         }else
             if ([obj[@"result"]isEqualToString:@"failure"]) {
-                [SVProgressHUD showInfoWithStatus:@"删除失敗"];
+                [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Delete failed", nil)];
             }
         
     } failure:^(NSError *error) {
@@ -744,7 +744,7 @@
                     _stockids = str;
                 }
             }
-            [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算(%ld)",(long)dataCount] forState: UIControlStateNormal];
+            [self.ClearingButt setTitle:[NSString stringWithFormat:NSLocalizedString(@"Clearing(%ld)", nil),(long)dataCount] forState: UIControlStateNormal];
             self.PriceLabel.text = [@(data) stringValue];
             allNum = dataCount;
         }else{
@@ -778,7 +778,7 @@
                 cell.buttom.selected = NO;
                 _stockids = nil;
             }
-            [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算"] forState: UIControlStateNormal];
+            [self.ClearingButt setTitle:[NSString stringWithFormat:NSLocalizedString(@"Complete", nil)] forState: UIControlStateNormal];
             self.PriceLabel.text = @"0";
             allNum = 0;
         }else{
@@ -807,7 +807,7 @@
 // 侧滑（删除接口）
 - (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (@available(iOS 11.0, *)) {
-        UIContextualAction *deleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"刪除" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+        UIContextualAction *deleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title: NSLocalizedString(@"delete", nil) handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
             ZP_CartsShopModel * models = self.nameArray[indexPath.section];
             ZP_CartsModel * model = models.array[indexPath.row];
             NSMutableDictionary * dic = [NSMutableDictionary dictionary];
@@ -913,12 +913,12 @@
     
     self.PriceLabel.text = [@(data) stringValue];
     if (_bjBool) {
-        [self.ClearingButt setTitle:@"删除" forState: UIControlStateNormal];
+        [self.ClearingButt setTitle: NSLocalizedString(@"delete", nil) forState: UIControlStateNormal];
     }else{
         if (dataCount == 0) {
-            [self.ClearingButt setTitle:@"结算" forState: UIControlStateNormal];
+            [self.ClearingButt setTitle:NSLocalizedString(@"Clearing", nil) forState: UIControlStateNormal];
         }else{
-            [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算(%ld)",(long)dataCount] forState: UIControlStateNormal];}
+            [self.ClearingButt setTitle:[NSString stringWithFormat:NSLocalizedString(@"Clearing(%ld)", nil),(long)dataCount] forState: UIControlStateNormal];}
     }
 }
 
@@ -984,12 +984,12 @@
     }
     self.PriceLabel.text = [@(data) stringValue];
     if (_bjBool) {
-        [self.ClearingButt setTitle:@"删除" forState: UIControlStateNormal];
+        [self.ClearingButt setTitle: NSLocalizedString(@"delete", nil) forState: UIControlStateNormal];
     }else{
         if (dataCount == 0) {
-            [self.ClearingButt setTitle:@"结算" forState: UIControlStateNormal];
+            [self.ClearingButt setTitle:NSLocalizedString(@"Clearing", nil) forState: UIControlStateNormal];
         }else{
-            [self.ClearingButt setTitle:[NSString stringWithFormat:@"结算(%ld)",(long)dataCount] forState: UIControlStateNormal];}
+            [self.ClearingButt setTitle:[NSString stringWithFormat:NSLocalizedString(@"Clearing(%ld)", nil),(long)dataCount] forState: UIControlStateNormal];}
     }
 }
 

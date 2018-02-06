@@ -1,0 +1,18 @@
+
+/* Class = "UIButton"; normalTitle = "收藏"; ObjectID = "4Iy-iX-bhC"; */
+"4Iy-iX-bhC.normalTitle" = "Collection";
+
+/* Class = "UIButton"; normalTitle = "店铺"; ObjectID = "aFr-nf-baU"; */
+"aFr-nf-baU.normalTitle" = "Store";
+
+/* Class = "UIButton"; normalTitle = "购物车"; ObjectID = "cy4-nj-B1P"; */
+"cy4-nj-B1P.normalTitle" = "Shopping cart";
+
+/* Class = "UIButton"; normalTitle = "立即购买"; ObjectID = "iAs-cb-1wp"; */
+"iAs-cb-1wp.normalTitle" = "Buy now";
+
+/* Class = "UIButton"; normalTitle = "加入购物车"; ObjectID = "mcS-fm-Rhv"; */
+"mcS-fm-Rhv.normalTitle" = "Add cart";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "vgo-8v-KYi"; */
+"vgo-8v-KYi.text" = "Label";

@@ -9,7 +9,9 @@
 #import "AboutDDAYGOController.h"
 #import "PrefixHeader.pch"
 #import "RegistrationAgreementController.h"
-@interface AboutDDAYGOController ()
+@interface AboutDDAYGOController (){
+    UIActivityIndicatorView *activityIndicator;
+}
 
 @end
 

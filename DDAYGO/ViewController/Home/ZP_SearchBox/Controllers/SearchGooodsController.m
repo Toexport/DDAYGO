@@ -82,7 +82,7 @@
         ZPLog(@"go - > %@ --- %@,kkk_> %@",keywords,newStr,searchKit);
         if (newStr.length > 0 ) {
             ZPLog(@"go");
-            [SVProgressHUD showInfoWithStatus:@"暫無數據"];
+            [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Temporarily no data", nil)];
     }
     }else {
     NSString * newStr = [keywords stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -93,11 +93,11 @@
         CPerViewController * CVPView = [[CPerViewController alloc]init];
         CVPView.fatherId = [NSNumber numberWithInteger:0];
         CVPView.keyword = searchKit;
-        CVPView.titleString = @"搜索";
-        [ZPProgressHUD showWithStatus:@"正在搜索..." maskType:ZPProgressHUDMaskTypeBlack];
+        CVPView.titleString = NSLocalizedString(@"Search",nil);
+        [ZPProgressHUD showWithStatus:NSLocalizedString(@"Searching for...",nil) maskType:ZPProgressHUDMaskTypeBlack];
         [self.navigationController pushViewController:CVPView animated:YES];
     }else{
-    [SVProgressHUD showInfoWithStatus:@"請輸入你要寻找的商品"];
+    [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Please enter the product you are looking for",nil)];
         ZPLog(@"no go");
         }
       }

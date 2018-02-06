@@ -24,7 +24,6 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:@"Fifthcell"];
     if (self) {
-        
         [self addSubVIEWs];
         [self initUI];
     }
@@ -118,9 +117,6 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    if (self.ArrData.count < 1) {
-//        return CGSizeMake(CGFLOAT_MIN, CGFLOAT_MIN);
-//    }
     return CGSizeMake(ZP_Width/3-1, (ZP_Width / 3+ 40));
 }
 

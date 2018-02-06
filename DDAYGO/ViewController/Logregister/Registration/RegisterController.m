@@ -78,7 +78,6 @@
 }
 //  注册
 - (IBAction)rEgBut:(id)sender {
-    
     if (![self JudgeTheillegalCharacter:self.ZPAccountNumberTextFiled.textField.text]) {
         [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"帳號格式不正確", nil)];
         return;

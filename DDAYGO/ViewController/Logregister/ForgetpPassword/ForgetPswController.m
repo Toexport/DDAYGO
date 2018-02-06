@@ -101,7 +101,7 @@
             }else
                 if ([dic[@"result"] isEqualToString:@"acc_email_err"]) {
                     [SVProgressHUD showInfoWithStatus:@"賬號不存在"];
-                    [_ZPCodeTextField.functionBtn cancelCountDownWith:@"重新获取"];//这句代码是倒计时清0 
+                    [_ZPCodeTextField.functionBtn cancelCountDownWith:@"重新獲取"];//这句代码是倒计时清0
                 }else
                     if ([dic[@"result"] isEqualToString:@"send_error"]) {
                         [SVProgressHUD showInfoWithStatus:@"驗證碼發送失敗,請稍後再試"];
@@ -122,14 +122,14 @@
         return;
     }
     if (_ZPCodeTextField.textField.text.length < 1) {
-        [SVProgressHUD showInfoWithStatus:@"验证码不能为空"];
+        [SVProgressHUD showInfoWithStatus:@"驗證碼不能為空"];
         ZPLog(@"请输入验证码");
         return;
     }
     
     if (![_ZPCodeTextField.textField.text isEqualToString:_codeStr]) {
         
-        [SVProgressHUD showErrorWithStatus:@"验证码错误"];
+        [SVProgressHUD showErrorWithStatus:@"驗證碼錯誤"];
         return;
     }
     
@@ -141,6 +141,7 @@
     if (![self.ZPPswTextField.textField.text isEqualToString: self.ZPConPswTextField.textField.text]) {
         [SVProgressHUD showInfoWithStatus:@"兩次密碼不一致"];
     }else {
+        [SVProgressHUD showWithStatus:@"正在修改密碼..."];
         [self AllData];
         
     }

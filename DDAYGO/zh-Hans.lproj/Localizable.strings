@@ -22,6 +22,23 @@
 "erchandise" = "精选商品";
 "More erchandise" = "更多精选";
 "Cancel" = "取消";
+"Temporarily no data" = "暂无数据";
+"Search" = "搜索";
+"Searching for..." = "正在搜索...";
+"Please enter the product you are looking for" = "请输入您要寻找的产品";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 /*****************/
 /* *
  * 分类
@@ -31,6 +48,39 @@
 "Sales Volume" = "销量";
 "Latest" = "最新";
 "Price" = "价格";
+"Inventory:%@a" = "库存:%@件";
+"purchase quantity cannot be less than 1" = "购买数量不能少于1";
+"purchase quantity should not be greater than the inventory" = "购买数量不能大于库存";
+"Insufficient inventory" = "库存不足";
+"specification no selected" = "规格没有选中";
+"size No selection" = "没有选择尺寸";
+"number NO choices" = "没有选择数量";
+"Add success" = "添加成功";
+"Add failure" = "添加失败";
+"Select category/specification" = "选择分类/规格";
+"Purchase quantity" = "购买数量";
+"Product specifications" = "商品规格";
+"Commodity type" = "商品类型";
+"Goods details" = "商品详情";
+"Collect success!" = "收藏成功!";
+"Already collected" = "已收藏";
+"Operation failure" = "操作失败";
+"Cancel success" = "取消成功";
+"Product content" = "产品内容";
+"Product evaluation" = "产品评价";
+"After-sales service" = "售后服务";
+"Is no comment" = "没有评价内容哦";
+"Shop introduced" = "店铺介绍";
+"Satisfaction survey" = "满意度调查";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+
 /*****************/
 /* *
  * 购物车
@@ -42,9 +92,26 @@
 "Total" = "合计";
 "delete" = "刪除";
 "Complete" = "完成";
-"settlement" = "结算";
 "Clearing" = "结算";
+"Clearing(%ld)" = "结算(%ld)";
 "You have not selected goods " = "您还没有选择宝贝哦";
+"Excluding freight costs" = "不含运费";
+"Do not support additional stores for the time being" = "暂时不支持多家商店购买";
+"size:%@" = "尺码:%@";
+"color:%@," = "颜色:%@,";
+"Make sure order" = "确认订单";
+"Submit orders" = "提交订单";
+"(Contains freight)" = "(含运费)";
+"Please add address" = "请添加地址";
+"Shipping address" = "收货地址:";
+"Distribution mode:" = "配送方式:";
+"Courier:" = "快递:";
+"Buyer message:" = "买家留言:";
+"Description matter..." = "对其事项说明...";
+"Subtotal:" = "小计:";
+"Total%@a goods" = "共计%@件商品";
+"" = "";
+"" = "";
 /*****************/
 /* *
  * 订单
@@ -98,3 +165,31 @@
 "" = "";
 "" = "";
 
+/**
+ *提示
+ */
+"Prompt" = "提示";
+"Are you sure you want delete it?" = "确定要删除吗?";
+"Cancel" = "取消";
+"Determine" = "确定";
+"Delete success" = "刪除成功";
+"Delete failed" = "删除失败";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+
+/**
+ *互踢提示
+ */
+"Prompt" = "提示";
+"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in." = "您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码";
+"Cancel" = "取消";
+"Determine" = "确定";
+"" = "";
+"" = "";
+"" = "";
+"" = "";

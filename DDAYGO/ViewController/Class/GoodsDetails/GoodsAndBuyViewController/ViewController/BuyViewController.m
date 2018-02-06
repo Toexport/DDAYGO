@@ -22,10 +22,7 @@
 #define SecondPageTop 534
 #define TopTabBarH [global pxTopt:100]
 #define NaviBarH 64.0
-#define kScreenWidth  [UIScreen mainScreen].bounds.size.width
-@interface BuyViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,MyOrderTopTabBarDelegate,UIWebViewDelegate> {
-    UIActivityIndicatorView * activityIndicator;
-}
+@interface BuyViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,MyOrderTopTabBarDelegate>
 
 /*********框架属性*********/
 @property(nonatomic,weak)MyOrderTopTabBar * TopTabBar;
@@ -76,7 +73,7 @@
     [self.detailTableview registerNib:[UINib nibWithNibName:@"TextdetailsViewCell" bundle:nil] forCellReuseIdentifier:@"TextdetailsViewCell"];
     self.detailTableview.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
     self.detailTableview.rowHeight = UITableViewAutomaticDimension;//高度设置为自适应
-    self.titleLabel.text = self.title ? self.title : NSLocalizedString(@"商品詳情", nil);
+    self.titleLabel.text = self.title ? self.title : NSLocalizedString(@"Goods details", nil);
     self.navigationController.navigationBar.hidden = YES;
     self.shfwBottomView.hidden = YES;
     self.qbpjBottomView.hidden = YES;
@@ -164,11 +161,11 @@
             [[SDImageCache sharedImageCache] clearDisk];
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Prompt", nil) message:NSLocalizedString(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.",nil) preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
             }];
-            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Determine",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 [self.navigationController popToRootViewControllerAnimated:NO];
                 //跳转
                 if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
@@ -237,13 +234,13 @@
     [ZP_ClassViewTool requshoucang:dic success:^(id obj) {
         sender.selected = !sender.selected;
         if ([obj[@"result"]isEqualToString:@"ok"]) {
-            [SVProgressHUD showSuccessWithStatus:@"收藏成功!"];
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Collect success!", nil)];
         }else
             if ([obj[@"result"]isEqualToString:@"collected"]) {
-                [SVProgressHUD showInfoWithStatus:@"已收藏"];
+                [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Already collected", nil)];
         }else
              if ([obj[@"result"]isEqualToString:@"failure"]) {
-                 [SVProgressHUD showInfoWithStatus:@"操作失败"];
+                 [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Operation failure", nil)];
         }
     } failure:^(NSError *error) {
         NSLog(@"error %@",error);
@@ -253,13 +250,13 @@
     [ZP_ClassViewTool requCancelshoucang:dic success:^(id obj) {
         sender.selected = !sender.selected;
         if ([obj[@"result"]isEqualToString:@"ok"]) {
-            [SVProgressHUD showSuccessWithStatus:@"取消成功!"];
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Cancel success", nil)];
         }else
             if ([obj[@"result"]isEqualToString:@"count"]) {
-                [SVProgressHUD showInfoWithStatus:@"0"];
+//                [SVProgressHUD showInfoWithStatus:@"0"];
         }else
             if ([obj[@"result"]isEqualToString:@"failure"]) {
-                [SVProgressHUD showInfoWithStatus:@"操作失败"];
+                [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Operation failure", nil)];
         }
     } failure:^(NSError *error) {
         NSLog(@"error %@",error);
@@ -518,7 +515,7 @@
     //初始化第二个页面的父亲view
     UIView * secondPageView = [[UIView alloc] init];
     secondPageView.frame = CGRectMake(0, SecondPageTop, screenW, screenH-NaviBarH-BottomH);
-    NSArray * array  = @[@"產品內容",@"產品評價",@"售後服務"];
+    NSArray * array  = @[NSLocalizedString(@"Product content", nil),NSLocalizedString(@"Product evaluation", nil),NSLocalizedString(@"After-sales service", nil)];
     MyOrderTopTabBar * tabBar = [[MyOrderTopTabBar alloc] initWithArray:array] ;
     tabBar.frame = CGRectMake(0,0, screenW, TopTabBarH);
     tabBar.backgroundColor = [UIColor whiteColor];
@@ -530,7 +527,7 @@
     [secondPageView addSubview:imageView];
     UILabel * label = [[UILabel alloc] init];
     label.font = [UIFont systemFontOfSize:15];
-    label.text = NSLocalizedString(@"暫無評價內容哦", nil);
+    label.text = NSLocalizedString(@"Is no comment", nil);
     label.textColor = [UIColor darkGrayColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.frame = CGRectMake(5, imageView.y+imageView.height+5, secondPageView.width, 20);

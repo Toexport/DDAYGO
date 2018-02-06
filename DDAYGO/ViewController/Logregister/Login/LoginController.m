@@ -71,14 +71,15 @@
 
 // 确定按钮
 - (IBAction)LoginClick:(id)sender {
-    //  设置时间和动画效果
-    [UIView animateWithDuration:4.0 animations:^{
-        
-    } completion:^(BOOL finished) {
-        //  动画完毕从父视图移除
-        
-    }];
-    [SVProgressHUD showWithStatus:@"正在登录。。。"];
+//    //  设置时间和动画效果
+//    [UIView animateWithDuration:4.0 animations:^{
+//        [SVProgressHUD showWithStatus:@"正在登录..."];
+//        [self allData];
+//    } completion:^(BOOL finished) {
+//        //  动画完毕从父视图移除
+//
+//    }];
+    [SVProgressHUD showWithStatus:@"正在登录..."];
     [self allData];
 }
 // 数据

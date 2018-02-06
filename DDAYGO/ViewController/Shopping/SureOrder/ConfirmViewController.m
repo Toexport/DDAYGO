@@ -58,7 +58,7 @@
     _ConfirmArray = [NSMutableArray array];
     [self initUI];
     [self ImmobilizationView];
-    self.title = NSLocalizedString(@"確認訂單", nil);
+    self.title = NSLocalizedString(@"Make sure order", nil);
     // 666shi 订单界面
     if (self.type == 666) {
 //        ZP_BusinessNameCell * cell = [[ZP_BusinessNameCell alloc]init];
@@ -196,7 +196,7 @@
 // 提交订单
 - (void)ClearingBut:(UIButton *)sender {
     if (_dataArrar.count == 0) {
-        [SVProgressHUD showErrorWithStatus:@"請添加地址"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"請添加地址", nil)];
         AddAddressViewController *viewController = [[AddAddressViewController alloc] init];
         [self.navigationController pushViewController:viewController animated:YES];
         viewController.contentDic = @{@"asd":@(YES)};
@@ -245,11 +245,11 @@
                     [[SDImageCache sharedImageCache] clearDisk];
                     [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
-                    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Prompt", nil) message:NSLocalizedString(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.",nil) preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                         ZPLog(@"取消");
                     }];
-                    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Determine",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                         [self.navigationController popToRootViewControllerAnimated:NO];
                         //跳转
                         if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
@@ -359,7 +359,8 @@
 //      self.ConfirmArray = [ZP_ExpressDeliveryModel arrayWithArray:obj[@"freightamount"]];
         [self.tableView reloadData];
     } failure:^(NSError * error) {
-        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
+        ZPLog(@"%@",error);
+    //        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 
@@ -383,8 +384,8 @@
         [self upfataStatisticsLabel];
         [self.tableView reloadData];
     } failure:^(NSError * error) {
-//        ZPLog(@"%@",error);
-        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
+        ZPLog(@"%@",error);
+//        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 

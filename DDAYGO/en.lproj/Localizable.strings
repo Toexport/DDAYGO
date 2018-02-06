@@ -22,11 +22,9 @@
 "Once logged in, no other countries will be supported" = "Once logged in, no other countries will be supported";
 "Taiwan" = "Taiwan";
 "Cancel" = "Cancel";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Temporarily no data" = "Temporarily no data";
+"Search" = "Search";
+"Searching for..." = "Searching for...";
 "" = "";
 "" = "";
 "" = "";
@@ -48,14 +46,30 @@
 "Sales Volume" = "Sales Volume";
 "Latest" = "Latest";
 "Price" = "Price";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Inventory:%@a" = "Inventory:%@a";
+"purchase quantity cannot be less than 1" = "purchase quantity cannot be less than 1";
+"purchase quantity should not be greater than the inventory" = "purchase quantity should not be greater than the inventory";
+"Insufficient inventory" = "Insufficient inventory";
+"specification no selected" = "specification no selected";
+"size No selection" = "size No selection";
+"number NO choices" = "number NO choices";
+"Add success" = "Add success";
+"Add failure" = "Add failure";
+"Select category/specification" = "Select category/specification";
+"Purchase quantity" = "Purchase quantity";
+"Product specifications" = "Product specifications";
+"Commodity type" = "Commodity type";
+"Goods details" = "Goods details";
+"Collect success!" = "Collect success!";
+"Already collected" = "Already collected";
+"Operation failure" = "Operation failure";
+"Cancel success" = "Cancel success";
+"Product content" = "Product content";
+"Product evaluation" = "Product evaluation";
+"After-sales service" = "After-sales service";
+"Is no comment" = "Is no comment";
+"Shop introduced" = "Shop introduced";
+"Satisfaction survey" = "Satisfaction survey";
 "" = "";
 "" = "";
 "" = "";
@@ -71,26 +85,27 @@
 "Select" = "Select";
 "Total" = "Total";
 "Complete" = "Complete";
-"delete" = "delete";
-
-
 "Clearing" = "Clearing";
+"delete" = "delete";
+"Clearing(%ld)" = "Clearing(%ld)";
 "You have not selected goods " = "You have not selected goods ";
 "delete" = "delete";
 "settlement" = "settlement";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Excluding freight costs" = "Excluding freight costs";
+"Do not support additional stores for the time being" = "Do not support additional stores for the time being";
+"size:%@" = "size:%@";
+"color:%@," = "color:%@,";
+"Make sure order" = "Make sure order";
+"Submit orders" = "Submit orders";
+"(Contains freight)" = "(Contains freight)";
+"Please add address" = "Please add address";
+"Shipping address:" = "Shipping address:";
+"Distribution mode:" = "Distribution mode:";
+"Courier:" = "Courier:";
+"Buyer message:" = "Buyer message:";
+"Description matter..." = "Description matter...";
+"Subtotal:" = "Subtotal:";
+"Total%@a goods" = "Total%@a goods";
 "" = "";
 /* *
  * 订单
@@ -163,3 +178,37 @@
 "" = "";
 "" = "";
 "" = "";
+/**
+ *提示
+ */
+"Prompt" = "Prompt";
+"Are you sure you want delete it?" = "Are you sure you want delete it?";
+"Cancel" = "Cancel";
+"Determine" = "Determine";
+"Delete success" = "Delete success";
+"Delete failed" = "Delete failed";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+
+/**
+ *互踢提示
+ */
+"Prompt" = "Prompt";
+"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in." = "Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.";
+"Cancel" = "Cancel";
+"Determine" = "Determine";
+"" = "";
+"" = "";
+
+
+
+
+

@@ -19,7 +19,7 @@
 }
 - (void)initUI {
     
-    //    主图
+//    主图
     UIImageView * imageView = [UIImageView new];
     [self addSubview:imageView];
     [imageView setContentScaleFactor:[[UIScreen mainScreen] scale]];
@@ -30,13 +30,12 @@
         make.left.equalTo(self).offset(1);
         make.top.equalTo(self).offset(-1);
         make.right.equalTo(self).offset(-1);
-//        make.bottom.equalTo(self).offset(-50);
         make.width.mas_offset(ZP_Width / 3-1);
         make.height.mas_offset(ZP_Width / 3);
     }];
     self.imageView = imageView;
     
-    //    文字介绍
+//    文字介绍
     UILabel * introduceLabel = [UILabel new];
     introduceLabel.textColor = ZP_HomeTitleTypefaceCorlor;
     introduceLabel.textAlignment = NSTextAlignmentLeft;
@@ -74,7 +73,7 @@
     }];
     self.TrademarkImage = TrademarkImage;
     
-    //    商标编号
+//    商标编号
     UILabel * TrademarkLabel = [UILabel new];
     TrademarkLabel.textAlignment = NSTextAlignmentLeft;
     TrademarkLabel.textColor = ZP_HomeTitlepriceTypefaceColor;
@@ -87,7 +86,7 @@
     }];
     self.TrademarkLabel = TrademarkLabel;
     
-    //    分割线
+//    分割线
     UIView * view1 = [UIView new];
     view1.backgroundColor = ZP_Graybackground;
     [self.contentView addSubview:view1];
@@ -98,7 +97,7 @@
         make.height.mas_equalTo(1);
     }];
     
-    //    分割线
+//    分割线
     UIView * view2 = [UIView new];
     view2.backgroundColor = ZP_Graybackground;
     [self.contentView addSubview:view2];

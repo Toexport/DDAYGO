@@ -28,7 +28,7 @@
     _dataArrar = [NSMutableArray array];
     [self initUI];
     [self AllData];
-    self.title = @"付款";
+    self.title = NSLocalizedString(@"正在付款", nil);
     self.view.backgroundColor = ZP_WhiteColor;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: ZP_textWite}];
     

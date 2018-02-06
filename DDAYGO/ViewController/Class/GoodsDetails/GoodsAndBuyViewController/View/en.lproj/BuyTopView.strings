@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "0"; ObjectID = "5iE-O7-lB0"; */
+"5iE-O7-lB0.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "C2V-bG-03H"; */
+"C2V-bG-03H.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "EsY-Cm-1vW"; */
+"EsY-Cm-1vW.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "RgA-V2-KnK"; */
+"RgA-V2-KnK.text" = "0";
+
+/* Class = "UILabel"; text = "库存："; ObjectID = "jOs-OT-J0O"; */
+"jOs-OT-J0O.text" = "Inventory：";
+
+/* Class = "UILabel"; text = "销量："; ObjectID = "khu-ed-TaW"; */
+"khu-ed-TaW.text" = "Sales：";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "nwo-qu-0jm"; */
+"nwo-qu-0jm.text" = "0";
+
+/* Class = "UILabel"; text = "货号："; ObjectID = "r4S-ug-wZu"; */
+"r4S-ug-wZu.text" = "Article number：";
+
+/* Class = "UILabel"; text = "NT"; ObjectID = "tSN-Qv-VMM"; */
+"tSN-Qv-VMM.text" = "NT";

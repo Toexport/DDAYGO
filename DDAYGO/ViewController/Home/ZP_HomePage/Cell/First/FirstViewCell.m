@@ -78,7 +78,7 @@
 
 - (void)Alldata:(NSNumber *)code {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    NSNumber *sendCode;
+    NSNumber * sendCode;
     if ([code intValue] > 0) {
         sendCode = code;
     }else {
