@@ -83,23 +83,40 @@
     [ZP_ClassViewTool requMerchandise:dic WithIndex:self.type success:^(id obj) {
         NSDictionary * dict = obj;
         [SVProgressHUD dismiss];
-//        NSArray * arr ;
         NSMutableArray * tempArray = [NSMutableArray arrayWithArray:dict[@"datalist"]];
-//        arr = [tempArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
-//            ZPLog(@"obj1:%lu--obj2:%lu",[obj1[@"productprice"] longValue],[obj2[@"productprice"] longValue]);
-//            if ([_priceStrTag isEqualToString:@"desc"]) {
-//                if ([obj1[@"productprice"] longValue] > [obj2[@"productprice"] longValue]) {
-//                    return NSOrderedDescending;
-//                }
-//                return NSOrderedAscending;
-//            } else {
-//                if ([obj2[@"productprice"] longValue] > [obj1[@"productprice"] longValue]) {
-//                    return NSOrderedDescending;
-//                }
-//                return NSOrderedAscending;
-//            }
-//        }];
-        self.newsData = [ZP_ClassGoodsModel arrayWithArray:tempArray];
+        
+        if (self.type > 0) {
+            NSArray * arr ;
+            arr = [tempArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
+                if (self.type == 1) {
+                    if ([obj1[@"productsale"] longValue] > [obj2[@"productsale"] longValue]) {
+                        return NSOrderedAscending;
+                    }
+                    return NSOrderedDescending;
+                } else if (self.type == 2) {
+                    if ([obj1[@"productsale"] longValue] > [obj2[@"productsale"] longValue]) {
+                        return NSOrderedDescending;
+                    }
+                    return NSOrderedAscending;
+                } else {
+                    if ([_priceStrTag isEqualToString:@"desc"]) {
+                        if ([obj1[@"productprice"] longValue] > [obj2[@"productprice"] longValue]) {
+                            return NSOrderedDescending;
+                        }
+                        return NSOrderedAscending;
+                    } else {
+                        if ([obj2[@"productprice"] longValue] > [obj1[@"productprice"] longValue]) {
+                            return NSOrderedDescending;
+                        }
+                        return NSOrderedAscending;
+                    }
+                }
+            }];
+            self.newsData = [ZP_ClassGoodsModel arrayWithArray:arr];
+        } else {
+            self.newsData = [ZP_ClassGoodsModel arrayWithArray:tempArray];
+        }
+        
         [self.collectionView reloadData];
         [self.collectionView.mj_header endRefreshing];  // 結束下拉刷新
         [self.collectionView.mj_footer endRefreshing];
