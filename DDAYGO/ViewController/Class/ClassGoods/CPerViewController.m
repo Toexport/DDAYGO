@@ -79,7 +79,7 @@
     [self initView];
 }
 
-- (void)initView{
+- (void)initView {
     _titleArray =  @[NSLocalizedString(@"Acquiescence", nil),NSLocalizedString(@"Sales Volume", nil),NSLocalizedString(@"Latest", nil),NSLocalizedString(@"Price", nil)];
     for (NSInteger i = 0; i<_titleArray.count; i++) {
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -97,7 +97,7 @@
         [self.topView addSubview:button];
     }
     self.line.x = 0;
-    for (NSInteger j =0; j<_titleArray.count; j++) {
+    for (NSInteger j = 0; j <_titleArray.count; j++) {
         CPCollectionViewController * vc = [[CPCollectionViewController alloc]init];
         vc.fatherId = self.fatherId;
         vc.nameStr = self.nameStr;

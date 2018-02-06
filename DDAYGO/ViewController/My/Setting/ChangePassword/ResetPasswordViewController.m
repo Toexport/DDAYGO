@@ -86,6 +86,7 @@
     [ZP_MyTool requestRestPassword:dic success:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"ok"]) {
             [SVProgressHUD showSuccessWithStatus:@"修改成功,请重新登录..."];
+            [self.navigationController popToRootViewControllerAnimated:NO];
             Token = nil;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];

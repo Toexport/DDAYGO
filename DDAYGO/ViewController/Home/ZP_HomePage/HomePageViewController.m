@@ -87,7 +87,6 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
 //        [self.SixthArrData removeAllObjects];
         [self FifthallData:CountCode];  //带参数刷新
-        
         _i = 0;
         [self allData];
         [self FifthallData:CountCode];  //带参数刷新
