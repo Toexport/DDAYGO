@@ -122,7 +122,6 @@
 }
 //   按钮
 - (void)Shopevaluation:(NSArray *)Shopevaluation {
-    
     NSInteger num = 0;
     for (int x = 0; x <= 0; x ++) {
         for (int i = 0; i <= 4; i ++) {
@@ -149,7 +148,6 @@
 }
 
 - (void)Anonymous:(UIButton *)sender {
-
     _Anonymousbutton.selected = !_Anonymousbutton.selected;
 }
 

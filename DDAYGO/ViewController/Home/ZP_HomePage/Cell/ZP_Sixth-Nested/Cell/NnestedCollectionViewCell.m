@@ -19,7 +19,7 @@
     [self.ImageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
     self.titleLabel.text = model.productname;
     self.priceLabel.text = [NSString stringWithFormat:@"NT%@", model.PreferentialLabel];
-    self.TrademarkLabel.text = model.TrademarkLabel;
+//    self.TrademarkLabel.text = model.TrademarkLabel;
 }
 
 @end

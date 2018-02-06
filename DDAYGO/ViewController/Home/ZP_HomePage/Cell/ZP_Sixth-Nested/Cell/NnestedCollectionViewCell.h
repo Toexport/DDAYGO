@@ -12,7 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView * ImageView;
 @property (weak, nonatomic) IBOutlet UILabel * titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel * priceLabel;
-@property (weak, nonatomic) IBOutlet UILabel * TrademarkLabel;
+//@property (weak, nonatomic) IBOutlet UILabel * TrademarkLabel;
 
 - (void)cellWithdic:(ZP_SixthModel *)dic;
 @end

@@ -160,7 +160,6 @@
             //            [_AppraiseBut setTitle:@"评价" forState:UIControlStateNormal];
             //        你是根据这个有判断是否隐藏 不是根据4，不是更具4的
             if ([_model.reviewscount integerValue] == 0) {
-                //                ／／你看下你的意思啊· 你是等于0
                 _OnceagainBut.hidden = NO;
             }else {
                 _OnceagainBut.hidden = YES;

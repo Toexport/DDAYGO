@@ -21,7 +21,7 @@
 //@property (weak, nonatomic) IBOutlet UIButton * logisticsBtn4;
 //@property (weak, nonatomic) IBOutlet UIButton * logisticsBtn5;
 
-@property (weak, nonatomic) IBOutlet UIImageView *AvatarImageView; // 头像
+@property (weak, nonatomic) IBOutlet UIImageView * AvatarImageView; // 头像
 @property (weak, nonatomic) IBOutlet UILabel * usernameLabel; // 用户名
 @property (weak, nonatomic) IBOutlet UILabel * timeLabel;  // 评价时间
 @property (weak, nonatomic) IBOutlet UILabel * commodityLabel; // 评价内容

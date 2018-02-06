@@ -12,9 +12,6 @@
 #define screen_Width [UIScreen mainScreen].bounds.size.width
 #define screen_Height [UIScreen mainScreen].bounds.size.height
 
-//#define BackgroundColor [UIColor colorWithRed:240/255.0f green:240/255.0f blue:244/255.0f alpha:1]
-
-//#define MainColor        [UIColor colorWithRed:24/255.0f green:161/255.0f blue:76/255.0f alpha:1]
 @interface ChooseView ()
 
 //规格分类
@@ -26,12 +23,9 @@
 
 @synthesize alphaView,whiteView,headImage,CPImageview,LB_CPLabel,LB_detail,LB_line,LB_price,LB_stock,LB_showSales,mainscrollview,cancelBtn,addBtn,buyBtn,stockBtn;
 
--(instancetype)initWithFrame:(CGRect)frame{
-    
+- (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
-    
     if (self) {
-        
         self.backgroundColor = [UIColor clearColor];
         self.showSales = @"205";
         [self creatUI];
@@ -41,7 +35,7 @@
 
 
 
--(void)creatUI {
+- (void)creatUI {
 //   半透明视图
     alphaView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, screen_Height)];
     alphaView.backgroundColor = [UIColor clearColor];
@@ -55,7 +49,6 @@
     
 //   商品图片
     headImage = [[UIImageView alloc] initWithFrame:CGRectMake(20, -10, 90, 90)];
-//    headImage.image = [UIImage imageNamed:@"product_04"];
     headImage.layer.cornerRadius = 4;
     headImage.layer.borderColor = [UIColor lightGrayColor].CGColor;
     headImage.layer.borderWidth = 1;
@@ -71,15 +64,12 @@
 //CP图片
     CPImageview = [[UIImageView alloc]initWithFrame:CGRectMake(screen_Width - 100, 12.5, 15, 15)];
     CPImageview.image = [UIImage imageNamed:@"ic_cp"];
-//    headImage.layer.borderColor = [UIColor lightGrayColor].CGColor;
-//    CPImageview.layer.borderWidth = 1;
     [CPImageview.layer setMasksToBounds:YES];
     [whiteView addSubview:CPImageview];
 
 //    CP编号
     LB_CPLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(CPImageview.frame)+5, 10, 150, 20)];
     LB_CPLabel.textColor = [UIColor blackColor];
-//    LB_CPLabel.text = @"9999";
     LB_CPLabel.font = ZP_stockFont;
     [whiteView addSubview:LB_CPLabel];
     
@@ -129,7 +119,7 @@
     [addBtn setBackgroundColor:[UIColor colorWithRed:245/255.0f green:143/255.0f blue:43/255.0f alpha:1]];
     [addBtn setTitleColor:[UIColor whiteColor] forState:0];
     addBtn.titleLabel.font = ZP_addBtnTextdetaFont;
-    [addBtn setTitle:NSLocalizedString(@"Add cart", nil) forState:0];
+    [addBtn setTitle:NSLocalizedString(@"加入購物車", nil) forState:0];
     [whiteView addSubview:addBtn];
     
 //   立即购买按钮
@@ -138,7 +128,7 @@
     [buyBtn setBackgroundColor:ZP_BuyColor];
     [buyBtn setTitleColor:[UIColor whiteColor] forState:0];
     buyBtn.titleLabel.font = ZP_addBtnTextdetaFont;
-    [buyBtn setTitle:NSLocalizedString(@"Buy now", nil) forState:0];
+    [buyBtn setTitle:NSLocalizedString(@"立即購買", nil) forState:0];
     [whiteView addSubview:buyBtn];
     
 //   库存不足按钮
@@ -147,7 +137,7 @@
     [stockBtn setBackgroundColor:[UIColor lightGrayColor]];
     [stockBtn setTitleColor:[UIColor blackColor] forState:0];
     stockBtn.titleLabel.font = ZP_addBtnTextdetaFont;
-    [stockBtn setTitle:NSLocalizedString(@"Insufficient inventory", nil) forState:0];
+    [stockBtn setTitle:NSLocalizedString(@"庫存不足", nil) forState:0];
     [whiteView addSubview:stockBtn];
 //   默认隐藏
     stockBtn.hidden = YES;

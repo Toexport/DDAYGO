@@ -17,16 +17,6 @@
 //    self.logisticsArray = @[self.logisticsBtn1,self.logisticsBtn2,self.logisticsBtn3,self.logisticsBtn4,self.logisticsBtn5];
 }
 
-//- (void)updateData:(NSDictionary *)dic {
-//    NSDictionary * tempDic = [(NSArray *)(dic[@"reviewslist"][@"ReviewsData"][@"0"]) firstObject];
-//    [self.AvatarImageView sd_setImageWithURL:[NSURL URLWithString:tempDic[@"avatar"]] placeholderImage:[UIImage imageNamed:@""]];
-//    self.usernameLabel.text = tempDic[@"realname"];
-//    [self updateStartsWithtype:0 StartCount:[tempDic[@"fraction"] integerValue]];
-//    [self updateStartsWithtype:1 StartCount:[tempDic[@"fraction"] integerValue]];
-//    self.timeLabel.text = tempDic[@"createtime"];
-//    self.commodityLabel.text = tempDic[@"reviewscontent"];
-//}
-
 - (void)Evaluatemodel:(EvaluateModel *)model {
     NSString * asd = ImgAPI;
     [self.AvatarImageView sd_setImageWithURL:[NSURL URLWithString:[asd stringByAppendingString:model.avatar]]placeholderImage:[UIImage imageNamed:@""]];

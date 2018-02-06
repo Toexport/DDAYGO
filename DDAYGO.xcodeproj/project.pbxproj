@@ -180,7 +180,6 @@
 		6FA32ACCA83E0A32B68FDCFC /* libPods-DDAYGO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC9B15E33AA25F355BC51C7 /* libPods-DDAYGO.a */; };
 		C40763711FF50E9A00180975 /* IQTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C407636F1FF50E9A00180975 /* IQTableView.m */; };
 		C407AC131FD7E917004A8DE8 /* 提现记录_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = C407AC121FD7E916004A8DE8 /* 提现记录_spec.png */; };
-		C409F86E1FA17336009DE7B1 /* NestedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C409F86A1FA17336009DE7B1 /* NestedCollectionViewCell.m */; };
 		C409F86F1FA17336009DE7B1 /* SixthViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C409F86C1FA17336009DE7B1 /* SixthViewCell.m */; };
 		C409F8721FA1758E009DE7B1 /* ZP_SixthModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C409F8711FA1758E009DE7B1 /* ZP_SixthModel.m */; };
 		C409F8901FA1E280009DE7B1 /* ZP_ZeroModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C409F88F1FA1E280009DE7B1 /* ZP_ZeroModel.m */; };
@@ -807,8 +806,6 @@
 		C407636F1FF50E9A00180975 /* IQTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTableView.m; sourceTree = "<group>"; };
 		C40763701FF50E9A00180975 /* IQTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQTableView.h; sourceTree = "<group>"; };
 		C407AC121FD7E916004A8DE8 /* 提现记录_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "提现记录_spec.png"; sourceTree = "<group>"; };
-		C409F8691FA17336009DE7B1 /* NestedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NestedCollectionViewCell.h; sourceTree = "<group>"; };
-		C409F86A1FA17336009DE7B1 /* NestedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NestedCollectionViewCell.m; sourceTree = "<group>"; };
 		C409F86B1FA17336009DE7B1 /* SixthViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixthViewCell.h; sourceTree = "<group>"; };
 		C409F86C1FA17336009DE7B1 /* SixthViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixthViewCell.m; sourceTree = "<group>"; };
 		C409F8701FA1758E009DE7B1 /* ZP_SixthModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZP_SixthModel.h; sourceTree = "<group>"; };
@@ -2610,8 +2607,6 @@
 		C409F8681FA17336009DE7B1 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				C409F8691FA17336009DE7B1 /* NestedCollectionViewCell.h */,
-				C409F86A1FA17336009DE7B1 /* NestedCollectionViewCell.m */,
 				C4BF36EA201EBC2700C55DCA /* NnestedCollectionViewCell.h */,
 				C4BF36EB201EBC2700C55DCA /* NnestedCollectionViewCell.m */,
 				C4BF36EC201EBC2700C55DCA /* NnestedCollectionViewCell.xib */,
@@ -4833,7 +4828,6 @@
 				4DCDA7792020D5B700ED64DC /* TabButton.m in Sources */,
 				C4AD0757200C7A5D00B8FF6E /* LPDImageManager.m in Sources */,
 				C45F22E51FA0617E00F5DB41 /* ZP_HttpConst.m in Sources */,
-				C409F86E1FA17336009DE7B1 /* NestedCollectionViewCell.m in Sources */,
 				C47096991FB04B2D006EA52C /* UIButton+countDown.m in Sources */,
 				C44A09002022F0E9000024F9 /* ProductTableViewCell.m in Sources */,
 				C470ADF31FA95B5200BAC2CA /* ZP_registrationModel.m in Sources */,

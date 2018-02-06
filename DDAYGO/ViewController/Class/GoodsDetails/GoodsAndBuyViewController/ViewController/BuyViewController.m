@@ -391,6 +391,7 @@
         case 1:
         {
             EvaluateTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"EvaluateTableViewCell"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
             EvaluateModel * model = self.evaluateArray[indexPath.row];
             [cell Evaluatemodel:model];
             return cell;
