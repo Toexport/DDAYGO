@@ -93,6 +93,7 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
             ZPICUEToken = nil;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
+            [self.navigationController popViewControllerAnimated:YES];
             UITabBarController * tbvc  = [[UIApplication sharedApplication] keyWindow].rootViewController;
             [tbvc setSelectedIndex:0];
         }else

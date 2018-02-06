@@ -83,33 +83,29 @@
     [ZP_ClassViewTool requMerchandise:dic WithIndex:self.type success:^(id obj) {
         NSDictionary * dict = obj;
         [SVProgressHUD dismiss];
-        NSArray * arr ;
+//        NSArray * arr ;
         NSMutableArray * tempArray = [NSMutableArray arrayWithArray:dict[@"datalist"]];
-        arr = [tempArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
-            ZPLog(@"obj1:%lu--obj2:%lu",[obj1[@"productprice"] longValue],[obj2[@"productprice"] longValue]);
-            if ([_priceStrTag isEqualToString:@"desc"]) {
-                if ([obj1[@"productprice"] longValue] > [obj2[@"productprice"] longValue]) {
-                    return NSOrderedDescending;
-                }
-                return NSOrderedAscending;
-            } else {
-                if ([obj2[@"productprice"] longValue] > [obj1[@"productprice"] longValue]) {
-                    return NSOrderedDescending;
-                }
-                return NSOrderedAscending;
-            }
-        }];
-        ZPLog(@"_priceStrTag - %@",_priceStrTag);
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            self.newsData = [ZP_ClassGoodsModel arrayWithArray:arr];
-            [self.collectionView reloadData];
-            [self.collectionView.mj_header endRefreshing];  // 結束下拉刷新
-            [self.collectionView.mj_footer endRefreshing];
-        });
+//        arr = [tempArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
+//            ZPLog(@"obj1:%lu--obj2:%lu",[obj1[@"productprice"] longValue],[obj2[@"productprice"] longValue]);
+//            if ([_priceStrTag isEqualToString:@"desc"]) {
+//                if ([obj1[@"productprice"] longValue] > [obj2[@"productprice"] longValue]) {
+//                    return NSOrderedDescending;
+//                }
+//                return NSOrderedAscending;
+//            } else {
+//                if ([obj2[@"productprice"] longValue] > [obj1[@"productprice"] longValue]) {
+//                    return NSOrderedDescending;
+//                }
+//                return NSOrderedAscending;
+//            }
+//        }];
+        self.newsData = [ZP_ClassGoodsModel arrayWithArray:tempArray];
+        [self.collectionView reloadData];
+        [self.collectionView.mj_header endRefreshing];  // 結束下拉刷新
+        [self.collectionView.mj_footer endRefreshing];
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
         ZPLog(@"%@",error);
-        
     }];
 }
 #pragma make - 创建collectionView代理

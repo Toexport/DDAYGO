@@ -43,12 +43,11 @@
 // 设置contentScrollView不能左右滚动
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     scrollView.bounces = (scrollView.contentOffset.y <= 10) ? NO : YES;
-    CGPoint offset = scrollView.contentOffset;
-    if (offset.y <= 0) {
-        offset.y = 0;
-    }
-    self.contentScrollView.contentOffset = offset;
-    
+//    CGPoint offset = scrollView.contentOffset;
+//    if (offset.y <= 0) {
+//        offset.y = 0;
+//    }
+//    self.contentScrollView.contentOffset = offset;
 }
 
 -(UIView *)topView {
@@ -74,6 +73,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = _titleString;
+    _priceStrTag = @"asc";
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     [self initView];
@@ -131,7 +131,13 @@
 
 - (void)btnClick:(UIButton *)button {
     _indexTag = button.tag ;
+    [UIView animateWithDuration:0.1 animations:^{
+        self.line.x = (ZP_Width/4)*button.tag;
+    }];
+    self.contentScrollView.contentOffset = CGPointMake(button.tag*ZP_Width, 0);
+    
     if (button.tag == 3) {
+        button.selected = !button.selected;
         if (button.selected) {
 #warning 选中
             [button setImage:[UIImage imageNamed:@"icon_shop_classification_02"] forState:UIControlStateNormal];
@@ -142,18 +148,14 @@
             [button setImage:[UIImage imageNamed:@"icon_shop_classification_03"] forState:UIControlStateNormal];
             _priceStrTag = @"asc";
         }
-        button.selected = !button.selected;
+        
         for (CPCollectionViewController * vcs in self.childViewControllers) {
+            if (vcs.view.tag == button.tag) {
                 vcs.priceStrTag = _priceStrTag;
                 [vcs allData];
             }
-        self.contentScrollView.contentOffset = CGPointMake(button.tag*ZP_Width, 0);
-        UIViewController * vcs = self.childViewControllers[button.tag];
-        vcs.view.frame = CGRectMake(button.tag*ZP_Width, 0, ZP_Width, self.contentScrollView.frame.size.height);
         }
-        [UIView animateWithDuration:0.1 animations:^{
-          self.line.x = (ZP_Width/4)*button.tag;
-    }];
+    }
 }
 
 //// 开启侧滑
