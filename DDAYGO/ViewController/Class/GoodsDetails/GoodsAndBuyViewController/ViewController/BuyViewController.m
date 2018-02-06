@@ -24,16 +24,16 @@
 #define NaviBarH 64.0
 #define kScreenWidth  [UIScreen mainScreen].bounds.size.width
 @interface BuyViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,MyOrderTopTabBarDelegate,UIWebViewDelegate> {
-    
     UIActivityIndicatorView * activityIndicator;
 }
+
 @property (nonatomic, strong) UIWebView * webView;
 /*********框架属性*********/
-@property(nonatomic,weak)MyOrderTopTabBar* TopTabBar;
+@property(nonatomic,weak)MyOrderTopTabBar * TopTabBar;
 @property (weak, nonatomic) UIScrollView * MyScrollView;
-@property (weak, nonatomic) BuyTopView* topView;
-@property (weak, nonatomic) BuyMiddleView* middleView;
-@property (strong, nonatomic) UITableView* detailTableview;
+@property (weak, nonatomic) BuyTopView * topView;
+@property (weak, nonatomic) BuyMiddleView * middleView;
+@property (strong, nonatomic) UITableView * detailTableview;
 @property (assign, nonatomic)float TopViewScale;
 
 /********源文件属性********/
@@ -53,11 +53,10 @@
 @property (nonatomic, strong) NSMutableArray * textdetaArray;
 @property (nonatomic, strong) NSMutableArray * evaluateArray;
 @property (nonatomic, assign) NSInteger imageHeight;  //详情图片的高度
-@property (nonatomic, strong) NSMutableDictionary *imageDic;  //详情图片的高度
-@property (weak, nonatomic) IBOutlet UIView *headView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) NSMutableDictionary * imageDic;  //详情图片的高度
+@property (weak, nonatomic) IBOutlet UIView * headView;
+@property (weak, nonatomic) IBOutlet UILabel * titleLabel;
 @property (nonatomic, assign) NSInteger selectIndex;
-
 @end
 
 @implementation BuyViewController
@@ -71,7 +70,7 @@
     self.webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 1)];
     self.webView.delegate = self;
     self.scrollView.scrollEnabled = NO;
-   [self.webView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/item/customerservice/"]]];
+   [self.webView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/item/customerservice"]]];
 }
 
 // 註冊
@@ -365,8 +364,8 @@
             break;
         case 2:
         {
-//            return self.webView.frame.size.height;
-            return 100;
+            return self.webView.frame.size.height;
+//            return 100;
         }
             break;
         default:
@@ -427,7 +426,7 @@
 }
 
 - (BOOL)isPureFloat:(NSString *)string{
-    NSScanner* scan = [NSScanner scannerWithString:string];
+    NSScanner * scan = [NSScanner scannerWithString:string];
     float val;
     return [scan scanFloat:&val] && [scan isAtEnd];
 }
@@ -435,7 +434,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (self.selectIndex) {
-            //self.imageDic
         case 0:
         {
             NSLog(@"%@",self.imageDic[@(indexPath.row).stringValue]); // man 所以是数据问题·  不是cgfloat
@@ -449,10 +447,8 @@
             break;
         case 2:
         {
-//            if (indexPath.row == 3) {
-                return self.webView.frame.size.height;
-//            }
-//            return 100;
+//                return self.webView.frame.size.height;
+            return 100;
         }
             break;
             
@@ -623,6 +619,7 @@
 #pragma mark =============================加载Web=============================
 #pragma mark - UIWebView Delegate Methods
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
+    NSLog(@"gggggg");//
     //获取到webview的高度
     CGFloat height = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
     self.webView.frame = CGRectMake(self.webView.frame.origin.x,self.webView.frame.origin.y, kScreenWidth, height);
