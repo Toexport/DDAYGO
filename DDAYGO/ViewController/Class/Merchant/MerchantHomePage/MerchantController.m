@@ -88,9 +88,10 @@
         UIButton *btn =[UIButton buttonWithType:UIButtonTypeCustom];
         [btn setTitle:allTitle[i] forState:UIControlStateNormal];
         btn.frame = CGRectMake(i * (ZP_Width /4), 0, (ZP_Width /4) , 35);
+        [btn setTitleEdgeInsets:UIEdgeInsetsMake(0, -btn.imageView.bounds.size.width, 0, btn.imageView.bounds.size.width)];
+        [btn setImageEdgeInsets:UIEdgeInsetsMake(0, btn.titleLabel.bounds.size.width, 0, - btn.titleLabel.bounds.size.width)];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont myFontOfSize:12];
-    
         [btn addTarget:self action:@selector(btnClickAction:) forControlEvents:UIControlEventTouchUpInside];
         btn.tag = 100 + i;
         if (i == 0) {
@@ -213,8 +214,8 @@
 }
 
 - (NSArray *) titles {
-    return @[NSLocalizedString(@"Shop introduced", nil),
-             NSLocalizedString(@"Satisfaction survey", nil)];
+    return @[@"店鋪簡介",
+             @"滿意度調查"];
 }
 - (NSArray *) images {
     return @[@"ic_shop_filesearch",
@@ -324,11 +325,11 @@
             [[SDImageCache sharedImageCache] clearDisk];
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Prompt", nil) message:NSLocalizedString(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.",nil) preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
             }];
-            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Determine",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 [self.navigationController popToRootViewControllerAnimated:NO];
                 //跳转
                 if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
@@ -411,35 +412,6 @@
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"30";
     [ZP_ClassViewTool requestGetproductfilter:dic success:^(id obj) {
-        if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
-            Token = nil;
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
-            [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
-            ZPICUEToken = nil;
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
-            [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
-            [[SDImageCache sharedImageCache] clearDisk];
-            [[NSUserDefaults standardUserDefaults]synchronize];
-#pragma make -- 提示框
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Prompt", nil) message:NSLocalizedString(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.",nil) preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                ZPLog(@"取消");
-            }];
-            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Determine",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                [self.navigationController popToRootViewControllerAnimated:NO];
-                //跳转
-                if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
-                    UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
-                    [tbvc setSelectedIndex:0];
-                }
-            }];
-            [alert addAction:defaultAction];
-            [alert addAction:cancelAction];
-            [self presentViewController:alert animated:YES completion:nil];
-        }
         ZPLog(@"%@",obj);
         NSDictionary * dict = obj;
         NSDictionary * dicct = dict[@"reviewgood"];
