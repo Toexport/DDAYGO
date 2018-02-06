@@ -157,8 +157,8 @@
             [[SDImageCache sharedImageCache] clearDisk];
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Prompt", nil) message:NSLocalizedString(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.",nil) preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
                 UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(ZP_Width / 2, ZP_Width / 2- 50, 50, 15)];
                 [label setTextColor:ZP_TypefaceColor];
@@ -167,7 +167,7 @@
                 [self.view addSubview:label];
             }];
             
-            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Determine",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 
                 [self.navigationController popToRootViewControllerAnimated:NO];
                 //跳转
@@ -440,7 +440,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section < [self.newsData count]) {
-        OrderModel * model = [self.newsData objectAtIndex:indexPath.section];
+        //     判断是否越界
+        OrderModel * model = nil;
+        if (indexPath.row < [self.newsData count]) {//无论你武功有多高，有时也会忘记加
+            model = [self.newsData objectAtIndex:indexPath.section];
+        }
+//        OrderModel * model = [self.newsData objectAtIndex:indexPath.section];
         OrdersdetailModel * model2;
         model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail[indexPath.row-1]];
         BuyViewController * ByView = [[BuyViewController alloc]init];

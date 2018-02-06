@@ -12,11 +12,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
 }
 
 - (void)updateData:(ZP_RightModel *)model {
-    
     _contentLabel.text = model.contentLabel;
 }
 

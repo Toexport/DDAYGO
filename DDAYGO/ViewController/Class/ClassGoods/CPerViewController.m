@@ -141,7 +141,6 @@
         if (button.selected) {
 #warning 选中
             [button setImage:[UIImage imageNamed:@"icon_shop_classification_02"] forState:UIControlStateNormal];
-            
             _priceStrTag = @"desc";
         } else {
 #warning 取消选中
