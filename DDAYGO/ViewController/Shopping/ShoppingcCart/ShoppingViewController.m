@@ -39,8 +39,7 @@
 
 @implementation ShoppingViewController
 
-- (NSMutableArray *)nameArray
-{
+- (NSMutableArray *)nameArray {
     if (!_nameArray) {
         _nameArray = [NSMutableArray array];
     }
@@ -62,7 +61,6 @@
         self.tableView.estimatedSectionHeaderHeight = 0;
         self.tableView.estimatedSectionFooterHeight = 0;
     }
-    
     [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
         self.noDataView = response;
         [self.tableView reloadData];
@@ -103,7 +101,6 @@
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
-                
                 ZPICUEToken = nil;
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
@@ -111,10 +108,9 @@
                 [[SDImageCache sharedImageCache] clearDisk];
                 [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
-                UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                     ZPLog(@"取消");
-                    
                 }];
                 UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                     [self.navigationController popToRootViewControllerAnimated:NO];
@@ -164,7 +160,6 @@
                 self.navigationController.tabBarItem.badgeValue = mustr;
                 [self updateData:0];
                 [self.tableView reloadData];
-                
             }else{
                 NSLog(@"go");
                 _dataArray = nil;

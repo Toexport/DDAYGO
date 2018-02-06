@@ -28,8 +28,7 @@
 /**
  UIColor 转UIImage
  */
-+ (UIImage*) createImageWithColor: (UIColor*) color
-{
++ (UIImage*) createImageWithColor: (UIColor*) color {
     CGRect rect=CGRectMake(0,0, 1, 1);
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();

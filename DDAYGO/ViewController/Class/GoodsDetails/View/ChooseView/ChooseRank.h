@@ -1,9 +1,8 @@
 //
 //  ChooseRank.h
-//  LvjFarm
+//  DDAYGO
 //
-//  Created by 张仁昊 on 16/4/20.
-//  Copyright © 2016年 _____ZXHY_____. All rights reserved.
+//  Copyright © 2017年 Summer. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

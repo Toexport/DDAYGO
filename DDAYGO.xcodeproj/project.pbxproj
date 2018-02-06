@@ -1157,6 +1157,7 @@
 		C47BBBF81FE5128F0000FFE6 /* ZP_CheckMoreModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_CheckMoreModel.m; sourceTree = "<group>"; };
 		C47BBC021FF40A180000FFE6 /* ZP_HistoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_HistoryModel.h; sourceTree = "<group>"; };
 		C47BBC031FF40A180000FFE6 /* ZP_HistoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_HistoryModel.m; sourceTree = "<group>"; };
+		C47C7D6720293DA50068AB3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SettingViewController.strings; sourceTree = "<group>"; };
 		C47E75841FB573F2009F279A /* ZP_HomeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_HomeTool.h; sourceTree = "<group>"; };
 		C47E75851FB573F2009F279A /* ZP_HomeTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_HomeTool.m; sourceTree = "<group>"; };
 		C47E758B1FB575C5009F279A /* ZP_shoopingTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_shoopingTool.h; sourceTree = "<group>"; };
@@ -1218,7 +1219,6 @@
 		C482B2841FC2B62600D7539F /* ZP_AnonymityViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZP_AnonymityViewCell.h; sourceTree = "<group>"; };
 		C482B2851FC2B62600D7539F /* ZP_AnonymityViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZP_AnonymityViewCell.m; sourceTree = "<group>"; };
 		C4910F6F1FFC6D24006DA5B9 /* ddg_advertising.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ddg_advertising.png; sourceTree = "<group>"; };
-		C4910F7A1FFCB087006DA5B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SettingViewController.strings; sourceTree = "<group>"; };
 		C491D3741FCBE31D00D127E9 /* BindingIntroduce.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindingIntroduce.h; sourceTree = "<group>"; };
 		C491D3751FCBE31D00D127E9 /* BindingIntroduce.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindingIntroduce.m; sourceTree = "<group>"; };
 		C491D3761FCBE31D00D127E9 /* BindingIntroduce.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BindingIntroduce.xib; sourceTree = "<group>"; };
@@ -5162,9 +5162,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				C47212AD1FB18A4E0055578E /* Base */,
-				C4910F7A1FFCB087006DA5B9 /* en */,
 				C430B822201A065200C12A16 /* zh-Hans */,
 				C430B824201A066C00C12A16 /* zh-Hant */,
+				C47C7D6720293DA50068AB3C /* en */,
 			);
 			name = SettingViewController.xib;
 			sourceTree = "<group>";

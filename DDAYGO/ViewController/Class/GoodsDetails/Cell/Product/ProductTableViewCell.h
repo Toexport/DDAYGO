@@ -2,7 +2,7 @@
 //  ProductTableViewCell.h
 //  DDAYGO
 //
-//  Created by 赵宁 on 2017/12/11.
+//  Created by Login on 2017/9/14.
 //  Copyright © 2017年 Summer. All rights reserved.
 //
 

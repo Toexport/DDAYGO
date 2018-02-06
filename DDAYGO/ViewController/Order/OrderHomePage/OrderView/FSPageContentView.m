@@ -2,8 +2,7 @@
 #import "FSPageContentView.h"
 
 #define IOS_VERSION ([[[UIDevice currentDevice] systemVersion] floatValue])
-static NSString *collectionCellIdentifier = @"collectionCellIdentifier";
-
+static NSString * collectionCellIdentifier = @"collectionCellIdentifier";
 @interface FSPageContentView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, weak) UIViewController *parentVC;//父视图
@@ -16,8 +15,7 @@ static NSString *collectionCellIdentifier = @"collectionCellIdentifier";
 
 @implementation FSPageContentView
 
-- (instancetype)initWithFrame:(CGRect)frame childVCs:(NSArray *)childVCs parentVC:(UIViewController *)parentVC delegate:(id<FSPageContentViewDelegate>)delegate
-{
+- (instancetype)initWithFrame:(CGRect)frame childVCs:(NSArray *)childVCs parentVC:(UIViewController *)parentVC delegate:(id<FSPageContentViewDelegate>)delegate {
     self = [super initWithFrame:frame];
     if (self) {
         self.parentVC = parentVC;
@@ -142,20 +140,17 @@ static NSString *collectionCellIdentifier = @"collectionCellIdentifier";
     }
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     CGFloat scrollView_W = scrollView.bounds.size.width;
     CGFloat currentOffsetX = scrollView.contentOffset.x;
     NSInteger startIndex = floor(_startOffsetX/scrollView_W);
     NSInteger endIndex = floor(currentOffsetX/scrollView_W);
-    
     if (self.delegate && [self.delegate respondsToSelector:@selector(FSContenViewDidEndDecelerating:startIndex:endIndex:)]) {
         [self.delegate FSContenViewDidEndDecelerating:self startIndex:startIndex endIndex:endIndex];
     }
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (!decelerate) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(FSContenViewDidEndDragging:)]) {
             [self.delegate FSContenViewDidEndDragging:self];

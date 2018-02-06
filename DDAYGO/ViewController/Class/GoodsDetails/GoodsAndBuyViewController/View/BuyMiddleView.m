@@ -14,6 +14,7 @@
 @implementation BuyMiddleView
 
 + (instancetype)view {
+    
     return [[[NSBundle mainBundle] loadNibNamed:@"BuyMiddleView" owner:nil options:nil] firstObject];
 }
 

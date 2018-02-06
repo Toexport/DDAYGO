@@ -13,6 +13,8 @@
 #import "BuyMiddleView.h"
 #import "MyOrderTopTabBar.h"
 #import "NaviBase.h"
+#import "ZP_ClassViewTool.h"
+#import "PrefixHeader.pch"
 
 #define TopViewH 484
 #define MiddleViewH 30
@@ -20,27 +22,12 @@
 #define SecondPageTop 534
 #define TopTabBarH [global pxTopt:100]
 #define NaviBarH 64.0
-
-/*******源数据头文件********/
-#import "DetailedViewCell.h"
-#import "TextdetailsViewCell.h"
-#import "MerchantController.h"
-#import "PrefixHeader.pch"
-#import "ZP_ClassViewTool.h"
-#import "ShopIntroductionViewController.h"
-#import "ProductDescriptionView.h"
-#import "ShoppingViewController.h"
-#import "PurchaseView.h"
-#import "UIImageView+WebCache.h"
-#import "ZP_GoodDetailsModel.h"
-#import "PurchaseView.h"
-#import "ConfirmViewController.h"
-#import "ProductTableViewCell.h"
-#import "EvaluateTableViewCell.h"
-#import "MainViewController.h"
-
-@interface BuyViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,MyOrderTopTabBarDelegate>
-
+#define kScreenWidth  [UIScreen mainScreen].bounds.size.width
+@interface BuyViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,MyOrderTopTabBarDelegate,UIWebViewDelegate> {
+    
+    UIActivityIndicatorView * activityIndicator;
+}
+@property (nonatomic, strong) UIWebView * webView;
 /*********框架属性*********/
 @property(nonatomic,weak)MyOrderTopTabBar* TopTabBar;
 @property (weak, nonatomic) UIScrollView * MyScrollView;
@@ -64,7 +51,7 @@
 @property (nonatomic, strong) NSArray * pjArr;
 @property (nonatomic, strong) NSMutableArray * productArray;
 @property (nonatomic, strong) NSMutableArray * textdetaArray;
-@property (nonatomic, strong) NSMutableArray *evaluateArray;
+@property (nonatomic, strong) NSMutableArray * evaluateArray;
 @property (nonatomic, assign) NSInteger imageHeight;  //详情图片的高度
 @property (nonatomic, strong) NSMutableDictionary *imageDic;  //详情图片的高度
 @property (weak, nonatomic) IBOutlet UIView *headView;
@@ -80,14 +67,20 @@
     self.evaluateArray = [NSMutableArray array];
     [self initFrameWords];
     [self initSource];
+    [self allData];
+    self.webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 1)];
+    self.webView.delegate = self;
+    self.scrollView.scrollEnabled = NO;
+   [self.webView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/item/customerservice/"]]];
 }
 
+// 註冊
 - (void)initSource {
     [self.detailTableview registerNib:[UINib nibWithNibName:@"ProductTableViewCell" bundle:nil] forCellReuseIdentifier:@"ProductTableViewCell"];
     [self.detailTableview registerNib:[UINib nibWithNibName:@"EvaluateTableViewCell" bundle:nil] forCellReuseIdentifier:@"EvaluateTableViewCell"];
+    [self.detailTableview registerNib:[UINib nibWithNibName:@"TextdetailsViewCell" bundle:nil] forCellReuseIdentifier:@"TextdetailsViewCell"];
     self.detailTableview.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
-    self.detailTableview.rowHeight=UITableViewAutomaticDimension;//高度设置为自适应
-    [self allData];
+    self.detailTableview.rowHeight = UITableViewAutomaticDimension;//高度设置为自适应
     self.titleLabel.text = self.title ? self.title : NSLocalizedString(@"商品詳情", nil);
     self.navigationController.navigationBar.hidden = YES;
     self.shfwBottomView.hidden = YES;
@@ -134,8 +127,7 @@
         self.pageControl.currentPage = 0;
         [self.scrollView addSubview:self.pageControl];
         
-    }
-    else{
+    }else{
         self.onScrollViewWidth.constant = ZP_Width * 1;
         for (int i = 0; i < 1; i ++) {
             _ShopImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ZP_Width * i, 0, ZP_Width, self.onScrollView.height)];
@@ -149,7 +141,6 @@
         [self.gouwuBtn resizeWithDistance:5];
         [self.dianpuBtn resizeWithDistance:5];
     }
-    
 }
 
 // 获取数据
@@ -171,7 +162,6 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
             [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
-            
             ZPICUEToken = nil;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
@@ -305,42 +295,6 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
 }
 
-//- (IBAction)xzflAction:(UIButton *)sender {
-//    DD_CHECK_HASLONGIN;
-//    if (!self.purchaseView) {
-//        static NSString * purchasseID = @"PurchaseView";
-//        self.purchaseView = [[NSBundle mainBundle] loadNibNamed:purchasseID owner:self options:nil].firstObject;
-//        self.purchaseView.frame = self.view.frame;
-//        self.purchaseView.model = _model;
-//        self.purchaseView.modeltypeArr = _typeArr;
-//        self.purchaseView.modelArr = _normsArr;
-//        [self.view addSubview:self.purchaseView];
-//    }
-//    [self.purchaseView show:^(id response) {
-//        NSLog(@"re = %@",response);
-//        [self.middleView.xzflBtn setTitle:response forState:UIControlStateNormal];
-//    }];
-//    __weak typeof(self) _weakSelf = self;
-//    self.purchaseView.finishBtnBlock = ^(id response) {
-//        NSLog(@"go");
-//        _weakSelf.hidesBottomBarWhenPushed = YES;
-//        _weakSelf.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
-//        _weakSelf.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//        [_weakSelf.navigationController pushViewController:response animated:YES];
-//    };
-//}
-//
-//
-//- (IBAction)cpsmAction:(UIButton *)sender {
-//    DD_CHECK_HASLONGIN;
-//    if (!self.productDescriptionView) {
-//        self.productDescriptionView = [[NSBundle mainBundle] loadNibNamed:@"ProductDescriptionView" owner:self options:nil].firstObject;
-//        self.productDescriptionView.frame = self.view.frame;
-//        [self.view addSubview:self.productDescriptionView];
-//    }
-//    [self.productDescriptionView show];
-//}
-
 //立即购买
 - (IBAction)ligmAction:(UIButton *)sender {
     DD_CHECK_HASLONGIN;
@@ -411,7 +365,8 @@
             break;
         case 2:
         {
-            return 0;
+//            return self.webView.frame.size.height;
+            return 100;
         }
             break;
         default:
@@ -453,6 +408,11 @@
         case 2:
         {
             TextdetailsViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TextdetailsViewCell"];
+            if (!cell) {
+                cell = [[TextdetailsViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TextdetailsViewCell"];
+                [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+                [cell.contentView addSubview:self.webView];
+            }
             return cell;
         }
             break;
@@ -479,15 +439,7 @@
         case 0:
         {
             NSLog(@"%@",self.imageDic[@(indexPath.row).stringValue]); // man 所以是数据问题·  不是cgfloat
-//            NSLog(@"bool = %d",[self isPureFloat:self.imageDic[@(indexPath.row).stringValue]]);
-//            if ([self isPureFloat:self.imageDic[@(indexPath.row).stringValue]]) {
-//                NSLog(@"go");
                 return [self.imageDic[@(indexPath.row).stringValue] integerValue];
-//            }else{
-//                NSLog(@"no bu");
-//                return CGFLOAT_MIN;
-
-           
         }
             break;
         case 1:
@@ -497,7 +449,10 @@
             break;
         case 2:
         {
-            return 100;
+//            if (indexPath.row == 3) {
+                return self.webView.frame.size.height;
+//            }
+//            return 100;
         }
             break;
             
@@ -531,7 +486,7 @@
     [self initView];
 }
 
--(UIScrollView *)MyScrollView{
+-(UIScrollView *)MyScrollView {
     if (_MyScrollView == nil) {
         UIScrollView* scroll = [[UIScrollView alloc] init];
         _MyScrollView = scroll;
@@ -560,7 +515,7 @@
     topView.frame = CGRectMake(0,0, screenW, TopViewH);
     [firstPageView addSubview:topView];
     
-    BuyMiddleView* middleView = [BuyMiddleView view];
+    BuyMiddleView * middleView = [BuyMiddleView view];
     self.middleView = middleView;
     [middleView.xzflBtn addTarget:self action:@selector(ClassificationButt) forControlEvents:UIControlEventTouchUpInside];
     middleView.frame = CGRectMake(0,CGRectGetMaxY(topView.frame) + 10, screenW, MiddleViewH);
@@ -578,18 +533,17 @@
     //初始化第二个页面的父亲view
     UIView * secondPageView = [[UIView alloc] init];
     secondPageView.frame = CGRectMake(0, SecondPageTop, screenW, screenH-NaviBarH-BottomH);
-    NSArray* array  = @[@"产品内容",@"产品评价",@"售后服务"];
-    MyOrderTopTabBar* tabBar = [[MyOrderTopTabBar alloc] initWithArray:array] ;
+    NSArray * array  = @[@"產品內容",@"產品評價",@"售後服務"];
+    MyOrderTopTabBar * tabBar = [[MyOrderTopTabBar alloc] initWithArray:array] ;
     tabBar.frame = CGRectMake(0,0, screenW, TopTabBarH);
     tabBar.backgroundColor = [UIColor whiteColor];
     tabBar.delegate = self;
     self.TopTabBar = tabBar;
     [secondPageView addSubview:tabBar];
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_evaluate_nocontent"]];
+    UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_evaluate_nocontent"]];
     imageView.frame = CGRectMake(ZP_Width/2 - 10,SecondPageTop/2 - 10, 40, 40);
     [secondPageView addSubview:imageView];
-    UILabel *label = [[UILabel alloc] init];
+    UILabel * label = [[UILabel alloc] init];
     label.font = [UIFont systemFontOfSize:15];
     label.text = NSLocalizedString(@"暫無評價內容哦", nil);
     label.textColor = [UIColor darkGrayColor];
@@ -604,7 +558,6 @@
     tableview.delegate = self;
     tableview.tag = 1;
     tableview.frame = CGRectMake(0, CGRectGetMaxY(tabBar.frame)+10, screenW,secondPageView.frame.size.height - tabBar.frame.size.height-10);
-
     [secondPageView addSubview:tableview];
     [self.MyScrollView addSubview:secondPageView];
 }
@@ -667,8 +620,19 @@
     [self.detailTableview reloadData];
 }
 
-#pragma mark =============================框架代码=============================
+#pragma mark =============================加载Web=============================
+#pragma mark - UIWebView Delegate Methods
+-(void)webViewDidFinishLoad:(UIWebView *)webView {
+    //获取到webview的高度
+    CGFloat height = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
+    self.webView.frame = CGRectMake(self.webView.frame.origin.x,self.webView.frame.origin.y, kScreenWidth, height);
+    [self.detailTableview reloadData];
+}
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    NSLog(@"webViewDidStartLoad");
+}
 
+#pragma mark =============================刷新代码=============================
 -(void)loading {
     [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
     __weak typeof(self)weakSelf = self;

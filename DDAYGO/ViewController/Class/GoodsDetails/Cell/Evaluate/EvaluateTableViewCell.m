@@ -28,14 +28,13 @@
 //}
 
 - (void)Evaluatemodel:(EvaluateModel *)model {
-    NSString *asd = ImgAPI;
+    NSString * asd = ImgAPI;
     [self.AvatarImageView sd_setImageWithURL:[NSURL URLWithString:[asd stringByAppendingString:model.avatar]]placeholderImage:[UIImage imageNamed:@""]];
     self.usernameLabel.text = model.realname;
     self.timeLabel.text = model.createtime;
     self.commodityLabel.text = model.reviewscontent;
     [self updateStartsWithtype:0 StartCount:[model.fraction integerValue]];
 }
-
 
 - (void)updateStartsWithtype:(NSInteger)startType StartCount:(NSInteger)startCount {
     if (startType == 0) {

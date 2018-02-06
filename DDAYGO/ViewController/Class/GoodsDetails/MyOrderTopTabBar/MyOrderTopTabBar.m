@@ -14,8 +14,8 @@
 
 @interface MyOrderTopTabBar()
 
-@property(nonatomic,weak) TabButton *lastBtn;//记录上一个按钮
-@property(nonatomic,weak) UIView* bottomView;//记录底部指示的标示条
+@property(nonatomic,weak) TabButton * lastBtn;//记录上一个按钮
+@property(nonatomic,weak) UIView * bottomView;//记录底部指示的标示条
 @property(nonatomic,assign)CGFloat btnW;//记录按钮的宽度
 @property(nonatomic,assign)CGFloat btnH;//记录按钮的高度
 

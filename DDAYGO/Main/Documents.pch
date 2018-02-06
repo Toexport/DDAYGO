@@ -27,4 +27,21 @@
 #import "SixthViewCell.h"
 #import "PositionView.h"
 
+/*******源数据分类头文件********/
+#import "DetailedViewCell.h"
+#import "TextdetailsViewCell.h"
+#import "MerchantController.h"
+
+#import "ShopIntroductionViewController.h"
+#import "ProductDescriptionView.h"
+#import "ShoppingViewController.h"
+#import "PurchaseView.h"
+#import "UIImageView+WebCache.h"
+#import "ZP_GoodDetailsModel.h"
+#import "PurchaseView.h"
+#import "ConfirmViewController.h"
+#import "ProductTableViewCell.h"
+#import "EvaluateTableViewCell.h"
+#import "MainViewController.h"
+
 #endif /* Home_pch */

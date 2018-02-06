@@ -28,11 +28,11 @@
 
 //@property (strong, nonatomic) CIDetector *detector;
 /** 会话对象 */
-@property (nonatomic, strong) AVCaptureSession *session;
+@property (nonatomic, strong) AVCaptureSession * session;
 /** 图层类 */
-@property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
-@property (nonatomic, strong) QRCodeReaderView *scanningView;
-@property (nonatomic, strong) UIButton *right_Button;
+@property (nonatomic, strong) AVCaptureVideoPreviewLayer * previewLayer;
+@property (nonatomic, strong) QRCodeReaderView * scanningView;
+@property (nonatomic, strong) UIButton * right_Button;
 
 @end
 
@@ -43,8 +43,7 @@
     // Do any additional setup after loading the view.
     self.title = @"掃一掃";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: ZP_textWite}];
-   [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
-    
+    [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self InitScan];
 }
 
@@ -54,12 +53,9 @@
     // 创建扫描边框
     self.scanningView = [[QRCodeReaderView alloc] initWithFrame:self.view.frame outsideViewLayer:self.view.layer];
     [self.view addSubview:self.scanningView];
-    
 }
 
-
 - (void)viewWillAppear:(BOOL)animated {
-    
     [super viewWillAppear:animated];
 //  二维码扫描
     [self setupScanningQRCode];
@@ -68,13 +64,13 @@
 #pragma mark - - - 二维码扫描
 - (void)setupScanningQRCode {
     // 1、 获取摄像设备
-    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    AVCaptureDevice * device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     
     // 2、 创建输入流
-    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
+    AVCaptureDeviceInput * input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
     
     // 3、 创建输出流
-    AVCaptureMetadataOutput *output = [[AVCaptureMetadataOutput alloc] init];
+    AVCaptureMetadataOutput * output = [[AVCaptureMetadataOutput alloc] init];
     
     // 4、设置代理 在主线程里刷新
     [output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];

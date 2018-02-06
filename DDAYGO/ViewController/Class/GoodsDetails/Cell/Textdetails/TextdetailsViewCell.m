@@ -8,66 +8,61 @@
 
 #import "TextdetailsViewCell.h"
 #import "PrefixHeader.pch"
+@interface TextdetailsViewCell () <UIWebViewDelegate>
+
+@end
+
 @implementation TextdetailsViewCell
-
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:@"textdetailsViewCell"];
-    if (self) {
-        [self initUI];
-    }
-    return self;
-}
-- (void)initUI {
-    
-    UILabel * titlelabel = [[UILabel alloc]initWithFrame:CGRectMake(8, 8, 359, 25)];
-    titlelabel.font = ZP_NavTextdetaFont;
-    titlelabel.textAlignment = NSTextAlignmentCenter;
-    titlelabel.backgroundColor = [UIColor grayColor];
-    _titleLabel = titlelabel;
-    [self addSubview:titlelabel];
-    
-    UILabel * preferentialLabel = [[UILabel alloc]initWithFrame:CGRectMake(8, 45, 84, 30)];
-    preferentialLabel.font = ZP_NavTextFont;
-    preferentialLabel.textAlignment = NSTextAlignmentCenter;
-    preferentialLabel.backgroundColor = [UIColor blueColor];
-    _preferentialLabel = preferentialLabel;
-    [self addSubview:preferentialLabel];
-    
-    UILabel * priceLabel = [[UILabel alloc]initWithFrame:CGRectMake(8, 83, 84, 25)];
-    priceLabel.font = ZP_titleFont;
-    priceLabel.textAlignment = NSTextAlignmentCenter;
-    priceLabel.backgroundColor = [UIColor yellowColor];
-    _priceLabel = priceLabel;
-    [self addSubview:priceLabel];
-    
-    UILabel * stockLabel = [[UILabel alloc]initWithFrame:CGRectMake(8, 120, 84, 20)];
-    stockLabel.font = ZP_titleFont;
-    stockLabel.textAlignment = NSTextAlignmentCenter;
-    stockLabel.backgroundColor = [UIColor purpleColor];
-    _stockLabel = stockLabel;
-    [self addSubview:stockLabel];
-    
-    UILabel * salesLabel = [[UILabel alloc]initWithFrame:CGRectMake(118, 120, 84, 20)];
-    salesLabel.font = ZP_titleFont;
-    salesLabel.textAlignment = NSTextAlignmentCenter;
-    salesLabel.backgroundColor = [UIColor orangeColor];
-    _salesLabel = salesLabel;
-    [self addSubview:salesLabel];
-    
-    UILabel * numberingLabel = [[UILabel alloc]initWithFrame:CGRectMake(229, 120, 132, 20)];
-    numberingLabel.font = ZP_titleFont;
-    numberingLabel.textAlignment = NSTextAlignmentCenter;
-    numberingLabel.backgroundColor = [UIColor redColor];
-    _numberingLabel = numberingLabel;
-    [self addSubview:numberingLabel];
+//- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+//    self = [super initWithStyle:style reuseIdentifier:@"TextdetailsViewCell"];
+//    if (self) {
+//        [self initUI];
+//    }
+//    return self;
+//}
+- (void)awakeFromNib {
+    [super awakeFromNib];
+//    [self initUI];
 }
 
-- (void)cellWithdic:(NSDictionary *)dic {
-    _titleLabel.text = @"title";
-    _preferentialLabel.text = dic[@"preferential"];
-    _priceLabel.text = dic[@"price"];
-    _stockLabel.text = dic[@"stock"];
-    _salesLabel.text = dic[@"sales"];
-    _numberingLabel.text = dic[@"numbering"];
-}
+//- (void)initUI {
+//    [webView setDelegate:self];
+//    NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/item/customerservice"]];
+//    [self addSubview:webView];
+//    [webView loadRequest:request];
+//}
+//
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+//    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+//}
+//
+//- (void) webViewDidStartLoad:(UIWebView *)webView {
+//    //创建UIActivityIndicatorView背底半透明View
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)];
+//    [view setTag:108];
+//    [view setBackgroundColor:[UIColor blackColor]];
+//    [view setAlpha:0.5];
+//    [self addSubview:view];
+//    activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+//    [activityIndicator setCenter:view.center];
+//    [activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
+//    [view addSubview:activityIndicator];
+//    [activityIndicator startAnimating];
+//    NSLog(@"webViewDidStartLoad");
+//}
+//
+//- (void) webViewDidFinishLoad:(UIWebView *)webView {
+//    [activityIndicator stopAnimating];
+//    UIView * view = (UIView*)[self viewWithTag:108];
+//    [view removeFromSuperview];
+//    NSLog(@"webViewDidFinishLoad");
+//
+//}
+//
+//- (void) webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+//    [activityIndicator stopAnimating];
+//    UIView * view = (UIView*)[self viewWithTag:108];
+//    [view removeFromSuperview];
+//    NSLog(@"didFailLoadWithError:%@", error);
+//}
 @end
