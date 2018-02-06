@@ -48,7 +48,6 @@
     dic[@"shopcode"] = self.Oid;
     ZPLog(@"%@_%@",dic[@"shopname"] = self.Oname,dic[@"shopcode"] = self.Oid);
 }
-
 //  点击确认按钮需要的参数
 - (void)btnClick {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];

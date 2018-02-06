@@ -231,6 +231,37 @@
             }
             __weak typeof(PayView) weakView = PayView;
             [ZP_shoopingTool requessaddorderpay:dic noEdit:self.noEdit success:^(id obj) {
+                //*************************************Token被挤掉***************************************************//
+                if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
+                    Token = nil;
+                    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
+                    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
+                    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
+                    [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
+                    ZPICUEToken = nil;
+                    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
+                    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
+                    [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
+                    [[SDImageCache sharedImageCache] clearDisk];
+                    [[NSUserDefaults standardUserDefaults]synchronize];
+#pragma make -- 提示框
+                    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                        ZPLog(@"取消");
+                    }];
+                    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                        [self.navigationController popToRootViewControllerAnimated:NO];
+                        //跳转
+                        if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+                            UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
+                            [tbvc setSelectedIndex:0];
+                        }
+                    }];
+                    [alert addAction:defaultAction];
+                    [alert addAction:cancelAction];
+                    [self presentViewController:alert animated:YES completion:nil];
+                }
+                //****************************************************************************************//
                 ZP_ConfirmWebController * web = [[ZP_ConfirmWebController alloc]init];
                 web.jump_URL = obj[@"para"];
                 web.jump_HeadURL = obj[@"uri"];

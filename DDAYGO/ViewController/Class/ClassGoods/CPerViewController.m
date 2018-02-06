@@ -88,7 +88,7 @@
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         button.titleLabel.font = ZP_titleFont;
         [button addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-        button.tag=i;
+        button.tag = i;
 #warning 默认图片
         if (i == 3) {
 //          默认图片
