@@ -92,6 +92,7 @@
         [btn setImageEdgeInsets:UIEdgeInsetsMake(0, btn.titleLabel.bounds.size.width, 0, - btn.titleLabel.bounds.size.width)];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont myFontOfSize:12];
+    
         [btn addTarget:self action:@selector(btnClickAction:) forControlEvents:UIControlEventTouchUpInside];
         btn.tag = 100 + i;
         if (i == 0) {

@@ -84,6 +84,7 @@
     for (NSInteger i = 0; i<_titleArray.count; i++) {
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(i*(ZP_Width/4), 0, ZP_Width/4, 34);
+        
         [button setTitle:_titleArray[i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         button.titleLabel.font = ZP_titleFont;
@@ -93,6 +94,8 @@
         if (i == 3) {
 //          默认图片
             [button setImage:[UIImage imageNamed:@"icon_shop_classification_01"] forState:UIControlStateNormal];
+            [button setTitleEdgeInsets:UIEdgeInsetsMake(0, -button.imageView.bounds.size.width, 0, button.imageView.bounds.size.width)];
+            [button setImageEdgeInsets:UIEdgeInsetsMake(0, button.titleLabel.bounds.size.width, 0, - button.titleLabel.bounds.size.width)];
         }
         [self.topView addSubview:button];
     }
