@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface TextdetailsViewCell : UITableViewCell {
-    UIWebView * webView;
+    
     UIActivityIndicatorView * activityIndicator;
 }
 
-//@property (nonatomic, strong)UILabel * titleLabel;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 //@property (nonatomic, strong)UILabel * preferentialLabel;
 //@property (nonatomic, strong)UILabel * priceLabel;
 //@property (nonatomic, strong)UILabel * stockLabel;

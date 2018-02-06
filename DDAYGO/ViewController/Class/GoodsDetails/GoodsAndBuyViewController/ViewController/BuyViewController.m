@@ -27,7 +27,6 @@
     UIActivityIndicatorView * activityIndicator;
 }
 
-@property (nonatomic, strong) UIWebView * webView;
 /*********框架属性*********/
 @property(nonatomic,weak)MyOrderTopTabBar * TopTabBar;
 @property (weak, nonatomic) UIScrollView * MyScrollView;
@@ -67,10 +66,7 @@
     [self initFrameWords];
     [self initSource];
     [self allData];
-    self.webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 1)];
-    self.webView.delegate = self;
     self.scrollView.scrollEnabled = NO;
-   [self.webView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/item/customerservice"]]];
 }
 
 // 註冊
@@ -364,8 +360,7 @@
             break;
         case 2:
         {
-            return self.webView.frame.size.height;
-//            return 100;
+            return 1;
         }
             break;
         default:
@@ -407,11 +402,6 @@
         case 2:
         {
             TextdetailsViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TextdetailsViewCell"];
-            if (!cell) {
-                cell = [[TextdetailsViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TextdetailsViewCell"];
-                [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-                [cell.contentView addSubview:self.webView];
-            }
             return cell;
         }
             break;
@@ -447,8 +437,7 @@
             break;
         case 2:
         {
-//                return self.webView.frame.size.height;
-            return 100;
+            return tableView.height;
         }
             break;
             
@@ -614,19 +603,6 @@
         self.detailTableview.hidden = NO;
     }
     [self.detailTableview reloadData];
-}
-
-#pragma mark =============================加载Web=============================
-#pragma mark - UIWebView Delegate Methods
--(void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSLog(@"gggggg");//
-    //获取到webview的高度
-    CGFloat height = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
-    self.webView.frame = CGRectMake(self.webView.frame.origin.x,self.webView.frame.origin.y, kScreenWidth, height);
-    [self.detailTableview reloadData];
-}
-- (void)webViewDidStartLoad:(UIWebView *)webView {
-    NSLog(@"webViewDidStartLoad");
 }
 
 #pragma mark =============================刷新代码=============================
