@@ -74,14 +74,9 @@
 
 // UI
 -(void)addUI {
-    UIScrollView * lastView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)];
     NSArray * allTitle = @[NSLocalizedString(@"Acquiescence", nil),NSLocalizedString(@"Sales Volume", nil),NSLocalizedString(@"Latest", nil),NSLocalizedString(@"Price", nil)];
     UIImageView * imageview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 150)];
     _imageview = imageview;
-    _imageview.userInteractionEnabled = YES;
-     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panView:)];
-    [_imageview addGestureRecognizer:panGestureRecognizer];
-    
     imageview.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:imageview];
     UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, 150, ZP_Width, 35)];
@@ -112,10 +107,10 @@
         
         [topView addSubview:btn];
     }
-    [self.lastView addSubview:topView];
+    [self.view addSubview:topView];
     self.topView = topView;
     self.line.x = self.btn.x;
-    
+    UIScrollView * lastView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 150+35, ZP_Width, ZP_height - 190)];
     lastView.contentSize = CGSizeMake(ZP_Width * 4, 0);
     lastView.pagingEnabled  = YES;
     lastView.showsHorizontalScrollIndicator = NO;
@@ -129,15 +124,6 @@
     [lastView addSubview:self.collectionView3];
     [lastView addSubview:self.collectionView4];
     
-}
-
-- (void) panView:(UIPanGestureRecognizer *)panGestureRecognizer {
-    UIView *view = panGestureRecognizer.view;
-    if (panGestureRecognizer.state == UIGestureRecognizerStateBegan || panGestureRecognizer.state == UIGestureRecognizerStateChanged) {
-        CGPoint translation = [panGestureRecognizer translationInView:view.superview];
-        NSLog(@"%f",translation.y);
-        [self.lastView setContentOffset:CGPointMake(0, translation.y)];
-    }
 }
 
 //75) 获取店铺信息
