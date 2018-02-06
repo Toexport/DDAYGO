@@ -55,6 +55,7 @@
     self.ZPAccountNumberTextFiled.textField.keyboardType = UIKeyboardTypeASCIICapable;
     self.ZPEmailTextFiled.textField.keyboardType = UIKeyboardTypeASCIICapable;
     [self.ZPCountryTextField.functionBtn setTitle:NSLocalizedString(@"點擊選擇", nil) forState:UIControlStateNormal];
+    self.ZPCountryTextField.textField.enabled = NO;
     [self.ZPCountryTextField.functionBtn addTarget:self action:@selector(choseCountry) forControlEvents:UIControlEventTouchUpInside];
     self.ZPPswTextField.showBtn                    = NO;
     self.ZPPswTextField.showEyeBtn                 = YES;
@@ -173,6 +174,8 @@
 
 
 #pragma mark - - - - - - - - - - - - - - - event response 事件相应 - - - - - - - - - - - - - -
+
+
 //- (void)getMSNCode{
 //    if (![self validateEmail:_ZPEmailTextFiled.textField.text]) {
 //
