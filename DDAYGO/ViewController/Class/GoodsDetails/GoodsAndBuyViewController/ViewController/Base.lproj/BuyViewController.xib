@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BuyViewController">
             <connections>
+                <outlet property="backItem" destination="yyv-kf-DKo" id="XsT-Dv-Ri1"/>
                 <outlet property="dianpuBtn" destination="aFr-nf-baU" id="Oi3-ml-wYg"/>
                 <outlet property="gouwuBtn" destination="cy4-nj-B1P" id="trV-4E-VOo"/>
                 <outlet property="headView" destination="hvo-bP-Cgu" id="aID-cq-0YM"/>
