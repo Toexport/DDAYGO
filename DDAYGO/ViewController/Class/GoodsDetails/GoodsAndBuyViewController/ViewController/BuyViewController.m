@@ -17,9 +17,9 @@
 #import "PrefixHeader.pch"
 
 #define TopViewH 484
-#define MiddleViewH 30
+#define MiddleViewH 44
 #define BottomH 52
-#define SecondPageTop 534
+#define SecondPageTop TopViewH+MiddleViewH+20
 #define TopTabBarH [global pxTopt:100]
 #define NaviBarH 64.0
 @interface BuyViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,MyOrderTopTabBarDelegate>
@@ -31,6 +31,7 @@
 @property (weak, nonatomic) BuyMiddleView * middleView;
 @property (strong, nonatomic) UITableView * detailTableview;
 @property (assign, nonatomic)float TopViewScale;
+@property (weak, nonatomic) IBOutlet UIButton *backItem;
 
 /********源文件属性********/
 //**Xib 拖过来然后填写数据**/
@@ -53,6 +54,7 @@
 @property (weak, nonatomic) IBOutlet UIView * headView;
 @property (weak, nonatomic) IBOutlet UILabel * titleLabel;
 @property (nonatomic, assign) NSInteger selectIndex;
+@property (nonatomic, copy) NSString *backItemString;
 @end
 
 @implementation BuyViewController
@@ -69,6 +71,7 @@
 // 註冊
 - (void)initSource {
     
+    self.backItemString = @"ic_details_return";
     [self.detailTableview registerNib:[UINib nibWithNibName:@"ProductTableViewCell" bundle:nil] forCellReuseIdentifier:@"ProductTableViewCell"];
     [self.detailTableview registerNib:[UINib nibWithNibName:@"EvaluateTableViewCell" bundle:nil] forCellReuseIdentifier:@"EvaluateTableViewCell"];
     [self.detailTableview registerNib:[UINib nibWithNibName:@"TextdetailsViewCell" bundle:nil] forCellReuseIdentifier:@"TextdetailsViewCell"];
@@ -576,6 +579,7 @@
 #pragma -- <UIScrollViewDelegate>
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     NSLog(@" --== %f",scrollView.contentOffset.y);
+    //whiteBack  ic_details_return
     if(scrollView.tag == 0){
         if(scrollView.contentOffset.y<0){
             if(self.TopViewScale<1.01){
@@ -585,9 +589,24 @@
         }else{
             self.headView.backgroundColor = color(255.0,147.0,0.0, scrollView.contentOffset.y/(SecondPageTop-NaviBarH));
             self.titleLabel.alpha = scrollView.contentOffset.y/(SecondPageTop-NaviBarH);
+            if (scrollView.contentOffset.y >= (SecondPageTop-NaviBarH)) {
+                if ([self.backItemString isEqualToString:@"ic_details_return"]) {
+                    self.backItemString = @"whiteBack";
+                    [self.backItem setImage:[UIImage imageNamed:self.backItemString] forState:UIControlStateNormal];
+                }
+            } else {
+                if ([self.backItemString isEqualToString:@"whiteBack"]) {
+                    self.backItemString = @"ic_details_return";
+                    [self.backItem setImage:[UIImage imageNamed:self.backItemString] forState:UIControlStateNormal];
+                }
+            }
         }
         if(scrollView.contentOffset.y > (SecondPageTop-NaviBarH)){
             [scrollView setContentOffset:CGPointMake(0, SecondPageTop-NaviBarH)];
+            if ([self.backItemString isEqualToString:@"ic_details_return"]) {
+                self.backItemString = @"whiteBack";
+                [self.backItem setImage:[UIImage imageNamed:self.backItemString] forState:UIControlStateNormal];
+            }
         }else if (scrollView.contentOffset.y == -NaviBarH && !scrollView.isDragging){
             [UIView animateWithDuration:0.3 animations:^{
                 scrollView.contentOffset = CGPointMake(0, 0);
