@@ -52,9 +52,9 @@
     ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:self.CurrencySymbolLabel.text textColor:ZP_HomePreferentialpriceTypefaceCorlor font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self addSubview:CurrencySymbolLabel];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(60);
+        make.bottom.equalTo(introduceLabel).offset(5);
         make.left.equalTo(self).offset(5);
-        make.right.equalTo(self).offset(5);
+//        make.right.equalTo(self).offset(5);
     }];
     self.CurrencySymbolLabel = CurrencySymbolLabel;
     //    优惠价格

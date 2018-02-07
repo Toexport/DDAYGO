@@ -82,12 +82,12 @@
     if (!_scrollView) {
         CGFloat With ;
         if (ZP_Width == 320) {
-            With = 100;
+            With = 95;
         }else
             if(ZP_Width == 375) {
-                With = 100 * 1.1;
+                With = 95 * 1.1;
         }else {
-            With = 100 * 1.2;
+            With = 95 * 1.2;
             }
         _scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 30, With,  160) delegate:self placeholderImage:[UIImage imageNamed:@""]];
         _scrollView.backgroundColor = [UIColor whiteColor];
@@ -143,7 +143,7 @@
     self.tableView.scrollEnabled = NO;  // 设置tableview不能上下滚动
     [self.contentView addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(100);
+        make.left.equalTo(_scrollView).offset(115);
         make.bottom.equalTo(self).offset(0);
         make.right.equalTo(self).offset(0);
         make.top.equalTo(self).offset(30);

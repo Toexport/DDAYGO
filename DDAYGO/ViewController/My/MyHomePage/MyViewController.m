@@ -45,6 +45,7 @@
 @implementation MyViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
 }
 
@@ -60,6 +61,7 @@
     [self.headImageBut setImage:[UIImage imageWithData:data] forState:UIControlStateNormal];
     self.headImageBut.layer.cornerRadius = 42;
     self.headImageBut.layer.masksToBounds = YES;
+    [self.headImageBut setUserInteractionEnabled: NO]; //找了三个月的问题终于找到，就是这个按钮造成tabbar不见了。
 }
 
 //- (void) Supplier {
@@ -84,7 +86,7 @@
         if (!DD_HASLOGIN) {
             if (![MyViewController sharedInstanceTool].hasRemind) {
                 [MyViewController sharedInstanceTool].hasRemind = YES;
-                LogregisterController *viewcontroller = [[LogregisterController alloc] init];
+                LogregisterController * viewcontroller = [[LogregisterController alloc] init];
                 self.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:viewcontroller animated:YES];
                 self.hidesBottomBarWhenPushed = NO;

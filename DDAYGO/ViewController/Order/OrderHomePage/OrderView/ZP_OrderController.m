@@ -185,6 +185,14 @@
             [self networkProblems];
         }
         self.newsData = [OrderModel arrayWithArray:json[@"datalist"]];
+        //在这里判断那个是否显示
+        if (self.newsData.count == 0) {
+            // 显示图
+            self.noDataView.hidden = NO;
+        }else{
+            //不显示··可不写
+            self.noDataView.hidden = YES;
+        }
         ZPLog(@"%@",json);
         ZPLog(@"%@",json[@"datalist"]);
         //         小红点数据
@@ -284,9 +292,18 @@
         dic[@"ordernumber"] = model.ordersnumber;
         [ZP_OrderTool requestDeleteOrder:dic success:^(id obj) {
             if ([obj[@"result"]isEqualToString:@"ok"]) {
+//
                 [self getDataWithState];
                 [self.newsData removeObjectAtIndex:sender.tag];
                 [SVProgressHUD showSuccessWithStatus:@"刪除成功"];
+                if (self.newsData.count == 0) {
+                    // 显示图
+                    self.noDataView.hidden = NO;
+                }else{
+                    //不显示··可不写
+                    self.noDataView.hidden = YES;
+                }
+                
             }else
                 if ([obj[@"result"]isEqualToString:@"time_error"]) {
                     [SVProgressHUD showInfoWithStatus:@"交易完成的訂單需要15天後才能刪除"];
@@ -316,9 +333,9 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 10)];
-    v.backgroundColor = ZP_Graybackground;
-    return v;
+    UIView * vieww = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 10)];
+    vieww.backgroundColor = ZP_Graybackground;
+    return vieww;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -335,6 +352,7 @@
         if (self.noDataView) {
             self.tableview.hidden = YES;
             self.noDataView.hidden = NO;
+            
         }
         return 0;
     }
@@ -436,15 +454,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (indexPath.section < [self.newsData count]) {
-//        //     判断是否越界
-//        OrderModel * model = nil;
-//        OrdersdetailModel * model2 = nil;
-//        if (indexPath.row < [self.newsData count]) {//无论你武功有多高，有时也会忘记加
-//            model = [self.newsData objectAtIndex:indexPath.section];
-//             model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail[indexPath.row-1]];
-//        }
-    
+//     判断数据越界
     OrderModel * model = nil;
     OrdersdetailModel * model2;
     if (indexPath.section < [self.newsData count]) {//无论你武功有多高，有时也会忘记加

@@ -22,7 +22,6 @@
     self.backgroundColor = [UIColor whiteColor];
     self.imageView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 0, CGRectGetWidth(self.frame)- 10, CGRectGetWidth(self.frame)-10)];
     self.imageView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-//    [UIImageView setContentScaleFactor:[[UIScreen mainScreen] scale]];
     _imageView.contentMode =  UIViewContentModeScaleAspectFill;
     _imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     _imageView.clipsToBounds  = YES;

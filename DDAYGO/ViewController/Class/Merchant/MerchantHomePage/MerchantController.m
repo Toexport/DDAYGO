@@ -16,22 +16,19 @@
 #import "ShopIntroductionViewController.h"
 #import "SatisfactionSurveyController.h"
 #import "MerchantModel.h"
-@interface MerchantController ()<UIScrollViewDelegate> {
+@interface MerchantController () <UIScrollViewDelegate> {
     int _i;
-//    NSArray * array;
 }
-
 #define fDeviceWidth ([UIScreen mainScreen].bounds.size.width)
 #define fDeviceHeight ([UIScreen mainScreen].bounds.size.height)
-@property (nonatomic, strong)UIButton * btn;
-@property (nonatomic, strong)UIView * views;
-@property (nonatomic, strong)UIView * topView;
-@property (nonatomic, strong)UIScrollView * lastView;
-@property (nonatomic, strong)UILabel * line;
+@property (nonatomic, strong) UIButton * btn;
+@property (nonatomic, strong) UIView * views;
+@property (nonatomic, strong) UIView * topView;
+@property (nonatomic, strong) UIScrollView * lastView;
+@property (nonatomic, strong) UILabel * line;
 @property (nonatomic, strong) NSMutableArray * newsarray;
 @property (nonatomic, strong) NSString * NameLabel;
 @property (nonatomic, strong) NoDataView * NoDataView;
-
 @end
 
 @implementation MerchantController
@@ -52,7 +49,6 @@
     [self addUI];
     [self setUpNavgationBar]; //navigationBar
     [self getproductfilter:100];
-//    self.imageview.hidden = YES;
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
@@ -61,7 +57,6 @@
         [self.collectionView2 reloadData];
         [self.collectionView3 reloadData];
         [self.collectionView4 reloadData];
-        
     }];
 }
 
@@ -76,10 +71,10 @@
 
 // UI
 -(void)addUI {
-    NSArray * allTitle = @[NSLocalizedString(@"Acquiescence", nil),NSLocalizedString(@"Sales Volume", nil),NSLocalizedString(@"Latest", nil),NSLocalizedString(@"Price", nil)];
+    NSArray * allTitle = @[NSLocalizedString(@"店鋪首頁", nil),NSLocalizedString(@"最新", nil),NSLocalizedString(@"好評", nil),NSLocalizedString(@"價格", nil)];
     UIImageView * imageview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 150)];// 这是图片 ·1
     _imageview = imageview;
-    imageview.backgroundColor = [UIColor yellowColor];
+    imageview.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:imageview];
     UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, imageview.frame.size.height, ZP_Width, 35)];// 这是ann默认 的4button上的4个view
     topView.backgroundColor = [UIColor whiteColor];
@@ -87,14 +82,13 @@
     gayLine.backgroundColor = ZP_HUISE;
     [topView addSubview:gayLine];
     for (int i = 0; i<4; i++) {
-        UIButton *btn =[UIButton buttonWithType:UIButtonTypeCustom];
+        UIButton * btn =[UIButton buttonWithType:UIButtonTypeCustom];
         [btn setTitle:allTitle[i] forState:UIControlStateNormal];
         btn.frame = CGRectMake(i * (ZP_Width /4), 0, (ZP_Width /4) , 35);
-        [btn setTitleEdgeInsets:UIEdgeInsetsMake(0, -btn.imageView.bounds.size.width, 0, btn.imageView.bounds.size.width)];
+        [btn setTitleEdgeInsets:UIEdgeInsetsMake(0, - btn.imageView.bounds.size.width, 0, btn.imageView.bounds.size.width)];
         [btn setImageEdgeInsets:UIEdgeInsetsMake(0, btn.titleLabel.bounds.size.width, 0, - btn.titleLabel.bounds.size.width)];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont myFontOfSize:12];
-    
         [btn addTarget:self action:@selector(btnClickAction:) forControlEvents:UIControlEventTouchUpInside];
         btn.tag = 100 + i;
         if (i == 0) {
@@ -105,14 +99,14 @@
         if (i == 3) {
 //            默认图片
             [btn setImage:[UIImage imageNamed:@"icon_shop_classification_01"] forState:UIControlStateNormal];
+            _priceStrTag = @"desc";
         }
-        
         [topView addSubview:btn];
     }
     [self.view addSubview:topView];
     self.topView = topView;
     self.line.x = self.btn.x;
-    UIScrollView * lastView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 150+35, ZP_Width, ZP_height)];//这里·
+    UIScrollView * lastView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 150+35, ZP_Width, ZP_height)];//这里·你自己看这里
     lastView.contentSize = CGSizeMake(ZP_Width * 4, 0);
     lastView.pagingEnabled  = YES;
     lastView.showsHorizontalScrollIndicator = NO;
@@ -135,10 +129,21 @@
     [ZP_ClassViewTool requestGetshopinfos:dic success:^(id obj) {
         self.title = obj[@"shopname"];
         self.NameLabel = dic[@"shopname"];
+//        ***********纯代码要加需要隐藏与显示的frame
         if (self.imageview > 0) {
             self.imageview.hidden = YES;
+            self.imageview.height = CGFLOAT_MIN;
+            self.topView.frame = CGRectMake(0, 0, ZP_Width, 35);
+            self.lastView.frame = CGRectMake(0, 35, ZP_Width, ZP_height - 35);
+            _collectionView1.frame = CGRectMake(0, 0, fDeviceWidth, fDeviceHeight - 50);
+            _collectionView2.frame = CGRectMake(fDeviceWidth, 0, fDeviceWidth, fDeviceHeight - 50);
+            _collectionView3.frame = CGRectMake(fDeviceWidth*2, 0, fDeviceWidth, fDeviceHeight - 50);
+            _collectionView4.frame = CGRectMake(fDeviceWidth*3, 0, fDeviceWidth, fDeviceHeight - 50);
         }else {
             self.imageview.hidden = NO;
+            self.imageview.frame = CGRectMake(0, 0, ZP_Width, 150);
+            self.topView.frame = CGRectMake(0, 0, ZP_Width, 35);
+            self.lastView.frame = CGRectMake(0, 35, ZP_Width, ZP_height - 35);
             [self.imageview sd_setImageWithURL:[NSURL URLWithString:obj[@"shopdetail"]] placeholderImage:[UIImage imageNamed:@""]];
         }
         ZPLog(@"%@",obj);
@@ -211,7 +216,7 @@
     static CGFloat const kButtonWidth = 33.0f;
     static CGFloat const kButtonHeight = 43.0f;
     UIImage * cartImage = [UIImage imageNamed:@"ic_shop_dropdown"];
-    UIButton *cartButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton * cartButton = [UIButton buttonWithType:UIButtonTypeCustom];
     cartButton.frame = CGRectMake(0.0f, 0.0f, kButtonWidth, kButtonHeight);
     cartButton.backgroundColor = [UIColor clearColor];
     [cartButton setImage:cartImage forState:UIControlStateNormal];
@@ -255,7 +260,6 @@
 - (void)btnClickAction:(UIButton *)sender {
     if (sender.tag -100 == 3) {
         sender.selected = !sender.selected;
-    
         if (sender.selected) {
 #warning 选中
 //          这里设置button 按钮 图片
@@ -295,22 +299,21 @@
       dic[@"token"] = @"";
     }
     dic[@"sid"] = self.Supplieerid;
-//    dic[@"fathid"] = self.fatherId;
     dic[@"fathid"] = @"0";
     dic[@"seq"] = _priceStrTag;
     dic[@"word"] = @"";
     dic[@"countrycode"] = @"886";
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"30";
-    switch (tag-100) {
+    switch (tag - 100) {
         case 0:
-            dic[@"sort"] = @"review"; //默认
+            dic[@"sort"] = @"sale"; //店鋪首頁
             break;
         case 1:
-            dic[@"sort"] = @"sale"; //销量
+            dic[@"sort"] = @"time"; //最新
             break;
         case 2:
-            dic[@"sort"] = @"time"; //最新
+            dic[@"sort"] = @"review"; //好評
             break;
         case 3:
             dic[@"sort"] = @"price"; //价格
@@ -319,7 +322,6 @@
             break;
     }
     
-    NSLog(@"dic--------------- = %@",dic);//看这里的参数· 是不是对的··
     [ZP_ClassViewTool requestGetproductfilter:dic success:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
             Token = nil;
@@ -327,7 +329,6 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
             [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
-            
             ZPICUEToken = nil;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
@@ -384,23 +385,20 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [[NSNotificationCenter defaultCenter]postNotificationName:@"relodClassDaTa" object:nil];
     NSInteger tag = self.lastView.contentOffset.x/ZP_Width;
-//    NSLog(@"scor - %f -%f",self.lastView.contentOffset.x,scrollView.contentOffset.x);S
     UIButton *button = [self.topView viewWithTag:tag + 100];
-    NSLog(@"------tag = %ld",tag);
     self.btn.selected = NO;
     button.selected = YES;
     self.btn = button;
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-//    dic[@"fathid"] = self.Supplieerid;
-    switch (tag - 100) {
+    switch (tag) {
         case 0:
-            dic[@"sort"] = @"review"; //默认
+            dic[@"sort"] = @"sale"; //店鋪首頁
             break;
         case 1:
-            dic[@"sort"] = @"sale"; //销量
+            dic[@"sort"] = @"time"; //最新
             break;
         case 2:
-            dic[@"sort"] = @"time"; //最新
+            dic[@"sort"] = @"review"; //好評
             break;
         case 3:
             dic[@"sort"] = @"price"; //价格
@@ -414,7 +412,6 @@
         dic[@"token"] = @"";
     }
     dic[@"sid"] = self.Supplieerid;
-//    dic[@"fathid"] = self.Supplieerid;
     dic[@"fathid"] = @"0";
     dic[@"seq"] = _priceStrTag;
     dic[@"word"] = @"";
@@ -431,7 +428,6 @@
                 case 0:
                 [self.collectionView1 reloadData];
                 [self.collectionView1.mj_header endRefreshing];  // 結束下拉刷新
-
             break;
                 case 1:
                 [self.collectionView2 reloadData];
@@ -453,11 +449,8 @@
         ZPLog(@"%@",error);
         
     }];
-//    打印这个
-    NSLog(@"old = %f - %f",self.line.x,button.x);
     [UIView animateWithDuration:0.2 animations:^{
         self.line.x = button.x;
-        NSLog(@"new = %f - %f",self.line.x,button.x);
     }];
     
 }
@@ -481,7 +474,6 @@
         }
         return 0;
     }
-    
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -496,6 +488,7 @@
     static NSString * identify = @"cell";
     MerchantCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
     [cell merchant:model];
+    NSLog(@"name = %@",model.productname);
     return cell;
 }
 
@@ -503,18 +496,19 @@
     UICollectionReusableView * headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ReusableView" forIndexPath:indexPath];
     return headerView;
 }
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 //     判断是否越界
     MerchantModel * model = nil;
     if (indexPath.row < [_newsarray count]) {//无论你武功有多高，有时也会忘记加
         model = [_newsarray objectAtIndex:indexPath.row];
     }
     BuyViewController * BuyView = [[BuyViewController alloc]init];
-//    MerchantModel * model = _newsarray[indexPath.row];
     [self.navigationController pushViewController:BuyView animated:YES];
     BuyView.productId = model.productid;
     NSLog(@"选中%ld",(long)indexPath.item);
 }
+
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     NSLog(@"ggg");
     return CGSizeMake(ZP_Width, CGFLOAT_MIN);
@@ -530,24 +524,26 @@
     self.collectionView1.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
     [self.newsarray removeAllObjects];
     _i = 0;
-    [self getshopinfos];
-//        [self getproductfilter:100];
+    [self getproductfilter:100];
     }];
+    
     self.collectionView2.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsarray removeAllObjects];
         _i = 0;
-        [self getshopinfos];
+        [self getproductfilter:101];
         
     }];
+    
     self.collectionView3.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsarray removeAllObjects];
         _i = 0;
-        [self getshopinfos];
+        [self getproductfilter:102];
     }];
+    
     self.collectionView4.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsarray removeAllObjects];
         _i = 0;
-        [self getshopinfos];
+        [self getproductfilter:103];
     }];
     
 }
