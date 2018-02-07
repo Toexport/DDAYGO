@@ -81,9 +81,9 @@
     _imageview = imageview;
     imageview.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:imageview];
-    UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, imageview.frame.size.height, ZP_Width, 35)];// 这是ann默认 的4button上的view
+    UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, imageview.frame.size.height, ZP_Width, 35)];// 这是ann默认 的4button上的4个view
     topView.backgroundColor = [UIColor whiteColor];
-    UIView * gayLine = [[UIView alloc]initWithFrame:CGRectMake(0, topView.height - 1, ZP_Width, 1)];// 线
+    UIView * gayLine = [[UIView alloc]initWithFrame:CGRectMake(0, topView.height - 1, ZP_Width, 1)];
     gayLine.backgroundColor = ZP_HUISE;
     [topView addSubview:gayLine];
     for (int i = 0; i<4; i++) {
@@ -112,7 +112,7 @@
     [self.view addSubview:topView];
     self.topView = topView;
     self.line.x = self.btn.x;
-    UIScrollView * lastView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, topView.frame.size.height - 35, ZP_Width, ZP_height - 190)];//这里才是collec·
+    UIScrollView * lastView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 150+35, ZP_Width, ZP_height)];//这里·
     lastView.contentSize = CGSizeMake(ZP_Width * 4, 0);
     lastView.pagingEnabled  = YES;
     lastView.showsHorizontalScrollIndicator = NO;
@@ -175,6 +175,7 @@
     [_collectionView3 registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ReusableView"];
     [_collectionView4 registerClass:[MerchantCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     [_collectionView4 registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ReusableView"];
+    
     //        代理
     _collectionView1.delegate = self;
     _collectionView1.dataSource = self;

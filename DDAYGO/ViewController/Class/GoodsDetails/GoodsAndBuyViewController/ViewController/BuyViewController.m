@@ -283,6 +283,7 @@
     MerchantController * Merchant = [[MerchantController alloc]init];
     Merchant.Supplieerid = self.model.supplierid;
     Merchant.fatherId = _fatherId;
+    Merchant.productId = self.model.productid;
     [self.navigationController pushViewController:Merchant animated:YES];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
 }

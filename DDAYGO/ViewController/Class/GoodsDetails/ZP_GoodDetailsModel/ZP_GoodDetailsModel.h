@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSString * defaultimg; //图片
 @property (nonatomic, strong) NSString * TrademarkLabel; // 商标编号
 @property (nonatomic, strong) NSString * peramount;  // 销量
-@property (nonatomic, strong) NSString * productid; // 货号ID
+@property (nonatomic, strong) NSNumber * productid; // 货号ID
 @property (nonatomic, strong) NSNumber * supplierid; // 供货商ID
 @property (nonatomic, strong) NSNumber * contenttype; // 商品类型
 @property (nonatomic, strong) NSNumber * state;  //状态

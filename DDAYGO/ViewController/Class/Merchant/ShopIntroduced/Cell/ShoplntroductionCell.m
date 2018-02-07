@@ -84,7 +84,7 @@
 //     电话号码
     UILabel * PhoneLabel = [UILabel new];
     PhoneLabel.textAlignment = NSTextAlignmentLeft;
-    PhoneLabel.textColor = ZP_textblack;
+    PhoneLabel.textColor = [UIColor blueColor];
     PhoneLabel.font = ZP_titleFont;
     [self.contentView addSubview:PhoneLabel];
     [PhoneLabel mas_makeConstraints:^(MASConstraintMaker *make) {

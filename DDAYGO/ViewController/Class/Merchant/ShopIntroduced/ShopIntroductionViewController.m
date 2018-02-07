@@ -92,16 +92,17 @@
 - (void)handleTapOnLabel:(id)sender {
     NSString * ph1 = @"tel:";
     ph1 = [ph1 stringByAppendingString:self.PhoneLabel.text];
-    UIAlertController * alertControler = [UIAlertController alertControllerWithTitle:@"拨号" message:self.PhoneLabel.text preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
-        return ;
-    }];
-    UIAlertAction * yesAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_phone]];
-    }];
-    [alertControler addAction:noAction];
-    [alertControler addAction:yesAction];
-    [self presentViewController:alertControler animated:YES completion:nil];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:ph1]];
+//    UIAlertController * alertControler = [UIAlertController alertControllerWithTitle:@"拨号" message:self.PhoneLabel.text preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
+//        return ;
+//    }];
+//    UIAlertAction * yesAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:ph1]];
+//    }];
+//    [alertControler addAction:noAction];
+//    [alertControler addAction:yesAction];
+//    [self presentViewController:alertControler animated:YES completion:nil];
 
 }
 

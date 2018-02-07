@@ -17,4 +17,5 @@
 @property (nonatomic, strong) NSString * priceStrTag;
 @property (nonatomic, strong) NSNumber * Supplieerid; // 供货商ID
 @property (nonatomic, strong) NSNumber * fatherId;
+@property (nonatomic, strong) NSNumber * productId;
 @end
