@@ -135,10 +135,10 @@
             self.imageview.height = CGFLOAT_MIN;
             self.topView.frame = CGRectMake(0, 0, ZP_Width, 35);
             self.lastView.frame = CGRectMake(0, 35, ZP_Width, ZP_height - 35);
-            _collectionView1.frame = CGRectMake(0, 0, fDeviceWidth, fDeviceHeight - 50 - NavBarHeight);
-            _collectionView2.frame = CGRectMake(fDeviceWidth, 0, fDeviceWidth, fDeviceHeight - 50 - NavBarHeight);
-            _collectionView3.frame = CGRectMake(fDeviceWidth*2, 0, fDeviceWidth, fDeviceHeight - 50 - NavBarHeight);
-            _collectionView4.frame = CGRectMake(fDeviceWidth*3, 0, fDeviceWidth, fDeviceHeight - 50 - NavBarHeight);
+            _collectionView1.frame = CGRectMake(0, 0, fDeviceWidth, fDeviceHeight - 50);
+            _collectionView2.frame = CGRectMake(fDeviceWidth, 0, fDeviceWidth, fDeviceHeight - 50);
+            _collectionView3.frame = CGRectMake(fDeviceWidth*2, 0, fDeviceWidth, fDeviceHeight - 50);
+            _collectionView4.frame = CGRectMake(fDeviceWidth*3, 0, fDeviceWidth, fDeviceHeight - 50);
         }else {
             self.imageview.hidden = NO;
             self.imageview.frame = CGRectMake(0, 0, ZP_Width, 150);
@@ -154,10 +154,10 @@
 
 - (void)initCollectionView {
     UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc]init];
-    _collectionView1 = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight) collectionViewLayout:flowLayout];
-    _collectionView2 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight) collectionViewLayout:flowLayout];
-    _collectionView3 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 2, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight) collectionViewLayout:flowLayout];
-    _collectionView4 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 3, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight) collectionViewLayout:flowLayout];
+    _collectionView1 = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, fDeviceWidth, fDeviceHeight - 200) collectionViewLayout:flowLayout];
+    _collectionView2 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth, 0, fDeviceWidth, fDeviceHeight - 200) collectionViewLayout:flowLayout];
+    _collectionView3 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 2, 0, fDeviceWidth, fDeviceHeight - 200) collectionViewLayout:flowLayout];
+    _collectionView4 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 3, 0, fDeviceWidth, fDeviceHeight - 200) collectionViewLayout:flowLayout];
     _collectionView1.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
     _collectionView2.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
     _collectionView3.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
