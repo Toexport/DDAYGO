@@ -18,6 +18,8 @@
 @property (nonatomic, strong) ShoplntroducedModel * model;
 @property (nonatomic, strong) NSDictionary * introductionDic;
 @property (nonatomic, strong) NSDictionary * reviewgoodDic;
+@property (nonatomic, strong) UILabel * PhoneLabel; //电话
+@property (nonatomic, strong) NSString * phone;
 @end
 
 @implementation ShopIntroductionViewController
@@ -73,14 +75,37 @@
     ShoplntroductionCell * cell = [tableView dequeueReusableCellWithIdentifier:@"Shoplntroduction"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone; // 取消Cell变灰效果
     cell.StorenameLabel.text = [NSString stringWithFormat:@"%@",self.Shoppname];
+//     1. 创建一个点击事件，点击时触发labelClick方法
+    UITapGestureRecognizer * labelTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapOnLabel:)];
+    // 2. 将点击事件添加到label上
+    [cell.PhoneLabel addGestureRecognizer:labelTapGestureRecognizer];
+    cell.PhoneLabel.userInteractionEnabled = YES; // 可以理解为设置label可被点击
+    self.PhoneLabel = cell.PhoneLabel;
     self.tableview.tableFooterView = [[UIView alloc]init];
     if (_introductionDic.count>0 && _reviewgoodDic.count>0) {
         [cell ShoplntroducedCollection:_introductionDic andDic:_reviewgoodDic];
     }
-    
     return cell;
-    
 }
+
+// 3. 在此方法中设置点击label后要触发的操作
+- (void)handleTapOnLabel:(id)sender {
+    NSString * ph1 = @"tel:";
+    ph1 = [ph1 stringByAppendingString:self.PhoneLabel.text];
+    UIAlertController * alertControler = [UIAlertController alertControllerWithTitle:@"拨号" message:self.PhoneLabel.text preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
+        return ;
+    }];
+    UIAlertAction * yesAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_phone]];
+    }];
+    [alertControler addAction:noAction];
+    [alertControler addAction:yesAction];
+    [self presentViewController:alertControler animated:YES completion:nil];
+
+}
+
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 130;

@@ -77,13 +77,13 @@
 // UI
 -(void)addUI {
     NSArray * allTitle = @[NSLocalizedString(@"Acquiescence", nil),NSLocalizedString(@"Sales Volume", nil),NSLocalizedString(@"Latest", nil),NSLocalizedString(@"Price", nil)];
-    UIImageView * imageview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 150)];
+    UIImageView * imageview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 150)];// 这是图片 ·1
     _imageview = imageview;
     imageview.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:imageview];
-    UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, imageview.frame.size.height, ZP_Width, 35)];
+    UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, imageview.frame.size.height, ZP_Width, 35)];// 这是ann默认 的4button上的view
     topView.backgroundColor = [UIColor whiteColor];
-    UIView * gayLine = [[UIView alloc]initWithFrame:CGRectMake(0, topView.height - 1, ZP_Width, 1)];
+    UIView * gayLine = [[UIView alloc]initWithFrame:CGRectMake(0, topView.height - 1, ZP_Width, 1)];// 线
     gayLine.backgroundColor = ZP_HUISE;
     [topView addSubview:gayLine];
     for (int i = 0; i<4; i++) {
@@ -112,7 +112,7 @@
     [self.view addSubview:topView];
     self.topView = topView;
     self.line.x = self.btn.x;
-    UIScrollView * lastView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 150+35, ZP_Width, ZP_height - 190)];
+    UIScrollView * lastView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, topView.frame.size.height - 35, ZP_Width, ZP_height - 190)];//这里才是collec·
     lastView.contentSize = CGSizeMake(ZP_Width * 4, 0);
     lastView.pagingEnabled  = YES;
     lastView.showsHorizontalScrollIndicator = NO;
@@ -135,7 +135,12 @@
     [ZP_ClassViewTool requestGetshopinfos:dic success:^(id obj) {
         self.title = obj[@"shopname"];
         self.NameLabel = dic[@"shopname"];
-        [self.imageview sd_setImageWithURL:[NSURL URLWithString:obj[@"shopdetail"]] placeholderImage:[UIImage imageNamed:@""]];
+        if (self.imageview > 0) {
+            self.imageview.hidden = YES;
+        }else {
+            self.imageview.hidden = NO;
+            [self.imageview sd_setImageWithURL:[NSURL URLWithString:obj[@"shopdetail"]] placeholderImage:[UIImage imageNamed:@""]];
+        }
         ZPLog(@"%@",obj);
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
@@ -170,7 +175,6 @@
     [_collectionView3 registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ReusableView"];
     [_collectionView4 registerClass:[MerchantCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     [_collectionView4 registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ReusableView"];
-    
     //        代理
     _collectionView1.delegate = self;
     _collectionView1.dataSource = self;
@@ -299,13 +303,13 @@
     dic[@"pagesize"] = @"30";
     switch (tag-100) {
         case 0:
-            dic[@"sort"] = @"sale"; //销量
+            dic[@"sort"] = @"review"; //默认
             break;
         case 1:
-            dic[@"sort"] = @"time"; //最新
+            dic[@"sort"] = @"sale"; //销量
             break;
         case 2:
-            dic[@"sort"] = @"review"; //好评
+            dic[@"sort"] = @"time"; //最新
             break;
         case 3:
             dic[@"sort"] = @"price"; //价格
@@ -313,6 +317,8 @@
         default:
             break;
     }
+    
+    NSLog(@"dic--------------- = %@",dic);//看这里的参数· 是不是对的··
     [ZP_ClassViewTool requestGetproductfilter:dic success:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
             Token = nil;
@@ -376,38 +382,38 @@
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [[NSNotificationCenter defaultCenter]postNotificationName:@"relodClassDaTa" object:nil];
-    NSInteger tag = scrollView.contentOffset.x/ZP_Width;
-    UIButton *button = [self.topView viewWithTag:tag+100];
+    NSInteger tag = self.lastView.contentOffset.x/ZP_Width;
+//    NSLog(@"scor - %f -%f",self.lastView.contentOffset.x,scrollView.contentOffset.x);S
+    UIButton *button = [self.topView viewWithTag:tag + 100];
+    NSLog(@"------tag = %ld",tag);
     self.btn.selected = NO;
     button.selected = YES;
     self.btn = button;
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
 //    dic[@"fathid"] = self.Supplieerid;
-    switch (tag) {
+    switch (tag - 100) {
         case 0:
-            dic[@"sort"] = @"sale"; //销量
-            
+            dic[@"sort"] = @"review"; //默认
             break;
         case 1:
-            dic[@"sort"] = @"time"; //最新
+            dic[@"sort"] = @"sale"; //销量
             break;
         case 2:
-            dic[@"sort"] = @"review"; //好评
+            dic[@"sort"] = @"time"; //最新
             break;
         case 3:
-           dic[@"sort"] = @"price"; //价格
+            dic[@"sort"] = @"price"; //价格
             break;
         default:
             break;
     }
-//    dic[@"token"] = Token;
     if (Token) {
         dic[@"token"] = Token;
     }else {
         dic[@"token"] = @"";
     }
     dic[@"sid"] = self.Supplieerid;
-    //    dic[@"fathid"] = self.Supplieerid;
+//    dic[@"fathid"] = self.Supplieerid;
     dic[@"fathid"] = @"0";
     dic[@"seq"] = _priceStrTag;
     dic[@"word"] = @"";
@@ -424,7 +430,7 @@
                 case 0:
                 [self.collectionView1 reloadData];
                 [self.collectionView1.mj_header endRefreshing];  // 結束下拉刷新
-                
+
             break;
                 case 1:
                 [self.collectionView2 reloadData];
@@ -446,9 +452,11 @@
         ZPLog(@"%@",error);
         
     }];
-    
+//    打印这个
+    NSLog(@"old = %f - %f",self.line.x,button.x);
     [UIView animateWithDuration:0.2 animations:^{
         self.line.x = button.x;
+        NSLog(@"new = %f - %f",self.line.x,button.x);
     }];
     
 }
@@ -487,7 +495,6 @@
     static NSString * identify = @"cell";
     MerchantCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
     [cell merchant:model];
-    
     return cell;
 }
 
@@ -529,6 +536,7 @@
         [self.newsarray removeAllObjects];
         _i = 0;
         [self getshopinfos];
+        
     }];
     self.collectionView3.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsarray removeAllObjects];

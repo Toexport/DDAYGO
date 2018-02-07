@@ -111,13 +111,11 @@
         [self.tableview.mj_header endRefreshing];
         return;
     }
-    
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     NSInteger i;
     if ([_titleStr isEqualToString:NSLocalizedString(@"all", nil)]) {
         dic[@"sta"] = @"-1";
         i = 0;
-        
     }
     if ([_titleStr isEqualToString:NSLocalizedString(@"Waiting payment", nil)]) {
         dic[@"sta"] = @"1";
@@ -149,7 +147,6 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
-            
             ZPICUEToken = nil;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];

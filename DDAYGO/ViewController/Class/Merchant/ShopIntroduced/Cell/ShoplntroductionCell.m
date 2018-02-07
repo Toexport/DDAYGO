@@ -128,7 +128,7 @@
 //        make.left.equalTo(self).offset(15);
 //        make.top.equalTo(self).offset(110);
 //    }];
-//    
+//
 ////     服务时间
 //    UILabel * ServicetimeLabel = [UILabel new];
 //    ServicetimeLabel.textAlignment = NSTextAlignmentLeft;
@@ -141,7 +141,7 @@
 //        make.top.equalTo(self).offset(110);
 //    }];
 //    _ServicetimeLabel = ServicetimeLabel;
-//    
+//
 ////     营业登记
 //    UILabel * BusinessregistrationLabel = [UILabel new];
 //    BusinessregistrationLabel.textAlignment = NSTextAlignmentLeft;
@@ -153,7 +153,7 @@
 //        make.left.equalTo(self).offset(15);
 //        make.bottom.equalTo(self).offset(-10);
 //    }];
-//    
+//
 ////     营业登记号
 //    UILabel * BusinessregistrationIDLabel = [UILabel new];
 //    BusinessregistrationIDLabel.textAlignment = NSTextAlignmentLeft;
@@ -194,6 +194,5 @@
             break;
     }
 }
-
 
 @end
