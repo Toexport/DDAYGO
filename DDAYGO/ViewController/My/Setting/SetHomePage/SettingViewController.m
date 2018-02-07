@@ -56,6 +56,12 @@
     //    [self setHead];
     self.title = NSLocalizedString(@"Setting", nil) ;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_WhiteColor}];   // 更改导航栏字体颜色
+    if (@available(iOS 11.0, *)) {
+        self.SettingScrollView.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;
+    }else{
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -344,6 +350,8 @@
     }
     return _dataDic;
 }
+
+
 
 @end
 
