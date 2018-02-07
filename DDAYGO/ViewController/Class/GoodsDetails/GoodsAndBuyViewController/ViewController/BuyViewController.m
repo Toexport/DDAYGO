@@ -275,7 +275,6 @@
 }
 
 - (IBAction)ShoppingCartAction:(id)sender {
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
     DD_CHECK_HASLONGIN;
     [self.navigationController popToRootViewControllerAnimated:NO];
     if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {

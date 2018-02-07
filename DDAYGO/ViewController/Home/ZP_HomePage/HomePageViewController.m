@@ -50,14 +50,9 @@
 // UI
 - (void)initUI {
     [self.view setBackgroundColor:ZP_Graybackground];
+    [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = NO;
-    [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
 }
 
 - (void)searchBox {
