@@ -16,6 +16,7 @@
     if (self == [super init]) {
         self.contentLabel = Dic[@"producttypename"];
         self.fatherid = Dic[@"fatherid"];
+        self.producttypeid = Dic[@"producttypeid"];
     }
     return self;
 }
@@ -32,6 +33,7 @@
         ZP_RightModel * model = [[ZP_RightModel alloc]init];
         model.contentLabel = dic[@"producttypename"];
         model.fatherid = dic[@"fatherid"];
+        model.producttypeid = dic[@"producttypeid"];
     [arr addObject:model];
         
     }

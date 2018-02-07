@@ -11,7 +11,7 @@
 
 @interface ClassificationViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *leftTableView;
-@property (weak, nonatomic) IBOutlet UITableView *rightTableView;
+@property (weak, nonatomic) IBOutlet UITableView * rightTableView;
 
 - (void)getRightItemDataWithProducttypeid:(NSInteger)producttypeid;
 

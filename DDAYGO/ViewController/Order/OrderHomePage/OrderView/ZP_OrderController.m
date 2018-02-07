@@ -439,20 +439,26 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section < [self.newsData count]) {
-        //     判断是否越界
-        OrderModel * model = nil;
-        OrdersdetailModel * model2 = nil;
-        if (indexPath.row < [self.newsData count]) {//无论你武功有多高，有时也会忘记加
-            model = [self.newsData objectAtIndex:indexPath.section];
-             model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail[indexPath.row-1]];
-        }
+//    if (indexPath.section < [self.newsData count]) {
+//        //     判断是否越界
+//        OrderModel * model = nil;
+//        OrdersdetailModel * model2 = nil;
+//        if (indexPath.row < [self.newsData count]) {//无论你武功有多高，有时也会忘记加
+//            model = [self.newsData objectAtIndex:indexPath.section];
+//             model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail[indexPath.row-1]];
+//        }
+    
+    OrderModel * model = nil;
+    OrdersdetailModel * model2;
+    if (indexPath.section < [self.newsData count]) {//无论你武功有多高，有时也会忘记加
+        model = [self.newsData objectAtIndex:indexPath.section];
+        model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail[indexPath.row-1]];
+    }
 //        OrderModel * model = [self.newsData objectAtIndex:indexPath.section];
 //        OrdersdetailModel * model2;
         BuyViewController * ByView = [[BuyViewController alloc]init];
         ByView.productId = model2.productid;
         [self.navigationController pushViewController:ByView animated:YES];
-    }
 }
 
 // 重新加载数据

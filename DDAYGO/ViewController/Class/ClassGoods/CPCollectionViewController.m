@@ -28,6 +28,7 @@
 @implementation CPCollectionViewController
 
 - (void)viewDidLoad {
+    self.view.backgroundColor = [UIColor whiteColor];
     [super viewDidLoad];
     [self initView];
     [self allData];

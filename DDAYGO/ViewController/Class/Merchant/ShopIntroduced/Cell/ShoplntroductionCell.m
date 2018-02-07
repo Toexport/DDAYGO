@@ -117,54 +117,54 @@
     }];
     _ratingLabel = ratingLabel;
     
-//     服务标题
-    UILabel * ServicetimetitleLabel = [UILabel new];
-    ServicetimetitleLabel.textAlignment = NSTextAlignmentLeft;
-    ServicetimetitleLabel.textColor = ZP_TypefaceColor;
-    ServicetimetitleLabel.font = ZP_TooBarFont;
-    ServicetimetitleLabel.text = NSLocalizedString(@"服务时间:", nil);
-    [self.contentView addSubview:ServicetimetitleLabel];
-    [ServicetimetitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(15);
-        make.top.equalTo(self).offset(110);
-    }];
-    
-//     服务时间
-    UILabel * ServicetimeLabel = [UILabel new];
-    ServicetimeLabel.textAlignment = NSTextAlignmentLeft;
-    ServicetimeLabel.textColor = ZP_textblack;
-    ServicetimeLabel.font = ZP_titleFont;
-    [self.contentView addSubview:ServicetimeLabel];
-    [ServicetimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(100);
-        make.right.equalTo(self).offset(-20);
-        make.top.equalTo(self).offset(110);
-    }];
-    _ServicetimeLabel = ServicetimeLabel;
-    
-//     营业登记
-    UILabel * BusinessregistrationLabel = [UILabel new];
-    BusinessregistrationLabel.textAlignment = NSTextAlignmentLeft;
-    BusinessregistrationLabel.textColor = ZP_TypefaceColor;
-    BusinessregistrationLabel.font = [UIFont systemFontOfSize:14];
-    BusinessregistrationLabel.text = NSLocalizedString(@"营业登记:", nil);
-    [self.contentView addSubview:BusinessregistrationLabel];
-    [BusinessregistrationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(15);
-        make.bottom.equalTo(self).offset(-10);
-    }];
-    
-//     营业登记号
-    UILabel * BusinessregistrationIDLabel = [UILabel new];
-    BusinessregistrationIDLabel.textAlignment = NSTextAlignmentLeft;
-    BusinessregistrationIDLabel.textColor = ZP_textblack;
-    BusinessregistrationIDLabel.font = ZP_titleFont;
-    [self.contentView addSubview:BusinessregistrationIDLabel];
-    [BusinessregistrationIDLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(100);
-        make.bottom.equalTo(self).offset(-10);
-    }];
-    _BusinessregistrationIDLabel = BusinessregistrationIDLabel;
+////     服务标题
+//    UILabel * ServicetimetitleLabel = [UILabel new];
+//    ServicetimetitleLabel.textAlignment = NSTextAlignmentLeft;
+//    ServicetimetitleLabel.textColor = ZP_TypefaceColor;
+//    ServicetimetitleLabel.font = ZP_TooBarFont;
+//    ServicetimetitleLabel.text = NSLocalizedString(@"服务时间:", nil);
+//    [self.contentView addSubview:ServicetimetitleLabel];
+//    [ServicetimetitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self).offset(15);
+//        make.top.equalTo(self).offset(110);
+//    }];
+//    
+////     服务时间
+//    UILabel * ServicetimeLabel = [UILabel new];
+//    ServicetimeLabel.textAlignment = NSTextAlignmentLeft;
+//    ServicetimeLabel.textColor = ZP_textblack;
+//    ServicetimeLabel.font = ZP_titleFont;
+//    [self.contentView addSubview:ServicetimeLabel];
+//    [ServicetimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self).offset(100);
+//        make.right.equalTo(self).offset(-20);
+//        make.top.equalTo(self).offset(110);
+//    }];
+//    _ServicetimeLabel = ServicetimeLabel;
+//    
+////     营业登记
+//    UILabel * BusinessregistrationLabel = [UILabel new];
+//    BusinessregistrationLabel.textAlignment = NSTextAlignmentLeft;
+//    BusinessregistrationLabel.textColor = ZP_TypefaceColor;
+//    BusinessregistrationLabel.font = [UIFont systemFontOfSize:14];
+//    BusinessregistrationLabel.text = NSLocalizedString(@"营业登记:", nil);
+//    [self.contentView addSubview:BusinessregistrationLabel];
+//    [BusinessregistrationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self).offset(15);
+//        make.bottom.equalTo(self).offset(-10);
+//    }];
+//    
+////     营业登记号
+//    UILabel * BusinessregistrationIDLabel = [UILabel new];
+//    BusinessregistrationIDLabel.textAlignment = NSTextAlignmentLeft;
+//    BusinessregistrationIDLabel.textColor = ZP_textblack;
+//    BusinessregistrationIDLabel.font = ZP_titleFont;
+//    [self.contentView addSubview:BusinessregistrationIDLabel];
+//    [BusinessregistrationIDLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self).offset(100);
+//        make.bottom.equalTo(self).offset(-10);
+//    }];
+//    _BusinessregistrationIDLabel = BusinessregistrationIDLabel;
 }
 
 //  解析数据
@@ -194,5 +194,6 @@
             break;
     }
 }
+
 
 @end

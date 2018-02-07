@@ -142,7 +142,7 @@
     if (tableView == self.rightTableView) {
         CPerViewController * CVPView = [[CPerViewController alloc]init];
         ZP_RightModel * model = self.rightData[@(self.leftSelectRow)][indexPath.row];
-        CVPView.fatherId = model.fatherid;
+        CVPView.fatherId = model.producttypeid;
         CVPView.titleString = model.contentLabel;
         [self.rightTableView deselectRowAtIndexPath:indexPath animated:YES];
         self.hidesBottomBarWhenPushed = YES;

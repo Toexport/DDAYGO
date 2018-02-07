@@ -10,7 +10,7 @@
 
 @interface ZP_LeftModel : NSObject
 @property (nonatomic, strong) NSString * contentLabel; // 文字
-@property (nonatomic, strong) NSNumber  *producttypeid ;
+@property (nonatomic, strong) NSNumber  * producttypeid ;
 + (instancetype)GetLeftData:(NSDictionary *)Dic;
 
 +(NSMutableArray *)arrayWithArray:(NSArray *)array;

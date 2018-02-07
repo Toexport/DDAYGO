@@ -12,6 +12,6 @@
 @property (nonatomic, strong) NSString * contentLabel;
 
 @property (nonatomic, strong) NSNumber * fatherid;
-
+@property (nonatomic, strong) NSNumber * producttypeid;
 + (NSMutableArray *)arrayWithArray:(NSArray *)dic;
 @end

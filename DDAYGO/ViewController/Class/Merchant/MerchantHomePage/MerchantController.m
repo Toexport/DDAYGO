@@ -52,6 +52,7 @@
     [self addUI];
     [self setUpNavgationBar]; //navigationBar
     [self getproductfilter:100];
+//    self.imageview.hidden = YES;
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
@@ -60,6 +61,7 @@
         [self.collectionView2 reloadData];
         [self.collectionView3 reloadData];
         [self.collectionView4 reloadData];
+        
     }];
 }
 
@@ -77,9 +79,9 @@
     NSArray * allTitle = @[NSLocalizedString(@"Acquiescence", nil),NSLocalizedString(@"Sales Volume", nil),NSLocalizedString(@"Latest", nil),NSLocalizedString(@"Price", nil)];
     UIImageView * imageview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 150)];
     _imageview = imageview;
-    imageview.backgroundColor = [UIColor whiteColor];
+    imageview.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:imageview];
-    UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, 150, ZP_Width, 35)];
+    UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, imageview.frame.size.height, ZP_Width, 35)];
     topView.backgroundColor = [UIColor whiteColor];
     UIView * gayLine = [[UIView alloc]initWithFrame:CGRectMake(0, topView.height - 1, ZP_Width, 1)];
     gayLine.backgroundColor = ZP_HUISE;
@@ -521,7 +523,7 @@
     [self.newsarray removeAllObjects];
     _i = 0;
     [self getshopinfos];
-        [self getproductfilter:100];
+//        [self getproductfilter:100];
     }];
     self.collectionView2.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsarray removeAllObjects];
