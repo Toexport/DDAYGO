@@ -68,6 +68,7 @@
 
 // 註冊
 - (void)initSource {
+    
     [self.detailTableview registerNib:[UINib nibWithNibName:@"ProductTableViewCell" bundle:nil] forCellReuseIdentifier:@"ProductTableViewCell"];
     [self.detailTableview registerNib:[UINib nibWithNibName:@"EvaluateTableViewCell" bundle:nil] forCellReuseIdentifier:@"EvaluateTableViewCell"];
     [self.detailTableview registerNib:[UINib nibWithNibName:@"TextdetailsViewCell" bundle:nil] forCellReuseIdentifier:@"TextdetailsViewCell"];
@@ -137,6 +138,7 @@
 
 // 获取数据
 - (void)allData {
+//    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone]; // 动画
     if (nil == _productId) {
         return;
     }
@@ -177,8 +179,9 @@
             [alert addAction:cancelAction];
             [self presentViewController:alert animated:YES completion:nil];
         }else {
-        if (obj) {
+        if (obj) { // 动画
             self.productArray = obj;
+//            [self successful];
         }else{
             [self networkProblems];
         }

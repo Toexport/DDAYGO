@@ -119,7 +119,6 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    
     NSInteger tag = scrollView.contentOffset.x/ZP_Width;
     _indexTag = tag;
     self.contentScrollView.contentOffset = CGPointMake(tag*ZP_Width, 0);
@@ -143,7 +142,7 @@
 #warning 选中
             [button setImage:[UIImage imageNamed:@"icon_shop_classification_03"] forState:UIControlStateNormal];
             _priceStrTag = @"desc";
-        } else {
+        }else{
 #warning 取消选中
             [button setImage:[UIImage imageNamed:@"icon_shop_classification_02"] forState:UIControlStateNormal];
             _priceStrTag = @"asc";

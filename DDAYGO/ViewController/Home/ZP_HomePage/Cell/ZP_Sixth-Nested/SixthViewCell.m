@@ -31,6 +31,7 @@
 }
 
 - (void)addSubVIEWs {
+    
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc ]init];
     layout.minimumLineSpacing = 1;
     layout.minimumInteritemSpacing = 1;
@@ -64,12 +65,14 @@
     
 //  更多
     UIButton * moreBut = [UIButton new];
+    
     [moreBut setTitle:NSLocalizedString(@"More erchandise", nil) forState:UIControlStateNormal];
     moreBut.titleLabel.font = ZP_titleFont;
     [moreBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     moreBut.backgroundColor = [UIColor orangeColor];
     moreBut.layer.cornerRadius = 5.0;// 按钮圆角弧度
     [self.contentView addSubview:moreBut];
+    moreBut.hidden = YES; //
     [moreBut addTarget:self action:@selector(moreBut:) forControlEvents:UIControlEventTouchUpInside];
     [moreBut mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-10);
