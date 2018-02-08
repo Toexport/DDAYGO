@@ -106,8 +106,7 @@
     [self.view addSubview:topView];
     self.topView = topView;
     self.line.x = self.btn.x;
-    UIScrollView * lastView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 150+35, ZP_Width, ZP_height)];//这里·你自己看这里
-    lastView.contentSize = CGSizeMake(ZP_Width * 4, 0);
+    UIScrollView * lastView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 150+35, ZP_Width, ZP_height - NavBarHeight)];
     lastView.pagingEnabled  = YES;
     lastView.showsHorizontalScrollIndicator = NO;
     lastView.delegate = self;
@@ -133,7 +132,7 @@
         if (self.imageview > 0) {
             self.imageview.hidden = YES;
             self.imageview.height = CGFLOAT_MIN;
-            self.topView.frame = CGRectMake(0, 0, ZP_Width, 35);
+            self.topView.frame = CGRectMake(0, 0, ZP_Width, 35 );
             self.lastView.frame = CGRectMake(0, 35, ZP_Width, ZP_height - 35);
             _collectionView1.frame = CGRectMake(0, 0, fDeviceWidth, fDeviceHeight - 50);
             _collectionView2.frame = CGRectMake(fDeviceWidth, 0, fDeviceWidth, fDeviceHeight - 50);
@@ -154,16 +153,17 @@
 
 - (void)initCollectionView {
     UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc]init];
-    _collectionView1 = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, fDeviceWidth, fDeviceHeight - 200) collectionViewLayout:flowLayout];
-    _collectionView2 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth, 0, fDeviceWidth, fDeviceHeight - 200) collectionViewLayout:flowLayout];
-    _collectionView3 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 2, 0, fDeviceWidth, fDeviceHeight - 200) collectionViewLayout:flowLayout];
-    _collectionView4 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 3, 0, fDeviceWidth, fDeviceHeight - 200) collectionViewLayout:flowLayout];
+    _collectionView1 = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight) collectionViewLayout:flowLayout];
+    _collectionView2 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight) collectionViewLayout:flowLayout];
+    _collectionView3 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 2, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight) collectionViewLayout:flowLayout];
+    _collectionView4 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 3, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight) collectionViewLayout:flowLayout];
     _collectionView1.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
     _collectionView2.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
     _collectionView3.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
     _collectionView4.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
     //     每个Cell大小
-    flowLayout.itemSize = CGSizeMake((fDeviceWidth - 20)/2, (fDeviceHeight - 20) / 3 + 20);
+//    自己看这里 ``
+    flowLayout.itemSize = CGSizeMake((fDeviceWidth - 20)/2, (fDeviceWidth - 20) / 2 + 50);
     //    横向
     flowLayout.minimumLineSpacing = 5;
     //    纵向

@@ -224,6 +224,7 @@
 		C435173A1FB2AC830066302E /* FootprintCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C435173C1FB2AC830066302E /* FootprintCollectionViewCell.xib */; };
 		C43517431FB2ACD60066302E /* StoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43517451FB2ACD60066302E /* StoreViewController.xib */; };
 		C435174C1FB2ACE80066302E /* OrdersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C435174E1FB2ACE80066302E /* OrdersViewController.xib */; };
+		C435B9A2202C22F200A6A09E /* DDAYGO IHTTP协议1.0.docx in Resources */ = {isa = PBXBuildFile; fileRef = C435B9A1202C22F200A6A09E /* DDAYGO IHTTP协议1.0.docx */; };
 		C43987751FF48B5D00044E21 /* RegistrationAgreementController.m in Sources */ = {isa = PBXBuildFile; fileRef = C43987741FF48B5D00044E21 /* RegistrationAgreementController.m */; };
 		C43987801FF4C67100044E21 /* SupplierTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C439877E1FF4C67100044E21 /* SupplierTableViewCell.m */; };
 		C43987811FF4C67100044E21 /* SupplierTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C439877F1FF4C67100044E21 /* SupplierTableViewCell.xib */; };
@@ -253,7 +254,6 @@
 		C4411DB5200F626200CE906F /* 加载中.png in Resources */ = {isa = PBXBuildFile; fileRef = C4411DA2200F626100CE906F /* 加载中.png */; };
 		C4411DB7200F626200CE906F /* 暂无数据.png in Resources */ = {isa = PBXBuildFile; fileRef = C4411DA4200F626100CE906F /* 暂无数据.png */; };
 		C4411DB9200F636500CE906F /* 加载失败_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = C4411DB8200F636500CE906F /* 加载失败_spec.png */; };
-		C44A08FB20229D22000024F9 /* DDAYGO IHTTP协议1.0.docx in Resources */ = {isa = PBXBuildFile; fileRef = C44A08FA20229D22000024F9 /* DDAYGO IHTTP协议1.0.docx */; };
 		C44A09002022F0E9000024F9 /* ProductTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C44A08FE2022F0E9000024F9 /* ProductTableViewCell.m */; };
 		C44A09012022F0E9000024F9 /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C44A08FF2022F0E9000024F9 /* ProductTableViewCell.xib */; };
 		C44A09062022F0F2000024F9 /* EvaluateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C44A09042022F0F1000024F9 /* EvaluateTableViewCell.m */; };
@@ -905,6 +905,7 @@
 		C43517421FB2ACCD0066302E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/FootprintCollectionViewCell.strings"; sourceTree = "<group>"; };
 		C43517441FB2ACD60066302E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StoreViewController.xib; sourceTree = "<group>"; };
 		C43517511FB2ACF40066302E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/OrdersViewController.xib; sourceTree = "<group>"; };
+		C435B9A1202C22F200A6A09E /* DDAYGO IHTTP协议1.0.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0.docx"; sourceTree = "<group>"; };
 		C43987731FF48B5D00044E21 /* RegistrationAgreementController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationAgreementController.h; sourceTree = "<group>"; };
 		C43987741FF48B5D00044E21 /* RegistrationAgreementController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationAgreementController.m; sourceTree = "<group>"; };
 		C439877D1FF4C67100044E21 /* SupplierTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupplierTableViewCell.h; sourceTree = "<group>"; };
@@ -940,7 +941,6 @@
 		C4411DA2200F626100CE906F /* 加载中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "加载中.png"; sourceTree = "<group>"; };
 		C4411DA4200F626100CE906F /* 暂无数据.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "暂无数据.png"; sourceTree = "<group>"; };
 		C4411DB8200F636500CE906F /* 加载失败_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "加载失败_spec.png"; sourceTree = "<group>"; };
-		C44A08FA20229D22000024F9 /* DDAYGO IHTTP协议1.0.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0.docx"; sourceTree = "<group>"; };
 		C44A08FD2022F0E9000024F9 /* ProductTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTableViewCell.h; sourceTree = "<group>"; };
 		C44A08FE2022F0E9000024F9 /* ProductTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTableViewCell.m; sourceTree = "<group>"; };
 		C44A08FF2022F0E9000024F9 /* ProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
@@ -1409,7 +1409,7 @@
 		063FE0441F614D24009910FF /* DDAYGO */ = {
 			isa = PBXGroup;
 			children = (
-				C44A08FA20229D22000024F9 /* DDAYGO IHTTP协议1.0.docx */,
+				C435B9A1202C22F200A6A09E /* DDAYGO IHTTP协议1.0.docx */,
 				C4411D91200F626100CE906F /* 加载_ios */,
 				0641BB971F67B60B00E72FEF /* Testbag */,
 				063FE0AE1F615CEB009910FF /* ViewController */,
@@ -4464,6 +4464,7 @@
 				06621DB31F9758840030983F /* RegisterController.xib in Resources */,
 				C4FFF1FF2011F05A00EF4A4D /* SatisfactionSurveyCell.xib in Resources */,
 				C4411DB7200F626200CE906F /* 暂无数据.png in Resources */,
+				C435B9A2202C22F200A6A09E /* DDAYGO IHTTP协议1.0.docx in Resources */,
 				C4411DA8200F626200CE906F /* iconn_no_network@3x.png in Resources */,
 				C4411DB0200F626200CE906F /* loading5.png in Resources */,
 				C4411D8D200EFB4900CE906F /* AboutDDAYGOController.xib in Resources */,
@@ -4547,7 +4548,6 @@
 				06F571DE1F9F1A7900D61FDB /* AddAddressViewController.xib in Resources */,
 				C41FF4DA1FFF53F7009B720D /* ZP_InstructionController.xib in Resources */,
 				C44A09112022F101000024F9 /* TextdetailsViewCell.xib in Resources */,
-				C44A08FB20229D22000024F9 /* DDAYGO IHTTP协议1.0.docx in Resources */,
 				06F571DC1F9F1A7900D61FDB /* AddressTableViewCell.xib in Resources */,
 				C42A173F1FF2532400680F92 /* BetTableViewMyCell.xib in Resources */,
 				C42A17401FF2532400680F92 /* BetTableViewCellTwo.xib in Resources */,

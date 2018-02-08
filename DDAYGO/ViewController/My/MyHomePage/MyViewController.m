@@ -40,18 +40,31 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint * SdglLayoutConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint * XfjlLayoutConstraint;
 @property (nonatomic, strong) NSString * reason;
+@property (weak, nonatomic) IBOutlet UIScrollView *scorllview;
+// 需要适配X的控件
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint * hheigth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint * ttttop;
+
 @end
 
 @implementation MyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //iphone X
+    if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
+        //自己在这里写你想要的高度 其他地方不用动
+        _hheigth.constant = 260 + 20;
+        _ttttop.constant = 14 + 40;
+    }
 }
 
 // 生命周期
 - (void)viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [self mainColor];
     [self initUI];
     [self LoginJudde];
     [self loginAllData];
@@ -61,6 +74,11 @@
     self.headImageBut.layer.cornerRadius = 42;
     self.headImageBut.layer.masksToBounds = YES;
     [self.headImageBut setUserInteractionEnabled: NO]; //找了三个月的问题终于找到，就是这个按钮造成tabbar不见了。
+    if (@available(iOS 11.0, *)) {
+        self.scorllview.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;
+    }else{
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 
 //- (void) Supplier {
@@ -184,9 +202,9 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
-    
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [self mainColor];
 }
 
 //  个人资料
@@ -507,10 +525,30 @@
 - (IBAction)RefundService:(id)sender {
     RefundServiceController * RefundService = [[RefundServiceController alloc]init];
     [self.navigationController pushViewController:RefundService animated:YES];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
+    //    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
     self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
     
 }
 
 
+
+// 适配iphoneX
+-(void)mainColor {
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    dict[NSFontAttributeName] = [UIFont systemFontOfSize:18];
+    dict[NSForegroundColorAttributeName] = [UIColor whiteColor];
+    [navBar setTitleTextAttributes:dict];
+    navBar.translucent = NO;
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [self.navigationItem setHidesBackButton:YES];
+    UIButton * backBtn = self.navigationItem.leftBarButtonItem.customView;
+    [backBtn setImage:[UIImage imageNamed:@"whiteBack"] forState:UIControlStateNormal];
+    [backBtn setImage:[UIImage imageNamed:@"whiteBack"] forState:UIControlStateHighlighted];
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+}
+
 @end
+

@@ -21,11 +21,14 @@
                 <outlet property="SdglLayoutConstraint" destination="JIE-Bw-fKa" id="uBN-pO-aCd"/>
                 <outlet property="XfjlLayoutConstraint" destination="3x4-6N-7PJ" id="dic-cm-pgc"/>
                 <outlet property="headImageBut" destination="OTg-9H-to4" id="oWz-rU-uPU"/>
+                <outlet property="hheigth" destination="aJm-TN-itX" id="pnB-nS-up4"/>
                 <outlet property="kuohaoLabel1" destination="EYd-Rv-7Up" id="kbO-8x-2Bw"/>
                 <outlet property="kuohaoLabel2" destination="58r-Uf-XLQ" id="VyH-P9-Omw"/>
                 <outlet property="scanView" destination="7k6-oe-5YX" id="UHd-bb-MTZ"/>
+                <outlet property="scorllview" destination="TRP-HX-xQv" id="s8M-fo-CWh"/>
                 <outlet property="sdglView" destination="8nF-TL-hSY" id="5v8-3h-hhn"/>
                 <outlet property="ssdkBut" destination="PW7-pe-KJH" id="vUl-9Z-h07"/>
+                <outlet property="ttttop" destination="gyH-uc-Mwq" id="yzd-Fl-89X"/>
                 <outlet property="userBackView" destination="LFs-vK-Df4" id="zsQ-47-JJe"/>
                 <outlet property="view" destination="iN0-l3-epB" id="5Mq-cd-wI5"/>
                 <outlet property="viewLayoutConstraint" destination="0No-tJ-duv" id="BLh-6m-glm"/>

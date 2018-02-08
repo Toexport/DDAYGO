@@ -65,7 +65,7 @@
 
 // 数据（左边）
 - (void)allData {
-    NSDictionary * dict = @{@"level":@"1",@"language":@"zh-tw"};
+    NSDictionary * dict = @{@"level":@"1",@"countrycode":@"886"};
     [ZP_ClassViewTool requClassIfication:dict success:^(id obj) {
         NSArray * arr = obj;
         ZPLog(@"%@",obj);
@@ -81,7 +81,7 @@
 //  数据（右边）
 - (void)getRightItemDataWithProducttypeid:(NSInteger)producttypeid {
     ZP_LeftModel *Molde =self.newsData[producttypeid];
-    NSDictionary * dictt = @{@"level":@"2",@"language":@"zh-tw",@"fatherid":[Molde.producttypeid stringValue]};
+    NSDictionary * dictt = @{@"level":@"2",@"countrycode":@"886",@"fatherid":[Molde.producttypeid stringValue]};
 //     NSDictionary * dictt = @{@"level":@"2",@"language":@"zh-tw",@"fatherid": [NSString stringWithFormat:@"producttypeid+%ld",producttypeid]};
     ZPLog(@"%@",dictt);
     [ZP_ClassViewTool requClassIficationrj:dictt success:^(id obj) {
