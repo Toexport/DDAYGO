@@ -104,7 +104,7 @@
                 ZPICUEToken = nil;
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
-                [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
                 [[SDImageCache sharedImageCache] clearDisk];
                 [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
