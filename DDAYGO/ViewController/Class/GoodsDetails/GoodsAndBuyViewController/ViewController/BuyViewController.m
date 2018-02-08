@@ -141,7 +141,7 @@
 
 // 获取数据
 - (void)allData {
-//    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone]; // 动画
+    //    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone]; // 动画
     if (nil == _productId) {
         return;
     }
@@ -182,24 +182,24 @@
             [alert addAction:cancelAction];
             [self presentViewController:alert animated:YES completion:nil];
         }else {
-        if (obj) { // 动画
-            self.productArray = obj;
-//            [self successful];
-        }else{
-            [self networkProblems];
-        }
-        ZPLog(@"%@",obj);
-        NSDictionary * asdic = [obj[@"productdetail"] firstObject];
-        NSString * asdtring = asdic[@"content"];
-        self.productArray = [asdtring componentsSeparatedByString:@","];
-        NSDictionary * tempDic = @{@"productid":_productId,@"page":@(1),@"pagesize":@(5)};
-        [ZP_ClassViewTool requEvaluates:tempDic success:^(id obj) {
-            self.evaluateArray = [EvaluateModel mj_objectArrayWithKeyValuesArray:obj[@"reviewslist"][@"ReviewsData"]];
-            [self successful];
-            NSLog(@"%@",obj);
-        } failure:^(NSError *error) {
-            NSLog(@"%@",error);
-        }];
+            if (obj) { // 动画
+                self.productArray = obj;
+                //            [self successful];
+            }else{
+                [self networkProblems];
+            }
+            ZPLog(@"%@",obj);
+            NSDictionary * asdic = [obj[@"productdetail"] firstObject];
+            NSString * asdtring = asdic[@"content"];
+            self.productArray = [asdtring componentsSeparatedByString:@","];
+            NSDictionary * tempDic = @{@"productid":_productId,@"page":@(1),@"pagesize":@(5)};
+            [ZP_ClassViewTool requEvaluates:tempDic success:^(id obj) {
+                self.evaluateArray = [EvaluateModel mj_objectArrayWithKeyValuesArray:obj[@"reviewslist"][@"ReviewsData"]];
+                [self successful];
+                NSLog(@"%@",obj);
+            } failure:^(NSError *error) {
+                NSLog(@"%@",error);
+            }];
         }
         ZP_GoodDetailsModel * model = [ZP_GoodDetailsModel getGoodDetailsData:obj[@"products"][0]];
         _shoucangBtn.selected = [model.state boolValue];
@@ -236,37 +236,37 @@
     dic[@"productid"] = _model.productid;
     dic[@"token"] = Token;
     if (!sender.selected) {
-//收藏
-    [ZP_ClassViewTool requshoucang:dic success:^(id obj) {
-        sender.selected = !sender.selected;
-        if ([obj[@"result"]isEqualToString:@"ok"]) {
-            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Collect success!", nil)];
-        }else
-            if ([obj[@"result"]isEqualToString:@"collected"]) {
-                [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Already collected", nil)];
-        }else
-             if ([obj[@"result"]isEqualToString:@"failure"]) {
-                 [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Operation failure", nil)];
-        }
-    } failure:^(NSError *error) {
-        NSLog(@"error %@",error);
-    }];
-  }else{
-    //取消收藏
-    [ZP_ClassViewTool requCancelshoucang:dic success:^(id obj) {
-        sender.selected = !sender.selected;
-        if ([obj[@"result"]isEqualToString:@"ok"]) {
-            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Cancel success", nil)];
-        }else
-            if ([obj[@"result"]isEqualToString:@"count"]) {
-//                [SVProgressHUD showInfoWithStatus:@"0"];
-        }else
-            if ([obj[@"result"]isEqualToString:@"failure"]) {
-                [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Operation failure", nil)];
-        }
-    } failure:^(NSError *error) {
-        NSLog(@"error %@",error);
-    }];
+        //收藏
+        [ZP_ClassViewTool requshoucang:dic success:^(id obj) {
+            sender.selected = !sender.selected;
+            if ([obj[@"result"]isEqualToString:@"ok"]) {
+                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Collect success!", nil)];
+            }else
+                if ([obj[@"result"]isEqualToString:@"collected"]) {
+                    [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Already collected", nil)];
+                }else
+                    if ([obj[@"result"]isEqualToString:@"failure"]) {
+                        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Operation failure", nil)];
+                    }
+        } failure:^(NSError *error) {
+            NSLog(@"error %@",error);
+        }];
+    }else{
+        //取消收藏
+        [ZP_ClassViewTool requCancelshoucang:dic success:^(id obj) {
+            sender.selected = !sender.selected;
+            if ([obj[@"result"]isEqualToString:@"ok"]) {
+                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Cancel success", nil)];
+            }else
+                if ([obj[@"result"]isEqualToString:@"count"]) {
+                    //                [SVProgressHUD showInfoWithStatus:@"0"];
+                }else
+                    if ([obj[@"result"]isEqualToString:@"failure"]) {
+                        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Operation failure", nil)];
+                    }
+        } failure:^(NSError *error) {
+            NSLog(@"error %@",error);
+        }];
     }
 }
 
@@ -275,6 +275,7 @@
 }
 
 - (IBAction)ShoppingCartAction:(id)sender {
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
     DD_CHECK_HASLONGIN;
     [self.navigationController popToRootViewControllerAnimated:NO];
     if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
@@ -285,7 +286,7 @@
 
 // 商家按钮
 - (IBAction)dianpuAction:(id)sender {
-//    DD_CHECK_HASLONGIN;
+    //    DD_CHECK_HASLONGIN;
     MerchantController * Merchant = [[MerchantController alloc]init];
     Merchant.Supplieerid = self.model.supplierid;
     [self.navigationController pushViewController:Merchant animated:YES];
@@ -382,7 +383,7 @@
             ProductTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ProductTableViewCell"];
             [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.productArray[indexPath.row]] options:0 progress:nil completed:^(UIImage * image, NSError * error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                 cell.productImageView.image = image;
-//                NSLog(@"%f - %f",image.size.height,image.size.width);
+                //                NSLog(@"%f - %f",image.size.height,image.size.width);
                 if (image) {
                     if (!self.imageDic[@(indexPath.row).stringValue]) {
                         self.imageDic[@(indexPath.row).stringValue] = @(ZP_Width * image.size.height / image.size.width);
@@ -430,7 +431,7 @@
         case 0:
         {
             NSLog(@"%@",self.imageDic[@(indexPath.row).stringValue]); // man 所以是数据问题·  不是cgfloat
-                return [self.imageDic[@(indexPath.row).stringValue] integerValue];
+            return [self.imageDic[@(indexPath.row).stringValue] integerValue];
         }
             break;
         case 1:
@@ -529,7 +530,7 @@
     self.TopTabBar = tabBar;
     [secondPageView addSubview:tabBar];
     UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_evaluate_nocontent"]];
-    imageView.frame = CGRectMake(ZP_Width/2 - 10,SecondPageTop/2 - 10, 40, 40);
+    imageView.frame = CGRectMake(ZP_Width/2 - 10,(ZP_height-NaviBarH-BottomH-MiddleViewH)/2 - 10, 40, 40);
     [secondPageView addSubview:imageView];
     UILabel * label = [[UILabel alloc] init];
     label.font = [UIFont systemFontOfSize:15];
@@ -649,3 +650,4 @@
 }
 
 @end
+
