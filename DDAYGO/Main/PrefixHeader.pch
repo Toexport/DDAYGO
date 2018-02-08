@@ -45,7 +45,7 @@
 #import "ReloadView.h"
 #import "Const.h"
 #import "NoDataView.h"
-
+/**
 //测试用这个
 #ifdef DEBUG
 #if TARGET_IPHONE_SIMULATOR//模拟器
@@ -61,6 +61,7 @@
 #endif
 
 #else
+//*/
 
 //正式发布
 #ifdef zhengShiFaBu
@@ -73,9 +74,9 @@
 
 #endif
 
-#endif
+//#endif
 
-/**
+///**
 //正式用这个
 #ifdef DEBUG // 调试状态, 打开LOG功能
 #define ZPLog(...) NSLog(__VA_ARGS__)
