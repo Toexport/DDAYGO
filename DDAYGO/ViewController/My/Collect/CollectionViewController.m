@@ -35,10 +35,10 @@
 
 //UI
 - (void)initUI {
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: ZP_textWite}];
+    [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.tableView registerNib:[UINib nibWithNibName:@"CollectionTableViewCell" bundle:nil] forCellReuseIdentifier:@"CollectionTableViewCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
 

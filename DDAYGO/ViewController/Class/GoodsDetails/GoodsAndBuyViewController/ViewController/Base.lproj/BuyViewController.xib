@@ -12,6 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BuyViewController">
             <connections>
+                <outlet property="LayoutConstraintButtt" destination="d4i-jv-MeA" id="mY3-aE-E3Q"/>
+                <outlet property="LayoutConstraintLabel" destination="R9y-IO-RcQ" id="ow8-6z-CjU"/>
+                <outlet property="LayoutConstraintheadView" destination="2Sq-gn-7QL" id="nTm-FC-Agy"/>
                 <outlet property="backItem" destination="yyv-kf-DKo" id="XsT-Dv-Ri1"/>
                 <outlet property="dianpuBtn" destination="aFr-nf-baU" id="Oi3-ml-wYg"/>
                 <outlet property="gouwuBtn" destination="cy4-nj-B1P" id="trV-4E-VOo"/>
@@ -58,7 +61,7 @@
                             <state key="normal" image="ic_details_feedback"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgo-8v-KYi">
-                            <rect key="frame" x="166" y="21.5" width="42" height="21"/>
+                            <rect key="frame" x="166.5" y="21.5" width="42" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>

@@ -48,8 +48,8 @@
 
 - (void)initUI {
     self.title = NSLocalizedString(@"促銷彩", nil);
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_WhiteColor}];   // 更改导航栏字体颜色
-    [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];  //  更改导航栏颜色
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: ZP_textWite}];
+    [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     
     UIToolbar * tools = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, -15, 15)];
 // 解决出现的那条线

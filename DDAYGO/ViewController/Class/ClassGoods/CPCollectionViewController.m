@@ -40,9 +40,10 @@
 }
 
 - (void)initView {
-    
+    NSLog(@"view = %f - sec = %f----%f",self.view.frame.size.height,ZP_height,NavBarHeight);
     UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc]init];
-    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, self.view.height) collectionViewLayout:flowLayout];
+    
+    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height - NavBarHeight)  collectionViewLayout:flowLayout];
     _collectionView.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
     //     每个Cell大小
     flowLayout.itemSize = CGSizeMake((fDeviceWidth - 20)/2, (fDeviceWidth - 20) / 2 + 60);

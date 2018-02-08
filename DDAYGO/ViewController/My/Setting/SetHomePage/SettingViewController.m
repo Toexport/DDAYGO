@@ -55,7 +55,8 @@
     [super viewDidLoad];
     //    [self setHead];
     self.title = NSLocalizedString(@"Setting", nil) ;
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_WhiteColor}];   // 更改导航栏字体颜色
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: ZP_textWite}];
+    [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -28,9 +28,9 @@
     self.title = NSLocalizedString(@"footprint", nil);
     [self allData];
     [self addRefresh];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: ZP_textWite}];
+    [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.collectionView registerNib:[UINib nibWithNibName:@"FootprintCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"FootprintCollectionViewCell"];
-    [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     //    self.collectionView.alwaysBounceVertical = YES;
     [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {

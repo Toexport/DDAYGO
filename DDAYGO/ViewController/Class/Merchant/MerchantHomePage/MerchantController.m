@@ -72,11 +72,11 @@
 // UI
 -(void)addUI {
     NSArray * allTitle = @[NSLocalizedString(@"店鋪首頁", nil),NSLocalizedString(@"最新", nil),NSLocalizedString(@"好評", nil),NSLocalizedString(@"價格", nil)];
-    UIImageView * imageview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 150)];// 这是图片 ·1
+    UIImageView * imageview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 150)];
     _imageview = imageview;
     imageview.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:imageview];
-    UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, imageview.frame.size.height, ZP_Width, 35)];// 这是ann默认 的4button上的4个view
+    UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, imageview.frame.size.height, ZP_Width, 35)];
     topView.backgroundColor = [UIColor whiteColor];
     UIView * gayLine = [[UIView alloc]initWithFrame:CGRectMake(0, topView.height - 1, ZP_Width, 1)];
     gayLine.backgroundColor = ZP_HUISE;
@@ -133,7 +133,7 @@
             self.imageview.hidden = YES;
             self.imageview.height = CGFLOAT_MIN;
             self.topView.frame = CGRectMake(0, 0, ZP_Width, 35 );
-            self.lastView.frame = CGRectMake(0, 35, ZP_Width, ZP_height - 35);
+            self.lastView.frame = CGRectMake(0, 35, ZP_Width, ZP_height);
             _collectionView1.frame = CGRectMake(0, 0, fDeviceWidth, fDeviceHeight - 50);
             _collectionView2.frame = CGRectMake(fDeviceWidth, 0, fDeviceWidth, fDeviceHeight - 50);
             _collectionView3.frame = CGRectMake(fDeviceWidth*2, 0, fDeviceWidth, fDeviceHeight - 50);
@@ -142,7 +142,7 @@
             self.imageview.hidden = NO;
             self.imageview.frame = CGRectMake(0, 0, ZP_Width, 150);
             self.topView.frame = CGRectMake(0, 0, ZP_Width, 35);
-            self.lastView.frame = CGRectMake(0, 35, ZP_Width, ZP_height - 35);
+            self.lastView.frame = CGRectMake(0, 150, ZP_Width, ZP_height - 150 - NavBarHeight);
             [self.imageview sd_setImageWithURL:[NSURL URLWithString:obj[@"shopdetail"]] placeholderImage:[UIImage imageNamed:@""]];
         }
         ZPLog(@"%@",obj);
@@ -162,8 +162,7 @@
     _collectionView3.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
     _collectionView4.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
     //     每个Cell大小
-//    自己看这里 ``
-    flowLayout.itemSize = CGSizeMake((fDeviceWidth - 20)/2, (fDeviceWidth - 20) / 2 + 50);
+    flowLayout.itemSize = CGSizeMake((fDeviceWidth - 20)/2, (fDeviceWidth - 20) / 2 + 60);
     //    横向
     flowLayout.minimumLineSpacing = 5;
     //    纵向

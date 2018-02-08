@@ -28,12 +28,13 @@
 
 - (UIScrollView *)contentScrollView{
     if (!_contentScrollView) {
-        _contentScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 37, ZP_Width, ZP_height - 37-NavBarHeight)];
+        _contentScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 37, ZP_Width, ZP_height - 37)];
         _contentScrollView.contentSize = CGSizeMake(ZP_Width * 4, 0);
         _contentScrollView.pagingEnabled  = YES;
         _contentScrollView.showsHorizontalScrollIndicator = NO;
         _contentScrollView.showsVerticalScrollIndicator = NO;
         _contentScrollView.delegate = self;
+        _contentScrollView.backgroundColor = [UIColor redColor];
         [self.view addSubview:_contentScrollView];
       
         
@@ -43,11 +44,6 @@
 // 设置contentScrollView不能左右滚动
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     scrollView.bounces = (scrollView.contentOffset.y <= 10) ? NO : YES;
-//    CGPoint offset = scrollView.contentOffset;
-//    if (offset.y <= 0) {
-//        offset.y = 0;
-//    }
-//    self.contentScrollView.contentOffset = offset;
 }
 
 -(UIView *)topView {
@@ -156,5 +152,6 @@
         }
     }
 }
+
 
 @end

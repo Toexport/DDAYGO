@@ -158,10 +158,10 @@
                     mustr = [NSString stringWithFormat:@"%ld",model.array.count +[mustr integerValue]];
                 }];
                 self.navigationController.tabBarItem.badgeValue = mustr;
-//                if (mustr.length > 0) {
+//                if (mustr.length == 0) {
 //                    self.title = NSLocalizedString(@"Shopping", nil);
 //                }else {
-//                    self.title = [NSString stringWithFormat:@"%@",mustr];
+//                    self.title = mustr;
 //                }
                 
                 [self updateData:0];

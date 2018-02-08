@@ -40,9 +40,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint * SdglLayoutConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint * XfjlLayoutConstraint;
 @property (nonatomic, strong) NSString * reason;
-@property (weak, nonatomic) IBOutlet UIScrollView *scorllview;
+@property (weak, nonatomic) IBOutlet UIScrollView * scorllview;
 // 需要适配X的控件
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint * hheigth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint * ttttop;
 
@@ -52,10 +51,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //iphone X
+    
+//    //iphone X
     if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
         //自己在这里写你想要的高度 其他地方不用动
-        _hheigth.constant = 260 + 20;
+        _hheigth.constant = 260 + 40;
         _ttttop.constant = 14 + 40;
     }
 }
@@ -74,6 +74,7 @@
     self.headImageBut.layer.cornerRadius = 42;
     self.headImageBut.layer.masksToBounds = YES;
     [self.headImageBut setUserInteractionEnabled: NO]; //找了三个月的问题终于找到，就是这个按钮造成tabbar不见了。
+    
     if (@available(iOS 11.0, *)) {
         self.scorllview.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;
     }else{
@@ -133,11 +134,11 @@
     static MyViewController *instance = nil;
     static NSString *language = nil;
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"Language"]) {
-        NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+        NSArray * array = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
         [[NSUserDefaults standardUserDefaults] setObject:array.firstObject forKey:@"Language"];
     }
     
-    NSString *language1 = [[NSUserDefaults standardUserDefaults] objectForKey:@"Language"];
+    NSString * language1 = [[NSUserDefaults standardUserDefaults] objectForKey:@"Language"];
     if (!language) {
         language = [[NSUserDefaults standardUserDefaults] objectForKey:@"Language"];
     }
@@ -457,7 +458,7 @@
 
 // 收藏
 - (IBAction)scAction:(id)sender {
-    CollectionViewController *collectionViewController = [[CollectionViewController alloc] init];
+    CollectionViewController * collectionViewController = [[CollectionViewController alloc] init];
     [self.navigationController pushViewController:collectionViewController animated:YES];
     self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
 }
@@ -469,7 +470,7 @@
 
 // 足迹
 - (IBAction)zjAction:(id)sender {
-    FootprintViewController *footprintViewController = [[FootprintViewController alloc] init];
+    FootprintViewController * footprintViewController = [[FootprintViewController alloc] init];
     [self.navigationController pushViewController:footprintViewController animated:YES];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
     self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
@@ -493,9 +494,6 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
     self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
 }
-
-//}
-
 
 //// 最新消息
 //- (IBAction)zxxxAction:(id)sender {
@@ -534,14 +532,16 @@
 
 // 适配iphoneX
 -(void)mainColor {
-    UINavigationBar *navBar = self.navigationController.navigationBar;
+    UINavigationBar * navBar = self.navigationController.navigationBar;
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    dict[NSFontAttributeName] = [UIFont systemFontOfSize:18];
+    dict[NSFontAttributeName] = [UIFont systemFontOfSize:16];
     dict[NSForegroundColorAttributeName] = [UIColor whiteColor];
     [navBar setTitleTextAttributes:dict];
     navBar.translucent = NO;
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.navigationItem setHidesBackButton:YES];
+    
     UIButton * backBtn = self.navigationItem.leftBarButtonItem.customView;
     [backBtn setImage:[UIImage imageNamed:@"whiteBack"] forState:UIControlStateNormal];
     [backBtn setImage:[UIImage imageNamed:@"whiteBack"] forState:UIControlStateHighlighted];

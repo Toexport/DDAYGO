@@ -32,6 +32,11 @@
 @property (strong, nonatomic) UITableView * detailTableview;
 @property (assign, nonatomic)float TopViewScale;
 @property (weak, nonatomic) IBOutlet UIButton *backItem;
+//    //iphone X
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *LayoutConstraintButtt;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *LayoutConstraintheadView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *LayoutConstraintLabel;
+
 
 /********源文件属性********/
 //**Xib 拖过来然后填写数据**/
@@ -66,11 +71,17 @@
     [self initSource];
     [self allData];
     self.scrollView.scrollEnabled = NO;
+//    //iphone X
+    if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
+        //在这里写你想要的高度 其他地方不用动
+        _LayoutConstraintButtt.constant = 18 + 10;
+        _LayoutConstraintheadView.constant = 64 + 10;
+        _LayoutConstraintLabel.constant = 10;
+    }
 }
 
 // 註冊
 - (void)initSource {
-    
     self.backItemString = @"ic_details_return";
     [self.detailTableview registerNib:[UINib nibWithNibName:@"ProductTableViewCell" bundle:nil] forCellReuseIdentifier:@"ProductTableViewCell"];
     [self.detailTableview registerNib:[UINib nibWithNibName:@"EvaluateTableViewCell" bundle:nil] forCellReuseIdentifier:@"EvaluateTableViewCell"];
