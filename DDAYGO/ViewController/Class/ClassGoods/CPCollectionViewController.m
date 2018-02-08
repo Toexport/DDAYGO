@@ -15,6 +15,7 @@
 #import "ZP_ClassGoodsModel.h"
 #import "BuyViewController.h"
 
+
 #define fDeviceWidth ([UIScreen mainScreen].bounds.size.width)
 #define fDeviceHeight ([UIScreen mainScreen].bounds.size.height)
 @interface CPCollectionViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>{
@@ -37,6 +38,12 @@
         self.NoDataView = response;
         [self.collectionView reloadData];
     }];
+    
+    if (iphoneX) {
+        self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
+        self.collectionView.scrollIndicatorInsets = self.collectionView.contentInset;
+    }
 }
 
 - (void)initView {
