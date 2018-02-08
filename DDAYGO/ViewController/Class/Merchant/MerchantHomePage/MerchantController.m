@@ -118,7 +118,25 @@
     [lastView addSubview:self.collectionView2];
     [lastView addSubview:self.collectionView3];
     [lastView addSubview:self.collectionView4];
-    
+    if (iphoneX) {
+        [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+        
+        self.collectionView1.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.collectionView1.contentInset = UIEdgeInsetsMake(0, 0, 79, 0);//导航栏如果使用系统原生半透明的，top设置为64
+        self.collectionView1.scrollIndicatorInsets = self.collectionView1.contentInset;
+        
+        self.collectionView2.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.collectionView2.contentInset = UIEdgeInsetsMake(0, 0, 79, 0);//导航栏如果使用系统原生半透明的，top设置为64
+        self.collectionView2.scrollIndicatorInsets = self.collectionView2.contentInset;
+        
+        self.collectionView3.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.collectionView3.contentInset = UIEdgeInsetsMake(0, 0, 79, 0);//导航栏如果使用系统原生半透明的，top设置为64
+        self.collectionView3.scrollIndicatorInsets = self.collectionView3.contentInset;
+        
+        self.collectionView4.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        self.collectionView4.contentInset = UIEdgeInsetsMake(0, 0, 79, 0);//导航栏如果使用系统原生半透明的，top设置为64
+        self.collectionView4.scrollIndicatorInsets = self.collectionView4.contentInset;
+    }
 }
 
 //75) 获取店铺信息
@@ -189,21 +207,21 @@
     _collectionView3.dataSource = self;
     _collectionView4.delegate = self;
     _collectionView4.dataSource = self;
-    if (@available(iOS 11.0, *)){
-        _collectionView1.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        _collectionView1.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
-        _collectionView1.scrollIndicatorInsets = _collectionView1.contentInset;
-        _collectionView2.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        _collectionView2.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
-        _collectionView2.scrollIndicatorInsets = _collectionView2.contentInset;
-        _collectionView3.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        _collectionView3.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
-        _collectionView3.scrollIndicatorInsets = _collectionView3.contentInset;
-        _collectionView4.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        _collectionView4.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
-        _collectionView4.scrollIndicatorInsets = _collectionView4.contentInset;
-    }
-    //    自适应大小
+//    if (@available(iOS 11.0, *)){
+//        _collectionView1.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        _collectionView1.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
+//        _collectionView1.scrollIndicatorInsets = _collectionView1.contentInset;
+//        _collectionView2.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        _collectionView2.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
+//        _collectionView2.scrollIndicatorInsets = _collectionView2.contentInset;
+//        _collectionView3.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        _collectionView3.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
+//        _collectionView3.scrollIndicatorInsets = _collectionView3.contentInset;
+//        _collectionView4.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        _collectionView4.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
+//        _collectionView4.scrollIndicatorInsets = _collectionView4.contentInset;
+//    }
+//    //    自适应大小
     _collectionView1.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight;
     _collectionView2.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _collectionView3.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
