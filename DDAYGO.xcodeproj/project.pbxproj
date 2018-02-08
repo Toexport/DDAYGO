@@ -1152,19 +1152,15 @@
 		C47BBC031FF40A180000FFE6 /* ZP_HistoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_HistoryModel.m; sourceTree = "<group>"; };
 		C47C7D6720293DA50068AB3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SettingViewController.strings; sourceTree = "<group>"; };
 		C47C7D69202985A00068AB3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BuyViewController.xib; sourceTree = "<group>"; };
-		C47C7D6C202985A30068AB3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BuyViewController.strings; sourceTree = "<group>"; };
 		C47C7D6E202985A50068AB3C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/BuyViewController.strings"; sourceTree = "<group>"; };
 		C47C7D70202985A60068AB3C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/BuyViewController.strings"; sourceTree = "<group>"; };
 		C47C7D72202986420068AB3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BuyMiddleView.xib; sourceTree = "<group>"; };
-		C47C7D75202986450068AB3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BuyMiddleView.strings; sourceTree = "<group>"; };
 		C47C7D77202986460068AB3C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/BuyMiddleView.strings"; sourceTree = "<group>"; };
 		C47C7D79202986470068AB3C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/BuyMiddleView.strings"; sourceTree = "<group>"; };
 		C47C7D7B202986840068AB3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BuyBottomView.xib; sourceTree = "<group>"; };
-		C47C7D7E202986860068AB3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BuyBottomView.strings; sourceTree = "<group>"; };
 		C47C7D80202986890068AB3C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/BuyBottomView.strings"; sourceTree = "<group>"; };
 		C47C7D822029868B0068AB3C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/BuyBottomView.strings"; sourceTree = "<group>"; };
 		C47C7D84202986BE0068AB3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BuyTopView.xib; sourceTree = "<group>"; };
-		C47C7D87202986C00068AB3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BuyTopView.strings; sourceTree = "<group>"; };
 		C47C7D89202986C10068AB3C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/BuyTopView.strings"; sourceTree = "<group>"; };
 		C47C7D8B202986C20068AB3C /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/BuyTopView.strings"; sourceTree = "<group>"; };
 		C47E75841FB573F2009F279A /* ZP_HomeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_HomeTool.h; sourceTree = "<group>"; };
@@ -5179,7 +5175,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				C47C7D69202985A00068AB3C /* Base */,
-				C47C7D6C202985A30068AB3C /* en */,
 				C47C7D6E202985A50068AB3C /* zh-Hans */,
 				C47C7D70202985A60068AB3C /* zh-Hant */,
 			);
@@ -5190,7 +5185,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				C47C7D72202986420068AB3C /* Base */,
-				C47C7D75202986450068AB3C /* en */,
 				C47C7D77202986460068AB3C /* zh-Hans */,
 				C47C7D79202986470068AB3C /* zh-Hant */,
 			);
@@ -5201,7 +5195,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				C47C7D7B202986840068AB3C /* Base */,
-				C47C7D7E202986860068AB3C /* en */,
 				C47C7D80202986890068AB3C /* zh-Hans */,
 				C47C7D822029868B0068AB3C /* zh-Hant */,
 			);
@@ -5212,7 +5205,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				C47C7D84202986BE0068AB3C /* Base */,
-				C47C7D87202986C00068AB3C /* en */,
 				C47C7D89202986C10068AB3C /* zh-Hans */,
 				C47C7D8B202986C20068AB3C /* zh-Hant */,
 			);

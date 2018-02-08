@@ -34,7 +34,7 @@
     //    self.tableview setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine;
     //    self.tableview.separatorStyle = UITableViewCellSelectionStyleNone;  // 隱藏tableviewcell所有的線條
     self.tableview.tableFooterView = [[UIView alloc]init]; // 隱藏tableviewcell多余的線條
-    self.TitleArray = [NSArray arrayWithObjects:@"English",@"简体中文",@"繁體中文", nil];
+    self.TitleArray = [NSArray arrayWithObjects:@"简体中文",@"繁體中文", nil];
     //这里写你的灰色
 }
 // Nav按钮
@@ -62,13 +62,13 @@
         return;
     }
     switch (a) {
+//        case 1:
+//            [self changeLanguageTo:@"en"];
+//            break;
         case 1:
-            [self changeLanguageTo:@"en"];
-            break;
-        case 2:
             [self changeLanguageTo:@"zh-Hans"];
             break;
-        case 3:
+        case 2:
             [self changeLanguageTo:@"zh-Hant"];
             break;
         default:
