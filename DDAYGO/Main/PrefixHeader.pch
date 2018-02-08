@@ -46,21 +46,21 @@
 #import "Const.h"
 #import "NoDataView.h"
 
-//测试用这个
-#ifdef DEBUG
-#if TARGET_IPHONE_SIMULATOR//模拟器
-
-#define ZPLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
-
-#elif TARGET_OS_IPHONE//真机
-
-#define ZPLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
-
-//#define ZPLog(...) fprintf(stderr,"[%s-%d行] %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:@"%@", ##__VA_ARGS__] UTF8String]);
-
-#endif
-
-#else
+////测试用这个
+//#ifdef DEBUG
+//#if TARGET_IPHONE_SIMULATOR//模拟器
+//
+//#define ZPLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+//
+//#elif TARGET_OS_IPHONE//真机
+//
+//#define ZPLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+//
+////#define ZPLog(...) fprintf(stderr,"[%s-%d行] %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:@"%@", ##__VA_ARGS__] UTF8String]);
+//
+//#endif
+//
+//#else
 
 //正式发布
 #ifdef zhengShiFaBu
@@ -73,9 +73,9 @@
 
 #endif
 
-#endif
+//#endif
 
-/**
+///**
 //正式用这个
 #ifdef DEBUG // 调试状态, 打开LOG功能
 #define ZPLog(...) NSLog(__VA_ARGS__)
