@@ -17,6 +17,7 @@
 
 #define iphone5 ((screenW==320)?1:0)
 #define iphone6 ((screenW==375)?1:0)
+#define iphoneX ((screenH==812)?1:0)
 #define iphone6plus ((screenW==414)?1:0)
 #define iphone5W 320.0
 #define iphone6W 375.0

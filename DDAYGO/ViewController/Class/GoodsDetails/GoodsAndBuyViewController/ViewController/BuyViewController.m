@@ -18,7 +18,7 @@
 
 #define TopViewH 484
 #define MiddleViewH 44
-#define BottomH 52
+#define BottomH (iphoneX?67:54)
 #define SecondPageTop TopViewH+MiddleViewH+20
 #define TopTabBarH [global pxTopt:100]
 #define NaviBarH 64.0
@@ -36,6 +36,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *LayoutConstraintButtt;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *LayoutConstraintheadView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *LayoutConstraintLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottonViewHeight;
 
 
 /********源文件属性********/
@@ -525,6 +526,7 @@
     [self addSecondPageTopTabBar];
     // 设置scrollview内容区域大小
     self.MyScrollView.contentSize = CGSizeMake(screenW, SecondPageTop+screenH-BottomH-NaviBarH);
+    self.bottonViewHeight.constant = BottomH;
 }
 /**
  添加第二个页面顶部tabBar
