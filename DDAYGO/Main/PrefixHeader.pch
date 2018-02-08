@@ -130,6 +130,7 @@
 #define ZP_HUISE [UIColor colorWithHexString:@"#f2f2f2"]
 #define ZP_TEXTCOLERS [UIColor colorWithHexString:@"#000000"]
 #define ZP_MessageListColor [UIColor colorWithHexString:@"#f9f9f9"]
+#define ZP_VIEWSegmentation [UIColor colorWithHexString:@"#e6e5e6"]
 
 
 // 字体

@@ -15,6 +15,6 @@
 @property (nonatomic, strong) UILabel * ratingLabel; // 评价
 @property (nonatomic, strong) UILabel * ServicetimeLabel; // 服务时间
 @property (nonatomic, strong) UILabel * BusinessregistrationIDLabel; // 营业登记
-
+@property (nonatomic, strong) UIImageView * phoneimageView; // 電話圖標
 - (void)ShoplntroducedCollection:(NSDictionary *)dic andDic:(NSDictionary *)dict;
 @end

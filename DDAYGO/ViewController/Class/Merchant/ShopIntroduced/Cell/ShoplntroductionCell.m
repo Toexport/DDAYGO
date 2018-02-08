@@ -80,7 +80,7 @@
         make.left.equalTo(self).offset(15);
         make.top.equalTo(self).offset(70);
     }];
-    
+//   ***************************************************
 //     电话号码
     UILabel * PhoneLabel = [UILabel new];
     PhoneLabel.textAlignment = NSTextAlignmentLeft;
@@ -92,13 +92,34 @@
         make.top.equalTo(self).offset(70);
     }];
     _PhoneLabel = PhoneLabel;
+//     豎線
+    UIView * view = [UIView new];
+    view.backgroundColor = ZP_VIEWSegmentation;
+    [self.contentView addSubview:view];
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(PhoneLabel).offset(10);
+        make.top.equalTo(PhoneLabel).offset(0);
+        make.width.mas_offset(1);
+        make.height.mas_offset(15);
+    }];
     
+    UIImageView * phoneimageView = [[UIImageView alloc]init];
+    phoneimageView.image = [UIImage imageNamed:@"icon_shop_phone"];
+    [self.contentView addSubview:phoneimageView];
+    [phoneimageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(view).offset(10);
+        make.top.equalTo(view).offset(0);
+        make.width.mas_offset(15);
+        make.height.mas_offset(15);
+    }];
+    _phoneimageView = phoneimageView;
+//   ***************************************************
 //     好评度
     UILabel * EvaluationtitleLabel = [UILabel new];
     EvaluationtitleLabel.textAlignment = NSTextAlignmentLeft;
     EvaluationtitleLabel.textColor = ZP_TypefaceColor;
     EvaluationtitleLabel.font = ZP_TooBarFont;
-    EvaluationtitleLabel.text = NSLocalizedString(@"好评度:", nil);
+    EvaluationtitleLabel.text = NSLocalizedString(@"好評度:", nil);
     [self.contentView addSubview:EvaluationtitleLabel];
     [EvaluationtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(15);
