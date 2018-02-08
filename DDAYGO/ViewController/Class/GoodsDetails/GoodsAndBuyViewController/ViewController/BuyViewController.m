@@ -18,10 +18,10 @@
 
 #define TopViewH 484
 #define MiddleViewH 44
-#define BottomH (iphoneX?67:54)
+#define BottomH (iphoneX?69:54)
 #define SecondPageTop TopViewH+MiddleViewH+20
 #define TopTabBarH [global pxTopt:100]
-#define NaviBarH 64.0
+#define NaviBarH (iphoneX?72:64)
 @interface BuyViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,MyOrderTopTabBarDelegate>
 
 /*********框架属性*********/

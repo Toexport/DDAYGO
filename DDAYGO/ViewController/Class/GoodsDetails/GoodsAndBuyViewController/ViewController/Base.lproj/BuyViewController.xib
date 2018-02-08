@@ -88,14 +88,14 @@
                             <rect key="frame" x="0.0" y="0.0" width="187.5" height="54"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lby-45-DbS">
-                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="3"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="1"/>
                                     <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="3" id="HD1-yA-sv4"/>
+                                        <constraint firstAttribute="height" constant="1" id="HD1-yA-sv4"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Iy-iX-bhC">
-                                    <rect key="frame" x="0.0" y="3" width="63.5" height="51"/>
+                                    <rect key="frame" x="0.0" y="1" width="63.5" height="53"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="收藏" image="ic_collect_normal">
                                         <color key="titleColor" red="0.39995324609999999" green="0.40002685789999998" blue="0.39994865660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -106,7 +106,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cy4-nj-B1P">
-                                    <rect key="frame" x="63.5" y="3" width="62" height="51"/>
+                                    <rect key="frame" x="63.5" y="1" width="62" height="53"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="购物车" image="ic_details_shoppingcart">
                                         <color key="titleColor" red="0.39995324609999999" green="0.40002685789999998" blue="0.39994865660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -116,7 +116,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFr-nf-baU">
-                                    <rect key="frame" x="125.5" y="3" width="62.5" height="51"/>
+                                    <rect key="frame" x="125.5" y="1" width="62.5" height="53"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="店铺" image="ic_details_store">
                                         <color key="titleColor" red="0.39995324609999999" green="0.40002685789999998" blue="0.39994865660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
