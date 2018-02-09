@@ -117,7 +117,7 @@
 - (void)MessageDic:(ZP_InformationModel *)model {
 
     _TotalLabel.text = [NSString stringWithFormat:@"共计%@件商品",_allCount];
-    _ComputationsLabel.text = [NSString stringWithFormat:@"NT%@", _allMoney];
+    _ComputationsLabel.text = [NSString stringWithFormat:@"NT %@", _allMoney];
 }
 @end
 

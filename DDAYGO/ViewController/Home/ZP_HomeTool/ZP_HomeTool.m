@@ -22,7 +22,7 @@
 // 74) 查询广告列表
 + (void)requestGetadvertlist:(NSDictionary *)Getadvertlist success:(void(^)(id obj))success failure:(void (^)(NSError *error))failure {
     
-    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getadvertlist?adcode=%@",URLAPI,Getadvertlist[@"adcode"]] parameters:nil success:^(id responseObject) {
+    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getadvertlist?adcode=%@&countrycode=%@",URLAPI,Getadvertlist[@"adcode"],Getadvertlist[@"countrycode"]] parameters:nil success:^(id responseObject) {
         success(responseObject);
     } failure:^(NSError * error) {
         failure(error);

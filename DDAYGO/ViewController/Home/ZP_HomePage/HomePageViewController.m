@@ -160,6 +160,7 @@
 // 74) 查询广告列表(轮播图)
 - (void)getadvertlist {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    dic[@"countrycode"] = @"886";
     dic[@"adcode"] = @"AD001";
     [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
         ZPLog(@"%@",obj);
@@ -173,6 +174,7 @@
 // 74) 热销商品广告列表(轮播图)
 - (void)bestSelling {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    dic[@"countrycode"] = @"886";
     dic[@"adcode"] = @"AD004";
     [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
         ZPLog(@"%@",obj);
@@ -186,6 +188,7 @@
 // 获取首页4张大图片
 - (void)getNewsAlldata {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    dic[@"countrycode"] = @"886";
     dic[@"adcode"] = @"AD003";
     [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
         self.SecondArray = [ZP_ZeroModel mj_objectArrayWithKeyValuesArray:obj];

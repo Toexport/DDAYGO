@@ -51,7 +51,7 @@
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <state key="normal" title="默认地址" image="ic_Shopping_Choice_normal">
+                        <state key="normal" title="默認地址" image="ic_Shopping_Choice_normal">
                             <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <state key="disabled" image="ic_Shopping_Choice_pressed">
@@ -66,7 +66,7 @@
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <state key="normal" title="编辑" image="icon_address_edit_normal">
+                        <state key="normal" title="編輯" image="icon_address_edit_normal">
                             <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <connections>
@@ -80,7 +80,7 @@
                         </constraints>
                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                         <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <state key="normal" title="删除" image="icon_address_delete_normal">
+                        <state key="normal" title="刪除" image="icon_address_delete_normal">
                             <color key="titleColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>

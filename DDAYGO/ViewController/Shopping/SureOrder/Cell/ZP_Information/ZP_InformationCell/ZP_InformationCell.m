@@ -167,7 +167,7 @@
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
     _TrademarkLabel.text = model.cp;
     _QuantityLabel.text = model.amount;
-    _ComputationsLabel.text = [NSString stringWithFormat:@"NT%.2f",model.amount.intValue * model.productprice.floatValue];
+    _ComputationsLabel.text = [NSString stringWithFormat:@"NT %.2f",model.amount.intValue * model.productprice.floatValue];
 
 }
 

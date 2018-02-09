@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "收貨人"; ObjectID = "1bX-wM-2QK"; */
+"1bX-wM-2QK.text" = "收貨人";
+
+/* Class = "UILabel"; text = "收貨地區"; ObjectID = "24x-38-wHj"; */
+"24x-38-wHj.text" = "收貨地區";
+
+/* Class = "UIButton"; normalTitle = "設置默認地址"; ObjectID = "Nt3-iC-imW"; */
+"Nt3-iC-imW.normalTitle" = "設置默認地址";
+
+/* Class = "UILabel"; text = "收貨地址"; ObjectID = "hz4-b9-Wo5"; */
+"hz4-b9-Wo5.text" = "收貨地址";
+
+/* Class = "UILabel"; text = "郵政編碼"; ObjectID = "wYY-LB-p4Z"; */
+"wYY-LB-p4Z.text" = "郵政編碼";
+
+/* Class = "UILabel"; text = "聯繫電話"; ObjectID = "yxI-tG-ugT"; */
+"yxI-tG-ugT.text" = "聯繫電話";

@@ -1,0 +1,24 @@
+
+/* Class = "UITextField"; text = "15906679163"; ObjectID = "4dx-4a-h78"; */
+"4dx-4a-h78.text" = "15906679163";
+
+/* Class = "UILabel"; text = "收货地区"; ObjectID = "Q3Q-y1-64e"; */
+"Q3Q-y1-64e.text" = "收货地区";
+
+/* Class = "UILabel"; text = "收货人"; ObjectID = "Qkd-cM-g5b"; */
+"Qkd-cM-g5b.text" = "收货人";
+
+/* Class = "UILabel"; text = " 邮政编码"; ObjectID = "UDj-S2-aYa"; */
+"UDj-S2-aYa.text" = " 邮政编码";
+
+/* Class = "UITextField"; text = "414245"; ObjectID = "VUP-bX-yUh"; */
+"VUP-bX-yUh.text" = "414245";
+
+/* Class = "UIButton"; normalTitle = "设置默认地址"; ObjectID = "Vie-KG-udn"; */
+"Vie-KG-udn.normalTitle" = "设置默认地址";
+
+/* Class = "UILabel"; text = "联系电话"; ObjectID = "hDC-Et-1rp"; */
+"hDC-Et-1rp.text" = "联系电话";
+
+/* Class = "UILabel"; text = "收货地址"; ObjectID = "zm7-XQ-m0j"; */
+"zm7-XQ-m0j.text" = "收货地址";
