@@ -34,6 +34,7 @@
 @property(nonatomic,strong) NSNumber * cardid;  //cardid
 
 @property (nonatomic, strong) NoDataView * noDataView;
+@property (nonatomic, strong) UIButton * cartButton;
 
 @end
 
@@ -160,6 +161,10 @@
                 self.navigationController.tabBarItem.badgeValue = mustr;
                 [self updateData:0];
                 [self.tableView reloadData];
+                
+                if (_bjBool) {
+                    [self exitEditing];
+                }
             }else{
                 NSLog(@"go");
                 _dataArray = nil;
@@ -169,6 +174,10 @@
                 _PriceLabel.text = @"0";
                 self.navigationController.tabBarItem.badgeValue = nil;
                 [self.tableView reloadData];
+                
+                if (_bjBool) {
+                    [self exitEditing];
+                }
             }
         }
         [self.tableView.mj_header endRefreshing];  // 結束刷新
@@ -190,9 +199,30 @@
     }];
 }
 
-// 完成按钮
-- (void)CompleteBut:(UIButton *) sender {
-    //79) 修改購物車商品數量
+- (void)beginEditing {
+    _bjBool = YES;
+    _AllButton.selected = NO;
+    _StatisticsLabel.hidden = YES;
+    _CurrencySymbolLabel.hidden = YES;
+    _FreightLabel.hidden = YES;
+    _PriceLabel.hidden = YES;
+    _ClearingButt.selected = YES;
+    
+    [self.ClearingButt setTitle:NSLocalizedString(@"delete",nil) forState: UIControlStateNormal];
+    [self.cartButton setTitle:NSLocalizedString(@"Complete", nil) forState:UIControlStateNormal];
+}
+
+- (void)exitEditing {
+    _bjBool = NO;
+    _AllButton.selected = NO;
+    _StatisticsLabel.hidden = NO;
+    _PriceLabel.hidden = NO;
+    _FreightLabel.hidden = NO;
+    _CurrencySymbolLabel.hidden = NO;
+    _ClearingButt.selected = NO;
+    [self.cartButton setTitle:NSLocalizedString(@"Edit", nil) forState:UIControlStateNormal];
+    [self.ClearingButt setTitle:NSLocalizedString(@"Clearing", nil) forState: UIControlStateNormal];
+    
     _AllButton.selected = NO;
     _PriceLabel.text = @"0";
     NSMutableDictionary * dictt = [NSMutableDictionary dictionary];
@@ -205,7 +235,6 @@
             [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Insufficient inventory", nil)];
         }
         [self allData];
-        //        [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];  // 結束刷新
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
@@ -216,16 +245,16 @@
 - (void) setUpNavgationBar {
     static CGFloat const kButtonWidth = 90.0f;
     static CGFloat const kButtonHeight = 43.0f;
-    UIButton *cartButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    cartButton.frame = CGRectMake(0.0f, 0.0f, kButtonWidth - 25, kButtonHeight);
-    cartButton.backgroundColor = [UIColor clearColor];
-    [cartButton setTitle:NSLocalizedString(@"Edit", nil) forState:UIControlStateNormal];
-    cartButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    cartButton.titleLabel.font = ZP_TooBarFont;
-    [cartButton addTarget:self action:@selector(onClickedSweep:) forControlEvents:UIControlEventTouchUpInside];
-    cartButton.imageEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
-    [cartButton.titleLabel setTextAlignment:NSTextAlignmentRight];
-    UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:cartButton];
+    self.cartButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.cartButton.frame = CGRectMake(0.0f, 0.0f, kButtonWidth - 25, kButtonHeight);
+    self.cartButton.backgroundColor = [UIColor clearColor];
+    [self.cartButton setTitle:NSLocalizedString(@"Edit", nil) forState:UIControlStateNormal];
+    self.cartButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    self.cartButton.titleLabel.font = ZP_TooBarFont;
+    [self.cartButton addTarget:self action:@selector(onClickedSweep:) forControlEvents:UIControlEventTouchUpInside];
+    self.cartButton.imageEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
+    [self.cartButton.titleLabel setTextAlignment:NSTextAlignmentRight];
+    UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.cartButton];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 }
 
@@ -234,25 +263,10 @@
 - (void)onClickedSweep:(UIButton *)sup {
     sup.selected = !sup.selected;
     _bjBool = !_bjBool;
-    if (_bjBool == YES) {
-        _AllButton.selected = NO;
-        _StatisticsLabel.hidden = YES;
-        _CurrencySymbolLabel.hidden = YES;
-        _FreightLabel.hidden = YES;
-        _PriceLabel.hidden = YES;
-        _ClearingButt.selected = YES;
-        [sup setTitle:NSLocalizedString(@"Complete", nil) forState:UIControlStateNormal];
-        [sup addTarget:self action:@selector(CompleteBut:) forControlEvents:UIControlEventTouchUpInside];
-        [self.ClearingButt setTitle:NSLocalizedString(@"delete",nil) forState: UIControlStateNormal];
+    if (_bjBool) {
+        [self beginEditing];
     }else{
-        _AllButton.selected = NO;
-        _StatisticsLabel.hidden = NO;
-        _PriceLabel.hidden = NO;
-        _FreightLabel.hidden = NO;
-        _CurrencySymbolLabel.hidden = NO;
-        _ClearingButt.selected = NO;
-        [sup setTitle:NSLocalizedString(@"Edit", nil) forState:UIControlStateNormal];
-        [self.ClearingButt setTitle:NSLocalizedString(@"Clearing", nil) forState: UIControlStateNormal];
+        [self exitEditing];
     }
     [self.tableView reloadData];
 }
@@ -563,11 +577,11 @@
         if ([obj[@"result"]isEqualToString:@"ok"]) {
             [self allData];
             [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Delete success", nil)];
-        }else
+        }else {
             if ([obj[@"result"]isEqualToString:@"failure"]) {
                 [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Delete failed", nil)];
             }
-        
+        }
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
     }];
