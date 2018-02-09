@@ -215,7 +215,7 @@
                         <rect key="frame" x="0.0" y="248" width="320" height="40"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsE-12-51B">
-                                <rect key="frame" x="242" y="4" width="70" height="30"/>
+                                <rect key="frame" x="242" y="5" width="70" height="30"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.6588235294" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="3vg-gk-yOM"/>
@@ -243,7 +243,7 @@
                             <constraint firstAttribute="trailing" secondItem="Mcn-Z0-WSM" secondAttribute="trailing" id="2oH-Eq-0D8"/>
                             <constraint firstAttribute="height" constant="40" id="IZg-ME-zyq"/>
                             <constraint firstItem="Mcn-Z0-WSM" firstAttribute="top" secondItem="Wd3-Gf-4cF" secondAttribute="top" id="MPm-bF-4wv"/>
-                            <constraint firstItem="fsE-12-51B" firstAttribute="top" secondItem="Wd3-Gf-4cF" secondAttribute="top" constant="4" id="O6I-cE-Wc8"/>
+                            <constraint firstItem="fsE-12-51B" firstAttribute="top" secondItem="Wd3-Gf-4cF" secondAttribute="top" constant="5" id="O6I-cE-Wc8"/>
                             <constraint firstAttribute="trailing" secondItem="fsE-12-51B" secondAttribute="trailing" constant="8" id="PXu-2D-DVz"/>
                             <constraint firstItem="Mcn-Z0-WSM" firstAttribute="leading" secondItem="Wd3-Gf-4cF" secondAttribute="leading" constant="10" id="u1v-yM-CFS"/>
                         </constraints>
