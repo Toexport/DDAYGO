@@ -14,6 +14,7 @@
 
 @interface LanguageController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) NSArray * TitleArray;
+@property (nonatomic, assign) BOOL noNeed;
 //@property (nonatomic, strong) UITableView * tableview;
 @end
 
@@ -116,6 +117,19 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    
+    if (!self.noNeed) {
+        
+        NSString * la = [[NSUserDefaults standardUserDefaults] objectForKey:@"Language"];
+        if ([la isEqualToString:@"zh-Hans"] && indexPath.row == 0) {
+            self.noNeed = YES;
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        } else if ([la isEqualToString:@"zh-Hant"] && indexPath.row == 1){
+            self.noNeed = YES;
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
+    }
+    
     cell.textLabel.text = self.TitleArray[indexPath.row];
     cell.textLabel.font = ZP_TooBarFont;
     
@@ -128,8 +142,9 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //这里写你的选中颜色
-    NSIndexPath *oldIndex = [tableView indexPathForSelectedRow];
-    [tableView cellForRowAtIndexPath:oldIndex].accessoryType = UITableViewCellAccessoryNone;
+    for (UITableViewCell *cell in tableView.visibleCells) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
     
     return indexPath;

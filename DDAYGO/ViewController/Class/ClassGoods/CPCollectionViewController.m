@@ -121,21 +121,21 @@
         dic[@"page"] = @"1";
         dic[@"pagesize"] = @"30";
         if (self.type > 10) {
-            dic[@"type"] = @(self.type/10);
+            dic[@"type"] = @(self.type/10%10);
             dic[@"token"] = DD_TOKEN;
             [ZP_ClassViewTool requestGetproductlist:dic WithIndex:self.type%10 success:^(id obj) {
                 NSDictionary * dict = obj;
                 [SVProgressHUD dismiss];
                 NSMutableArray * tempArray = [NSMutableArray arrayWithArray:dict[@"datalist"]];
-                if (self.type > 0) {
+                if (self.type%10 > 0) {
                     NSArray * arr ;
                     arr = [tempArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
-                        if (self.type == 1) {
+                        if (self.type%10 == 1) {
                             if ([obj1[@"productsale"] longValue] > [obj2[@"productsale"] longValue]) {
                                 return NSOrderedAscending;
                             }
                             return NSOrderedDescending;
-                        } else if (self.type == 2) {
+                        } else if (self.type%10 == 2) {
                             if ([obj1[@"productsale"] longValue] > [obj2[@"productsale"] longValue]) {
                                 return NSOrderedDescending;
                             }
