@@ -253,7 +253,10 @@
 
 - (IBAction)userServerClick:(id)sender {
     RegistrationAgreementController * RegistrationAgreement = [[RegistrationAgreementController alloc]init];
+    RegistrationAgreement.title = @"服務條款";
+    RegistrationAgreement.type = 222;
     [self.navigationController pushViewController:RegistrationAgreement animated:YES];
+    
     ZPLog(@"用户服务协议");
 }
 #pragma mark - - - - - - - - - - - - - - - private methods 私有方法 - - - - - - - - - - - - - -

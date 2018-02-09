@@ -277,6 +277,8 @@
 #pragma mark - 用戶服务協議
 - (IBAction)yonghufuwuxieyi:(id)sender {
     RegistrationAgreementController * RegistrationAgreement = [[RegistrationAgreementController alloc]init];
+    RegistrationAgreement.title = @"服務條款";
+    RegistrationAgreement.type = 222;
     [self.navigationController pushViewController:RegistrationAgreement animated:YES];
     ZPLog(@"用户服务协议 ");
 }
