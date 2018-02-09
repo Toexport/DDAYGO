@@ -262,7 +262,7 @@
             [self MyViewData:model];
             NSData * data =  [NSData dataWithContentsOfURL:[NSURL URLWithString:model.avatarimg]];
             [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
-            NSString * la = [[NSUserDefaults standardUserDefaults] objectForKey:@"NameLabel"];
+            NSString * la = [[NSUserDefaults standardUserDefaults] objectForKey:@"NameLabel"]; // 這個是取
             [[NSUserDefaults standardUserDefaults] setObject: la forKey:@"NameLabel"];
         }
     } failure:^(NSError * error) {

@@ -16,7 +16,7 @@
 #import "ZP_ClassViewTool.h"
 #import "PrefixHeader.pch"
 
-#define TopViewH 444
+#define TopViewH 454
 #define MiddleViewH 44
 #define BottomH (iphoneX?69:54)
 #define SecondPageTop TopViewH+MiddleViewH+20

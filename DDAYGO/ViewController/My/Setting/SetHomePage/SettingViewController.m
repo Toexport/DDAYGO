@@ -124,7 +124,8 @@
         // 填写数据
         [self fillData:model];
     } failure:^(NSError * error) {
-        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
+        ZPLog(@"%@",error);
+//        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 
@@ -157,7 +158,7 @@
         [ZP_MyTool RequestUploadavatarimg:@{@"token":DD_TOKEN} Data:imageArray success:^(id obj) {
             ZPLog(@"%@",obj);
             mySelf.headerImage.image = image;
-            [[MyViewController sharedInstanceTool].headImageBut setImage:image forState:UIControlStateNormal]; // 老重要了
+            [[MyViewController sharedInstanceTool].headImageBut setImage:image forState:UIControlStateNormal]; 
         } failure:^(NSError *error) {
             ZPLog(@"%@",error.description);
             

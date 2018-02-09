@@ -101,7 +101,7 @@
         make.left.equalTo(Mainfigure).offset(95);
         make.top.equalTo(SizeLabel).offset(15);
         make.height.mas_equalTo(30);
-        make.width.mas_equalTo(120);
+        make.width.mas_equalTo(140);
     }];
     
 //  减少
@@ -115,7 +115,7 @@
     _Reducebutton = Reducebutton;
     
 //  个数
-    UILabel * numLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 0, 60, 30)];
+    UILabel * numLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 0, 80, 30)];
     numLabel.textAlignment = NSTextAlignmentCenter;
     numLabel.textColor = [UIColor blackColor];
     numLabel.text = @"0";
@@ -125,7 +125,7 @@
     
 //  添加
     UIButton * addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    addButton.frame = CGRectMake(90, 0, 30, 30);
+    addButton.frame = CGRectMake(110, 0, 30, 30);
     [addButton setImage:[UIImage imageNamed:@"ic_shopping_add"] forState:UIControlStateNormal];
     addButton.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
     addButton.layer.borderWidth = 1;
