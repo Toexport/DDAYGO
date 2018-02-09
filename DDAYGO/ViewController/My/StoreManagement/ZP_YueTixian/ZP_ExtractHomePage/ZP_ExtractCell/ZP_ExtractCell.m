@@ -25,7 +25,12 @@
     _MmountLabel.text =  [model.takeamount stringValue]; // 金额
     _BanksLabel.text = model.bankname;  // 银行
     NSLog(@"----%@",[model.bankname stringByReplacingPercentEscapesUsingEncoding:kCFStringEncodingUTF8]);
-    _NameLabel.text = model.bankcardname; // 名字
+    
+    if ([model.bankcardname isEqualToString:@"(null)"]) { // 判断数据为nill
+        self.NameLabel.hidden = YES;
+    }else {
+         _NameLabel.text = model.bankcardname; // 名字
+    }
     _BankAccountLabel.text = [model.bankcardno stringValue]; // 账户
     _PhoneLabel.text = [model.phone stringValue];  // 电话
     _EmailLabel.text = model.email;  // 邮箱

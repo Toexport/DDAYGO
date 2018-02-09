@@ -97,9 +97,7 @@
 }
 
 - (void)buttonType:(UIButton *)sender {
-    
     NSMutableArray * arrid = [NSMutableArray array];
-    
     for (ZP_FirstModel * model in self.Allarr) {
         [arrid addObject:model.typeid];
         if ([model.typeid integerValue] == sender.tag) {
