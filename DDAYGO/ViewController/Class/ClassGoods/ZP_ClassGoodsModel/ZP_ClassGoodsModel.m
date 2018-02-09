@@ -44,9 +44,7 @@
         model.TrademarkLabel = [NSString stringWithFormat:@"%@", dic[@"cp"]];
         model.productid =  dic[@"productid"];
         model.productremark = dic[@"productremark"];
-        if ([dic[@"produced"] isKindOfClass:[NSString class]]) {
-            model.produced = dic[@"produced"];
-        }
+        model.produced = dic[@"produced"];
         [arr addObject:model];
     }
     return arr;
