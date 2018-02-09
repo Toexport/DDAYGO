@@ -23,6 +23,15 @@
     [super viewDidLoad];
     [self addNavigationBar];
     [self initUI];
+//  数据持久化
+    NSString * la = [[NSUserDefaults standardUserDefaults] objectForKey:@"Language"];
+    NSIndexPath * index ;
+    if ([la isEqualToString:@"zh-Hans"]) {
+        index = [NSIndexPath indexPathForRow:0 inSection:0];
+         [self.tableview cellForRowAtIndexPath:index].accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+        [self.tableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]].accessoryType = UITableViewCellAccessoryCheckmark;
+    }
 }
 // UI
 - (void)initUI {
@@ -35,7 +44,7 @@
     //    self.tableview.separatorStyle = UITableViewCellSelectionStyleNone;  // 隱藏tableviewcell所有的線條
     self.tableview.tableFooterView = [[UIView alloc]init]; // 隱藏tableviewcell多余的線條
     self.TitleArray = [NSArray arrayWithObjects:@"简体中文",@"繁體中文", nil];
-    //这里写你的灰色
+
 }
 // Nav按钮
 - (void)addNavigationBar {
@@ -49,7 +58,6 @@
 
 // 完成按钮
 - (void)CompleteBut:(UIButton *)sender {
-    
     int a = 0;
     for (int i = 0; i < self.TitleArray.count; i ++ ) {
         UITableViewCell * cell = [self.tableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
@@ -80,7 +88,6 @@
 - (void)changeLanguageTo:(NSString *)language {
     //  设置语言
     [NSBundle setLanguage:language];
-    
     //  然后将设置好的语言存储好，下次进来直接加载
     [[NSUserDefaults standardUserDefaults] setObject:language forKey:@"Language"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -90,12 +97,10 @@
     [UIApplication sharedApplication].keyWindow.rootViewController = tabBar;
     //  跳转到设置页
     tabBar.selectedIndex = 4;
-    //    [self.navigationController popViewControllerAnimated:YES];
 }
 
 //适当的位置移除通知
 - (void)dealloc {
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -113,25 +118,15 @@
     }
     cell.textLabel.text = self.TitleArray[indexPath.row];
     cell.textLabel.font = ZP_TooBarFont;
-//    [self.tableview deselectRowAtIndexPath:indexPath animated:YES]; // 点击cell时，让某行cell的选中状态消失
     
     return cell;
 }
-
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES]; // 点击cell时，让某行cell的选中状态消失
-////    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
-//
-//}
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 45;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
     //这里写你的选中颜色
     NSIndexPath *oldIndex = [tableView indexPathForSelectedRow];
     [tableView cellForRowAtIndexPath:oldIndex].accessoryType = UITableViewCellAccessoryNone;

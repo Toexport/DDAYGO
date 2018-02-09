@@ -71,8 +71,7 @@
     [self allData];
     NSData * data  = [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
     [self.headImageBut setImage:[UIImage imageWithData:data] forState:UIControlStateNormal];
-//    NSData * data1  = [[NSUserDefaults standardUserDefaults] objectForKey:@"NameLabel"];
-//    [self.headImageBut setImage:[UIImage imageWithData:data1] forState:UIControlStateNormal];
+    [[NSUserDefaults standardUserDefaults] setObject: self.NameLabel.text forKey:@"NameLabel"];
     self.headImageBut.layer.cornerRadius = 42;
     self.headImageBut.layer.masksToBounds = YES;
     [self.headImageBut setUserInteractionEnabled: NO];
@@ -254,6 +253,7 @@
             ZPLog(@"%@",obj);
             ZP_HomePageModel * model = [[ZP_HomePageModel alloc]init];
             model.nickname = obj[@"nickname"];
+            
             model.avatarimg = [NSString stringWithFormat:@"%@%@",ImgAPI,obj[@"avatarimg"]];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self.headImageBut sd_setBackgroundImageWithURL:[NSURL URLWithString:model.avatarimg] forState:UIControlStateNormal];
@@ -262,8 +262,8 @@
             [self MyViewData:model];
             NSData * data =  [NSData dataWithContentsOfURL:[NSURL URLWithString:model.avatarimg]];
             [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
-//            NSData * data1 =  [NSData dataWithContentsOfURL:[NSURL URLWithString:model.nickname]];
-//            [[NSUserDefaults standardUserDefaults] setObject:data1 forKey:@"NameLabel"];
+            NSString * la = [[NSUserDefaults standardUserDefaults] objectForKey:@"NameLabel"];
+            [[NSUserDefaults standardUserDefaults] setObject: la forKey:@"NameLabel"];
         }
     } failure:^(NSError * error) {
         _SdglLayoutConstraint.constant = CGFLOAT_MIN;
@@ -275,11 +275,11 @@
 
 // 獲取暱稱
 - (void)MyViewData:(ZP_HomePageModel *) model {
-//    if (model.nickname.length < 1) {
-//        _NameLabel.text = @"暱稱";
-//    }else {
-//        _NameLabel.text = model.nickname;
-//    }
+    if (model.nickname.length < 1) {
+        _NameLabel.text = @"暱稱";
+    }else {
+        _NameLabel.text = model.nickname;
+    }
     _headImageBut.layer.cornerRadius = 42;
     _headImageBut.layer.masksToBounds = YES;
 }
