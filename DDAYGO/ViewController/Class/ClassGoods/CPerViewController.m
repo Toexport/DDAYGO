@@ -104,7 +104,11 @@
         vc.titleString = self.titleString;
         vc.keyword = self.keyword;
         vc.priceStrTag = self.priceStrTag;
-        vc.type = j;
+        if (self.type >9) {
+            vc.type = self.type*10 + j; //为了和其他界面作区分，所以乘10
+        } else {
+            vc.type = j;
+        }
         vc.view.tag = j;
         [self addChildViewController:vc];
         [self.contentScrollView addSubview:vc.view];
