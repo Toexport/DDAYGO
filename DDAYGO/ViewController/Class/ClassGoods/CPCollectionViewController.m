@@ -74,38 +74,35 @@
 }
 
 // 获取数据
-- (void)allData {
-    
-    if (self.typee == 111) {
-        //       正常数据
-        NSString * str;
-        if (_keyword.length > 0) {
-            str = _keyword;
-        }else{
-            str = @"";
-        }
-        self.newsData = [[NSMutableArray alloc]init];
-        NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-        if (Token) {
-            dic[@"token"] = Token;
-        }else {
-            dic[@"token"] = @"";
-        }
-        dic[@"type"] = @"0";
-        dic[@"seq"] = _priceStrTag;
-        dic[@"countrycode"] = @"886";
-        dic[@"word"] = str;
-        dic[@"page"] = @"1";
-        dic[@"pagesize"] = @"30";
-        [ZP_ClassViewTool requestGetproductlist:dic WithIndex:self.typeew success:^(id obj) {
-            ZPLog(@"%@",obj);
-            
-            
-        } failure:^(NSError * error) {
-            ZPLog(@"%@",error);
-        }];
-    }else {
-        //       正常数据
+- (void)allData {       
+//    if (self.typee == 111) {
+//        //       正常数据
+//        NSString * str;
+//        if (_keyword.length > 0) {
+//            str = _keyword;
+//        }else{
+//            str = @"";
+//        }
+//        self.newsData = [[NSMutableArray alloc]init];
+//        NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+//        if (Token) {
+//            dic[@"token"] = Token;
+//        }else {
+//            dic[@"token"] = @"";
+//        }
+//        dic[@"type"] = @"0";
+//        dic[@"seq"] = _priceStrTag;
+//        dic[@"countrycode"] = @"886";
+//        dic[@"word"] = str;
+//        dic[@"page"] = @"1";
+//        dic[@"pagesize"] = @"30";
+//        [ZP_ClassViewTool requestGetproductlist:dic WithIndex:self.typeew success:^(id obj) {
+//            ZPLog(@"%@",obj);
+//        } failure:^(NSError * error) {
+//            ZPLog(@"%@",error);
+//        }];
+//    }else {
+        //       首頁跳進來的數據
         NSString * str;
         if (_keyword.length > 0) {
             str = _keyword;
@@ -209,7 +206,7 @@
                 ZPLog(@"%@",error);
             }];
         }
-    }
+//    }
 }
 
 #pragma make - 创建collectionView代理
