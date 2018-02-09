@@ -187,10 +187,9 @@
     [_leftImageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:nil];;
     _titleLabel.text = model.productname;
     _MerchandiseIntroducedLabel.text = model.productremark;
-    NSLog(@"%@",model.colorname);  //看到没有· 并不是空 可能是@”“ 可能是null 可能是nil  ·你说你的判断该怎么写
-    //    length这个是什么意思 长度的· ·字符的长度
+    NSLog(@"%@",model.colorname);
     if (model.colorname.length < 1) {
-        _descLabel.hidden = YES;//你自己看 model 。colorename 是不是等于nil、
+        _descLabel.hidden = YES;
     }else {
         _descLabel.text = [NSString stringWithFormat:NSLocalizedString(@"color:%@,", nil),model.colorname];
     }
