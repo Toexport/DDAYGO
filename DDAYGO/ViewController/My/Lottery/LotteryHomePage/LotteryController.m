@@ -15,6 +15,7 @@
 #import "ZP_LotteryHistoricalBettingNumberController.h"
 #import "ZP_MyTool.h"
 #import "ZP_LotterModel.h"
+#import "NSString+Additions.h"
 
 @interface LotteryController () {
     UIButton * _chooseCityBtn;
@@ -159,11 +160,11 @@
         _winnersNumLabel5.text = [model4.winunit stringValue];
         
         lotterywinModel *model5 = arr[2]; //这个是头奖的后面
-        _bountyLabel1.text = [self creatPirceString:[model5.winamount stringValue]];
-        _bountyLabel2.text = [self creatPirceString:[model5.wincount stringValue]];
-        _bountyLabel3.text = [self creatPirceString:[model5.winunit stringValue]];
-        _bountyLabel4.text = [self creatPirceString:[model5.winunit stringValue]];
-        _bountyLabel5.text = [self creatPirceString:[model5.winunit stringValue]];
+        _bountyLabel1.text = [model5.winamount stringValue].creatPirceString;
+        _bountyLabel2.text = [model5.wincount stringValue].creatPirceString;
+        _bountyLabel3.text = [model5.winunit stringValue].creatPirceString;
+        _bountyLabel4.text = [model5.winunit stringValue].creatPirceString;
+        _bountyLabel5.text = [model5.winunit stringValue].creatPirceString;
     }else{
        
     }
@@ -246,19 +247,6 @@
 - (IBAction)CheckMore:(id)sender {
     ZP_CheckMoreController * CheckMore = [[ZP_CheckMoreController alloc]init];
     [self.navigationController pushViewController:CheckMore animated:YES];
-}
-
-- (NSString *)creatPirceString:(NSString *)pirce {
-    NSMutableString *string = [[NSMutableString alloc] initWithString:pirce];
-    NSInteger index = 0;
-    while (pirce.length > index) {
-        index ++;
-        if (index%3 == 0) {
-            [string insertString:@"," atIndex:pirce.length-index];
-        }
-    }
-    
-    return string;
 }
 
 #pragma mark  更新赏金视图

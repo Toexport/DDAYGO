@@ -10,6 +10,7 @@
 #import "ZP_MyTool.h"
 #import "PrefixHeader.pch"
 #import "ZP_InstructionBetModel.h"
+#import "NSString+Additions.h"
 @interface ZP_InstructionController ()
 @property (nonatomic, strong) NSMutableDictionary * prizeDic;
 @end
@@ -45,19 +46,19 @@
     
     NSArray * arr =  [InstructionBetModel mj_objectArrayWithKeyValuesArray:model.lotterywin];
     InstructionBetModel * model1 = arr[0];
-    _referAndBonusLabel1.text = [model1.winamount stringValue];
+    _referAndBonusLabel1.text = [model1.winamount stringValue].creatPirceString;
     
     InstructionBetMode2 * model2 = arr[1];
-    _referAndBonusLabel2.text = [model2.winamount stringValue];
+    _referAndBonusLabel2.text = [model2.winamount stringValue].creatPirceString;
     
     InstructionBetMode3 * model3 = arr[2];
-    _referAndBonusLabel3.text = [model3.winamount stringValue];
+    _referAndBonusLabel3.text = [model3.winamount stringValue].creatPirceString;
     
     InstructionBetMode4 * model4 = arr[3];
-    _referAndBonusLabel4.text = [model4.winamount stringValue];
+    _referAndBonusLabel4.text = [model4.winamount stringValue].creatPirceString;
     
     InstructionBetMode5 * model5 = arr[4];
-    _referAndBonusLabel5.text = [model5.winamount stringValue];
+    _referAndBonusLabel5.text = [model5.winamount stringValue].creatPirceString;
     
 }
 

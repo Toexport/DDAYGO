@@ -19,4 +19,5 @@
  */
 - (CGSize)sizeWithFont:(UIFont *)font forWidth:(CGFloat)width;
 - (NSString *)encodeToPercentEscapeString;
+- (NSString *)creatPirceString;
 @end

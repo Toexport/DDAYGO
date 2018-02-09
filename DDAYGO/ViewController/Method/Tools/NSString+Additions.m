@@ -26,4 +26,19 @@
     
     return outputStr;
 }
+
+- (NSString *)creatPirceString {
+    
+    NSMutableString *string = [[NSMutableString alloc] initWithString:self];
+    NSInteger index = 1;
+    
+    while (self.length > index) {
+        if (index%3 == 0) {
+            [string insertString:@"," atIndex:self.length-index];
+        }
+        index ++;
+    }
+    
+    return string;
+}
 @end
