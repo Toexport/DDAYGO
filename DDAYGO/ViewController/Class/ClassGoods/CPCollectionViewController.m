@@ -75,8 +75,9 @@
 
 // 获取数据
 - (void)allData {
-    
-    if (self.type == 111) {
+
+    if (self.typee == 111) {
+        //       正常数据
         NSString * str;
         if (_keyword.length > 0) {
             str = _keyword;
@@ -97,48 +98,12 @@
         dic[@"page"] = @"1";
         dic[@"pagesize"] = @"30";
         [ZP_ClassViewTool requestGetproductlist:dic WithIndex:self.typeew success:^(id obj) {
-            NSDictionary * dict = obj;
-            [SVProgressHUD dismiss];
-            NSMutableArray * temppArray = [NSMutableArray arrayWithArray:dict[@"datalist"]];
-            if (self.typeew > 0) {
-                NSArray * arr ;
-                arr = [temppArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary * obj1, NSDictionary *obj2) {
-                    if (self.typeew == 1) {
-                        if ([obj1[@"productsale"] longValue] > [obj2[@"productsale"] longValue]) {
-                            return NSOrderedAscending;
-                        }
-                        return NSOrderedDescending;
-                    } else if (self.typeew == 2) {
-                        if ([obj1[@"productsale"] longValue] > [obj2[@"productsale"] longValue]) {
-                            return NSOrderedDescending;
-                        }
-                        return NSOrderedAscending;
-                    } else {
-                        if ([_priceStrTag isEqualToString:@"desc"]) {
-                            if ([obj1[@"productprice"] longValue] > [obj2[@"productprice"] longValue]) {
-                                return NSOrderedDescending;
-                            }
-                            return NSOrderedAscending;
-                        } else {
-                            if ([obj2[@"productprice"] longValue] > [obj1[@"productprice"] longValue]) {
-                                return NSOrderedDescending;
-                            }
-                            return NSOrderedAscending;
-                        }
-                    }
-                }];
-                self.newsData = [ZP_ClassGoodsModel arrayWithArray:arr];
-            } else {
-                self.newsData = [ZP_ClassGoodsModel arrayWithArray:temppArray];
-            }
-            [self.collectionView reloadData];
-//            [self.collectionView.mj_header endRefreshing];  // 結束下拉刷新
-//            [self.collectionView.mj_footer endRefreshing];
             ZPLog(@"%@",obj);
+            
+            
         } failure:^(NSError * error) {
             ZPLog(@"%@",error);
         }];
-        
     }else {
     //       正常数据
             NSString * str;
@@ -159,15 +124,15 @@
             NSDictionary * dict = obj;
             [SVProgressHUD dismiss];
             NSMutableArray * tempArray = [NSMutableArray arrayWithArray:dict[@"datalist"]];
-            if (self.typee > 0) {
+            if (self.type > 0) {
                 NSArray * arr ;
                 arr = [tempArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
-                    if (self.typee == 1) {
+                    if (self.type == 1) {
                         if ([obj1[@"productsale"] longValue] > [obj2[@"productsale"] longValue]) {
                             return NSOrderedAscending;
                         }
                         return NSOrderedDescending;
-                    } else if (self.typee == 2) {
+                    } else if (self.type == 2) {
                         if ([obj1[@"productsale"] longValue] > [obj2[@"productsale"] longValue]) {
                             return NSOrderedDescending;
                         }

@@ -402,7 +402,7 @@
 
 - (void)DeleteOrderBut:(UIButton *)sender {
     CPCollectionViewController * CVPView = [[CPCollectionViewController alloc]init];
-    CVPView.type = 111;
+    CVPView.typee = 111;
     [self.navigationController pushViewController:CVPView animated:YES];
     ZPLog(@"1111");
 }

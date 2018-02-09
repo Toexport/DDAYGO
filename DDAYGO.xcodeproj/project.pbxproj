@@ -330,10 +330,10 @@
 		C47212A31FB186C90055578E /* MyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47212A51FB186C90055578E /* MyViewController.xib */; };
 		C47212AC1FB18A4E0055578E /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47212AE1FB18A4E0055578E /* SettingViewController.xib */; };
 		C47212B81FB1A5DC0055578E /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47212B71FB1A5DC0055578E /* CustomCell.m */; };
-		C4729900202D6B1300723BB9 /* DDAYGO IHTTP协议1.0.docx in Resources */ = {isa = PBXBuildFile; fileRef = C47298FF202D6B1300723BB9 /* DDAYGO IHTTP协议1.0.docx */; };
 		C4729901202D6E8800723BB9 /* AddAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4729903202D6E8800723BB9 /* AddAddressViewController.xib */; };
 		C4729908202D6ECD00723BB9 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C472990A202D6ECD00723BB9 /* EditViewController.xib */; };
 		C472990F202D6F1000723BB9 /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4729911202D6F1000723BB9 /* AddressTableViewCell.xib */; };
+		C4729917202DA91E00723BB9 /* DDAYGO IHTTP协议1.0.docx in Resources */ = {isa = PBXBuildFile; fileRef = C4729916202DA91E00723BB9 /* DDAYGO IHTTP协议1.0.docx */; };
 		C472F1331FE299E00031D7B5 /* ZP_CheckMoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = C472F1301FE299E00031D7B5 /* ZP_CheckMoreController.m */; };
 		C472F1341FE299E00031D7B5 /* ZP_CheckMoreController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C472F1311FE299E00031D7B5 /* ZP_CheckMoreController.xib */; };
 		C472F1381FE29A060031D7B5 /* ZP_CheckMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C472F1361FE29A060031D7B5 /* ZP_CheckMoreCell.m */; };
@@ -1090,7 +1090,6 @@
 		C47212AD1FB18A4E0055578E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingViewController.xib; sourceTree = "<group>"; };
 		C47212B61FB1A5DC0055578E /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
 		C47212B71FB1A5DC0055578E /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
-		C47298FF202D6B1300723BB9 /* DDAYGO IHTTP协议1.0.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0.docx"; sourceTree = "<group>"; };
 		C4729902202D6E8800723BB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AddAddressViewController.xib; sourceTree = "<group>"; };
 		C4729905202D6E8B00723BB9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AddAddressViewController.strings"; sourceTree = "<group>"; };
 		C4729907202D6E8F00723BB9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/AddAddressViewController.strings"; sourceTree = "<group>"; };
@@ -1100,6 +1099,7 @@
 		C4729910202D6F1000723BB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AddressTableViewCell.xib; sourceTree = "<group>"; };
 		C4729913202D6F1300723BB9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AddressTableViewCell.strings"; sourceTree = "<group>"; };
 		C4729915202D6F1500723BB9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/AddressTableViewCell.strings"; sourceTree = "<group>"; };
+		C4729916202DA91E00723BB9 /* DDAYGO IHTTP协议1.0.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DDAYGO IHTTP协议1.0.docx"; sourceTree = "<group>"; };
 		C472F12F1FE299E00031D7B5 /* ZP_CheckMoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZP_CheckMoreController.h; sourceTree = "<group>"; };
 		C472F1301FE299E00031D7B5 /* ZP_CheckMoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZP_CheckMoreController.m; sourceTree = "<group>"; };
 		C472F1311FE299E00031D7B5 /* ZP_CheckMoreController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZP_CheckMoreController.xib; sourceTree = "<group>"; };
@@ -1415,7 +1415,7 @@
 		063FE0441F614D24009910FF /* DDAYGO */ = {
 			isa = PBXGroup;
 			children = (
-				C47298FF202D6B1300723BB9 /* DDAYGO IHTTP协议1.0.docx */,
+				C4729916202DA91E00723BB9 /* DDAYGO IHTTP协议1.0.docx */,
 				C4411D91200F626100CE906F /* 加载_ios */,
 				0641BB971F67B60B00E72FEF /* Testbag */,
 				063FE0AE1F615CEB009910FF /* ViewController */,
@@ -4470,7 +4470,7 @@
 				06621DB31F9758840030983F /* RegisterController.xib in Resources */,
 				C4FFF1FF2011F05A00EF4A4D /* SatisfactionSurveyCell.xib in Resources */,
 				C4411DB7200F626200CE906F /* 暂无数据.png in Resources */,
-				C4729900202D6B1300723BB9 /* DDAYGO IHTTP协议1.0.docx in Resources */,
+				C4729917202DA91E00723BB9 /* DDAYGO IHTTP协议1.0.docx in Resources */,
 				C4411DA8200F626200CE906F /* iconn_no_network@3x.png in Resources */,
 				C4411DB0200F626200CE906F /* loading5.png in Resources */,
 				C4411D8D200EFB4900CE906F /* AboutDDAYGOController.xib in Resources */,

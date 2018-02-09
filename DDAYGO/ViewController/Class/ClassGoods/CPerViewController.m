@@ -111,7 +111,6 @@
         vc.view.frame = CGRectMake(j*ZP_Width, 0, ZP_Width, self.contentScrollView.height);
     }
     self.contentScrollView.contentOffset = CGPointMake(0, 0);
-    
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {

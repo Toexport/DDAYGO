@@ -22,8 +22,8 @@
 
 @property (nonatomic, strong) UILabel * RemindLabel;
 
-@property (nonatomic, assign) NSInteger type; // 查看更多
-@property (nonatomic, assign) NSInteger typee; //  商品分类
+@property (nonatomic, assign) NSInteger type; //  商品分类
+@property (nonatomic, assign) NSInteger typee;  //跳转进来的
 @property (nonatomic, assign) NSInteger typeew;  // 81) 闪购精选热销商品筛选
 
 - (void)allData;

@@ -21,6 +21,6 @@
 
 @property (nonatomic, strong) UILabel * RemindLabel;
 
-//@property (nonatomic, assign) NSInteger type;
+@property (nonatomic, assign) NSInteger type;
 
 @end
