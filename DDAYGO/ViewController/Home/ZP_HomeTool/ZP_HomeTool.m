@@ -58,4 +58,13 @@
         failure(error);
     }];
 }
+
+// 81) 闪购精选热销商品筛选
++ (void)requestGetproductlist:(NSDictionary *)Sgjx success:(void(^)(id obj))success failure:(void (^)(NSError * reeor))failure {
+    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getproductlist?token=%@&type=%@&sort=%@&seq=%@&word=%@&countrycode=%@&page=%@&pagesize=%@",URLAPI, Sgjx[@"token"],Sgjx[@"type"], Sgjx[@"sort"],Sgjx[@"seq"],Sgjx[@"word"],Sgjx[@"countrycode"],Sgjx[@"page"],Sgjx[@"pagesize"]] parameters:nil success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError * error) {
+        failure(error);
+    }];
+}
 @end

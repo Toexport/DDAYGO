@@ -73,7 +73,7 @@
 
 - (void) webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [activityIndicator stopAnimating];
-    UIView *view = (UIView*)[self.view viewWithTag:108];
+    UIView * view = (UIView*)[self.view viewWithTag:108];
     [view removeFromSuperview];
     NSLog(@"didFailLoadWithError:%@", error);
 }

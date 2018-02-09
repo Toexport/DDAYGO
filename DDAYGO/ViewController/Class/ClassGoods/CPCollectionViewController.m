@@ -32,7 +32,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [super viewDidLoad];
     [self initView];
-    [self allData];
+    [self allData:CountCode];
     [self addRefresh];
     [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
         self.NoDataView = response;
@@ -74,7 +74,7 @@
 }
 
 // 获取数据
-- (void)allData {
+- (void)allData:(NSNumber *)code {
     NSString * str;
     if (_keyword.length > 0) {
         str = _keyword;
@@ -84,7 +84,13 @@
     self.newsData = [[NSMutableArray alloc]init];
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"seq"] = _priceStrTag;
-    dic[@"countrycode"] = @"886";
+    NSNumber * sendCode;
+    if ([code intValue] > 0) {
+        sendCode = code;
+    }else{
+        sendCode = @886;
+    }
+    dic[@"countrycode"] = sendCode;
     dic[@"word"] = str;
     dic[@"fatherid"] = _fatherId;
     dic[@"page"] = @"1";
@@ -194,12 +200,12 @@
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsData removeAllObjects];
         _i = 0;
-        [self allData];
+        [self allData:CountCode];
     }];
     self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         [self.newsData removeAllObjects];
         _i = 10;
-        [self allData];
+        [self allData:CountCode];
     }];
 }
 
