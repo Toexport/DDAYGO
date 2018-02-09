@@ -102,7 +102,7 @@
                                     </state>
                                     <state key="selected" image="ic_collect_pressed"/>
                                     <connections>
-                                        <action selector="shoucangAction:" destination="-1" eventType="touchUpInside" id="qaq-pI-3s2"/>
+                                        <action selector="shoucangAction:" destination="-1" eventType="touchUpInside" id="LUy-wm-GRm"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cy4-nj-B1P">

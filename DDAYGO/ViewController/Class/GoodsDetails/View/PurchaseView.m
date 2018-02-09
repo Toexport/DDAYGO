@@ -410,7 +410,7 @@
 
 - (void)setModel:(ZP_GoodDetailsModel *)model {
     _model = model;
-    self.chooseView.LB_price.text = model.productprice;
+    self.chooseView.LB_price.text = [@"NT " stringByAppendingString:model.productprice];
     self.chooseView.LB_CPLabel.text = model.TrademarkLabel;
     self.chooseView.LB_stock.text = [NSString stringWithFormat:@"库存:%@件",model.productamount];
     [self.chooseView.headImage sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@"bingli"]];
