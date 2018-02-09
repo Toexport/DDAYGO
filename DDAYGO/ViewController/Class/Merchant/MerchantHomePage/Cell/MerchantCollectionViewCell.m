@@ -46,12 +46,12 @@
     [self.contentView addSubview:self.priceLabel];
     
     //    商标
-    UIImageView * TrademarkImage = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.frame)- 55, CGRectGetWidth(self.frame)+ 25, 22*0.66, 20-5)];
+    UIImageView * TrademarkImage = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.frame)- 55, CGRectGetWidth(self.frame)+ 25, 15, 15)];
     TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
     [self.contentView addSubview:TrademarkImage];
     
     //    商标编号
-    UILabel * TrademarkLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 40, CGRectGetWidth(self.frame)+ 25,CGRectGetWidth(self.frame)- 125, 15)];
+    UILabel * TrademarkLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 35, CGRectGetWidth(self.frame)+ 25,CGRectGetWidth(self.frame)- 125, 15)];
     TrademarkLabel.textAlignment = NSTextAlignmentLeft;
     //    [TrademarkLabel setBackgroundColor:ZP_Graybackground];
     TrademarkLabel.textColor = ZP_textblack;
@@ -64,7 +64,7 @@
 - (void)merchant:(MerchantModel *)model {
      [_imageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
     self.headerlabel.text = model.productname;
-    self.priceLabel.text = [NSString stringWithFormat:@"NT%@",[model.productprice stringValue]];
+    self.priceLabel.text = [NSString stringWithFormat:@"NT %@",[model.productprice stringValue]];
     self.TrademarkLabel.text = [model.cp stringValue];
 }
 @end

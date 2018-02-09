@@ -71,7 +71,7 @@
     [AppraiseBut setTitle:NSLocalizedString(@"評價", nil) forState:UIControlStateNormal];
     [AppraiseBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
     AppraiseBut.titleLabel.font = ZP_introduceFont;
-    AppraiseBut.layer.borderWidth = 1;
+//    AppraiseBut.layer.borderWidth = 1;
     [AppraiseBut addTarget:self action:@selector(AppraiseBut:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:AppraiseBut];
     [AppraiseBut mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -104,7 +104,7 @@
     [OnceagainBut setTitle:NSLocalizedString(@"再次購買", nil) forState:UIControlStateNormal];
     [OnceagainBut setTitleColor:ZP_textWite forState:UIControlStateNormal];
     OnceagainBut.titleLabel.font = ZP_introduceFont;
-    OnceagainBut.layer.borderWidth = 1;
+//    OnceagainBut.layer.borderWidth = 1;
     [OnceagainBut addTarget:self action:@selector(OnceagainBut:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:OnceagainBut];
     [OnceagainBut mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -191,8 +191,8 @@
         default:
             break;
     }
-    _AmountLabel.text = [NSString stringWithFormat:@"NT%@",model.ordersamount];
-    _ExpressFeeLabel.text = [NSString stringWithFormat:@"NT%@)",model.freight]; // 运费
+    _AmountLabel.text = [NSString stringWithFormat:@"NT %@",model.ordersamount];
+    _ExpressFeeLabel.text = [NSString stringWithFormat:@"NT %@)",model.freight]; // 运费
     _model = dic;
     _model2 = model;
 }

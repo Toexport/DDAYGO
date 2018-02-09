@@ -99,14 +99,14 @@
     [self.contentView addSubview:backgroundView];
     [backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(Mainfigure).offset(95);
-        make.top.equalTo(SizeLabel).offset(20);
-        make.height.mas_equalTo(20);
-        make.width.mas_equalTo(100);
+        make.top.equalTo(SizeLabel).offset(5);
+        make.height.mas_equalTo(30);
+        make.width.mas_equalTo(120);
     }];
     
 //  减少
     UIButton * Reducebutton = [UIButton buttonWithType:UIButtonTypeCustom];
-    Reducebutton.frame = CGRectMake(0, 0, 20, 20);
+    Reducebutton.frame = CGRectMake(0, 0, 30, 30);
     [Reducebutton setImage:[UIImage imageNamed:@"ic_shopping_less"] forState:UIControlStateNormal];
     Reducebutton.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
     Reducebutton.layer.borderWidth = 1;
@@ -115,7 +115,7 @@
     _Reducebutton = Reducebutton;
     
 //  个数
-    UILabel * numLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 60, 20)];
+    UILabel * numLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 0, 60, 30)];
     numLabel.textAlignment = NSTextAlignmentCenter;
     numLabel.textColor = [UIColor blackColor];
     numLabel.text = @"0";
@@ -125,7 +125,7 @@
     
 //  添加
     UIButton * addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    addButton.frame = CGRectMake(80, 0, 20, 20);
+    addButton.frame = CGRectMake(90, 0, 30, 30);
     [addButton setImage:[UIImage imageNamed:@"ic_shopping_add"] forState:UIControlStateNormal];
     addButton.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
     addButton.layer.borderWidth = 1;
