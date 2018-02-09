@@ -14,8 +14,16 @@
 
 - (void)setMj_insetT:(CGFloat)mj_insetT
 {
+//    UIEdgeInsets inset = self.contentInset;
+//    inset.top = mj_insetT;
+//    self.contentInset = inset;
     UIEdgeInsets inset = self.contentInset;
     inset.top = mj_insetT;
+#ifdef __IPHONE_11_0
+    if(@available(iOS 11.0, *)){
+        inset.top -= (self.adjustedContentInset.top - self.contentInset.top);
+    }
+#endif
     self.contentInset = inset;
 }
 

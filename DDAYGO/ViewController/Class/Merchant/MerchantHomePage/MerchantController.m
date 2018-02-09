@@ -106,7 +106,7 @@
     [self.view addSubview:topView];
     self.topView = topView;
     self.line.x = self.btn.x;
-    UIScrollView * lastView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 150+35, ZP_Width, ZP_height - NavBarHeight)];
+    UIScrollView * lastView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 150+35, ZP_Width, ZP_height - NavBarHeight - 37)];
     lastView.pagingEnabled  = YES;
     lastView.showsHorizontalScrollIndicator = NO;
     lastView.delegate = self;
@@ -147,20 +147,22 @@
         self.title = obj[@"shopname"];
         self.NameLabel = dic[@"shopname"];
 //        ***********纯代码要加需要隐藏与显示的frame
+        // collection 的高度 等于 屏幕的高度··- nav的高度· - 4个按钮view 的高度
+       //  写的时候考虑当前屏幕上有几个控件，再来决定。
         if (self.imageview > 0) {
             self.imageview.hidden = YES;
             self.imageview.height = CGFLOAT_MIN;
             self.topView.frame = CGRectMake(0, 0, ZP_Width, 35 );
             self.lastView.frame = CGRectMake(0, 35, ZP_Width, ZP_height);
-            _collectionView1.frame = CGRectMake(0, 0, fDeviceWidth, fDeviceHeight - NavBarHeight);
-            _collectionView2.frame = CGRectMake(fDeviceWidth, 0, fDeviceWidth, fDeviceHeight - NavBarHeight);
-            _collectionView3.frame = CGRectMake(fDeviceWidth*2, 0, fDeviceWidth, fDeviceHeight - NavBarHeight);
-            _collectionView4.frame = CGRectMake(fDeviceWidth*3, 0, fDeviceWidth, fDeviceHeight - NavBarHeight);
+            _collectionView1.frame = CGRectMake(0, 0, fDeviceWidth, fDeviceHeight - NavBarHeight -37);
+            _collectionView2.frame = CGRectMake(fDeviceWidth, 0, fDeviceWidth, fDeviceHeight - NavBarHeight -37);
+            _collectionView3.frame = CGRectMake(fDeviceWidth*2, 0, fDeviceWidth, fDeviceHeight - NavBarHeight -37);
+            _collectionView4.frame = CGRectMake(fDeviceWidth*3, 0, fDeviceWidth, fDeviceHeight - NavBarHeight - 37);
         }else {
             self.imageview.hidden = NO;
             self.imageview.frame = CGRectMake(0, 0, ZP_Width, 150);
             self.topView.frame = CGRectMake(0, 0, ZP_Width, 35);
-            self.lastView.frame = CGRectMake(0, 150, ZP_Width, ZP_height - 150 - NavBarHeight);
+            self.lastView.frame = CGRectMake(0, 150, ZP_Width, ZP_height - 150 - NavBarHeight - 37);
             [self.imageview sd_setImageWithURL:[NSURL URLWithString:obj[@"shopdetail"]] placeholderImage:[UIImage imageNamed:@""]];
         }
         ZPLog(@"%@",obj);
@@ -170,12 +172,14 @@
 }
 
 - (void)initCollectionView {
+    // collection 的高度 等于 屏幕的高度··- nav的高度· - 4个按钮view 的高度
+    // 写的时候考虑当前屏幕上有几个控件，再来决定。
     UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc]init];
     NSLog(@"NavBarHeight:%f",NavBarHeight);
-    _collectionView1 = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight) collectionViewLayout:flowLayout];
-    _collectionView2 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight) collectionViewLayout:flowLayout];
-    _collectionView3 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 2, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight) collectionViewLayout:flowLayout];
-    _collectionView4 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 3, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight) collectionViewLayout:flowLayout];
+    _collectionView1 = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight - 37) collectionViewLayout:flowLayout];
+    _collectionView2 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight - 37) collectionViewLayout:flowLayout];
+    _collectionView3 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 2, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight - 37) collectionViewLayout:flowLayout];
+    _collectionView4 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 3, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight - 37) collectionViewLayout:flowLayout];
     _collectionView1.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
     _collectionView2.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
     _collectionView3.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
