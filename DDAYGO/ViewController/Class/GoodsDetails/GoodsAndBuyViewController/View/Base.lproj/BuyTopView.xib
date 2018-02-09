@@ -30,7 +30,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2b-i2-Oc0">
                     <rect key="frame" x="0.0" y="364" width="375" height="100"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="驱蚊器翁群翁群二群翁群翁群翁群翁群翁群翁群翁群二群无驱蚊器翁群翁群二群翁群翁群翁群翁群翁群翁群翁群二群无驱蚊器翁群翁群二群翁群翁群翁群翁群翁群翁群翁群二群无" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJZ-6l-7xX">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJZ-6l-7xX">
                             <rect key="frame" x="8" y="16" width="359" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="oeZ-8g-krR"/>

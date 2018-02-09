@@ -51,6 +51,7 @@
     headImage = [[UIImageView alloc] initWithFrame:CGRectMake(20, -10, 90, 90)];
     headImage.layer.cornerRadius = 4;
     headImage.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    headImage.backgroundColor = [UIColor whiteColor];
     headImage.layer.borderWidth = 1;
     [headImage.layer setMasksToBounds:YES];
     [whiteView addSubview:headImage];
