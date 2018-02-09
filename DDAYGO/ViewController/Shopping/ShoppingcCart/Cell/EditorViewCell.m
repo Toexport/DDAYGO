@@ -99,7 +99,7 @@
     [self.contentView addSubview:backgroundView];
     [backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(Mainfigure).offset(95);
-        make.top.equalTo(SizeLabel).offset(5);
+        make.top.equalTo(SizeLabel).offset(15);
         make.height.mas_equalTo(30);
         make.width.mas_equalTo(120);
     }];
