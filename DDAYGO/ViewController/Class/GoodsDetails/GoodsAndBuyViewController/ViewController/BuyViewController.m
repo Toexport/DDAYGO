@@ -16,7 +16,7 @@
 #import "ZP_ClassViewTool.h"
 #import "PrefixHeader.pch"
 
-#define TopViewH 484
+#define TopViewH 444
 #define MiddleViewH 44
 #define BottomH (iphoneX?69:54)
 #define SecondPageTop TopViewH+MiddleViewH+20
@@ -200,6 +200,7 @@
                 [self networkProblems];
             }
             ZPLog(@"%@",obj);
+            _shoucangBtn.selected = [obj[@"iscollection"] boolValue];
             NSDictionary * asdic = [obj[@"productdetail"] firstObject];
             NSString * asdtring = asdic[@"content"];
             self.productArray = [asdtring componentsSeparatedByString:@","];
@@ -213,7 +214,6 @@
             }];
         }
         ZP_GoodDetailsModel * model = [ZP_GoodDetailsModel getGoodDetailsData:obj[@"products"][0]];
-        _shoucangBtn.selected = [model.state boolValue];
         [self.topView updateInfoWithModel:model];
         NSString *value = [obj objectForKey:@"colornorms"];
         if ((NSNull *)value == [NSNull null]) {
