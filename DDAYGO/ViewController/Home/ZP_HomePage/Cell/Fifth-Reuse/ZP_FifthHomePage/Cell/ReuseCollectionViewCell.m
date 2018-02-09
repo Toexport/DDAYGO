@@ -98,7 +98,7 @@
 - (void)cellWithdic:(ZP_FifthModel *)model {
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
     self.titleLabel.text = model.productname;
-    self.PreferentialLabel.text = [NSString stringWithFormat:@"NT%@",model.PreferentialLabel]; // 优惠价格
+    self.PreferentialLabel.text = [NSString stringWithFormat:@"NT %@",model.PreferentialLabel]; // 优惠价格
 //    self.TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
 //    self.TrademarkLabel.text = model.TrademarkLabel;
     

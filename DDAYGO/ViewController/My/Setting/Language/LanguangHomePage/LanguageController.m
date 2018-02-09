@@ -113,7 +113,7 @@
     }
     cell.textLabel.text = self.TitleArray[indexPath.row];
     cell.textLabel.font = ZP_TooBarFont;
-    //    [self.tableview deselectRowAtIndexPath:indexPath animated:YES]; // 点击cell时，让某行cell的选中状态消失
+//    [self.tableview deselectRowAtIndexPath:indexPath animated:YES]; // 点击cell时，让某行cell的选中状态消失
     
     return cell;
 }

@@ -71,9 +71,11 @@
     [self allData];
     NSData * data  = [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
     [self.headImageBut setImage:[UIImage imageWithData:data] forState:UIControlStateNormal];
+//    NSData * data1  = [[NSUserDefaults standardUserDefaults] objectForKey:@"NameLabel"];
+//    [self.headImageBut setImage:[UIImage imageWithData:data1] forState:UIControlStateNormal];
     self.headImageBut.layer.cornerRadius = 42;
     self.headImageBut.layer.masksToBounds = YES;
-    [self.headImageBut setUserInteractionEnabled: NO]; //找了三个月的问题终于找到，就是这个按钮造成tabbar不见了。
+    [self.headImageBut setUserInteractionEnabled: NO];
     
     if (@available(iOS 11.0, *)) {
         self.scorllview.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;
@@ -137,7 +139,6 @@
         NSArray * array = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
         [[NSUserDefaults standardUserDefaults] setObject:array.firstObject forKey:@"Language"];
     }
-    
     NSString * language1 = [[NSUserDefaults standardUserDefaults] objectForKey:@"Language"];
     if (!language) {
         language = [[NSUserDefaults standardUserDefaults] objectForKey:@"Language"];
@@ -224,10 +225,12 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
+//            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
             ZPICUEToken = nil;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
+//            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
             [[SDImageCache sharedImageCache] clearDisk];
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
@@ -246,6 +249,7 @@
             [alert addAction:defaultAction];
             [alert addAction:cancelAction];
             [self presentViewController:alert animated:YES completion:nil];
+            
         }else{
             ZPLog(@"%@",obj);
             ZP_HomePageModel * model = [[ZP_HomePageModel alloc]init];
@@ -258,8 +262,8 @@
             [self MyViewData:model];
             NSData * data =  [NSData dataWithContentsOfURL:[NSURL URLWithString:model.avatarimg]];
             [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
-            NSData * data1 =  [NSData dataWithContentsOfURL:[NSURL URLWithString:model.nickname]];
-            [[NSUserDefaults standardUserDefaults] setObject:data1 forKey:@"nickname"];
+//            NSData * data1 =  [NSData dataWithContentsOfURL:[NSURL URLWithString:model.nickname]];
+//            [[NSUserDefaults standardUserDefaults] setObject:data1 forKey:@"NameLabel"];
         }
     } failure:^(NSError * error) {
         _SdglLayoutConstraint.constant = CGFLOAT_MIN;
@@ -271,11 +275,11 @@
 
 // 獲取暱稱
 - (void)MyViewData:(ZP_HomePageModel *) model {
-    if (model.nickname.length < 1) {
-        _NameLabel.text = @"暱稱";
-    }else {
-        _NameLabel.text = model.nickname;
-    }
+//    if (model.nickname.length < 1) {
+//        _NameLabel.text = @"暱稱";
+//    }else {
+//        _NameLabel.text = model.nickname;
+//    }
     _headImageBut.layer.cornerRadius = 42;
     _headImageBut.layer.masksToBounds = YES;
 }
