@@ -124,7 +124,7 @@
 
 - (void)addClick:(UIButton *)sender {
     if (_model.productamount.integerValue <= [_numLabel.text integerValue]) {
-        [SVProgressHUD showErrorWithStatus:@"购买数量不能大于库存"];
+        [SVProgressHUD showErrorWithStatus:@"購買數量不能大於庫存"];
         return;
     }else {
         _numLabel.text = [NSString stringWithFormat:@"%ld",[_numLabel.text integerValue]+1];
@@ -135,7 +135,7 @@
 #pragma mark - - - -立即购买
 - (void)immedPayBtnClick{
     if (_model.productamount.integerValue <= 0) {
-        [SVProgressHUD showErrorWithStatus:@"库存不足"];
+        [SVProgressHUD showErrorWithStatus:@"庫存不足"];
         return;
     }else {
     NSLog(@"im go pay");
@@ -203,7 +203,7 @@
 -(void)addGoodsCartBtnClick {
     NSLog(@"add cart");
     if (_model.productamount.integerValue <= 0) {
-        [SVProgressHUD showErrorWithStatus:@"库存不足"];
+        [SVProgressHUD showErrorWithStatus:@"庫存不足"];
         return;
     }else {
     if ( _modelArr.count > 0) {
@@ -412,7 +412,7 @@
     _model = model;
     self.chooseView.LB_price.text = [@"NT " stringByAppendingString:model.productprice];
     self.chooseView.LB_CPLabel.text = model.TrademarkLabel;
-    self.chooseView.LB_stock.text = [NSString stringWithFormat:@"库存:%@件",model.productamount];
+    self.chooseView.LB_stock.text = [NSString stringWithFormat:@"庫存:%@件",model.productamount];
     [self.chooseView.headImage sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@"bingli"]];
     NSLog(@"_____%@",model.productid);
     self.stockid = [NSNumber numberWithInt:[model.productid intValue]];
