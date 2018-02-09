@@ -26,6 +26,4 @@
 +(void)requSelectLikeHotCakes:(NSDictionary *)jx success:(void(^)(id obj))success failure:(void (^)(NSError * reeor))failure;
 
 
-// 81) 闪购精选热销商品筛选
-+ (void)requestGetproductlist:(NSDictionary *)Sgjx success:(void(^)(id obj))success failure:(void (^)(NSError * reeor))failure;
 @end

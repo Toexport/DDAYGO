@@ -258,6 +258,8 @@
             [self MyViewData:model];
             NSData * data =  [NSData dataWithContentsOfURL:[NSURL URLWithString:model.avatarimg]];
             [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
+            NSData * data1 =  [NSData dataWithContentsOfURL:[NSURL URLWithString:model.nickname]];
+            [[NSUserDefaults standardUserDefaults] setObject:data1 forKey:@"nickname"];
         }
     } failure:^(NSError * error) {
         _SdglLayoutConstraint.constant = CGFLOAT_MIN;

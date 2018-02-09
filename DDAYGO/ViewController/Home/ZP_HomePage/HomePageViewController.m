@@ -17,6 +17,7 @@
 #import "ZP_SixthModel.h"
 #import "ZP_ZeroModel.h"
 #import "BuyViewController.h"
+#import "CPCollectionViewController.h"
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource> {
      int _i;
 }
@@ -385,6 +386,7 @@
                     static NSString * SixthID = @"Fifthcell";
                     SixthViewCell * cell = [tableView dequeueReusableCellWithIdentifier: SixthID];
                     cell.ArrData = self.SixthArrData;
+                    [cell.moreBut addTarget:self action:@selector(DeleteOrderBut:) forControlEvents:UIControlEventTouchUpInside];
                     cell.ThirdBlock = ^(NSInteger tag){
                         static NSString * detaled = @"BuyViewController";
                         BuyViewController * viewController = [[BuyViewController alloc]initWithNibName:detaled bundle:nil];
@@ -393,10 +395,17 @@
                         [self.navigationController pushViewController:viewController animated:YES];
                     };
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
+                    
                     return cell;
-                }
+    }
 }
 
+- (void)DeleteOrderBut:(UIButton *)sender {
+    CPCollectionViewController * CVPView = [[CPCollectionViewController alloc]init];
+    CVPView.type = 111;
+    [self.navigationController pushViewController:CVPView animated:YES];
+    ZPLog(@"1111");
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 if (indexPath.section == 0) {
         return zeroHeight;

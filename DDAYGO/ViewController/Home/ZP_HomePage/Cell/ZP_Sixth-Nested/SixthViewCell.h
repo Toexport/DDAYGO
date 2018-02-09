@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SixthViewCell : UITableViewCell
+@property (nonatomic, strong) UIButton * moreBut;
 @property (nonatomic, strong) NSMutableArray * ArrData;
 @property (nonatomic, copy) void(^ThirdBlock)(NSInteger tag);
 @end

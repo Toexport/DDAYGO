@@ -64,4 +64,9 @@
 
 //77) 根据大分类和子分类，获取该分类下产品，默认销量排序，支持排序最新，好评，价格
 + (void)requestGetproductfilter:(NSDictionary *)Getproductfilter success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure;
+
+// 81) 闪购精选热销商品筛选
++ (void)requestGetproductlist:(NSDictionary *)Sgjx WithIndex:(NSUInteger)index success:(void (^)(id))success failure:(void (^)(NSError *))failure;
+
+
 @end

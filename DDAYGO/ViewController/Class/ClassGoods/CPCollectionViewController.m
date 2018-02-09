@@ -32,7 +32,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [super viewDidLoad];
     [self initView];
-    [self allData:CountCode];
+    [self allData];
     [self addRefresh];
     [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
         self.NoDataView = response;
@@ -74,71 +74,131 @@
 }
 
 // 获取数据
-- (void)allData:(NSNumber *)code {
-    NSString * str;
-    if (_keyword.length > 0) {
-        str = _keyword;
-    }else{
-        str = @"";
-    }
-    self.newsData = [[NSMutableArray alloc]init];
-    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    dic[@"seq"] = _priceStrTag;
-    NSNumber * sendCode;
-    if ([code intValue] > 0) {
-        sendCode = code;
-    }else{
-        sendCode = @886;
-    }
-    dic[@"countrycode"] = sendCode;
-    dic[@"word"] = str;
-    dic[@"fatherid"] = _fatherId;
-    dic[@"page"] = @"1";
-    dic[@"pagesize"] = @"30";
-    [ZP_ClassViewTool requMerchandise:dic WithIndex:self.type success:^(id obj) {
-        NSDictionary * dict = obj;
-        [SVProgressHUD dismiss];
-        NSMutableArray * tempArray = [NSMutableArray arrayWithArray:dict[@"datalist"]];
-        
-        if (self.type > 0) {
-            NSArray * arr ;
-            arr = [tempArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
-                if (self.type == 1) {
-                    if ([obj1[@"productsale"] longValue] > [obj2[@"productsale"] longValue]) {
-                        return NSOrderedAscending;
-                    }
-                    return NSOrderedDescending;
-                } else if (self.type == 2) {
-                    if ([obj1[@"productsale"] longValue] > [obj2[@"productsale"] longValue]) {
+- (void)allData {
+    
+    if (self.type == 111) {
+        NSString * str;
+        if (_keyword.length > 0) {
+            str = _keyword;
+        }else{
+            str = @"";
+        }
+        self.newsData = [[NSMutableArray alloc]init];
+        NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+        if (Token) {
+            dic[@"token"] = Token;
+        }else {
+            dic[@"token"] = @"";
+        }
+        dic[@"type"] = @"0";
+        dic[@"seq"] = _priceStrTag;
+        dic[@"countrycode"] = @"886";
+        dic[@"word"] = str;
+        dic[@"page"] = @"1";
+        dic[@"pagesize"] = @"30";
+        [ZP_ClassViewTool requestGetproductlist:dic WithIndex:self.typeew success:^(id obj) {
+            NSDictionary * dict = obj;
+            [SVProgressHUD dismiss];
+            NSMutableArray * temppArray = [NSMutableArray arrayWithArray:dict[@"datalist"]];
+            if (self.typeew > 0) {
+                NSArray * arr ;
+                arr = [temppArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary * obj1, NSDictionary *obj2) {
+                    if (self.typeew == 1) {
+                        if ([obj1[@"productsale"] longValue] > [obj2[@"productsale"] longValue]) {
+                            return NSOrderedAscending;
+                        }
                         return NSOrderedDescending;
-                    }
-                    return NSOrderedAscending;
-                } else {
-                    if ([_priceStrTag isEqualToString:@"desc"]) {
-                        if ([obj1[@"productprice"] longValue] > [obj2[@"productprice"] longValue]) {
+                    } else if (self.typeew == 2) {
+                        if ([obj1[@"productsale"] longValue] > [obj2[@"productsale"] longValue]) {
                             return NSOrderedDescending;
                         }
                         return NSOrderedAscending;
                     } else {
-                        if ([obj2[@"productprice"] longValue] > [obj1[@"productprice"] longValue]) {
+                        if ([_priceStrTag isEqualToString:@"desc"]) {
+                            if ([obj1[@"productprice"] longValue] > [obj2[@"productprice"] longValue]) {
+                                return NSOrderedDescending;
+                            }
+                            return NSOrderedAscending;
+                        } else {
+                            if ([obj2[@"productprice"] longValue] > [obj1[@"productprice"] longValue]) {
+                                return NSOrderedDescending;
+                            }
+                            return NSOrderedAscending;
+                        }
+                    }
+                }];
+                self.newsData = [ZP_ClassGoodsModel arrayWithArray:arr];
+            } else {
+                self.newsData = [ZP_ClassGoodsModel arrayWithArray:temppArray];
+            }
+            [self.collectionView reloadData];
+//            [self.collectionView.mj_header endRefreshing];  // 結束下拉刷新
+//            [self.collectionView.mj_footer endRefreshing];
+            ZPLog(@"%@",obj);
+        } failure:^(NSError * error) {
+            ZPLog(@"%@",error);
+        }];
+        
+    }else {
+    //       正常数据
+            NSString * str;
+        if (_keyword.length > 0) {
+            str = _keyword;
+        }else{
+            str = @"";
+        }
+        self.newsData = [[NSMutableArray alloc]init];
+        NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+        dic[@"seq"] = _priceStrTag;
+        dic[@"countrycode"] = @"886";
+        dic[@"word"] = str;
+        dic[@"fatherid"] = _fatherId;
+        dic[@"page"] = @"1";
+        dic[@"pagesize"] = @"30";
+        [ZP_ClassViewTool requMerchandise:dic WithIndex:self.type success:^(id obj) {
+            NSDictionary * dict = obj;
+            [SVProgressHUD dismiss];
+            NSMutableArray * tempArray = [NSMutableArray arrayWithArray:dict[@"datalist"]];
+            if (self.typee > 0) {
+                NSArray * arr ;
+                arr = [tempArray sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
+                    if (self.typee == 1) {
+                        if ([obj1[@"productsale"] longValue] > [obj2[@"productsale"] longValue]) {
+                            return NSOrderedAscending;
+                        }
+                        return NSOrderedDescending;
+                    } else if (self.typee == 2) {
+                        if ([obj1[@"productsale"] longValue] > [obj2[@"productsale"] longValue]) {
                             return NSOrderedDescending;
                         }
                         return NSOrderedAscending;
+                    } else {
+                        if ([_priceStrTag isEqualToString:@"desc"]) {
+                            if ([obj1[@"productprice"] longValue] > [obj2[@"productprice"] longValue]) {
+                                return NSOrderedDescending;
+                            }
+                            return NSOrderedAscending;
+                        } else {
+                            if ([obj2[@"productprice"] longValue] > [obj1[@"productprice"] longValue]) {
+                                return NSOrderedDescending;
+                            }
+                            return NSOrderedAscending;
+                        }
                     }
-                }
-            }];
-            self.newsData = [ZP_ClassGoodsModel arrayWithArray:arr];
-        } else {
-            self.newsData = [ZP_ClassGoodsModel arrayWithArray:tempArray];
-        }
-        
-        [self.collectionView reloadData];
-        [self.collectionView.mj_header endRefreshing];  // 結束下拉刷新
-        [self.collectionView.mj_footer endRefreshing];
-    } failure:^(NSError *error) {
-        [SVProgressHUD dismiss];
-        ZPLog(@"%@",error);
-    }];
+                }];
+                self.newsData = [ZP_ClassGoodsModel arrayWithArray:arr];
+            } else {
+                self.newsData = [ZP_ClassGoodsModel arrayWithArray:tempArray];
+            }
+            [self.collectionView reloadData];
+            [self.collectionView.mj_header endRefreshing];  // 結束下拉刷新
+            [self.collectionView.mj_footer endRefreshing];
+            ZPLog(@"%@",obj);
+        } failure:^(NSError *error) {
+            [SVProgressHUD dismiss];
+            ZPLog(@"%@",error);
+        }];
+    }
 }
 #pragma make - 创建collectionView代理
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -191,21 +251,18 @@
     [self.navigationController pushViewController:Detailed animated:YES];
 }
 
-//-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-//    return UIEdgeInsetsMake(10, 10, 10, 10);
-//}
 // 刷新
 - (void)addRefresh {
     //    下拉刷新
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.newsData removeAllObjects];
         _i = 0;
-        [self allData:CountCode];
+        [self allData];
     }];
     self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         [self.newsData removeAllObjects];
         _i = 10;
-        [self allData:CountCode];
+        [self allData];
     }];
 }
 

@@ -71,6 +71,7 @@
     moreBut.backgroundColor = [UIColor orangeColor];
     moreBut.layer.cornerRadius = 5.0;// 按钮圆角弧度
     [self.contentView addSubview:moreBut];
+    _moreBut = moreBut;
 //    moreBut.hidden = YES; //
 //    [moreBut addTarget:self action:@selector(moreBut:) forControlEvents:UIControlEventTouchUpInside];
     [moreBut mas_makeConstraints:^(MASConstraintMaker *make) {

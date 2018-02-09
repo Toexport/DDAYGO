@@ -17,7 +17,7 @@
 - (instancetype)ininWithClassGoodsData:(NSDictionary *)dic {
     if (self == [super init]) {
         self.productname = dic[@"productname"];
-        self.productprice = [NSString stringWithFormat:@"NT%@",dic[@"productprice"]];
+        self.productprice = [NSString stringWithFormat:@"NT %@",dic[@"productprice"]];
         self.defaultimg = [NSString stringWithFormat:@"%@%@",ImgAPI, dic[@"defaultimg"]];
         self.TrademarkLabel = [NSString stringWithFormat:@"%@", dic[@"cp"]];
         self.productid = dic[@"productid"];

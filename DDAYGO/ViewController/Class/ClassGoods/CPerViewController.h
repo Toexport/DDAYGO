@@ -20,4 +20,7 @@
 @property (nonatomic, strong) NSString * priceStrTag; //价格筛选
 
 @property (nonatomic, strong) UILabel * RemindLabel;
+
+//@property (nonatomic, assign) NSInteger type;
+
 @end

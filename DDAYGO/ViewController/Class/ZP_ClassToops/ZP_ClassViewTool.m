@@ -166,5 +166,15 @@
         failure(error);
     }];
 }
+
+// 81) 闪购精选热销商品筛选
++ (void)requestGetproductlist:(NSDictionary *)Sgjx WithIndex:(NSUInteger)index success:(void (^)(id))success failure:(void (^)(NSError *))failure{
+    NSArray * arr = @[@"default",@"sale",@"price",@"time"];
+    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getproductlist?token=%@&type=%@&sort=%@&seq=%@&word=%@&countrycode=%@&page=%@&pagesize=%@",URLAPI, Sgjx[@"token"],Sgjx[@"type"], arr[index],Sgjx[@"seq"],Sgjx[@"word"],Sgjx[@"countrycode"],Sgjx[@"page"],Sgjx[@"pagesize"]] parameters:nil success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError * error) {
+        failure(error);
+    }];
+}
 @end
 
