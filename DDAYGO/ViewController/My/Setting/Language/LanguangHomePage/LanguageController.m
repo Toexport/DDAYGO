@@ -45,13 +45,13 @@
     //    self.tableview.separatorStyle = UITableViewCellSelectionStyleNone;  // 隱藏tableviewcell所有的線條
     self.tableview.tableFooterView = [[UIView alloc]init]; // 隱藏tableviewcell多余的線條
     self.TitleArray = [NSArray arrayWithObjects:@"简体中文",@"繁體中文", nil];
-
 }
+
 // Nav按钮
 - (void)addNavigationBar {
     __weak LanguageController  * Language = self;
     [self addNavigationBarItemWithType:LLNavigationBarItemTypeRightFirst handler:^(UIButton * button) {
-        [button setTitle:NSLocalizedString(@"完成", nil) forState:UIControlStateNormal];
+        [button setTitle:NSLocalizedString(@"Complete", nil) forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [button addTarget:Language action:@selector(CompleteBut:) forControlEvents:UIControlEventTouchUpInside];
     }];
@@ -67,7 +67,7 @@
         }
     }
     if (a == 0) {
-        [SVProgressHUD showErrorWithStatus:@"请选择"];
+//        [SVProgressHUD showErrorWithStatus:@"请选择"];
         return;
     }
     switch (a) {
