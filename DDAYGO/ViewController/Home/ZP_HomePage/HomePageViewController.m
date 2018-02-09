@@ -401,10 +401,11 @@
 }
 
 - (void)DeleteOrderBut:(UIButton *)sender {
-    CPCollectionViewController * CVPView = [[CPCollectionViewController alloc]init];
-    CVPView.typee = 111;
+    //type：0 所有精选 1 所有热销 2 闪购
+    CPerViewController * CVPView = [[CPerViewController alloc]init];
+    CVPView.type = 10;  //由于type默认为0，所以从首页跳进去的，type一律加10作为区分
+    CVPView.titleString = @"所有精选";
     [self.navigationController pushViewController:CVPView animated:YES];
-    ZPLog(@"1111");
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 if (indexPath.section == 0) {
