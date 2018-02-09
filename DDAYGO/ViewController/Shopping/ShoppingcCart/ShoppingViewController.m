@@ -619,10 +619,7 @@
 
 #pragma mark tableviewdelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (self.nameArray.count>0) {
-        return self.nameArray.count;
-    }
-    return 1;
+    return self.nameArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -630,6 +627,7 @@
         ZP_CartsShopModel * model = self.nameArray[section];
         self.tableView.hidden = NO;
         self.noDataView.hidden = YES;
+        NSLog(@"%ld",model.array.count);
         return model.array.count;
     }
     else{
@@ -656,7 +654,7 @@
             models = [self.nameArray objectAtIndex:indexPath.section];
         }
         ZP_CartsModel * model = nil;
-        if (indexPath.section < [models.array count]) {
+        if (indexPath.row < [models.array count]) {
             model = [models.array objectAtIndex:indexPath.row];
         }
         cell.buttom.tag = indexPath.section *100 + indexPath.row;
