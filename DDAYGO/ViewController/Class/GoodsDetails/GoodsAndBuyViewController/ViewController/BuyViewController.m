@@ -243,7 +243,7 @@
 #pragma mark  - - 收藏
 - (void)extracted:(UIButton *)sender {
     DD_CHECK_HASLONGIN;
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"productid"] = _model.productid;
     dic[@"token"] = Token;
     if (!sender.selected) {

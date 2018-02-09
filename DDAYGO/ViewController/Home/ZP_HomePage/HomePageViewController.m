@@ -43,9 +43,9 @@
     [self FifthallData:CountCode];
     [self SixthAllData:CountCode];
     [self addRefresh];
-    [self getadvertlist];
-    [self bestSelling];
-    [self getNewsAlldata];
+    [self getadvertlist:CountCode];
+    [self bestSelling:CountCode];
+    [self getNewsAlldata:CountCode];
 }
 // UI
 - (void)initUI {
@@ -158,9 +158,15 @@
 }
 
 // 74) 查询广告列表(轮播图)
-- (void)getadvertlist {
+- (void)getadvertlist:(NSNumber *)code {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    dic[@"countrycode"] = @"886";
+    NSNumber * sendCode;
+    if ([code intValue] > 0) {
+        sendCode = code;
+    }else {
+        sendCode = @886;
+    }
+    dic[@"countrycode"] = sendCode;
     dic[@"adcode"] = @"AD001";
     [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
         ZPLog(@"%@",obj);
@@ -172,9 +178,15 @@
 }
 
 // 74) 热销商品广告列表(轮播图)
-- (void)bestSelling {
+- (void)bestSelling:(NSNumber *)code {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    dic[@"countrycode"] = @"886";
+    NSNumber * sendCode;
+    if ([code intValue] > 0) {
+        sendCode = code;
+    }else {
+        sendCode = @886;
+    }
+    dic[@"countrycode"] = sendCode;
     dic[@"adcode"] = @"AD004";
     [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
         ZPLog(@"%@",obj);
@@ -186,9 +198,15 @@
 }
 
 // 获取首页4张大图片
-- (void)getNewsAlldata {
+- (void)getNewsAlldata:(NSNumber *)code {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    dic[@"countrycode"] = @"886";
+    NSNumber * sendCode;
+    if ([code intValue] > 0) {
+        sendCode = code;
+    }else {
+        sendCode = @886;
+    }
+    dic[@"countrycode"] = sendCode;
     dic[@"adcode"] = @"AD003";
     [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
         self.SecondArray = [ZP_ZeroModel mj_objectArrayWithKeyValuesArray:obj];
