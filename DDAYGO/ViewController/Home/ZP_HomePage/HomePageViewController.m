@@ -382,7 +382,6 @@
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
                     return cell;
                 }else {
-                    
                     static NSString * SixthID = @"Fifthcell";
                     SixthViewCell * cell = [tableView dequeueReusableCellWithIdentifier: SixthID];
                     cell.ArrData = self.SixthArrData;

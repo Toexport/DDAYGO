@@ -9,7 +9,7 @@
 #import "SixthViewCell.h"
 #import "PrefixHeader.pch"
 #import "NnestedCollectionViewCell.h"
-//#import "ZP_HomeTool.h"
+#import "CPerViewController.h"
 #import "ZP_HttpConst.h"
 #import "ZP_SixthModel.h"
 @interface SixthViewCell () <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
@@ -65,15 +65,14 @@
     
 //  更多
     UIButton * moreBut = [UIButton new];
-    
     [moreBut setTitle:NSLocalizedString(@"More erchandise", nil) forState:UIControlStateNormal];
     moreBut.titleLabel.font = ZP_titleFont;
     [moreBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     moreBut.backgroundColor = [UIColor orangeColor];
     moreBut.layer.cornerRadius = 5.0;// 按钮圆角弧度
     [self.contentView addSubview:moreBut];
-    moreBut.hidden = YES; //
-    [moreBut addTarget:self action:@selector(moreBut:) forControlEvents:UIControlEventTouchUpInside];
+//    moreBut.hidden = YES; //
+//    [moreBut addTarget:self action:@selector(moreBut:) forControlEvents:UIControlEventTouchUpInside];
     [moreBut mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-10);
         make.top.equalTo(self).offset(7);
@@ -94,10 +93,11 @@
     
 }
 
-// 更多精选
-- (void)moreBut:(UIButton *)sender {
-    ZPLog(@"更多...");
-}
+//// 更多精选
+//- (void)moreBut:(UIButton *)sender {
+//
+//    ZPLog(@"更多...");
+//}
 
 #pragma mark <UICollectionViewDataSource>
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

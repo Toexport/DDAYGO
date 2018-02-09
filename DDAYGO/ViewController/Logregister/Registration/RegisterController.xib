@@ -51,9 +51,9 @@
                                 <constraint firstAttribute="height" constant="35" id="JT0-OR-olF"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="showBtn" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="showBtn" value="NO"/>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="secureTextEntry" value="YES"/>
-                                <userDefinedRuntimeAttribute type="string" keyPath="titleStr" value="請輸入大小寫數字組合的密碼"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="titleStr" value="請輸入大小寫字母與數字組合的密碼"/>
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0RT-tI-UKY" customClass="TextView">

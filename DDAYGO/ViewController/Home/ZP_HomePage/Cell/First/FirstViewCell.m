@@ -116,8 +116,6 @@
             imagesize.height = ZP_Width/4-30;
             imagesize.width = ZP_Width/4-30;
             imageView.image = image;
-//            [btn setTitle:name forState:UIControlStateNormal];
-//            [btn resizeWithDistance:10];
         });
     }];
 }
