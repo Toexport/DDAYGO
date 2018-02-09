@@ -275,11 +275,11 @@
 
 // 獲取暱稱
 - (void)MyViewData:(ZP_HomePageModel *) model {
-    if (model.nickname.length < 1) {
-        _NameLabel.text = @"暱稱";
-    }else {
+//    if (model.nickname.length < 1) {
+//        _NameLabel.text = @"暱稱";
+//    }else {
         _NameLabel.text = model.nickname;
-    }
+//    }
     _headImageBut.layer.cornerRadius = 42;
     _headImageBut.layer.masksToBounds = YES;
 }
