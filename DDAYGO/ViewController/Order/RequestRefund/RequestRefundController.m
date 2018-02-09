@@ -78,10 +78,12 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
             ZPICUEToken = nil;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
             [[SDImageCache sharedImageCache] clearDisk];
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
@@ -139,10 +141,12 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
             ZPICUEToken = nil;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
             [[SDImageCache sharedImageCache] clearDisk];
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
@@ -222,10 +226,12 @@
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
                 ZPICUEToken = nil;
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
                 [[SDImageCache sharedImageCache] clearDisk];
                 [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框

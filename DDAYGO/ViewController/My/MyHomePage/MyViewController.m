@@ -71,7 +71,7 @@
     [self allData];
     NSData * data  = [[NSUserDefaults standardUserDefaults] objectForKey:@"headerImage"];
     [self.headImageBut setImage:[UIImage imageWithData:data] forState:UIControlStateNormal];
-    [[NSUserDefaults standardUserDefaults] setObject: self.NameLabel.text forKey:@"NameLabel"];
+    self.NameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"NameLabel"];
     self.headImageBut.layer.cornerRadius = 42;
     self.headImageBut.layer.masksToBounds = YES;
     [self.headImageBut setUserInteractionEnabled: NO];
@@ -224,12 +224,13 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
 //            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
             ZPICUEToken = nil;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
-//            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
             [[SDImageCache sharedImageCache] clearDisk];
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
@@ -262,8 +263,7 @@
             [self MyViewData:model];
             NSData * data =  [NSData dataWithContentsOfURL:[NSURL URLWithString:model.avatarimg]];
             [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"headerImage"];
-            NSString * la = [[NSUserDefaults standardUserDefaults] objectForKey:@"NameLabel"]; // 這個是取
-            [[NSUserDefaults standardUserDefaults] setObject: la forKey:@"NameLabel"];
+            [[NSUserDefaults standardUserDefaults] setObject:model.nickname forKey:@"NameLabel"];
         }
     } failure:^(NSError * error) {
         _SdglLayoutConstraint.constant = CGFLOAT_MIN;
