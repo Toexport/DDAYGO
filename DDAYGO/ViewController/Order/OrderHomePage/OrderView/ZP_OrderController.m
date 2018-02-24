@@ -155,17 +155,17 @@
             [[SDImageCache sharedImageCache] clearDisk];
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:MyLocal(@"reminding") message:MyLocal(@"account exists") preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
                 UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(ZP_Width / 2, ZP_Width / 2- 50, 50, 15)];
                 [label setTextColor:ZP_TypefaceColor];
                 label.font = ZP_stockFont;
-                label.text = @"请登录";
+                label.text = MyLocal(@"Please log in");
                 [self.view addSubview:label];
             }];
             
-            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 
                 [self.navigationController popToRootViewControllerAnimated:NO];
                 //跳转
@@ -278,11 +278,11 @@
 // 删除订单协议
 - (void)DeleteOrderBut:(UIButton *)sender {
 #pragma make -- 提示框
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"確定要刪除嗎？",nil) preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:MyLocal(@"Prompt") message:MyLocal(@"Are you sure you want delete it?") preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"Cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         ZPLog(@"取消");
     }];
-    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         //        响应事件
         if (self.newsData.count == 0) {
             return;
@@ -296,7 +296,7 @@
 //
                 [self getDataWithState];
                 [self.newsData removeObjectAtIndex:sender.tag];
-                [SVProgressHUD showSuccessWithStatus:@"刪除成功"];
+                [SVProgressHUD showSuccessWithStatus:MyLocal(@"Delete success")];
                 if (self.newsData.count == 0) {
                     // 显示图
                     self.noDataView.hidden = NO;

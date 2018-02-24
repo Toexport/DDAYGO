@@ -29,7 +29,7 @@
 - (void)initUI {
     //  合计
     ZP_GeneralLabel * CountLabel = [ZP_GeneralLabel initWithtextLabel:_CountLabel.text textColor:ZP_textblack font:ZP_addBtnTextdetaFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    CountLabel.text = NSLocalizedString(@"合計:", nil);
+    CountLabel.text = [NSString stringWithFormat:@"%@:",MyLocal(@"Total")];
     [self.contentView addSubview:CountLabel];
     [CountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-165);
@@ -68,7 +68,7 @@
     //  左边按钮
     UIButton * AppraiseBut = [UIButton buttonWithType:UIButtonTypeSystem];
     AppraiseBut.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
-    [AppraiseBut setTitle:NSLocalizedString(@"評價", nil) forState:UIControlStateNormal];
+    [AppraiseBut setTitle:MyLocal(@"evaluation") forState:UIControlStateNormal];
     [AppraiseBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
     AppraiseBut.titleLabel.font = ZP_introduceFont;
 //    AppraiseBut.layer.borderWidth = 1;
@@ -101,7 +101,7 @@
     UIButton * OnceagainBut = [UIButton buttonWithType:UIButtonTypeSystem];
     OnceagainBut.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
     OnceagainBut.backgroundColor = ZP_OnceagainColor;
-    [OnceagainBut setTitle:NSLocalizedString(@"再次購買", nil) forState:UIControlStateNormal];
+    [OnceagainBut setTitle:MyLocal(@"Buy again") forState:UIControlStateNormal];
     [OnceagainBut setTitleColor:ZP_textWite forState:UIControlStateNormal];
     OnceagainBut.titleLabel.font = ZP_introduceFont;
 //    OnceagainBut.layer.borderWidth = 1;
@@ -147,14 +147,14 @@
             break;
             
         case 3:
-            [_OnceagainBut setTitle:@"確認收貨" forState:UIControlStateNormal];
-            [_AppraiseBut setTitle:@"退换货" forState:UIControlStateNormal];
+            [_OnceagainBut setTitle:MyLocal(@"Confirmation of receipt") forState:UIControlStateNormal];
+            [_AppraiseBut setTitle:MyLocal(@"Exchange of goods") forState:UIControlStateNormal];
             //            NSLog(@"Stata = %D",a);
             _OnceagainBut.userInteractionEnabled = YES;
             //            ZPLog(@"Stata = %D",a);
             break;
         case 4:
-            [_OnceagainBut setTitle:@"評價" forState:UIControlStateNormal];
+            [_OnceagainBut setTitle:MyLocal(@"evaluation") forState:UIControlStateNormal];
             _OnceagainBut.backgroundColor = nil;
             [self.OnceagainBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
             //            [_AppraiseBut setTitle:@"评价" forState:UIControlStateNormal];
@@ -175,7 +175,7 @@
             //            ZPLog(@"Stata = %D",a);
             break;
         case 6:
-            [_OnceagainBut setTitle:@"查看详情" forState:UIControlStateNormal];
+            [_OnceagainBut setTitle:@"查看詳情" forState:UIControlStateNormal];
             _OnceagainBut.hidden = NO;
             _AppraiseBut.hidden = YES;
             //            ZPLog(@"Stata = %D",a);
@@ -183,7 +183,7 @@
         case 7:
             _OnceagainBut.backgroundColor = nil;
             [self.OnceagainBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
-            [_OnceagainBut setTitle:@"查看详情" forState:UIControlStateNormal];
+            [_OnceagainBut setTitle:@"查看詳情" forState:UIControlStateNormal];
             _OnceagainBut.hidden = NO;
             _AppraiseBut.hidden = YES;
             ZPLog(@"Stata = %D",a);
@@ -307,7 +307,7 @@
     dicc[@"oid"] = self.model.ordersnumber;
     [ZP_OrderTool requestConfirmreceipt:dicc success:^(id obj) {
         if ([obj[@"result"] isEqualToString:@"ok"]) {
-            [SVProgressHUD showSuccessWithStatus:@"確認收貨成功!"];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Confirm the success of the receipt")];
             AppraiseController * appistcss = [[AppraiseController alloc]init];
             appistcss.ordersnumber = self.model.ordersnumber; // 传过去的数据(订单号)
             appistcss.productid = self.model.productid; // 传过去的数据(商品ID)
@@ -319,7 +319,7 @@
             [[NSNotificationCenter defaultCenter]postNotificationName:@"appraises" object:nil];
         }
         if ([obj[@"result"] isEqualToString:@"failure"]) {
-            [SVProgressHUD showInfoWithStatus:@"確認收貨失敗,請稍後再試"];
+            [SVProgressHUD showInfoWithStatus:MyLocal(@"Confirm the failed of the receipt")];
         }
         ZPLog(@"%@",obj);
     } failure:^(NSError * error) {

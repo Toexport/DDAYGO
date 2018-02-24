@@ -27,7 +27,7 @@
     MessageLabel.textAlignment = NSTextAlignmentLeft;
     MessageLabel.textColor = ZP_textblack;
     MessageLabel.font = ZP_titleFont;
-    MessageLabel.text = NSLocalizedString(@"買家留言:", nil);
+    MessageLabel.text = MyLocal(@"Buyer message:");
     [self.contentView addSubview:MessageLabel];
     [MessageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(5);
@@ -41,7 +41,7 @@
     MessagetextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
     MessagetextField.textColor = ZP_TabBarTextColor;
     MessagetextField.font = ZP_titleFont;
-    MessagetextField.placeholder = NSLocalizedString(@"對其事項說明...", nil);
+    MessagetextField.placeholder = MyLocal(@"Description matter...");
     [self.contentView addSubview:MessagetextField];
     [MessagetextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(70);
@@ -79,7 +79,7 @@
     SmallLabel.textAlignment = NSTextAlignmentLeft;
     SmallLabel.textColor = ZP_textblack;
     SmallLabel.font = ZP_titleFont;
-    SmallLabel.text = NSLocalizedString(@"小計:", nil);
+    SmallLabel.text = MyLocal(@"Subtotal:");
     [self.contentView addSubview:SmallLabel];
     [SmallLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(TotalLabel).offset(80);
@@ -116,7 +116,7 @@
 
 - (void)MessageDic:(ZP_InformationModel *)model {
 
-    _TotalLabel.text = [NSString stringWithFormat:@"共计%@件商品",_allCount];
+    _TotalLabel.text = [NSString stringWithFormat:MyLocal(@"Total%@a goods"),_allCount];
     _ComputationsLabel.text = [NSString stringWithFormat:@"NT %@", _allMoney];
 }
 @end

@@ -71,7 +71,7 @@
 
 // UI
 -(void)addUI {
-    NSArray * allTitle = @[NSLocalizedString(@"店鋪首頁", nil),NSLocalizedString(@"最新", nil),NSLocalizedString(@"好評", nil),NSLocalizedString(@"價格", nil)];
+    NSArray * allTitle = @[MyLocal(@"the front page of the shop"),MyLocal(@"Latest"),MyLocal(@"praise"),MyLocal(@"Price")];
     UIImageView * imageview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 150)];
     _imageview = imageview;
     imageview.backgroundColor = [UIColor whiteColor];

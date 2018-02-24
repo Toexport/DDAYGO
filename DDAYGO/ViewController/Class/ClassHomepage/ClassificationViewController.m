@@ -36,7 +36,7 @@
 }
 
 - (void)initUI {
-    self.title = NSLocalizedString(@"分類", nil);
+    self.title = NSLocalizedString(@"Class", nil);
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.rightData = [NSMutableDictionary dictionary];

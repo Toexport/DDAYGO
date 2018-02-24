@@ -75,7 +75,7 @@
     self.chooseCityBtn.frame = CGRectMake(0, 0, 30.0f, 25.0f);
     self.chooseCityBtn.titleLabel.font = ZP_TooBarFont;
     [self.chooseCityBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.chooseCityBtn setTitle:NSLocalizedString(@"臺灣", nil) forState:UIControlStateNormal];
+    [self.chooseCityBtn setTitle:NSLocalizedString(@"Taiwan", nil) forState:UIControlStateNormal];
     [self.chooseCityBtn setImage:[UIImage imageNamed:@"ic_home_down"] forState:(UIControlStateNormal)];
     [self.chooseCityBtn sizeToFit];
     self.chooseCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -404,7 +404,7 @@
     //type：0 所有精选 1 所有热销 2 闪购
     CPerViewController * CVPView = [[CPerViewController alloc]init];
     CVPView.type = 10;  //由于type默认为0，所以从首页跳进去的，type一律加10作为区分
-    CVPView.titleString = NSLocalizedString(@"所有精選", nil);
+    CVPView.titleString = NSLocalizedString(@"all selection", nil);
     [self.navigationController pushViewController:CVPView animated:YES];
 }
 

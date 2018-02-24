@@ -80,15 +80,15 @@
         case 0:
             break;
         case 1:
-            _TradingLabel.text = @"待付款";
+            _TradingLabel.text = MyLocal(@"Waiting payment");
             _DeleteBut.hidden = NO;
             break;
         case 2:
-            _TradingLabel.text = @"待發貨";
+            _TradingLabel.text = MyLocal(@"Wait delivery");
             _DeleteBut.hidden = YES;
             break;
         case 3:
-            _TradingLabel.text = @"待收貨";
+            _TradingLabel.text = MyLocal(@"Waiting goods");
             _DeleteBut.hidden = YES;
             break;
         case 4:
@@ -100,11 +100,11 @@
             _DeleteBut.hidden = NO;
             break;
         case 6:
-            _TradingLabel.text = @"退款/售后";
+            _TradingLabel.text = MyLocal(@"Refund / after sale");
             _DeleteBut.hidden = YES;
             break;
         case 7:
-            _TradingLabel.text = @"换货中";
+            _TradingLabel.text = MyLocal(@"In exchange");
             _DeleteBut.hidden = YES;
             break;
         default:

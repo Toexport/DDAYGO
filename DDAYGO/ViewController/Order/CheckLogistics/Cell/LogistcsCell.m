@@ -46,7 +46,7 @@
     UILabel * OrderLabel = [UILabel new];
     OrderLabel.textAlignment = NSTextAlignmentLeft;
     OrderLabel.textColor = ZP_textblack;
-    OrderLabel.text = NSLocalizedString(@"物流状态", nil) ;
+    OrderLabel.text = MyLocal(@"Logistics state");
     OrderLabel.font = ZP_addBtnTextdetaFont;
     [self.contentView addSubview:OrderLabel];
     [OrderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -96,7 +96,7 @@
     UILabel * TransportIDLabel = [UILabel new];
     TransportIDLabel.textAlignment = NSTextAlignmentLeft;
     TransportIDLabel.textColor = ZP_textblack;
-    TransportIDLabel.text = NSLocalizedString(@"运单编号:", nil);
+    TransportIDLabel.text = MyLocal(@"waybill number");
     TransportIDLabel.font = ZP_TooBarFont;
     [self.contentView addSubview:TransportIDLabel];
     [TransportIDLabel mas_makeConstraints:^(MASConstraintMaker *make) {

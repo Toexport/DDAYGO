@@ -26,9 +26,11 @@
 "Search" = "搜索";
 "Searching for..." = "正在搜索...";
 "Please enter the product you are looking for" = "请输入您要寻找的产品";
-"" = "";
-"" = "";
-"" = "";
+"all selection" = "所有精选";
+"Service phone" = "服务电话:";
+"Praise rate" = "好评度:";
+"Release comments" = "发布评论";
+"Release" = "发布";
 "" = "";
 "" = "";
 "" = "";
@@ -43,6 +45,8 @@
 /* *
  * 分类
  * */
+"the front page of the shop" = "店铺首页";
+"praise" = "好评";
 "Class" = "分类";
 "Acquiescence" = "默认";
 "Sales Volume" = "销量";
@@ -63,6 +67,7 @@
 "Commodity type" = "商品类型";
 "Goods details" = "商品详情";
 "Collect success!" = "收藏成功!";
+"share placeholder" = "来说说你对产品的体验，分享给想买的小伙伴";
 "Already collected" = "已收藏";
 "Operation failure" = "操作失败";
 "Cancel success" = "取消成功";
@@ -85,6 +90,8 @@
 /* *
  * 购物车
  * */
+"purchase immediately" = "立即购买"
+"add shopping" = "加入购物车";
 "Shopping" = "购物车";
 "Edit" = "编辑";
 //"omplete" = "完成";
@@ -106,11 +113,14 @@
 "Shipping address" = "收货地址:";
 "Distribution mode:" = "配送方式:";
 "Courier:" = "快递:";
+"Consignee:" = "收货人:";
 "Buyer message:" = "买家留言:";
 "Description matter..." = "对其事项说明...";
 "Subtotal:" = "小计:";
 "Total%@a goods" = "共计%@件商品";
-"" = "";
+"Anonymous purchase" = "匿名购买";
+"Payment is being made" = "正在付款";
+"Are you sure you want to quit" = "确定要退出吗?";
 "" = "";
 /*****************/
 /* *
@@ -122,6 +132,16 @@
 "Wait delivery" = "待发货";
 "Waiting goods" = "待收货";
 "evaluation" = "评价";
+"Refund / after sale" = "退款/售后";
+"In exchange" = "换货中";
+"Exchange goods" = "换货";
+"Buy again" = "再次购买";
+"Confirmation of receipt" = "确认收货";
+"Confirm the success of the receipt" = "确认收货成功!";
+"Confirm the failed of the receipt" = "确认收货失败,请稍后再试";
+"Exchange of goods" = "退换货";
+"Logistics state" = "物流状态";
+"waybill number" = "运单编号:";
 /*****************/
 /* *
  * 我的
@@ -143,6 +163,8 @@
 "Are you sure you want to log out?" = "您确定要登出吗？";
 "ok" = "确定";
 "cancel" = "取消";
+"choose the reason" = "请选择原因";
+"enter the detailed reasons" = "请输入详细原因";
 "collect" = "收藏";
 "Tracking the shop" = "关注的商店";
 "store management" = "商店管理";
@@ -153,10 +175,14 @@
 "Privacy policy" = "隐私政策";
 "terms service" = "服务条款";
 "exchange process" = "退换货流程";
+"Choice of payment method" = "選擇支付方式";
+"Immediate payment" = "立即支付";
+"account exists" = "您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码";
 /* *
  * 登录注册
  * */
 "Login" = "登录";
+"Please log in" = "请登录";
 "" = "";
 "" = "";
 "" = "";

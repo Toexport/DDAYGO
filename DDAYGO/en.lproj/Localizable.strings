@@ -25,9 +25,16 @@
 "Temporarily no data" = "Temporarily no data";
 "Search" = "Search";
 "Searching for..." = "Searching for...";
-"" = "";
-"" = "";
-"" = "";
+"all selection" = "All selection";
+"Service phone" = "Service phone:";
+"Praise rate" = "Praise rate:";
+"Consignee:" = "Consignee:";
+"Anonymous purchase" = "Anonymous purchase";
+"Payment is being made" = "Payment is being made";
+"Are you sure you want to quit" = "Are you sure you want to quit?";
+"Choice of payment method" = "Choice of payment method";
+"Immediate payment" = "mmediate payment";
+"account exists" = "Your account has been landed in other places, and you have been forced to go down. If you don't log in, please change the password as soon as possible.";
 "" = "";
 "" = "";
 "" = "";
@@ -41,6 +48,8 @@
  * 分类
  * */
 //"" = "";
+"the front page of the shop" = "The front page of the shop";
+"praise" = "Praise";
 "Class" = "Class";
 "Acquiescence" = "Acquiescence";
 "Sales Volume" = "Sales Volume";
@@ -80,6 +89,8 @@
  * 购物车
  * */
 //"" = "";
+"purchase immediately" = "Purchase immediately"
+"add shopping" = "Add shopping";
 "Shopping" = "Shopping";
 "Edit" = "Edit";
 "Select" = "Select";
@@ -168,6 +179,7 @@
  * 登录注册
  * */
 "Login" = "Login";
+"Please log in" = "Please log in";
 "" = "";
 "" = "";
 "" = "";
@@ -187,6 +199,21 @@
 "Determine" = "Determine";
 "Delete success" = "Delete success";
 "Delete failed" = "Delete failed";
+"Refund / after sale" = "Refund / after sale";
+"In exchange" = "In exchange";
+"Buy again" = "Buy again";
+"Confirmation of receipt" = "Confirmation of receipt";
+"Exchange of goods" = "Exchange of goods";
+"Confirm the success of the receipt" = "Confirm the success of the receipt!";
+"Confirm the failed of the receipt" = "Confirm the failed of the receipt";
+"Logistics state" = "Logistics state";
+"waybill number" = "Waybill number:";
+"Exchange goods" = "Exchange goods";
+"choose the reason" = "Please choose the reason";
+"enter the detailed reasons" = "Please enter the detailed reasons";
+"Release comments" = "Release comments";
+"Release" = "Release";
+"share placeholder" = "Say how you experience the product and share the little partner you want to buy";
 "" = "";
 "" = "";
 "" = "";

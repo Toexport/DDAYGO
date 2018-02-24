@@ -50,7 +50,7 @@
     RegionLabel.textAlignment = NSTextAlignmentLeft;
     RegionLabel.textColor = ZP_TypefaceColor;
     RegionLabel.font = ZP_TooBarFont;
-    RegionLabel.text = NSLocalizedString(@"所在地:", nil);
+    RegionLabel.text = [NSString stringWithFormat:@"%@:",MyLocal(@"Position")];
     [self.contentView addSubview:RegionLabel];
     [RegionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(15);
@@ -74,7 +74,7 @@
     ServicetelephoneLabel.textAlignment = NSTextAlignmentLeft;
     ServicetelephoneLabel.textColor = ZP_TypefaceColor;
     ServicetelephoneLabel.font = ZP_TooBarFont;
-    ServicetelephoneLabel.text = NSLocalizedString(@"服务电话:", nil);
+    ServicetelephoneLabel.text = MyLocal(@"Service phone");
     [self.contentView addSubview:ServicetelephoneLabel];
     [ServicetelephoneLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(15);
@@ -201,15 +201,15 @@
     _AddressLabel.text = [NSString stringWithFormat:@"%@",dic[@"countrycode"]];
     switch ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue]) {
         case 886:
-            self.AddressLabel.text = @"臺灣";
+            self.AddressLabel.text = MyLocal(@"Taiwan");
             break;
             
         case 86:
-            self.AddressLabel.text = @"中国";
+            self.AddressLabel.text = MyLocal(@"China");
             break;
             
         case 852:
-            self.AddressLabel.text = @"香港";
+            self.AddressLabel.text = MyLocal(@"HongKong");
             break;
         default:
             break;

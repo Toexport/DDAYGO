@@ -182,12 +182,12 @@
     if (dic.colorname.length < 1) {
         _descLabel.hidden = YES;
     }else {
-        _descLabel.text = [NSString stringWithFormat:@"顏色:%@,",dic.colorname];
+        _descLabel.text = [NSString stringWithFormat:MyLocal(@"color:%@,"),dic.colorname];
     }
     if (dic.normname.length < 1) {
         _SizeLabel.hidden = YES;
     }else {
-        _SizeLabel.text = [NSString stringWithFormat:@"尺碼:%@",dic.normname];
+        _SizeLabel.text = [NSString stringWithFormat:MyLocal(@"size:%@"),dic.normname];
     }
     _PreferentialLabel.text = [NSString stringWithFormat:@"%@",dic.price];
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];

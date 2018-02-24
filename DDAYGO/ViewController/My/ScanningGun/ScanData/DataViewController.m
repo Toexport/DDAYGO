@@ -32,15 +32,15 @@
 }
 
 - (void)backAction {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"确定要退出吗?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:MyLocal(@"Are you sure you want to quit") preferredStyle:UIAlertControllerStyleAlert];
     NSArray *array = [self.navigationController viewControllers];
     UIViewController *viewController = array.firstObject;
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alert addAction:[UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self.navigationController popToRootViewControllerAnimated:NO];
         [SVProgressHUD dismiss];
         viewController.tabBarController.selectedIndex = 3;
     }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [alert addAction:[UIAlertAction actionWithTitle:MyLocal(@"cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }]];
     [self presentViewController:alert animated:YES completion:nil];
 }

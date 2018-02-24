@@ -76,7 +76,7 @@
     UILabel * titleLabel = [UILabel new];
     titleLabel.textColor = [UIColor blackColor];
     titleLabel.textColor = ZP_textblack;
-    titleLabel.text = @"選擇支付方式";
+    titleLabel.text = MyLocal(@"Choice of payment method");
     titleLabel.numberOfLines = 0;
     titleLabel.font = ZP_addBtnTextdetaFont;
     [bounceView addSubview:titleLabel];
@@ -122,7 +122,7 @@
     Paybut.layer.borderColor = [UIColor clearColor].CGColor;
     Paybut.backgroundColor = ZP_PayColor;
     Paybut.layer.cornerRadius = 5.0;// 圆角弧度
-    [Paybut setTitle:NSLocalizedString(@"立即支付", nil) forState:UIControlStateNormal];
+    [Paybut setTitle:MyLocal(@"Immediate payment") forState:UIControlStateNormal];
     [Paybut addTarget:self action:@selector(paybut:) forControlEvents:UIControlEventTouchUpInside];
     [bounceView addSubview:Paybut];
     [Paybut mas_makeConstraints:^(MASConstraintMaker *make) {

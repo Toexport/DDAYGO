@@ -26,9 +26,9 @@
 "Search" = "搜索";
 "Searching for..." = "正在搜索...";
 "Please enter the product you are looking for" = "請輸入你要寻找的商品";
-"" = "";
-"" = "";
-"" = "";
+"all selection" = "所有精選";
+"Service phone" = "服務電話:";
+"Praise rate" = "好評度:";
 "" = "";
 "" = "";
 "" = "";
@@ -42,6 +42,8 @@
 /* *
  * 分类
  * */
+"the front page of the shop" = "店鋪首頁";
+"praise" = "好評";
 "Class" = "分類";
 "Acquiescence" = "默認";
 "Sales Volume" = "銷量";
@@ -82,6 +84,8 @@
 /* *
  * 购物车
  * */
+"purchase immediately" = "立即購買"
+"add shopping" = "加入購物車";
 "Shopping" = "購物車";
 "Edit" = "編輯";
 "Select" = "全選";
@@ -102,10 +106,16 @@
 "Shipping address:" = "收貨地址:";
 "Distribution mode:" = "配送方式";
 "Courier:" = "快遞:";
+"Consignee:" = "收貨人:";
 "Buyer message:" = "買家留言:";
 "Description matter..." = "對其事項說明...";
 "Subtotal:" = "小計:";
 "Total%@a goods" = "共計%@件商品";
+"Anonymous purchase" = "匿名購買";
+"Payment is being made" = "正在付款";
+"Are you sure you want to quit" = "確定要退出嗎?";
+"Choice of payment method" = "選擇支付方式";
+"Immediate payment" = "mmediate payment";
 "" = "";
 "" = "";
 "" = "";
@@ -125,6 +135,21 @@
 "Wait delivery" = "待發貨";
 "Waiting goods" = "待收貨";
 "evaluation" = "評價";
+"Refund / after sale" = "退款/售後";
+"choose the reason" = "請選擇原因";
+"enter the detailed reasons" = "請輸入詳細原因";
+"In exchange" = "換貨中";
+"Exchange goods" = "換貨";
+"Buy again" = "再次購買";
+"Confirmation of receipt" = "確認收貨";
+"Confirm the success of the receipt" = "確認收貨成功!";
+"Confirm the failed of the receipt" = "確認收貨失敗,請稍後再試";
+"Exchange of goods" = "退換貨";
+"Logistics state" = "物流狀態";
+"waybill number" = "運單編號:";
+"Release comments" = "發佈評論";
+"Release" = "發佈";
+"share placeholder" = "來說說你對產品的體驗，分享給想買的小夥伴";
 /*****************/
 /* *
  * 我的
@@ -154,10 +179,12 @@
 "Privacy policy" = "隱私政策";
 "terms service" = "服務條款";
 "exchange process" = "退換貨流程";
+"account exists" = "您的帳號已在其他地方登入，您已被迫下線，如果非本人登入請儘快修改密碼";
 /* *
  * 登录注册
  * */
 "Login" = "登錄";
+"Please log in" = "请登錄";
 "" = "";
 "" = "";
 "" = "";

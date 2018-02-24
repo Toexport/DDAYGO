@@ -69,7 +69,7 @@
     UILabel * titleLabel = [UILabel new];
     titleLabel.textColor = [UIColor blackColor];
     titleLabel.textColor = ZP_textblack;
-    titleLabel.text = NSLocalizedString(@"选择原因", nil);
+    titleLabel.text = MyLocal(@"choose the reason");
     titleLabel.numberOfLines = 0;
     titleLabel.font = ZP_addBtnTextdetaFont;
     [bounceView addSubview:titleLabel];

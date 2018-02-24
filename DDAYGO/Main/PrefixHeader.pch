@@ -61,7 +61,7 @@
 //
 //#endif
 
-#else
+//#else
 
 //正式发布
 #ifdef zhengShiFaBu
@@ -133,7 +133,8 @@
 #define ZP_MessageListColor [UIColor colorWithHexString:@"#f9f9f9"]
 #define ZP_VIEWSegmentation [UIColor colorWithHexString:@"#e6e5e6"]
 
-
+//国际化
+#define MyLocal(x, ...) NSLocalizedString(x, nil)
 // 字体
 #define ZP_AmountTextFont [UIFont myFontOfSize:24]
 #define ZP_NavTextFont [UIFont myFontOfSize:18]

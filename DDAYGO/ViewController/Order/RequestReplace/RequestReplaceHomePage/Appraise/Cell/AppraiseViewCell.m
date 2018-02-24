@@ -66,7 +66,7 @@
     Evaluationtext.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
     Evaluationtext.textColor = ZP_TypefaceColor;
     Evaluationtext.font = ZP_titleFont;
-    Evaluationtext.placeholder = NSLocalizedString(@"來說說你對產品的體驗，分享給想買的小夥伴", nil);
+    Evaluationtext.placeholder = MyLocal(@"share placeholder");
     Evaluationtext.delegate = self;
     [self.contentView addSubview:Evaluationtext];
     [Evaluationtext mas_makeConstraints:^(MASConstraintMaker *make) {

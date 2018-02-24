@@ -77,7 +77,7 @@
 }
 
 - (void)initView {
-    _titleArray =  @[NSLocalizedString(@"默認", nil),NSLocalizedString(@"銷量", nil),NSLocalizedString(@"最新", nil),NSLocalizedString(@"價格", nil)];
+    _titleArray =  @[NSLocalizedString(@"Acquiescence", nil),NSLocalizedString(@"Sales Volume", nil),NSLocalizedString(@"Latest", nil),NSLocalizedString(@"Price", nil)];
     for (NSInteger i = 0; i<_titleArray.count; i++) {
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(i*(ZP_Width/4), 0, ZP_Width/4, 34);

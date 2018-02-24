@@ -25,7 +25,7 @@
     DistributionLabel.textAlignment = NSTextAlignmentLeft;
     DistributionLabel.textColor = ZP_textblack;
     DistributionLabel.font = ZP_titleFont;
-    DistributionLabel.text = NSLocalizedString(@"配送方式: ", nil);
+    DistributionLabel.text = MyLocal(@"Distribution mode:");
     [self.contentView addSubview:DistributionLabel];
     [DistributionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(5);
@@ -39,7 +39,7 @@
     CourierLabel.textAlignment = NSTextAlignmentLeft;
     CourierLabel.textColor = ZP_textblack;
     CourierLabel.font = ZP_titleFont;
-    CourierLabel.text = NSLocalizedString(@"快遞: ", nil);
+    CourierLabel.text = MyLocal(@"Courier:");
     [self.contentView addSubview:CourierLabel];
     [CourierLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-55);

@@ -125,7 +125,7 @@
     [addBtn setBackgroundColor:[UIColor colorWithRed:245/255.0f green:143/255.0f blue:43/255.0f alpha:1]];
     [addBtn setTitleColor:[UIColor whiteColor] forState:0];
     addBtn.titleLabel.font = ZP_addBtnTextdetaFont;
-    [addBtn setTitle:NSLocalizedString(@"加入購物車", nil) forState:0];
+    [addBtn setTitle:MyLocal(@"add shopping") forState:0];
     [whiteView addSubview:addBtn];
     
 //   立即购买按钮
@@ -139,7 +139,7 @@
     [buyBtn setBackgroundColor:ZP_BuyColor];
     [buyBtn setTitleColor:[UIColor whiteColor] forState:0];
     buyBtn.titleLabel.font = ZP_addBtnTextdetaFont;
-    [buyBtn setTitle:NSLocalizedString(@"立即購買", nil) forState:0];
+    [buyBtn setTitle:MyLocal(@"purchase immediately") forState:0];
     [whiteView addSubview:buyBtn];
     
 //   库存不足按钮
@@ -148,7 +148,7 @@
     [stockBtn setBackgroundColor:[UIColor lightGrayColor]];
     [stockBtn setTitleColor:[UIColor blackColor] forState:0];
     stockBtn.titleLabel.font = ZP_addBtnTextdetaFont;
-    [stockBtn setTitle:NSLocalizedString(@"庫存不足", nil) forState:0];
+    [stockBtn setTitle:MyLocal(@"Insufficient inventory") forState:0];
     [whiteView addSubview:stockBtn];
 //   默认隐藏
     stockBtn.hidden = YES;

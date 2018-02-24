@@ -26,11 +26,11 @@
     [super viewDidLoad];
     [self initUI];
     if (self.type == 555) {
-        self.title = NSLocalizedString(@"换货", nil);
+        self.title = MyLocal(@"Exchange goods");
         _view4.hidden = NO;
     }else
     if (self.type == 666) {
-        self.title = NSLocalizedString(@"换货", nil);
+        self.title = MyLocal(@"Exchange goods");
         _view4.hidden = NO;
     }else {
         self.title = NSLocalizedString(@"退款", nil);
@@ -87,11 +87,11 @@
             [[SDImageCache sharedImageCache] clearDisk];
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:MyLocal(@"reminding") message:MyLocal(@"account exists") preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
             }];
-            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 [self.navigationController popToRootViewControllerAnimated:NO];
                 //跳转
                 if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
@@ -150,11 +150,11 @@
             [[SDImageCache sharedImageCache] clearDisk];
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:MyLocal(@"reminding") message:MyLocal(@"account exists") preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
             }];
-            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 [self.navigationController popToRootViewControllerAnimated:NO];
                 //跳转
                 if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
@@ -181,11 +181,11 @@
 - (IBAction)TijiaoBut:(id)sender {
     
     if (_showLabel.text.length < 1) {
-        [SVProgressHUD showInfoWithStatus:@"请选择原因"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"choose the reason")];
         return;
     }
     if (_MessageLabel.text.length < 1) {
-        [SVProgressHUD showInfoWithStatus:@"请输入详细原因"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"enter the detailed reasons")];
         return;
     }
     [self addrefund];
@@ -235,11 +235,11 @@
                 [[SDImageCache sharedImageCache] clearDisk];
                 [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
-                UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                UIAlertController* alert = [UIAlertController alertControllerWithTitle:MyLocal(@"reminding") message:MyLocal(@"account exists") preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                     ZPLog(@"取消");
                 }];
-                UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                     [self.navigationController popToRootViewControllerAnimated:NO];
                     //跳转
                     if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {

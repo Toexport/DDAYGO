@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"發佈評論", nil);
+    self.title = MyLocal(@"Release comments");
      [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"ic_bar_return"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
     [self initUI];
@@ -40,17 +40,17 @@
 
 // 返回按钮
 - (void)backAction {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"确定要退出吗?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:MyLocal(@"Are you sure you want to quit") preferredStyle:UIAlertControllerStyleAlert];
     NSArray *array = [self.navigationController viewControllers];
     UIViewController *viewController = array.firstObject;
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alert addAction:[UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 //        [self.navigationController popToRootViewControllerAnimated:NO];
 //        viewController.tabBarController.selectedIndex = 3;
 //        viewController.popoverPresentationController = YES;
         [viewController.navigationController popViewControllerAnimated:YES];
     }]];
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [alert addAction:[UIAlertAction actionWithTitle:MyLocal(@"cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }]];
     
@@ -77,7 +77,7 @@
     UIButton *cartButton = [UIButton buttonWithType:UIButtonTypeCustom];
     cartButton.frame = CGRectMake(0.0f, 0.0f, kButtonWidth, kButtonHeight);
     cartButton.backgroundColor = [UIColor clearColor];
-    [cartButton setTitle:NSLocalizedString(@"发布", nil) forState:UIControlStateNormal];
+    [cartButton setTitle:MyLocal(@"Release") forState:UIControlStateNormal];
     cartButton.titleLabel.font = ZP_TooBarFont;
     [cartButton addTarget:self action:@selector(cartButton) forControlEvents:UIControlEventTouchUpInside];
     cartButton.imageEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
@@ -101,19 +101,19 @@
 //    ZPLog(@"%@",_jpstr);
     dic[@"token"] = Token;
     if (_score1 < 1) {
-        [SVProgressHUD showInfoWithStatus:@"請填寫您的評價"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Is no comment")];
         return;
     }
     if (_pjstr.length < 1) {
-        [SVProgressHUD showInfoWithStatus:@"請填寫您的評價"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Is no comment")];
         return;
     }
     if (_Score2 < 1) {
-        [SVProgressHUD showInfoWithStatus:@"請填寫您的評價"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Is no comment")];
         return;
     }
     if (_jpstr.length < 1) {
-        [SVProgressHUD showInfoWithStatus:@"請填寫您的評價"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Is no comment")];
         return;
     }
     [ZP_OrderTool requestAppraise:dic success:^(id obj) {

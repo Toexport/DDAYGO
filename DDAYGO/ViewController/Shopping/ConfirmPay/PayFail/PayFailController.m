@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"支付失败";
+    self.title = @"支付失敗";
     // Do any additional setup after loading the view from its nib.
 }
 

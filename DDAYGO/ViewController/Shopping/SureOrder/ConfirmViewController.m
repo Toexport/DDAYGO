@@ -146,7 +146,7 @@
     
 //    合计
     ZP_GeneralLabel * StatisticsLabel = [ZP_GeneralLabel initWithtextLabel:_StatisticsLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    StatisticsLabel.text = @"合計";
+    StatisticsLabel.text = MyLocal(@"Total");
     [bottomView addSubview:StatisticsLabel];
     [StatisticsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(CurrencySymbolLabel).offset(- 30); // 右
@@ -157,7 +157,7 @@
 //    提交订单
     UIButton * Clearing = [UIButton new];
     Clearing.backgroundColor = ZP_pricebackground;
-    [Clearing setTitle:NSLocalizedString(@"提交訂單", nil) forState:UIControlStateNormal];
+    [Clearing setTitle:MyLocal(@"Submit orders") forState:UIControlStateNormal];
     Clearing.titleLabel.font = ZP_TooBarFont;
     [Clearing addTarget:self action:@selector(ClearingBut:) forControlEvents:UIControlEventTouchUpInside];
     [bottomView addSubview:Clearing];
@@ -172,7 +172,7 @@
 
 //       货币符号
     ZP_GeneralLabel * HintLanguageLabel = [ZP_GeneralLabel initWithtextLabel:_HintLanguageLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    HintLanguageLabel.text = @"（含運費）";
+    HintLanguageLabel.text = MyLocal( @"(Contains freight)");
     [bottomView addSubview:HintLanguageLabel];
     [HintLanguageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(Clearing).offset( -50 - 60);
@@ -196,7 +196,7 @@
 // 提交订单
 - (void)ClearingBut:(UIButton *)sender {
     if (_dataArrar.count == 0) {
-        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"請添加地址", nil)];
+        [SVProgressHUD showErrorWithStatus:MyLocal(@"Please add address")];
         AddAddressViewController *viewController = [[AddAddressViewController alloc] init];
         [self.navigationController pushViewController:viewController animated:YES];
         viewController.contentDic = @{@"asd":@(YES)};
@@ -290,7 +290,7 @@
         NSArray * modelArr = [ZP_ComfirmModel arrayWithArray:dic[@"receipts"]];
         NSMutableArray *dataarr = [NSMutableArray array];
         if (modelArr.count == 0) {
-            [SVProgressHUD showErrorWithStatus:@"請添加地址"];
+            [SVProgressHUD showErrorWithStatus:MyLocal(@"Please add address")];
             AddAddressViewController * viewController = [[AddAddressViewController alloc] init];
             [self.navigationController pushViewController:viewController animated:YES];
             viewController.contentDic = @{@"asd":@(YES)};
@@ -405,7 +405,7 @@
         ZPLog(@"%@",obj);
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Server link failed")];
     }];
 }
 
