@@ -30,7 +30,7 @@
     }else
         if (self.type == 222) {
             NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/item/protocol"]];
-            self.title = NSLocalizedString(@"服務條款", nil);
+            self.title = MyLocal(@"terms service");
             [self.view addSubview: webView];
             [webView loadRequest:request];
         }else

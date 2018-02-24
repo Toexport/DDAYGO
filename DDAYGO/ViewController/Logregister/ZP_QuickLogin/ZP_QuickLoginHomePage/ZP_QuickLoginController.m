@@ -204,7 +204,7 @@
             }
         }
     } failure:^(NSError * error) {
-        [SVProgressHUD showInfoWithStatus:@"網路連接失敗"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Server link failed")];
     }];
 }
 
@@ -224,12 +224,12 @@
         position.ThirdBlock = ^(NSString *ContStr,NSNumber *code) {
             CountCode = code;
 #pragma make -- 提示框
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"地區一旦設置成功將無法更改！",nil) preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"地區一旦設置成功將無法更改！",nil) preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
             }];
-            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 // 接口55
                 [self ForFirstTimeLogin];
             }];
@@ -242,7 +242,7 @@
         [position showInView:self.navigationController.view];
     } failure:^(NSError *error) {
         _LoginBtn.userInteractionEnabled = YES;
-        [SVProgressHUD showInfoWithStatus:@"網路連接失敗"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Server link failed")];
     }];
 }
 
@@ -277,7 +277,7 @@
 #pragma mark - 用戶服务協議
 - (IBAction)yonghufuwuxieyi:(id)sender {
     RegistrationAgreementController * RegistrationAgreement = [[RegistrationAgreementController alloc]init];
-    RegistrationAgreement.title = @"服務條款";
+    RegistrationAgreement.title = MyLocal(@"terms service");
     RegistrationAgreement.type = 222;
     [self.navigationController pushViewController:RegistrationAgreement animated:YES];
     ZPLog(@"用户服务协议 ");

@@ -53,7 +53,7 @@
         ZPLog(@"%@",responseObject);
     } failure:^(NSError *error) {
         //        ZPLog(@"%@",error);
-        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Server link failed")];
         
     }];
 }

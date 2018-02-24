@@ -253,7 +253,7 @@
                 }
         } failure:^(NSError *error) {
             //            ZPLog(@"%@",error);
-            [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
+            [SVProgressHUD showInfoWithStatus:MyLocal(@"Server link failed")];
         }];
     }
 }

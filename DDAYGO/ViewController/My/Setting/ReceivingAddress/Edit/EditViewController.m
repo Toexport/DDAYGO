@@ -40,15 +40,15 @@
     self.RegionLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
     switch ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue]) {
         case 886:
-            self.RegionLabel.text = @"臺灣";
+            self.RegionLabel.text = MyLocal(@"Taiwan");
             break;
             
         case 86:
-            self.RegionLabel.text = @"中国";
+            self.RegionLabel.text = MyLocal(@"China");
             break;
             
         case 852:
-            self.RegionLabel.text = @"香港";
+            self.RegionLabel.text = MyLocal(@"HongKong");
             break;
             
         default:
@@ -104,11 +104,11 @@
                         [[SDImageCache sharedImageCache] clearDisk];
                         [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
-                        UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码",nil) preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"account exists",nil) preferredStyle:UIAlertControllerStyleAlert];
                         UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                             ZPLog(@"取消");
                         }];
-                        UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                        UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                             [self.navigationController popToRootViewControllerAnimated:NO];
                             //跳转
                             if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {

@@ -51,12 +51,12 @@
 }
 - (IBAction)buildingAction:(id)sender {
 #pragma make -- 提示框
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"ICUE账号一旦绑定后将无法更改，您确定要绑定此ICUE账号吗？",nil) preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"ICUE账号一旦绑定后将无法更改，您确定要绑定此ICUE账号吗？",nil) preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         ZPLog(@"取消");
     }];
-    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         [SVProgressHUD showWithStatus:@"请稍后..."];
         [self allData];
     }];

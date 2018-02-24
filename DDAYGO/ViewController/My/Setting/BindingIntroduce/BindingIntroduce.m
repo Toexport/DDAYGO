@@ -45,7 +45,7 @@
 // 绑定推荐人
 - (IBAction)BindingIntroduceTextField:(id)sender {
 #pragma make -- 提示框
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"介紹人一旦绑定后将无法更改，您确定要绑定此介紹人吗？",nil) preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"介紹人一旦绑定后将无法更改，您确定要绑定此介紹人吗？",nil) preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         ZPLog(@"取消");

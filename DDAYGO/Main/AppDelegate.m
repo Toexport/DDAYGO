@@ -66,7 +66,7 @@
                 //跳转到登录
                 LogregisterController * Login = [[LogregisterController alloc]init];
                 [homeVC pushViewController:Login animated:YES];
-                [SVProgressHUD showErrorWithStatus:@"请登录"];
+                [SVProgressHUD showErrorWithStatus:MyLocal(@"Please log in")];
                 return NO;}
         }
         else if ([firstVC isMemberOfClass:[OrderViewController class]]) {
@@ -76,7 +76,7 @@
                 //跳转到登录
                 LogregisterController * Login = [[LogregisterController alloc]init];
                 [homeVC pushViewController:Login animated:YES];
-                [SVProgressHUD showErrorWithStatus:@"请登录"];
+                [SVProgressHUD showErrorWithStatus:MyLocal(@"Please log in")];
                 return NO;
             }
         }
@@ -87,7 +87,7 @@
                 //跳转到登录
                 LogregisterController * Login = [[LogregisterController alloc]init];
                 [homeVC pushViewController:Login animated:YES];
-                [SVProgressHUD showErrorWithStatus:@"请登录"];
+                [SVProgressHUD showErrorWithStatus:MyLocal(@"Please log in")];
                 return NO;
             }
         }

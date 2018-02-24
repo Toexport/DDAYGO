@@ -39,7 +39,7 @@
 //服务条款
 - (IBAction)termsServiceBut:(id)sender {
     RegistrationAgreementController * RegistrationAgreement = [[RegistrationAgreementController alloc]init];
-    RegistrationAgreement.title = @"服務條款";
+    RegistrationAgreement.title = MyLocal(@"terms service");
     RegistrationAgreement.type = 222;
     [self.navigationController pushViewController:RegistrationAgreement animated:YES];
 }

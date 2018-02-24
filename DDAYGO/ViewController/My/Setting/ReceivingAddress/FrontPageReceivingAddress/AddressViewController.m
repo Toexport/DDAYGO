@@ -61,7 +61,7 @@
         [self.tableView reloadData];
     } failure:^(NSError * error) {
         //        ZPLog(@"%@",error);
-        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Server link failed")];
     }];
 }
 
@@ -207,12 +207,12 @@
 
 - (void)DeletingClick:(UIButton *)sender {
 #pragma make -- 提示框
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"確定要刪除嗎？",nil) preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"Are you sure you want delete it?",nil) preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         ZPLog(@"取消");
     }];
-    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"確定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         ZP_FrontPageReceivingAddressModel * model = self.newsData[sender.tag];
         NSMutableDictionary * dic = [NSMutableDictionary dictionary];
         dic[@"token"] = Token;
@@ -233,7 +233,7 @@
             ZPLog(@"%@",obj);
         } failure:^(NSError * error) {
             //            ZPLog(@"%@",error);
-            [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
+            [SVProgressHUD showInfoWithStatus:MyLocal(@"Server link failed")];
         }];
     }];
     [alert addAction:defaultAction];

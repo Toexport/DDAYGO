@@ -369,7 +369,7 @@
                 break;
             case 2:
             {
-                model.stateString = @"待審核";
+                model.stateString = [NSString stringWithFormat:@"待%@",MyLocal(@"audited")];
                 self.ssdkBut.enabled = NO;
                 _SdglLayoutConstraint.constant = CGFLOAT_MIN;
                 _sdglView.hidden = YES; //  待审核隐藏商家
@@ -380,7 +380,7 @@
                 break;
             case 3:
             {
-                model.stateString = @"已審核";
+                model.stateString = [NSString stringWithFormat:@"已%@",MyLocal(@"audited")];
                 self.XfjlLayoutConstraint.constant = CGFLOAT_MIN;
                 self.xfjlView.hidden = YES; // 已审核隐藏申请列表
                 _SdglLayoutConstraint.constant = 49;
