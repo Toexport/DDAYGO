@@ -83,7 +83,7 @@
         sendCode = code;
     }else {
         sendCode = @886;
-        CountCode = @886;
+//        CountCode = @886;
     }
     dic[@"countrycode"] = sendCode;
     [ZP_HomeTool requesFirst:dic success:^(id obj) {

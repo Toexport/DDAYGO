@@ -16,14 +16,17 @@
 #import "ZP_LeftModel.h"
 #import "ZP_RightModel.h"
 @interface ClassificationViewController ()<UITableViewDataSource,UITableViewDelegate> {
-    
+
     NSInteger num;
 }
-@property (assign ,nonatomic)NSInteger leftSelectRow;
-@property (assign ,nonatomic)NSInteger rightSelectRow;
+@property (assign ,nonatomic) NSInteger leftSelectRow;
+@property (assign ,nonatomic) NSInteger rightSelectRow;
 @property (nonatomic ,strong) NSMutableArray * newsData;
 @property (nonatomic, strong) NSMutableDictionary * rightData;
-@property (strong ,nonatomic)NSString * titleStr;
+@property (strong ,nonatomic) NSString * titleStr;
+@property (nonatomic, strong) NSNumber * sendCode;
+@property (nonatomic, strong) NSNumber * code;
+
 
 @end
 
@@ -64,8 +67,15 @@
 }
 
 // 数据（左边）
-- (void)allData {
-    NSDictionary * dict = @{@"level":@"1",@"countrycode":@"886"};
+- (void)allData{
+    NSNumber * sendCode;
+    self.sendCode = sendCode;
+    if ([self.code intValue] > 0) {
+        sendCode = self.code;
+    }else {
+        sendCode = @886;
+    }
+    NSDictionary * dict = @{@"level":@"1",@"countrycode":sendCode};
     [ZP_ClassViewTool requClassIfication:dict success:^(id obj) {
         NSArray * arr = obj;
         ZPLog(@"%@",obj);
@@ -81,7 +91,14 @@
 //  数据（右边）
 - (void)getRightItemDataWithProducttypeid:(NSInteger)producttypeid {
     ZP_LeftModel *Molde =self.newsData[producttypeid];
-    NSDictionary * dictt = @{@"level":@"2",@"countrycode":@"886",@"fatherid":[Molde.producttypeid stringValue]};
+    NSNumber * sendCode;
+    self.sendCode = sendCode;
+    if ([self.code intValue] > 0) {
+        sendCode = self.code;
+    }else {
+        sendCode = @886;
+    }
+    NSDictionary * dictt = @{@"level":@"2",@"countrycode":sendCode,@"fatherid":[Molde.producttypeid stringValue]};
 //     NSDictionary * dictt = @{@"level":@"2",@"language":@"zh-tw",@"fatherid": [NSString stringWithFormat:@"producttypeid+%ld",producttypeid]};
     ZPLog(@"%@",dictt);
     [ZP_ClassViewTool requClassIficationrj:dictt success:^(id obj) {

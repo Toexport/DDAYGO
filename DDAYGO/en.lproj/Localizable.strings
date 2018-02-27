@@ -35,7 +35,8 @@
 "Choice of payment method" = "Choice of payment method";
 "Immediate payment" = "mmediate payment";
 "account exists" = "Your account has been landed in other places, and you have been forced to go down. If you don't log in, please change the password as soon as possible.";
-"TaiWan" = "TaiWan";
+"Taiwan" = "Taiwan";
+"More choice" = "More choice";
 "" = "";
 "" = "";
 "" = "";
@@ -43,7 +44,23 @@
 "" = "";
 "" = "";
 "" = "";
-
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 /* *
  * 分类
  * */
@@ -85,6 +102,24 @@
 "" = "";
 "" = "";
 "" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 /* *
  * 购物车
  * */
@@ -118,6 +153,30 @@
 "Subtotal:" = "Subtotal:";
 "Total%@a goods" = "Total%@a goods";
 "" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 /* *
  * 订单
  * */
@@ -128,6 +187,24 @@
 "Wait delivery" = "Wait delivery";
 "Waiting goods" = "Waiting goods";
 "evaluation" = "evaluation";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 "" = "";
 "" = "";
 "" = "";
@@ -175,11 +252,59 @@
 "Privacy policy" = "Privacy policy";
 "terms service" = "terms service";
 "exchange process" = "exchange process";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 /* *
  * 登录注册
  * */
 "Login" = "Login";
 "Please log in" = "Please log in";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 "" = "";
 "" = "";
 "" = "";
@@ -225,6 +350,30 @@
 "" = "";
 "" = "";
 "" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 /**
  *互踢提示
@@ -233,6 +382,30 @@
 "Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in." = "Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.";
 "Cancel" = "Cancel";
 "Determine" = "Determine";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 "" = "";
 "" = "";
 

@@ -46,7 +46,6 @@
 
 - (void)addUI {
     [self.view addSubview:self.tableView];
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"nav_menu_search" bundle:nil] forCellReuseIdentifier:@"cell"];
 }
 #pragma mark - 私有
@@ -100,7 +99,7 @@
     [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Please enter the product you are looking for",nil)];
         ZPLog(@"no go");
         }
-      }
+    }
 }
 
 #pragma mark - action

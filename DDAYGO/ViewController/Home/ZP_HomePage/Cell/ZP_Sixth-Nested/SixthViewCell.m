@@ -31,7 +31,6 @@
 }
 
 - (void)addSubVIEWs {
-    
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc ]init];
     layout.minimumLineSpacing = 1;
     layout.minimumInteritemSpacing = 1;
@@ -43,7 +42,6 @@
     bottomCV.dataSource = self;
     [self addSubview:bottomCV];
     self.bottomCV = bottomCV;
-//    [bottomCV registerClass:[NestedCollectionViewCell class] forCellWithReuseIdentifier:@"Nestedcell"];
     [bottomCV registerNib:[UINib nibWithNibName:@"NnestedCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"NnestedCollectionViewCell"];
     
 }
@@ -93,12 +91,6 @@
     }];
     
 }
-
-//// 更多精选
-//- (void)moreBut:(UIButton *)sender {
-//
-//    ZPLog(@"更多...");
-//}
 
 #pragma mark <UICollectionViewDataSource>
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

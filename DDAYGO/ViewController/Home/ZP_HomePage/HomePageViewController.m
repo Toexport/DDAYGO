@@ -76,7 +76,7 @@
     self.chooseCityBtn.frame = CGRectMake(0, 0, 35.0f, 25.0f);
     self.chooseCityBtn.titleLabel.font = ZP_TooBarFont;
     [self.chooseCityBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.chooseCityBtn setTitle:NSLocalizedString(@"TaiWan", nil) forState:UIControlStateNormal];
+    [self.chooseCityBtn setTitle:NSLocalizedString(@"Taiwan", nil) forState:UIControlStateNormal];
     [self.chooseCityBtn setImage:[UIImage imageNamed:@"ic_home_down"] forState:(UIControlStateNormal)];
     [self.chooseCityBtn setNeedsLayout];
     self.chooseCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -146,12 +146,13 @@
         //        ZPLog(@"已登錄");
         //        [SVProgressHUD showInfoWithStatus: NSLocalizedString(@"Once logged in, no other countries will be supported", nil)];
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"需要登出去查看其它國家商品嗎?", nil) message:nil preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *sureAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Determine", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        UIAlertAction *sureAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [DDGTool logout];
         }];
         
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil];
         [alertController addAction:sureAction];
         [alertController addAction:cancelAction];
         
@@ -417,7 +418,7 @@
     //type：0 所有精选 1 所有热销 2 闪购
     CPerViewController * CVPView = [[CPerViewController alloc]init];
     CVPView.type = 10;  //由于type默认为0，所以从首页跳进去的，type一律加10作为区分
-    CVPView.titleString = NSLocalizedString(@"所有精選", nil);
+    CVPView.titleString = NSLocalizedString(@"More choice", nil);
     [self.navigationController pushViewController:CVPView animated:YES];
 }
 
@@ -468,4 +469,3 @@
     return v;
 }
 @end
-
