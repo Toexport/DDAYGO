@@ -437,8 +437,11 @@
                 return ZP_Width / 4 + 35;
             }else {
                 //        return (ZP_Width / 3 +35)* 2+57;
-                return (ZP_Width / 3 + 45) * 2 + 30;
-                
+                if (self.SixthArrData.count < 4) {
+                    return (ZP_Width / 3 + 45) + 30;
+                } else {
+                    return (ZP_Width / 3 + 45) * 2 + 30;
+                }
             }
     
     ///**********暂时不需要***********/
