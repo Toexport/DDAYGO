@@ -85,6 +85,7 @@
 #endif
 
 //*/
+#define DD_MonetarySymbol [[MyViewController sharedInstanceTool] getMonetarySymbol]
 
 #define DEMO_CALL 1Check login status
 #define DD_CHECK_HASLONGIN if (!DD_HASLOGIN){if ([self isKindOfClass:[UIViewController class]]) {\

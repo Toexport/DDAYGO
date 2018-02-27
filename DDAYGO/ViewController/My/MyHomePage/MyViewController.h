@@ -33,7 +33,7 @@ typedef NS_ENUM(NSUInteger, DDPopKind)
 + (MyViewController *)sharedInstanceTool;
 
 - (void)autoLogin:(void (^)(id obj))success;
-
+- (NSString *)getMonetarySymbol;
 
 
 

@@ -439,6 +439,16 @@
     self.scanView.layer.shadowOpacity = 0.3;
 }
 
+- (NSString *)getMonetarySymbol {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] isEqualToString:@"886"]) {
+        return @"NT";
+    } else if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] isEqualToString:@"852"]) {
+        return @"HK$";
+    } else {
+        return @"CNY";
+    }
+}
+
 - (void)updateUserInfo {
     if (Token) {
         NSDictionary * dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
