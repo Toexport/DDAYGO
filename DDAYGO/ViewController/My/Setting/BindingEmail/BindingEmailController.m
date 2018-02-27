@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-    self.title = NSLocalizedString(@"綁定郵箱", nil);
+    self.title = MyLocal(@"Binding email");
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.BindingEmailscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐藏
 }
@@ -67,7 +67,7 @@
 //  绑定邮箱成功与失败
 - (IBAction)BindingEmail:(id)sender {
     if (![self validateEmail:_ZPEmailTextFiled.textField.text]) {
-        [SVProgressHUD showInfoWithStatus:@"郵箱格式不正確"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Incorrect email format.")];
         return;
     }
     
@@ -81,7 +81,7 @@
     //        NSLog(@"请输入正确验证码");
     //        return;
     //    }
-    [SVProgressHUD showWithStatus:@"请稍后..."];
+    [SVProgressHUD showWithStatus:MyLocal(@"Please later…")];
     [self allData]; // 数据
     //    ZPLog(@"----");
 }
@@ -94,29 +94,29 @@
     [ZP_MyTool requesEmail:dic uccess:^(id obj) {
         ZPLog(@"%@",obj);
         if ([obj[@"result"]isEqualToString:@"ok"]) {
-            [SVProgressHUD showSuccessWithStatus:@"綁定成功"];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Binding success")];
             [self.navigationController popViewControllerAnimated:YES];
         }else
             if ([obj[@"result"]isEqualToString:@"token_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"令牌無效"];
+                [SVProgressHUD showInfoWithStatus:MyLocal(@"token is invalid")];
             }else
                 if ([obj[@"result"]isEqualToString:@"emailverify_null_er"]) {
-                    [SVProgressHUD showInfoWithStatus:@"郵箱地址為空"];
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"E-mail address cannot be empty.")];
                 }else
                     if ([obj[@"result"]isEqualToString:@"emailverify_format_err"]) {
-                        [SVProgressHUD showInfoWithStatus:@"郵箱地址格式錯誤"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Email format error")];
                         
                     }else
                         if ([obj[@"result"]isEqualToString:@"emailverify_exist_err"]) {
-                            [SVProgressHUD showInfoWithStatus:@"郵箱地址也被綁定"];
+                            [SVProgressHUD showInfoWithStatus:MyLocal(@"mailbox address has been bound.")];
                             
                         }else
                             if ([obj[@"result"]isEqualToString:@"failed_send_err"]) {
-                                [SVProgressHUD showInfoWithStatus:@"郵箱發送失敗"];
+                                [SVProgressHUD showInfoWithStatus:MyLocal(@"Email failed")];
                                 
                             }else
                                 if ([obj[@"result"]isEqualToString:@"failed"]) {
-                                    [SVProgressHUD showInfoWithStatus:@"操作失敗"];
+                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Operation failure")];
                                 }else
                                     //*************************************Token被挤掉***************************************************//
                                     if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
@@ -154,7 +154,6 @@
         
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-        //        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
     }];
 }
 
@@ -162,18 +161,17 @@
 //- (void)getMSNCode{
 //    if (![self validateEmail:_ZPEmailTextFiled.textField.text]) {
 //
-//        [SVProgressHUD showInfoWithStatus:@"邮箱格式不正确"];
+//        [SVProgressHUD showInfoWithStatus:MyLocal(@"Incorrect email format.")];
 //        return;
 //    }
 //
 //    __weak typeof (self) WeakSelf = self;
-//    [_ZPCodeTextField.functionBtn startWithTime:60 title:NSLocalizedString(@"重新获取", nil) titleColor:[UIColor whiteColor]countDownTitle:@"s" countDownTitleColor:[UIColor whiteColor] mainColor:ZP_PayColor countColor:ZP_PayColor];
+//    [_ZPCodeTextField.functionBtn startWithTime:60 title:NSLocalizedString(@"Incorrect email format.", nil) titleColor:[UIColor whiteColor]countDownTitle:@"s" countDownTitleColor:[UIColor whiteColor] mainColor:ZP_PayColor countColor:ZP_PayColor];
 //    [WeakSelf qurestCode];  // 开始获取验证码
 //}
 //
 ////  发生网络请求 --> 获取验证码
 //- (void)qurestCode {
-//    ZPLog(@"发生网络请求 --> 获取验证码");
 //    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
 //    dict[@"email"] = _ZPEmailTextFiled.textField.text;
 //    [ZP_MyTool requestVerificationcode:dict success:^(id obj) {

@@ -20,7 +20,7 @@
         self.PayBlock(_PayTextField.text);
     }else{
         NSLog(@"money not empty！");
-        [ZPProgressHUD showErrorWithStatus:@"请输入金额"];
+        [ZPProgressHUD showErrorWithStatus:MyLocal(@"Please enter amount")];
     }
 }
 

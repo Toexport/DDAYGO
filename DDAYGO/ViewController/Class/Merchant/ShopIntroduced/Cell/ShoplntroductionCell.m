@@ -119,7 +119,7 @@
     EvaluationtitleLabel.textAlignment = NSTextAlignmentLeft;
     EvaluationtitleLabel.textColor = ZP_TypefaceColor;
     EvaluationtitleLabel.font = ZP_TooBarFont;
-    EvaluationtitleLabel.text = NSLocalizedString(@"好評度:", nil);
+    EvaluationtitleLabel.text = MyLocal(@"Praise rate", nil);
     [self.contentView addSubview:EvaluationtitleLabel];
     [EvaluationtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(15);

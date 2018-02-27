@@ -61,7 +61,7 @@
     UILabel * titleLabel = [UILabel new];
     titleLabel.textColor = [UIColor blackColor];
     titleLabel.textColor = ZP_textblack;
-    titleLabel.text = NSLocalizedString(@"Choose your country", nil) ;
+    titleLabel.text = MyLocal(@"Choose your country") ;
     titleLabel.numberOfLines = 0;
     titleLabel.font = [UIFont systemFontOfSize:13];
     titleLabel.textAlignment = NSTextAlignmentCenter;

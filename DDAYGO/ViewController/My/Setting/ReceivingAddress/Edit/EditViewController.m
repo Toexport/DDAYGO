@@ -21,9 +21,9 @@
     [super viewDidLoad];
     [self countrycode];
     [self allData];
-    self.title = @"編輯地址";
+    self.title = MyLocal(@"Edit address");
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"保存", nil)  style:UIBarButtonItemStylePlain target:self action:@selector(EditAddress)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:MyLocal(@"save")  style:UIBarButtonItemStylePlain target:self action:@selector(EditAddress)];
     self.navigationItem.rightBarButtonItem = item;
     self.ContactnumberTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.ZipcodeaddressTextField.keyboardType = UIKeyboardTypeNumberPad;
@@ -79,14 +79,11 @@
         ZPLog(@"%@",obj);
         if ([dic[@"result"] isEqualToString:@"ok"]) {
             ZPLog(@"加入成功");
-            [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Modify success")];
             [self.navigationController popViewControllerAnimated:YES];
         }else
             if ([dic[@"result"] isEqualToString:@"add_up_to_ten"]) {
-                [SVProgressHUD showInfoWithStatus:@"添加失败，最多添加10條數據喲"];
-            }else
-                if ([dic[@"result"] isEqualToString:@"sys_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"服務器連接至火星"];
+                [SVProgressHUD showInfoWithStatus:MyLocal(@"Add failure, and you can only add up to 10 data.")];
                 }else
                     //*************************************Token被挤掉***************************************************//
                     if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
@@ -105,7 +102,7 @@
                         [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
                         UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"account exists",nil) preferredStyle:UIAlertControllerStyleAlert];
-                        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"save",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                             ZPLog(@"取消");
                         }];
                         UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
@@ -123,7 +120,6 @@
         //****************************************************************************************//
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-        //        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
     }];
 }
 

@@ -87,7 +87,7 @@
     Paybut.layer.borderColor = [UIColor clearColor].CGColor;
     Paybut.backgroundColor = ZP_PayColor;
     Paybut.layer.cornerRadius = 5.0;// 圆角弧度
-    [Paybut setTitle:NSLocalizedString(@"关闭", nil) forState:UIControlStateNormal];
+    [Paybut setTitle:NSLocalizedString(@"Shut down", nil) forState:UIControlStateNormal];
     [Paybut addTarget:self action:@selector(paybut:) forControlEvents:UIControlEventTouchUpInside];
     [bounceView addSubview:Paybut];
     [Paybut mas_makeConstraints:^(MASConstraintMaker *make) {

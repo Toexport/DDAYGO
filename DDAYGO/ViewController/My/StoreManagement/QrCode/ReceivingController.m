@@ -24,7 +24,7 @@
     [super viewDidLoad];
     [self initUI];
     [self allData];
-    self.title = NSLocalizedString(@"收款碼", nil);
+    self.title = MyLocal(@"Payment code");
     self.view.backgroundColor = ZP_green;
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
@@ -48,7 +48,7 @@
         
         ZPLog(@"%@",obj);
         if ([obj[@"result"]isEqualToString:@"no_supplie"]) {
-            [SVProgressHUD showInfoWithStatus:@"此用戶不是商家"];
+            [SVProgressHUD showInfoWithStatus:MyLocal(@"This user is not a merchant.")];
         }else
             //*************************************Token被挤掉***************************************************//
             if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
@@ -67,7 +67,7 @@
                 [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
                 UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"account exists",nil) preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                     ZPLog(@"取消");
                 }];
                 UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {

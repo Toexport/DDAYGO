@@ -29,7 +29,7 @@
         _showYImageVIew.image = [UIImage imageNamed:@"bg_footprint_frame"];
         _showYImageVIew.backgroundColor = [UIColor clearColor];
         _zhuangtaiLabel.center = _ShopimageView.center;
-        _zhuangtaiLabel.text = NSLocalizedString(@"已失效", nil);
+        _zhuangtaiLabel.text = NSLocalizedString(@"invalid", nil);
         [_zhuangtaiLabel setTextColor:[UIColor whiteColor]];
         _zhuangtaiLabel.textAlignment = NSTextAlignmentCenter;
         [_zhuangtaiLabel addSubview:_showYImageVIew];

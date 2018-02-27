@@ -22,7 +22,7 @@
 - (void)initUI {
     //  订单号
     ZP_GeneralLabel * OrderLabel = [ZP_GeneralLabel initWithtextLabel:_OrderLabel.text textColor:ZP_textblack font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:nil];
-    OrderLabel.text = NSLocalizedString(@"訂單號:", nil);
+    OrderLabel.text = NSLocalizedString(@"order number:", nil);
     [self.contentView addSubview:OrderLabel];
     [OrderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(5);
@@ -92,11 +92,11 @@
             _DeleteBut.hidden = YES;
             break;
         case 4:
-            _TradingLabel.text = @"交易成功";
+            _TradingLabel.text = MyLocal(@"successful deal");
             _DeleteBut.hidden = NO;
             break;
         case 5:
-            _TradingLabel.text = @"已取消";
+            _TradingLabel.text = MyLocal(@"Has been cancelled");
             _DeleteBut.hidden = NO;
             break;
         case 6:

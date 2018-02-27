@@ -163,7 +163,6 @@
                 self.navigationController.tabBarItem.badgeValue = mustr;
                 [self updateData:0];
                 [self.tableView reloadData];
-                
                 if (_bjBool) {
                     [self exitEditing];
                 }

@@ -24,7 +24,7 @@
 
 // UI
 - (void)initUI {
-    self.title = NSLocalizedString(@"修改密碼", nil);
+    self.title = MyLocal(@"Change password");
     [self ButStatusAttribute];
     self.oldpwTextfield.secureTextEntry = YES;
     self.newpwTextfield.secureTextEntry = YES;
@@ -58,7 +58,7 @@
 // 确定按钮
 - (IBAction)DetermineBut:(id)sender {
     if (self.newpwTextfield.text.length < 6 || self.newpwTextfield.text.length > 20) {
-        [SVProgressHUD showInfoWithStatus:@"密碼位數不能小於6大於20"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"password number cannot be less than 6 greater than 20.")];
         ZPLog(@"密码不足6位");
         return;
     }
@@ -68,9 +68,9 @@
     //        return;
     //    }
     if (self.newpwTextfield.text != self.againpwTextfield.text) {
-        [SVProgressHUD showInfoWithStatus:@"兩次密碼不一致"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"two passwords do not match.")];
     }else {
-        [SVProgressHUD showWithStatus:@"请稍后..."];
+        [SVProgressHUD showWithStatus: MyLocal(@"Please later…")];
         [self allData];
     }
 }
@@ -85,7 +85,7 @@
     dic[@"npwd"] = [self md5:self.againpwTextfield.text];
     [ZP_MyTool requestRestPassword:dic success:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"ok"]) {
-            [SVProgressHUD showSuccessWithStatus:@"修改成功,请重新登录..."];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Modified successfully, please login again...")];
             [self.navigationController popToRootViewControllerAnimated:NO];
             Token = nil;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
@@ -98,16 +98,16 @@
             [tbvc setSelectedIndex:0];
         }else
             if ([obj[@"result"]isEqualToString:@"token_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"令牌無效"];
+                [SVProgressHUD showInfoWithStatus:MyLocal(@"token is invalid")];
             }else
                 if ([obj[@"result"]isEqualToString:@"opwd_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"原密碼不能為空"];
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"original password cannot be null.")];
                 }else
                     if ([obj[@"result"]isEqualToString:@"npwd_null_err"]) {
-                        [SVProgressHUD showInfoWithStatus:@"新密碼不能為空"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"new password cannot be empty.")];
                     }else
                         if ([obj[@"result"]isEqualToString:@"opwd_err"]) {
-                            [SVProgressHUD showInfoWithStatus:@"原密碼錯誤"];
+                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Original password error")];
                         }else
         ZPLog(@"obj %@",obj);
     } failure:^(NSError * error) {

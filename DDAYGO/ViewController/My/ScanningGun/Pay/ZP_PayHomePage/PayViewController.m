@@ -28,7 +28,7 @@
     _dataArrar = [NSMutableArray array];
     [self initUI];
     [self AllData];
-    self.title = NSLocalizedString(@"正在付款", nil);
+    self.title = MyLocal(@"Payment is being made", nil);
     self.view.backgroundColor = ZP_WhiteColor;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: ZP_textWite}];
     
@@ -84,25 +84,25 @@
                     [self.navigationController pushViewController:web animated:YES];
                 }else
                     if ([obj[@"result"]isEqualToString:@"country_err"]) {
-                        [SVProgressHUD showInfoWithStatus:@"國家不匹配"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Country mismatch")];
                 }else
                     if ([obj[@"result"]isEqualToString:@"payamount_err"]) {
-                        [SVProgressHUD showInfoWithStatus:@"支付方式錯誤"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Payment method error")];
                 }else
                     if ([obj[@"result"]isEqualToString:@"icuetoken_err"]) {
-                        [SVProgressHUD showInfoWithStatus:@"ICUE身份錯誤"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"ICUE identity error.")];
                 }else
                     if ([obj[@"result"]isEqualToString:@"shopcode_err"]) {
-                        [SVProgressHUD showInfoWithStatus:@"二維碼錯誤，錯誤的商家ID"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Qr code error, wrong merchant ID.")];
                 }else
                     if ([obj[@"result"]isEqualToString:@"qrpay_state_err"]) {
-                        [SVProgressHUD showInfoWithStatus:@"商家已關閉掃碼支付"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"merchant has closed the scan code payment.")];
                 }else
                     if ([obj[@"result"]isEqualToString:@"qrpay_state_err"]) {
-                        [SVProgressHUD showInfoWithStatus:@"付款金額必須大於0"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"amount of payment must be greater than 0.")];
                 }else
                     if ([obj[@"result"]isEqualToString:@"addorder_err"]) {
-                        [SVProgressHUD showInfoWithStatus:@"訂單生成失敗"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Order generation failed")];
                 }
             } failure:^(NSError *error) {
                 NSLog(@"error = %@",error);

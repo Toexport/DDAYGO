@@ -85,7 +85,7 @@
     
     // 5.1 添加会话输入
     if (input == nil) {
-        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"相機不可用", nil)];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Camera unavailable")];
 //        [self.navigationController popViewControllerAnimated:YES];
     }else {
         [_session addInput:input];
@@ -128,7 +128,7 @@
                 pay.Oname = arr[2];
                 [self.navigationController pushViewController:pay animated:YES];
            } else {
-               [SVProgressHUD showErrorWithStatus:@"二維碼錯誤"];
+               [SVProgressHUD showErrorWithStatus:MyLocal(@"Error in qr code.")];
                [self.navigationController popViewControllerAnimated:YES];
            }
     }

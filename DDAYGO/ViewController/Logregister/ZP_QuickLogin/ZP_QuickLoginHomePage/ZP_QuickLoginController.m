@@ -111,7 +111,7 @@
                 [[NSUserDefaults standardUserDefaults] setObject:obj[@"symbol"] forKey:@"symbol"]; // 台币缓存本地
                 [[NSUserDefaults standardUserDefaults] setObject:obj[@"countrycode"] forKey:@"countrycode"];  // 国别缓存本地
                 [[NSUserDefaults standardUserDefaults] synchronize];  // 国别缓存本地
-                [SVProgressHUD showSuccessWithStatus:@"登錄成功!"];
+                [SVProgressHUD showSuccessWithStatus:MyLocal(@"Login successful")];
                 
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }else
@@ -119,26 +119,25 @@
                     //                [SVProgressHUD showInfoWithStatus:@"登錄失敗"];
                 }else
                     if ([adic[@"result"]isEqualToString:@"acc_pwd_err"]) {
-                        [SVProgressHUD showInfoWithStatus:@"賬號或密碼錯誤"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Account or password error.")];
                     }else
                         if ([adic[@"result"]isEqualToString:@"acc_null_err"]) {
-                            [SVProgressHUD showInfoWithStatus:@"賬號為空"];
+                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Account is empty")];
                         }else
                             if ([adic[@"result"]isEqualToString:@"pwd_null_err"]) {
-                                [SVProgressHUD showInfoWithStatus:@"密碼為空"];
+                                [SVProgressHUD showInfoWithStatus:MyLocal(@"Password is empty")];
                             }else
                                 if ([adic[@"result"]isEqualToString:@"sys_err"]) {
-                                    [SVProgressHUD showInfoWithStatus:@"系統錯誤"];
+                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"System error")];
                                 }else
                                     if ([adic[@"result"]isEqualToString:@"token_err"]) {
-                                        [SVProgressHUD showInfoWithStatus:@"token 已存在"];
+                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Token existing")];
                                         
                                     }
         }
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
         _LoginBtn.userInteractionEnabled = YES;
-        //        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
     }];
 }
 //  调用55的接口
@@ -158,7 +157,7 @@
         ZPLog(@"%@",obj);
         //目前不是参数的类型··可能会崩,s
         if ([adic[@"result"]isEqualToString:@"first_login"]) {
-            [SVProgressHUD showInfoWithStatus:@"首次登錄改成"];
+//            [SVProgressHUD showInfoWithStatus:@"首次登錄改成"];
         }else {
             if ([adic[@"result"]isEqualToString:@"ok"]) {
                 Token = obj[@"token"];
@@ -168,31 +167,31 @@
                 [[NSUserDefaults standardUserDefaults] setObject:obj[@"symbol"] forKey:@"symbol"]; // 货币符号缓存本地
                 [[NSUserDefaults standardUserDefaults] setObject:obj[@"countrycode"] forKey:@"countrycode"];  // 国别缓存本地
                 [[NSUserDefaults standardUserDefaults] synchronize];  // 国别缓存本地
-                [SVProgressHUD showSuccessWithStatus:@"登錄成功!"];
+                [SVProgressHUD showSuccessWithStatus:MyLocal(@"Login successful")];
                 [self.navigationController popToRootViewControllerAnimated:YES];
                 
             }else {
                 if ([adic[@"result"]isEqualToString:@"failure"]) {
-                    [SVProgressHUD showInfoWithStatus:@"登錄失敗"];
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Login failed")];
                 }else {
                     if ([adic[@"result"]isEqualToString:@"country_err"]) {
-                        [SVProgressHUD showInfoWithStatus:@"國家編碼錯誤"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"National coding error")];
                     }else {
                         if ([adic[@"result"]isEqualToString:@"acc_null_err"]) {
-                            [SVProgressHUD showInfoWithStatus:@"賬號為空"];
+                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Account is empty")];
                         }else {
                             if ([adic[@"result"]isEqualToString:@"pwd_null_err"]) {
-                                [SVProgressHUD showInfoWithStatus:@"密碼為空"];
+                                [SVProgressHUD showInfoWithStatus:MyLocal(@"Password is empty")];
                             }else {
                                 if ([adic[@"result"]isEqualToString:@"sys_err"]) {
-                                    [SVProgressHUD showInfoWithStatus:@"系統錯誤"];
+                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"System error")];
                                 }else {
                                     if ([adic[@"result"]isEqualToString:@"token_err"]) {
-                                        [SVProgressHUD showInfoWithStatus:@"token 已存在"];
+                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Token existing")];
                                         
                                     }else {
                                         if ([dict[@"result"]isEqualToString:@"isnot_agent"]) {
-                                            [SVProgressHUD showInfoWithStatus:@"账号非代理商"];
+                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"The account is not an agent.")];
                                             
                                         }
                                     }
@@ -224,9 +223,9 @@
         position.ThirdBlock = ^(NSString *ContStr,NSNumber *code) {
             CountCode = code;
 #pragma make -- 提示框
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"地區一旦設置成功將無法更改！",nil) preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"Once the locale is set, it cannot be changed.",nil) preferredStyle:UIAlertControllerStyleAlert];
             
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
             }];
             UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {

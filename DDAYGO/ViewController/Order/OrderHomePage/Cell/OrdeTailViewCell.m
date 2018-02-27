@@ -48,7 +48,7 @@
     
     //  运费
     ZP_GeneralLabel * FreightLabel = [ZP_GeneralLabel initWithtextLabel:_FreightLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    FreightLabel.text = NSLocalizedString(@"(運費", nil);
+    FreightLabel.text = NSLocalizedString(@"(freight", nil);
     [self.contentView addSubview:FreightLabel];
     [FreightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(AmountLabel).offset(75);
@@ -126,7 +126,7 @@
             _OnceagainBut.userInteractionEnabled = NO;
             break;
         case 1:
-            [_OnceagainBut setTitle:@"付款" forState:UIControlStateNormal];
+            [_OnceagainBut setTitle:MyLocal(@"payment") forState:UIControlStateNormal];
             //            _DeleteBut.hidden = NO;
             //            [_AppraiseBut setTitle:@"取消訂單" forState:UIControlStateNormal];
             _AppraiseBut.hidden = YES;
@@ -137,7 +137,7 @@
             break;
             //          退款
         case 2:
-            [_OnceagainBut setTitle:@"退款" forState:UIControlStateNormal];
+            [_OnceagainBut setTitle:MyLocal(@"refund") forState:UIControlStateNormal];
             _OnceagainBut.backgroundColor = nil;
             [self.OnceagainBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
             //            [_AppraiseBut setTitle:@"退款" forState:UIControlStateNormal];
@@ -175,7 +175,7 @@
             //            ZPLog(@"Stata = %D",a);
             break;
         case 6:
-            [_OnceagainBut setTitle:@"查看詳情" forState:UIControlStateNormal];
+            [_OnceagainBut setTitle:MyLocal(@"Check details") forState:UIControlStateNormal];
             _OnceagainBut.hidden = NO;
             _AppraiseBut.hidden = YES;
             //            ZPLog(@"Stata = %D",a);
@@ -183,7 +183,7 @@
         case 7:
             _OnceagainBut.backgroundColor = nil;
             [self.OnceagainBut setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
-            [_OnceagainBut setTitle:@"查看詳情" forState:UIControlStateNormal];
+            [_OnceagainBut setTitle:MyLocal(@"Check details") forState:UIControlStateNormal];
             _OnceagainBut.hidden = NO;
             _AppraiseBut.hidden = YES;
             ZPLog(@"Stata = %D",a);

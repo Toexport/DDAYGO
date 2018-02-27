@@ -64,7 +64,7 @@
     searchBar.width = ZP_Width - 100;
     searchBar.height = 25;
     [searchBar setImage:[UIImage imageNamed:@"nav_menu_search"] forState:UIControlStateNormal];
-    [searchBar setTitle:NSLocalizedString(@"Searchfavorite", nil) forState:UIControlStateNormal];
+    [searchBar setTitle:MyLocal(@"Searchfavorite") forState:UIControlStateNormal];
     [searchBar setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [searchBar addTarget:self action:@selector(onClikedSearchBar) forControlEvents:UIControlEventTouchUpInside];
     [searchBar setBackgroundImage:[UIImage resizedImage:@"input_home_search"] forState:UIControlStateNormal];
@@ -76,7 +76,7 @@
     self.chooseCityBtn.frame = CGRectMake(0, 0, 35.0f, 25.0f);
     self.chooseCityBtn.titleLabel.font = ZP_TooBarFont;
     [self.chooseCityBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.chooseCityBtn setTitle:NSLocalizedString(@"Taiwan", nil) forState:UIControlStateNormal];
+    [self.chooseCityBtn setTitle:MyLocal(@"Taiwan") forState:UIControlStateNormal];
     [self.chooseCityBtn setImage:[UIImage imageNamed:@"ic_home_down"] forState:(UIControlStateNormal)];
     [self.chooseCityBtn setNeedsLayout];
     self.chooseCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -130,7 +130,7 @@
             __weak HomePageViewController *viewController = self;
             self.position.ThirdBlock = ^(NSString *ContStr,NSNumber *code) {
                 ZPLog(@"c = %@",ContStr);
-                [viewController.chooseCityBtn setTitle:NSLocalizedString(ContStr, nil) forState:UIControlStateNormal];
+                [viewController.chooseCityBtn setTitle:MyLocal(ContStr) forState:UIControlStateNormal];
                 CountCode = code;
                 [viewController.chooseCityBtn sizeToFit];
                 
@@ -145,14 +145,14 @@
     } else {
         //        ZPLog(@"已登錄");
         //        [SVProgressHUD showInfoWithStatus: NSLocalizedString(@"Once logged in, no other countries will be supported", nil)];
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"需要登出去查看其它國家商品嗎?", nil) message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:MyLocal(@"Do you need to go out and look at other countries' goods?") message:nil preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction *sureAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *sureAction = [UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [DDGTool logout];
         }];
         
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"Cancel") style:UIAlertActionStyleCancel handler:nil];
         [alertController addAction:sureAction];
         [alertController addAction:cancelAction];
         
@@ -316,7 +316,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.dataArray = @[@{@"title":NSLocalizedString( @"Best-selling products", nil)}];
+    self.dataArray = @[@{@"title":MyLocal( @"Best-selling products")}];
     if (indexPath.section == 0) {
         static NSString * ZeroID = @"ceaa";
         ZeroViewCell * cell =  [tableView dequeueReusableCellWithIdentifier:ZeroID];
@@ -418,7 +418,7 @@
     //type：0 所有精选 1 所有热销 2 闪购
     CPerViewController * CVPView = [[CPerViewController alloc]init];
     CVPView.type = 10;  //由于type默认为0，所以从首页跳进去的，type一律加10作为区分
-    CVPView.titleString = NSLocalizedString(@"More choice", nil);
+    CVPView.titleString = MyLocal(@"More choice");
     [self.navigationController pushViewController:CVPView animated:YES];
 }
 

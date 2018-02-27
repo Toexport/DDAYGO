@@ -87,7 +87,7 @@
         default:
             break;
     }
-    self.title = NSLocalizedString(@"供貨商", nil);
+    self.title = MyLocal(@"supplier");
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: ZP_textWite}]; 
@@ -96,9 +96,9 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"SupplierTableViewCell" bundle:nil] forCellReuseIdentifier:@"SupplierTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"SupplierViewCell2" bundle:nil] forCellReuseIdentifier:@"SupplierViewCell2"];
     
-    _array = [NSArray arrayWithObjects:@"公司名稱:",@"統一編號:",@"公司人數:",@"註冊資本:",@"創立日期:",@"組織形態:",@"公司地址:",@"公司電話:",@"公司傳真(選填):",@"公司網址(選填):",@"聯繫人:",@"聯繫人郵箱:",@"聯繫電話:",@"經營項目:",@"合作項目:", nil];
+    _array = [NSArray arrayWithObjects:MyLocal(@"Company name:"),MyLocal(@"Unified title:"),MyLocal(@"Company number:"),MyLocal(@"Injection capital:"),MyLocal(@"Date of establishment:"),MyLocal(@"Organization form:"),MyLocal(@"Company address:"),MyLocal(@"Company telephone:"),MyLocal(@"Fax (optional):"),MyLocal(@"Company website (optional):"),MyLocal(@"Contacts:"),MyLocal(@"Contact email:"),MyLocal(@"Contact number:"),MyLocal(@"Business project:"),MyLocal(@"Cooperation projects:"), nil];
     //这个数组是放 pl 的放进去·对应的放好
-    _arrayP = [NSArray arrayWithObjects:@" ",@" ",@"如:50 - 100人",@" ",@"YYYY - MM -DD",@" ",@" ",@" ",@" ",@" ",@"聯繫人/職稱/分機",@" ",@" ",@" ",@" ", nil];
+    _arrayP = [NSArray arrayWithObjects:MyLocal(@" "),MyLocal(@" "),MyLocal(@"50 to 100 people"),MyLocal(@" "),MyLocal(@"YYYY - MM -DD"),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@"Contact/title/extension."),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "), nil];
     
     _LocationLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
     
@@ -123,12 +123,12 @@
     if (arr.count == 14) {
         NSLog(@"填写完成");
     }else{
-        [SVProgressHUD showErrorWithStatus:@"請完善"];
+        [SVProgressHUD showErrorWithStatus:MyLocal(@"Please complete")];
         return;
     }
     
     if (_seleStr.length < 1) {
-        [SVProgressHUD showErrorWithStatus:@"請選擇組織形態"];
+        [SVProgressHUD showErrorWithStatus:MyLocal(@"Please select the organization form.")];
         return;
     }
     
@@ -171,68 +171,68 @@
 - (void)AllData:(NSMutableDictionary *)dic {
     [ZP_MyTool requestSupplierRequest:dic success:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"ok"]) {
-            [SVProgressHUD showSuccessWithStatus:@"申請成功,等待審核"];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Successful application pending approval.")];
             [self.navigationController popToRootViewControllerAnimated:YES];
         }else
             if ([obj[@"result"]isEqualToString:@"token_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"令牌無效"];
+                [SVProgressHUD showInfoWithStatus:MyLocal(@"token is invalid")];
             }else
                 if ([obj[@"result"]isEqualToString:@"companyname_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"公司名称为空"];
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"company name is empty.")];
                 }else
                     if ([obj[@"result"]isEqualToString:@"companycode_null_err"]) {
-                        [SVProgressHUD showInfoWithStatus:@"請輸入統一編號"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter a uniform number.")];
                     }else
                         if ([obj[@"result"]isEqualToString:@"poeplecount_null_err"]) {
-                            [SVProgressHUD showInfoWithStatus:@"請輸入公司人數"];
+                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the company number.")];
                         }else
                             if ([obj[@"result"]isEqualToString:@"capital_null_err"]) {
-                                [SVProgressHUD showInfoWithStatus:@"請輸入註冊資本"];
+                                [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter registered capital.")];
                             }else
                                 if ([obj[@"result"]isEqualToString:@"companydate_null_err"]) {
-                                    [SVProgressHUD showInfoWithStatus:@"請輸入創立日期"];
+                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the date of creation.")];
                                 }else
                                     if ([obj[@"result"]isEqualToString:@"companydate_formart_err"]) {
-                                        [SVProgressHUD showInfoWithStatus:@"創立日期格式錯誤,之間必須以英文-來分隔"];
+                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Creation date format error, must be in English - to divide.")];
                                     }else
                                         if ([obj[@"result"]isEqualToString:@"address_null_err"]) {
-                                            [SVProgressHUD showInfoWithStatus:@"請輸入公司地址"];
+                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the company address.")];
                                         }else
                                             if ([obj[@"result"]isEqualToString:@"phone_null_err"]) {
-                                                [SVProgressHUD showInfoWithStatus:@"請輸入公司電話"];
+                                                [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter your company phone.")];
                                             }else
                                                 if ([obj[@"result"]isEqualToString:@"contact_null_err"]) {
-                                                    [SVProgressHUD showInfoWithStatus:@"請輸入聯繫人"];
+                                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter emergency contact.")];
                                                 }else
                                                     if ([obj[@"result"]isEqualToString:@"contactphone_null_err"]) {
-                                                        [SVProgressHUD showInfoWithStatus:@"請輸入聯繫人電話"];
+                                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter your contact Phone.")];
                                                     }else
                                                         if ([obj[@"result"]isEqualToString:@"contactemail_null_err"]) {
-                                                            [SVProgressHUD showInfoWithStatus:@"請輸入聯繫人郵箱"];
+                                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter your contact email.")];
                                                         }else
                                                             if ([obj[@"result"]isEqualToString:@"contactemail_format_err"]) {
-                                                                [SVProgressHUD showInfoWithStatus:@"郵箱格式錯誤"];
+                                                                [SVProgressHUD showInfoWithStatus:MyLocal(@"Incorrect email format.")];
                                                             }else
                                                                 if ([obj[@"result"]isEqualToString:@"companyproduct_null_err"]) {
-                                                                    [SVProgressHUD showInfoWithStatus:@"請輸入經營項目"];
+                                                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter project management.")];
                                                                 }else
                                                                     if ([obj[@"result"]isEqualToString:@"projectinfo_null_err"]) {
-                                                                        [SVProgressHUD showInfoWithStatus:@"請輸入合作項目"];
+                                                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the cooperation project.")];
                                                                     }else
                                                                         if ([obj[@"result"]isEqualToString:@"sup_err"]) {
-                                                                            [SVProgressHUD showInfoWithStatus:@"已是供貨商或正在申請供貨商"];
+                                                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"is already a supplier or is applying for a supplier.")];
                                                                         }else
                                                                             if ([obj[@"result"]isEqualToString:@"agt_err"]) {
-                                                                                [SVProgressHUD showInfoWithStatus:@"已是代理商不能申请供货商"];
+                                                                                [SVProgressHUD showInfoWithStatus:MyLocal(@"agent cannot apply for the supplier.")];
                                                                             }else
                                                                                 if ([obj[@"result"]isEqualToString:@"cname_er"]) {
-                                                                                    [SVProgressHUD showInfoWithStatus:@"公司名稱已存在"];
+                                                                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"company name already exists")];
                                                                                 }else
                                                                                     if ([obj[@"result"]isEqualToString:@"ccode_err"]) {
-                                                                                        [SVProgressHUD showInfoWithStatus:@"統一編號已存在"];
+                                                                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"uniform number already exists")];
                                                                                     }else
                                                                                         if ([obj[@"result"]isEqualToString:@"sys_err"]) {
-                                                                                            [SVProgressHUD showInfoWithStatus:@"添加失败"];
+                                                                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Add failure")];
                                                                                         }else
                                                                                             //*************************************Token被挤掉***************************************************//
                                                                                             if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
@@ -250,11 +250,11 @@
                                                                                                 [[SDImageCache sharedImageCache] clearDisk];
                                                                                                 [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
-                                                                                                UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"account exists",nil) preferredStyle:UIAlertControllerStyleAlert];
-                                                                                                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                                                                UIAlertController* alert = [UIAlertController alertControllerWithTitle:MyLocal(@"reminding") message:MyLocal(@"account exists") preferredStyle:UIAlertControllerStyleAlert];
+                                                                                                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                                                                                                     ZPLog(@"取消");
                                                                                                 }];
-                                                                                                UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                                                                UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                                                                                                     [self.navigationController popToRootViewControllerAnimated:NO];
                                                                                                     //跳转
                                                                                                     if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
@@ -285,7 +285,7 @@
         if (_seleStr.length > 0) {
             cell2.TissueMorphologyLabel.text = _seleStr;
         }else{
-            cell2.TissueMorphologyLabel.text = @"請選擇組織形態";
+            cell2.TissueMorphologyLabel.text = MyLocal(@"Please select the organization form.");
             
         }
         //        [cell2.SelectBut addTarget:self action:@selector(actBut:) forControlEvents:UIControlEventTouchUpInside];

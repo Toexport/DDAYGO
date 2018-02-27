@@ -33,7 +33,7 @@
             }];
             
             ZP_GeneralLabel * Titlelabel = [ZP_GeneralLabel initWithtextLabel:_Titlelabel.text textColor:ZP_textblack font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-            Titlelabel.text = NSLocalizedString(@"Select erchandise ach Month", nil);
+            Titlelabel.text = MyLocal(@"Select erchandise ach Month");
             [titiView addSubview:Titlelabel];
             [self addSubview:titiView];
             [Titlelabel mas_makeConstraints:^(MASConstraintMaker *make) {

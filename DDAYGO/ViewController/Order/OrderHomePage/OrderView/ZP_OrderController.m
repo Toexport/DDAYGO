@@ -307,10 +307,10 @@
                 
             }else
                 if ([obj[@"result"]isEqualToString:@"time_error"]) {
-                    [SVProgressHUD showInfoWithStatus:@"交易完成的訂單需要15天後才能刪除"];
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"It takes 15 days for the completed order to be deleted.")];
                 }else
                     if ([obj[@"result"]isEqualToString:@"orders_state_error"]) {
-                        [SVProgressHUD showInfoWithStatus:@"此状态下暂不能删除"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"This state cannot be deleted temporarily.")];
                     }
             ZPLog(@"%@",obj);
             [self.tableview reloadData];
@@ -385,7 +385,7 @@
             cell.OnceagainBut.tag = indexPath.row;
             
             OrdersdetailModel * model2;
-            if (![_titleStr isEqualToString:@"評價"]) {
+            if (![_titleStr isEqualToString:MyLocal(@"evaluation")]) {
                 model2 = [OrdersdetailModel CreateWithDict:model.ordersdetail.firstObject];
                 [cell InformationWithDic:model2 WithModel:model];
             }else {

@@ -82,10 +82,10 @@
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"account exists",nil) preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"Cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
             }];
-            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 [self.navigationController popToRootViewControllerAnimated:NO];
                 //跳转
                 if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
@@ -126,10 +126,10 @@
         NSLog(@"dele %@",obj);
         [self.newsData removeObjectAtIndex:btn.tag];
         if ([obj[@"result"]isEqualToString:@"ok"]) {
-            [SVProgressHUD showSuccessWithStatus:@"刪除成功"];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Delete success")];
         }else {
             if ([obj[@"result"]isEqualToString:@"failure"]) {
-                [SVProgressHUD showInfoWithStatus:@"刪除失敗"];
+                [SVProgressHUD showInfoWithStatus:MyLocal(@"Delete failed")];
             }
         }
         [self.collectionView reloadData];

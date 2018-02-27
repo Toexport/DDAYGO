@@ -8,6 +8,7 @@
 
 #import "RequestReplaceController.h"
 #import "RequestRefundController.h"
+#import "PrefixHeader.pch"
 @interface RequestReplaceController ()
 
 @end
@@ -21,7 +22,7 @@
 
 // UI
 - (void)initUI {
-    self.title = NSLocalizedString(@"退换货", nil);
+    self.title =MyLocal(@"Return/replacement");
 }
 
 // 退货退款

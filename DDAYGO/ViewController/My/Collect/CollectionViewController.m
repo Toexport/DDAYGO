@@ -84,10 +84,10 @@
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"account exists",nil) preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"Cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
             }];
-            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 [self.navigationController popToRootViewControllerAnimated:NO];
                 //跳转
                 if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
@@ -119,10 +119,10 @@
         if ([obj[@"result"]isEqualToString:@"ok"]) {
             [self getData];
             [self.tableView reloadData];
-            [SVProgressHUD showSuccessWithStatus:@"取消成功!"];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Cancel success")];
         }else
             if ([obj[@"result"]isEqualToString:@"failure"]) {
-                [SVProgressHUD showInfoWithStatus:@"操作失败"];
+                [SVProgressHUD showInfoWithStatus:MyLocal(@"operation failure")];
             }
     } failure:^(NSError *error) {
         NSLog(@"error %@",error);

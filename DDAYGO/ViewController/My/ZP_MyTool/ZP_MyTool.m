@@ -51,7 +51,6 @@
     } failure:^(NSError *error) {
         failure(error);
         //        ZPLog(@"%@",error);
-        //        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
     }];
 }
 //  设定默认地址

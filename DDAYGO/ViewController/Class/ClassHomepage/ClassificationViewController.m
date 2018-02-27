@@ -39,7 +39,7 @@
 }
 
 - (void)initUI {
-    self.title = NSLocalizedString(@"Class", nil);
+    self.title = MyLocal(@"Class");
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.rightData = [NSMutableDictionary dictionary];
@@ -84,7 +84,6 @@
         [self.leftTableView reloadData];
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
-//        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
   }];
 }
 
@@ -108,7 +107,6 @@
         [self.rightTableView reloadData];
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
-//        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
     }];
 }
 

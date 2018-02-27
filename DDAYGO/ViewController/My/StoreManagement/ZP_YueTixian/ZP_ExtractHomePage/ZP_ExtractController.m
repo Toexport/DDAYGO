@@ -24,7 +24,7 @@
 }
 
 - (void)initUI {
-    self.title = NSLocalizedString(@"提現記錄", nil);
+    self.title = NSLocalizedString(@"Withdrawals records", nil);
     [self.tableView registerNib:[UINib nibWithNibName:@"ZP_ExtractCell" bundle:nil] forCellReuseIdentifier:@"ZP_ExtractCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     /**** IOS 11 ****/
@@ -60,10 +60,10 @@
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"account exists",nil) preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
             }];
-            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 [self.navigationController popToRootViewControllerAnimated:NO];
                 //跳转
                 if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
@@ -82,15 +82,14 @@
         [self.tableView reloadData];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-        //        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 
 // 取消按鈕點擊事件
 - (void)CancelButt:(UIButton *)sender {
 #pragma make -- 提示框
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"確定要取消提現嗎？",nil) preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:MyLocal(@"Are you sure you want to cancel the withdrawal?") preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         ZPLog(@"取消");
     }];
     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
@@ -112,10 +111,10 @@
         if ([obj[@"result"]isEqualToString:@"ok"]) {
             [self AllData];
             [self.tableView reloadData];
-            [SVProgressHUD showSuccessWithStatus:@"取消成功"];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Cancel success")];
         }else
             if ([obj[@"result"]isEqualToString:@"failed"]) {
-                [SVProgressHUD showInfoWithStatus:@"取消失敗"];
+                [SVProgressHUD showInfoWithStatus:MyLocal(@"Cancel failure")];
             }
         [self AllData];
         [self.tableView reloadData];

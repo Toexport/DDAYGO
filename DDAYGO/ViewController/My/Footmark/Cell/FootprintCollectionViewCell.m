@@ -22,7 +22,7 @@
         _defaultimgImageVIew.backgroundColor = [UIColor clearColor];
         _defaultimgImageVIew.image = [UIImage imageNamed:@"bg_footprint_frame"];
         _defaltLabel.center = _defaultimgImageVIew.center;
-        _defaltLabel.text = NSLocalizedString(@"已失效", nil);
+        _defaltLabel.text = MyLocal(@"invalid");
         [_defaltLabel setTextColor:[UIColor whiteColor]];
         _defaltLabel.textAlignment = NSTextAlignmentCenter;
         [_defaultimgImageVIew setContentScaleFactor:[[UIScreen mainScreen] scale]];

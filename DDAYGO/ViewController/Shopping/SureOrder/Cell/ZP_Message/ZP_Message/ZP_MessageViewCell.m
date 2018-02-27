@@ -67,7 +67,6 @@
     TotalLabel.textAlignment = NSTextAlignmentLeft;
     TotalLabel.textColor = ZP_textblack;
     TotalLabel.font = ZP_titleFont;
-//    TotalLabel.text = NSLocalizedString(@"共计36件商品", nil);
     [self.contentView addSubview:TotalLabel];
     [TotalLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(- 120);

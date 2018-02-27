@@ -54,7 +54,7 @@
     
 //        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"input_home_search"] forBarMetrics:UIBarMetricsDefault];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Cancel", nil) style:UIBarButtonItemStyleDone target:self action:@selector(back)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:MyLocal(@"Cancel") style:UIBarButtonItemStyleDone target:self action:@selector(back)];
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = ZP_TabBarTextColor;
     textAttrs[NSFontAttributeName] = ZP_TooBarFont;
@@ -81,7 +81,7 @@
         ZPLog(@"go - > %@ --- %@,kkk_> %@",keywords,newStr,searchKit);
         if (newStr.length > 0 ) {
             ZPLog(@"go");
-            [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Temporarily no data", nil)];
+            [SVProgressHUD showInfoWithStatus:MyLocal(@"Temporarily no data")];
     }
     }else {
     NSString * newStr = [keywords stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -92,11 +92,11 @@
         CPerViewController * CVPView = [[CPerViewController alloc]init];
         CVPView.fatherId = [NSNumber numberWithInteger:0];
         CVPView.keyword = searchKit;
-        CVPView.titleString = NSLocalizedString(@"Search",nil);
-        [ZPProgressHUD showWithStatus:NSLocalizedString(@"Searching for...",nil) maskType:ZPProgressHUDMaskTypeBlack];
+        CVPView.titleString = MyLocal(@"Search");
+        [ZPProgressHUD showWithStatus:MyLocal(@"Searching for...") maskType:ZPProgressHUDMaskTypeBlack];
         [self.navigationController pushViewController:CVPView animated:YES];
     }else{
-    [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Please enter the product you are looking for",nil)];
+    [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the product you are looking for")];
         ZPLog(@"no go");
         }
     }

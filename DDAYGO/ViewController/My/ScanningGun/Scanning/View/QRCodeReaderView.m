@@ -138,7 +138,7 @@ static CGFloat const timer_animation_Duration = 0.05;
     promptLabel.textAlignment = NSTextAlignmentCenter;
     promptLabel.font = [UIFont boldSystemFontOfSize:13.0];
     promptLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6];
-    promptLabel.text = @"將二維碼放入款內,即可自動掃描";
+    promptLabel.text = MyLocal(@"Place the qr code in the box and scan automatically.");
     [bottom_View addSubview:promptLabel];
     
 // 添加闪光灯按钮

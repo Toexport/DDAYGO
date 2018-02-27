@@ -77,7 +77,7 @@
 }
 
 - (void)initView {
-    _titleArray =  @[NSLocalizedString(@"Acquiescence", nil),NSLocalizedString(@"Sales Volume", nil),NSLocalizedString(@"Latest", nil),NSLocalizedString(@"Price", nil)];
+    _titleArray =  @[MyLocal(@"Acquiescence"),MyLocal(@"Sales Volume"),MyLocal(@"Latest"),MyLocal(@"Price")];
     for (NSInteger i = 0; i<_titleArray.count; i++) {
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(i*(ZP_Width/4), 0, ZP_Width/4, 34);

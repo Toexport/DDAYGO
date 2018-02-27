@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self ButStatusAttribute];
-    self.title = NSLocalizedString(@"綁定介紹人", nil);
+    self.title = MyLocal(@"referrer", nil);
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.BindingIntroduceTextField.keyboardType = UIKeyboardTypeASCIICapable;
     self.BindingIntroduceTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
@@ -45,13 +45,13 @@
 // 绑定推荐人
 - (IBAction)BindingIntroduceTextField:(id)sender {
 #pragma make -- 提示框
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"介紹人一旦绑定后将无法更改，您确定要绑定此介紹人吗？",nil) preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:MyLocal(@"introducer will not be able to change once it is bound. Are you sure you want to bind this reference?") preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         ZPLog(@"取消");
     }];
     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-        [SVProgressHUD showWithStatus:@"请稍后..."];
+        [SVProgressHUD showWithStatus:MyLocal(@"Please later…")];
         [self allData];
     }];
     [alert addAction:defaultAction];
@@ -65,17 +65,17 @@
     [ZP_MyTool requesIntroduce:dic success:^(id obj) {
         NSDictionary * dic = obj;
         if ([dic[@"result"]isEqualToString:@"ok"]) {
-            [SVProgressHUD showSuccessWithStatus:@"綁定成功"];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Binding success")];
             [self.navigationController popViewControllerAnimated:YES];
         }else
             if ([dic[@"result"]isEqualToString:@"failure"]) {
-                [SVProgressHUD showInfoWithStatus:@"綁定失敗"];
+                [SVProgressHUD showInfoWithStatus:MyLocal(@"Binding failure")];
             }else
                 if ([dic[@"result"]isEqualToString:@"no"]) {
-                    [SVProgressHUD showInfoWithStatus:@"賬戶不存在"];
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"account does not exist")];
                 }else
                     if ([dic[@"result"]isEqualToString:@"abnormal_message"]) {
-                        [SVProgressHUD showInfoWithStatus:@"異常訊息"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Exception information")];
                     }else
                         //*************************************Token被挤掉***************************************************//
                         if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {

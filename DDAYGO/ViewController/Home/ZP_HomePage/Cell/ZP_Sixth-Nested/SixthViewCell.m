@@ -53,7 +53,7 @@
     titleLabel.textAlignment = NSTextAlignmentCenter;
     [titleLabel setTextColor:ZP_Graybackground];
     titleLabel.textColor = ZP_textblack;
-    titleLabel.text = NSLocalizedString(@"erchandise", nil);
+    titleLabel.text = MyLocal(@"erchandise");
     titleLabel.font = ZP_TooBarFont;
     [self addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -63,7 +63,7 @@
     
 //  更多
     UIButton * moreBut = [UIButton new];
-    [moreBut setTitle:NSLocalizedString(@"More erchandise", nil) forState:UIControlStateNormal];
+    [moreBut setTitle:MyLocal(@"More erchandise") forState:UIControlStateNormal];
     moreBut.titleLabel.font = ZP_titleFont;
     [moreBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     moreBut.backgroundColor = [UIColor orangeColor];

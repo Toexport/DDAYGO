@@ -115,7 +115,7 @@
         self.dataDic[@"phone"] = obj[@"phone"];
         self.dataDic[@"address"] = obj[@"address"];
         
-        if ([obj[@"sex"] isEqualToString:@"男"]) {
+        if ([obj[@"sex"] isEqualToString: @"男"]) {
             _genderBooy.selected = YES;
         }else{
             _genderGail.selected = YES;
@@ -125,7 +125,6 @@
         [self fillData:model];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-//        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 
@@ -198,10 +197,10 @@
         [ZP_MyTool requesModifydata:self.dataDic uccess:^(id obj) {
             ZPLog(@"%@",obj);
             if ([obj[@"result"]isEqualToString:@"ok"]) {
-                [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+                [SVProgressHUD showSuccessWithStatus:MyLocal(@"Modify success")];
             }else
                 if ([obj[@"result"]isEqualToString:@"sys_error"]) {
-                    [SVProgressHUD showInfoWithStatus:@"修改失敗"];
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Modify failure")];
                 }
             NSLog(@"xiugai success");
             self.nicknameLabel.text = (NSString *)response;
@@ -223,15 +222,14 @@
         self.dataDic[@"sex"] = @"女";
         [ZP_MyTool requesModifydata:self.dataDic uccess:^(id json) {
             if ([json[@"result"]isEqualToString:@"ok"]) {
-                [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+                [SVProgressHUD showSuccessWithStatus:MyLocal(@"Modify success")];
             }else
                 if ([json[@"result"]isEqualToString:@"sys_error"]) {
-                    [SVProgressHUD showInfoWithStatus:@"修改失敗"];
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Modify failure")];
                 }
             //            NSLog(@"%@",json);
         } failure:^(NSError *error) {
             ZPLog(@"%@",error);
-            //            [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
         }];
     }
 }
@@ -246,10 +244,10 @@
         self.dataDic[@"sex"] = @"男";
         [ZP_MyTool requesModifydata:self.dataDic uccess:^(id json) {
             if ([json[@"result"]isEqualToString:@"ok"]) {
-                [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+                [SVProgressHUD showSuccessWithStatus:MyLocal(@"Modify success")];
             }else
                 if ([json[@"result"]isEqualToString:@"sys_error"]) {
-                    [SVProgressHUD showInfoWithStatus:@"修改失敗"];
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Modify failure")];
                 }
         } failure:^(NSError *error) {
             //            ZPLog(@"%@",error);

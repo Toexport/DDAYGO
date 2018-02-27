@@ -42,24 +42,24 @@
     NSLog(@"STate = %d",a);
     switch (a) {
         case 2:
-            _ReviewStatusLabel.text = @"未審核";
+            _ReviewStatusLabel.text =MyLocal(@"Not audit");
             _CancelBut.hidden = NO;
             break;
             
         case 3:
-            _ReviewStatusLabel.text = @"提現完成";
+            _ReviewStatusLabel.text = MyLocal(@"Withdrawals complete");
             _ViewLayoutConstraint.constant = CGFLOAT_MIN;
             _CancelBut.hidden = YES;
             break;
             
         case 7:
-            _ReviewStatusLabel.text = @"退件";
+            _ReviewStatusLabel.text = MyLocal(@"product");
             _ViewLayoutConstraint.constant = CGFLOAT_MIN;
             _CancelBut.hidden = YES;
             break;
             
         case 6:
-            _ReviewStatusLabel.text = @"取消提現";
+            _ReviewStatusLabel.text = MyLocal(@"Cancel withdrawals");
             _ViewLayoutConstraint.constant = CGFLOAT_MIN;
             _CancelBut.hidden = YES;
             break;

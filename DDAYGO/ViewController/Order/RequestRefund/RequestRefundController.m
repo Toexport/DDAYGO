@@ -33,7 +33,7 @@
         self.title = MyLocal(@"Exchange goods");
         _view4.hidden = NO;
     }else {
-        self.title = NSLocalizedString(@"退款", nil);
+        self.title = MyLocal(@"refund", nil);
         _view4.hidden = YES;
     }
 }
@@ -216,7 +216,7 @@
     [ZP_OrderTool requestAddRefund:dic success:^(id obj) {
         ZPLog(@"%@",obj);
         if ([obj[@"result"]isEqualToString:@"ok"]) {
-            [SVProgressHUD showSuccessWithStatus:@"申请成功"];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Application is successful")];
             [self.navigationController popViewControllerAnimated:YES];
         }else
             //*************************************Token被挤掉***************************************************//

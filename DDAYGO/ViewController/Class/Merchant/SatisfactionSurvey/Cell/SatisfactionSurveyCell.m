@@ -20,7 +20,7 @@
     self.NameLabel.text = model.realname;
     self.PinglunneirongLabel.text = model.reviewscontent;
     self.TimeLabel.text = model.createtime;
-    self.FenshuLabel.text = [NSString stringWithFormat:@"%@分",model.fraction];
+    self.FenshuLabel.text = [NSString stringWithFormat:MyLocal(@"%@points"),model.fraction];
     [self updateStartsWithtype:0 StartCount:[model.fraction integerValue]];
 
 }

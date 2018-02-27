@@ -306,7 +306,6 @@
         [self.tableView reloadData];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-//        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 
@@ -335,7 +334,6 @@
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-//        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 
@@ -362,7 +360,6 @@
         [self.tableView reloadData];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-    //        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 
@@ -387,7 +384,6 @@
         [self.tableView reloadData];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-//        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 

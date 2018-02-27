@@ -22,7 +22,7 @@
 }
 
 - (void)initUI {
-    self.title = NSLocalizedString(@"提現", nil);
+    self.title = MyLocal(@"extract");
     UIBarButtonItem * ExtractBut = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"icon_withdrawals_record"] style:UIBarButtonItemStyleDone target:self action:@selector(Extract)];
     ExtractBut.tintColor = ZP_WhiteColor;
     self.amountText.keyboardType = UIKeyboardTypeNumberPad;
@@ -43,32 +43,32 @@
 - (IBAction)CompleteButton:(id)sender {
     //这个是判断金额不能小于1
     if ([_amountText.textField.text intValue] < 1) {
-        [SVProgressHUD showInfoWithStatus:@"请输入正确金额"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the correct amount.")];
         return;
     }
     // 这个是判断 至少输入一个 字
     if (_payeeText.textField.text.length < 1) {
-        [SVProgressHUD showInfoWithStatus:@"请输入联系人"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the contact person")];
         return;
     }
     if (_CollectingBankText.textField.text.length < 1) {
-        [SVProgressHUD showInfoWithStatus:@"请输入收款银行"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the receiving bank.")];
         return;
     }
     if (_PaymentAccountText.textField.text.length < 1) {
-        [SVProgressHUD showInfoWithStatus:@"请输入收款账号"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter your account number.")];
         return;
     }
     if (_reservedPhoneText.textField.text.length  < 1) {
-        [SVProgressHUD showInfoWithStatus:@"请输入电话"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the telephone")];
         return;
     }
     if (![self validateEmail:_emailText.textField.text]) {
-        [SVProgressHUD showInfoWithStatus:@"郵箱格式不正確"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Incorrect email format.")];
         return;
     }
     if (_emailText.textField.text.length < 1) {
-        [SVProgressHUD showInfoWithStatus:@"请输入邮箱"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter email")];
         return;
     }
     
@@ -90,14 +90,14 @@
     
     [ZP_MyTool requesAddSupplierTakeOut:dic success:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"ok"]) {
-            [SVProgressHUD showSuccessWithStatus:@"申請成功"];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Application successful")];
             [self.navigationController popViewControllerAnimated:YES];
         }else
             if ([obj[@"result"]isEqualToString:@"apply_count_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"超过每日可提现次数  每日限制一次"];
+                [SVProgressHUD showInfoWithStatus:MyLocal(@"Exceed daily withdrawal times daily limit.")];
             }else
                 if ([obj[@"result"]isEqualToString:@"takeamount_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"可提现金额不足"];
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"withdrawal amount is insufficient")];
                 }else
                     //*************************************Token被挤掉***************************************************//
                     if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
@@ -116,10 +116,10 @@
                         [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
                         UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"account exists",nil) preferredStyle:UIAlertControllerStyleAlert];
-                        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"Cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                             ZPLog(@"取消");
                         }];
-                        UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                        UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                             [self.navigationController popToRootViewControllerAnimated:NO];
                             //跳转
                             if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {

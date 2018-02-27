@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"訂單";
+    self.title =MyLocal(@"Order");
 }
 
 - (void)viewWillAppear:(BOOL)animated {

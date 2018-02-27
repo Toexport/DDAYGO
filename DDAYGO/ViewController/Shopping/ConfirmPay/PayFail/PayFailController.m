@@ -7,7 +7,7 @@
 //
 
 #import "PayFailController.h"
-
+#import "PrefixHeader.pch"
 @interface PayFailController ()
 
 @end
@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"支付失敗";
+    self.title =MyLocal(@"Pay failure");
     // Do any additional setup after loading the view from its nib.
 }
 

@@ -36,7 +36,6 @@
     merchantsLabel.textAlignment = NSTextAlignmentLeft;
     [merchantsLabel setTextColor:ZP_Graybackground];
     merchantsLabel.textColor = [UIColor blackColor];
-        merchantsLabel.text = @"阿芙专卖店";
     merchantsLabel.font = ZP_stockFont;
     [self.contentView addSubview:merchantsLabel];
     [merchantsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -63,7 +62,7 @@
     Storeratingstext.textColor = ZP_TypefaceColor;
     Storeratingstext.font = ZP_titleFont;
     Storeratingstext.delegate = self;
-    Storeratingstext.placeholder = NSLocalizedString(@"分享一下你對店鋪的服務滿意嗎", nil);
+    Storeratingstext.placeholder = MyLocal(@"Are you satisfied with the service of the store?");
     [self.contentView addSubview:Storeratingstext];
     [Storeratingstext mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(15);
@@ -85,7 +84,7 @@
     
 //    选择按钮
     UIButton * Anonymousbutton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [Anonymousbutton setTitle:NSLocalizedString(@"匿名", nil) forState:UIControlStateNormal];
+    [Anonymousbutton setTitle:MyLocal(@"anonymous") forState:UIControlStateNormal];
     Anonymousbutton.titleLabel.font = ZP_TooBarFont;
     [Anonymousbutton setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
     Anonymousbutton.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
@@ -109,7 +108,7 @@
     PromptingLabel.textAlignment = NSTextAlignmentLeft;
     PromptingLabel.textColor = ZP_TypefaceColor;
     PromptingLabel.font = ZP_TrademarkFont;
-    PromptingLabel.text = NSLocalizedString(@"你寫的評價將會以匿名的形式展開", nil);
+    PromptingLabel.text = NSLocalizedString(@"Your comments will be written anonymously.", nil);
     [self.contentView addSubview:PromptingLabel];
     [PromptingLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-10);

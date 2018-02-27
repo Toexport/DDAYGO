@@ -153,7 +153,6 @@
         }
         if (a > 0) {
             NSLog(@"规格有选中");
-//            [SVProgressHUD showErrorWithStatus:@"规格没有选中"];
         }else{
             [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"specification no selected", nil)];
             NSLog(@"规格没有选中");
@@ -178,11 +177,10 @@
         }
         if (b > 0) {
             NSLog(@"尺寸有选中");
-//            [SVProgressHUD showErrorWithStatus:@"规格没有选中"];
         }else{
             //提示语
             NSLog(@"尺寸没有选中");
-            [SVProgressHUD showErrorWithStatus:MyLocal(@"number NO choices")];
+            [SVProgressHUD showErrorWithStatus:MyLocal(@"size No selection")];
             return;
         }
         
@@ -196,7 +194,7 @@
         [[NSNotificationCenter defaultCenter]postNotificationName:@"Confirm" object:nil];
     }else {
         NSLog(@"没有选择数量");
-        [SVProgressHUD showErrorWithStatus:@"没有选择数量"];
+        [SVProgressHUD showErrorWithStatus:MyLocal(@"number NO choices")];
     }
 }
 }

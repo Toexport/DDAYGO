@@ -8,6 +8,7 @@
 
 #import "PayPassController.h"
 #import "OrderViewController.h"
+#import "PrefixHeader.pch"
 @interface PayPassController ()
 
 @end
@@ -16,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"支付成功";
+    self.title =MyLocal(@"Pay success");
 //    for (UIViewController * controller in self.navigationController.viewControllers) {
 //        if ([controller isKindOfClass:[OrderViewController class]]) {
 //            [self.navigationController popToViewController:controller animated:YES];

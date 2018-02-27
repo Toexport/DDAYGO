@@ -53,7 +53,7 @@
 }
 
 - (void)initUI {
-    self.title = @"促销彩填寫";
+    self.title =MyLocal(@"Lottery to fill out");
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"BetTableViewMyCell" bundle:nil] forCellReuseIdentifier:@"BetTableViewMyCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"BetTableViewCellTwo" bundle:nil] forCellReuseIdentifier:@"BetTableViewCellTwo"];
@@ -68,7 +68,7 @@
     frame.size.height = 35;
     _chooseCityBtn.frame = frame;
     _chooseCityBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    [_chooseCityBtn setTitle:NSLocalizedString(@"機選", nil) forState:UIControlStateNormal];
+    [_chooseCityBtn setTitle:MyLocal(@"random") forState:UIControlStateNormal];
     CGFloat imageWidth = _chooseCityBtn.imageView.bounds.size.width;
     CGFloat labelWidth = _chooseCityBtn.titleLabel.bounds.size.width;
     _chooseCityBtn.frame =CGRectMake(0, 0, 40.0f, 25.0f);
@@ -108,7 +108,7 @@
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"account exists",nil) preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"Cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
             }];
             UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
@@ -165,11 +165,11 @@
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 44)];
         view.backgroundColor = [UIColor whiteColor];
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(16, 0, 65, 44)];
-        label.text = @"紅球：1個,";
+        label.text =MyLocal(@"Red ball: one,");
         label.font = [UIFont systemFontOfSize:13];
         [view addSubview:label];
         UILabel *label2 = [[UILabel alloc]initWithFrame:CGRectMake(80, 0, 30, 44)];
-        label2.text = @"已選";
+        label2.text = MyLocal(@"selected");
         label2.font = [UIFont systemFontOfSize:13];
         [view addSubview:label2];
         _label3 = [[UILabel alloc]initWithFrame:CGRectMake(110, 0, 10, 44)];
@@ -178,7 +178,7 @@
         _label3.font = [UIFont systemFontOfSize:13];
         [view addSubview:_label3];
         UILabel *label4 = [[UILabel alloc]initWithFrame:CGRectMake(120, 0, 15, 44)];
-        label4.text = @"個";
+        label4.text = MyLocal(@"a");
         label4.font = [UIFont systemFontOfSize:13];
         [view addSubview:label4];
         return view;

@@ -30,7 +30,7 @@
 // 隐藏政策
 - (IBAction)PrivacyPolicyBut:(id)sender {
     RegistrationAgreementController * RegistrationAgreement = [[RegistrationAgreementController alloc]init];
-    RegistrationAgreement.title = @"隱私政策";
+    RegistrationAgreement.title = MyLocal(@"Privacy policy");
     RegistrationAgreement.type = 111;
     [self.navigationController pushViewController:RegistrationAgreement animated:YES];
     
@@ -46,7 +46,7 @@
 // 退换货流程
 - (IBAction)ReturnProcessBut:(id)sender {
     RegistrationAgreementController * RegistrationAgreement = [[RegistrationAgreementController alloc]init];
-    RegistrationAgreement.title = @"退換貨流程";
+    RegistrationAgreement.title = MyLocal(@"Return/replacement process.");
     RegistrationAgreement.type = 333;
     [self.navigationController pushViewController:RegistrationAgreement animated:YES];
 }

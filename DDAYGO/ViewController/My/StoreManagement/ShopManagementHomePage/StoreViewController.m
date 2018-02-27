@@ -67,10 +67,10 @@
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"account exists",nil) preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"Cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
             }];
-            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 [self.navigationController popToRootViewControllerAnimated:NO];
                 //跳转
                 if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
@@ -89,7 +89,7 @@
         //        2、全局 方法2
         //38接口显示·返回只有2个结果·以防止崩溃·加判断
         if ([obj[@"result"] isEqualToString:@"no"]) {
-            [SVProgressHUD showInfoWithStatus:@"供貨商不存在"];
+            [SVProgressHUD showInfoWithStatus: MyLocal(@"They don't exist")];
             //            [self.navigationController popViewControllerAnimated:YES];
         }else {
             _sid = obj[@"result"];
@@ -97,8 +97,7 @@
         }
         
     } failure:^(NSError * error) {
-        //        ZPLog(@"%@",error);
-        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
+        ZPLog(@"%@",error);
     }];
 }
 // 获取商家余额(方法1)
@@ -125,7 +124,6 @@
         
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-        //        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 

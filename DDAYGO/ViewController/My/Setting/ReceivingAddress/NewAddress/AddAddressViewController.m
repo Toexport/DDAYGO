@@ -29,9 +29,9 @@
 
 - (void)setContentDic:(NSDictionary *)contentDic {
     if (contentDic) {
-        self.title = NSLocalizedString(@"新增地址", nil);
+        self.title = MyLocal(@"new address");
         [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
-        UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveAddress)];
+        UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithTitle:MyLocal(@"save") style:UIBarButtonItemStylePlain target:self action:@selector(saveAddress)];
         self.navigationItem.rightBarButtonItem = item;
         [self.navigationItem.rightBarButtonItem setTintColor:[UIColor whiteColor]];
         self.AddAddressScrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐藏
@@ -84,23 +84,20 @@
         ZPLog(@"%@",obj);
         if ([dic[@"result"] isEqualToString:@"ok"]) {
             ZPLog(@"加入成功");
-            [SVProgressHUD showSuccessWithStatus:@"添加成功"];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Add success")];
             [self.navigationController popViewControllerAnimated:YES];
         }else
             if ([dic[@"result"] isEqualToString:@"add_up_to_ten"]) {
-                [SVProgressHUD showInfoWithStatus:@"添加失败，最多只能添加10條數據喲"];
+                [SVProgressHUD showInfoWithStatus:MyLocal(@"Add failure, and you can only add up to 10 data.")];
             }else
-                if ([dic[@"result"] isEqualToString:@"sys_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"服務器連接至火星"];
-                }else
                     if ([dic[@"result"] isEqualToString:@"name_err"]) {
-                        [SVProgressHUD showInfoWithStatus:@"姓名不能為空"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"name cannot be empty.")];
                     }else
                         if ([dic[@"result"] isEqualToString:@"phone_err"]) {
-                            [SVProgressHUD showInfoWithStatus:@"電話號碼不能為空"];
+                            [SVProgressHUD showInfoWithStatus:MyLocal(@"phone number cannot be empty.")];
                         }else
                             if ([dic[@"result"] isEqualToString:@"address_err"]) {
-                                [SVProgressHUD showInfoWithStatus:@"地址不能為空"];
+                                [SVProgressHUD showInfoWithStatus:MyLocal(@"address cannot be empty.")];
                             }else
                                 //*************************************Token被挤掉***************************************************//
                                 if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
@@ -119,7 +116,7 @@
                                     [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
                                     UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"account exists",nil) preferredStyle:UIAlertControllerStyleAlert];
-                                    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                                         ZPLog(@"取消");
                                     }];
                                     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
@@ -137,7 +134,6 @@
         //****************************************************************************************//
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-        //        [SVProgressHUD showInfoWithStatus:@"服務器鏈接失敗"];
     }];
 }
 

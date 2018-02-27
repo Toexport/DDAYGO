@@ -76,7 +76,7 @@
 - (IBAction)ensureAction:(id)sender {
     [self.textfield endEditing:YES];
     if (self.textfield.text.length < 1) {
-        [SVProgressHUD showInfoWithStatus:@"輸入不能為空"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"input cannot be empty.")];
     }else {
         if (self.finishBlock) {
             self.finishBlock(_textfield.text);

@@ -22,11 +22,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"收貨地址", nil);
+    self.title = MyLocal(@"goods address");
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     [self.tableView registerNib:[UINib nibWithNibName:@"AddressTableViewCell" bundle:nil] forCellReuseIdentifier:@"AddressTableViewCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
-    UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"新增地址", nil)  style:UIBarButtonItemStylePlain target:self action:@selector(addAddress)];
+    UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithTitle:MyLocal(@"new address")  style:UIBarButtonItemStylePlain target:self action:@selector(addAddress)];
     self.navigationItem.rightBarButtonItem = item;
     [self.navigationItem.rightBarButtonItem setTintColor:[UIColor whiteColor]];
     [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
@@ -152,7 +152,7 @@
                         }
                         [self.tableView reloadData];
                     }
-                    [SVProgressHUD showSuccessWithStatus:@"設置成功"];
+                    [SVProgressHUD showSuccessWithStatus:MyLocal(@"Set success")];
                 }else {
                     ZPLog(@"失败");
                 }
@@ -207,26 +207,26 @@
 
 - (void)DeletingClick:(UIButton *)sender {
 #pragma make -- 提示框
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"Are you sure you want delete it?",nil) preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:MyLocal(@"reminding") message:MyLocal(@"Are you sure you want delete it?") preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         ZPLog(@"取消");
     }];
-    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         ZP_FrontPageReceivingAddressModel * model = self.newsData[sender.tag];
         NSMutableDictionary * dic = [NSMutableDictionary dictionary];
         dic[@"token"] = Token;
         dic[@"adsid"] = model.addressid;
         [ZP_MyTool requesDeleteAddress:dic success:^(id obj) {
             if ([obj[@"result"]isEqualToString:@"ok"]) {
-                [SVProgressHUD showSuccessWithStatus:@"刪除成功"];
+                [SVProgressHUD showSuccessWithStatus:MyLocal(@"Delete success")];
                 [self allData]; //刷新表格里面的数据
             }else {
                 if ([obj[@"result"]isEqualToString:@"isdefault_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"默認地址不能刪除"];
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"default address cannot be deleted.")];
                 }else {
                     if ([obj[@"result"]isEqualToString:@"failure"]) {
-                        [SVProgressHUD showInfoWithStatus:@"操作失敗"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"operation failure")];
                     }
                 }
             }

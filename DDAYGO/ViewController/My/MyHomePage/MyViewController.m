@@ -358,7 +358,7 @@
             case 0:
             {
                 self.reason = obj[@"reason"];
-                model.stateString = @"已取消";
+                model.stateString = MyLocal(@"Has been cancelled");
                 self.ssdkBut.enabled = YES;
                 _SdglLayoutConstraint.constant = CGFLOAT_MIN;
                 _sdglView.hidden = YES; //  已取消隐藏商家
@@ -390,7 +390,7 @@
                 break;
             case 7:
             {
-                model.stateString = @"已退件";
+                model.stateString = MyLocal(@"product");
                 self.reason = obj[@"reason"];
                 self.ssdkBut.enabled = YES;
                 _SdglLayoutConstraint.constant = CGFLOAT_MIN;

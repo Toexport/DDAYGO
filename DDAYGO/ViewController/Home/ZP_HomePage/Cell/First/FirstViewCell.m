@@ -92,7 +92,6 @@
         [self first:ARR];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
-        //        [SVProgressHUD showInfoWithStatus:@"服务器链接失败"];
     }];
 }
 

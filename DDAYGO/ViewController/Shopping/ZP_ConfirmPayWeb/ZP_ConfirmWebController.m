@@ -61,7 +61,7 @@
 #pragma mark -UIWebViewDelegate
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSLog(@"当前连接--》%@",request.URL.absoluteString);
-    [SVProgressHUD showWithStatus:@"正在努力加载ing......请再稍等一下下~"]; // 菊花
+    [SVProgressHUD showWithStatus:MyLocal(@"Trying to load ing... Just a moment, please.")]; // 菊花
     return YES;
 }
 

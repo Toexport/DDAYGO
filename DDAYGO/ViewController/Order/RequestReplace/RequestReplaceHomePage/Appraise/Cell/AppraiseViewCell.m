@@ -39,7 +39,7 @@
     UILabel * EvaluationLabel = [UILabel new];
     EvaluationLabel.textAlignment = NSTextAlignmentLeft;
     EvaluationLabel.textColor = ZP_textblack;
-    EvaluationLabel.text = NSLocalizedString(@"商品評分", nil);
+    EvaluationLabel.text = MyLocal(@"Commodity grade");
     EvaluationLabel.font = ZP_stockFont;
     [self.contentView addSubview:EvaluationLabel];
     [EvaluationLabel mas_makeConstraints:^(MASConstraintMaker *make) {

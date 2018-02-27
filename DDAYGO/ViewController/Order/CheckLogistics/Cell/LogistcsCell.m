@@ -72,7 +72,7 @@
     UILabel * TransportLabel = [UILabel new];
     TransportLabel.textAlignment = NSTextAlignmentLeft;
     TransportLabel.textColor = ZP_textblack;
-    TransportLabel.text = NSLocalizedString(@"承运公司:", nil) ;
+    TransportLabel.text = NSLocalizedString(@"Courier company:", nil) ;
     TransportLabel.font = ZP_TooBarFont;
     [self.contentView addSubview:TransportLabel];
     [TransportLabel mas_makeConstraints:^(MASConstraintMaker *make) {

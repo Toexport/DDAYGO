@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"正在支付,请稍后...";
+    self.title = MyLocal(@"Payment is being paid, please...");
     self.view.backgroundColor = [UIColor whiteColor];
     [self setupWebView];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor whiteColor]}];
@@ -70,7 +70,7 @@
     NSLog(@"当前连接--》%@",request.URL.absoluteString);
 //用一个字符串来接受  全局的· 后面要用
     _str = request.URL.absoluteString;
-    [SVProgressHUD showWithStatus:@"正在努力加载ing......请再稍等一下下~"]; // 菊花
+    [SVProgressHUD showWithStatus:MyLocal(@"Trying to load ing... Just a moment, please.")]; // 菊花
     return YES;
 }
 
@@ -83,18 +83,18 @@
         dic[@"poid"] = self.Oid;
         [ZP_MyTool requesOrdPay:dic uccess:^(id obj) {
             if ([obj[@"result"] isEqualToString:@"success"]) {
-                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"支付成功", nil)];
+                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Pay success", nil)];
                 PayPassController * Pass = [[PayPassController alloc]init];
                 [self.navigationController pushViewController:Pass animated:YES];
             }else
                 if ([obj[@"result"]isEqualToString:@"failed"]) {
-                    [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"支付失败", nil)];
+                    [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Pay failure", nil)];
             }else
                 if ([obj[@"result"] isEqualToString:@"no_result"]) {
-                    [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"無付款記錄", nil)];
+                    [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"No payment record", nil)];
             }else
                 if ([obj[@"result"] isEqualToString:@"oid_err"]) {
-                    [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"訂單號不能為空", nil)];
+                    [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"The order number cannot be empty.", nil)];
             }
             ZPLog(@"%@",obj);
         } failure:^(NSError * error) {

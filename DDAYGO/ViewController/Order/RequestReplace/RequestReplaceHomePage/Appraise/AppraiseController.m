@@ -119,7 +119,7 @@
     [ZP_OrderTool requestAppraise:dic success:^(id obj) {
         
         if ([obj[@"result"]isEqualToString:@"ok"]) {
-            [SVProgressHUD showSuccessWithStatus:@"评价成功"];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Evaluation success")];
             [self.navigationController popViewControllerAnimated:YES];
         }
         ZPLog(@"%@",obj);
