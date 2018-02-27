@@ -221,7 +221,6 @@
 		C435173A1FB2AC830066302E /* FootprintCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C435173C1FB2AC830066302E /* FootprintCollectionViewCell.xib */; };
 		C43517431FB2ACD60066302E /* StoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43517451FB2ACD60066302E /* StoreViewController.xib */; };
 		C435174C1FB2ACE80066302E /* OrdersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C435174E1FB2ACE80066302E /* OrdersViewController.xib */; };
-		C43987751FF48B5D00044E21 /* RegistrationAgreementController.m in Sources */ = {isa = PBXBuildFile; fileRef = C43987741FF48B5D00044E21 /* RegistrationAgreementController.m */; };
 		C43987801FF4C67100044E21 /* SupplierTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C439877E1FF4C67100044E21 /* SupplierTableViewCell.m */; };
 		C43987811FF4C67100044E21 /* SupplierTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C439877F1FF4C67100044E21 /* SupplierTableViewCell.xib */; };
 		C4399D6F1FCE84A000B7B96D /* LotteryController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4399D691FCE849F00B7B96D /* LotteryController.m */; };
@@ -258,6 +257,9 @@
 		C44A09102022F101000024F9 /* TextdetailsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C44A090E2022F101000024F9 /* TextdetailsViewCell.m */; };
 		C44A09112022F101000024F9 /* TextdetailsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C44A090F2022F101000024F9 /* TextdetailsViewCell.xib */; };
 		C44A09142022F16A000024F9 /* EvaluateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C44A09132022F16A000024F9 /* EvaluateModel.m */; };
+		C44B071F2044FB2E009A9392 /* DDGTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C44B071E2044FB2E009A9392 /* DDGTool.m */; };
+		C44B072320451A5C009A9392 /* RegistrationAgreementController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C44B072020451A5C009A9392 /* RegistrationAgreementController.xib */; };
+		C44B072420451A5C009A9392 /* RegistrationAgreementController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44B072120451A5C009A9392 /* RegistrationAgreementController.m */; };
 		C44C9DB11FEA392D00CD7D4D /* ZP_QuickLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44C9DAE1FEA392C00CD7D4D /* ZP_QuickLoginController.m */; };
 		C44C9DB21FEA392D00CD7D4D /* ZP_QuickLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C44C9DAF1FEA392C00CD7D4D /* ZP_QuickLoginController.xib */; };
 		C44D6D0F1FD8CF070002DAF2 /* PayViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D6D0A1FD8CF070002DAF2 /* PayViewCell.m */; };
@@ -902,8 +904,6 @@
 		C43517421FB2ACCD0066302E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/FootprintCollectionViewCell.strings"; sourceTree = "<group>"; };
 		C43517441FB2ACD60066302E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StoreViewController.xib; sourceTree = "<group>"; };
 		C43517511FB2ACF40066302E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/OrdersViewController.xib; sourceTree = "<group>"; };
-		C43987731FF48B5D00044E21 /* RegistrationAgreementController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationAgreementController.h; sourceTree = "<group>"; };
-		C43987741FF48B5D00044E21 /* RegistrationAgreementController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationAgreementController.m; sourceTree = "<group>"; };
 		C439877D1FF4C67100044E21 /* SupplierTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupplierTableViewCell.h; sourceTree = "<group>"; };
 		C439877E1FF4C67100044E21 /* SupplierTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SupplierTableViewCell.m; sourceTree = "<group>"; };
 		C439877F1FF4C67100044E21 /* SupplierTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SupplierTableViewCell.xib; sourceTree = "<group>"; };
@@ -950,6 +950,11 @@
 		C44A090F2022F101000024F9 /* TextdetailsViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextdetailsViewCell.xib; sourceTree = "<group>"; };
 		C44A09122022F16A000024F9 /* EvaluateModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvaluateModel.h; sourceTree = "<group>"; };
 		C44A09132022F16A000024F9 /* EvaluateModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluateModel.m; sourceTree = "<group>"; };
+		C44B071D2044FB2E009A9392 /* DDGTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DDGTool.h; path = DDAYGO/ViewController/Method/DDGTool.h; sourceTree = SOURCE_ROOT; };
+		C44B071E2044FB2E009A9392 /* DDGTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DDGTool.m; path = DDAYGO/ViewController/Method/DDGTool.m; sourceTree = SOURCE_ROOT; };
+		C44B072020451A5C009A9392 /* RegistrationAgreementController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationAgreementController.xib; sourceTree = "<group>"; };
+		C44B072120451A5C009A9392 /* RegistrationAgreementController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationAgreementController.m; sourceTree = "<group>"; };
+		C44B072220451A5C009A9392 /* RegistrationAgreementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationAgreementController.h; sourceTree = "<group>"; };
 		C44C9DAD1FEA392C00CD7D4D /* ZP_QuickLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZP_QuickLoginController.h; sourceTree = "<group>"; };
 		C44C9DAE1FEA392C00CD7D4D /* ZP_QuickLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZP_QuickLoginController.m; sourceTree = "<group>"; };
 		C44C9DAF1FEA392C00CD7D4D /* ZP_QuickLoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZP_QuickLoginController.xib; sourceTree = "<group>"; };
@@ -1620,6 +1625,8 @@
 				064449751F6A9B250004DFE4 /* LICENSE */,
 				064449761F6A9B250004DFE4 /* MJRefresh */,
 				064449A51F6A9B250004DFE4 /* README.md */,
+				C44B071D2044FB2E009A9392 /* DDGTool.h */,
+				C44B071E2044FB2E009A9392 /* DDGTool.m */,
 			);
 			path = MJRefresh;
 			sourceTree = "<group>";
@@ -2734,8 +2741,9 @@
 		C43987721FF48B2F00044E21 /* RegistrationAgreement */ = {
 			isa = PBXGroup;
 			children = (
-				C43987731FF48B5D00044E21 /* RegistrationAgreementController.h */,
-				C43987741FF48B5D00044E21 /* RegistrationAgreementController.m */,
+				C44B072220451A5C009A9392 /* RegistrationAgreementController.h */,
+				C44B072120451A5C009A9392 /* RegistrationAgreementController.m */,
+				C44B072020451A5C009A9392 /* RegistrationAgreementController.xib */,
 			);
 			path = RegistrationAgreement;
 			sourceTree = "<group>";
@@ -4478,6 +4486,7 @@
 				06F572211F9F1E8700D61FDB /* BillViewController.xib in Resources */,
 				C4AD0753200C7A5D00B8FF6E /* LPDImagePickerController.bundle in Resources */,
 				06F5716C1F9F15CE00D61FDB /* CollectionTableViewCell.xib in Resources */,
+				C44B072320451A5C009A9392 /* RegistrationAgreementController.xib in Resources */,
 				C4411DAB200F626200CE906F /* loading11.png in Resources */,
 				C44A09012022F0E9000024F9 /* ProductTableViewCell.xib in Resources */,
 				06F571901F9F16E600D61FDB /* NewsTableViewCell.xib in Resources */,
@@ -4709,7 +4718,6 @@
 				C4D2FEB31FD552A000F546AB /* YueTixianController.m in Sources */,
 				C41CBE46201DDAB800F9B227 /* OrdeTailViewCell.m in Sources */,
 				06418F501F7A076A00479523 /* MASCompositeConstraint.m in Sources */,
-				C43987751FF48B5D00044E21 /* RegistrationAgreementController.m in Sources */,
 				C45F23071FA0754500F5DB41 /* SearchGooodsController.m in Sources */,
 				C47E76481FB5A1C7009F279A /* Pop-upMenuSingleton.m in Sources */,
 				06418F581F7A076A00479523 /* View+MASAdditions.m in Sources */,
@@ -4846,6 +4854,7 @@
 				06418F541F7A076A00479523 /* MASViewAttribute.m in Sources */,
 				C41E9C3F2021A3E000E6F5E2 /* ZP_PayModel.m in Sources */,
 				06F571911F9F16E600D61FDB /* NewsViewController.m in Sources */,
+				C44B071F2044FB2E009A9392 /* DDGTool.m in Sources */,
 				C47096921FB04998006EA52C /* BindingEmailController.m in Sources */,
 				C4535E201FC5086800DFFD62 /* ZP_ConfirmPayModel.m in Sources */,
 				C479C6A81FE3CB5800A58A2A /* NSObject+MJKeyValue.m in Sources */,
@@ -4918,6 +4927,7 @@
 				06621DB21F9758840030983F /* RegisterController.m in Sources */,
 				064449A91F6A9B250004DFE4 /* MJRefreshComponent.m in Sources */,
 				06418F551F7A076A00479523 /* MASViewConstraint.m in Sources */,
+				C44B072420451A5C009A9392 /* RegistrationAgreementController.m in Sources */,
 				C4AD0763200C7A5D00B8FF6E /* UIView+HandyValue.m in Sources */,
 				0641BBD71F67F9E400E72FEF /* SDWebImageDownloader.m in Sources */,
 				C4578B2020049AB800D010D6 /* ZPProgressHUD.m in Sources */,

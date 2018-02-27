@@ -39,14 +39,13 @@
     [request setHTTPBody:[_jump_URL dataUsingEncoding:NSUTF8StringEncoding]];
     [webView loadRequest:request];
     [self.view addSubview:webView];
-    
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"ic_bar_return"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
 }
 
 - (void)backAction {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:MyLocal(@"Are you sure you want to quit") preferredStyle:UIAlertControllerStyleAlert];
-    NSArray *array = [self.navigationController viewControllers];
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil message:MyLocal(@"Are you sure you want to quit") preferredStyle:UIAlertControllerStyleAlert];
+    NSArray * array = [self.navigationController viewControllers];
     UIViewController * viewController = array.firstObject;
     [alert addAction:[UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self.navigationController popToRootViewControllerAnimated:NO];
@@ -56,6 +55,7 @@
     [alert addAction:[UIAlertAction actionWithTitle:MyLocal(@"cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }]];
     [self presentViewController:alert animated:YES completion:nil];
+    [SVProgressHUD dismiss];
 }
 
 #pragma mark -UIWebViewDelegate

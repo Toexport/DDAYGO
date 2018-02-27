@@ -5,9 +5,8 @@
  * */
 //"" = "";
 "Home" = "首頁";
-"Position" = "位置";
-"Searchfavorite" = "搜索喜歡的";
-"Choose your country" = "選擇您所在的國家";
+"Searchfavorite" = "搜索商品";
+"Choose your country" = "選擇您的所在國家";
 "HongKong" = "香港";
 "China" = "中國";
 "Malaysia" = "馬來西亞";
@@ -25,11 +24,11 @@
 "Temporarily no data" = "暫無數據";
 "Search" = "搜索";
 "Searching for..." = "正在搜索...";
-"Please enter the product you are looking for" = "請輸入你要寻找的商品";
+"Please enter the product you are looking for" = "請輸入您要搜索的關鍵字";
 "all selection" = "所有精選";
 "Service phone" = "服務電話:";
 "Praise rate" = "好評度:";
-"" = "";
+"TaiWan" = "臺灣";
 "" = "";
 "" = "";
 "" = "";
@@ -84,7 +83,7 @@
 /* *
  * 购物车
  * */
-"purchase immediately" = "立即購買"
+"purchase immediately" = "立即購買";
 "add shopping" = "加入購物車";
 "Shopping" = "購物車";
 "Edit" = "編輯";

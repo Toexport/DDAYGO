@@ -29,7 +29,6 @@
 @property (nonatomic, strong) UIView * view;
 @property (nonatomic, strong) NSArray * InformatonArray;
 
-
 @end
 
 @implementation ConfirmPayView

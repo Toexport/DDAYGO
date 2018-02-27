@@ -18,8 +18,9 @@
 #import "ZP_ZeroModel.h"
 #import "BuyViewController.h"
 #import "CPCollectionViewController.h"
+#import "DDGTool.h"
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource> {
-     int _i;
+    int _i;
 }
 @property (nonatomic, strong) UIButton * chooseCityBtn;
 @property (nonatomic, strong) NSArray * newsData2;
@@ -70,23 +71,23 @@
     searchBar.adjustsImageWhenHighlighted = NO;
     self.navigationItem.titleView = searchBar;
     
-//  位置按钮
+    //  位置按钮
     self.chooseCityBtn = [YLButton buttonWithType:(UIButtonTypeCustom)];
-    self.chooseCityBtn.frame = CGRectMake(0, 0, 30.0f, 25.0f);
+    self.chooseCityBtn.frame = CGRectMake(0, 0, 35.0f, 25.0f);
     self.chooseCityBtn.titleLabel.font = ZP_TooBarFont;
     [self.chooseCityBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.chooseCityBtn setTitle:NSLocalizedString(@"Taiwan", nil) forState:UIControlStateNormal];
+    [self.chooseCityBtn setTitle:NSLocalizedString(@"TaiWan", nil) forState:UIControlStateNormal];
     [self.chooseCityBtn setImage:[UIImage imageNamed:@"ic_home_down"] forState:(UIControlStateNormal)];
-    [self.chooseCityBtn sizeToFit];
+    [self.chooseCityBtn setNeedsLayout];
     self.chooseCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [self.chooseCityBtn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.chooseCityBtn];
+    self.navigationItem.leftBarButtonItems = @[[[UIBarButtonItem alloc]initWithCustomView:self.chooseCityBtn]];
 }
 
 // 刷新
 - (void)addRefresh {
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//        [self.SixthArrData removeAllObjects];
+        //        [self.SixthArrData removeAllObjects];
         [self FifthallData:CountCode];  //带参数刷新
         _i = 0;
         [self allData];
@@ -125,24 +126,36 @@
             //数据
             [self.position Position:_postionArray];
             //返回
+            
+            __weak HomePageViewController *viewController = self;
             self.position.ThirdBlock = ^(NSString *ContStr,NSNumber *code) {
                 ZPLog(@"c = %@",ContStr);
-                [self.chooseCityBtn setTitle:NSLocalizedString(ContStr, nil) forState:UIControlStateNormal];
+                [viewController.chooseCityBtn setTitle:NSLocalizedString(ContStr, nil) forState:UIControlStateNormal];
                 CountCode = code;
-                [self.chooseCityBtn sizeToFit];
-//                [self.chooseCityBtn setNeedsLayout];
+                [viewController.chooseCityBtn sizeToFit];
                 
-                [self SixthAllData:code];
-                [self FifthallData:code];
-//
-//
+                [viewController SixthAllData:code];
+                [viewController FifthallData:code];
+                //
+                //
             };
             //  显示
             [self.position showInView:self.navigationController.view];
         }
     } else {
-        ZPLog(@"已登錄");
-        [SVProgressHUD showInfoWithStatus: NSLocalizedString(@"Once logged in, no other countries will be supported", nil)];
+        //        ZPLog(@"已登錄");
+        //        [SVProgressHUD showInfoWithStatus: NSLocalizedString(@"Once logged in, no other countries will be supported", nil)];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"需要登出去查看其它國家商品嗎?", nil) message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *sureAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Determine", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            [DDGTool logout];
+        }];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:sureAction];
+        [alertController addAction:cancelAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
     }
 }
 
@@ -222,7 +235,7 @@
 - (void)allData {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView.mj_header endRefreshing];
-//        [self.tableView.mj_footer endRefreshing];
+        //        [self.tableView.mj_footer endRefreshing];
     });
     [ZP_HomeTool requestSellLikeHotCakes:nil success:^(id obj) {
         ZPLog(@"%@",obj);
@@ -291,7 +304,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSInteger number = 4;
     if (self.newsData.count > 0) {
-//        ZPLog(@"_____");
+        //        ZPLog(@"_____");
         number ++;
     }
     if (self.SixthArrData.count > 0) {
@@ -397,19 +410,19 @@
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
                     
                     return cell;
-    }
+                }
 }
 
 - (void)DeleteOrderBut:(UIButton *)sender {
     //type：0 所有精选 1 所有热销 2 闪购
     CPerViewController * CVPView = [[CPerViewController alloc]init];
     CVPView.type = 10;  //由于type默认为0，所以从首页跳进去的，type一律加10作为区分
-    CVPView.titleString = NSLocalizedString(@"all selection", nil);
+    CVPView.titleString = NSLocalizedString(@"所有精選", nil);
     [self.navigationController pushViewController:CVPView animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-if (indexPath.section == 0) {
+    if (indexPath.section == 0) {
         return zeroHeight;
     }else if (indexPath.section == 1) {
         return zeroHeight + 35;
@@ -426,12 +439,12 @@ if (indexPath.section == 0) {
                 return (ZP_Width / 3 + 45) * 2 + 30;
                 
             }
-
+    
     ///**********暂时不需要***********/
-////        if (indexPath.section == 3){
-////            return 210;
-////    }else
-
+    ////        if (indexPath.section == 3){
+    ////            return 210;
+    ////    }else
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -445,9 +458,9 @@ if (indexPath.section == 0) {
     }else
         if (section == 2) {
             return 0.0001;
-    }else{
-    return 10.0f;
-    }
+        }else{
+            return 10.0f;
+        }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -455,3 +468,4 @@ if (indexPath.section == 0) {
     return v;
 }
 @end
+

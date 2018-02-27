@@ -5,8 +5,8 @@
  * */
 "Home" = "首页";
 "Position" = "位置";
-"Searchfavorite" = "搜索喜欢的";
-"Choose your country" = "选择您所在的国家";
+"Searchfavorite" = "搜索商品";
+"Choose your country" = "选择您的所在国家";
 "HongKong" = "香港";
 "China" = "中国";
 "Malaysia" = "马来西亚";
@@ -26,13 +26,13 @@
 "Temporarily no data" = "暂无数据";
 "Search" = "搜索";
 "Searching for..." = "正在搜索...";
-"Please enter the product you are looking for" = "请输入您要寻找的产品";
+"Please enter the product you are looking for" = "请输入您要搜索的关键字";
 "all selection" = "所有精选";
 "Service phone" = "服务电话:";
 "Praise rate" = "好评度:";
 "Release comments" = "发布评论";
 "Release" = "发布";
-"" = "";
+"TaiWan" = "台湾";
 "" = "";
 "" = "";
 "" = "";
@@ -91,7 +91,7 @@
 /* *
  * 购物车
  * */
-"purchase immediately" = "立即购买"
+"purchase immediately" = "立即购买";
 "add shopping" = "加入购物车";
 "Shopping" = "购物车";
 "Edit" = "编辑";

@@ -71,6 +71,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     _AllButton.selected = NO;
+    [self.tableView reloadData];
     if (!DD_HASLOGIN) {
         if (![MyViewController sharedInstanceTool].hasRemind) {
             [MyViewController sharedInstanceTool].hasRemind = YES;
@@ -264,12 +265,14 @@
 - (void)onClickedSweep:(UIButton *)sup {
     sup.selected = !sup.selected;
     _bjBool = !_bjBool;
+     [self.tableView reloadData];
+    
     if (_bjBool) {
         [self beginEditing];
     }else{
         [self exitEditing];
     }
-    [self.tableView reloadData];
+   
 }
 
 // UI
@@ -903,23 +906,37 @@
                     data += [cell.numLabel.text integerValue] * [model2.productprice floatValue];
                     dataCount += [cell.numLabel.text integerValue];
                     count ++;
+                    
+                    NSString *str = [NSString stringWithFormat:@"%@_%@",model2.stockid,model2.amount];
+                    NSString *str1 = [NSString stringWithFormat:@"%@",model2.stockid];
+                    if (_modelstockid.length > 0) {
+                        _modelstockid = [_modelstockid stringByAppendingString:[NSString stringWithFormat:@",%@",str1]];
+                    }else{
+                        _modelstockid = str1;
+                    }
+                    if (_stockids.length > 0) {
+                        _stockids = [_stockids stringByAppendingString:[NSString stringWithFormat:@",%@",str]];
+                    }else{
+                        _stockids = str;
+                    }
                 }else{
                     data = 0;
                     dataCount= 0;
                     count =0;
+                    
                 }
-                NSString *str = [NSString stringWithFormat:@"%@_%@",model2.stockid,model2.amount];
-                NSString *str1 = [NSString stringWithFormat:@"%@",model2.stockid];
-                if (_modelstockid.length > 0) {
-                    _modelstockid = [_modelstockid stringByAppendingString:[NSString stringWithFormat:@",%@",str1]];
-                }else{
-                    _modelstockid = str1;
-                }
-                if (_stockids.length > 0) {
-                    _stockids = [_stockids stringByAppendingString:[NSString stringWithFormat:@",%@",str]];
-                }else{
-                    _stockids = str;
-                }
+//                NSString *str = [NSString stringWithFormat:@"%@_%@",model2.stockid,model2.amount];
+//                NSString *str1 = [NSString stringWithFormat:@"%@",model2.stockid];
+//                if (_modelstockid.length > 0) {
+//                    _modelstockid = [_modelstockid stringByAppendingString:[NSString stringWithFormat:@",%@",str1]];
+//                }else{
+//                    _modelstockid = str1;
+//                }
+//                if (_stockids.length > 0) {
+//                    _stockids = [_stockids stringByAppendingString:[NSString stringWithFormat:@",%@",str]];
+//                }else{
+//                    _stockids = str;
+//                }
             }
         }
     }

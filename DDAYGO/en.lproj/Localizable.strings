@@ -35,7 +35,7 @@
 "Choice of payment method" = "Choice of payment method";
 "Immediate payment" = "mmediate payment";
 "account exists" = "Your account has been landed in other places, and you have been forced to go down. If you don't log in, please change the password as soon as possible.";
-"" = "";
+"TaiWan" = "TaiWan";
 "" = "";
 "" = "";
 "" = "";
@@ -89,7 +89,7 @@
  * 购物车
  * */
 //"" = "";
-"purchase immediately" = "Purchase immediately"
+"purchase immediately" = "Purchase immediately";
 "add shopping" = "Add shopping";
 "Shopping" = "Shopping";
 "Edit" = "Edit";

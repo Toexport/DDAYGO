@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface RegistrationAgreementController : UIViewController {
-    UIWebView * webView;
+//    UIWebView * webView;
     UIActivityIndicatorView *activityIndicator;
 }
 @property (nonatomic, assign) NSInteger type; // 识别号

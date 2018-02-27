@@ -209,7 +209,7 @@
     }else {
     if ( _modelArr.count > 0) {
         int a = 0;
-        for (int i=0; i < _standardList.count; i++) {
+        for (int i = 0; i < _standardList.count; i++) {
             ChooseRank *view = [self viewWithTag:8000+i];
             for (UIButton *obj in  view.btnView.subviews) {
                 if(obj.selected){

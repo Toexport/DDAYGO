@@ -10,6 +10,9 @@
 #import "PrefixHeader.pch"
 @interface RegistrationAgreementController ()<UIWebViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
+
 @end
 
 @implementation RegistrationAgreementController
@@ -20,25 +23,22 @@
 }
 
 - (void)initUI {
-    webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    [webView setDelegate:self];
+//    webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    [self.webView setDelegate:self];
     if (self.type == 111) {
         NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/item/privacy"]];
         self.title = NSLocalizedString(@"隱私政策", nil);
-        [self.view addSubview: webView];
-        [webView loadRequest:request];
+        [self.webView loadRequest:request];
     }else
         if (self.type == 222) {
             NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/item/protocol"]];
-            self.title = MyLocal(@"terms service");
-            [self.view addSubview: webView];
-            [webView loadRequest:request];
+            self.title = NSLocalizedString(@"服務條款", nil);
+            [self.webView loadRequest:request];
         }else
             if (self.type == 333) {
                 NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/other/exchange"]];
                 self.title = NSLocalizedString(@"退換貨流程", nil);
-                [self.view addSubview: webView];
-                [webView loadRequest:request];
+                [self.webView loadRequest:request];
             }
 }
 

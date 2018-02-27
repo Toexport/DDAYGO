@@ -308,6 +308,9 @@
 //立即购买
 - (IBAction)ligmAction:(UIButton *)sender {
     DD_CHECK_HASLONGIN;
+    if (_model == nil) {
+        return;
+    }else {
     if (!self.purchaseView) {
         static NSString * purchasseID = @"PurchaseView";
         self.purchaseView = [[NSBundle mainBundle] loadNibNamed:purchasseID owner:self options:nil].firstObject;
@@ -330,10 +333,14 @@
         [_weakSelf.navigationController pushViewController:response animated:YES];
     };
 }
+}
 
 //加入购物车
 - (IBAction)jrgwcAction:(UIButton *)sender {
     DD_CHECK_HASLONGIN;
+    if (_model == nil) {
+        return;
+    }else {
     if (!self.purchaseView) {
         static NSString * purchasseID = @"PurchaseView";
         self.purchaseView = [[NSBundle mainBundle] loadNibNamed:purchasseID owner:self options:nil].firstObject;
@@ -355,6 +362,7 @@
         _weakSelf.navigationController.navigationBar.tintColor = [UIColor whiteColor];
         [_weakSelf.navigationController pushViewController:response animated:YES];
     };
+    }
 }
 
 #pragma mark  --- tableView delegate
