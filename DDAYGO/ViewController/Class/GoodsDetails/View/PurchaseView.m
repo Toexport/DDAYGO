@@ -173,7 +173,6 @@
                 }else{
                 }
             }
-            
         }
         if (b > 0) {
             NSLog(@"尺寸有选中");
@@ -183,7 +182,6 @@
             [SVProgressHUD showErrorWithStatus:MyLocal(@"size No selection")];
             return;
         }
-        
     }
     if (_numLabel.text.intValue > 0 ) {
         ConfirmViewController * Confirm = [[ConfirmViewController alloc]init];

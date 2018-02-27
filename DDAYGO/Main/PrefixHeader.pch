@@ -91,8 +91,9 @@
 [self.navigationController pushViewController:[[LogregisterController alloc] init] animated:YES];\
 } else {[SVProgressHUD showErrorWithStatus:MyLocal(@"Please login account")];}return;}
 
-#define DD_HASLOGIN (Token.length > 0)
+
 #define DD_TOKEN [[NSUserDefaults standardUserDefaults] objectForKey:@"token"]
+#define DD_HASLOGIN DD_TOKEN
 //全局
 #define appD ((AppDelegate*)[[UIApplication sharedApplication] delegate])
 #define NavBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height + 44)
