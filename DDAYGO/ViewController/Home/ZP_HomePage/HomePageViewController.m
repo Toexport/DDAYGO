@@ -48,7 +48,17 @@
     [self getadvertlist:CountCode];
     [self bestSelling:CountCode];
     [self getNewsAlldata:CountCode];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeStaus:) name:@"changeStaus" object:nil];
 }
+
+- (void)changeStaus:(NSNotification *)noti {
+    if (noti.userInfo) {
+        [self.chooseCityBtn setTitle:noti.userInfo[@"countryname"] forState:UIControlStateNormal];
+    } else {
+        [self.chooseCityBtn setTitle:MyLocal(@"Taiwan") forState:UIControlStateNormal];
+    }
+}
+
 // UI
 - (void)initUI {
     [self.view setBackgroundColor:ZP_Graybackground];

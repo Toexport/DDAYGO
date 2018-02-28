@@ -105,6 +105,7 @@
                                     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
                                     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
                                     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
+            DD_ChangeStaus;
                                     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
                                     ZPICUEToken = nil;

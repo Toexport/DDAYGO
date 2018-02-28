@@ -103,6 +103,11 @@
     self.tableview.backgroundColor = ZP_Graybackground;
     self.tableview.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     [self.view addSubview:self.tableview];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeStaus) name:@"changeStaus" object:nil];
+}
+
+- (void)changeStaus {
+    self.navigationController.tabBarItem.badgeValue = nil;
 }
 
 // 订单协议
@@ -147,6 +152,7 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
+            DD_ChangeStaus;
             ZPICUEToken = nil;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];

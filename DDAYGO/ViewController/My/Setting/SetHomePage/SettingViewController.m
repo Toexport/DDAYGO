@@ -315,6 +315,7 @@
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
+            DD_ChangeStaus;
         ZPICUEToken = nil;
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];

@@ -87,6 +87,8 @@
 //*/
 #define DD_MonetarySymbol [[MyViewController sharedInstanceTool] getMonetarySymbol]
 
+#define DD_ChangeStaus [NSNotification notificationWithName:@"changeStaus" object:nil]
+
 #define DEMO_CALL 1Check login status
 #define DD_CHECK_HASLONGIN if (!DD_HASLOGIN){if ([self isKindOfClass:[UIViewController class]]) {\
 [self.navigationController pushViewController:[[LogregisterController alloc] init] animated:YES];\
