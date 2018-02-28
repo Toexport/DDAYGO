@@ -136,6 +136,7 @@
                 
                 [viewController SixthAllData:code];
                 [viewController FifthallData:code];
+                [[NSUserDefaults standardUserDefaults] setObject:code forKey:@"countrycode"];
             };
             //  显示
             [self.position showInView:self.navigationController.view];
@@ -435,7 +436,7 @@
                 return ZP_Width / 4 + 35;
             }else {
                 //        return (ZP_Width / 3 +35)* 2+57;
-                if (self.SixthArrData.count < 4) {
+                if (self.SixthArrData.count < 5) {
                     return (ZP_Width / 3 + 45) + 30;
                 } else {
                     return (ZP_Width / 3 + 45) * 2 + 30;
