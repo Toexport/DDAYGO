@@ -40,7 +40,6 @@
     [self allData];
     //    [self DeletingClick:];
     [_tableView reloadData]; // 刷新数据
-    
 }
 
 - (void)addAddress {
@@ -50,6 +49,7 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
+
 // 获取地址数据
 - (void)allData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];

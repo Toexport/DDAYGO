@@ -10,7 +10,6 @@
 #import "PrefixHeader.pch"
 @implementation MerchantCollectionViewCell
 - (instancetype)initWithFrame:(CGRect)frame {
-    
     self = [super initWithFrame:frame];
     if (self) {
         [self initUI];

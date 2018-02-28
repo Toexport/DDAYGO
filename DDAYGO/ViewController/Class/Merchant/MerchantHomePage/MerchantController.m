@@ -120,7 +120,6 @@
     [lastView addSubview:self.collectionView4];
     if (iphoneX) {
         [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
-        
         self.collectionView1.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         self.collectionView1.contentInset = UIEdgeInsetsMake(0, 0, 59, 0);//导航栏如果使用系统原生半透明的，top设置为64
         self.collectionView1.scrollIndicatorInsets = self.collectionView1.contentInset;
