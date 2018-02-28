@@ -62,7 +62,6 @@
     } else {
         [self.chooseCityBtn setTitle:MyLocal(@"Taiwan") forState:UIControlStateNormal];
     }
-    [self allData];
 }
 
 // UI
@@ -92,7 +91,11 @@
     self.chooseCityBtn.frame = CGRectMake(0, 0, 35.0f, 25.0f);
     self.chooseCityBtn.titleLabel.font = ZP_TooBarFont;
     [self.chooseCityBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.chooseCityBtn setTitle:MyLocal(@"Taiwan") forState:UIControlStateNormal];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"]) {
+        [self.chooseCityBtn setTitle:[[NSUserDefaults standardUserDefaults] objectForKey:@"countryname"] forState:UIControlStateNormal];
+    } else {
+        [self.chooseCityBtn setTitle:MyLocal(@"Taiwan") forState:UIControlStateNormal];
+    }
     [self.chooseCityBtn setImage:[UIImage imageNamed:@"ic_home_down"] forState:(UIControlStateNormal)];
     [self.chooseCityBtn setNeedsLayout];
     self.chooseCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;

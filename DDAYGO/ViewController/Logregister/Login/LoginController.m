@@ -97,7 +97,7 @@
     [ZP_LoginTool requestLogin:dic success:^(id obj) {
         NSLog(@"obj---%@",obj);
         if ([obj[@"result"]isEqualToString:@"ok"]) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"changeStaus" object:nil userInfo:@{@"countryname":obj[@"countryname"]}];
+            
             NSDictionary * aadic = obj;
             Token = aadic[@"token"];
             [[NSUserDefaults standardUserDefaults] setObject:Token forKey:@"token"];// Token缓存本地
@@ -107,6 +107,7 @@
             [[NSUserDefaults standardUserDefaults] setObject:aadic[@"result"] forKey:@"result"]; // 是否是供货商
             [[NSUserDefaults standardUserDefaults] synchronize];
             [[NSUserDefaults standardUserDefaults] setObject:aadic[@"countrycode"] forKey:@"countrycode"];  // 国别缓存本地
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"changeStaus" object:nil userInfo:@{@"countryname":obj[@"countryname"]}];
             [[NSUserDefaults standardUserDefaults] synchronize];  // 国别缓存本地
             [SVProgressHUD showSuccessWithStatus:MyLocal(@"Login successful")];
             NSArray * array = self.navigationController.viewControllers;

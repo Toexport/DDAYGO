@@ -46,6 +46,10 @@
     
 }
 
+- (void)setArrData:(NSMutableArray *)ArrData {
+    _ArrData = ArrData;
+    [self.bottomCV reloadData];
+}
 
 - (void)initUI {
 //  标题
