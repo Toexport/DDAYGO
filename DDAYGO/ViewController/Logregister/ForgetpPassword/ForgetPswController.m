@@ -44,6 +44,10 @@
     self.ZPCodeTextField.textField.keyboardType =  UIKeyboardTypeNumberPad;
     self.ZPPswTextField.textField.keyboardType = UIKeyboardTypeDefault;
     self.ZPConPswTextField.textField.keyboardType = UIKeyboardTypeDefault;
+    self.ZPEmailTextField.textField.placeholder = MyLocal(@"ZPEmailTextFieldID");
+    self.ZPCodeTextField.textField.placeholder = MyLocal(@"ZPCodeTextField");
+    self.ZPPswTextField.textField.placeholder = MyLocal(@"ZPPswTextField");
+    self.ZPConPswTextField.textField.placeholder = MyLocal(@"ZPPswTextField");
     [self.ZPCodeTextField.functionBtn addTarget:self action:@selector(getMSNCode) forControlEvents:UIControlEventTouchUpInside];
     //    _ZPPswTextField.showBtn                  = NO;
     //    _ZPPswTextField.showEyeBtn               = YES;

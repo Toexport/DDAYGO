@@ -39,6 +39,10 @@
 }
 // UI
 - (void)initUI {
+    self.ZPAccountNumberTextFiled.textField.placeholder = MyLocal(@"ZPEmailTextFieldID");
+    self.ZPPswTextField.textField.placeholder = MyLocal(@"ZPPswTextFieldID");
+    self.ZPEmailTextFiled.textField.placeholder = MyLocal(@"ZPEmailTextFiled()");
+    self.ZPCountryTextField.textField.placeholder = MyLocal(@"ZPCountry");
     self.title = NSLocalizedString(@"registration", nil);
     [self ButStatusAttribute];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色

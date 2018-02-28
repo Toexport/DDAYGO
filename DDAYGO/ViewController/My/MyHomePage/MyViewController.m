@@ -437,6 +437,7 @@
 }
 
 - (NSString *)getMonetarySymbol {
+    
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] isEqualToString:@"86"]) {
         return @"CNY";
     } else if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] isEqualToString:@"852"]) {

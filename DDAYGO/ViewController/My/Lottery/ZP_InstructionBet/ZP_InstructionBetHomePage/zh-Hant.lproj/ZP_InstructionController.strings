@@ -27,7 +27,7 @@
 "MCv-xW-zuA.text" = "對中獎號數";
 
 /* Class = "UILabel"; text = "累计奖项点数"; ObjectID = "Mmt-0u-EJZ"; */
-"Mmt-0u-EJZ.text" = "累計獎項點數";
+"Mmt-0u-EJZ.text" = "累計彩金點數";
 
 /* Class = "UILabel"; text = "各獎的總點數除以得獎人數=得獎點數"; ObjectID = "N7F-Wx-FpQ"; */
 "N7F-Wx-FpQ.text" = "各獎的總點數除以得獎人數=得獎點數";

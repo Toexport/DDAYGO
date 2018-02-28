@@ -40,6 +40,8 @@
     //    self.BinDing.layer.masksToBounds = YES;
     self.ZPEmailTextFiled.textField.keyboardType = UIKeyboardTypeEmailAddress;
     self.ZPEmailTextFiled.textField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
+//    [self.ZPEmailTextFiled.textField.placeholder = MyLocal(@"ZPEmailTextFiled")];
+    self.ZPEmailTextFiled.textField.placeholder = MyLocal(@"ZPEmailTextFiled");
     //    [_ZPCodeTextField.functionBtn addTarget:self action:@selector(getMSNCode) forControlEvents:UIControlEventTouchUpInside];
     //    _ZPCodeTextField.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     

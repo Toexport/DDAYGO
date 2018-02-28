@@ -37,6 +37,8 @@
 // UI
 - (void)initUI {
     self.title = NSLocalizedString(@"ICUE Quick login", nil);
+    self.ZPEmailTextField.textField.placeholder = MyLocal(@"ZPEmailICUE");
+    self.ZPPswTextField.textField.placeholder = MyLocal(@"ZPPswTextField");
     [self ButStatusAttribute];
     self.QuickLoginscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐
     //    _LoginBtn.layer.cornerRadius             = 8.0;

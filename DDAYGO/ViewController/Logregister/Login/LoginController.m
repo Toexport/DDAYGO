@@ -29,6 +29,9 @@
     [super viewDidLoad];
     [self initUI];
     self.title = NSLocalizedString(@"Login", nil) ;
+    self.ZPEmailTextField.textField.placeholder = MyLocal(@"ZPEmailTextFieldID");
+    self.ZPPswTextField.textField.placeholder = MyLocal(@"ZPPswTextFieldID");
+    
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
     //    self.LoginscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐藏

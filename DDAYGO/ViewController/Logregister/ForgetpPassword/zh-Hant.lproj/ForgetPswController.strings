@@ -9,7 +9,7 @@
 "d4L-Uq-Mha.text" = "帳號：";
 
 /* Class = "UIButton"; normalTitle = "確定"; ObjectID = "kJa-0e-23V"; */
-"kJa-0e-23V.normalTitle" = "確定";
+"kJa-0e-23V.normalTitle" = "確認";
 
 /* Class = "UILabel"; text = "驗證碼："; ObjectID = "oTz-Xy-Ym9"; */
 "oTz-Xy-Ym9.text" = "驗證碼：";

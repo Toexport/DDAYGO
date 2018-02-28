@@ -25,6 +25,11 @@
     [self initUI];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_WhiteColor}];   // 更改导航栏字体颜色
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];  //  更改导航栏颜色
+    self.bountyLabel.text = MyLocal(@"bount");
+    self.winningNumbLabel2.text = MyLocal(@"winningNumbLabel2");
+    self.winningNumbLabel3.text = MyLocal(@"winningNumbLabel3");
+    self.winningNumbLabel4.text = MyLocal(@"winningNumbLabel4");
+    
 }
 
 - (void)initUI {

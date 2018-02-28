@@ -18,7 +18,7 @@
 "8kz-ga-QgT.text" = "300";
 
 /* Class = "UILabel"; text = "白球4个"; ObjectID = "8mV-Lf-0hS"; */
-"8mV-Lf-0hS.text" = "白球4个";
+"8mV-Lf-0hS.text" = "白球4個";
 
 /* Class = "UILabel"; text = "1白+1红球"; ObjectID = "9Nd-uO-b3D"; */
 "9Nd-uO-b3D.text" = "1白+1紅球";
@@ -81,10 +81,10 @@
 "fGF-vi-kcS.text" = "獎項";
 
 /* Class = "UILabel"; text = "中奖号码"; ObjectID = "gjh-hf-reH"; */
-"gjh-hf-reH.text" = "中奖号码";
+"gjh-hf-reH.text" = "中獎號碼";
 
 /* Class = "UILabel"; text = "5个白球"; ObjectID = "gsD-x7-ClN"; */
-"gsD-x7-ClN.text" = "5个白球";
+"gsD-x7-ClN.text" = "5個白球";
 
 /* Class = "UILabel"; text = "300"; ObjectID = "iCe-Wg-DaJ"; */
 "iCe-Wg-DaJ.text" = "300";
