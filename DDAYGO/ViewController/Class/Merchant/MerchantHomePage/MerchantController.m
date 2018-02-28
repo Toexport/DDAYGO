@@ -29,6 +29,8 @@
 @property (nonatomic, strong) NSMutableArray * newsarray;
 @property (nonatomic, strong) NSString * NameLabel;
 @property (nonatomic, strong) NoDataView * NoDataView;
+@property (nonatomic, strong) NSNumber * sendCode;
+@property (nonatomic, strong) NSNumber * code;
 @end
 
 @implementation MerchantController
@@ -201,7 +203,7 @@
     [_collectionView3 registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ReusableView"];
     [_collectionView4 registerClass:[MerchantCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     [_collectionView4 registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ReusableView"];
-    
+
     //        代理
     _collectionView1.delegate = self;
     _collectionView1.dataSource = self;
@@ -299,6 +301,13 @@
 
 // 77) 根据大分类和子分类，获取该分类下产品，默认销量排序，支持排序最新，好评，价格
 - (void)getproductfilter:(NSInteger)tag {
+    NSNumber * sendCode;
+    self.sendCode = sendCode;
+    if ([self.code intValue] > 0) {
+        sendCode = self.code;
+    }else {
+        sendCode = @886;
+    }
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     if (Token) {
         dic[@"token"] = Token;
@@ -309,7 +318,7 @@
     dic[@"fathid"] = @"0";
     dic[@"seq"] = _priceStrTag;
     dic[@"word"] = @"";
-    dic[@"countrycode"] = @"886";
+    dic[@"countrycode"] = sendCode;
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"30";
     switch (tag - 100) {
@@ -390,6 +399,13 @@
     }];
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSNumber * sendCode;
+    self.sendCode = sendCode;
+    if ([self.code intValue] > 0) {
+        sendCode = self.code;
+    }else {
+        sendCode = @886;
+    }
     [[NSNotificationCenter defaultCenter]postNotificationName:@"relodClassDaTa" object:nil];
     NSInteger tag = self.lastView.contentOffset.x/ZP_Width;
     UIButton *button = [self.topView viewWithTag:tag + 100];
@@ -422,7 +438,7 @@
     dic[@"fathid"] = @"0";
     dic[@"seq"] = _priceStrTag;
     dic[@"word"] = @"";
-    dic[@"countrycode"] = @"886";
+    dic[@"countrycode"] = sendCode;
     dic[@"page"] = @"1";
     dic[@"pagesize"] = @"30";
     [ZP_ClassViewTool requestGetproductfilter:dic success:^(id obj) {

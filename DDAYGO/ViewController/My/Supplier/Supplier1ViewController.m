@@ -21,7 +21,8 @@
 @property (nonatomic, strong) NSString *seleStr;
 @property (nonatomic, strong) NSNumber *seleId;
 
-
+@property (nonatomic, strong) NSNumber * sendCode;
+@property (nonatomic, strong) NSNumber * code;
 
 @property (nonatomic, strong) NSMutableArray *typeNameArray;
 @property (nonatomic, strong) NSMutableArray *typeIdArray;
@@ -349,8 +350,15 @@
 
 // 获取组织形态列表
 - (void)SupplierllData {
+    NSNumber * sendCode;
+    self.sendCode = sendCode;
+    if ([self.code intValue] > 0) {
+        sendCode = self.code;
+    }else {
+        sendCode = @886;
+    }
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    dic[@"countrycode"] = @"886";
+    dic[@"countrycode"] = sendCode;
     [ZP_MyTool requestCompanyType:dic success:^(id obj) {
         ZPLog(@"%@",obj);
         NSArray *ar = obj;

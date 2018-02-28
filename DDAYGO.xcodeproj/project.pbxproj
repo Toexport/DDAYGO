@@ -123,7 +123,6 @@
 		06F571AB1F9F193300D61FDB /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F571A41F9F193300D61FDB /* QRCodeReaderView.m */; };
 		06F571D11F9F1A7900D61FDB /* BindingICUEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F571AF1F9F1A7900D61FDB /* BindingICUEViewController.m */; };
 		06F571D31F9F1A7900D61FDB /* DialogBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F571B31F9F1A7900D61FDB /* DialogBox.m */; };
-		06F571D41F9F1A7900D61FDB /* DialogBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06F571B41F9F1A7900D61FDB /* DialogBox.xib */; };
 		06F571D51F9F1A7900D61FDB /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F571B71F9F1A7900D61FDB /* ResetPasswordViewController.m */; };
 		06F571D71F9F1A7900D61FDB /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F571BC1F9F1A7900D61FDB /* EditViewController.m */; };
 		06F571D91F9F1A7900D61FDB /* AddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F571C01F9F1A7900D61FDB /* AddressViewController.m */; };
@@ -413,6 +412,7 @@
 		C48C623E20467E8600FA6E0A /* ForgetPswController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C624020467E8600FA6E0A /* ForgetPswController.xib */; };
 		C48C624520467EAD00FA6E0A /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C624720467EAD00FA6E0A /* LoginController.xib */; };
 		C48C624C20467EC400FA6E0A /* LogregisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C624E20467EC400FA6E0A /* LogregisterController.xib */; };
+		C48C62532046BC7F00FA6E0A /* DialogBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C62552046BC7F00FA6E0A /* DialogBox.xib */; };
 		C4910F701FFC6D24006DA5B9 /* ddg_advertising.png in Resources */ = {isa = PBXBuildFile; fileRef = C4910F6F1FFC6D24006DA5B9 /* ddg_advertising.png */; };
 		C491D3771FCBE31D00D127E9 /* BindingIntroduce.m in Sources */ = {isa = PBXBuildFile; fileRef = C491D3751FCBE31D00D127E9 /* BindingIntroduce.m */; };
 		C492A1771FD0ECB7009FF57B /* ZP_HistoryBetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C492A16C1FD0ECB7009FF57B /* ZP_HistoryBetCell.m */; };
@@ -716,7 +716,6 @@
 		06F571AF1F9F1A7900D61FDB /* BindingICUEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindingICUEViewController.m; sourceTree = "<group>"; };
 		06F571B21F9F1A7900D61FDB /* DialogBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogBox.h; sourceTree = "<group>"; };
 		06F571B31F9F1A7900D61FDB /* DialogBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogBox.m; sourceTree = "<group>"; };
-		06F571B41F9F1A7900D61FDB /* DialogBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DialogBox.xib; sourceTree = "<group>"; };
 		06F571B61F9F1A7900D61FDB /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordViewController.h; sourceTree = "<group>"; };
 		06F571B71F9F1A7900D61FDB /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordViewController.m; sourceTree = "<group>"; };
 		06F571BB1F9F1A7900D61FDB /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
@@ -1301,6 +1300,9 @@
 		C48C624D20467EC400FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LogregisterController.xib; sourceTree = "<group>"; };
 		C48C625020467EC500FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LogregisterController.strings"; sourceTree = "<group>"; };
 		C48C625220467EC700FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LogregisterController.strings"; sourceTree = "<group>"; };
+		C48C62542046BC7F00FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DialogBox.xib; sourceTree = "<group>"; };
+		C48C62572046BC8200FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/DialogBox.strings"; sourceTree = "<group>"; };
+		C48C62592046BC8600FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DialogBox.strings"; sourceTree = "<group>"; };
 		C4910F6F1FFC6D24006DA5B9 /* ddg_advertising.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ddg_advertising.png; sourceTree = "<group>"; };
 		C491D3741FCBE31D00D127E9 /* BindingIntroduce.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindingIntroduce.h; sourceTree = "<group>"; };
 		C491D3751FCBE31D00D127E9 /* BindingIntroduce.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindingIntroduce.m; sourceTree = "<group>"; };
@@ -2301,7 +2303,7 @@
 			children = (
 				06F571B21F9F1A7900D61FDB /* DialogBox.h */,
 				06F571B31F9F1A7900D61FDB /* DialogBox.m */,
-				06F571B41F9F1A7900D61FDB /* DialogBox.xib */,
+				C48C62552046BC7F00FA6E0A /* DialogBox.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4481,7 +4483,7 @@
 				TargetAttributes = {
 					063FE0411F614D24009910FF = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = CV87W82W48;
+						DevelopmentTeam = JT9N8KHK2P;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -4566,7 +4568,7 @@
 				06F572431F9F204F00D61FDB /* SearchTimeViewController.xib in Resources */,
 				C48C61E42046776800FA6E0A /* LotteryController.xib in Resources */,
 				C4632E0E200633CC0029AA87 /* RefundServiceController.xib in Resources */,
-				06F571D41F9F1A7900D61FDB /* DialogBox.xib in Resources */,
+				C48C62532046BC7F00FA6E0A /* DialogBox.xib in Resources */,
 				C4910F701FFC6D24006DA5B9 /* ddg_advertising.png in Resources */,
 				C472F1391FE29A060031D7B5 /* ZP_CheckMoreCell.xib in Resources */,
 				06F5721D1F9F1E8700D61FDB /* AllCategoriesView.xib in Resources */,
@@ -5591,6 +5593,16 @@
 			name = LogregisterController.xib;
 			sourceTree = "<group>";
 		};
+		C48C62552046BC7F00FA6E0A /* DialogBox.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C62542046BC7F00FA6E0A /* Base */,
+				C48C62572046BC8200FA6E0A /* zh-Hant */,
+				C48C62592046BC8600FA6E0A /* zh-Hans */,
+			);
+			name = DialogBox.xib;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -5706,7 +5718,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = CV87W82W48;
+				DEVELOPMENT_TEAM = JT9N8KHK2P;
 				ENABLE_BITCODE = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -5731,7 +5743,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = CV87W82W48;
+				DEVELOPMENT_TEAM = JT9N8KHK2P;
 				ENABLE_BITCODE = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;

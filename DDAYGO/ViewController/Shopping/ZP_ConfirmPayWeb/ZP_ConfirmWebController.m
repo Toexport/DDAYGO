@@ -9,19 +9,17 @@
 #import "ZP_ConfirmWebController.h"
 #import "PrefixHeader.pch"
 @interface ZP_ConfirmWebController ()<UIWebViewDelegate> {
-    
     UIWebView * webView;
-    
 }
 
 @end
-
 @implementation ZP_ConfirmWebController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = MyLocal(@"Payment is being made");
     [self initUI];
+   
 }
 
 - (void)initUI {
@@ -43,14 +41,14 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"ic_bar_return"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
 }
 
+// 返回
 - (void)backAction {
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:nil message:MyLocal(@"Are you sure you want to quit") preferredStyle:UIAlertControllerStyleAlert];
     NSArray * array = [self.navigationController viewControllers];
     UIViewController * viewController = array.firstObject;
     [alert addAction:[UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self.navigationController popToRootViewControllerAnimated:NO];
         [SVProgressHUD dismiss];
-        viewController.tabBarController.selectedIndex = 3;
+           viewController.tabBarController.selectedIndex = 3;
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:MyLocal(@"cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }]];
@@ -61,11 +59,14 @@
 #pragma mark -UIWebViewDelegate
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSLog(@"当前连接--》%@",request.URL.absoluteString);
-    [SVProgressHUD showWithStatus:MyLocal(@"Trying to load ing... Just a moment, please.")]; // 菊花
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD showWithStatus:MyLocal(@"Trying to load ing... Just a moment, please.")]; // 菊花
+    });
     return YES;
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
+    [super viewWillDisappear:webView];  
     [SVProgressHUD dismiss];
 }
 
@@ -74,6 +75,4 @@
     [SVProgressHUD dismiss];
     
 }
-
-
 @end

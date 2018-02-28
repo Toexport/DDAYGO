@@ -135,7 +135,6 @@
 
 #pragma mark - 点击支付按钮
 - (void)paybut:(UIButton *)sender {
-    
     for (int i = 0; i < self.dataArray.count; i ++) {
         PayMoneyCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
         if (cell.PayBtn.selected) {
@@ -237,12 +236,10 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    
     return nil;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
     return nil;
 }
 

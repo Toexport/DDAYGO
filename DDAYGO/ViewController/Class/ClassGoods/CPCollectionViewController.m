@@ -24,6 +24,8 @@
 @property (nonatomic, strong) UICollectionView * collectionView;
 @property (nonatomic, strong) NSMutableArray * newsData;
 @property (nonatomic, strong) NoDataView * NoDataView;
+@property (nonatomic, strong) NSNumber * sendCode;
+@property (nonatomic, strong) NSNumber * code;
 @end
 
 @implementation CPCollectionViewController
@@ -102,6 +104,13 @@
 //            ZPLog(@"%@",error);
 //        }];
 //    }else {
+    NSNumber * sendCode;
+    self.sendCode = sendCode;
+    if ([self.code intValue] > 0) {
+        sendCode = self.code;
+    }else {
+        sendCode = @886;
+    }
         //       首頁跳進來的數據
         NSString * str;
         if (_keyword.length > 0) {
@@ -112,7 +121,7 @@
         self.newsData = [[NSMutableArray alloc]init];
         NSMutableDictionary * dic = [NSMutableDictionary dictionary];
         dic[@"seq"] = _priceStrTag;
-        dic[@"countrycode"] = @"886";
+        dic[@"countrycode"] = sendCode;
         dic[@"word"] = str;
         dic[@"fatherid"] = _fatherId;
         dic[@"page"] = @"1";

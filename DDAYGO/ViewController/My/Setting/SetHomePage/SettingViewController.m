@@ -191,7 +191,6 @@
 
 //  修改昵称
 - (IBAction)nichengAction:(id)sender {
-    
     [[DialogBox getInstance] showDialogBoxWithOperation:DDAModifyNickname FinishBlock:^(id response) {
         self.dataDic[@"nickname"] = (NSString *)response;
         [ZP_MyTool requesModifydata:self.dataDic uccess:^(id obj) {

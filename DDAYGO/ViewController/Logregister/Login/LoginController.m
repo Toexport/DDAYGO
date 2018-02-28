@@ -47,6 +47,7 @@
     //    _LoginBtn.layer.masksToBounds            = YES;
     [self ButStatusAttribute];
     self.ZPEmailTextField.textField.keyboardType =  UIKeyboardTypeASCIICapable;
+    
     self.ZPPswTextField.textField.keyboardType = UIKeyboardTypeDefault;
     self.ZPPswTextField.showBtn                  = NO;
     self.ZPPswTextField.showEyeBtn               = YES;

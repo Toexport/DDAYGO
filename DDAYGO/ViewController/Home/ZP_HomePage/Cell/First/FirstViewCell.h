@@ -13,7 +13,8 @@
 
 @property (nonatomic, strong) NSArray * Allarr;
 @property (nonatomic, copy) void(^firstBlock)(NSInteger tag,NSString * name);
-
+@property (nonatomic, strong) NSNumber * sendCode;
+@property (nonatomic, strong) NSNumber * code;
 - (void)first:(NSArray *)sup;
 
 @end

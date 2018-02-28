@@ -41,7 +41,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self initUI];
     [self getData];
     [self addNavigationBar];
@@ -49,9 +48,13 @@
 
 - (void)initUI {
     self.title = NSLocalizedString(@"lottery", nil);
+    self.winningNumbLabel1.text = MyLocal(@"5 white +1 red ball");
+    self.winningNumbLabel2.text = MyLocal(@"Five white balls");
+    self.winningNumbLabel3.text = MyLocal(@"Four white balls");
+    self.winningNumbLabel4.text = MyLocal(@"Three white balls");
+    self.winningNumbLabel5.text = MyLocal(@"1 white +1 red ball");
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: ZP_textWite}];
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
-    
     UIToolbar * tools = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, -15, 15)];
 // 解决出现的那条线
     tools.clipsToBounds = YES;
@@ -71,7 +74,7 @@
     NSLog(@"%f",_OrderNumView.frame.origin.y);
     NSLog(@"%f",but.frame.origin.y);
     
-    UIButton *but2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton * but2 = [UIButton buttonWithType:UIButtonTypeCustom];
     but2.frame = CGRectMake(20, CGRectGetMaxY(but.frame)+10, ZP_Width - 40, 40);
     but2.layer.cornerRadius = 5;
     [but2 setTitle:MyLocal(@"History submission number") forState:UIControlStateNormal];
@@ -109,7 +112,17 @@
 }
 
 - (void)getData {
-    
+    _butt1.hidden = YES;
+    _butt2.hidden = YES;
+    _butt3.hidden = YES;
+    _butt4.hidden = YES;
+    _butt5.hidden = YES;
+    _butt6.hidden = YES;
+    _checkMoreBtn.hidden = YES;
+    _dingdanhaoLabel.hidden = YES;
+    _SymbolLabel.hidden = YES;
+    _XiazhushuliangLabel.hidden = YES;
+    self.tishiLabel.hidden = NO;
     [ZP_MyTool getPrizeInfo:^(id obj) {
         ZPLog(@"%@",obj);
         //这个是一次的数据
@@ -123,7 +136,6 @@
 }
 
 - (void)updateData:(ZP_LotterModel *)model{
-    
     lotteryModel * model1 = [lotteryModel mj_objectWithKeyValues:model.lottery];
     _NianLabel.text = [model1.yyyy stringValue];
     _YueLabel.text = [model1.mm stringValue];
@@ -135,7 +147,6 @@
     [_but4 setTitle:[NSString stringWithFormat:@"%02d",model1.white4.intValue] forState:UIControlStateNormal];
     [_but5 setTitle:[NSString stringWithFormat:@"%02d",model1.white5.intValue] forState:UIControlStateNormal];
     [_but6 setTitle:[NSString stringWithFormat:@"%02d",model1.powerball.intValue] forState:UIControlStateNormal];
-    
     //下面一个数据 直接用
     lotteryModel *model2 = [lotteryModel mj_objectWithKeyValues:model.lottery];
     NSLog(@"m2 %@",model2.createtime);
@@ -209,7 +220,6 @@
     }
     
     NSLog(@"m3 = %@",model.lottery);
-    
     [self updateBounctyViewWithBonus:[self.prizeDic[@"lottery"][@"poolamount"] integerValue] Suffix:@""];
 }
 
