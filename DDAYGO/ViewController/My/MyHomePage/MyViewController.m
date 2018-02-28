@@ -437,12 +437,12 @@
 }
 
 - (NSString *)getMonetarySymbol {
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] isEqualToString:@"886"]) {
-        return @"NT";
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] isEqualToString:@"86"]) {
+        return @"CNY";
     } else if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] isEqualToString:@"852"]) {
         return @"HK$";
     } else {
-        return @"CNY";
+        return @"NT";
     }
 }
 
