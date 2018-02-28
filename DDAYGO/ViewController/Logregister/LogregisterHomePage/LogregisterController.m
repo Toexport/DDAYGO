@@ -12,7 +12,9 @@
 #import "ZP_QuickLoginController.h"
 #import "PrefixHeader.pch"
 #import "UINavigationBar+Awesome.h"
+
 @interface LogregisterController ()
+@property (weak, nonatomic) IBOutlet UIButton *ICUEQuicklogin;
 
 @end
 
@@ -25,6 +27,7 @@
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_WhiteColor}];   // 更改导航栏字体颜色
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    [self.ICUEQuicklogin setTitle:MyLocal(@"ICUEQuick login") forState:UIControlStateNormal];
 }
 
 //  登录

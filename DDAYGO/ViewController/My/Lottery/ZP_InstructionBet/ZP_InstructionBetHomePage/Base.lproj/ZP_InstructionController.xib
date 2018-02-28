@@ -22,6 +22,7 @@
                 <outlet property="TextIntroduceLabel2" destination="whq-Wc-LOd" id="IZh-Ri-ZyL"/>
                 <outlet property="TextIntroduceLabel3" destination="gQI-6n-ZUv" id="WK9-dg-RqR"/>
                 <outlet property="TextIntroduceLabel4" destination="vOJ-eR-xBX" id="Vh0-dz-00v"/>
+                <outlet property="TextIntroduceLabel5" destination="UKQ-hX-b0H" id="iVM-gz-ZPE"/>
                 <outlet property="TextIntroduceLabel6" destination="ysZ-Kc-QPI" id="r4B-Fz-EWt"/>
                 <outlet property="TextIntroduceLabel7" destination="nsd-A7-PBG" id="lt9-WP-LYt"/>
                 <outlet property="ZP_InstrucScrollView" destination="J4X-WK-GEr" id="AfQ-Jg-vN9"/>
@@ -45,7 +46,7 @@
                 <outlet property="winnerLabel4" destination="y6J-X6-6AT" id="q9F-rh-Csg"/>
                 <outlet property="winnerLabel5" destination="CB5-r6-EH5" id="Iv8-AN-U5u"/>
                 <outlet property="winningNumLabel" destination="MCv-xW-zuA" id="WKB-N6-AN0"/>
-                <outlet property="winningNumLabel1" destination="RwR-Uq-TIJ" id="TUJ-cv-FTs"/>
+                <outlet property="winningNumLabel1" destination="RwR-Uq-TIJ" id="c2r-b9-uIH"/>
                 <outlet property="winningNumLabel2" destination="DeC-z6-0Dq" id="CiB-lw-4KK"/>
                 <outlet property="winningNumLabel3" destination="3Ig-My-UsJ" id="hVT-IJ-Z2z"/>
                 <outlet property="winningNumLabel4" destination="wYy-4l-GqU" id="xbh-eS-34R"/>

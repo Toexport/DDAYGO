@@ -1,0 +1,51 @@
+
+/* Class = "UIButton"; normalTitle = "取消退款"; ObjectID = "2Uh-iK-8fS"; */
+"2Uh-iK-8fS.normalTitle" = "取消退款";
+
+/* Class = "UILabel"; text = "退款金额:"; ObjectID = "92q-MR-ha6"; */
+"92q-MR-ha6.text" = "退款金额:";
+
+/* Class = "UILabel"; text = "您还可以:"; ObjectID = "H4R-xE-6hV"; */
+"H4R-xE-6hV.text" = "您还可以:";
+
+/* Class = "UILabel"; text = "当前状态:"; ObjectID = "IN5-gh-Zjd"; */
+"IN5-gh-Zjd.text" = "当前状态:";
+
+/* Class = "UILabel"; text = "尺码:"; ObjectID = "Pqq-hI-n64"; */
+"Pqq-hI-n64.text" = "尺码:";
+
+/* Class = "UILabel"; text = "颜色:"; ObjectID = "T0a-s2-YKf"; */
+"T0a-s2-YKf.text" = "颜色:";
+
+/* Class = "UILabel"; text = "退货单:"; ObjectID = "Uu1-HQ-eIH"; */
+"Uu1-HQ-eIH.text" = "退货单:";
+
+/* Class = "UILabel"; text = "物流信息:"; ObjectID = "X5u-3d-uB3"; */
+"X5u-3d-uB3.text" = "物流信息:";
+
+/* Class = "UILabel"; text = "订单号:"; ObjectID = "X5z-nt-qrq"; */
+"X5z-nt-qrq.text" = "订单号:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cqC-tq-zp3"; */
+"cqC-tq-zp3.text" = "Label";
+
+/* Class = "UILabel"; text = "X"; ObjectID = "cqy-tp-eQF"; */
+"cqy-tp-eQF.text" = "X";
+
+/* Class = "UIButton"; normalTitle = "申请客服介入"; ObjectID = "fAI-WZ-AeC"; */
+"fAI-WZ-AeC.normalTitle" = "申请客服介入";
+
+/* Class = "UILabel"; text = "申请时间:"; ObjectID = "fiL-k1-pbX"; */
+"fiL-k1-pbX.text" = "申请时间:";
+
+/* Class = "UILabel"; text = "申请类型:"; ObjectID = "hJl-Df-f9J"; */
+"hJl-Df-f9J.text" = "申请类型:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "klo-UL-8gf"; */
+"klo-UL-8gf.text" = "Label";
+
+/* Class = "UILabel"; text = "上传退货单:"; ObjectID = "vm4-JE-0tb"; */
+"vm4-JE-0tb.text" = "上传退货单:";
+
+/* Class = "UILabel"; text = "申请原因:"; ObjectID = "wt0-kv-0xk"; */
+"wt0-kv-0xk.text" = "申请原因:";

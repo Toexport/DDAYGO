@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "新密碼:"; ObjectID = "GUl-ga-Gvv"; */
+"GUl-ga-Gvv.text" = "新密碼:";
+
+/* Class = "UILabel"; text = "確認新密碼："; ObjectID = "WjN-vY-m0T"; */
+"WjN-vY-m0T.text" = "確認新密碼：";
+
+/* Class = "UILabel"; text = "帳號："; ObjectID = "d4L-Uq-Mha"; */
+"d4L-Uq-Mha.text" = "帳號：";
+
+/* Class = "UIButton"; normalTitle = "確定"; ObjectID = "kJa-0e-23V"; */
+"kJa-0e-23V.normalTitle" = "確定";
+
+/* Class = "UILabel"; text = "驗證碼："; ObjectID = "oTz-Xy-Ym9"; */
+"oTz-Xy-Ym9.text" = "驗證碼：";

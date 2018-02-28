@@ -394,12 +394,16 @@
 "Please log in the account first." = "Please log in the account first.";
 "return details" = "return details";
 "scanning" = "scanning";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"5 white +1 red ball" = "5 white +1 red ball";
+"Five white balls" = "Five white balls";
+"Four white balls" = "Four white balls";
+"Three white balls" = "Three white balls";
+"1 white +1 red ball" = "1 white +1 red ball";
+"TextIntroduceLabel5" = "TextIntroduceLabel5";
+"TextIntroduceLabel2" = "TextIntroduceLabel2";
+"TextIntroduceLabel3" = "TextIntroduceLabel3";
+"TextIntroduceLabel6" = "TextIntroduceLabel6";
+"TextIntroduceLabel7" = "TextIntroduceLabel7";
 "" = "";
 "" = "";
 "" = "";
@@ -471,12 +475,8 @@
 "Email format error" = "Email format error";
 "mailbox has been bound." = "mailbox has been bound.";
 "Mailbox validation letter delivery failed." = "Mailbox validation letter delivery failed.";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"ICUEQuick login" = "ICUEQuick login";
+
 "" = "";
 "" = "";
 "" = "";

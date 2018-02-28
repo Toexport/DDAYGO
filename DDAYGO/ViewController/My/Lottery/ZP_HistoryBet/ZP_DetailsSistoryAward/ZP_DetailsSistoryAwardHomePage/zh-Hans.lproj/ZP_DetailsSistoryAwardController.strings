@@ -1,0 +1,126 @@
+
+/* Class = "UILabel"; text = "对奖号数"; ObjectID = "3Bj-Wl-W59"; */
+"3Bj-Wl-W59.text" = "对奖号数";
+
+/* Class = "UILabel"; text = "本期開獎累計總彩金點數"; ObjectID = "3Sq-o7-7ab"; */
+"3Sq-o7-7ab.text" = "本期开奖累计总彩金点数";
+
+/* Class = "UILabel"; text = "300"; ObjectID = "6ji-lM-dVO"; */
+"6ji-lM-dVO.text" = "300";
+
+/* Class = "UILabel"; text = "300"; ObjectID = "7ak-gw-kLQ"; */
+"7ak-gw-kLQ.text" = "300";
+
+/* Class = "UIButton"; normalTitle = "1"; ObjectID = "7wD-ts-sWe"; */
+"7wD-ts-sWe.normalTitle" = "1";
+
+/* Class = "UILabel"; text = "300"; ObjectID = "8kz-ga-QgT"; */
+"8kz-ga-QgT.text" = "300";
+
+/* Class = "UILabel"; text = "白球4个"; ObjectID = "8mV-Lf-0hS"; */
+"8mV-Lf-0hS.text" = "白球4个";
+
+/* Class = "UILabel"; text = "1白+1红球"; ObjectID = "9Nd-uO-b3D"; */
+"9Nd-uO-b3D.text" = "1白+1红球";
+
+/* Class = "UILabel"; text = "2017-11-19（周日）"; ObjectID = "Dt3-R9-qtc"; */
+"Dt3-R9-qtc.text" = "2017-11-19（周日）";
+
+/* Class = "UILabel"; text = "二奖"; ObjectID = "FE2-uU-1cW"; */
+"FE2-uU-1cW.text" = "二奖";
+
+/* Class = "UIButton"; normalTitle = "1"; ObjectID = "FFb-4k-ecc"; */
+"FFb-4k-ecc.normalTitle" = "1";
+
+/* Class = "UIButton"; normalTitle = "1"; ObjectID = "H3n-Vd-goO"; */
+"H3n-Vd-goO.normalTitle" = "1";
+
+/* Class = "UILabel"; text = "300"; ObjectID = "K0H-BX-BkC"; */
+"K0H-BX-BkC.text" = "300";
+
+/* Class = "UILabel"; text = "300"; ObjectID = "Khk-rV-USt"; */
+"Khk-rV-USt.text" = "300";
+
+/* Class = "UILabel"; text = "头奖"; ObjectID = "M5x-RI-XRC"; */
+"M5x-RI-XRC.text" = "头奖";
+
+/* Class = "UILabel"; text = "中奖注数"; ObjectID = "MP8-p0-YRE"; */
+"MP8-p0-YRE.text" = "中奖注数";
+
+/* Class = "UILabel"; text = "第217136期"; ObjectID = "QdQ-P6-BhA"; */
+"QdQ-P6-BhA.text" = "第217136期";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "R9g-Xt-kNo"; */
+"R9g-Xt-kNo.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "1"; ObjectID = "UaF-Rt-iwY"; */
+"UaF-Rt-iwY.normalTitle" = "1";
+
+/* Class = "UILabel"; text = "本期下注号码"; ObjectID = "VKM-fM-fKb"; */
+"VKM-fM-fKb.text" = "本期下注号码";
+
+/* Class = "UILabel"; text = "我的彩金點數:"; ObjectID = "Xcr-GX-f7z"; */
+"Xcr-GX-f7z.text" = "我的彩金点数:";
+
+/* Class = "UILabel"; text = "300"; ObjectID = "YtS-9d-xRd"; */
+"YtS-9d-xRd.text" = "300";
+
+/* Class = "UILabel"; text = "5白+1红球"; ObjectID = "axX-Zu-M0U"; */
+"axX-Zu-M0U.text" = "5白+1红球";
+
+/* Class = "UILabel"; text = "普奖"; ObjectID = "cf3-hF-rPH"; */
+"cf3-hF-rPH.text" = "普奖";
+
+/* Class = "UILabel"; text = "四奖"; ObjectID = "dad-zF-oo8"; */
+"dad-zF-oo8.text" = "四奖";
+
+/* Class = "UILabel"; text = "300"; ObjectID = "esa-fw-4VM"; */
+"esa-fw-4VM.text" = "300";
+
+/* Class = "UILabel"; text = "奖项"; ObjectID = "fGF-vi-kcS"; */
+"fGF-vi-kcS.text" = "奖项";
+
+/* Class = "UILabel"; text = "中奖号码"; ObjectID = "gjh-hf-reH"; */
+"gjh-hf-reH.text" = "中奖号码";
+
+/* Class = "UILabel"; text = "5个白球"; ObjectID = "gsD-x7-ClN"; */
+"gsD-x7-ClN.text" = "5个白球";
+
+/* Class = "UILabel"; text = "300"; ObjectID = "iCe-Wg-DaJ"; */
+"iCe-Wg-DaJ.text" = "300";
+
+/* Class = "UILabel"; text = "300"; ObjectID = "j7a-eb-lDd"; */
+"j7a-eb-lDd.text" = "300";
+
+/* Class = "UIButton"; normalTitle = "1"; ObjectID = "kSr-7h-z0K"; */
+"kSr-7h-z0K.normalTitle" = "1";
+
+/* Class = "UILabel"; text = "本期各奖项点数"; ObjectID = "kbY-aZ-uN2"; */
+"kbY-aZ-uN2.text" = "本期各奖项点数";
+
+/* Class = "UILabel"; text = "300"; ObjectID = "lo0-fx-TES"; */
+"lo0-fx-TES.text" = "300";
+
+/* Class = "UILabel"; text = "悬赏金额"; ObjectID = "nU8-7w-YTx"; */
+"nU8-7w-YTx.text" = "悬赏金额";
+
+/* Class = "UILabel"; text = "300"; ObjectID = "oIc-eG-iQJ"; */
+"oIc-eG-iQJ.text" = "300";
+
+/* Class = "UILabel"; text = "300"; ObjectID = "qaU-4R-vWF"; */
+"qaU-4R-vWF.text" = "300";
+
+/* Class = "UILabel"; text = "300"; ObjectID = "qqT-vl-aQC"; */
+"qqT-vl-aQC.text" = "300";
+
+/* Class = "UIButton"; normalTitle = "5"; ObjectID = "s5I-wh-I7p"; */
+"s5I-wh-I7p.normalTitle" = "5";
+
+/* Class = "UILabel"; text = "300"; ObjectID = "vRl-ah-NHx"; */
+"vRl-ah-NHx.text" = "300";
+
+/* Class = "UILabel"; text = "三奖"; ObjectID = "xPT-YL-LH4"; */
+"xPT-YL-LH4.text" = "三奖";
+
+/* Class = "UILabel"; text = "300"; ObjectID = "xy6-vx-Hha"; */
+"xy6-vx-Hha.text" = "300";

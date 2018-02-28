@@ -440,11 +440,16 @@
 "Please log in the account first." = "请先登录账号";
 "return details" = "退货详情";
 "scanning" = "扫一扫";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"5 white +1 red ball" = "5白+1红球";
+"Five white balls" = "5个白球";
+"Four white balls" = "4个白球";
+"Three white balls" = "3个白球";
+"1 white +1 red ball" = "1白球+1红球";
+"TextIntroduceLabel5" = "例：本次普奖点数是 1,00,00彩金点数得奖人数是20人每人各得500点(彩金点数)";
+"TextIntroduceLabel2" = "上期(一期):每月1日~15日累积点数，16日~20日填写(若未在指定时间填写并送出，视同放弃)，21日~30日兑奖(以美国乐透20日以后的第一个开奖日为兑奖时间，开奖隔日公司公告兑奖号码)。";
+"TextIntroduceLabel3" = "下期(二期):每月16日~月底累积点数，隔月1日~5日填写(若未在指定时间填写并送出，视同放弃)，隔月6日~15日兑奖(以美国乐透6日以后的第一个开奖日为兑奖时间，开奖隔日公司公告兑奖号码)。";
+"TextIntroduceLabel6" = "当期没人中奖累计至下期，複数人得奖，彩金点数平分转至促销彩帐户";
+"TextIntroduceLabel7" = "中奖三个月内未兑现则自动取消领奖资格(中奖后以ICUE及Mail通知)";
 "" = "";
 "" = "";
 "" = "";
@@ -519,10 +524,8 @@
 "Email format error" = "邮箱格式错误";
 "mailbox has been bound." = "邮箱以被绑定";
 "Mailbox validation letter delivery failed." = "邮箱验证信投递失败";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"ICUEQuick login" = "ICUE快速登录";
+
 
 /**
  *提示

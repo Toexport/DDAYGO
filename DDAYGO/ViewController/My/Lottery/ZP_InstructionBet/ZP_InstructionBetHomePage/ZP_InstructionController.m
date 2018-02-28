@@ -21,11 +21,26 @@
     [super viewDidLoad];
     [self initUI];
     [self AllData];
+    [self international];
 }
 
 - (void)initUI {
    self.title = NSLocalizedString(@"Roll up", nil);
-
+}
+// 國際化
+- (void) international {
+    self.winningNumLabel1.text = MyLocal(@"5 white +1 red ball");
+    self.winningNumLabel2.text = MyLocal(@"Five white balls");
+    self.winningNumLabel3.text = MyLocal(@"Four white balls");
+    self.winningNumLabel4.text = MyLocal(@"Three white balls");
+    self.winningNumLabel5.text = MyLocal(@"1 white +1 red ball");
+    self.TextIntroduceLabel5.text = MyLocal(@"TextIntroduceLabel5");
+    self.TextIntroduceLabel2.text = MyLocal(@"TextIntroduceLabel2");
+    self.TextIntroduceLabel3.text = MyLocal(@"TextIntroduceLabel3");
+    self.TextIntroduceLabel6.text = MyLocal(@"TextIntroduceLabel6");
+    self.TextIntroduceLabel7.text = MyLocal(@"TextIntroduceLabel7");
+    
+    
 }
 
 - (void)AllData {

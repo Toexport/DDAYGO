@@ -47,11 +47,11 @@
 
 
 // 文字介绍
+@property (weak, nonatomic) IBOutlet UILabel *TextIntroduceLabel5;
 @property (weak, nonatomic) IBOutlet UILabel *TextIntroduceLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *TextIntroduceLabel2;
 @property (weak, nonatomic) IBOutlet UILabel *TextIntroduceLabel3;
 @property (weak, nonatomic) IBOutlet UILabel *TextIntroduceLabel4;
-@property (weak, nonatomic) IBOutlet UILabel *TextIntroduceLabel5;
 @property (weak, nonatomic) IBOutlet UILabel *TextIntroduceLabel6;
 @property (weak, nonatomic) IBOutlet UILabel *TextIntroduceLabel7;
 

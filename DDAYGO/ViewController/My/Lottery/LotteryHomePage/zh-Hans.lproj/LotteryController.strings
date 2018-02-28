@@ -1,0 +1,165 @@
+
+/* Class = "UIButton"; normalTitle = "领奖"; ObjectID = "1AC-dD-Rv7"; */
+"1AC-dD-Rv7.normalTitle" = "领奖";
+
+/* Class = "UILabel"; text = "30"; ObjectID = "1gh-xx-dtJ"; */
+"1gh-xx-dtJ.text" = "30";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "25K-48-pLg"; */
+"25K-48-pLg.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "3pO-Mv-7Gy"; */
+"3pO-Mv-7Gy.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "5白+1红球"; ObjectID = "4Fn-eu-a8s"; */
+"4Fn-eu-a8s.text" = "5白+1红球";
+
+/* Class = "UILabel"; text = "第"; ObjectID = "4La-cI-cea"; */
+"4La-cI-cea.text" = "第";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "5io-w1-wpD"; */
+"5io-w1-wpD.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "中奖注数"; ObjectID = "6ai-wG-KJX"; */
+"6ai-wG-KJX.text" = "中奖注数";
+
+/* Class = "UILabel"; text = "订单号:"; ObjectID = "A2v-g2-vrn"; */
+"A2v-g2-vrn.text" = "订单号:";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "AE8-wf-Cco"; */
+"AE8-wf-Cco.normalTitle" = "0";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "CXd-1M-c2k"; */
+"CXd-1M-c2k.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "头奖"; ObjectID = "E3H-c8-MTJ"; */
+"E3H-c8-MTJ.text" = "头奖";
+
+/* Class = "UILabel"; text = "普奖"; ObjectID = "EWZ-5q-iu8"; */
+"EWZ-5q-iu8.text" = "普奖";
+
+/* Class = "UILabel"; text = "2017"; ObjectID = "EoU-AR-DlN"; */
+"EoU-AR-DlN.text" = "2017";
+
+/* Class = "UILabel"; text = "我的彩金点数:"; ObjectID = "Eri-Yy-Koq"; */
+"Eri-Yy-Koq.text" = "我的彩金点数:";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "GGl-XE-fCc"; */
+"GGl-XE-fCc.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "IuG-rZ-U4a"; */
+"IuG-rZ-U4a.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "未提交任何號碼"; ObjectID = "JCR-Es-KKT"; */
+"JCR-Es-KKT.text" = "未提交任何号码";
+
+/* Class = "UILabel"; text = "二奖"; ObjectID = "MLr-WI-rGJ"; */
+"MLr-WI-rGJ.text" = "二奖";
+
+/* Class = "UIButton"; normalTitle = "查看更多"; ObjectID = "Nkh-15-rAj"; */
+"Nkh-15-rAj.normalTitle" = "查看更多";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "OPc-ep-tsc"; */
+"OPc-ep-tsc.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "2017-11-19（周日）"; ObjectID = "OeE-E4-aVf"; */
+"OeE-E4-aVf.text" = "2017-11-19（周日）";
+
+/* Class = "UILabel"; text = "彩金点数"; ObjectID = "P0X-ex-XyR"; */
+"P0X-ex-XyR.text" = "彩金点数";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "PIY-0A-e22"; */
+"PIY-0A-e22.text" = "0";
+
+/* Class = "UILabel"; text = "本期提交号码"; ObjectID = "PKT-fW-4fb"; */
+"PKT-fW-4fb.text" = "本期提交号码";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "Qd9-Ci-gbq"; */
+"Qd9-Ci-gbq.text" = "0";
+
+/* Class = "UILabel"; text = "对中奖号数"; ObjectID = "QsT-pK-2NA"; */
+"QsT-pK-2NA.text" = "对中奖号数";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "SKA-rB-ZG4"; */
+"SKA-rB-ZG4.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "四奖"; ObjectID = "TuZ-Tc-LbF"; */
+"TuZ-Tc-LbF.text" = "四奖";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "XKz-5s-F30"; */
+"XKz-5s-F30.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "YdO-sX-4tK"; */
+"YdO-sX-4tK.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "ZZi-S0-0LM"; */
+"ZZi-S0-0LM.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "aXw-a2-3Vb"; */
+"aXw-a2-3Vb.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "cEN-7L-jGh"; */
+"cEN-7L-jGh.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "cwo-6Z-Feu"; */
+"cwo-6Z-Feu.text" = "0";
+
+/* Class = "UILabel"; text = "本期开奖累计总彩金点数"; ObjectID = "dBx-SQ-gim"; */
+"dBx-SQ-gim.text" = "本期开奖累计总彩金点数";
+
+/* Class = "UILabel"; text = "期"; ObjectID = "dS1-09-Xdh"; */
+"dS1-09-Xdh.text" = "期";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "e3u-6S-Fa0"; */
+"e3u-6S-Fa0.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "f4l-8O-atS"; */
+"f4l-8O-atS.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "fiR-gd-ecz"; */
+"fiR-gd-ecz.text" = "0";
+
+/* Class = "UILabel"; text = "12"; ObjectID = "hQT-Ap-PBZ"; */
+"hQT-Ap-PBZ.text" = "12";
+
+/* Class = "UILabel"; text = "中奖号码"; ObjectID = "iLH-vh-vnc"; */
+"iLH-vh-vnc.text" = "中奖号码";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "jRy-Pl-N0X"; */
+"jRy-Pl-N0X.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "kUX-yq-R9l"; */
+"kUX-yq-R9l.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "lCL-Of-0a3"; */
+"lCL-Of-0a3.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "oyW-pZ-mZq"; */
+"oyW-pZ-mZq.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "rHp-aP-pwg"; */
+"rHp-aP-pwg.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "X"; ObjectID = "s9i-Sf-7DR"; */
+"s9i-Sf-7DR.text" = "X";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "sAQ-sa-WWl"; */
+"sAQ-sa-WWl.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "sWS-ZI-z4H"; */
+"sWS-ZI-z4H.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "slb-CA-W3k"; */
+"slb-CA-W3k.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "本期各奖项点数"; ObjectID = "vCM-nc-1yX"; */
+"vCM-nc-1yX.text" = "本期各奖项点数";
+
+/* Class = "UILabel"; text = "三奖"; ObjectID = "xJ8-5n-tmY"; */
+"xJ8-5n-tmY.text" = "三奖";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "xid-gc-rVP"; */
+"xid-gc-rVP.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "奖项"; ObjectID = "zmM-eh-aKI"; */
+"zmM-eh-aKI.text" = "奖项";

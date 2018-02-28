@@ -30,7 +30,7 @@
 "Mmt-0u-EJZ.text" = "累计奖项点数";
 
 /* Class = "UILabel"; text = "各獎的總點數除以得獎人數=得獎點數"; ObjectID = "N7F-Wx-FpQ"; */
-"N7F-Wx-FpQ.text" = "各獎的總點數除以得獎人數=得獎點數";
+"N7F-Wx-FpQ.text" = "各奖总点数除以以得奖人数=得奖点数";
 
 /* Class = "UILabel"; text = "奖项"; ObjectID = "OJh-iD-5Xa"; */
 "OJh-iD-5Xa.text" = "奖项";
@@ -41,8 +41,8 @@
 /* Class = "UILabel"; text = "每月分上、下期(一、二期)。"; ObjectID = "XHn-Qb-NeU"; */
 "XHn-Qb-NeU.text" = "每月分上、下期(一、二期)。";
 
-/* Class = "UILabel"; text = "si"; ObjectID = "f8y-Pm-aEw"; */
-"f8y-Pm-aEw.text" = "si";
+/* Class = "UILabel"; text = "四奖"; ObjectID = "f8y-Pm-aEw"; */
+"f8y-Pm-aEw.text" = "四奖";
 
 /* Class = "UILabel"; text = "普奖"; ObjectID = "gDJ-mJ-7Dj"; */
 "gDJ-mJ-7Dj.text" = "普奖";
@@ -54,4 +54,4 @@
 "tVD-Bc-FMg.text" = "0";
 
 /* Class = "UILabel"; text = "促銷彩為供貨商回饋公司手續費之10%，這個10%全部作為100%分配至各獎項。"; ObjectID = "vOJ-eR-xBX"; */
-"vOJ-eR-xBX.text" = "促銷彩為供貨商回饋公司手續費之10%，這個10%全部作為100%分配至各獎項。";
+"vOJ-eR-xBX.text" = "促销彩为供货商回馈公司手续费之10%，这个10%全部作为100%分配至各奖项。";

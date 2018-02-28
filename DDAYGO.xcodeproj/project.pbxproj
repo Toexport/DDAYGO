@@ -82,15 +82,11 @@
 		06621D9A1F9757B40030983F /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 06621D971F9757B40030983F /* UITableView+SDAutoTableViewCellHeight.m */; };
 		06621D9B1F9757B40030983F /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 06621D991F9757B40030983F /* UIView+SDAutoLayout.m */; };
 		06621DAB1F9758720030983F /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06621DA71F9758720030983F /* LoginController.m */; };
-		06621DAC1F9758720030983F /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06621DA81F9758720030983F /* LoginController.xib */; };
 		06621DAD1F9758720030983F /* TextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06621DAA1F9758720030983F /* TextView.m */; };
 		06621DB21F9758840030983F /* RegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06621DB01F9758840030983F /* RegisterController.m */; };
-		06621DB31F9758840030983F /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06621DB11F9758840030983F /* RegisterController.xib */; };
 		06621DB81F9758AE0030983F /* ForgetPswController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06621DB61F9758AE0030983F /* ForgetPswController.m */; };
-		06621DB91F9758AE0030983F /* ForgetPswController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06621DB71F9758AE0030983F /* ForgetPswController.xib */; };
 		0662AB341F9592A50031F22B /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662AB331F9592A50031F22B /* VPImageCropperViewController.m */; };
 		0662AB5D1F9610BF0031F22B /* LogregisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0662AB5B1F9610BF0031F22B /* LogregisterController.m */; };
-		0662AB5E1F9610BF0031F22B /* LogregisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0662AB5C1F9610BF0031F22B /* LogregisterController.xib */; };
 		0682BE6B1F906D7B00894F4E /* Shopping2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0682BE6A1F906D7B00894F4E /* Shopping2.png */; };
 		0682BE6D1F90725700894F4E /* img_home_advertisemen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0682BE6C1F90725700894F4E /* img_home_advertisemen.png */; };
 		0682BE801F90C8F000894F4E /* seven.png in Resources */ = {isa = PBXBuildFile; fileRef = 0682BE7F1F90C8F000894F4E /* seven.png */; };
@@ -154,7 +150,6 @@
 		06F572301F9F1E8700D61FDB /* OrderSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F5720E1F9F1E8700D61FDB /* OrderSearchView.m */; };
 		06F572311F9F1E8700D61FDB /* OrderSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06F5720F1F9F1E8700D61FDB /* OrderSearchView.xib */; };
 		06F572321F9F1E8700D61FDB /* ReceivingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F572131F9F1E8700D61FDB /* ReceivingViewCell.m */; };
-		06F572331F9F1E8700D61FDB /* ReceivingViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06F572141F9F1E8700D61FDB /* ReceivingViewCell.xib */; };
 		06F572341F9F1E8700D61FDB /* ReceivingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F572161F9F1E8700D61FDB /* ReceivingController.m */; };
 		06F572351F9F1E8700D61FDB /* ReceivingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06F572171F9F1E8700D61FDB /* ReceivingController.xib */; };
 		06F572361F9F1E8700D61FDB /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F5721A1F9F1E8700D61FDB /* StoreViewController.m */; };
@@ -191,7 +186,6 @@
 		C41E9C432021A6DA00E6F5E2 /* PayMoneyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C41E9C412021A6DA00E6F5E2 /* PayMoneyViewCell.m */; };
 		C41E9C442021A6DA00E6F5E2 /* PayMoneyViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41E9C422021A6DA00E6F5E2 /* PayMoneyViewCell.xib */; };
 		C41E9C49202203D400E6F5E2 /* ZP_BusinessNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C41E9C48202203D400E6F5E2 /* ZP_BusinessNameCell.m */; };
-		C41FF4DA1FFF53F7009B720D /* ZP_InstructionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41FF4DC1FFF53F7009B720D /* ZP_InstructionController.xib */; };
 		C420EDE51FF3D397005ECE30 /* UIViewController+LLProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = C420EDE31FF3D396005ECE30 /* UIViewController+LLProgress.m */; };
 		C420EDE81FF3D7E9005ECE30 /* CALayer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C420EDE71FF3D7E9005ECE30 /* CALayer+UIColor.m */; };
 		C425BEA91FC813C30097DB8F /* FSPageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C425BEA51FC813C30097DB8F /* FSPageContentView.m */; };
@@ -200,7 +194,6 @@
 		C425BEB41FC832140097DB8F /* ZP_FootprintModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C425BEB31FC832140097DB8F /* ZP_FootprintModel.m */; };
 		C427F67D202419C900364CBF /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C427F67F202419C900364CBF /* NoDataView.xib */; };
 		C42A17311FF252F400680F92 /* BetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A172E1FF252F300680F92 /* BetViewController.m */; };
-		C42A17321FF252F400680F92 /* BetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C42A172F1FF252F300680F92 /* BetViewController.xib */; };
 		C42A173C1FF2532400680F92 /* BetTableViewMyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A17331FF2532300680F92 /* BetTableViewMyCell.m */; };
 		C42A173D1FF2532400680F92 /* BetTableViewCellTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A17361FF2532400680F92 /* BetTableViewCellTwo.m */; };
 		C42A173E1FF2532400680F92 /* BetTableViewMyCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = C42A17371FF2532400680F92 /* BetTableViewMyCell2.xib */; };
@@ -208,7 +201,6 @@
 		C42A17401FF2532400680F92 /* BetTableViewCellTwo.xib in Resources */ = {isa = PBXBuildFile; fileRef = C42A173A1FF2532400680F92 /* BetTableViewCellTwo.xib */; };
 		C42A17411FF2532400680F92 /* BetTableViewMyCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A173B1FF2532400680F92 /* BetTableViewMyCell2.m */; };
 		C42A17451FF2544100680F92 /* tableHeadView1.m in Sources */ = {isa = PBXBuildFile; fileRef = C42A17421FF2544000680F92 /* tableHeadView1.m */; };
-		C42A17461FF2544100680F92 /* tableHeadView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = C42A17441FF2544100680F92 /* tableHeadView1.xib */; };
 		C42E52F2200E141000515364 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42E52F0200E141000515364 /* HomePageViewController.m */; };
 		C42E52F3200E141000515364 /* HomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C42E52F1200E141000515364 /* HomePageViewController.xib */; };
 		C42F06FE1FFE259A00B3D510 /* ZP_BetHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C42F06FD1FFE259A00B3D510 /* ZP_BetHeaderModel.m */; };
@@ -221,7 +213,6 @@
 		C435174C1FB2ACE80066302E /* OrdersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C435174E1FB2ACE80066302E /* OrdersViewController.xib */; };
 		C43987801FF4C67100044E21 /* SupplierTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C439877E1FF4C67100044E21 /* SupplierTableViewCell.m */; };
 		C4399D6F1FCE84A000B7B96D /* LotteryController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4399D691FCE849F00B7B96D /* LotteryController.m */; };
-		C4399D701FCE84A000B7B96D /* LotteryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4399D6A1FCE849F00B7B96D /* LotteryController.xib */; };
 		C43DE4DE200355AF002AB8D2 /* LanguageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C43DE4DB200355AF002AB8D2 /* LanguageController.m */; };
 		C43DE4DF200355AF002AB8D2 /* LanguageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43DE4DD200355AF002AB8D2 /* LanguageController.xib */; };
 		C4411D8C200EFB4900CE906F /* AboutDDAYGOController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4411D8A200EFB4900CE906F /* AboutDDAYGOController.m */; };
@@ -257,9 +248,7 @@
 		C44B072320451A5C009A9392 /* RegistrationAgreementController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C44B072020451A5C009A9392 /* RegistrationAgreementController.xib */; };
 		C44B072420451A5C009A9392 /* RegistrationAgreementController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44B072120451A5C009A9392 /* RegistrationAgreementController.m */; };
 		C44C9DB11FEA392D00CD7D4D /* ZP_QuickLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44C9DAE1FEA392C00CD7D4D /* ZP_QuickLoginController.m */; };
-		C44C9DB21FEA392D00CD7D4D /* ZP_QuickLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C44C9DAF1FEA392C00CD7D4D /* ZP_QuickLoginController.xib */; };
 		C44D6D0F1FD8CF070002DAF2 /* PayViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D6D0A1FD8CF070002DAF2 /* PayViewCell.m */; };
-		C44D6D101FD8CF070002DAF2 /* PayViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C44D6D0B1FD8CF070002DAF2 /* PayViewCell.xib */; };
 		C44D6D111FD8CF070002DAF2 /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D6D0D1FD8CF070002DAF2 /* PayViewController.m */; };
 		C44D6D121FD8CF070002DAF2 /* PayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C44D6D0E1FD8CF070002DAF2 /* PayViewController.xib */; };
 		C44D6D161FD8CF7D0002DAF2 /* ZP_PayView.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D6D151FD8CF7D0002DAF2 /* ZP_PayView.m */; };
@@ -311,7 +300,6 @@
 		C4632E0D200633CC0029AA87 /* RefundServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4632E0B200633CC0029AA87 /* RefundServiceController.m */; };
 		C4632E0E200633CC0029AA87 /* RefundServiceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4632E0C200633CC0029AA87 /* RefundServiceController.xib */; };
 		C4632E12200633E30029AA87 /* RefundServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4632E10200633E30029AA87 /* RefundServiceCell.m */; };
-		C4632E13200633E30029AA87 /* RefundServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4632E11200633E30029AA87 /* RefundServiceCell.xib */; };
 		C466403F1FA7094B00B76927 /* ZP_MyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C466403E1FA7094B00B76927 /* ZP_MyTool.m */; };
 		C46837F81FDA645A000E7D7C /* 产品详情_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = C46837EF1FDA645A000E7D7C /* 产品详情_spec.png */; };
 		C46837FC1FDA78EE000E7D7C /* ZP_MyHopageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C46837FB1FDA78EE000E7D7C /* ZP_MyHopageModel.m */; };
@@ -407,20 +395,35 @@
 		C48C61AF2046617700FA6E0A /* Supplier1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C61B12046617700FA6E0A /* Supplier1ViewController.xib */; };
 		C48C61B6204661A800FA6E0A /* SupplierTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C61B8204661A800FA6E0A /* SupplierTableViewCell.xib */; };
 		C48C61BD204661BD00FA6E0A /* SupplierViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C61BF204661BD00FA6E0A /* SupplierViewCell2.xib */; };
+		C48C61C42046755400FA6E0A /* YueTixianController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C61C62046755400FA6E0A /* YueTixianController.xib */; };
+		C48C61CB2046759F00FA6E0A /* ZP_ExtractCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C61CD2046759F00FA6E0A /* ZP_ExtractCell.xib */; };
+		C48C61D62046769600FA6E0A /* ReceivingViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C61D82046769600FA6E0A /* ReceivingViewCell.xib */; };
+		C48C61DD2046771700FA6E0A /* PayViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C61DF2046771700FA6E0A /* PayViewCell.xib */; };
+		C48C61E42046776800FA6E0A /* LotteryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C61E62046776800FA6E0A /* LotteryController.xib */; };
+		C48C61EB2046786500FA6E0A /* BetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C61ED2046786500FA6E0A /* BetViewController.xib */; };
+		C48C61F22046788600FA6E0A /* tableHeadView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C61F42046788600FA6E0A /* tableHeadView1.xib */; };
+		C48C61FB2046792500FA6E0A /* ZP_HistoryBetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C61FD2046792500FA6E0A /* ZP_HistoryBetCell.xib */; };
+		C48C62022046794E00FA6E0A /* ZP_DetailsSistoryAwardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C62042046794E00FA6E0A /* ZP_DetailsSistoryAwardController.xib */; };
+		C48C620920467A6600FA6E0A /* ZP_LotteryHistoricalBettingNumberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C620B20467A6600FA6E0A /* ZP_LotteryHistoricalBettingNumberCell.xib */; };
+		C48C621B20467D1100FA6E0A /* ZP_InstructionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C621D20467D1100FA6E0A /* ZP_InstructionController.xib */; };
+		C48C622220467D5F00FA6E0A /* RefundServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C622420467D5F00FA6E0A /* RefundServiceCell.xib */; };
+		C48C622920467D9700FA6E0A /* ExchangeDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C622B20467D9700FA6E0A /* ExchangeDetailsController.xib */; };
+		C48C623020467E3200FA6E0A /* ZP_QuickLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C623220467E3200FA6E0A /* ZP_QuickLoginController.xib */; };
+		C48C623720467E6000FA6E0A /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C623920467E6000FA6E0A /* RegisterController.xib */; };
+		C48C623E20467E8600FA6E0A /* ForgetPswController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C624020467E8600FA6E0A /* ForgetPswController.xib */; };
+		C48C624520467EAD00FA6E0A /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C624720467EAD00FA6E0A /* LoginController.xib */; };
+		C48C624C20467EC400FA6E0A /* LogregisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C624E20467EC400FA6E0A /* LogregisterController.xib */; };
 		C4910F701FFC6D24006DA5B9 /* ddg_advertising.png in Resources */ = {isa = PBXBuildFile; fileRef = C4910F6F1FFC6D24006DA5B9 /* ddg_advertising.png */; };
 		C491D3771FCBE31D00D127E9 /* BindingIntroduce.m in Sources */ = {isa = PBXBuildFile; fileRef = C491D3751FCBE31D00D127E9 /* BindingIntroduce.m */; };
 		C492A1771FD0ECB7009FF57B /* ZP_HistoryBetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C492A16C1FD0ECB7009FF57B /* ZP_HistoryBetCell.m */; };
-		C492A1781FD0ECB7009FF57B /* ZP_HistoryBetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C492A16D1FD0ECB7009FF57B /* ZP_HistoryBetCell.xib */; };
 		C492A17D1FD0ECB7009FF57B /* ZP_HistoryVetController.m in Sources */ = {isa = PBXBuildFile; fileRef = C492A1751FD0ECB7009FF57B /* ZP_HistoryVetController.m */; };
 		C492A17E1FD0ECB7009FF57B /* ZP_HistoryVetController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C492A1761FD0ECB7009FF57B /* ZP_HistoryVetController.xib */; };
 		C492A18B1FD0ED72009FF57B /* ZP_DetailsSistoryAwardController.m in Sources */ = {isa = PBXBuildFile; fileRef = C492A1891FD0ED72009FF57B /* ZP_DetailsSistoryAwardController.m */; };
-		C492A18C1FD0ED72009FF57B /* ZP_DetailsSistoryAwardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C492A18A1FD0ED72009FF57B /* ZP_DetailsSistoryAwardController.xib */; };
 		C492A1961FD0EDC0009FF57B /* ZP_InstructionController.m in Sources */ = {isa = PBXBuildFile; fileRef = C492A1941FD0EDC0009FF57B /* ZP_InstructionController.m */; };
 		C492A1BC1FD15189009FF57B /* 扫码付款状态.png in Resources */ = {isa = PBXBuildFile; fileRef = C492A1B51FD15189009FF57B /* 扫码付款状态.png */; };
 		C49B32211FD5A995007632F2 /* ZP_ExtractController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49B321F1FD5A995007632F2 /* ZP_ExtractController.m */; };
 		C49B32221FD5A995007632F2 /* ZP_ExtractController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C49B32201FD5A995007632F2 /* ZP_ExtractController.xib */; };
 		C49B32271FD5AC9E007632F2 /* ZP_ExtractCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C49B32251FD5AC9E007632F2 /* ZP_ExtractCell.m */; };
-		C49B32281FD5AC9E007632F2 /* ZP_ExtractCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C49B32261FD5AC9E007632F2 /* ZP_ExtractCell.xib */; };
 		C4AD0752200C7A5D00B8FF6E /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0730200C7A5D00B8FF6E /* .gitkeep */; };
 		C4AD0753200C7A5D00B8FF6E /* LPDImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0731200C7A5D00B8FF6E /* LPDImagePickerController.bundle */; };
 		C4AD0754200C7A5D00B8FF6E /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0733200C7A5D00B8FF6E /* .gitkeep */; };
@@ -441,7 +444,6 @@
 		C4AD0763200C7A5D00B8FF6E /* UIView+HandyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AD0751200C7A5D00B8FF6E /* UIView+HandyValue.m */; };
 		C4AD0767200C963E00B8FF6E /* RefundServiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AD0766200C963E00B8FF6E /* RefundServiceModel.m */; };
 		C4AD076C200CA8E700B8FF6E /* ExchangeDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AD076A200CA8E700B8FF6E /* ExchangeDetailsController.m */; };
-		C4AD076D200CA8E700B8FF6E /* ExchangeDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4AD076B200CA8E700B8FF6E /* ExchangeDetailsController.xib */; };
 		C4AD0771200CA9A600B8FF6E /* ExchangeDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4AD0770200CA9A600B8FF6E /* ExchangeDetailsModel.m */; };
 		C4B04D9A200889C8009F7AF9 /* RequestRefundController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B04D96200889C8009F7AF9 /* RequestRefundController.m */; };
 		C4B04D9F2008A16D009F7AF9 /* SelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B04D9E2008A16D009F7AF9 /* SelectView.m */; };
@@ -457,12 +459,10 @@
 		C4C4D1531FF6823D0075D8D8 /* Supplier1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C4D1511FF6823D0075D8D8 /* Supplier1ViewController.m */; };
 		C4D2FEA71FD519A100F546AB /* ZP_QrCodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D2FEA61FD519A100F546AB /* ZP_QrCodeModel.m */; };
 		C4D2FEB31FD552A000F546AB /* YueTixianController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D2FEB11FD552A000F546AB /* YueTixianController.m */; };
-		C4D2FEB41FD552A000F546AB /* YueTixianController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D2FEB21FD552A000F546AB /* YueTixianController.xib */; };
 		C4D2FEF41FD5636C00F546AB /* 商店管理_spec_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = C4D2FED71FD5636C00F546AB /* 商店管理_spec_spec.png */; };
 		C4D2FEF51FD5636C00F546AB /* 提现_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = C4D2FED81FD5636C00F546AB /* 提现_spec.png */; };
 		C4D9E7071FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D9E7051FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.m */; };
 		C4D9E70D1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D9E70B1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.m */; };
-		C4D9E70E1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D9E70C1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib */; };
 		C4ECF4AB2015AFC1006DFE7E /* MerchantCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECF4AA2015AFC1006DFE7E /* MerchantCollectionViewCell.m */; };
 		C4ECF4AF2015CF5E006DFE7E /* MerchantModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECF4AE2015CF5E006DFE7E /* MerchantModel.m */; };
 		C4ECF4B32016087C006DFE7E /* SecondModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECF4B22016087C006DFE7E /* SecondModel.m */; };
@@ -643,20 +643,16 @@
 		06621D991F9757B40030983F /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
 		06621DA61F9758720030983F /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		06621DA71F9758720030983F /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
-		06621DA81F9758720030983F /* LoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginController.xib; sourceTree = "<group>"; };
 		06621DA91F9758720030983F /* TextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextView.h; sourceTree = "<group>"; };
 		06621DAA1F9758720030983F /* TextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextView.m; sourceTree = "<group>"; };
 		06621DAF1F9758840030983F /* RegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterController.h; sourceTree = "<group>"; };
 		06621DB01F9758840030983F /* RegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterController.m; sourceTree = "<group>"; };
-		06621DB11F9758840030983F /* RegisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterController.xib; sourceTree = "<group>"; };
 		06621DB51F9758AE0030983F /* ForgetPswController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPswController.h; sourceTree = "<group>"; };
 		06621DB61F9758AE0030983F /* ForgetPswController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPswController.m; sourceTree = "<group>"; };
-		06621DB71F9758AE0030983F /* ForgetPswController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPswController.xib; sourceTree = "<group>"; };
 		0662AB321F9592A50031F22B /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
 		0662AB331F9592A50031F22B /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
 		0662AB5A1F9610BF0031F22B /* LogregisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogregisterController.h; sourceTree = "<group>"; };
 		0662AB5B1F9610BF0031F22B /* LogregisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogregisterController.m; sourceTree = "<group>"; };
-		0662AB5C1F9610BF0031F22B /* LogregisterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogregisterController.xib; sourceTree = "<group>"; };
 		0682BE6A1F906D7B00894F4E /* Shopping2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shopping2.png; sourceTree = "<group>"; };
 		0682BE6C1F90725700894F4E /* img_home_advertisemen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_home_advertisemen.png; sourceTree = "<group>"; };
 		0682BE7F1F90C8F000894F4E /* seven.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seven.png; sourceTree = "<group>"; };
@@ -764,7 +760,6 @@
 		06F5720F1F9F1E8700D61FDB /* OrderSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderSearchView.xib; sourceTree = "<group>"; };
 		06F572121F9F1E8700D61FDB /* ReceivingViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceivingViewCell.h; sourceTree = "<group>"; };
 		06F572131F9F1E8700D61FDB /* ReceivingViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceivingViewCell.m; sourceTree = "<group>"; };
-		06F572141F9F1E8700D61FDB /* ReceivingViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceivingViewCell.xib; sourceTree = "<group>"; };
 		06F572151F9F1E8700D61FDB /* ReceivingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceivingController.h; sourceTree = "<group>"; };
 		06F572161F9F1E8700D61FDB /* ReceivingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceivingController.m; sourceTree = "<group>"; };
 		06F572171F9F1E8700D61FDB /* ReceivingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceivingController.xib; sourceTree = "<group>"; };
@@ -833,10 +828,6 @@
 		C41E9C422021A6DA00E6F5E2 /* PayMoneyViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayMoneyViewCell.xib; sourceTree = "<group>"; };
 		C41E9C47202203D400E6F5E2 /* ZP_BusinessNameCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_BusinessNameCell.h; sourceTree = "<group>"; };
 		C41E9C48202203D400E6F5E2 /* ZP_BusinessNameCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_BusinessNameCell.m; sourceTree = "<group>"; };
-		C41FF4DB1FFF53F7009B720D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ZP_InstructionController.xib; sourceTree = "<group>"; };
-		C41FF4DE1FFF53FC009B720D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ZP_InstructionController.strings; sourceTree = "<group>"; };
-		C41FF4E01FFF5401009B720D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ZP_InstructionController.strings"; sourceTree = "<group>"; };
-		C41FF4E21FFF5404009B720D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ZP_InstructionController.strings"; sourceTree = "<group>"; };
 		C420EDE31FF3D396005ECE30 /* UIViewController+LLProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LLProgress.m"; sourceTree = "<group>"; };
 		C420EDE41FF3D397005ECE30 /* UIViewController+LLProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LLProgress.h"; sourceTree = "<group>"; };
 		C420EDE61FF3D7E9005ECE30 /* CALayer+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+UIColor.h"; sourceTree = "<group>"; };
@@ -855,7 +846,6 @@
 		C427F683202419CD00364CBF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/NoDataView.strings"; sourceTree = "<group>"; };
 		C427F685202419CE00364CBF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/NoDataView.strings"; sourceTree = "<group>"; };
 		C42A172E1FF252F300680F92 /* BetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BetViewController.m; sourceTree = "<group>"; };
-		C42A172F1FF252F300680F92 /* BetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BetViewController.xib; sourceTree = "<group>"; };
 		C42A17301FF252F300680F92 /* BetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BetViewController.h; sourceTree = "<group>"; };
 		C42A17331FF2532300680F92 /* BetTableViewMyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BetTableViewMyCell.m; sourceTree = "<group>"; };
 		C42A17341FF2532300680F92 /* BetTableViewMyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BetTableViewMyCell.h; sourceTree = "<group>"; };
@@ -868,7 +858,6 @@
 		C42A173B1FF2532400680F92 /* BetTableViewMyCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BetTableViewMyCell2.m; sourceTree = "<group>"; };
 		C42A17421FF2544000680F92 /* tableHeadView1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tableHeadView1.m; sourceTree = "<group>"; };
 		C42A17431FF2544000680F92 /* tableHeadView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tableHeadView1.h; sourceTree = "<group>"; };
-		C42A17441FF2544100680F92 /* tableHeadView1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tableHeadView1.xib; sourceTree = "<group>"; };
 		C42E52EF200E141000515364 /* HomePageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
 		C42E52F0200E141000515364 /* HomePageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
 		C42E52F1200E141000515364 /* HomePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageViewController.xib; sourceTree = "<group>"; };
@@ -906,7 +895,6 @@
 		C439877E1FF4C67100044E21 /* SupplierTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SupplierTableViewCell.m; sourceTree = "<group>"; };
 		C4399D681FCE849F00B7B96D /* LotteryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryController.h; sourceTree = "<group>"; };
 		C4399D691FCE849F00B7B96D /* LotteryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LotteryController.m; sourceTree = "<group>"; };
-		C4399D6A1FCE849F00B7B96D /* LotteryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LotteryController.xib; sourceTree = "<group>"; };
 		C43DE4DB200355AF002AB8D2 /* LanguageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageController.m; sourceTree = "<group>"; };
 		C43DE4DC200355AF002AB8D2 /* LanguageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageController.h; sourceTree = "<group>"; };
 		C43DE4DD200355AF002AB8D2 /* LanguageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageController.xib; sourceTree = "<group>"; };
@@ -953,10 +941,8 @@
 		C44B072220451A5C009A9392 /* RegistrationAgreementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationAgreementController.h; sourceTree = "<group>"; };
 		C44C9DAD1FEA392C00CD7D4D /* ZP_QuickLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZP_QuickLoginController.h; sourceTree = "<group>"; };
 		C44C9DAE1FEA392C00CD7D4D /* ZP_QuickLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZP_QuickLoginController.m; sourceTree = "<group>"; };
-		C44C9DAF1FEA392C00CD7D4D /* ZP_QuickLoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZP_QuickLoginController.xib; sourceTree = "<group>"; };
 		C44D6D091FD8CF070002DAF2 /* PayViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayViewCell.h; sourceTree = "<group>"; };
 		C44D6D0A1FD8CF070002DAF2 /* PayViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayViewCell.m; sourceTree = "<group>"; };
-		C44D6D0B1FD8CF070002DAF2 /* PayViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayViewCell.xib; sourceTree = "<group>"; };
 		C44D6D0C1FD8CF070002DAF2 /* PayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
 		C44D6D0D1FD8CF070002DAF2 /* PayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
 		C44D6D0E1FD8CF070002DAF2 /* PayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayViewController.xib; sourceTree = "<group>"; };
@@ -1057,7 +1043,6 @@
 		C4632E0C200633CC0029AA87 /* RefundServiceController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundServiceController.xib; sourceTree = "<group>"; };
 		C4632E0F200633E30029AA87 /* RefundServiceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RefundServiceCell.h; sourceTree = "<group>"; };
 		C4632E10200633E30029AA87 /* RefundServiceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefundServiceCell.m; sourceTree = "<group>"; };
-		C4632E11200633E30029AA87 /* RefundServiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RefundServiceCell.xib; sourceTree = "<group>"; };
 		C466403D1FA7094B00B76927 /* ZP_MyTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZP_MyTool.h; sourceTree = "<group>"; };
 		C466403E1FA7094B00B76927 /* ZP_MyTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZP_MyTool.m; sourceTree = "<group>"; };
 		C46837EF1FDA645A000E7D7C /* 产品详情_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "产品详情_spec.png"; sourceTree = "<group>"; };
@@ -1262,18 +1247,70 @@
 		C48C61BE204661BD00FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SupplierViewCell2.xib; sourceTree = "<group>"; };
 		C48C61C1204661C800FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SupplierViewCell2.strings"; sourceTree = "<group>"; };
 		C48C61C3204661CA00FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SupplierViewCell2.strings"; sourceTree = "<group>"; };
+		C48C61C52046755400FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/YueTixianController.xib; sourceTree = "<group>"; };
+		C48C61C82046755700FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/YueTixianController.strings"; sourceTree = "<group>"; };
+		C48C61CA2046755800FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/YueTixianController.strings"; sourceTree = "<group>"; };
+		C48C61CC2046759F00FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ZP_ExtractCell.xib; sourceTree = "<group>"; };
+		C48C61D3204675E300FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ZP_ExtractCell.strings"; sourceTree = "<group>"; };
+		C48C61D5204675E600FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ZP_ExtractCell.strings"; sourceTree = "<group>"; };
+		C48C61D72046769600FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ReceivingViewCell.xib; sourceTree = "<group>"; };
+		C48C61DA2046769A00FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ReceivingViewCell.strings"; sourceTree = "<group>"; };
+		C48C61DC204676E300FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ReceivingViewCell.strings"; sourceTree = "<group>"; };
+		C48C61DE2046771700FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PayViewCell.xib; sourceTree = "<group>"; };
+		C48C61E12046771C00FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/PayViewCell.strings"; sourceTree = "<group>"; };
+		C48C61E32046771D00FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/PayViewCell.strings"; sourceTree = "<group>"; };
+		C48C61E52046776800FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LotteryController.xib; sourceTree = "<group>"; };
+		C48C61E82046776B00FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LotteryController.strings"; sourceTree = "<group>"; };
+		C48C61EA2046776D00FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LotteryController.strings"; sourceTree = "<group>"; };
+		C48C61EC2046786500FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BetViewController.xib; sourceTree = "<group>"; };
+		C48C61EF2046786700FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/BetViewController.strings"; sourceTree = "<group>"; };
+		C48C61F12046786800FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/BetViewController.strings"; sourceTree = "<group>"; };
+		C48C61F32046788600FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/tableHeadView1.xib; sourceTree = "<group>"; };
+		C48C61F82046788A00FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/tableHeadView1.strings"; sourceTree = "<group>"; };
+		C48C61FA2046788F00FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/tableHeadView1.strings"; sourceTree = "<group>"; };
+		C48C61FC2046792500FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ZP_HistoryBetCell.xib; sourceTree = "<group>"; };
+		C48C61FF2046792900FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ZP_HistoryBetCell.strings"; sourceTree = "<group>"; };
+		C48C62012046792A00FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ZP_HistoryBetCell.strings"; sourceTree = "<group>"; };
+		C48C62032046794E00FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ZP_DetailsSistoryAwardController.xib; sourceTree = "<group>"; };
+		C48C62062046795000FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ZP_DetailsSistoryAwardController.strings"; sourceTree = "<group>"; };
+		C48C62082046795200FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ZP_DetailsSistoryAwardController.strings"; sourceTree = "<group>"; };
+		C48C620A20467A6600FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ZP_LotteryHistoricalBettingNumberCell.xib; sourceTree = "<group>"; };
+		C48C620F20467A6F00FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ZP_LotteryHistoricalBettingNumberCell.strings"; sourceTree = "<group>"; };
+		C48C621120467A7100FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ZP_LotteryHistoricalBettingNumberCell.strings"; sourceTree = "<group>"; };
+		C48C621C20467D1100FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ZP_InstructionController.xib; sourceTree = "<group>"; };
+		C48C621F20467D1600FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ZP_InstructionController.strings"; sourceTree = "<group>"; };
+		C48C622120467D1E00FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ZP_InstructionController.strings"; sourceTree = "<group>"; };
+		C48C622320467D5F00FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RefundServiceCell.xib; sourceTree = "<group>"; };
+		C48C622620467D6200FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RefundServiceCell.strings"; sourceTree = "<group>"; };
+		C48C622820467D6400FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/RefundServiceCell.strings"; sourceTree = "<group>"; };
+		C48C622A20467D9700FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ExchangeDetailsController.xib; sourceTree = "<group>"; };
+		C48C622D20467D9A00FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ExchangeDetailsController.strings"; sourceTree = "<group>"; };
+		C48C622F20467D9C00FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ExchangeDetailsController.strings"; sourceTree = "<group>"; };
+		C48C623120467E3200FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ZP_QuickLoginController.xib; sourceTree = "<group>"; };
+		C48C623420467E3400FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ZP_QuickLoginController.strings"; sourceTree = "<group>"; };
+		C48C623620467E3500FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ZP_QuickLoginController.strings"; sourceTree = "<group>"; };
+		C48C623820467E6000FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RegisterController.xib; sourceTree = "<group>"; };
+		C48C623B20467E6300FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RegisterController.strings"; sourceTree = "<group>"; };
+		C48C623D20467E6400FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/RegisterController.strings"; sourceTree = "<group>"; };
+		C48C623F20467E8600FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ForgetPswController.xib; sourceTree = "<group>"; };
+		C48C624220467E8800FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ForgetPswController.strings"; sourceTree = "<group>"; };
+		C48C624420467E8900FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ForgetPswController.strings"; sourceTree = "<group>"; };
+		C48C624620467EAD00FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginController.xib; sourceTree = "<group>"; };
+		C48C624920467EAE00FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LoginController.strings"; sourceTree = "<group>"; };
+		C48C624B20467EAF00FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LoginController.strings"; sourceTree = "<group>"; };
+		C48C624D20467EC400FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LogregisterController.xib; sourceTree = "<group>"; };
+		C48C625020467EC500FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LogregisterController.strings"; sourceTree = "<group>"; };
+		C48C625220467EC700FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LogregisterController.strings"; sourceTree = "<group>"; };
 		C4910F6F1FFC6D24006DA5B9 /* ddg_advertising.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ddg_advertising.png; sourceTree = "<group>"; };
 		C491D3741FCBE31D00D127E9 /* BindingIntroduce.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindingIntroduce.h; sourceTree = "<group>"; };
 		C491D3751FCBE31D00D127E9 /* BindingIntroduce.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindingIntroduce.m; sourceTree = "<group>"; };
 		C492A16B1FD0ECB7009FF57B /* ZP_HistoryBetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZP_HistoryBetCell.h; sourceTree = "<group>"; };
 		C492A16C1FD0ECB7009FF57B /* ZP_HistoryBetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZP_HistoryBetCell.m; sourceTree = "<group>"; };
-		C492A16D1FD0ECB7009FF57B /* ZP_HistoryBetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZP_HistoryBetCell.xib; sourceTree = "<group>"; };
 		C492A1741FD0ECB7009FF57B /* ZP_HistoryVetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZP_HistoryVetController.h; sourceTree = "<group>"; };
 		C492A1751FD0ECB7009FF57B /* ZP_HistoryVetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZP_HistoryVetController.m; sourceTree = "<group>"; };
 		C492A1761FD0ECB7009FF57B /* ZP_HistoryVetController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZP_HistoryVetController.xib; sourceTree = "<group>"; };
 		C492A1881FD0ED72009FF57B /* ZP_DetailsSistoryAwardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZP_DetailsSistoryAwardController.h; sourceTree = "<group>"; };
 		C492A1891FD0ED72009FF57B /* ZP_DetailsSistoryAwardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZP_DetailsSistoryAwardController.m; sourceTree = "<group>"; };
-		C492A18A1FD0ED72009FF57B /* ZP_DetailsSistoryAwardController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZP_DetailsSistoryAwardController.xib; sourceTree = "<group>"; };
 		C492A1931FD0EDC0009FF57B /* ZP_InstructionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZP_InstructionController.h; sourceTree = "<group>"; };
 		C492A1941FD0EDC0009FF57B /* ZP_InstructionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZP_InstructionController.m; sourceTree = "<group>"; };
 		C492A1B51FD15189009FF57B /* 扫码付款状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "扫码付款状态.png"; sourceTree = "<group>"; };
@@ -1282,7 +1319,6 @@
 		C49B32201FD5A995007632F2 /* ZP_ExtractController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZP_ExtractController.xib; sourceTree = "<group>"; };
 		C49B32241FD5AC9E007632F2 /* ZP_ExtractCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_ExtractCell.h; sourceTree = "<group>"; };
 		C49B32251FD5AC9E007632F2 /* ZP_ExtractCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_ExtractCell.m; sourceTree = "<group>"; };
-		C49B32261FD5AC9E007632F2 /* ZP_ExtractCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZP_ExtractCell.xib; sourceTree = "<group>"; };
 		C4AD0730200C7A5D00B8FF6E /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		C4AD0731200C7A5D00B8FF6E /* LPDImagePickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LPDImagePickerController.bundle; sourceTree = "<group>"; };
 		C4AD0733200C7A5D00B8FF6E /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -1320,7 +1356,6 @@
 		C4AD0766200C963E00B8FF6E /* RefundServiceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefundServiceModel.m; sourceTree = "<group>"; };
 		C4AD0769200CA8E700B8FF6E /* ExchangeDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeDetailsController.h; sourceTree = "<group>"; };
 		C4AD076A200CA8E700B8FF6E /* ExchangeDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeDetailsController.m; sourceTree = "<group>"; };
-		C4AD076B200CA8E700B8FF6E /* ExchangeDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExchangeDetailsController.xib; sourceTree = "<group>"; };
 		C4AD076F200CA9A600B8FF6E /* ExchangeDetailsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExchangeDetailsModel.h; sourceTree = "<group>"; };
 		C4AD0770200CA9A600B8FF6E /* ExchangeDetailsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExchangeDetailsModel.m; sourceTree = "<group>"; };
 		C4B04D95200889C8009F7AF9 /* RequestRefundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestRefundController.h; sourceTree = "<group>"; };
@@ -1349,14 +1384,12 @@
 		C4D2FEA61FD519A100F546AB /* ZP_QrCodeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_QrCodeModel.m; sourceTree = "<group>"; };
 		C4D2FEB01FD552A000F546AB /* YueTixianController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YueTixianController.h; sourceTree = "<group>"; };
 		C4D2FEB11FD552A000F546AB /* YueTixianController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YueTixianController.m; sourceTree = "<group>"; };
-		C4D2FEB21FD552A000F546AB /* YueTixianController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YueTixianController.xib; sourceTree = "<group>"; };
 		C4D2FED71FD5636C00F546AB /* 商店管理_spec_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "商店管理_spec_spec.png"; sourceTree = "<group>"; };
 		C4D2FED81FD5636C00F546AB /* 提现_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "提现_spec.png"; sourceTree = "<group>"; };
 		C4D9E7041FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_LotteryHistoricalBettingNumberController.h; sourceTree = "<group>"; };
 		C4D9E7051FE769F0000D2413 /* ZP_LotteryHistoricalBettingNumberController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_LotteryHistoricalBettingNumberController.m; sourceTree = "<group>"; };
 		C4D9E70A1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZP_LotteryHistoricalBettingNumberCell.h; sourceTree = "<group>"; };
 		C4D9E70B1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZP_LotteryHistoricalBettingNumberCell.m; sourceTree = "<group>"; };
-		C4D9E70C1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZP_LotteryHistoricalBettingNumberCell.xib; sourceTree = "<group>"; };
 		C4ECF4A92015AFC1006DFE7E /* MerchantCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MerchantCollectionViewCell.h; sourceTree = "<group>"; };
 		C4ECF4AA2015AFC1006DFE7E /* MerchantCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantCollectionViewCell.m; sourceTree = "<group>"; };
 		C4ECF4AD2015CF5E006DFE7E /* MerchantModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MerchantModel.h; sourceTree = "<group>"; };
@@ -1854,7 +1887,7 @@
 			children = (
 				06621DA61F9758720030983F /* LoginController.h */,
 				06621DA71F9758720030983F /* LoginController.m */,
-				06621DA81F9758720030983F /* LoginController.xib */,
+				C48C624720467EAD00FA6E0A /* LoginController.xib */,
 				06621DA91F9758720030983F /* TextView.h */,
 				06621DAA1F9758720030983F /* TextView.m */,
 			);
@@ -1866,7 +1899,7 @@
 			children = (
 				06621DAF1F9758840030983F /* RegisterController.h */,
 				06621DB01F9758840030983F /* RegisterController.m */,
-				06621DB11F9758840030983F /* RegisterController.xib */,
+				C48C623920467E6000FA6E0A /* RegisterController.xib */,
 				C470ADF01FA95B2300BAC2CA /* ZP_registrationModel */,
 				C45D82FF1FAB0077003C35EB /* ZP_registrationTimerBut */,
 			);
@@ -1878,7 +1911,7 @@
 			children = (
 				06621DB51F9758AE0030983F /* ForgetPswController.h */,
 				06621DB61F9758AE0030983F /* ForgetPswController.m */,
-				06621DB71F9758AE0030983F /* ForgetPswController.xib */,
+				C48C624020467E8600FA6E0A /* ForgetPswController.xib */,
 			);
 			path = ForgetpPassword;
 			sourceTree = "<group>";
@@ -1911,7 +1944,7 @@
 			children = (
 				0662AB5A1F9610BF0031F22B /* LogregisterController.h */,
 				0662AB5B1F9610BF0031F22B /* LogregisterController.m */,
-				0662AB5C1F9610BF0031F22B /* LogregisterController.xib */,
+				C48C624E20467EC400FA6E0A /* LogregisterController.xib */,
 			);
 			path = LogregisterHomePage;
 			sourceTree = "<group>";
@@ -2500,7 +2533,7 @@
 			children = (
 				06F572121F9F1E8700D61FDB /* ReceivingViewCell.h */,
 				06F572131F9F1E8700D61FDB /* ReceivingViewCell.m */,
-				06F572141F9F1E8700D61FDB /* ReceivingViewCell.xib */,
+				C48C61D82046769600FA6E0A /* ReceivingViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2799,7 +2832,7 @@
 			children = (
 				C4399D681FCE849F00B7B96D /* LotteryController.h */,
 				C4399D691FCE849F00B7B96D /* LotteryController.m */,
-				C4399D6A1FCE849F00B7B96D /* LotteryController.xib */,
+				C48C61E62046776800FA6E0A /* LotteryController.xib */,
 				C472F1521FE380110031D7B5 /* ZP_LotterModel */,
 			);
 			path = LotteryHomePage;
@@ -2888,7 +2921,7 @@
 			children = (
 				C44C9DAD1FEA392C00CD7D4D /* ZP_QuickLoginController.h */,
 				C44C9DAE1FEA392C00CD7D4D /* ZP_QuickLoginController.m */,
-				C44C9DAF1FEA392C00CD7D4D /* ZP_QuickLoginController.xib */,
+				C48C623220467E3200FA6E0A /* ZP_QuickLoginController.xib */,
 			);
 			path = ZP_QuickLoginHomePage;
 			sourceTree = "<group>";
@@ -2910,7 +2943,7 @@
 			children = (
 				C44D6D091FD8CF070002DAF2 /* PayViewCell.h */,
 				C44D6D0A1FD8CF070002DAF2 /* PayViewCell.m */,
-				C44D6D0B1FD8CF070002DAF2 /* PayViewCell.xib */,
+				C48C61DF2046771700FA6E0A /* PayViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -3023,7 +3056,7 @@
 			children = (
 				C42A17301FF252F300680F92 /* BetViewController.h */,
 				C42A172E1FF252F300680F92 /* BetViewController.m */,
-				C42A172F1FF252F300680F92 /* BetViewController.xib */,
+				C48C61ED2046786500FA6E0A /* BetViewController.xib */,
 				C4573F2A1FCFA3A6001DFE97 /* BetHeaderCell */,
 				C42F06FB1FFE257000B3D510 /* BetHeaderModel */,
 			);
@@ -3035,7 +3068,7 @@
 			children = (
 				C42A17431FF2544000680F92 /* tableHeadView1.h */,
 				C42A17421FF2544000680F92 /* tableHeadView1.m */,
-				C42A17441FF2544100680F92 /* tableHeadView1.xib */,
+				C48C61F42046788600FA6E0A /* tableHeadView1.xib */,
 				C42A17341FF2532300680F92 /* BetTableViewMyCell.h */,
 				C42A17331FF2532300680F92 /* BetTableViewMyCell.m */,
 				C42A17391FF2532400680F92 /* BetTableViewMyCell.xib */,
@@ -3380,7 +3413,7 @@
 			children = (
 				C4632E0F200633E30029AA87 /* RefundServiceCell.h */,
 				C4632E10200633E30029AA87 /* RefundServiceCell.m */,
-				C4632E11200633E30029AA87 /* RefundServiceCell.xib */,
+				C48C622420467D5F00FA6E0A /* RefundServiceCell.xib */,
 			);
 			path = RefundServiceCell;
 			sourceTree = "<group>";
@@ -4023,7 +4056,7 @@
 			children = (
 				C492A16B1FD0ECB7009FF57B /* ZP_HistoryBetCell.h */,
 				C492A16C1FD0ECB7009FF57B /* ZP_HistoryBetCell.m */,
-				C492A16D1FD0ECB7009FF57B /* ZP_HistoryBetCell.xib */,
+				C48C61FD2046792500FA6E0A /* ZP_HistoryBetCell.xib */,
 			);
 			path = ZP_HistoryBetCell;
 			sourceTree = "<group>";
@@ -4041,7 +4074,7 @@
 			children = (
 				C492A1881FD0ED72009FF57B /* ZP_DetailsSistoryAwardController.h */,
 				C492A1891FD0ED72009FF57B /* ZP_DetailsSistoryAwardController.m */,
-				C492A18A1FD0ED72009FF57B /* ZP_DetailsSistoryAwardController.xib */,
+				C48C62042046794E00FA6E0A /* ZP_DetailsSistoryAwardController.xib */,
 				C47BBBEC1FE510600000FFE6 /* ZP_DetailsSistoryAwardcell */,
 				C47BBBF21FE510670000FFE6 /* ZP_DetailsSistoryAwardMOdel */,
 			);
@@ -4053,7 +4086,7 @@
 			children = (
 				C492A1931FD0EDC0009FF57B /* ZP_InstructionController.h */,
 				C492A1941FD0EDC0009FF57B /* ZP_InstructionController.m */,
-				C41FF4DC1FFF53F7009B720D /* ZP_InstructionController.xib */,
+				C48C621D20467D1100FA6E0A /* ZP_InstructionController.xib */,
 			);
 			path = ZP_InstructionBetHomePage;
 			sourceTree = "<group>";
@@ -4091,7 +4124,7 @@
 			children = (
 				C49B32241FD5AC9E007632F2 /* ZP_ExtractCell.h */,
 				C49B32251FD5AC9E007632F2 /* ZP_ExtractCell.m */,
-				C49B32261FD5AC9E007632F2 /* ZP_ExtractCell.xib */,
+				C48C61CD2046759F00FA6E0A /* ZP_ExtractCell.xib */,
 			);
 			path = ZP_ExtractCell;
 			sourceTree = "<group>";
@@ -4166,7 +4199,7 @@
 			children = (
 				C4AD0769200CA8E700B8FF6E /* ExchangeDetailsController.h */,
 				C4AD076A200CA8E700B8FF6E /* ExchangeDetailsController.m */,
-				C4AD076B200CA8E700B8FF6E /* ExchangeDetailsController.xib */,
+				C48C622B20467D9700FA6E0A /* ExchangeDetailsController.xib */,
 				C4AD076E200CA99400B8FF6E /* ExchangeDetailsModel */,
 			);
 			path = ExchangeDetails;
@@ -4274,7 +4307,7 @@
 			children = (
 				C4D2FEB01FD552A000F546AB /* YueTixianController.h */,
 				C4D2FEB11FD552A000F546AB /* YueTixianController.m */,
-				C4D2FEB21FD552A000F546AB /* YueTixianController.xib */,
+				C48C61C62046755400FA6E0A /* YueTixianController.xib */,
 			);
 			path = ZP_YueTixianHomePage;
 			sourceTree = "<group>";
@@ -4305,7 +4338,7 @@
 			children = (
 				C4D9E70A1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.h */,
 				C4D9E70B1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.m */,
-				C4D9E70C1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib */,
+				C48C620B20467A6600FA6E0A /* ZP_LotteryHistoricalBettingNumberCell.xib */,
 			);
 			path = ZP_LotteryHistoricalBettingNumberCell;
 			sourceTree = "<group>";
@@ -4497,7 +4530,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06621DB31F9758840030983F /* RegisterController.xib in Resources */,
+				C48C623720467E6000FA6E0A /* RegisterController.xib in Resources */,
 				C48C617720465EDA00FA6E0A /* SatisfactionSurveyCell.xib in Resources */,
 				C4411DB7200F626200CE906F /* 暂无数据.png in Resources */,
 				C4729917202DA91E00723BB9 /* DDAYGO IHTTP协议1.0.docx in Resources */,
@@ -4512,45 +4545,46 @@
 				C4411DAB200F626200CE906F /* loading11.png in Resources */,
 				C44A09012022F0E9000024F9 /* ProductTableViewCell.xib in Resources */,
 				06F571901F9F16E600D61FDB /* NewsTableViewCell.xib in Resources */,
-				06621DB91F9758AE0030983F /* ForgetPswController.xib in Resources */,
+				C48C623E20467E8600FA6E0A /* ForgetPswController.xib in Resources */,
 				C47C7D83202986BE0068AB3C /* BuyTopView.xib in Resources */,
 				C48C61A1204660B800FA6E0A /* ResetPasswordViewController.xib in Resources */,
 				C435174C1FB2ACE80066302E /* OrdersViewController.xib in Resources */,
 				0682BE6D1F90725700894F4E /* img_home_advertisemen.png in Resources */,
+				C48C621B20467D1100FA6E0A /* ZP_InstructionController.xib in Resources */,
 				C4B04DA42008A652009F7AF9 /* SelectViewCell.xib in Resources */,
-				C49B32281FD5AC9E007632F2 /* ZP_ExtractCell.xib in Resources */,
+				C48C61CB2046759F00FA6E0A /* ZP_ExtractCell.xib in Resources */,
 				06F572231F9F1E8700D61FDB /* BillTableViewCell.xib in Resources */,
 				C4411DB2200F626200CE906F /* loading7.png in Resources */,
 				C47E76271FB5A1C7009F279A /* LeftTableViewCell.xib in Resources */,
 				C46837F81FDA645A000E7D7C /* 产品详情_spec.png in Resources */,
-				06621DAC1F9758720030983F /* LoginController.xib in Resources */,
+				C48C624520467EAD00FA6E0A /* LoginController.xib in Resources */,
 				C49B32221FD5A995007632F2 /* ZP_ExtractController.xib in Resources */,
 				C42E52F3200E141000515364 /* HomePageViewController.xib in Resources */,
 				C43517311FB2AC6D0066302E /* FootprintViewController.xib in Resources */,
 				06F571921F9F16E600D61FDB /* NewsViewController.xib in Resources */,
 				C479C6A01FE3CB5800A58A2A /* LICENSE in Resources */,
 				06F572431F9F204F00D61FDB /* SearchTimeViewController.xib in Resources */,
-				C4399D701FCE84A000B7B96D /* LotteryController.xib in Resources */,
+				C48C61E42046776800FA6E0A /* LotteryController.xib in Resources */,
 				C4632E0E200633CC0029AA87 /* RefundServiceController.xib in Resources */,
 				06F571D41F9F1A7900D61FDB /* DialogBox.xib in Resources */,
 				C4910F701FFC6D24006DA5B9 /* ddg_advertising.png in Resources */,
 				C472F1391FE29A060031D7B5 /* ZP_CheckMoreCell.xib in Resources */,
 				06F5721D1F9F1E8700D61FDB /* AllCategoriesView.xib in Resources */,
 				C4411DAE200F626200CE906F /* loading3.png in Resources */,
-				C4D2FEB41FD552A000F546AB /* YueTixianController.xib in Resources */,
+				C48C61C42046755400FA6E0A /* YueTixianController.xib in Resources */,
 				C427F67D202419C900364CBF /* NoDataView.xib in Resources */,
 				C4AD0752200C7A5D00B8FF6E /* .gitkeep in Resources */,
-				0662AB5E1F9610BF0031F22B /* LogregisterController.xib in Resources */,
+				C48C624C20467EC400FA6E0A /* LogregisterController.xib in Resources */,
 				C47212AC1FB18A4E0055578E /* SettingViewController.xib in Resources */,
-				C4632E13200633E30029AA87 /* RefundServiceCell.xib in Resources */,
+				C48C622220467D5F00FA6E0A /* RefundServiceCell.xib in Resources */,
 				06F572291F9F1E8700D61FDB /* OrderDetailViewController.xib in Resources */,
 				C4411DB1200F626200CE906F /* loading6.png in Resources */,
 				C41E9C332020254500E6F5E2 /* ShoppingHeadView.xib in Resources */,
-				06F572331F9F1E8700D61FDB /* ReceivingViewCell.xib in Resources */,
+				C48C61D62046769600FA6E0A /* ReceivingViewCell.xib in Resources */,
 				C4411DAF200F626200CE906F /* loading4.png in Resources */,
 				C435171F1FB2AC180066302E /* ConcernShopTableViewCell.xib in Resources */,
 				C43517431FB2ACD60066302E /* StoreViewController.xib in Resources */,
-				C4AD076D200CA8E700B8FF6E /* ExchangeDetailsController.xib in Resources */,
+				C48C622920467D9700FA6E0A /* ExchangeDetailsController.xib in Resources */,
 				0641BBA31F67B60B00E72FEF /* Third.png in Resources */,
 				C4411DA7200F626200CE906F /* iconn_no_network@2x.png in Resources */,
 				C4411DAA200F626200CE906F /* loading10.png in Resources */,
@@ -4564,8 +4598,8 @@
 				06F5722D1F9F1E8700D61FDB /* OrderManagerViewController.xib in Resources */,
 				C48C618C2046600000FA6E0A /* BindingICUEViewController.xib in Resources */,
 				C48C61BD204661BD00FA6E0A /* SupplierViewCell2.xib in Resources */,
-				C44C9DB21FEA392D00CD7D4D /* ZP_QuickLoginController.xib in Resources */,
-				C42A17321FF252F400680F92 /* BetViewController.xib in Resources */,
+				C48C623020467E3200FA6E0A /* ZP_QuickLoginController.xib in Resources */,
+				C48C61EB2046786500FA6E0A /* BetViewController.xib in Resources */,
 				C47096951FB04998006EA52C /* PromptBox.xib in Resources */,
 				C44D6D121FD8CF070002DAF2 /* PayViewController.xib in Resources */,
 				C4729908202D6ECD00723BB9 /* EditViewController.xib in Resources */,
@@ -4583,7 +4617,6 @@
 				C47C7D68202985A00068AB3C /* BuyViewController.xib in Resources */,
 				06F571DA1F9F1A7900D61FDB /* AddressViewController.xib in Resources */,
 				C4729901202D6E8800723BB9 /* AddAddressViewController.xib in Resources */,
-				C41FF4DA1FFF53F7009B720D /* ZP_InstructionController.xib in Resources */,
 				C44A09112022F101000024F9 /* TextdetailsViewCell.xib in Resources */,
 				C472990F202D6F1000723BB9 /* AddressTableViewCell.xib in Resources */,
 				C42A173F1FF2532400680F92 /* BetTableViewMyCell.xib in Resources */,
@@ -4591,7 +4624,7 @@
 				06F572351F9F1E8700D61FDB /* ReceivingController.xib in Resources */,
 				C4411DA6200F626200CE906F /* icon_no_date@3x.png in Resources */,
 				C47E76391FB5A1C7009F279A /* PurchaseView.xib in Resources */,
-				C492A18C1FD0ED72009FF57B /* ZP_DetailsSistoryAwardController.xib in Resources */,
+				C48C62022046794E00FA6E0A /* ZP_DetailsSistoryAwardController.xib in Resources */,
 				C4AD0754200C7A5D00B8FF6E /* .gitkeep in Resources */,
 				C44A09072022F0F2000024F9 /* EvaluateTableViewCell.xib in Resources */,
 				C43517281FB2AC4B0066302E /* ConcernShopViewController.xib in Resources */,
@@ -4603,7 +4636,7 @@
 				C47C7D71202986420068AB3C /* BuyMiddleView.xib in Resources */,
 				C492A17E1FD0ECB7009FF57B /* ZP_HistoryVetController.xib in Resources */,
 				06F5722B1F9F1E8700D61FDB /* OrderManagerCollectionViewCell.xib in Resources */,
-				C4D9E70E1FE76A22000D2413 /* ZP_LotteryHistoricalBettingNumberCell.xib in Resources */,
+				C48C620920467A6600FA6E0A /* ZP_LotteryHistoricalBettingNumberCell.xib in Resources */,
 				064449A61F6A9B250004DFE4 /* LICENSE in Resources */,
 				C4411DA9200F626200CE906F /* loading1.png in Resources */,
 				C48C619A2046608C00FA6E0A /* BindingIntroduce.xib in Resources */,
@@ -4612,13 +4645,13 @@
 				063FE0521F614D24009910FF /* Assets.xcassets in Resources */,
 				C47E76371FB5A1C7009F279A /* ProductDescriptionView.xib in Resources */,
 				C407AC131FD7E917004A8DE8 /* 提现记录_spec.png in Resources */,
-				C42A17461FF2544100680F92 /* tableHeadView1.xib in Resources */,
+				C48C61F22046788600FA6E0A /* tableHeadView1.xib in Resources */,
 				06F5716E1F9F15CE00D61FDB /* CollectionViewController.xib in Resources */,
 				C48C61AF2046617700FA6E0A /* Supplier1ViewController.xib in Resources */,
 				C43DE4DF200355AF002AB8D2 /* LanguageController.xib in Resources */,
 				0682BE801F90C8F000894F4E /* seven.png in Resources */,
 				062C9D681F8CDB7900E14987 /* headImage.jpg in Resources */,
-				C44D6D101FD8CF070002DAF2 /* PayViewCell.xib in Resources */,
+				C48C61DD2046771700FA6E0A /* PayViewCell.xib in Resources */,
 				064448E21F6A1F7F0004DFE4 /* Shopping.png in Resources */,
 				C4FFF1F92011EFF000EF4A4D /* SatisfactionSurveyController.xib in Resources */,
 				C4411DAD200F626200CE906F /* loading2.png in Resources */,
@@ -4628,7 +4661,7 @@
 				C4411DB3200F626200CE906F /* loading8.png in Resources */,
 				C48C61B6204661A800FA6E0A /* SupplierTableViewCell.xib in Resources */,
 				C4411DB4200F626200CE906F /* loading9.png in Resources */,
-				C492A1781FD0ECB7009FF57B /* ZP_HistoryBetCell.xib in Resources */,
+				C48C61FB2046792500FA6E0A /* ZP_HistoryBetCell.xib in Resources */,
 				C470969C1FB0602F006EA52C /* Localizable.strings in Resources */,
 				C4411DAC200F626200CE906F /* loading12.png in Resources */,
 				C435173A1FB2AC830066302E /* FootprintCollectionViewCell.xib in Resources */,
@@ -5091,17 +5124,6 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		C41FF4DC1FFF53F7009B720D /* ZP_InstructionController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C41FF4DB1FFF53F7009B720D /* Base */,
-				C41FF4DE1FFF53FC009B720D /* en */,
-				C41FF4E01FFF5401009B720D /* zh-Hans */,
-				C41FF4E21FFF5404009B720D /* zh-Hant */,
-			);
-			name = ZP_InstructionController.xib;
-			sourceTree = "<group>";
-		};
 		C427F67F202419C900364CBF /* NoDataView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -5387,6 +5409,186 @@
 				C48C61C3204661CA00FA6E0A /* zh-Hans */,
 			);
 			name = SupplierViewCell2.xib;
+			sourceTree = "<group>";
+		};
+		C48C61C62046755400FA6E0A /* YueTixianController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C61C52046755400FA6E0A /* Base */,
+				C48C61C82046755700FA6E0A /* zh-Hant */,
+				C48C61CA2046755800FA6E0A /* zh-Hans */,
+			);
+			name = YueTixianController.xib;
+			sourceTree = "<group>";
+		};
+		C48C61CD2046759F00FA6E0A /* ZP_ExtractCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C61CC2046759F00FA6E0A /* Base */,
+				C48C61D3204675E300FA6E0A /* zh-Hans */,
+				C48C61D5204675E600FA6E0A /* zh-Hant */,
+			);
+			name = ZP_ExtractCell.xib;
+			sourceTree = "<group>";
+		};
+		C48C61D82046769600FA6E0A /* ReceivingViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C61D72046769600FA6E0A /* Base */,
+				C48C61DA2046769A00FA6E0A /* zh-Hans */,
+				C48C61DC204676E300FA6E0A /* zh-Hant */,
+			);
+			name = ReceivingViewCell.xib;
+			sourceTree = "<group>";
+		};
+		C48C61DF2046771700FA6E0A /* PayViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C61DE2046771700FA6E0A /* Base */,
+				C48C61E12046771C00FA6E0A /* zh-Hans */,
+				C48C61E32046771D00FA6E0A /* zh-Hant */,
+			);
+			name = PayViewCell.xib;
+			sourceTree = "<group>";
+		};
+		C48C61E62046776800FA6E0A /* LotteryController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C61E52046776800FA6E0A /* Base */,
+				C48C61E82046776B00FA6E0A /* zh-Hans */,
+				C48C61EA2046776D00FA6E0A /* zh-Hant */,
+			);
+			name = LotteryController.xib;
+			sourceTree = "<group>";
+		};
+		C48C61ED2046786500FA6E0A /* BetViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C61EC2046786500FA6E0A /* Base */,
+				C48C61EF2046786700FA6E0A /* zh-Hans */,
+				C48C61F12046786800FA6E0A /* zh-Hant */,
+			);
+			name = BetViewController.xib;
+			sourceTree = "<group>";
+		};
+		C48C61F42046788600FA6E0A /* tableHeadView1.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C61F32046788600FA6E0A /* Base */,
+				C48C61F82046788A00FA6E0A /* zh-Hans */,
+				C48C61FA2046788F00FA6E0A /* zh-Hant */,
+			);
+			name = tableHeadView1.xib;
+			sourceTree = "<group>";
+		};
+		C48C61FD2046792500FA6E0A /* ZP_HistoryBetCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C61FC2046792500FA6E0A /* Base */,
+				C48C61FF2046792900FA6E0A /* zh-Hans */,
+				C48C62012046792A00FA6E0A /* zh-Hant */,
+			);
+			name = ZP_HistoryBetCell.xib;
+			sourceTree = "<group>";
+		};
+		C48C62042046794E00FA6E0A /* ZP_DetailsSistoryAwardController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C62032046794E00FA6E0A /* Base */,
+				C48C62062046795000FA6E0A /* zh-Hans */,
+				C48C62082046795200FA6E0A /* zh-Hant */,
+			);
+			name = ZP_DetailsSistoryAwardController.xib;
+			sourceTree = "<group>";
+		};
+		C48C620B20467A6600FA6E0A /* ZP_LotteryHistoricalBettingNumberCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C620A20467A6600FA6E0A /* Base */,
+				C48C620F20467A6F00FA6E0A /* zh-Hans */,
+				C48C621120467A7100FA6E0A /* zh-Hant */,
+			);
+			name = ZP_LotteryHistoricalBettingNumberCell.xib;
+			sourceTree = "<group>";
+		};
+		C48C621D20467D1100FA6E0A /* ZP_InstructionController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C621C20467D1100FA6E0A /* Base */,
+				C48C621F20467D1600FA6E0A /* zh-Hans */,
+				C48C622120467D1E00FA6E0A /* zh-Hant */,
+			);
+			name = ZP_InstructionController.xib;
+			sourceTree = "<group>";
+		};
+		C48C622420467D5F00FA6E0A /* RefundServiceCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C622320467D5F00FA6E0A /* Base */,
+				C48C622620467D6200FA6E0A /* zh-Hans */,
+				C48C622820467D6400FA6E0A /* zh-Hant */,
+			);
+			name = RefundServiceCell.xib;
+			sourceTree = "<group>";
+		};
+		C48C622B20467D9700FA6E0A /* ExchangeDetailsController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C622A20467D9700FA6E0A /* Base */,
+				C48C622D20467D9A00FA6E0A /* zh-Hans */,
+				C48C622F20467D9C00FA6E0A /* zh-Hant */,
+			);
+			name = ExchangeDetailsController.xib;
+			sourceTree = "<group>";
+		};
+		C48C623220467E3200FA6E0A /* ZP_QuickLoginController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C623120467E3200FA6E0A /* Base */,
+				C48C623420467E3400FA6E0A /* zh-Hans */,
+				C48C623620467E3500FA6E0A /* zh-Hant */,
+			);
+			name = ZP_QuickLoginController.xib;
+			sourceTree = "<group>";
+		};
+		C48C623920467E6000FA6E0A /* RegisterController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C623820467E6000FA6E0A /* Base */,
+				C48C623B20467E6300FA6E0A /* zh-Hans */,
+				C48C623D20467E6400FA6E0A /* zh-Hant */,
+			);
+			name = RegisterController.xib;
+			sourceTree = "<group>";
+		};
+		C48C624020467E8600FA6E0A /* ForgetPswController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C623F20467E8600FA6E0A /* Base */,
+				C48C624220467E8800FA6E0A /* zh-Hans */,
+				C48C624420467E8900FA6E0A /* zh-Hant */,
+			);
+			name = ForgetPswController.xib;
+			sourceTree = "<group>";
+		};
+		C48C624720467EAD00FA6E0A /* LoginController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C624620467EAD00FA6E0A /* Base */,
+				C48C624920467EAE00FA6E0A /* zh-Hans */,
+				C48C624B20467EAF00FA6E0A /* zh-Hant */,
+			);
+			name = LoginController.xib;
+			sourceTree = "<group>";
+		};
+		C48C624E20467EC400FA6E0A /* LogregisterController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C48C624D20467EC400FA6E0A /* Base */,
+				C48C625020467EC500FA6E0A /* zh-Hans */,
+				C48C625220467EC700FA6E0A /* zh-Hant */,
+			);
+			name = LogregisterController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

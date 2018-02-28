@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LogregisterController">
             <connections>
+                <outlet property="ICUEQuicklogin" destination="XYj-Ab-JMS" id="a0X-zY-msk"/>
                 <outlet property="LogregisterscrollView" destination="TZG-WZ-q0v" id="d49-zb-8qM"/>
                 <outlet property="view" destination="8KN-Oo-tak" id="kGI-1K-13N"/>
             </connections>

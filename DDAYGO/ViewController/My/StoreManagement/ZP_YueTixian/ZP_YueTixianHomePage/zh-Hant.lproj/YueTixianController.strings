@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Email："; ObjectID = "F8K-qk-2fh"; */
+"F8K-qk-2fh.text" = "Email：";
+
+/* Class = "UILabel"; text = "收款人："; ObjectID = "I3n-nJ-Lum"; */
+"I3n-nJ-Lum.text" = "收款人：";
+
+/* Class = "UIButton"; normalTitle = "确定"; ObjectID = "WMR-Bk-Cfx"; */
+"WMR-Bk-Cfx.normalTitle" = "确定";
+
+/* Class = "UILabel"; text = "收款賬戶："; ObjectID = "bXm-vu-Uzi"; */
+"bXm-vu-Uzi.text" = "收款账户：";
+
+/* Class = "UILabel"; text = "收款銀行："; ObjectID = "ky2-Yt-gWX"; */
+"ky2-Yt-gWX.text" = "收款银行：";
+
+/* Class = "UILabel"; text = "電話："; ObjectID = "oBz-sE-dQJ"; */
+"oBz-sE-dQJ.text" = "电话：";
+
+/* Class = "UILabel"; text = "提現金額："; ObjectID = "q9M-AJ-DwY"; */
+"q9M-AJ-DwY.text" = "提现金额：";

@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "银行"; ObjectID = "5dm-XT-ufb"; */
+"5dm-XT-ufb.text" = "银行";
+
+/* Class = "UILabel"; text = "审核时间"; ObjectID = "9tm-n6-Vcn"; */
+"9tm-n6-Vcn.text" = "审核时间";
+
+/* Class = "UILabel"; text = "申请状态"; ObjectID = "JZb-uA-abn"; */
+"JZb-uA-abn.text" = "申请状态";
+
+/* Class = "UILabel"; text = "金额"; ObjectID = "Lav-fP-NEG"; */
+"Lav-fP-NEG.text" = "金额";
+
+/* Class = "UILabel"; text = "邮箱"; ObjectID = "QkY-Kg-aDV"; */
+"QkY-Kg-aDV.text" = "邮箱";
+
+/* Class = "UIButton"; normalTitle = "取消提现"; ObjectID = "fsE-12-51B"; */
+"fsE-12-51B.normalTitle" = "取消提现";
+
+/* Class = "UILabel"; text = "申请时间"; ObjectID = "kBB-uO-waP"; */
+"kBB-uO-waP.text" = "申请时间";
+
+/* Class = "UILabel"; text = "电话"; ObjectID = "nZq-RO-Ldj"; */
+"nZq-RO-Ldj.text" = "电话";
