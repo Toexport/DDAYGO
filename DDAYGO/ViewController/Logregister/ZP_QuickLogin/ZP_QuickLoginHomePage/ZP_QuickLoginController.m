@@ -36,7 +36,7 @@
 
 // UI
 - (void)initUI {
-    self.title = NSLocalizedString(@"ICUE快速登錄", nil);
+    self.title = NSLocalizedString(@"ICUE Quick login", nil);
     [self ButStatusAttribute];
     self.QuickLoginscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐
     //    _LoginBtn.layer.cornerRadius             = 8.0;
@@ -66,22 +66,22 @@
 //  登录
 - (IBAction)LoginClick:(id)sender {
     if (_ZPEmailTextField.textField.text.length < 1) {
-        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"邮箱不能为空", nil)];
+        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"E-mail address cannot be empty.", nil)];
         return;
     }
     if (_ZPPswTextField.textField.text.length < 1) {
-        [SVProgressHUD showWithStatus:NSLocalizedString(@"密码不能为空", nil)];
+        [SVProgressHUD showWithStatus:NSLocalizedString(@"password cannot be empty.", nil)];
         return;
     }
     if (!_ProtocolBut.selected) {
-        [SVProgressHUD showInfoWithStatus:@"请选择同意用户协议协议"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please choose to agree to the user agreement.")];
         ZPLog(@"同意协议");
         return;
     }
     
     _LoginBtn.userInteractionEnabled = NO;
     
-    [SVProgressHUD showWithStatus:NSLocalizedString(@"正在登錄...", nil)];
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Logging in...", nil)];
     [self AllData];
     ZPLog(@"数据");
 }

@@ -39,16 +39,16 @@
     int a = [self.leeLabel intValue];
     switch (a) {
         case 0:
-            self.title = @"退款";
+            self.title = MyLocal(@"refund");
 //            NSLog(@"%d",a);
             break;
         case 1:
-            self.title = @"退货退款";
+            self.title = MyLocal(@"Returnrefund");
 //            NSLog(@"%d",a);
             break;
             
         case 2:
-            self.title = @"退货退款";
+            self.title = MyLocal(@"Returnrefund");
 //            NSLog(@"%d",a);
             break;
         default:
@@ -75,7 +75,7 @@
     dic[@"countrycode"] = str;
     
     if (self.type == 666) {
-        self.title = @"退货退款";
+        self.title = MyLocal(@"Returnrefund");
         dic[@"oid"] = self.Oid;
         [ZP_MyTool requestGetrefundinfoOrder:dic success:^(id obj) {
             //*************************************Token被挤掉***************************************************//
@@ -95,7 +95,7 @@
                 [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
                 UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"account exists",nil) preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                     ZPLog(@"取消");
                 }];
                 UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
@@ -132,7 +132,7 @@
 //        self.RequestServiceBut.hidden = YES;
     }else
         if (self.type == 777) {
-            self.title = @"退货退款";
+            self.title = MyLocal(@"Returnrefund");
             dic[@"oid"] = self.Oid;
             [ZP_MyTool requestGetrefundinfoOrder:dic success:^(id obj) {
                 //            ZPLog(@"%@",obj);
@@ -168,8 +168,8 @@
 //     按钮文字及属性
     switch (a) {
         case 0:
-            self.RequestTypeLabel.text = @"退款";
-            [self.CancelBut setTitle:@"取消退款"  forState:UIControlStateNormal];
+            self.RequestTypeLabel.text = MyLocal(@"refund");
+            [self.CancelBut setTitle:MyLocal(@"Cancel refund")  forState:UIControlStateNormal];
             self.RequestServiceBut.hidden = YES;
             _View3LayoutConstraint.constant = CGFLOAT_MIN;
             self.ViewLayoutConstraint.constant = 50;
@@ -178,8 +178,8 @@
             break;
             
         case 1:
-            self.RequestTypeLabel.text = @"退货";
-            [self.CancelBut setTitle:@"取消退货"  forState:UIControlStateNormal];
+            self.RequestTypeLabel.text = MyLocal(@"Return");
+            [self.CancelBut setTitle:MyLocal(@"Cancel/refund")  forState:UIControlStateNormal];
             _View3LayoutConstraint.constant = CGFLOAT_MIN;
             self.ViewLayoutConstraint.constant = 50;
             self.view3.hidden = YES;
@@ -188,8 +188,8 @@
             break;
             
         case 2:
-            self.RequestTypeLabel.text = @"换货";
-            [self.CancelBut setTitle:@"取消换货"  forState:UIControlStateNormal];
+            self.RequestTypeLabel.text = MyLocal(@"Exchange goods");
+            [self.CancelBut setTitle:MyLocal(@"cancel a replacement")  forState:UIControlStateNormal];
             _View3LayoutConstraint.constant = CGFLOAT_MIN;
            self.ViewLayoutConstraint.constant = 50;
             self.view3.hidden = YES;
@@ -268,14 +268,14 @@
         self.YansesLabel.hidden = YES;
     }else {
         self.YanseLable.text = model1.colorname;
-        self.YansesLabel.text = @"颜色";
+        self.YansesLabel.text = MyLocal(@"color");
     }
     if (model1.normname.length < 1) {
         self.ChimaLabel.hidden = YES;
         self.ChimaaLabel.hidden = YES;
     }else {
         self.ChimaLabel.text = model1.normname;
-        self.ChimaaLabel.text = @"尺码";
+        self.ChimaaLabel.text = MyLocal(@"size");
     }
     self.NumberLabel.text = [model1.amount stringValue];
 }
@@ -292,10 +292,10 @@
         [ZP_MyTool RequestRefundStatus:dic success:^(id obj) {
             if ([obj[@"result"]isEqualToString:@"ok"]) {
                 [self ExchangeDetails];
-                [SVProgressHUD showSuccessWithStatus:@"取消成功"];
+                [SVProgressHUD showSuccessWithStatus:MyLocal(@"Cancel success")];
             }else
                 if ([obj[@"result"]isEqualToString:@"sys_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"操作失败"];
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Operation failure")];
                 }
             ZPLog(@"%@",obj);
             [self.view4 removeFromSuperview];
@@ -314,10 +314,10 @@
             [ZP_MyTool RequestRefundStatus:dic success:^(id obj) {
                 if ([obj[@"result"]isEqualToString:@"ok"]) {
                     [self ExchangeDetails];
-                    [SVProgressHUD showSuccessWithStatus:@"取消成功"];
+                    [SVProgressHUD showSuccessWithStatus:MyLocal(@"Cancel success")];
                 }else
                     if ([obj[@"result"]isEqualToString:@"sys_err"]) {
-                        [SVProgressHUD showInfoWithStatus:@"操作失败"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Operation failure")];
                     }
                 ZPLog(@"%@",obj);
                 [self.view4 removeFromSuperview];
@@ -334,10 +334,10 @@
     [ZP_MyTool RequestRefundStatus:dic success:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"ok"]) {
             [self ExchangeDetails];
-            [SVProgressHUD showSuccessWithStatus:@"取消成功"];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Cancel success")];
         }else
             if ([obj[@"result"]isEqualToString:@"sys_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"操作失败"];
+                [SVProgressHUD showInfoWithStatus:MyLocal(@"Operation failure")];
             }
         ZPLog(@"%@",obj);
         [self.view4 removeFromSuperview];

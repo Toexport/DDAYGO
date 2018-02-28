@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "退货退款"; ObjectID = "0PX-Vu-G8a"; */
+"0PX-Vu-G8a.text" = "退貨退款";
+
+/* Class = "UILabel"; text = "换货"; ObjectID = "3ju-HS-FpY"; */
+"3ju-HS-FpY.text" = "換貨";
+
+/* Class = "UILabel"; text = "已收到货,需要退换已收到的货物"; ObjectID = "985-qa-GMN"; */
+"985-qa-GMN.text" = "已收到貨物,需要退換已收到的貨物";
+
+/* Class = "UILabel"; text = "已收到货,需要退换已收到的货物"; ObjectID = "jZ6-mD-0yK"; */
+"jZ6-mD-0yK.text" = "已收到貨物,需要退換已收到的貨物";

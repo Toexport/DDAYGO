@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"登錄 / 註冊", nil);
+    self.title = NSLocalizedString(@"Login/registration", nil);
     self.navigationController.navigationBar.hidden = NO;  //   隐藏navigationBar
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_WhiteColor}];   // 更改导航栏字体颜色

@@ -24,7 +24,7 @@
 }
 
 - (void)initUI {
-   self.title = NSLocalizedString(@"玩轉促銷彩", nil);
+   self.title = NSLocalizedString(@"Roll up", nil);
 
 }
 

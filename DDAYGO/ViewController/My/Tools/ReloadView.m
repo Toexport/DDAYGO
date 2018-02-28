@@ -34,11 +34,11 @@
     
     UILabel * label1 = [[UILabel alloc]initWithFrame:CGRectMake(ZP_Width / 2 - 70,CGRectGetMaxY(imageView.frame)+ 20, 150, 15)];
     label1.textAlignment = NSTextAlignmentCenter;
-    label1.text =NSLocalizedString(@"網路異常,請檢查您的網路", nil);
+    label1.text =NSLocalizedString(@"Network exception, please check the network.", nil);
     label1.font = ZP_stockFont;
     
     UILabel * label2 = [[UILabel alloc]initWithFrame:CGRectMake(ZP_Width / 2 - 20, CGRectGetMaxY(label1.frame) + 25, 50, 30)];
-    label2.text = NSLocalizedString(@"刷新", nil);
+    label2.text = NSLocalizedString(@"refresh", nil);
     label2.textAlignment = NSTextAlignmentCenter;
     label2.backgroundColor = [UIColor orangeColor];
     label2.font = ZP_stockFont;

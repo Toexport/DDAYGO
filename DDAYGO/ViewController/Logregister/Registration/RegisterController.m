@@ -39,7 +39,7 @@
 }
 // UI
 - (void)initUI {
-    self.title = NSLocalizedString(@"註冊", nil);
+    self.title = NSLocalizedString(@"registration", nil);
     [self ButStatusAttribute];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.RegisterscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐藏
@@ -54,7 +54,7 @@
     //    _ZPCodeTextField.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.ZPAccountNumberTextFiled.textField.keyboardType = UIKeyboardTypeASCIICapable;
     self.ZPEmailTextFiled.textField.keyboardType = UIKeyboardTypeASCIICapable;
-    [self.ZPCountryTextField.functionBtn setTitle:NSLocalizedString(@"點擊選擇", nil) forState:UIControlStateNormal];
+    [self.ZPCountryTextField.functionBtn setTitle:NSLocalizedString(@"Click select", nil) forState:UIControlStateNormal];
     self.ZPCountryTextField.textField.enabled = NO;
     [self.ZPCountryTextField.functionBtn addTarget:self action:@selector(choseCountry) forControlEvents:UIControlEventTouchUpInside];
     self.ZPPswTextField.showBtn                    = NO;
@@ -80,7 +80,7 @@
 //  注册
 - (IBAction)rEgBut:(id)sender {
     if (![self JudgeTheillegalCharacter:self.ZPAccountNumberTextFiled.textField.text]) {
-        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"帳號格式不正確", nil)];
+        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"account format is not correct.", nil)];
         return;
     }
     //    if (_ZPEmailTextFiled.textField.text.length < 1) {
@@ -89,7 +89,7 @@
     //        return;
     //    }
     if (self.ZPPswTextField.textField.text.length < 6||self.ZPPswTextField.textField.text.length >20) {
-        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"密碼位數不能小於6大於20位", nil)];
+        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"password number must not be less than 6 digits greater than 20 digits.", nil)];
         ZPLog(@"密码不足6位");
         return;
     }
@@ -104,16 +104,16 @@
     //        return;
     //    }
     if (self.ZPCountryTextField.textField.text.length < 1) {
-        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"選擇國家", nil)];
+        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Choose country", nil)];
         ZPLog(@"选择国家");
         return;
     }
     if (!self.agreeBtn.selected) {
-        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"同意協議", nil)];
+        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Agree to a deal", nil)];
         ZPLog(@"同意协议");
         return;
     }
-    [SVProgressHUD showWithStatus:NSLocalizedString(@"正在注冊...", nil)];
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Registering...", nil)];
     [self allData];
     
 }
@@ -132,39 +132,39 @@
         //        if (![self JudgeTheillegalCharacter:_ZPAccountNumberTextFiled.textField.text]) {
         if ([dic[@"result"] isEqualToString:@"ok"]) {
             NSLog(@"注册成功");
-            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"註冊成功", nil)];
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Registered successfully", nil)];
             CountCode = self.CountCode;   // 保存国家
             [self.navigationController popViewControllerAnimated:YES];
         }else
             if ([dic[@"result"] isEqualToString:@"sys_err"]) {
-                [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"註冊失敗", nil)];
+                [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Registration failed", nil)];
             }else
                 if ([dic[@"result"] isEqualToString:@"email_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"帳號不能為空"];
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"account cannot be empty.")];
                 }else
                     if ([dic[@"result"] isEqualToString:@"email_format_err"]) {
-                        [SVProgressHUD showInfoWithStatus:@"帳號格式錯誤"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Incorrect account format")];
                     }else
                         if ([dic[@"result"] isEqualToString:@"email_key_err"]) {
-                            [SVProgressHUD showInfoWithStatus:@"註冊帳號不能以ICUE开头"];
+                            [SVProgressHUD showInfoWithStatus:MyLocal(@"registered account cannot begin with an ICUE.")];
                         }else
                             if ([dic[@"result"] isEqualToString:@"email_format2_err"]) {
-                                [SVProgressHUD showInfoWithStatus:@"註冊帳號不能含有ddaygo字符"];
+                                [SVProgressHUD showInfoWithStatus:MyLocal(@"account cannot contain the ddaygo character.")];
                             } else
                                 if ([dic[@"result"] isEqualToString:@"pwd_null_err"]) {
-                                    [SVProgressHUD showInfoWithStatus:@"密碼不能為空"];
+                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"password cannot be empty.")];
                                 }else
                                     if ([dic[@"result"] isEqualToString:@"email_exist_err"]) {
-                                        [SVProgressHUD showInfoWithStatus:@"帳號已存在"];
+                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Account already exists")];
                                     }else
                                         if ([dic[@"result"] isEqualToString:@"emailverify_formart_err"]) {
-                                            [SVProgressHUD showInfoWithStatus:@"郵箱格式錯誤"];
+                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Email format error")];
                                         }else
                                             if ([dic[@"result"] isEqualToString:@"emailverify_exist_err"]) {
-                                                [SVProgressHUD showInfoWithStatus:@"郵箱已被綁定"];
+                                                [SVProgressHUD showInfoWithStatus:MyLocal(@"mailbox has been bound.")];
                                             }else
                                                 if ([dic[@"result"] isEqualToString:@"verify_send_err"]) {
-                                                    [SVProgressHUD showInfoWithStatus:@"郵箱驗證信投遞失敗"];
+                                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Mailbox validation letter delivery failed.")];
                                                 }
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);

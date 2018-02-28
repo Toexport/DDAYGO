@@ -29,7 +29,7 @@
 
 // UI
 - (void)initUI {
-    self.title = NSLocalizedString(@"退款/售后", nil);
+    self.title = NSLocalizedString(@"Refund/after-sale", nil);
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
     self.tableview.separatorStyle = NO;
@@ -93,7 +93,7 @@
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"account exists",nil) preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
             }];
             UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
@@ -188,17 +188,17 @@
     int a = [model.returntype intValue];
     switch (a) {
         case 0:
-            cell.StateLabel.text = @"退款";
+            cell.StateLabel.text = MyLocal(@"refund");
             cell.StateImage.image = [UIImage imageNamed:@"icon_retreat_refund"];
             break;
             
         case 1:
-            cell.StateLabel.text = @"退货退款";
+            cell.StateLabel.text = MyLocal(@"Returnrefund");
             cell.StateImage.image = [UIImage imageNamed:@"icon_retreat_goods"];
             break;
             
         case 2:
-            cell.StateLabel.text = @"换货";
+            cell.StateLabel.text = MyLocal(@"Exchange goods");
             cell.StateImage.image = [UIImage imageNamed:@"icon_retreat_exchange"];
             break;
         default:

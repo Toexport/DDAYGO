@@ -136,8 +136,6 @@
                 
                 [viewController SixthAllData:code];
                 [viewController FifthallData:code];
-                //
-                //
             };
             //  显示
             [self.position showInView:self.navigationController.view];

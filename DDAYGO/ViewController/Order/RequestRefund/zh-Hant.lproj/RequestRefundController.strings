@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "上传凭证"; ObjectID = "Z1f-NC-w73"; */
+"Z1f-NC-w73.text" = "上傳憑證";
+
+/* Class = "UILabel"; text = "退款金额:"; ObjectID = "ddB-G9-p0O"; */
+"ddB-G9-p0O.text" = "退款金額:";
+
+/* Class = "UILabel"; text = "详细原因:"; ObjectID = "kvM-5Y-5lF"; */
+"kvM-5Y-5lF.text" = "详纖細原因:";
+
+/* Class = "UILabel"; text = "RMB"; ObjectID = "lgl-SF-TYA"; */
+"lgl-SF-TYA.text" = "RMB";
+
+/* Class = "UIButton"; normalTitle = "原因:"; ObjectID = "qpF-Bq-M9c"; */
+"qpF-Bq-M9c.normalTitle" = "原因:";
+
+/* Class = "UIButton"; normalTitle = "提交"; ObjectID = "vRN-Ay-gDr"; */
+"vRN-Ay-gDr.normalTitle" = "提交";

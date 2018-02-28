@@ -64,7 +64,7 @@
 
 //  UI
 - (void)initUI {
-    self.title = NSLocalizedString(@"歷史提交號碼", nil);
+    self.title = NSLocalizedString(@"History submission number", nil);
     [self.view addSubview:self.tableView];
     [self.tableView registerNib:[UINib nibWithNibName:@"ZP_LotteryHistoricalBettingNumberCell" bundle:nil] forCellReuseIdentifier:@"ZP_LotteryHistoricalBettingNumberCell"];
 //    [self.tableView registerClass:[ZP_LotterySubCell class] forCellReuseIdentifier:@"lotterysubcell"];
@@ -143,7 +143,7 @@
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"account exists",nil) preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
             }];
             UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {

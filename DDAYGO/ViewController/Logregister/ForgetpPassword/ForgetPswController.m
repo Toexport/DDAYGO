@@ -32,7 +32,7 @@
 }
 // UI
 - (void)initUI {
-    self.title = NSLocalizedString(@"忘記密碼", nil);
+    self.title = NSLocalizedString(@"Forgot password", nil);
     [self ButStatusAttribute];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
@@ -74,9 +74,9 @@
 - (void)getMSNCode {
     NSLog(@"获取验证码");
     if (_ZPEmailTextField.textField.text == nil) {
-        [SVProgressHUD showInfoWithStatus:@"賬號不能為空"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"account cannot be empty.")];
     }
-    [self.ZPCodeTextField.functionBtn startWithTime:60 title:NSLocalizedString(@"重新獲取", nil) titleColor:[UIColor whiteColor]countDownTitle:@"s" countDownTitleColor:[UIColor whiteColor] mainColor:ZP_PayColor countColor:ZP_PayColor];
+    [self.ZPCodeTextField.functionBtn startWithTime:60 title:NSLocalizedString(@"obtain", nil) titleColor:[UIColor whiteColor]countDownTitle:@"s" countDownTitleColor:[UIColor whiteColor] mainColor:ZP_PayColor countColor:ZP_PayColor];
     [self qurestCode];  // 开始获取验证码
 }
 
@@ -91,21 +91,21 @@
         ZPLog(@"%@",dic);
         
         if ([dic[@"result"] isEqualToString:@"ok"]) {
-            [SVProgressHUD showSuccessWithStatus:@"發送成功!"];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Send success")];
             ZPLog(@"发送成功");
             _codeStr = dic[@"code"];
         }else
             if ([dic[@"result"] isEqualToString:@"acc_null_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"賬號不能為空"];
+                [SVProgressHUD showInfoWithStatus:MyLocal(@"account cannot be empty.")];
                 
             }else
                 if ([dic[@"result"] isEqualToString:@"acc_email_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"賬號不存在"];
-                    [_ZPCodeTextField.functionBtn cancelCountDownWith:@"重新獲取"];//这句代码是倒计时清0
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Account does not exist")];
+                    [_ZPCodeTextField.functionBtn cancelCountDownWith:MyLocal(@"obtain")];//这句代码是倒计时清0
                 }else
                     if ([dic[@"result"] isEqualToString:@"send_error"]) {
-                        [SVProgressHUD showInfoWithStatus:@"驗證碼發送失敗,請稍後再試"];
-                        [_ZPCodeTextField.functionBtn cancelCountDownWith:@"重新获取"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Verification code sent failed, please try again later")];
+                        [_ZPCodeTextField.functionBtn cancelCountDownWith:MyLocal(@"obtain")];
                     }
         
     } failure:^(NSError * error) {
@@ -117,19 +117,19 @@
 - (IBAction)DetermineBut:(id)sender {
     
     if (self.ZPPswTextField.textField.text.length < 6 || self.ZPPswTextField.textField.text.length >20) {
-        [SVProgressHUD showInfoWithStatus:@"密碼位數不能少於6-20位"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"password number should not be less than 6 digits greater than 20 digits.")];
         ZPLog(@"密码不足6位");
         return;
     }
     if (_ZPCodeTextField.textField.text.length < 1) {
-        [SVProgressHUD showInfoWithStatus:@"驗證碼不能為空"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Verify that the code cannot be empty.")];
         ZPLog(@"请输入验证码");
         return;
     }
     
     if (![_ZPCodeTextField.textField.text isEqualToString:_codeStr]) {
         
-        [SVProgressHUD showErrorWithStatus:@"驗證碼錯誤"];
+        [SVProgressHUD showErrorWithStatus:MyLocal(@"Verification code error")];
         return;
     }
     
@@ -139,9 +139,9 @@
     //        return;
     //    }
     if (![self.ZPPswTextField.textField.text isEqualToString: self.ZPConPswTextField.textField.text]) {
-        [SVProgressHUD showInfoWithStatus:@"兩次密碼不一致"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"two passwords do not match.")];
     }else {
-        [SVProgressHUD showWithStatus:@"正在修改密碼..."];
+        [SVProgressHUD showWithStatus:MyLocal(@"Changing password...")];
         [self AllData];
         
     }
@@ -158,21 +158,21 @@
         NSDictionary * dic = obj;
         _verifyemail = dic[@"verifyemail"];
         if ([dic[@"result"] isEqualToString:@"ok"]) {
-            [SVProgressHUD showSuccessWithStatus:@"密碼找回成功!"];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Password recovered")];
             //            _verifyemail = dic[@"verifyemail"];
             [self.navigationController popViewControllerAnimated:YES];
         }else
             if ([dic[@"result"] isEqualToString:@"acc_null_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"賬號為空"];
+                [SVProgressHUD showInfoWithStatus:MyLocal(@"Account is empty")];
             }else
                 if ([dic[@"result"] isEqualToString:@"verifyemail_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"驗證郵箱為空"];
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Verify that the mailbox is empty.")];
                 }else
                     if ([dic[@"result"] isEqualToString:@"npwd_null_err"]) {
-                        [SVProgressHUD showInfoWithStatus:@"密碼為空"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Password is empty")];
                     }else
                         if ([dic[@"result"] isEqualToString:@"sys_err"]) {
-                            [SVProgressHUD showInfoWithStatus:@"修改失敗"];
+                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Modify failure")];
                         }
         ZPLog(@"%@",dic);
     } failure:^(NSError * error) {

@@ -41,7 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"掃一掃";
+    self.title = MyLocal(@"scanning");
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: ZP_textWite}];
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self InitScan];

@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "ICUC密码："; ObjectID = "5nV-S6-0Jz"; */
+"5nV-S6-0Jz.text" = "ICUC密碼：";
+
+/* Class = "UITextField"; placeholder = "请输入ICUC密码"; ObjectID = "S1L-wQ-aLr"; */
+"S1L-wQ-aLr.placeholder" = "請輸入ICUC密碼";
+
+/* Class = "UILabel"; text = "ICUC账号："; ObjectID = "b7K-YZ-nNx"; */
+"b7K-YZ-nNx.text" = "ICUC賬號：";
+
+/* Class = "UIButton"; normalTitle = "绑定"; ObjectID = "mrj-l7-uQz"; */
+"mrj-l7-uQz.normalTitle" = "綁定";
+
+/* Class = "UITextField"; placeholder = "请输入ICUC账号"; ObjectID = "oCK-0y-ito"; */
+"oCK-0y-ito.placeholder" = "請輸入ICUC賬號";

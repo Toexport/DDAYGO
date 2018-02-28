@@ -7,7 +7,7 @@
 //
 
 #import "ReturnDetailViewController.h"
-
+#import "PrefixHeader.pch"
 @interface ReturnDetailViewController ()
 
 @end
@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"退貨詳情";
+    self.title =MyLocal(@" return details");
 }
 
 @end

@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "所在國家:"; ObjectID = "3CE-7I-b3S"; */
+"3CE-7I-b3S.text" = "所在國家:";
+
+/* Class = "UILabel"; text = "test"; ObjectID = "Fkq-VJ-6Bx"; */
+"Fkq-VJ-6Bx.text" = "test";
+
+/* Class = "UIButton"; normalTitle = "重新申請"; ObjectID = "OCf-Qe-LaU"; */
+"OCf-Qe-LaU.normalTitle" = "重新申請";
+
+/* Class = "UIButton"; normalTitle = "提交申請"; ObjectID = "gKi-fL-09x"; */
+"gKi-fL-09x.normalTitle" = "提交申請";
+
+/* Class = "UILabel"; text = "臺灣"; ObjectID = "xPu-zy-3JE"; */
+"xPu-zy-3JE.text" = "臺灣";

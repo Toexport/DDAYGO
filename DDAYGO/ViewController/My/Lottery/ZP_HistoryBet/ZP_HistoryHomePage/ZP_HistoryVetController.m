@@ -27,7 +27,7 @@
 //    [self initTableHeadView];
 }
 - (void)initUI {
-    self.title = NSLocalizedString(@"歷史開獎", nil);
+    self.title = NSLocalizedString(@"History of the lottery", nil);
     [self.tableView registerNib:[UINib nibWithNibName:@"ZP_HistoryBetCell" bundle:nil] forCellReuseIdentifier:@"ZP_HistoryBetCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
 //    self.tableView.backgroundColor = [UIColor grayColor];
@@ -50,7 +50,7 @@
     [myView setBackgroundColor:ZP_Graybackground];
     //     标题1
     ZP_GeneralLabel * TitleLabel1 = [ZP_GeneralLabel initWithtextLabel:_TitleLabel1.text textColor:ZP_textblack font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:nil];
-    TitleLabel1.text = @"第";
+    TitleLabel1.text =MyLocal(@"first");
     [myView addSubview:TitleLabel1];
     _TitleLabel1 = TitleLabel1;
     [TitleLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -62,7 +62,7 @@
     
     //     标题2
     ZP_GeneralLabel * TitleLabel2 = [ZP_GeneralLabel initWithtextLabel:_TitleLabel2.text textColor:ZP_textblack font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
-    TitleLabel2.text = @"2017";
+//    TitleLabel2.text = @"2017";
     [myView addSubview:TitleLabel2];
     _TitleLabel2 = TitleLabel2;
     [TitleLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -95,7 +95,7 @@
     }];
     //     标题4
     ZP_GeneralLabel * TitleLabel5 = [ZP_GeneralLabel initWithtextLabel:_TitleLabel5.text textColor:ZP_textblack font:ZP_TrademarkFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
-    TitleLabel5.text = @"2017-11-19（周日）";
+//    TitleLabel5.text = @"2017-11-19（周日）";
     [myView addSubview:TitleLabel5];
     _TitleLabel5 = TitleLabel5;
     [TitleLabel5 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -175,7 +175,7 @@
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"account exists",nil) preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
             }];
             UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
@@ -220,7 +220,7 @@
 }
 - (void)WithHistoryAllData:(ZP_HistoryModel *) model {
     //    _OrderLabel.text = model.
-    _TitleLabel2.text = [[model.yyyy stringValue] stringByAppendingString:@"期"];
+    _TitleLabel2.text = [[model.yyyy stringValue] stringByAppendingString:MyLocal(@"period")];
     _TitleLabel5.text =  [NSString stringWithFormat:@"%@",model.createtime];
     
 //    _TitleLabel5.text = [NSString stringWithFormat:@"%@",model.createtime ];
@@ -275,7 +275,7 @@
     ZP_DetailsSistoryAwardController * DetailsSistoryAward = [[ZP_DetailsSistoryAwardController alloc]init];
     ZP_HistoryModel * model = self.newsData[indexPath.section];
     DetailsSistoryAward.pollid = model.pollid;
-    DetailsSistoryAward.title = [NSString stringWithFormat:@"第%@期",model.yyyy];
+    DetailsSistoryAward.title = [NSString stringWithFormat:MyLocal(@"first%@period"),model.yyyy];
     [self.navigationController pushViewController:DetailsSistoryAward animated:YES];
     ZPLog(@"%ld",indexPath.row);
 }

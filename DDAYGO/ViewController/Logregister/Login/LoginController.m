@@ -79,7 +79,7 @@
 //        //  动画完毕从父视图移除
 //
 //    }];
-    [SVProgressHUD showWithStatus:@"正在登录..."];
+    [SVProgressHUD showWithStatus: MyLocal(@"Logging in...")];
     [self allData];
 }
 // 数据
@@ -103,7 +103,7 @@
             [[NSUserDefaults standardUserDefaults] synchronize];
             [[NSUserDefaults standardUserDefaults] setObject:aadic[@"countrycode"] forKey:@"countrycode"];  // 国别缓存本地
             [[NSUserDefaults standardUserDefaults] synchronize];  // 国别缓存本地
-            [SVProgressHUD showSuccessWithStatus:@"登錄成功!"];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Login successful")];
             NSArray * array = self.navigationController.viewControllers;
             if (array.count > 2) {
                 [self.navigationController popToViewController:array[array.count-3] animated:YES];
@@ -112,22 +112,22 @@
             }
         }else {
             if ([obj[@"result"]isEqualToString:@"failure"]) {
-                [SVProgressHUD showInfoWithStatus:@"登錄失敗"];
+                [SVProgressHUD showInfoWithStatus:MyLocal(@"Login failed")];
             }else {
                 if ([obj[@"result"]isEqualToString:@"acc_pwd_err"]) {
-                    [SVProgressHUD showInfoWithStatus:@"賬號或密碼錯誤"];
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Account or password error.")];
                 }else {
                     if ([obj[@"result"]isEqualToString:@"acc_null_err"]) {
-                        [SVProgressHUD showInfoWithStatus:@"賬號為空"];
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Account is empty")];
                     }else {
                         if ([obj[@"result"]isEqualToString:@"pwd_null_err"]) {
-                            [SVProgressHUD showInfoWithStatus:@"密碼為空"];
+                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Password is empty")];
                         }else {
                             if ([obj[@"result"]isEqualToString:@"sys_err"]) {
-                                [SVProgressHUD showInfoWithStatus:@"系統錯誤"];
+                                [SVProgressHUD showInfoWithStatus:MyLocal(@"System error")];
                             }else {
                                 if ([obj[@"result"]isEqualToString:@"token_err"]) {
-                                    [SVProgressHUD showInfoWithStatus:@"token 已存在"];
+                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Token existing")];
                                 }
                             }
                         }

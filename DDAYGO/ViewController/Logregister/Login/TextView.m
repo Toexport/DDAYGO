@@ -33,7 +33,7 @@
 
 -(void)viewSetup {
     _titleLabel = [[UILabel alloc] init];
-    _titleLabel.text = @"標題";
+    _titleLabel.text = MyLocal(@"title");
     //    _titleLabel.textColor = [UIColor colorWithHexString:fontGrey];
     [_titleLabel setFont:ZP_addBtnTextdetaFont];
     [self addSubview:_titleLabel];
@@ -49,7 +49,7 @@
     
     _functionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     if (_btnTitle.length == 0) {
-        [_functionBtn setTitle:@"獲取驗證碼  " forState:UIControlStateNormal];
+        [_functionBtn setTitle:MyLocal(@"Get verification code") forState:UIControlStateNormal];
         _functionBtn.layer.cornerRadius             = 8.0;
     }else
     {

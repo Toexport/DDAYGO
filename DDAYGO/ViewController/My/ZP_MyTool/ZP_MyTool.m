@@ -217,7 +217,7 @@
             failure(error);
         }];
     } else {
-        [SVProgressHUD showErrorWithStatus:@"請先登錄賬號"];
+        [SVProgressHUD showErrorWithStatus:MyLocal(@"Please log in the account first.")];
     }
 }
 

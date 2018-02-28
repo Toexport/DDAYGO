@@ -188,7 +188,7 @@
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 30)];
         view.backgroundColor = [UIColor whiteColor];
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(16, 0, 200, 30)];
-        label.text = @"選定的號碼";
+        label.text = MyLocal(@"Selected number");
         label.font = [UIFont systemFontOfSize:13];
         [view addSubview:label];
         return view;
@@ -330,7 +330,7 @@
     NSString *str = arr[6];
 
     if ([str integerValue] == 20) {
-        [SVProgressHUD showInfoWithStatus:@"最高不能高於20注"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Maximum not greater than 20 notes.")];
         NSLog(@"20");
         return;
     }
@@ -349,7 +349,7 @@
     NSString *str = arr[6];
     
     if ([str integerValue] == 1) {
-        [SVProgressHUD showInfoWithStatus:@"最低不能少於1注"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Minimum not less than 1 note.")];
         NSLog(@"1");
         return;
     }
@@ -374,7 +374,7 @@
                 [self.tableView reloadMoveToBottom];
             }else{
                 NSLog(@"没有选定 ");
-                [SVProgressHUD showInfoWithStatus:@"沒有選定"];
+                [SVProgressHUD showInfoWithStatus:MyLocal(@"There is no selected")];
             }
         }else{
             [self.dicArray removeObjectAtIndex:but.tag];
@@ -397,27 +397,27 @@
     
     if (self.array1.count < 5) {
         //        tishi
-        [SVProgressHUD showInfoWithStatus:@"請選擇五個白球"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please select five white balls.")];
         return;
     }
     if (self.arrayT.count < 1) {
         //tishi
-        [SVProgressHUD showInfoWithStatus:@"請選擇一個紅球"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please select a red ball.")];
         return;
     }
     if (self.Selearray.count< 6) {
         //
-        [SVProgressHUD showInfoWithStatus:@"請選擇五個白球和一個紅球"];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please select five white balls and one red ball.")];
         return;
     }
     
 #pragma make -- 提示框
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"確定選擇該組號碼嗎？",nil) preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"reminding", nil) message:NSLocalizedString(@"Are you sure you select the group number?",nil) preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         ZPLog(@"取消");
     }];
-    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"确定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"ok",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
         //        响应事件
         if (self.Selearray.count == 6) {
             [self.Selearray addObject:@"1"];
@@ -449,10 +449,10 @@
     [ZP_MyTool requestBte:dic uccess:^(id obj) {
         ZPLog(@"%@",obj);
         if ([obj[@"result"]isEqualToString:@"time_err"]) {
-            [SVProgressHUD showInfoWithStatus:@"您派派彩彩劵不足,不能提交"];
+            [SVProgressHUD showInfoWithStatus:MyLocal(@"You are not able to submit your pie.")];
         }else
             if ([obj[@"result"]isEqualToString:@"count_err"]) {
-                [SVProgressHUD showInfoWithStatus:@"您派派彩彩劵不足,不能提交"];
+                [SVProgressHUD showInfoWithStatus:MyLocal(@"You are not able to submit your pie.")];
             }
         ZPLog(@"%@",obj);
     } failure:^(NSError * error) {
