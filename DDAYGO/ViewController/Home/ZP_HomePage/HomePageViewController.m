@@ -51,12 +51,18 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeStaus:) name:@"changeStaus" object:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 - (void)changeStaus:(NSNotification *)noti {
     if (noti.userInfo) {
         [self.chooseCityBtn setTitle:noti.userInfo[@"countryname"] forState:UIControlStateNormal];
     } else {
         [self.chooseCityBtn setTitle:MyLocal(@"Taiwan") forState:UIControlStateNormal];
     }
+    [self allData];
 }
 
 // UI
