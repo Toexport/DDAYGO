@@ -30,9 +30,9 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>App需要您的同意才能使用相机</string>
+	<string>Used to open camera</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>App需要您的同意才能读取媒体</string>
+	<string>Used to open photos</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

@@ -619,9 +619,10 @@
 "" = "";
 "" = "";
 "" = "";
-"" = "";
-"" = "";
-"" = "";
+
+
+NSPhotoLibraryUsageDescription = "App需要您的同意才能使用相機";
+NSCameraUsageDescription = "App需要您的同意才能讀取媒體";
 "" = "";
 "" = "";
 "" = "";

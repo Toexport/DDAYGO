@@ -662,7 +662,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (_bjBool == NO) {
         ShoppingCell * cell = [tableView dequeueReusableCellWithIdentifier:@"shoppingCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
@@ -694,7 +693,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
         self.tableView.tableFooterView = [[UIView alloc] init];
         ZP_CartsShopModel * models = self.nameArray[indexPath.section];
-        ZP_CartsModel *model = models.array[indexPath.row];
+        ZP_CartsModel * model = models.array[indexPath.row];
         cell.button.tag = indexPath.section *100 + indexPath.row;
         if ([_selectAllArray containsObject:@(indexPath.row)]) {
             cell.button.selected = YES;

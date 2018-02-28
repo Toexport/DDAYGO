@@ -529,8 +529,13 @@
 "mailbox has been bound." = "邮箱以被绑定";
 "Mailbox validation letter delivery failed." = "邮箱验证信投递失败";
 "ICUEQuick login" = "ICUE快速登录";
-
-
+"ZPPswTextField" = "请输入长度为6-20位的英数字";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 /**
  *提示
  */
@@ -611,6 +616,9 @@
 "" = "";
 "" = "";
 "" = "";
+NSPhotoLibraryUsageDescription = "App需要您的同意才能使用相机";
+
+NSCameraUsageDescription = "App需要您的同意才能读取媒体";
 "" = "";
 "" = "";
 "" = "";

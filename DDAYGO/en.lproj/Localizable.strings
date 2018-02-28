@@ -412,9 +412,9 @@
 "ZPEmailTextFieldID" = "ZPEmailTextFieldID";
 "ZPPswTextFieldID" = "ZPPswTextFieldID";
 "ZPCodeTextField" = "ZPCodeTextField";
-"ZPEmailTextFiled()" = "ZPEmailTextFiled()";
-"ZPCountry" = "ZPCountry";
-"ZPEmailICUE" = "ZPEmailICUE";
+"ZPPswTextField" = "ZPPswTextField";
+"" = "";
+"" = "";
 "" = "";
 "" = "";
 "" = "";
@@ -576,6 +576,8 @@
 "" = "";
 "" = "";
 "" = "";
+NSCameraUsageDescription = "Used to open photos";
+NSPhotoLibraryUsageDescription = "Used to open camera";
 "" = "";
 "" = "";
 "" = "";

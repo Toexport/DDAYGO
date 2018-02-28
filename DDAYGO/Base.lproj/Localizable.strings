@@ -1,3 +1,5 @@
 
+NSCameraUsageDescription = "Used to open photos";
+NSPhotoLibraryUsageDescription = "Used to open camera";
 
 
