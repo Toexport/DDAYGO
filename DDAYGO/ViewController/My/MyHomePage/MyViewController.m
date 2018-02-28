@@ -63,6 +63,7 @@
 // 生命周期
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self SupplierAllData];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [self mainColor];
     [self initUI];
@@ -125,9 +126,11 @@
             [self.navigationController pushViewController:viewcontroller animated:YES];
         }
     }else {
+        [self SupplierAllData];
         [self AllDatas];
         [self allData];
-        [self SupplierAllData];
+        
+        
     }
 }
 
@@ -225,7 +228,6 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
-//            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
             ZPICUEToken = nil;
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
@@ -275,11 +277,7 @@
 
 // 獲取暱稱
 - (void)MyViewData:(ZP_HomePageModel *) model {
-//    if (model.nickname.length < 1) {
-//        _NameLabel.text = @"暱稱";
-//    }else {
-        _NameLabel.text = model.nickname;
-//    }
+    _NameLabel.text = model.nickname;
     _headImageBut.layer.cornerRadius = 42;
     _headImageBut.layer.masksToBounds = YES;
 }
@@ -320,6 +318,8 @@
 
 // 供货商状态请求
 - (void) SupplierAllData {
+    _SdglLayoutConstraint.constant = CGFLOAT_MIN;
+    _sdglView.hidden = YES; //  默认隐藏商家
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     [ZP_MyTool requestSupplier:dic success:^(id obj) {
@@ -375,7 +375,6 @@
                 _sdglView.hidden = YES; //  待审核隐藏商家
                 self.XfjlLayoutConstraint.constant = 49;
                 self.xfjlView.hidden = NO; // 已审核隐藏申请列表
-                
             }
                 break;
             case 3:
@@ -399,11 +398,9 @@
                 self.xfjlView.hidden = NO; // 已审核隐藏申请列表
             }
                 break;
-                
             default:
                 break;
         }
-        
         [self SupplierData:model];
     } failure:^(NSError * error) {
         _SdglLayoutConstraint.constant = CGFLOAT_MIN;
