@@ -617,7 +617,6 @@
 "" = "";
 "" = "";
 NSPhotoLibraryUsageDescription = "App需要您的同意才能使用相机";
-
 NSCameraUsageDescription = "App需要您的同意才能读取媒体";
 "" = "";
 "" = "";

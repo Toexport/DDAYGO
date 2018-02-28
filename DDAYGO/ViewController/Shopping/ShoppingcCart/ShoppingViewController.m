@@ -26,7 +26,6 @@
 @property (nonatomic, strong) NSMutableArray * selectArray;
 @property (nonatomic, strong) NSMutableArray * dataArray;;
 @property(nonatomic,strong) NSMutableArray * nameArray;
-
 @property(nonatomic,strong) UITableView * tableView;
 @property(nonatomic,strong) ZP_ShoppingModel * model;
 @property(nonatomic,strong) NSString * stockids;
@@ -62,6 +61,7 @@
         self.tableView.estimatedSectionHeaderHeight = 0;
         self.tableView.estimatedSectionFooterHeight = 0;
     }
+//    數據為空加載
     [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
         self.noDataView = response;
         [self.tableView reloadData];
@@ -160,7 +160,7 @@
                     }
                     mustr = [NSString stringWithFormat:@"%ld",model.array.count +[mustr integerValue]];
                 }];
-                self.navigationController.tabBarItem.badgeValue = mustr;
+                self.navigationController.tabBarItem.badgeValue = mustr; // 購物車顯示的球
                 [self updateData:0];
                 [self.tableView reloadData];
                 if (_bjBool) {
