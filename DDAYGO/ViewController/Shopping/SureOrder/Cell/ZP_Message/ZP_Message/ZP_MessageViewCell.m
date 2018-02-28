@@ -116,7 +116,7 @@
 - (void)MessageDic:(ZP_InformationModel *)model {
 
     _TotalLabel.text = [NSString stringWithFormat:MyLocal(@"Total%@a goods"),_allCount];
-    _ComputationsLabel.text = [NSString stringWithFormat:@"NT %@", _allMoney];
+    _ComputationsLabel.text = [NSString stringWithFormat:@"%@ %@",DD_MonetarySymbol, _allMoney];
 }
 @end
 

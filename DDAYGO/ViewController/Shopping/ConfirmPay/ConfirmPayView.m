@@ -95,8 +95,9 @@
     }
     //    货币符号
     ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_textblack font:ZP_AmountTextFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
-    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+//    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+    CurrencySymbolLabel.text = DD_MonetarySymbol;
     [bounceView addSubview:CurrencySymbolLabel];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(260);

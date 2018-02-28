@@ -38,8 +38,9 @@
     }
     _productname.text = model.productname;
     _productprice.text = [NSString stringWithFormat:@"%@",model.productprice];
-    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
-    _CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+//    _CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+    _CurrencySymbolLabel.text = DD_MonetarySymbol;
     _cp.text = [NSString stringWithFormat:@"%@",model.cp];
     
 }

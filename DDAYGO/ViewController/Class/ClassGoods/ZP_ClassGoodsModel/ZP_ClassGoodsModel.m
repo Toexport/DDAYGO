@@ -40,14 +40,13 @@
         ZP_ClassGoodsModel * model = [[ZP_ClassGoodsModel alloc]init];
         model.defaultimg = [NSString stringWithFormat:@"%@%@",ImgAPI, dic[@"defaultimg"]];
         model.productname = dic[@"productname"];
-        model.productprice = [NSString stringWithFormat:@"NT %@",dic[@"productprice"]];
+        model.productprice = [NSString stringWithFormat:@"%@ %@", DD_MonetarySymbol,dic[@"productprice"]];
         model.TrademarkLabel = [NSString stringWithFormat:@"%@", dic[@"cp"]];
         model.productid =  dic[@"productid"];
         model.productremark = dic[@"productremark"];
         if ([dic[@"produced"] isKindOfClass:[NSString class]]) {
             model.produced = dic[@"produced"];
         }
-        
         [arr addObject:model];
     }
     return arr;

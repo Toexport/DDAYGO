@@ -10,6 +10,7 @@
 #import "SDCycleScrollView.h"
 #import "ZP_GoodDetailsModel.h"
 @interface BuyTopView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *CurrencyLabel;
 
 + (instancetype)view;
 - (void)updateInfoWithModel:(ZP_GoodDetailsModel *)model;

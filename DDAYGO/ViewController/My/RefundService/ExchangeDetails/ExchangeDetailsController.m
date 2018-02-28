@@ -200,8 +200,9 @@
             break;
     }
     
-    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
-    self.CurrencyLabel.text = [NSString stringWithFormat:@"%@",str];
+//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+//    self.CurrencyLabel.text = [NSString stringWithFormat:@"%@",str];
+    self.CurrencyLabel.text = DD_MonetarySymbol;
     self.PriceLabel.text = [model.ordersamount stringValue];
     self.RequestTimeLabel.text = model.createtime;
     self.RequestYuanyin.text = model.refundreason;

@@ -135,8 +135,9 @@
     
 //    货币符号
     ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_pricebackground font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
-    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+//    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+    CurrencySymbolLabel.text = DD_MonetarySymbol;
     [bottomView addSubview:CurrencySymbolLabel];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(PriceLabel).offset(-25);

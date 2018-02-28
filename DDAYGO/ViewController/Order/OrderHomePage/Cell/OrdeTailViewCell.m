@@ -191,8 +191,8 @@
         default:
             break;
     }
-    _AmountLabel.text = [NSString stringWithFormat:@"NT %@",model.ordersamount];
-    _ExpressFeeLabel.text = [NSString stringWithFormat:@"NT %@)",model.freight]; // 运费
+    _AmountLabel.text = [NSString stringWithFormat:@"%@ %@",DD_MonetarySymbol,model.ordersamount];
+    _ExpressFeeLabel.text = [NSString stringWithFormat:@"%@ %@)",DD_MonetarySymbol,model.freight]; // 运费
     _model = dic;
     _model2 = model;
 }

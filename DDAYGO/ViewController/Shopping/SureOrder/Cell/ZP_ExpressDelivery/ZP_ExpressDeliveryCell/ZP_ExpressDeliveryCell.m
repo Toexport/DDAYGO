@@ -75,7 +75,7 @@
 
 - (void)ExpressDevliveryDic:(ZP_ExpressDeliveryModel *)model {
     
-    _CostLabel.text = [NSString stringWithFormat:@"NT %@",model.freightamount]; // 优惠价格
+    _CostLabel.text = [NSString stringWithFormat:@"%@ %@",DD_MonetarySymbol,model.freightamount]; // 优惠价格
 //    _DistributionLabel.text = [NSString stringWithFormat:@"%@%@",NSLocalizedString(@"Distribution mode: ", nil),model.chooselogistic];
 }
 

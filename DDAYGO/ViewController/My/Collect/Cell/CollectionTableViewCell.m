@@ -42,8 +42,9 @@
         _ShopimageView.clipsToBounds  = YES;
     }
     _priceLabel.text = [NSString stringWithFormat:@"%@",model.productprice];
-     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
-   _CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+//     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+//   _CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+    _CurrencySymbolLabel.text = DD_MonetarySymbol;
     _Cp.text = [NSString stringWithFormat:@"%@",model.cp];
     _shopTextLabel.text = model.productname;
 }

@@ -53,8 +53,9 @@
     SelectModel2 * model2 = [SelectModel2 mj_objectWithKeyValues:dic];
     [_MainImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI, model2.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
     _TitleLabel.text = model2.productname;
-    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
-    _CurrencyLabel.text = [NSString stringWithFormat:@"%@",str];
+//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+//    _CurrencyLabel.text = [NSString stringWithFormat:@"%@",str];
+    _CurrencyLabel.text = DD_MonetarySymbol;
     _PriceLabel.text = [model2.productamount stringValue];
 }
 

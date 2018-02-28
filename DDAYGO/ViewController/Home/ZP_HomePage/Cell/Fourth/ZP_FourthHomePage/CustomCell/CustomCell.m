@@ -125,7 +125,7 @@
     self.introduceLabel.text = model.productname;
 //    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
 //    self.CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
-    self.PreferentialLabel.text = [NSString stringWithFormat:@"NT %@",model.PreferentialLabel]; // 优惠价格
+    self.PreferentialLabel.text = [NSString stringWithFormat:@"%@ %@", DD_MonetarySymbol,model.PreferentialLabel]; // 优惠价格
     self.TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
     self.TrademarkLabel.text = model.TrademarkLabel;
 }

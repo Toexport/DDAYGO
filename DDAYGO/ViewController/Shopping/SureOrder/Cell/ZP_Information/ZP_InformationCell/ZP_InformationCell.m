@@ -79,8 +79,9 @@
     CurrencySymbolLabel.textAlignment = NSTextAlignmentLeft;
     CurrencySymbolLabel.textColor = ZP_pricebackground;
     CurrencySymbolLabel.font = ZP_titleFont;
-    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
-    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+//    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+    CurrencySymbolLabel.text = DD_MonetarySymbol;
     [self.contentView addSubview:CurrencySymbolLabel];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(FigureImage).offset(90);

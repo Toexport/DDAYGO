@@ -8,7 +8,7 @@
 
 #import "BuyTopView.h"
 #import "BGCenterLineLabel.h"
-
+#import "PrefixHeader.pch"
 @interface BuyTopView()
 @property (weak, nonatomic) IBOutlet UILabel *shopNameLabel;
 @property (weak, nonatomic) IBOutlet SDCycleScrollView *cycleScrollView;
@@ -24,6 +24,7 @@
 -(void)awakeFromNib {
     _cycleScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
     _cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
+    self.CurrencyLabel.text = DD_MonetarySymbol;
 }
 
 + (instancetype)view {
