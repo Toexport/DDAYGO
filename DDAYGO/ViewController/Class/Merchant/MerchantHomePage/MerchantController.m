@@ -109,6 +109,7 @@
     self.topView = topView;
     self.line.x = self.btn.x;
     UIScrollView * lastView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 150+35, ZP_Width, ZP_height - NavBarHeight - 37)];
+    lastView.contentSize = CGSizeMake(ZP_Width*4, 0);
     lastView.pagingEnabled  = YES;
     lastView.showsHorizontalScrollIndicator = NO;
     lastView.delegate = self;

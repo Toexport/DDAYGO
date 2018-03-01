@@ -13,16 +13,27 @@
 
 + (DialogBox *)getInstance  //定义一个类方法进行访问(便利构造)
 {
-    static DialogBox *audioOption=nil;
-    static dispatch_once_t oncet;
-    dispatch_once(&oncet,^{
-        audioOption = [[NSBundle mainBundle] loadNibNamed:@"DialogBox" owner:self options:nil].lastObject;
-        audioOption.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-    });
-    if ([UIApplication sharedApplication].keyWindow) {
-        [[UIApplication sharedApplication].keyWindow addSubview:audioOption];
+    static DialogBox *instance = nil;
+    static NSString *language = nil;
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"Language"]) {
+        NSArray * array = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+        [[NSUserDefaults standardUserDefaults] setObject:array.firstObject forKey:@"Language"];
     }
-    return  audioOption;
+    NSString * language1 = [[NSUserDefaults standardUserDefaults] objectForKey:@"Language"];
+    if (!language) {
+        language = [[NSUserDefaults standardUserDefaults] objectForKey:@"Language"];
+    }
+    if (!instance || ![language isEqualToString:language1]) {
+        language = language1;
+        instance = [[NSBundle mainBundle] loadNibNamed:@"DialogBox" owner:self options:nil].lastObject;
+        instance.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    }
+    
+    if ([UIApplication sharedApplication].keyWindow) {
+        [[UIApplication sharedApplication].keyWindow addSubview:instance];
+    }
+    
+    return instance;
 }
 
 - (void)awakeFromNib {
