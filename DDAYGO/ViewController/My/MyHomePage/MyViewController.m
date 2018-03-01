@@ -51,7 +51,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 //    //iphone X
     if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
         //在这里写你想要的高度 其他地方不用动
@@ -97,7 +96,7 @@
 //        self.XfjlLayoutConstraint.constant = CGFLOAT_MIN;
 //        self.xfjlView.hidden = YES;
 //        //        _viewLayoutConstraint.constant = 50.0;
-//    }
+//    } 
 //}
 
 // 登录状态
@@ -164,7 +163,6 @@
                 NSLog(@"obj---%@",obj);
                 NSDictionary * dic = obj;
                 [[NSUserDefaults standardUserDefaults] setObject:Token forKey:@"token"];
-                
                 if ([dic[@"result"] isEqualToString:@"ok"]) {
                     [ZP_LoginTool getAccountInfo:Token success:^(id obj) {
                         NSDictionary * tempDic = obj;

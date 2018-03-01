@@ -72,6 +72,7 @@
     ZPLog(@"qqqq");
     [self dismiss];
 }
+
 //確定
 - (IBAction)ensureAction:(id)sender {
     [self.textfield endEditing:YES];
@@ -83,13 +84,10 @@
         }
         [self dismiss];
     }
-    
 }
 
 - (void)showDialogBoxWithOperation:(DDAOperation)operation FinishBlock:(FinishBlock)finishBlock {
-    
     self.finishBlock = finishBlock;
-    
     switch (operation) {
         case DDAModifyNickname:
         {
@@ -105,7 +103,6 @@
         default:
             break;
     }
-    
     [self show];
 }
 
@@ -131,11 +128,11 @@
         }];
     });
 }
+
 //  键盘弹起
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent *)event{
     [self.textfield endEditing:YES];
     
 }
-
 
 @end
