@@ -77,6 +77,8 @@
     [super viewWillAppear:animated];
     _AllButton.selected = NO;
     [self.tableView reloadData];
+    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+    _CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     if (!DD_HASLOGIN) {
         if (![MyViewController sharedInstanceTool].hasRemind) {
             [MyViewController sharedInstanceTool].hasRemind = YES;
@@ -334,12 +336,13 @@
     
     //   货币符号
     ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
-//    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
-    CurrencySymbolLabel.text = DD_MonetarySymbol;
+    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+    ZPLog(@"%@",str);
+//    CurrencySymbolLabel.text = DD_MonetarySymbol;
     [bottomView addSubview:CurrencySymbolLabel];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(PriceLabel).offset(-25);
+        make.left.equalTo(PriceLabel).offset(-20);
         make.top.equalTo(PriceLabel).offset(0);
     }];
     _CurrencySymbolLabel = CurrencySymbolLabel;

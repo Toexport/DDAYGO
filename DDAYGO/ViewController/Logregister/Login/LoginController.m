@@ -102,7 +102,7 @@
             Token = aadic[@"token"];
             [[NSUserDefaults standardUserDefaults] setObject:Token forKey:@"token"];// Token缓存本地
             [[NSUserDefaults standardUserDefaults] synchronize]; // Token缓存本地
-            [[NSUserDefaults standardUserDefaults] setObject:aadic[@"symbol"] forKey:@"symbol"]; // 台币缓存本地
+            [[NSUserDefaults standardUserDefaults] setObject:aadic[@"symbol"] forKey:@"symbol"]; // 货币缓存本地
             [[NSUserDefaults standardUserDefaults] synchronize];
             [[NSUserDefaults standardUserDefaults] setObject:aadic[@"result"] forKey:@"result"]; // 是否是供货商
             [[NSUserDefaults standardUserDefaults] synchronize];

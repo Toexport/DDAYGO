@@ -13,7 +13,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BuyViewController">
             <connections>
                 <outlet property="LayoutConstraintButtt" destination="d4i-jv-MeA" id="mY3-aE-E3Q"/>
-                <outlet property="LayoutConstraintLabel" destination="R9y-IO-RcQ" id="ow8-6z-CjU"/>
                 <outlet property="LayoutConstraintheadView" destination="2Sq-gn-7QL" id="nTm-FC-Agy"/>
                 <outlet property="backItem" destination="yyv-kf-DKo" id="XsT-Dv-Ri1"/>
                 <outlet property="bottonViewHeight" destination="JLR-nh-NDo" id="gdS-KY-G8s"/>
@@ -62,7 +61,10 @@
                             <state key="normal" image="ic_details_feedback"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgo-8v-KYi">
-                            <rect key="frame" x="166.5" y="21.5" width="42" height="21"/>
+                            <rect key="frame" x="166" y="28" width="42" height="20.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20.5" id="sZ7-IR-Df2"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -71,10 +73,10 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="2Sq-gn-7QL"/>
+                        <constraint firstItem="vgo-8v-KYi" firstAttribute="centerX" secondItem="hvo-bP-Cgu" secondAttribute="centerX" id="8ET-eJ-qJa"/>
+                        <constraint firstItem="vgo-8v-KYi" firstAttribute="centerY" secondItem="hvo-bP-Cgu" secondAttribute="centerY" multiplier="1.2" id="JPu-BK-3Tg"/>
                         <constraint firstItem="GCO-my-IEv" firstAttribute="top" secondItem="hvo-bP-Cgu" secondAttribute="top" constant="18" id="Kre-d9-Hch"/>
-                        <constraint firstItem="vgo-8v-KYi" firstAttribute="centerX" secondItem="hvo-bP-Cgu" secondAttribute="centerX" id="MTC-Vv-Bzy"/>
                         <constraint firstItem="GCO-my-IEv" firstAttribute="leading" secondItem="gdD-00-Uj3" secondAttribute="trailing" constant="20" id="P4S-gH-dsk"/>
-                        <constraint firstItem="vgo-8v-KYi" firstAttribute="centerY" secondItem="hvo-bP-Cgu" secondAttribute="centerY" id="R9y-IO-RcQ"/>
                         <constraint firstItem="yyv-kf-DKo" firstAttribute="leading" secondItem="hvo-bP-Cgu" secondAttribute="leading" constant="8" id="Twq-ch-0Rb"/>
                         <constraint firstItem="gdD-00-Uj3" firstAttribute="top" secondItem="hvo-bP-Cgu" secondAttribute="top" constant="18" id="Zs7-Lq-60I"/>
                         <constraint firstItem="yyv-kf-DKo" firstAttribute="top" secondItem="hvo-bP-Cgu" secondAttribute="top" constant="18" id="d4i-jv-MeA"/>

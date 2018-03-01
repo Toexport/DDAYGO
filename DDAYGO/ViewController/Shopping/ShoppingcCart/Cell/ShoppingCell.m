@@ -100,9 +100,8 @@
     // 货币符号
     ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_HomePreferentialpriceTypefaceCorlor font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self.contentView addSubview:CurrencySymbolLabel];
-//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
-//    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
-    CurrencySymbolLabel.text = DD_MonetarySymbol;
+    _CurrencySymbolLabel = CurrencySymbolLabel;
+//    CurrencySymbolLabel.text = DD_MonetarySymbol;
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(imageView).offset(95);
         make.bottom.equalTo(SizeLabel).offset(15);
@@ -203,7 +202,8 @@
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
     _TrademarkLabel.text = [NSString stringWithFormat:@"%@",model.cp];
     _QuantityLabel.text = [NSString stringWithFormat:@"%@",str];
-    
+    NSString * strr = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+    _CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",strr];
 }
 
 - (void)buttonClick:(UIButton *)sender {
