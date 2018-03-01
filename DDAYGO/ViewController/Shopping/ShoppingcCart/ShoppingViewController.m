@@ -76,6 +76,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     _AllButton.selected = NO;
+    
     [self.tableView reloadData];
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
     _CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
@@ -216,7 +217,6 @@
     _FreightLabel.hidden = YES;
     _PriceLabel.hidden = YES;
     _ClearingButt.selected = YES;
-    
     [self.ClearingButt setTitle:NSLocalizedString(@"delete",nil) forState: UIControlStateNormal];
     [self.cartButton setTitle:NSLocalizedString(@"Complete", nil) forState:UIControlStateNormal];
 }
@@ -231,7 +231,6 @@
     _ClearingButt.selected = NO;
     [self.cartButton setTitle:NSLocalizedString(@"Edit", nil) forState:UIControlStateNormal];
     [self.ClearingButt setTitle:NSLocalizedString(@"Clearing", nil) forState: UIControlStateNormal];
-    
     _AllButton.selected = NO;
     _PriceLabel.text = @"0";
     NSMutableDictionary * dictt = [NSMutableDictionary dictionary];
@@ -273,13 +272,11 @@
     sup.selected = !sup.selected;
     _bjBool = !_bjBool;
      [self.tableView reloadData];
-    
     if (_bjBool) {
         [self beginEditing];
     }else{
         [self exitEditing];
     }
-   
 }
 
 // UI
@@ -290,7 +287,6 @@
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = NO;
     [self.view addSubview:self.tableView];
-    
     //   注册
     [self.tableView registerClass:[ShoppingCell class] forCellReuseIdentifier:@"shoppingCell"];
     [self.tableView registerClass:[EditorViewCell class] forCellReuseIdentifier:@"editorViewCell"];
@@ -298,7 +294,6 @@
     bottomView.backgroundColor = ZP_textWite;
     bottomView.frame = CGRectMake(0, ZP_height - TabbarHeight - 50 - NavBarHeight, ZP_Width, 50);
     [self.view addSubview:bottomView];
-    
     //   全选按钮
     self.AllButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.AllButton.layer.masksToBounds = YES;
@@ -395,10 +390,15 @@
     }
     sender.selected =! sender.selected;
     if (!_bjBool) {
+//        self.CurrencySymbolLabel.hidden = YES;
+//        [self.StatisticsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.equalTo(self.CurrencySymbolLabel).offset(-15);
+//        }];
         ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
         cell.buttom.selected = sender.selected;
     }
     else {
+        self.CurrencySymbolLabel.hidden = NO;
         EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
         cell.button.selected = sender.selected;
     }
@@ -744,7 +744,6 @@
 
 #pragma mark -- 表头选中
 - (void)sectionShop:(UIButton *)but{
-    
     // 更新选中数量
     NSInteger count = 0;
     NSInteger data = 0;
@@ -791,6 +790,7 @@
                 }else{
                     _stockids = str;
                 }
+
                 
             }
         }

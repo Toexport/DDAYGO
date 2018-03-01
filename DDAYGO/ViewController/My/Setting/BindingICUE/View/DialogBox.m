@@ -35,6 +35,7 @@
         [[NSNotificationCenter defaultCenter]addObserver:self
                                                        selector:@selector(keybaordhide:)
                                                       name:UIKeyboardWillHideNotification object:nil];
+    _TtitleLabel.text = MyLocal(@"Modify nickname");
 }
 
 //当观察到键盘发生变化的通知后,就调用的方法
