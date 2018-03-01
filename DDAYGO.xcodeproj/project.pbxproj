@@ -169,6 +169,7 @@
 		6FA32ACCA83E0A32B68FDCFC /* libPods-DDAYGO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC9B15E33AA25F355BC51C7 /* libPods-DDAYGO.a */; };
 		C40763711FF50E9A00180975 /* IQTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C407636F1FF50E9A00180975 /* IQTableView.m */; };
 		C407AC131FD7E917004A8DE8 /* 提现记录_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = C407AC121FD7E916004A8DE8 /* 提现记录_spec.png */; };
+		C4080A962047C161001305C9 /* LogregisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4080A982047C161001305C9 /* LogregisterController.xib */; };
 		C409F86F1FA17336009DE7B1 /* SixthViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C409F86C1FA17336009DE7B1 /* SixthViewCell.m */; };
 		C409F8721FA1758E009DE7B1 /* ZP_SixthModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C409F8711FA1758E009DE7B1 /* ZP_SixthModel.m */; };
 		C409F8901FA1E280009DE7B1 /* ZP_ZeroModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C409F88F1FA1E280009DE7B1 /* ZP_ZeroModel.m */; };
@@ -411,7 +412,6 @@
 		C48C623720467E6000FA6E0A /* RegisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C623920467E6000FA6E0A /* RegisterController.xib */; };
 		C48C623E20467E8600FA6E0A /* ForgetPswController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C624020467E8600FA6E0A /* ForgetPswController.xib */; };
 		C48C624520467EAD00FA6E0A /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C624720467EAD00FA6E0A /* LoginController.xib */; };
-		C48C624C20467EC400FA6E0A /* LogregisterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C624E20467EC400FA6E0A /* LogregisterController.xib */; };
 		C48C62532046BC7F00FA6E0A /* DialogBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C62552046BC7F00FA6E0A /* DialogBox.xib */; };
 		C4910F701FFC6D24006DA5B9 /* ddg_advertising.png in Resources */ = {isa = PBXBuildFile; fileRef = C4910F6F1FFC6D24006DA5B9 /* ddg_advertising.png */; };
 		C491D3771FCBE31D00D127E9 /* BindingIntroduce.m in Sources */ = {isa = PBXBuildFile; fileRef = C491D3751FCBE31D00D127E9 /* BindingIntroduce.m */; };
@@ -797,6 +797,11 @@
 		C407636F1FF50E9A00180975 /* IQTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTableView.m; sourceTree = "<group>"; };
 		C40763701FF50E9A00180975 /* IQTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQTableView.h; sourceTree = "<group>"; };
 		C407AC121FD7E916004A8DE8 /* 提现记录_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "提现记录_spec.png"; sourceTree = "<group>"; };
+		C4080A972047C161001305C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LogregisterController.xib; sourceTree = "<group>"; };
+		C4080A9E2047C4D6001305C9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LogregisterController.strings"; sourceTree = "<group>"; };
+		C4080AA02047C4D8001305C9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LogregisterController.strings"; sourceTree = "<group>"; };
+		C4080AA42047CEEC001305C9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DialogBox.strings"; sourceTree = "<group>"; };
+		C4080AA62047CEEE001305C9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/DialogBox.strings"; sourceTree = "<group>"; };
 		C409F86B1FA17336009DE7B1 /* SixthViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixthViewCell.h; sourceTree = "<group>"; };
 		C409F86C1FA17336009DE7B1 /* SixthViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixthViewCell.m; sourceTree = "<group>"; };
 		C409F8701FA1758E009DE7B1 /* ZP_SixthModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZP_SixthModel.h; sourceTree = "<group>"; };
@@ -1297,12 +1302,7 @@
 		C48C624620467EAD00FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginController.xib; sourceTree = "<group>"; };
 		C48C624920467EAE00FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LoginController.strings"; sourceTree = "<group>"; };
 		C48C624B20467EAF00FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LoginController.strings"; sourceTree = "<group>"; };
-		C48C624D20467EC400FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LogregisterController.xib; sourceTree = "<group>"; };
-		C48C625020467EC500FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LogregisterController.strings"; sourceTree = "<group>"; };
-		C48C625220467EC700FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LogregisterController.strings"; sourceTree = "<group>"; };
 		C48C62542046BC7F00FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DialogBox.xib; sourceTree = "<group>"; };
-		C48C62572046BC8200FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/DialogBox.strings"; sourceTree = "<group>"; };
-		C48C62592046BC8600FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DialogBox.strings"; sourceTree = "<group>"; };
 		C4910F6F1FFC6D24006DA5B9 /* ddg_advertising.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ddg_advertising.png; sourceTree = "<group>"; };
 		C491D3741FCBE31D00D127E9 /* BindingIntroduce.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindingIntroduce.h; sourceTree = "<group>"; };
 		C491D3751FCBE31D00D127E9 /* BindingIntroduce.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindingIntroduce.m; sourceTree = "<group>"; };
@@ -1946,7 +1946,7 @@
 			children = (
 				0662AB5A1F9610BF0031F22B /* LogregisterController.h */,
 				0662AB5B1F9610BF0031F22B /* LogregisterController.m */,
-				C48C624E20467EC400FA6E0A /* LogregisterController.xib */,
+				C4080A982047C161001305C9 /* LogregisterController.xib */,
 			);
 			path = LogregisterHomePage;
 			sourceTree = "<group>";
@@ -4576,7 +4576,6 @@
 				C48C61C42046755400FA6E0A /* YueTixianController.xib in Resources */,
 				C427F67D202419C900364CBF /* NoDataView.xib in Resources */,
 				C4AD0752200C7A5D00B8FF6E /* .gitkeep in Resources */,
-				C48C624C20467EC400FA6E0A /* LogregisterController.xib in Resources */,
 				C47212AC1FB18A4E0055578E /* SettingViewController.xib in Resources */,
 				C48C622220467D5F00FA6E0A /* RefundServiceCell.xib in Resources */,
 				06F572291F9F1E8700D61FDB /* OrderDetailViewController.xib in Resources */,
@@ -4642,6 +4641,7 @@
 				064449A61F6A9B250004DFE4 /* LICENSE in Resources */,
 				C4411DA9200F626200CE906F /* loading1.png in Resources */,
 				C48C619A2046608C00FA6E0A /* BindingIntroduce.xib in Resources */,
+				C4080A962047C161001305C9 /* LogregisterController.xib in Resources */,
 				C42A173E1FF2532400680F92 /* BetTableViewMyCell2.xib in Resources */,
 				C47E76521FB5A42F009F279A /* ClassificationViewController.xib in Resources */,
 				063FE0521F614D24009910FF /* Assets.xcassets in Resources */,
@@ -5126,6 +5126,16 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		C4080A982047C161001305C9 /* LogregisterController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4080A972047C161001305C9 /* Base */,
+				C4080A9E2047C4D6001305C9 /* zh-Hans */,
+				C4080AA02047C4D8001305C9 /* zh-Hant */,
+			);
+			name = LogregisterController.xib;
+			sourceTree = "<group>";
+		};
 		C427F67F202419C900364CBF /* NoDataView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -5583,22 +5593,12 @@
 			name = LoginController.xib;
 			sourceTree = "<group>";
 		};
-		C48C624E20467EC400FA6E0A /* LogregisterController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C48C624D20467EC400FA6E0A /* Base */,
-				C48C625020467EC500FA6E0A /* zh-Hans */,
-				C48C625220467EC700FA6E0A /* zh-Hant */,
-			);
-			name = LogregisterController.xib;
-			sourceTree = "<group>";
-		};
 		C48C62552046BC7F00FA6E0A /* DialogBox.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C48C62542046BC7F00FA6E0A /* Base */,
-				C48C62572046BC8200FA6E0A /* zh-Hant */,
-				C48C62592046BC8600FA6E0A /* zh-Hans */,
+				C4080AA42047CEEC001305C9 /* zh-Hans */,
+				C4080AA62047CEEE001305C9 /* zh-Hant */,
 			);
 			name = DialogBox.xib;
 			sourceTree = "<group>";
@@ -5718,6 +5718,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JT9N8KHK2P;
 				ENABLE_BITCODE = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -5733,7 +5736,10 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ddaygo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -5743,6 +5749,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JT9N8KHK2P;
 				ENABLE_BITCODE = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -5758,7 +5766,9 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ddaygo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

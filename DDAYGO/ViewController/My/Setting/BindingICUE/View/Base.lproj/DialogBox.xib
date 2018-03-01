@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -78,7 +78,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plp******369" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftp-6n-Nrn">
-                                    <rect key="frame" x="78.5" y="63" width="94" height="18"/>
+                                    <rect key="frame" x="81" y="63" width="89.5" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -153,13 +153,13 @@
             </constraints>
             <connections>
                 <outlet property="BGView" destination="nSi-QD-wlC" id="sgn-ff-TQ8"/>
+                <outlet property="TtitleLabel" destination="aH1-8e-3kv" id="ttr-eM-9wU"/>
                 <outlet property="cancelBtn" destination="IwU-dV-HBR" id="MDg-Fx-qdH"/>
                 <outlet property="dialogView" destination="zEa-kZ-ByU" id="2Aa-zh-2Zw"/>
                 <outlet property="ensureBtn" destination="8xP-9W-v0o" id="sQJ-MM-T4E"/>
                 <outlet property="icucView" destination="s4f-Ge-OGF" id="9Tj-Bg-fhp"/>
                 <outlet property="textfield" destination="LGW-fB-bxe" id="wcb-oo-rQR"/>
                 <outlet property="textfileBottomView" destination="AwW-WI-eAs" id="Ug4-Qp-2xp"/>
-                <outlet property="titleLabel" destination="aH1-8e-3kv" id="a1c-1p-R9e"/>
             </connections>
             <point key="canvasLocation" x="61.5" y="59.5"/>
         </view>

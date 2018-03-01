@@ -90,7 +90,7 @@
 "Product content" = "产品内容";
 "Product evaluation" = "产品评价";
 "After-sales service" = "售后服务";
-"Is no comment" = "没有评价内容哦";
+"Is no comment" = "没有评价内容";
 "Shop introduced" = "店铺介绍";
 "Satisfaction survey" = "满意度调查";
 "Please login account" = "请登录账户";
@@ -314,7 +314,7 @@
 "Email format error" = "邮箱地址格式错误";
 "mailbox address has been bound." = "邮箱地址已被绑定";
 "Email failed" = "邮件发送失败";
-"referrer" = "绑定推荐人";
+"referrer" = "绑定介绍人";
 "introducer will not be able to change once it is bound. Are you sure you want to bind this reference?" = "介绍人一旦绑定将无法更改,您确定要绑定此介绍人吗?";
 "Binding failure" = "绑定失败";
 "Exception information" = "异常讯息";
@@ -455,7 +455,7 @@
 "winningNumbLabel2" = "5个白球";
 "winningNumbLabel3" = "4个白球";
 "winningNumbLabel4" = "3个白球";
-"" = "";
+"TtitleLabe" = "修改昵称";
 "" = "";
 "" = "";
 "" = "";
@@ -528,7 +528,7 @@
 "Email format error" = "邮箱格式错误";
 "mailbox has been bound." = "邮箱以被绑定";
 "Mailbox validation letter delivery failed." = "邮箱验证信投递失败";
-"ICUEQuick login" = "ICUE快速登录";
+"ICUEQuick login" = "ICUE账户快速登录";
 "ZPPswTextField" = "请输入长度为6-20位的英数字";
 "" = "";
 "" = "";

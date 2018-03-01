@@ -30,12 +30,11 @@
     _textfield.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
     self.BGView.userInteractionEnabled = YES;
     self.hidden = YES;
-    
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyBoardFrameChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
     //监听键盘隐藏
         [[NSNotificationCenter defaultCenter]addObserver:self
                                                        selector:@selector(keybaordhide:)
-                                                           name:UIKeyboardWillHideNotification object:nil];
+                                                      name:UIKeyboardWillHideNotification object:nil];
 }
 
 //当观察到键盘发生变化的通知后,就调用的方法
@@ -133,7 +132,6 @@
 }
 //  键盘弹起
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent *)event{
-    
     [self.textfield endEditing:YES];
     
 }

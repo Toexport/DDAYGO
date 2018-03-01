@@ -99,7 +99,7 @@
 "Product content" = "產品內容";
 "Product evaluation" = "產品評價";
 "After-sales service" = "售後服務";
-"Is no comment" = "暫無評價內容哦";
+"Is no comment" = "暫無評價內容";
 "Shop introduced" = "店鋪介紹";
 "Satisfaction survey" = "滿意度調查";
 "Please login account" = "請登錄賬號";
@@ -333,7 +333,7 @@
 "Email format error" = "郵箱地址格式錯誤";
 "mailbox address has been bound." = "郵箱地址已被綁定";
 "Email failed" = "郵件發送失敗";
-"referrer" = "綁定推薦人";
+"referrer" = "綁定介紹人";
 "introducer will not be able to change once it is bound. Are you sure you want to bind this reference?" = "介紹人一旦绑定后将无法更改，您确定要绑定此介紹人吗？";
 "Binding failure" = "綁定失敗";
 "Exception information" = "異常訊息";
@@ -358,6 +358,7 @@
 "Fax (optional):" = "公司傳真(選填):";
 "Company telephone:" = "公司電話:";
 "Company address:" = "公司地址:";
+
 "Organization form:" = "組織形態:";
 "Date of establishment:" = "創立日期:";
 "Injection capital:" = "註冊資本:";
@@ -432,7 +433,7 @@
 "Fill" = "填寫";
 "History submission number" = "歷史提交號碼";
 "Wager number" = "本期下注號碼";
-"Lottery to fill out" = "促销彩填寫";
+"Lottery to fill out" = "促銷彩填寫";
 "random" = "機選";
 "Red ball: one," = "紅球:1個,";
 "selected" = "已選";
@@ -541,7 +542,8 @@
 "Email format error" = "郵箱格式錯誤";
 "mailbox has been bound." = "郵箱已被綁定";
 "Mailbox validation letter delivery failed." = "郵箱驗證信投遞失敗";
-"ICUEQuick login" = "ICUE快速登錄";
+"ICUEQuick login" = "ICUE账户快速登錄";
+"TtitleLabe" = "修改暱稱";
 "" = "";
 "" = "";
 "" = "";

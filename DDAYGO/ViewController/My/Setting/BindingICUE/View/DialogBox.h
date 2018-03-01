@@ -18,7 +18,7 @@ typedef void (^FinishBlock)(id response);
 @property (weak, nonatomic) IBOutlet UIView *dialogView;
 //  修改昵称
 @property (weak, nonatomic) IBOutlet UIView * BGView;
-@property (weak, nonatomic) IBOutlet UILabel * titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel * TtitleLabel;
 @property (weak, nonatomic) IBOutlet UIView * textfileBottomView;
 @property (weak, nonatomic) IBOutlet UITextField * textfield;
 @property (weak, nonatomic) IBOutlet UIButton * cancelBtn;
