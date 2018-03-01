@@ -790,13 +790,13 @@
                     _stockids = [_stockids stringByAppendingString:[NSString stringWithFormat:@",%@",str]];
                 }else{
                     _stockids = str;
-                }            }
+                }
+                
+            }
         }
-        
     }else{
         ZP_CartsShopModel * models = self.nameArray[but.tag - 666];
         if (!_bjBool) {
-            
             for (int i = 0; i < models.array.count; i ++) {
                 ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:but.tag - 666]];
                 cell.buttom.selected = NO;
@@ -805,14 +805,14 @@
             [self.ClearingButt setTitle:[NSString stringWithFormat:NSLocalizedString(@"Complete", nil)] forState: UIControlStateNormal];
             self.PriceLabel.text = @"0";
             allNum = 0;
-        }else{
+        }else {
+            
             for (int i = 0; i < models.array.count; i ++) {
                 EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:but.tag - 666]];
                 cell.button.selected = NO;
                 _modelstockid = nil;
             }
         }
-        
     }
     [self updataMoneyOrNum];
 }
@@ -873,7 +873,6 @@
         return;
     }
     but.selected = !but.selected;
-    
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [self.nameArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [dic setObject:obj forKey:@(idx)];
@@ -929,8 +928,8 @@
                     }
                 }else{
                     data = 0;
-                    dataCount= 0;
-                    count =0;
+                    dataCount = 0;
+                    count = 0;
                     
                 }
 //                NSString *str = [NSString stringWithFormat:@"%@_%@",model2.stockid,model2.amount];

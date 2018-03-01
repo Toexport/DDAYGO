@@ -800,8 +800,8 @@
 		C4080A972047C161001305C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LogregisterController.xib; sourceTree = "<group>"; };
 		C4080A9E2047C4D6001305C9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LogregisterController.strings"; sourceTree = "<group>"; };
 		C4080AA02047C4D8001305C9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LogregisterController.strings"; sourceTree = "<group>"; };
-		C4080AA42047CEEC001305C9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DialogBox.strings"; sourceTree = "<group>"; };
-		C4080AA62047CEEE001305C9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/DialogBox.strings"; sourceTree = "<group>"; };
+		C4080AA82047D2A4001305C9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DialogBox.strings"; sourceTree = "<group>"; };
+		C4080AAA2047D2A7001305C9 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/DialogBox.strings"; sourceTree = "<group>"; };
 		C409F86B1FA17336009DE7B1 /* SixthViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixthViewCell.h; sourceTree = "<group>"; };
 		C409F86C1FA17336009DE7B1 /* SixthViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixthViewCell.m; sourceTree = "<group>"; };
 		C409F8701FA1758E009DE7B1 /* ZP_SixthModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZP_SixthModel.h; sourceTree = "<group>"; };
@@ -5597,8 +5597,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				C48C62542046BC7F00FA6E0A /* Base */,
-				C4080AA42047CEEC001305C9 /* zh-Hans */,
-				C4080AA62047CEEE001305C9 /* zh-Hant */,
+				C4080AA82047D2A4001305C9 /* zh-Hans */,
+				C4080AAA2047D2A7001305C9 /* zh-Hant */,
 			);
 			name = DialogBox.xib;
 			sourceTree = "<group>";

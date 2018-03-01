@@ -21,6 +21,7 @@
 #import "DDGTool.h"
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource> {
     int _i;
+    NSString * strr;
 }
 @property (nonatomic, strong) UIButton * chooseCityBtn;
 @property (nonatomic, strong) NSArray * newsData2;
@@ -254,14 +255,12 @@
 - (void)allData {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView.mj_header endRefreshing];
-        //        [self.tableView.mj_footer endRefreshing];
     });
     [ZP_HomeTool requestSellLikeHotCakes:nil success:^(id obj) {
         ZPLog(@"%@",obj);
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];  // 結束刷新
     } failure:^(NSError *error) {
-        
         ZPLog(@"%@",error);
         //        [SVProgressHUD showInfoWithStatus: NSLocalizedString(@"Server link failed", nil)];
     }];
@@ -272,7 +271,8 @@
     NSNumber * sendCode;
     if ([code intValue] > 0) {
         sendCode = code;
-    }else {
+    }
+    else {
         sendCode = @886;
     }
     NSDictionary * dict = @{@"count":@"6",@"countrycode":sendCode};

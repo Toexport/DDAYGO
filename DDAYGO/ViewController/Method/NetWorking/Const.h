@@ -31,7 +31,7 @@ extern NSString * Symbol;
 /**
  *
  */
-extern NSString * countrycode;
+extern NSString * countrycode; // 国家编码
 
 /**
  * 供货商ID
