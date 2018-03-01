@@ -47,9 +47,20 @@
     }];
 }
 
+//// 精选商品
+//+(void)requSelectLikeHotCakes:(NSDictionary *)jx success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+//
+//    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@%@",URLAPI,NewsReleaseAPI] parameters:jx success:^(id responseObject) {
+//        success(responseObject);
+//
+//    } failure:^(NSError *error) {
+//
+//        failure(error);
+//    }];
+//}
+
 // 精选商品
 +(void)requSelectLikeHotCakes:(NSDictionary *)jx success:(void (^)(id))success failure:(void (^)(NSError *))failure {
-    
     [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@%@",URLAPI,NewsReleaseAPI] parameters:jx success:^(id responseObject) {
         success(responseObject);
         
@@ -58,5 +69,4 @@
         failure(error);
     }];
 }
-
 @end

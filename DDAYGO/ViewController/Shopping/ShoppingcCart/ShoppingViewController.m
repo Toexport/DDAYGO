@@ -890,6 +890,7 @@
                 ZP_CartsModel * model2 = model.array[i];
                 cell.buttom.selected = but.selected;
                 if (but.selected) {
+                    self.CurrencySymbolLabel.hidden = NO;
                     dataCount += [cell.QuantityLabel.text integerValue];
                     data += [cell.QuantityLabel.text integerValue] * [model2.productprice floatValue];
                     count ++;

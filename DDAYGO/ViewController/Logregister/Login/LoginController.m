@@ -75,14 +75,14 @@
 
 // 确定按钮
 - (IBAction)LoginClick:(id)sender {
-//    //  设置时间和动画效果
-//    [UIView animateWithDuration:4.0 animations:^{
-//        [SVProgressHUD showWithStatus:@"正在登录..."];
-//        [self allData];
-//    } completion:^(BOOL finished) {
-//        //  动画完毕从父视图移除
-//
-//    }];
+    //    //  设置时间和动画效果
+    //    [UIView animateWithDuration:4.0 animations:^{
+    //        [SVProgressHUD showWithStatus:@"正在登录..."];
+    //        [self allData];
+    //    } completion:^(BOOL finished) {
+    //        //  动画完毕从父视图移除
+    //
+    //    }];
     [SVProgressHUD showWithStatus: MyLocal(@"Logging in...")];
     [self allData];
 }
@@ -107,6 +107,7 @@
             [[NSUserDefaults standardUserDefaults] setObject:aadic[@"result"] forKey:@"result"]; // 是否是供货商
             [[NSUserDefaults standardUserDefaults] synchronize];
             [[NSUserDefaults standardUserDefaults] setObject:aadic[@"countrycode"] forKey:@"countrycode"];  // 国别缓存本地
+            [[NSUserDefaults standardUserDefaults] setObject:aadic[@"countryname"] forKey:@"countryname"];  // 国名本地
             [[NSNotificationCenter defaultCenter] postNotificationName:@"changeStaus" object:nil userInfo:@{@"countryname":obj[@"countryname"]}];
             [[NSUserDefaults standardUserDefaults] synchronize];  // 国别缓存本地
             [SVProgressHUD showSuccessWithStatus:MyLocal(@"Login successful")];

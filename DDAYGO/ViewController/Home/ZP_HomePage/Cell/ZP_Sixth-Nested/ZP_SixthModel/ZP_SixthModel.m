@@ -28,6 +28,17 @@
 }
 
 + (NSMutableArray *)arrayWithArray:(NSArray *)array {
+//    NSMutableArray * arr = [[NSMutableArray alloc]init];
+//    for (NSDictionary * dic in array) {
+//        ZP_SixthModel * model = [[ZP_SixthModel alloc]init];
+//        model.defaultimg = [NSString stringWithFormat:@"%@%@",ImgAPI,dic[@"defaultimg"]];
+//        model.productname = dic[@"productname"];
+//        model.productid = dic[@"productid"];
+//        model.PreferentialLabel = [NSString stringWithFormat:@"%@", dic[@"productprice"]];
+//        model.TrademarkLabel = [NSString stringWithFormat:@"%@", dic[@"cp"]];
+//        [arr addObject:model];
+//    }
+//    return arr;
     NSMutableArray * arr = [[NSMutableArray alloc]init];
     for (NSDictionary * dic in array) {
         ZP_SixthModel * model = [[ZP_SixthModel alloc]init];

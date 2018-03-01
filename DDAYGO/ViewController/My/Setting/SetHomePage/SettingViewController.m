@@ -114,7 +114,6 @@
         self.dataDic[@"birthday"] = obj[@"birthday"];
         self.dataDic[@"phone"] = obj[@"phone"];
         self.dataDic[@"address"] = obj[@"address"];
-        
         if ([obj[@"sex"] isEqualToString: @"男"]) {
             _genderBooy.selected = YES;
         }else{

@@ -23,6 +23,7 @@
     int _i;
     NSString * strr;
 }
+@property (nonatomic, assign) NSInteger countryCode;
 @property (nonatomic, strong) UIButton * chooseCityBtn;
 @property (nonatomic, strong) NSArray * newsData2;
 @property (nonatomic, strong) NSArray * newsData;
@@ -43,13 +44,24 @@
     [self initUI];
     [self searchBox];
     [self registration];
-    [self FifthallData:CountCode];
-    [self SixthAllData:CountCode];
     [self addRefresh];
-    [self getadvertlist:CountCode];
-    [self bestSelling:CountCode];
-    [self getNewsAlldata:CountCode];
+    [self getDataSource];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeStaus:) name:@"changeStaus" object:nil];
+}
+
+- (void)getDataSource{
+    self.countryCode = [[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue];
+    if (self.countryCode>0) {
+        self.countryCode = [[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue];
+    }else{
+        self.countryCode = 886;
+    }
+    
+    [self getadvertlist:886];
+    [self bestSelling:886];
+    [self getNewsAlldata:886];
+    [self FifthallData:self.countryCode];
+    [self SixthAllData:self.countryCode];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -63,6 +75,7 @@
     } else {
         [self.chooseCityBtn setTitle:MyLocal(@"Taiwan") forState:UIControlStateNormal];
     }
+    [self getDataSource];
 }
 
 // UI
@@ -92,11 +105,15 @@
     self.chooseCityBtn.frame = CGRectMake(0, 0, 35.0f, 25.0f);
     self.chooseCityBtn.titleLabel.font = ZP_TooBarFont;
     [self.chooseCityBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"]) {
-        [self.chooseCityBtn setTitle:[[NSUserDefaults standardUserDefaults] objectForKey:@"countryname"] forState:UIControlStateNormal];
-    } else {
+    NSString * countryname = [[NSUserDefaults standardUserDefaults] objectForKey:@"countryname"];
+    if (countryname.length>0) {
+        NSString * countryname = [[NSUserDefaults standardUserDefaults] objectForKey:@"countryname"];
+        [self.chooseCityBtn setTitle:countryname forState:UIControlStateNormal];
+    }else{
         [self.chooseCityBtn setTitle:MyLocal(@"Taiwan") forState:UIControlStateNormal];
     }
+    self.countryCode = [[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue];
+    
     [self.chooseCityBtn setImage:[UIImage imageNamed:@"ic_home_down"] forState:(UIControlStateNormal)];
     [self.chooseCityBtn setNeedsLayout];
     self.chooseCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -108,10 +125,10 @@
 - (void)addRefresh {
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         //        [self.SixthArrData removeAllObjects];
-        [self FifthallData:CountCode];  //带参数刷新
+        [self FifthallData:self.countryCode];  //带参数刷新
         _i = 0;
         [self allData];
-        [self FifthallData:CountCode];  //带参数刷新
+        [self FifthallData:self.countryCode];  //带参数刷新
     }];
 }
 
@@ -153,10 +170,9 @@
                 [viewController.chooseCityBtn setTitle:MyLocal(ContStr) forState:UIControlStateNormal];
                 CountCode = code;
                 [viewController.chooseCityBtn sizeToFit];
-                
-                [viewController SixthAllData:code];
-                [viewController FifthallData:code];
-                [[NSUserDefaults standardUserDefaults] setObject:code forKey:@"countrycode"];
+                [[NSUserDefaults standardUserDefaults] setObject:code forKey:@"countrycode"];  // 国别缓存本地
+                [[NSUserDefaults standardUserDefaults] setObject:ContStr forKey:@"countryname"];  // 国名本地
+                [viewController getDataSource];
             };
             //  显示
             [self.position showInView:self.navigationController.view];
@@ -192,16 +208,8 @@
 }
 
 // 74) 查询广告列表(轮播图)
-- (void)getadvertlist:(NSNumber *)code {
-    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    NSNumber * sendCode;
-    if ([code intValue] > 0) {
-        sendCode = code;
-    }else {
-        sendCode = @886;
-    }
-    dic[@"countrycode"] = sendCode;
-    dic[@"adcode"] = @"AD001";
+- (void)getadvertlist:(NSInteger)code {
+    NSDictionary * dic = @{@"countrycode":@(code),@"adcode":@"AD001"};
     [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
         ZPLog(@"%@",obj);
         self.bannerArray = [ZP_ZeroModel mj_objectArrayWithKeyValuesArray:obj];
@@ -212,18 +220,13 @@
 }
 
 // 74) 热销商品广告列表(轮播图)
-- (void)bestSelling:(NSNumber *)code {
+- (void)bestSelling:(NSInteger)code {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    NSNumber * sendCode;
-    if ([code intValue] > 0) {
-        sendCode = code;
-    }else {
-        sendCode = @886;
-    }
-    dic[@"countrycode"] = sendCode;
+    dic[@"countrycode"] = @(code);
     dic[@"adcode"] = @"AD004";
     [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
         ZPLog(@"%@",obj);
+        self.ForurthArray = [[NSMutableArray alloc]init];
         self.ForurthArray = [ZP_ZeroModel mj_objectArrayWithKeyValuesArray:obj];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
@@ -232,17 +235,13 @@
 }
 
 // 获取首页4张大图片
-- (void)getNewsAlldata:(NSNumber *)code {
+- (void)getNewsAlldata:(NSInteger)code {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    NSNumber * sendCode;
-    if ([code intValue] > 0) {
-        sendCode = code;
-    }else {
-        sendCode = @886;
-    }
-    dic[@"countrycode"] = sendCode;
+    
+    dic[@"countrycode"] = @(code);
     dic[@"adcode"] = @"AD003";
     [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
+        self.SecondArray = [[NSMutableArray alloc]init];
         self.SecondArray = [ZP_ZeroModel mj_objectArrayWithKeyValuesArray:obj];
         ZPLog(@"%@",obj);
         [self.tableView reloadData];
@@ -267,19 +266,15 @@
 }
 
 // FifthAlldata
-- (void)FifthallData:(NSNumber *)code {
-    NSNumber * sendCode;
-    if ([code intValue] > 0) {
-        sendCode = code;
-    }
-    else {
-        sendCode = @886;
-    }
-    NSDictionary * dict = @{@"count":@"6",@"countrycode":sendCode};
+- (void)FifthallData:(NSInteger)code {
+    
+    NSDictionary * dict = @{@"count":@"6",@"countrycode":@(code)};
     [ZP_HomeTool requestSellLikeHotCakes:dict success:^(id obj) {
         ZPLog(@"%@",obj);
         NSArray * arr = obj;
         NSArray * arra = [ZP_FifthModel arrayWithArray:arr];
+        self.newsData = [[NSMutableArray alloc]init];
+        self.newsData2 = [[NSMutableArray alloc]init];
         if (arra.count >= 2) {
             self.newsData2 = [arra subarrayWithRange:NSMakeRange(0, 2)];
             if (arra.count >2) {
@@ -290,23 +285,19 @@
             self.newsData = arra;
         }
         [self.tableView reloadData];
+        
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
     }];
 }
 
 // SixthArrData
-- (void)SixthAllData:(NSNumber *)code {
-    NSNumber * sendCode;
-    if ([code intValue] > 0) {
-        sendCode = code;
-    }else{
-        sendCode = @886;
-    }
-    NSDictionary * dict = @{@"acount":@"6",@"countrycode":sendCode};
+- (void)SixthAllData:(NSInteger)code {
+    NSDictionary * dict = @{@"acount":@"6",@"countrycode":@(code)};
     [ZP_HomeTool requSelectLikeHotCakes:dict success:^(id obj) {
         NSArray * arr = obj;
         ZPLog(@"%@",arr);
+//        self.SixthArrData = [[NSMutableArray alloc]init];
         self.SixthArrData = [ZP_SixthModel arrayWithArray:arr];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
@@ -490,3 +481,4 @@
     return v;
 }
 @end
+

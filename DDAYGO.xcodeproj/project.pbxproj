@@ -4483,7 +4483,7 @@
 				TargetAttributes = {
 					063FE0411F614D24009910FF = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = JT9N8KHK2P;
+						DevelopmentTeam = CA38D2XZWC;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -5721,7 +5721,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JT9N8KHK2P;
+				DEVELOPMENT_TEAM = CA38D2XZWC;
 				ENABLE_BITCODE = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -5734,7 +5734,7 @@
 					"-ObjC",
 				);
 				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ddaygo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ddaygo.ddaygo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5751,7 +5751,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JT9N8KHK2P;
+				DEVELOPMENT_TEAM = CA38D2XZWC;
 				ENABLE_BITCODE = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -5764,7 +5764,7 @@
 					"-ObjC",
 				);
 				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ddaygo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ddaygo.ddaygo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
