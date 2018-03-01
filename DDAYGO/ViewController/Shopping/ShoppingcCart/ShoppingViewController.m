@@ -341,7 +341,7 @@
 //    CurrencySymbolLabel.text = DD_MonetarySymbol;
     [bottomView addSubview:CurrencySymbolLabel];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(PriceLabel).offset(-20);
+        make.right.mas_equalTo(PriceLabel.mas_left);
         make.top.equalTo(PriceLabel).offset(0);
         make.width.mas_equalTo(0);
     }];
@@ -352,7 +352,7 @@
     StatisticsLabel.text = NSLocalizedString(@"Total", nil);
     [bottomView addSubview:StatisticsLabel];
     [StatisticsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(CurrencySymbolLabel).offset(-20); // 左边
+        make.right.mas_equalTo(CurrencySymbolLabel.mas_left);
         make.bottom.equalTo(CurrencySymbolLabel).offset(0); // 下
     }];
     _StatisticsLabel = StatisticsLabel;
