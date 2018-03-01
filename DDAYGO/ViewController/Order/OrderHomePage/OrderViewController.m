@@ -22,7 +22,6 @@
 @implementation OrderViewController
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
     self.title = NSLocalizedString(@"Order", nil);
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
