@@ -18,6 +18,7 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
     [NSNotification notificationWithName:@"changeStaus" object:nil];
+    
     ZPICUEToken = nil;
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];

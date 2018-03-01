@@ -166,11 +166,11 @@
                 if ([dic[@"result"] isEqualToString:@"ok"]) {
                     [ZP_LoginTool getAccountInfo:Token success:^(id obj) {
                         NSDictionary * tempDic = obj;
-                        [[NSUserDefaults standardUserDefaults] setObject:obj[@"countryname"] forKey:@"countryname"];
-                        [[NSNotificationCenter defaultCenter] postNotificationName:@"changeStaus" object:nil userInfo:@{@"countryname":obj[@"countryname"]}];
                         if (tempDic.allKeys.count > 1) {
                             NSDictionary * asdic = @{@"address":tempDic[@"address"],@"aid":tempDic[@"aid"],@"avatarimg":tempDic[@"avatarimg"],@"countrycode":tempDic[@"countrycode"],@"email":tempDic[@"email"],@"nickname":tempDic[@"nickname"],@"phone":tempDic[@"phone"],@"realname":tempDic[@"realname"],@"sex":tempDic[@"sex"],@"state":tempDic[@"state"]};
                             [[NSUserDefaults standardUserDefaults] setObject:asdic forKey:@"userInfo"];
+                            [[NSUserDefaults standardUserDefaults] setObject:obj[@"countryname"] forKey:@"countryname"];
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"changeStaus" object:nil userInfo:@{@"countryname":obj[@"countryname"]}];
                         }
                         if (success) {
                             success(nil);

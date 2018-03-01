@@ -185,6 +185,7 @@
         UIAlertAction *sureAction = [UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [DDGTool logout];
+            DD_ChangeStaus;
         }];
         
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"Cancel") style:UIAlertActionStyleCancel handler:nil];
