@@ -29,9 +29,14 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"Language"] && ![[[NSUserDefaults standardUserDefaults] objectForKey:@"Language"] isEqualToString:@""]) {
-        [NSBundle setLanguage:[[NSUserDefaults standardUserDefaults] objectForKey:@"Language"]];
+    NSString *current = [NSLocale preferredLanguages][0];
+    
+    if (![current isEqualToString:@"zh-Hant"] && ![current isEqualToString:@"zh-Hans"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:@[@"zh-Hant"] forKey:@"AppleLanguages"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hant" forKey:@"Language"];
+        [NSBundle setLanguage:@"zh-Hant"];
     }
+    
     [IQKeyboardManager sharedManager].enable = YES;
     [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
     

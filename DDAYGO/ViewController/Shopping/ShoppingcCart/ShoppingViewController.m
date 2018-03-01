@@ -182,6 +182,9 @@
                 _selectArray = nil;
                 _AllButton.selected = NO;
                 _PriceLabel.text = @"0";
+                [_CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.width.mas_equalTo(0);
+                }];
                 self.navigationController.tabBarItem.badgeValue = nil;
                 [self.tableView reloadData];
                 
@@ -213,9 +216,11 @@
     _bjBool = YES;
     _AllButton.selected = NO;
     _StatisticsLabel.hidden = YES;
-    _CurrencySymbolLabel.hidden = YES;
     _FreightLabel.hidden = YES;
     _PriceLabel.hidden = YES;
+    [_CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(0);
+    }];
     _ClearingButt.selected = YES;
     [self.ClearingButt setTitle:NSLocalizedString(@"delete",nil) forState: UIControlStateNormal];
     [self.cartButton setTitle:NSLocalizedString(@"Complete", nil) forState:UIControlStateNormal];
@@ -227,7 +232,6 @@
     _StatisticsLabel.hidden = NO;
     _PriceLabel.hidden = NO;
     _FreightLabel.hidden = NO;
-    _CurrencySymbolLabel.hidden = NO;
     _ClearingButt.selected = NO;
     [self.cartButton setTitle:NSLocalizedString(@"Edit", nil) forState:UIControlStateNormal];
     [self.ClearingButt setTitle:NSLocalizedString(@"Clearing", nil) forState: UIControlStateNormal];
@@ -339,6 +343,7 @@
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(PriceLabel).offset(-20);
         make.top.equalTo(PriceLabel).offset(0);
+        make.width.mas_equalTo(0);
     }];
     _CurrencySymbolLabel = CurrencySymbolLabel;
     
@@ -398,7 +403,9 @@
         cell.buttom.selected = sender.selected;
     }
     else {
-        self.CurrencySymbolLabel.hidden = NO;
+        [_CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(15);
+        }];
         EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
         cell.button.selected = sender.selected;
     }
@@ -528,6 +535,9 @@
     
     //   更新合计数据
     self.PriceLabel.text = [@(data) stringValue];
+    [_CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(15);
+    }];
     if (_bjBool) {
         [self.ClearingButt setTitle:NSLocalizedString(@"delete", nil) forState: UIControlStateNormal];
     }else{
@@ -769,6 +779,9 @@
             }
             [self.ClearingButt setTitle:[NSString stringWithFormat:NSLocalizedString(@"Clearing(%ld)", nil),(long)dataCount] forState: UIControlStateNormal];
             self.PriceLabel.text = [@(data) stringValue];
+            [_CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.width.mas_equalTo(15);
+            }];
             allNum = dataCount;
         }else{
             for (int i = 0; i < models.array.count; i ++) {
@@ -890,7 +903,9 @@
                 ZP_CartsModel * model2 = model.array[i];
                 cell.buttom.selected = but.selected;
                 if (but.selected) {
-                    self.CurrencySymbolLabel.hidden = NO;
+                    [_CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.width.mas_equalTo(15);
+                    }];
                     dataCount += [cell.QuantityLabel.text integerValue];
                     data += [cell.QuantityLabel.text integerValue] * [model2.productprice floatValue];
                     count ++;
@@ -950,6 +965,9 @@
     }
     
     self.PriceLabel.text = [@(data) stringValue];
+    [_CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(15);
+    }];
     if (_bjBool) {
         [self.ClearingButt setTitle: NSLocalizedString(@"delete", nil) forState: UIControlStateNormal];
     }else{
@@ -1021,6 +1039,9 @@
         }
     }
     self.PriceLabel.text = [@(data) stringValue];
+    [_CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(15);
+    }];
     if (_bjBool) {
         [self.ClearingButt setTitle: NSLocalizedString(@"delete", nil) forState: UIControlStateNormal];
     }else{

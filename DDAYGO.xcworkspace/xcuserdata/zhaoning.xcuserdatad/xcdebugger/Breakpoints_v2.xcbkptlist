@@ -13,5 +13,389 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+            timestampString = "541612949.02267"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "538"
+            endingLineNumber = "538"
+            landmarkName = "-updateDataa:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ShoppingViewController updateDataa:]"
+                  moduleName = "DDAYGO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaoning/Desktop/DDAYGO/DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+                  timestampString = "541612949.213402"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "538"
+                  endingLineNumber = "538"
+                  offsetFromSymbolStart = "3418">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__38-[ShoppingViewController updateDataa:]_block_invoke"
+                  moduleName = "DDAYGO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaoning/Desktop/DDAYGO/DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+                  timestampString = "541612949.217378"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "539"
+                  endingLineNumber = "539"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+            timestampString = "541612949.023254"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "782"
+            endingLineNumber = "782"
+            landmarkName = "-sectionShop:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ShoppingViewController sectionShop:]"
+                  moduleName = "DDAYGO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaoning/Desktop/DDAYGO/DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+                  timestampString = "541612949.228404"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "782"
+                  endingLineNumber = "782"
+                  offsetFromSymbolStart = "2149">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__38-[ShoppingViewController sectionShop:]_block_invoke"
+                  moduleName = "DDAYGO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaoning/Desktop/DDAYGO/DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+                  timestampString = "541612949.231007"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "783"
+                  endingLineNumber = "783"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+            timestampString = "541612949.0242569"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "906"
+            endingLineNumber = "906"
+            landmarkName = "-selectaAllClick:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ShoppingViewController selectaAllClick:]"
+                  moduleName = "DDAYGO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaoning/Desktop/DDAYGO/DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+                  timestampString = "541612949.241231"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "906"
+                  endingLineNumber = "906"
+                  offsetFromSymbolStart = "1430">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__42-[ShoppingViewController selectaAllClick:]_block_invoke.688"
+                  moduleName = "DDAYGO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaoning/Desktop/DDAYGO/DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+                  timestampString = "541612949.2455519"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "907"
+                  endingLineNumber = "907"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+            timestampString = "541612949.025183"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "968"
+            endingLineNumber = "968"
+            landmarkName = "-selectaAllClick:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ShoppingViewController selectaAllClick:]"
+                  moduleName = "DDAYGO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaoning/Desktop/DDAYGO/DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+                  timestampString = "541612949.252978"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "968"
+                  endingLineNumber = "968"
+                  offsetFromSymbolStart = "4390">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__42-[ShoppingViewController selectaAllClick:]_block_invoke_2"
+                  moduleName = "DDAYGO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaoning/Desktop/DDAYGO/DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+                  timestampString = "541612949.256515"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "969"
+                  endingLineNumber = "969"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+            timestampString = "541612949.025895"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1042"
+            endingLineNumber = "1042"
+            landmarkName = "-updataMoneyOrNum"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ShoppingViewController updataMoneyOrNum]"
+                  moduleName = "DDAYGO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaoning/Desktop/DDAYGO/DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+                  timestampString = "541612949.26421"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1042"
+                  endingLineNumber = "1042"
+                  offsetFromSymbolStart = "4075">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__42-[ShoppingViewController updataMoneyOrNum]_block_invoke.696"
+                  moduleName = "DDAYGO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaoning/Desktop/DDAYGO/DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+                  timestampString = "541612949.268047"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1043"
+                  endingLineNumber = "1043"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+            timestampString = "541612949.026477"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "-allData"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__33-[ShoppingViewController allData]_block_invoke"
+                  moduleName = "DDAYGO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaoning/Desktop/DDAYGO/DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+                  timestampString = "541612949.275517"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "185"
+                  endingLineNumber = "185"
+                  offsetFromSymbolStart = "3728">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__33-[ShoppingViewController allData]_block_invoke.232"
+                  moduleName = "DDAYGO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaoning/Desktop/DDAYGO/DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+                  timestampString = "541612949.278646"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "186"
+                  endingLineNumber = "186"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+            timestampString = "541612949.027014"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "-beginEditing"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ShoppingViewController beginEditing]"
+                  moduleName = "DDAYGO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaoning/Desktop/DDAYGO/DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+                  timestampString = "541612949.286023"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "221"
+                  endingLineNumber = "221"
+                  offsetFromSymbolStart = "214">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__38-[ShoppingViewController beginEditing]_block_invoke"
+                  moduleName = "DDAYGO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaoning/Desktop/DDAYGO/DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+                  timestampString = "541612949.289295"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "222"
+                  endingLineNumber = "222"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+            timestampString = "541612949.027495"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "406"
+            endingLineNumber = "406"
+            landmarkName = "-selectClick:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ShoppingViewController selectClick:]"
+                  moduleName = "DDAYGO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaoning/Desktop/DDAYGO/DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+                  timestampString = "541612949.297513"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "406"
+                  endingLineNumber = "406"
+                  offsetFromSymbolStart = "825">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__38-[ShoppingViewController selectClick:]_block_invoke"
+                  moduleName = "DDAYGO"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhaoning/Desktop/DDAYGO/DDAYGO/ViewController/Shopping/ShoppingcCart/ShoppingViewController.m"
+                  timestampString = "541612949.302631"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "407"
+                  endingLineNumber = "407"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
