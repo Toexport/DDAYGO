@@ -109,7 +109,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.TitleArray.count;
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellid = @"ssss";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
@@ -117,9 +116,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    
     if (!self.noNeed) {
-        
         NSString * la = [[NSUserDefaults standardUserDefaults] objectForKey:@"Language"];
         if ([la isEqualToString:@"zh-Hans"] && indexPath.row == 0) {
             self.noNeed = YES;
@@ -129,10 +126,8 @@
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }
     }
-    
     cell.textLabel.text = self.TitleArray[indexPath.row];
     cell.textLabel.font = ZP_TooBarFont;
-    
     return cell;
 }
 

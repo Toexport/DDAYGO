@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AboutDDAYGOController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *VersionnumberLabel; // 版本号
 
 @end

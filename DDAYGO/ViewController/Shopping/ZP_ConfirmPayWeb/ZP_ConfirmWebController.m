@@ -47,8 +47,11 @@
     NSArray * array = [self.navigationController viewControllers];
     UIViewController * viewController = array.firstObject;
     [alert addAction:[UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        [SVProgressHUD dismiss];
+//           viewController.tabBarController.selectedIndex = 3;
+        [self.navigationController popToRootViewControllerAnimated:NO];
         [SVProgressHUD dismiss];
-           viewController.tabBarController.selectedIndex = 3;
+        viewController.tabBarController.selectedIndex = 3;
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:MyLocal(@"cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }]];

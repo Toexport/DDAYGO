@@ -26,14 +26,18 @@
 - (void)initUI {
     self.title = NSLocalizedString(@"About DDAYGO", nil) ;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_WhiteColor}];   // 更改导航栏字体颜色
+    //此获取的版本号对应version，打印出来对应为1.2.3.4.5这样的字符串
+    NSString * infodictionaray = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    ZPLog(@"%@",infodictionaray);
+    self.VersionnumberLabel.text = [NSString stringWithFormat:@"%@",infodictionaray]; // 获取当前版本号
 }
+
 // 隐藏政策
 - (IBAction)PrivacyPolicyBut:(id)sender {
     RegistrationAgreementController * RegistrationAgreement = [[RegistrationAgreementController alloc]init];
     RegistrationAgreement.title = MyLocal(@"Privacy policy");
     RegistrationAgreement.type = 111;
     [self.navigationController pushViewController:RegistrationAgreement animated:YES];
-    
 }
 
 //服务条款
@@ -43,6 +47,7 @@
     RegistrationAgreement.type = 222;
     [self.navigationController pushViewController:RegistrationAgreement animated:YES];
 }
+
 // 退换货流程
 - (IBAction)ReturnProcessBut:(id)sender {
     RegistrationAgreementController * RegistrationAgreement = [[RegistrationAgreementController alloc]init];
