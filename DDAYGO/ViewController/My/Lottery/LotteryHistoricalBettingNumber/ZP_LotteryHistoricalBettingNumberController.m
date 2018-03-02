@@ -46,12 +46,15 @@
 }
 
 - (void)viewDidLoad {
-    [self initTableHeadView];
     [super viewDidLoad];
+    [self initTableHeadView];
     [self initUI];
     [self AllData];
     self.NoDataView.backgroundColor = [UIColor whiteColor];
     self.tableView.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+
 }
 
 - (UITableView *)tableView {
@@ -87,6 +90,7 @@
 - (void)initTableHeadView {
     UIView * myView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 30)];
     [myView setBackgroundColor:ZP_Graybackground];
+    myView.hidden = YES;
     ZP_GeneralLabel * TitleLabel1 = [ZP_GeneralLabel initWithtextLabel:_TitleLabel1.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [myView addSubview:TitleLabel1];
     _TitleLabel1 = TitleLabel1;

@@ -53,6 +53,7 @@
     [self getproductfilter:100];
     self.imageview.hidden = YES;
     self.imageview.height = CGFLOAT_MIN;
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
