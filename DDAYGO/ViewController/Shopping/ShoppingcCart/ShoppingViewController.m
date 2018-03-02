@@ -411,7 +411,7 @@
         cell.buttom.selected = sender.selected;
         [_CurrencySymbolLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
             if (sender.selected) {
-                make.width.mas_equalTo(15);
+                make.width.mas_equalTo(20);
             } else {
                 make.width.mas_equalTo(0);
             }
@@ -551,7 +551,7 @@
     //   更新合计数据
     self.PriceLabel.text = [@(data) stringValue];
     [_CurrencySymbolLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(15);
+        make.width.mas_equalTo(20);
         make.right.mas_equalTo(_PriceLabel.mas_left);
         make.top.equalTo(_PriceLabel).offset(0);
     }];
@@ -845,7 +845,7 @@
     
     [_CurrencySymbolLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         if (_PriceLabel.text.integerValue > 0) {
-            make.width.mas_equalTo(15);
+            make.width.mas_equalTo(20);
         } else {
             make.width.mas_equalTo(0);
         }
@@ -990,7 +990,7 @@
     self.PriceLabel.text = [@(data) stringValue];
     [_CurrencySymbolLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         if (but.selected) {
-            make.width.mas_equalTo(15);
+            make.width.mas_equalTo(20);
         } else {
             make.width.mas_equalTo(0);
         }
@@ -1070,7 +1070,7 @@
     }
     self.PriceLabel.text = [@(data) stringValue];
     [_CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(15);
+        make.width.mas_equalTo(20);
     }];
     if (_bjBool) {
         [self.ClearingButt setTitle: NSLocalizedString(@"delete", nil) forState: UIControlStateNormal];
