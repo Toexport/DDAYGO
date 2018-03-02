@@ -413,8 +413,8 @@
 "ZPPswTextFieldID" = "ZPPswTextFieldID";
 "ZPCodeTextField" = "ZPCodeTextField";
 "ZPPswTextField" = "ZPPswTextField";
-"Modify nickname" = "Modify nickname";
-"" = "";
+//"Modify nickname" = "Modify nickname";
+"The output cannot contain special characters." = "The output cannot contain special characters.";
 "" = "";
 "" = "";
 "" = "";

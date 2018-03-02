@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DialogBox : UIView
+@interface DialogBox : UIView 
 typedef NS_ENUM(NSUInteger, DDAOperation) {
     DDAModifyNickname        = 0,
     DDABuildingICUC          = 1

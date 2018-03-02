@@ -455,8 +455,8 @@
 "winningNumbLabel2" = "5个白球";
 "winningNumbLabel3" = "4个白球";
 "winningNumbLabel4" = "3个白球";
-"Modify nickname" = "修改昵称";
-"" = "";
+//"Modify nickname" = "修改昵称";
+"The output cannot contain special characters." = "输入不能含有特殊字符";
 "" = "";
 "" = "";
 "" = "";

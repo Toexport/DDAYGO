@@ -9,6 +9,7 @@
 #import "DialogBox.h"
 #import "ZP_MyTool.h"
 #import "PrefixHeader.pch"
+
 @implementation DialogBox
 
 + (DialogBox *)getInstance  //定义一个类方法进行访问(便利构造)
@@ -87,6 +88,10 @@
 //確定
 - (IBAction)ensureAction:(id)sender {
     [self.textfield endEditing:YES];
+    if (![self JudgeTheillegalCharacter:self.textfield.text]) {
+        [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"The output cannot contain special characters.", nil)];
+        return;
+    }
     if (self.textfield.text.length < 1) {
         [SVProgressHUD showInfoWithStatus:MyLocal(@"input cannot be empty.")];
     }else {
@@ -143,7 +148,14 @@
 //  键盘弹起
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent *)event{
     [self.textfield endEditing:YES];
-    
 }
 
+- (BOOL)JudgeTheillegalCharacter:(NSString *)content {
+    //    提示标签不能输入特殊字符
+    NSString *str =@"^[A-Za-z0-9\\u4e00-\u9fa5]+$";
+    
+    NSPredicate* emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", str];
+    return [emailTest evaluateWithObject:content];
+    
+}
 @end
