@@ -29,6 +29,7 @@
     //    [self secureTextEntry];
     _ForgetPswscrollView.bounces = NO;
     [self initUI];
+//    [ [NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textChange)name:UITextFieldTextDidChangeNotification object:self.ZPEmailTextField.textField];
 }
 // UI
 - (void)initUI {
