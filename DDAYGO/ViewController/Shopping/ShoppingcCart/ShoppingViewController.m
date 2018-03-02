@@ -182,8 +182,11 @@
                 _selectArray = nil;
                 _AllButton.selected = NO;
                 _PriceLabel.text = @"0";
-                [_CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                //_CurrencySymbolLabel mas_remakeConstraints
+                [_CurrencySymbolLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
                     make.width.mas_equalTo(0);
+                    make.right.mas_equalTo(_PriceLabel.mas_left);
+                    make.top.equalTo(_PriceLabel).offset(0);
                 }];
                 self.navigationController.tabBarItem.badgeValue = nil;
                 [self.tableView reloadData];
@@ -218,8 +221,10 @@
     _StatisticsLabel.hidden = YES;
     _FreightLabel.hidden = YES;
     _PriceLabel.hidden = YES;
-    [_CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_CurrencySymbolLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(0);
+        make.right.mas_equalTo(_PriceLabel.mas_left);
+        make.top.equalTo(_PriceLabel).offset(0);
     }];
     _ClearingButt.selected = YES;
     [self.ClearingButt setTitle:NSLocalizedString(@"delete",nil) forState: UIControlStateNormal];
@@ -345,6 +350,9 @@
         make.top.equalTo(PriceLabel).offset(0);
         make.width.mas_equalTo(0);
     }];
+//    [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.width.mas_equalTo(15);
+//    }];
     _CurrencySymbolLabel = CurrencySymbolLabel;
     
     //   合计
@@ -401,11 +409,18 @@
 //        }];
         ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
         cell.buttom.selected = sender.selected;
+        [_CurrencySymbolLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            if (sender.selected) {
+                make.width.mas_equalTo(15);
+            } else {
+                make.width.mas_equalTo(0);
+            }
+            
+            make.right.mas_equalTo(_PriceLabel.mas_left);
+            make.top.equalTo(_PriceLabel).offset(0);
+        }];
     }
     else {
-        [_CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_equalTo(15);
-        }];
         EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
         cell.button.selected = sender.selected;
     }
@@ -535,8 +550,10 @@
     
     //   更新合计数据
     self.PriceLabel.text = [@(data) stringValue];
-    [_CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_CurrencySymbolLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(15);
+        make.right.mas_equalTo(_PriceLabel.mas_left);
+        make.top.equalTo(_PriceLabel).offset(0);
     }];
     if (_bjBool) {
         [self.ClearingButt setTitle:NSLocalizedString(@"delete", nil) forState: UIControlStateNormal];
@@ -779,8 +796,10 @@
             }
             [self.ClearingButt setTitle:[NSString stringWithFormat:NSLocalizedString(@"Clearing(%ld)", nil),(long)dataCount] forState: UIControlStateNormal];
             self.PriceLabel.text = [@(data) stringValue];
-            [_CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            [_CurrencySymbolLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.width.mas_equalTo(15);
+                make.right.mas_equalTo(_PriceLabel.mas_left);
+                make.top.equalTo(_PriceLabel).offset(0);
             }];
             allNum = dataCount;
         }else{
@@ -903,9 +922,6 @@
                 ZP_CartsModel * model2 = model.array[i];
                 cell.buttom.selected = but.selected;
                 if (but.selected) {
-                    [_CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                        make.width.mas_equalTo(15);
-                    }];
                     dataCount += [cell.QuantityLabel.text integerValue];
                     data += [cell.QuantityLabel.text integerValue] * [model2.productprice floatValue];
                     count ++;
@@ -965,8 +981,15 @@
     }
     
     self.PriceLabel.text = [@(data) stringValue];
-    [_CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(15);
+    [_CurrencySymbolLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        if (but.selected) {
+            make.width.mas_equalTo(15);
+        } else {
+            make.width.mas_equalTo(0);
+        }
+        
+        make.right.mas_equalTo(_PriceLabel.mas_left);
+        make.top.equalTo(_PriceLabel).offset(0);
     }];
     if (_bjBool) {
         [self.ClearingButt setTitle: NSLocalizedString(@"delete", nil) forState: UIControlStateNormal];
