@@ -351,9 +351,6 @@
         make.top.equalTo(PriceLabel).offset(0);
         make.width.mas_equalTo(0);
     }];
-//    [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.width.mas_equalTo(15);
-//    }];
     _CurrencySymbolLabel = CurrencySymbolLabel;
     
     //   合计
@@ -783,7 +780,17 @@
         if (!_bjBool) {
             for (int i = 0; i < models.array.count; i ++) {
                 ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:but.tag - 666]];
-                _CurrencySymbolLabel.hidden =  NO;
+//                _CurrencySymbolLabel.hidden = NO;
+                [_CurrencySymbolLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+                    if (but.selected) {
+                        make.width.mas_equalTo(20);
+                    } else {
+                        make.width.mas_equalTo(0);
+                    }
+                    
+                    make.right.mas_equalTo(_PriceLabel.mas_left);
+                    make.top.equalTo(_PriceLabel).offset(0);
+                }];
                 cell.buttom.selected = YES;
                 ZP_CartsModel * model = models.array[i];
                 dataCount += [cell.QuantityLabel.text integerValue];
@@ -803,7 +810,6 @@
         }else{
             for (int i = 0; i < models.array.count; i ++) {
                 EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:but.tag - 666]];
-                _CurrencySymbolLabel.hidden = YES;
                 cell.button.selected = YES;
                 ZP_CartsModel * model = models.array[i];
                 data += [cell.numLabel.text integerValue] * [model.productprice floatValue];

@@ -69,7 +69,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
-//    [self listening];
+    [self listening];
     self.evaluateArray = [NSMutableArray array];
     [self initFrameWords];
     [self initSource];
