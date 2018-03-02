@@ -130,7 +130,11 @@
 - (void)fillData:(ZP_HomePageModel *)model{
     [_headerImage sd_setImageWithURL:[NSURL URLWithString:model.avatarimg] placeholderImage:[UIImage imageNamed:@"HeadrImage"]];
     _AccountNumber.text = model.email; // 账号
-    _nicknameLabel.text = model.nickname; // 昵称
+    if ([model.nickname isEqualToString:@"(null)"]) { // 判断数据为nill
+        self.nicknameLabel.hidden = YES;
+        }else {
+         _nicknameLabel.text = model.nickname; // 昵称
+    }
     _bindingEmailLabel.text = model.emailverify;  // 邮箱
     _BindingICUELabel.text = model.icueaccount; // ICUE 绑定
     _BindingIntroduce.text = model.introducer; // ICUE 介绍人
@@ -191,7 +195,7 @@
 //  修改昵称
 - (IBAction)nichengAction:(id)sender {
     [[DialogBox getInstance] showDialogBoxWithOperation:DDAModifyNickname FinishBlock:^(id response) {
-        self.dataDic[@"nickname"] = (NSString *)response;
+        self.dataDic[@"nickname"] = (NSString *)response; // 名字
         [ZP_MyTool requesModifydata:self.dataDic uccess:^(id obj) {
             ZPLog(@"%@",obj);
             if ([obj[@"result"]isEqualToString:@"ok"]) {

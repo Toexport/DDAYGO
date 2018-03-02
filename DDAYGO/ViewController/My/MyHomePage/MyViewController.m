@@ -278,7 +278,11 @@
 
 // 獲取暱稱
 - (void)MyViewData:(ZP_HomePageModel *) model {
-    _NameLabel.text = model.nickname;
+    if ([model.nickname isEqualToString:@"(null)"]) { // 判断数据为nill
+        self.NameLabel.hidden = YES;
+    }else {
+        _NameLabel.text = model.nickname; // 昵称
+    }
     _headImageBut.layer.cornerRadius = 42;
     _headImageBut.layer.masksToBounds = YES;
 }

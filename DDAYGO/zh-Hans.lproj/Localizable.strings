@@ -17,7 +17,7 @@
 "Taiwan" = "台湾";
 "audited" = "审核";
 "Server link failed" = "服务器链接失败";
-"Once logged in, no other countries will be supported" = "登录成功后，暂不支持更换其他国家";
+"Once logged in, no other countries will be supported" = "登入成功后，暂不支持更换其他国家";
 "Select erchandise ach Month" = "每月精选商品";
 "Best-selling products" = "热销商品";
 "erchandise" = "精选商品";
@@ -36,8 +36,8 @@
 "More choice" = "更多精选";
 "Do you need to go out and look at other countries' goods?" = "需要登出去看看其他国家的商品吗?";
 "Once the locale is set, it cannot be changed." = "地区一旦设置将无法更改";
-"Login successful" = "登录成功";
-"Login failed" = "登录失败";
+"Login successful" = "登入成功";
+"Login failed" = "登入失败";
 
 "" = "";
 "" = "";
@@ -93,7 +93,7 @@
 "Is no comment" = "没有评价内容";
 "Shop introduced" = "店铺介绍";
 "Satisfaction survey" = "满意度调查";
-"Please login account" = "请登录账户";
+"Please login account" = "请登入账户";
 "points" = "分";
 "Shipping address:" = "收货地址:";
 "" = "";
@@ -169,12 +169,12 @@
 "No payment record" = "无付款记录";
 "The order number cannot be empty." = "订单号码不能为空";
 "ZPEmailTextFiled" = "请输入邮箱";
-"ZPEmailTextFieldID" = "请输入账号";
+"ZPEmailTextFieldID" = "请输入帐号";
 "ZPPswTextFieldID" = "請輸入密码";
 "ZPCodeTextField" = "请输入验证码";
 "ZPEmailTextFiled()" = "请输入邮箱(选填)";
 "ZPCountry" = "国家";
-"ZPEmailICUE" = "请输入ICUE账号";
+"ZPEmailICUE" = "请输入ICUE帐号";
 "" = "";
 "" = "";
 "" = "";
@@ -279,18 +279,18 @@
 "exchange process" = "退换货流程";
 "Choice of payment method" = "選擇支付方式";
 "Immediate payment" = "立即支付";
-"account exists" = "您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码";
+"account exists" = "您的帐号已在其他地方登陆,您已被迫下线,如果非本人登入请尽快修改密码";
 "product" = "已退件";
 "male" = "男";
 "female" = "女";
 "Modify success" = "修改成功";
 "Modify failure" = "修改失败";
 "ICUC binding" = "ICUE绑定定";
-"The ICUE account will not be changed once it is bound. Are you sure you want to bind this ICUE account?" = "ICUE账号一旦绑定后将无法更改，您确定要绑定此ICUE账号吗?";
+"The ICUE account will not be changed once it is bound. Are you sure you want to bind this ICUE account?" = "ICUE帐号一旦绑定后将无法更改，您确定要绑定此ICUE帐号吗?";
 "Please later…" = "请稍后…";
 "Binding success" = "绑定成功";
 "ICUE has been bound." = "ICUE以被绑定";
-"Account or password error." = "账号或密码错误";
+"Account or password error." = "帐号或密码错误";
 "Invalid account" = "无效的账户";
 "Blacklist user" = "黑名单用户";
 "account does not exist" = "账户不存在";
@@ -321,7 +321,7 @@
 "Change password" = "修改密码";
 "password number cannot be less than 6 greater than 20." = "密码位数不能小于6位大于20位";
 "two passwords do not match." = "两次密码不匹配";
-"Modified successfully, please login again..." = "修改成功,请重新登录...";
+"Modified successfully, please login again..." = "修改成功,请重新登入...";
 "original password cannot be null." = "原密码不能为空";
 "new password cannot be empty." = "新密码不能为空";
 "Original password error" = "原密码错误";
@@ -371,7 +371,7 @@
 "Please enter the correct amount." = "请输入真确的金额";
 "Please enter the contact person" = "请输入联系人";
 "Please enter the receiving bank." = "请输入收款银行";
-"Please enter your account number." = "请输入收款账号";
+"Please enter your account number." = "请输入收款帐号";
 "Please enter the telephone" = "请输入电话";
 "Please enter email" = "请输入邮箱";
 "Application successful" = "申请成功";
@@ -384,11 +384,11 @@
 "Cancel withdrawals" = "取消提现";
 "Once the locale is set, it cannot be changed." = "地区一旦设置将无法更改";
 "National coding error" = "国家编码错误";
-"Account is empty" = "账号为空";
+"Account is empty" = "帐号为空";
 "Password is empty" = "密码为空";
 "System error" = "系统错误";
 "Token existing" = "token 已存在";
-"The account is not an agent." = "账号非代理商";
+"The account is not an agent." = "帐号非代理商";
 "Payment code" = "收款码";
 "This user is not a merchant." = "此用戶不是商家";
 "Camera unavailable" = "相机不可用";
@@ -438,7 +438,7 @@
 "size" = "尺码";
 "refresh" = "刷新";
 "Network exception, please check the network." = "网络异常,请检查网络";
-"Please log in the account first." = "请先登录账号";
+"Please log in the account first." = "请先登入帐号";
 "return details" = "退货详情";
 "scanning" = "扫一扫";
 "5 white +1 red ball" = "5白+1红球";
@@ -486,21 +486,21 @@
 "" = "";
 "" = "";
 /* *
- * 登录注册
+ * 登入注册
  * */
-"Login" = "登录";
-"Please log in" = "请登录";
-"Login/registration" = "登录/注册";
-"Logging in..." = "正在登录...";
-"Login successful" = "登录成功";
-"Login failed" = "登录失败";
+"Login" = "登入";
+"Please log in" = "请登入";
+"Login/registration" = "登入/注册";
+"Logging in..." = "正在登入...";
+"Login successful" = "登入成功";
+"Login failed" = "登入失败";
 "title" = "标题";
 "Get verification code" = "获取验证码";
 "Forgot password" = "忘记密码";
-"account cannot be empty." = "账号不能为空";
+"account cannot be empty." = "帐号不能为空";
 "obtain" = "重新获取";
 "發送成功" = "发送成功";
-"Account does not exist" = "账号不存在";
+"Account does not exist" = "帐号不存在";
 "Verification code sent failed, please try again later" = "验证码发送失败,请稍后再试";
 "password number should not be less than 6 digits greater than 20 digits." = "密码位数不能小于6-20位";
 "Verify that the code cannot be empty." = "验证码不能为空";
@@ -509,26 +509,26 @@
 "Changing password..." = "正在修改密码…";
 "Password recovered" = "密码找回成功";
 "Verify that the mailbox is empty." = "验证邮箱为空";
-"ICUE Quick login" = "ICUE快速登录";
+"ICUE Quick login" = "ICUE快速入录";
 "Please choose to agree to the user agreement." = "请选择同意用户协议";
 "password cannot be empty." = "密码不能为空";
 "registration" = "注册";
 "Click select" = "点击选择";
-"account format is not correct." = "账号格式不正确";
+"account format is not correct." = "帐号格式不正确";
 "password number must not be less than 6 digits greater than 20 digits." = "密码位数不能小于6位大于20位";
 "Choose country" = "选择国家";
 "Agree to a deal" = "同意协议";
 "Registering..." = "正在注册...";
 "Registered successfully" = "注册成功";
 "Registration failed" = "注册失败";
-"Incorrect account format" = "账号格式错误";
-"registered account cannot begin with an ICUE." = "注册账号不能以ICUE开头";
-"account cannot contain the ddaygo character." = "注册账号不能含有ddaygo字符";
-"Account already exists" = "账号已存在";
+"Incorrect account format" = "帐号格式错误";
+"registered account cannot begin with an ICUE." = "注册帐号不能以ICUE开头";
+"account cannot contain the ddaygo character." = "注册帐号不能含有ddaygo字符";
+"Account already exists" = "帐号已存在";
 "Email format error" = "邮箱格式错误";
 "mailbox has been bound." = "邮箱以被绑定";
 "Mailbox validation letter delivery failed." = "邮箱验证信投递失败";
-"ICUEQuick login" = "ICUE账户快速登录";
+"ICUEQuick login" = "ICUE账户快速登入";
 "ZPPswTextField" = "请输入长度为6-20位的英数字";
 "" = "";
 "" = "";
@@ -587,7 +587,7 @@
  *互踢提示
  */
 "Prompt" = "提示";
-"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in." = "您的账号已在其他地方登陆,您已被迫下线,如果非本人登录请尽快修改密码";
+"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in." = "您的帐号已在其他地方登陆,您已被迫下线,如果非本人登入请尽快修改密码";
 "Cancel" = "取消";
 "Determine" = "确定";
 "" = "";

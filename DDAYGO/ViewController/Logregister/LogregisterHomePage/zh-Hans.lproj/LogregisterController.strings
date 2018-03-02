@@ -1,9 +1,9 @@
 
 /* Class = "UIButton"; normalTitle = "登錄"; ObjectID = "0nb-gI-0kd"; */
-"0nb-gI-0kd.normalTitle" = "登录";
+"0nb-gI-0kd.normalTitle" = "登入";
 
 /* Class = "UIButton"; normalTitle = "ICUE账户快速登錄"; ObjectID = "XYj-Ab-JMS"; */
-"XYj-Ab-JMS.normalTitle" = "ICUE账户快速登录";
+"XYj-Ab-JMS.normalTitle" = "ICUE账户快速登入";
 
 /* Class = "UIButton"; normalTitle = "新用戶註冊"; ObjectID = "qhN-3N-4wk"; */
 "qhN-3N-4wk.normalTitle" = "新用戶注册";

@@ -15,7 +15,7 @@
 "Vietnam" = "越南";
 "Taiwan" = "臺灣";
 "Server link failed" = "服務器鏈接失敗";
-"Once logged in, no other countries will be supported" = "登錄成功后，暫時不支持更換其他國家";
+"Once logged in, no other countries will be supported" = "登入成功后，暫時不支持更換其他國家";
 "Select erchandise ach Month" = "每月精選商品";
 "Best-selling products" = "熱銷商品";
 "erchandise" = "精選商品";
@@ -36,37 +36,8 @@
 "" = "";
 "" = "";
 "" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+
+
 /*****************/
 /* *
  * 分类
@@ -102,7 +73,7 @@
 "Is no comment" = "暫無評價內容";
 "Shop introduced" = "店鋪介紹";
 "Satisfaction survey" = "滿意度調查";
-"Please login account" = "請登錄賬號";
+"Please login account" = "請登入帳號";
 "points" = "分";
 "" = "";
 "" = "";
@@ -111,33 +82,7 @@
 "" = "";
 "" = "";
 "" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+
 
 /*****************/
 /* *
@@ -270,11 +215,11 @@
 "Modify success" = "修改成功";
 "Modify failure" = "修改失敗";
 "ICUC binding" = "ICUE綁定";
-"The ICUE account will not be changed once it is bound. Are you sure you want to bind this ICUE account?" = "ICUE賬號一旦被綁定將無法更改，您確定要綁定此ICUE賬號嗎?";
+"The ICUE account will not be changed once it is bound. Are you sure you want to bind this ICUE account?" = "ICUE帳號一旦被綁定將無法更改，您確定要綁定此ICUE帳號嗎?";
 "Please later…" = "請稍後…";
 "Binding success" = "綁定成功";
 "ICUE has been bound." = "ICUE號已被綁定";
-"Account or password error." = "賬號或密碼錯誤";
+"Account or password error." = "帳號或密碼錯誤";
 "Invalid account" = "無效的賬戶";
 "Blacklist user" = "黑名單用戶";
 "account does not exist" = "賬戶不存在";
@@ -305,7 +250,7 @@
 "Change password" = "修改密碼";
 "password number cannot be less than 6 greater than 20." = "密碼位數不能小於6大於20";
 "two passwords do not match." = "兩次密碼不一致";
-"Modified successfully, please login again..." = "修改成功,請再次登錄...";
+"Modified successfully, please login again..." = "修改成功,請再次登入...";
 "original password cannot be null." = "原密碼不能為空";
 "new password cannot be empty." = "新密碼不能為空";
 "Original password error" = "原密碼錯誤";
@@ -356,7 +301,7 @@
 "Please enter the correct amount." = "請輸入正確的金額";
 "Please enter the contact person" = "請輸入聯繫人";
 "Please enter the receiving bank." = "請輸入收款銀行";
-"Please enter your account number." = "請輸入收款賬號";
+"Please enter your account number." = "請輸入收款帳號";
 "Please enter the telephone" = "請輸入電話";
 "Please enter email" = "請輸入郵箱";
 "Application successful" = "申請成功";
@@ -369,14 +314,14 @@
 "Withdrawals complete" = "提現完成";
 "Cancel withdrawals" = "取消提現";
 "Once the locale is set, it cannot be changed." = "地區一旦設置將無法更改";
-"Login successful" = "登錄成功";
-"Login failed" = "登錄失敗";
+"Login successful" = "登入成功";
+"Login failed" = "登入失敗";
 "National coding error" = "國家編碼錯誤";
-"Account is empty" = "賬號為空";
+"Account is empty" = "帳號為空";
 "Password is empty" = "密碼為空";
 "System error" = "系統錯誤";
 "Token existing" = "token 已存在";
-"The account is not an agent." = "賬號非代理商";
+"The account is not an agent." = "帳號非代理商";
 "Payment code" = "收款碼";
 "This user is not a merchant." = "此用戶不是商家";
 "Camera unavailable" = "相機不可用";
@@ -428,15 +373,15 @@
 "size" = "尺碼";
 "refresh" = "刷新";
 "Network exception, please check the network." = "網路異常,請檢查您的網路";
-"Please log in the account first." = "請先登錄賬號";
+"Please log in the account first." = "請先登入帳號";
 "return details" = "退貨詳情";
 "scanning" = "掃一掃";
 "Get verification code" = "獲取驗證碼";
 "Forgot password" = "忘記密碼";
-"account cannot be empty." = "賬號不能為空";
+"account cannot be empty." = "帳號不能為空";
 "obtain" = "重新獲取";
 "Send success" = "發送成功";
-"Account does not exist" = "賬號不存在";
+"Account does not exist" = "帳號不存在";
 "Verification code sent failed, please try again later" = "驗證碼發送失敗,請稍後再試";
 "password number should not be less than 6 digits greater than 20 digits." = "密碼位數不能少於6-20位";
 "Verify that the code cannot be empty." = "驗證碼不能為空";
@@ -461,13 +406,13 @@
 "winningNumbLabel3" = "4個白球";
 "winningNumbLabel4" = "3個白球";
 "ZPEmailTextFiled" = "請輸入郵箱";
-"ZPEmailTextFieldID" = "請輸入賬號";
+"ZPEmailTextFieldID" = "請輸入帳號";
 "ZPPswTextFieldID" = "請輸入密碼";
 "ZPCodeTextField" = "請輸入驗證碼";
 "ZPPswTextField" = "請輸入長度為6-20位的英數字";
 "ZPEmailTextFiled()" = "請輸入郵箱(選填)";
 "ZPCountry" = "國家";
-"ZPEmailICUE" = "請輸入ICUE賬號";
+"ZPEmailICUE" = "請輸入ICUE帳號";
 "The output cannot contain special characters." = "輸入不能含有特殊字符";
 "" = "";
 "" = "";
@@ -482,16 +427,16 @@
 /* *
  * 登录注册
  * */
-"Login" = "登錄";
-"Please log in" = "请登錄";
-"Login/registration" = "登錄/註冊";
-"Logging in..." = "正在登錄...";
-"Login successful" = "登錄成功";
-"Login failed" = "登錄失敗";
+"Login" = "登入";
+"Please log in" = "请登入";
+"Login/registration" = "登入/註冊";
+"Logging in..." = "正在登入...";
+"Login successful" = "登入成功";
+"Login failed" = "登入失敗";
 "title" = "標題";
 "Password recovered" = "密碼找回成功";
 "Verify that the mailbox is empty." = "驗證郵箱為空";
-"ICUE Quick login" = "ICUE快速登錄";
+"ICUE Quick login" = "ICUE快速登入";
 "Please choose to agree to the user agreement." = "請選擇同意用戶協議";
 "password cannot be empty." = "密碼不能為空";
 "registration" = "註冊";
@@ -507,7 +452,7 @@
 "Email format error" = "郵箱格式錯誤";
 "mailbox has been bound." = "郵箱已被綁定";
 "Mailbox validation letter delivery failed." = "郵箱驗證信投遞失敗";
-"ICUEQuick login" = "ICUE账户快速登錄";
+"ICUEQuick login" = "ICUE账户快速登入";
 "Modify nickname" = "修改暱稱";
 "" = "";
 "" = "";
@@ -526,66 +471,21 @@
 "" = "";
 "" = "";
 "" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+
+
 
 /**
  *互踢提示
  */
 "Prompt" = "提示";
-"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in." = "您的帳號以在其他地方登錄,您已被迫下線,如果非本人登錄請盡快修改密碼";
+"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in." = "您的帳號以在其他地方登入,您已被迫下線,如果非本人登入請盡快修改密碼";
 "Cancel" = "取消";
 "Determine" = "確定";
 "" = "";
 "" = "";
 "" = "";
 "" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+
 
 
 NSPhotoLibraryUsageDescription = "App需要您的同意才能使用相機";
@@ -594,12 +494,4 @@ NSCameraUsageDescription = "App需要您的同意才能讀取媒體";
 "" = "";
 "" = "";
 "" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+
