@@ -121,14 +121,18 @@
         self.newsData = [[NSMutableArray alloc]init];
         NSMutableDictionary * dic = [NSMutableDictionary dictionary];
         dic[@"seq"] = _priceStrTag;
-        dic[@"countrycode"] = sendCode;
+        dic[@"countrycode"] = @"886";
         dic[@"word"] = str;
         dic[@"fatherid"] = _fatherId;
         dic[@"page"] = @"1";
         dic[@"pagesize"] = @"30";
         if (self.type > 10) {
             dic[@"type"] = @(self.type/10%10);
-            dic[@"token"] = DD_TOKEN;
+            if (!Token) {
+                dic[@"token"] = @"";
+            }else {
+                dic[@"token"] = DD_TOKEN;
+            }
             [ZP_ClassViewTool requestGetproductlist:dic WithIndex:self.type%10 success:^(id obj) {
                 NSDictionary * dict = obj;
                 [SVProgressHUD dismiss];
