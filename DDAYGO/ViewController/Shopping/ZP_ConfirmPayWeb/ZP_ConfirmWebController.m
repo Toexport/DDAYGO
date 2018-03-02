@@ -47,11 +47,10 @@
     NSArray * array = [self.navigationController viewControllers];
     UIViewController * viewController = array.firstObject;
     [alert addAction:[UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        [SVProgressHUD dismiss];
-//           viewController.tabBarController.selectedIndex = 3;
-        [self.navigationController popToRootViewControllerAnimated:NO];
-        [SVProgressHUD dismiss];
-        viewController.tabBarController.selectedIndex = 3;
+            [SVProgressHUD dismiss];
+             webView.delegate = nil;  // 退出停止加载Web，不然没加载完，退出了内存还在跑加载，容易内存泄漏
+            [self.navigationController popToRootViewControllerAnimated:NO];
+            viewController.tabBarController.selectedIndex = 3;
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:MyLocal(@"cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }]];

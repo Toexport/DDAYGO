@@ -20,7 +20,8 @@
 //    _DateLabel.text = [NSString stringWithFormat:@"%@",model.]
     _YYY.text = [model.yyyy stringValue];
     _MM.text = [model.mm stringValue];
-    _Day.text = [model.periods stringValue];
+//    _Day.text = [model.periods stringValue];
+    _Day.text = [NSString stringWithFormat:MyLocal(@"period"),model.periods];
 //    _DateCodeLabel.text = model.recordtime
     _DateCodeLabel.text = model.createtime;
     [_button1 setTitle:[NSString stringWithFormat:@"%02d",model.white1.intValue] forState:UIControlStateNormal];

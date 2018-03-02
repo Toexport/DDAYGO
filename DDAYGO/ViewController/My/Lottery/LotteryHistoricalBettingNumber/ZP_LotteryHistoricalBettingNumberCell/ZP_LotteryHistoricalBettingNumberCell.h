@@ -21,10 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton * button6;
 @property (weak, nonatomic) IBOutlet UILabel * NumLabel; // 
 
-
 @property (strong, nonatomic) ZP_LotteryHistoricalBettingNumberModel3 *model3;
-
-
 
 - (void)fillIntoData:(ZP_LotteryHistoricalBettingNumberModel3 *)model3;
 

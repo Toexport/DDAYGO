@@ -38,6 +38,7 @@
     [alert addAction:[UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self.navigationController popToRootViewControllerAnimated:NO];
         [SVProgressHUD dismiss];
+        _webView.delegate = nil;  // 退出停止加载Web，不然没加载完，退出了内存还在跑加载，容易内存泄漏
         viewController.tabBarController.selectedIndex = 3;
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:MyLocal(@"cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
