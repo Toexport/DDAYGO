@@ -121,7 +121,7 @@
         self.newsData = [[NSMutableArray alloc]init];
         NSMutableDictionary * dic = [NSMutableDictionary dictionary];
         dic[@"seq"] = _priceStrTag;
-        dic[@"countrycode"] = @"886";
+        dic[@"countrycode"] = sendCode;
         dic[@"word"] = str;
         dic[@"fatherid"] = _fatherId;
         dic[@"page"] = @"1";

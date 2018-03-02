@@ -146,7 +146,7 @@
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"supplierid"] = self.Supplieerid;
     [ZP_ClassViewTool requestGetshopinfos:dic success:^(id obj) {
-        self.title = obj[@"shopname"];
+        self.title = obj[@"title"];
         self.NameLabel = dic[@"shopname"];
 //        ***********纯代码要加需要隐藏与显示的frame
         // collection 的高度 等于 屏幕的高度··- nav的高度· - 4个按钮view 的高度

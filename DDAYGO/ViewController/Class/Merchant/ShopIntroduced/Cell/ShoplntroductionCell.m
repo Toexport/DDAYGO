@@ -50,7 +50,8 @@
     RegionLabel.textAlignment = NSTextAlignmentLeft;
     RegionLabel.textColor = ZP_TypefaceColor;
     RegionLabel.font = ZP_TooBarFont;
-    RegionLabel.text = [NSString stringWithFormat:@"%@:",MyLocal(@"Position")];
+//    RegionLabel.text = [NSString stringWithFormat:@"%@:",MyLocal(@"Position")];
+    RegionLabel.text = MyLocal(@"home");
     [self.contentView addSubview:RegionLabel];
     [RegionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(15);
@@ -198,22 +199,22 @@
 //        _StorenameLabel.text = [NSString stringWithFormat:@"%@",dic[@"suppliername"]];
 //    }
     _ServicetimeLabel.text = [NSString stringWithFormat:@"%@",dic[@"updatetime"]];
-    _AddressLabel.text = [NSString stringWithFormat:@"%@",dic[@"countrycode"]];
-    switch ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue]) {
-        case 886:
-            self.AddressLabel.text = MyLocal(@"Taiwan");
-            break;
-            
-        case 86:
-            self.AddressLabel.text = MyLocal(@"China");
-            break;
-            
-        case 852:
-            self.AddressLabel.text = MyLocal(@"HongKong");
-            break;
-        default:
-            break;
-    }
+    _AddressLabel.text = [NSString stringWithFormat:@"%@",dic[@"countrycodes"]];
+//    switch ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue]) {
+//        case 886:
+//            self.AddressLabel.text = MyLocal(@"Taiwan");
+//            break;
+//
+//        case 86:
+//            self.AddressLabel.text = MyLocal(@"China");
+//            break;
+//
+//        case 852:
+//            self.AddressLabel.text = MyLocal(@"HongKong");
+//            break;
+//        default:
+//            break;
+//    }
 }
 
 @end
