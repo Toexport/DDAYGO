@@ -796,11 +796,7 @@
             }
             [self.ClearingButt setTitle:[NSString stringWithFormat:NSLocalizedString(@"Clearing(%ld)", nil),(long)dataCount] forState: UIControlStateNormal];
             self.PriceLabel.text = [@(data) stringValue];
-            [_CurrencySymbolLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.width.mas_equalTo(15);
-                make.right.mas_equalTo(_PriceLabel.mas_left);
-                make.top.equalTo(_PriceLabel).offset(0);
-            }];
+            
             allNum = dataCount;
         }else{
             for (int i = 0; i < models.array.count; i ++) {
@@ -846,6 +842,17 @@
             }
         }
     }
+    
+    [_CurrencySymbolLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        if (_PriceLabel.text.integerValue > 0) {
+            make.width.mas_equalTo(15);
+        } else {
+            make.width.mas_equalTo(0);
+        }
+        
+        make.right.mas_equalTo(_PriceLabel.mas_left);
+        make.top.equalTo(_PriceLabel).offset(0);
+    }];
     [self updataMoneyOrNum];
 }
 
