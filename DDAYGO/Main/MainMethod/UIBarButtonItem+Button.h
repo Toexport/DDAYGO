@@ -16,5 +16,6 @@
 + (UIBarButtonItem *)backItemWithImage:(UIImage *)image highImage:(UIImage *)highImage target:target action:(SEL)action;
 
 + (UIBarButtonItem *)barButtonItemWithTitle:(NSString *)title  target:target action:(SEL)action;
+
 @end
 

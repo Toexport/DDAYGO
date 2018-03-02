@@ -22,6 +22,7 @@
 #define SecondPageTop TopViewH+MiddleViewH+20
 #define TopTabBarH [global pxTopt:100]
 #define NaviBarH (iphoneX?72:64)
+//#define STATUS_BAR_BIGGER_THAN_20 [UIApplication sharedApplication].statusBarFrame.size.height > 20
 @interface BuyViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,MyOrderTopTabBarDelegate>
 
 /*********框架属性*********/
@@ -67,6 +68,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [self listening];
     self.evaluateArray = [NSMutableArray array];
     [self initFrameWords];
     [self initSource];
@@ -78,6 +81,19 @@
         _LayoutConstraintButtt.constant = 18 + 10;
         _LayoutConstraintheadView.constant = 64 + 10;
         _LayoutConstraintLabel.constant = 10;
+    }
+    
+}
+
+// 热点被接入，子类重写
+- (void)adjustStatusBar:(NSNotification *)notification {
+    NSValue * rectValue = [notification.userInfo objectForKey:UIApplicationStatusBarFrameUserInfoKey];
+    CGRect statusRect = [rectValue CGRectValue];
+    CGFloat height = statusRect.size.height;
+    if (height > 20) {
+        appD.window.frame = CGRectMake(0, 40, ZP_Width, ZP_height - 40);
+    }else{
+        appD.window.frame = CGRectMake(0, -40, ZP_Width, ZP_height);
     }
 }
 
@@ -100,6 +116,7 @@
     [super viewWillAppear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

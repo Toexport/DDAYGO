@@ -103,6 +103,17 @@
 
 }
 
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return UIInterfaceOrientationMaskAll;
+}
+
+//- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+//{
+//    return UIInterfaceOrientationMaskPortrait;
+//    
+//    
+//}
 - (void)initUserDefaultConfig {
     NSString * themeName = [[NSUserDefaults standardUserDefaults] objectForKey:kThemeChangedNotification];
     ThemeManager * themeManager = [ThemeManager sharedThemeManager];

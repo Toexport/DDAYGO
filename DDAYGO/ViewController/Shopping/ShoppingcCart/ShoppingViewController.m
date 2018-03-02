@@ -48,6 +48,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self listening];
     _bjBool = NO;
     _selectAllArray = [[NSMutableArray alloc]init];
     [self setUpNavgationBar];
@@ -782,6 +783,7 @@
         if (!_bjBool) {
             for (int i = 0; i < models.array.count; i ++) {
                 ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:but.tag - 666]];
+                _CurrencySymbolLabel.hidden =  NO;
                 cell.buttom.selected = YES;
                 ZP_CartsModel * model = models.array[i];
                 dataCount += [cell.QuantityLabel.text integerValue];
@@ -801,6 +803,7 @@
         }else{
             for (int i = 0; i < models.array.count; i ++) {
                 EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:but.tag - 666]];
+                _CurrencySymbolLabel.hidden = YES;
                 cell.button.selected = YES;
                 ZP_CartsModel * model = models.array[i];
                 data += [cell.numLabel.text integerValue] * [model.productprice floatValue];
@@ -893,7 +896,7 @@
         }];
         //也可以设置图片
         deleteAction.backgroundColor = [UIColor redColor];
-        UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration configurationWithActions:@[deleteAction]];
+        UISwipeActionsConfiguration * config = [UISwipeActionsConfiguration configurationWithActions:@[deleteAction]];
         return config;
     } else {
         return nil;
@@ -926,6 +929,7 @@
         for (int i = 0; i < model.array.count; i ++) {
             if (!_bjBool) {
                 ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+                _CurrencySymbolLabel.hidden = NO;
                 ZP_CartsModel * model2 = model.array[i];
                 cell.buttom.selected = but.selected;
                 if (but.selected) {
@@ -943,9 +947,9 @@
                 }else{
                     _stockids = str;
                 }
-                
             }else {
                 EditorViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+                _CurrencySymbolLabel.hidden = YES;
                 ZP_CartsModel * model2 = model.array[i];
                 cell.button.selected = but.selected;
                 if (but.selected) {
@@ -1127,5 +1131,6 @@
     }];
     return;
 }
+
 @end
 

@@ -26,5 +26,6 @@
 @property (nonatomic, strong) NSNumber * productId;
 
 @property (nonatomic, strong) NSNumber * fatherId;
+@property (weak, nonatomic) IBOutlet UIView *tabbarView; // 购物车最底下的view
 
 @end

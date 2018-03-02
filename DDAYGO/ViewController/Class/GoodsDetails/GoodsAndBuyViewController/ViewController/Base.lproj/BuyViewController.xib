@@ -20,6 +20,7 @@
                 <outlet property="gouwuBtn" destination="cy4-nj-B1P" id="trV-4E-VOo"/>
                 <outlet property="headView" destination="hvo-bP-Cgu" id="aID-cq-0YM"/>
                 <outlet property="shoucangBtn" destination="4Iy-iX-bhC" id="hIe-0E-Eat"/>
+                <outlet property="tabbarView" destination="Lay-sh-ful" id="90m-fP-c1d"/>
                 <outlet property="titleLabel" destination="vgo-8v-KYi" id="9VI-n8-lG3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -87,10 +88,10 @@
                     <rect key="frame" x="0.0" y="613" width="375" height="54"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3x-WF-2es">
-                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="54"/>
+                            <rect key="frame" x="0.0" y="0.0" width="187" height="54"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lby-45-DbS">
-                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="1"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="187" height="1"/>
                                     <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="HD1-yA-sv4"/>
@@ -108,7 +109,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cy4-nj-B1P">
-                                    <rect key="frame" x="63.5" y="1" width="62" height="53"/>
+                                    <rect key="frame" x="63.5" y="1" width="61.5" height="53"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="购物车" image="ic_details_shoppingcart">
                                         <color key="titleColor" red="0.39995324609999999" green="0.40002685789999998" blue="0.39994865660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -118,7 +119,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFr-nf-baU">
-                                    <rect key="frame" x="125.5" y="1" width="62.5" height="53"/>
+                                    <rect key="frame" x="125" y="1" width="62.5" height="53"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="店铺" image="ic_details_store">
                                         <color key="titleColor" red="0.39995324609999999" green="0.40002685789999998" blue="0.39994865660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -150,7 +151,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jyf-l2-RVv">
-                            <rect key="frame" x="187.5" y="0.0" width="187.5" height="54"/>
+                            <rect key="frame" x="187" y="0.0" width="188" height="54"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAs-cb-1wp">
                                     <rect key="frame" x="0.0" y="0.0" width="94.5" height="54"/>
@@ -163,7 +164,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcS-fm-Rhv">
-                                    <rect key="frame" x="94.5" y="0.0" width="93" height="54"/>
+                                    <rect key="frame" x="94.5" y="0.0" width="93.5" height="54"/>
                                     <color key="backgroundColor" red="0.87843137250000003" green="0.35686274509999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <state key="normal" title="加入购物车">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
