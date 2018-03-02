@@ -49,7 +49,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeStaus:) name:@"changeStaus" object:nil];
 }
 
-- (void)getDataSource{
+- (void)getDataSource {
     self.countryCode = [[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue];
     if (self.countryCode>0) {
         self.countryCode = [[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue];
@@ -103,7 +103,7 @@
     //  位置按钮
     self.chooseCityBtn = [YLButton buttonWithType:(UIButtonTypeCustom)];
     self.chooseCityBtn.frame = CGRectMake(0, 0, 35.0f, 25.0f);
-    self.chooseCityBtn.titleLabel.font = ZP_TooBarFont;
+    self.chooseCityBtn.titleLabel.font = ZP_stockFont;
     [self.chooseCityBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     NSString * countryname = [[NSUserDefaults standardUserDefaults] objectForKey:@"countryname"];
     if (countryname.length>0) {
@@ -113,7 +113,6 @@
         [self.chooseCityBtn setTitle:MyLocal(@"Taiwan") forState:UIControlStateNormal];
     }
     self.countryCode = [[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue];
-    
     [self.chooseCityBtn setImage:[UIImage imageNamed:@"ic_home_down"] forState:(UIControlStateNormal)];
     [self.chooseCityBtn setNeedsLayout];
     self.chooseCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -157,7 +156,6 @@
         if (![MyViewController sharedInstanceTool].hasRemind) {
             //            [MyViewController sharedInstanceTool].hasRemind = YES;
             [self PositionallData];
-            
             ZPLog(@"位置");
             self.position = [[PositionView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)];
             //数据
@@ -181,17 +179,13 @@
         //        ZPLog(@"已登錄");
         //        [SVProgressHUD showInfoWithStatus: NSLocalizedString(@"Once logged in, no other countries will be supported", nil)];
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:MyLocal(@"Do you need to go out and look at other countries' goods?") message:nil preferredStyle:UIAlertControllerStyleAlert];
-        
         UIAlertAction *sureAction = [UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
             [DDGTool logout];
             DD_ChangeStaus;
         }];
-        
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"Cancel") style:UIAlertActionStyleCancel handler:nil];
         [alertController addAction:sureAction];
         [alertController addAction:cancelAction];
-        
         [self presentViewController:alertController animated:YES completion:nil];
     }
 }
@@ -202,7 +196,6 @@
         self.postionArray= [ZP_PositionModel arrayWithArray:obj];
         [self.position Position:self.postionArray];
         ZPLog(@"%@",obj);
-        
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
     }];
@@ -238,7 +231,6 @@
 // 获取首页4张大图片
 - (void)getNewsAlldata:(NSInteger)code {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    
     dic[@"countrycode"] = @(code);
     dic[@"adcode"] = @"AD003";
     [ZP_HomeTool requestGetadvertlist:dic success:^(id obj) {
@@ -268,7 +260,6 @@
 
 // FifthAlldata
 - (void)FifthallData:(NSInteger)code {
-    
     NSDictionary * dict = @{@"count":@"6",@"countrycode":@(code)};
     [ZP_HomeTool requestSellLikeHotCakes:dict success:^(id obj) {
         ZPLog(@"%@",obj);

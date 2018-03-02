@@ -30,7 +30,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.titleLabel.frame = CGRectMake(0, self.titleLabel.frame.origin.y, self.titleLabel.frame.size.width, self.titleLabel.frame.size.height);
-    self.imageView.frame = CGRectMake(self.titleLabel.frame.size.width, self.imageView.frame.origin.y, self.imageView.frame.size.width, self.imageView.frame.size.height);
+    self.imageView.frame = CGRectMake(self.titleLabel.frame.size.width + 2, self.imageView.frame.origin.y, self.imageView.frame.size.width, self.imageView.frame.size.height);
 }
 
 - (void)sizeToFit {
