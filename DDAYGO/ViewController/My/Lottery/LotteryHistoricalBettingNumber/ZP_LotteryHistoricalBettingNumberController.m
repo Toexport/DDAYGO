@@ -51,6 +51,7 @@
     [self initUI];
     [self AllData];
     self.NoDataView.backgroundColor = [UIColor whiteColor];
+    self.tableView.backgroundColor = [UIColor whiteColor];
 }
 
 - (UITableView *)tableView {
@@ -69,7 +70,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ZP_LotteryHistoricalBettingNumberCell" bundle:nil] forCellReuseIdentifier:@"ZP_LotteryHistoricalBettingNumberCell"];
 //    [self.tableView registerClass:[ZP_LotterySubCell class] forCellReuseIdentifier:@"lotterysubcell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
-    self.tableView.backgroundColor = ZP_Graybackground;
+    
     /**** IOS 11 ****/
     if (@available(iOS 11.0, *)) {
         self.tableView.estimatedRowHeight = 0;

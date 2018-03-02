@@ -52,6 +52,7 @@
     [self setUpNavgationBar]; //navigationBar
     [self getproductfilter:100];
     self.imageview.hidden = YES;
+    self.imageview.height = CGFLOAT_MIN;
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
@@ -110,6 +111,7 @@
     self.topView = topView;
     self.line.x = self.btn.x;
     UIScrollView * lastView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 150+35, ZP_Width, ZP_height - NavBarHeight - 37)];
+    lastView.backgroundColor = [UIColor whiteColor];
     lastView.contentSize = CGSizeMake(ZP_Width*4, 0);
     lastView.pagingEnabled  = YES;
     lastView.showsHorizontalScrollIndicator = NO;
@@ -183,10 +185,14 @@
     _collectionView2 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight - 37) collectionViewLayout:flowLayout];
     _collectionView3 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 2, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight - 37) collectionViewLayout:flowLayout];
     _collectionView4 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 3, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight - 37) collectionViewLayout:flowLayout];
-    _collectionView1.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
-    _collectionView2.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
-    _collectionView3.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
-    _collectionView4.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
+//    _collectionView1.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
+//    _collectionView2.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
+//    _collectionView3.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
+//    _collectionView4.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
+    _collectionView1.backgroundColor = [UIColor whiteColor];
+    _collectionView2.backgroundColor = [UIColor whiteColor];
+    _collectionView3.backgroundColor = [UIColor whiteColor];
+    _collectionView4.backgroundColor = [UIColor whiteColor];
     //     每个Cell大小
     flowLayout.itemSize = CGSizeMake((fDeviceWidth - 20)/2, (fDeviceWidth - 20) / 2 + 60);
     //    横向

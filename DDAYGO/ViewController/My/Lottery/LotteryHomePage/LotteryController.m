@@ -193,7 +193,6 @@
         _SymbolLabel.hidden = NO;
         _XiazhushuliangLabel.hidden = NO;
         self.tishiLabel.hidden = YES;
-        
         _OrderNumberLabel.text = [NSString stringWithFormat:@"%@",model6.lotteryoid];
         _XiazhushuliangLabel.text = [model6.buycount stringValue];
         [_butt1 setTitle:[NSString stringWithFormat:@"%02d",model6.white1.intValue] forState:UIControlStateNormal];
@@ -215,10 +214,8 @@
         _XiazhushuliangLabel.hidden = YES;
         self.tishiLabel.hidden = NO;
 //        _lingjiangBtn.hidden = NO;
-        
 //        _OrderNumberLabel.text = nil;
     }
-    
     NSLog(@"m3 = %@",model.lottery);
     [self updateBounctyViewWithBonus:[self.prizeDic[@"lottery"][@"poolamount"] integerValue] Suffix:@""];
 }
@@ -240,7 +237,6 @@
     ZP_HistoryVetController * History = [[ZP_HistoryVetController alloc]init];
     [self.navigationController pushViewController:History animated:YES];
     ZPLog(@"历史");
-    
 }
 
 // 说明

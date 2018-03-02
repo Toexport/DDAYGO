@@ -13,7 +13,7 @@
 #import "PrefixHeader.pch"
 #import "ZP_MyTool.h"
 @interface AddressViewController ()<UITableViewDataSource,UITableViewDelegate>
-
+@property (nonatomic, strong) UIButton * chooseCityBtn;
 @property (nonatomic, strong)NSMutableArray * newsData;
 @property (nonatomic, strong) NoDataView * NoDataView;
 @end
@@ -26,9 +26,18 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     [self.tableView registerNib:[UINib nibWithNibName:@"AddressTableViewCell" bundle:nil] forCellReuseIdentifier:@"AddressTableViewCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
-    UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithTitle:MyLocal(@"new address")  style:UIBarButtonItemStylePlain target:self action:@selector(addAddress)];
-    self.navigationItem.rightBarButtonItem = item;
-    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor whiteColor]];
+//    UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithTitle:MyLocal(@"new address")  style:UIBarButtonItemStylePlain target:self action:@selector(addAddress)];
+//    self.navigationItem.rightBarButtonItem = item;
+//    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor whiteColor]];
+    //    self.chooseCityBtn.frame = CGRectMake(0, 0, 35.0f, 25.0f);
+    self.chooseCityBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    self.chooseCityBtn.titleLabel.font = ZP_addBtnTextdetaFont;
+    [self.chooseCityBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.chooseCityBtn setNeedsLayout];
+    [self.chooseCityBtn setTitle:MyLocal(@"new address") forState:UIControlStateNormal];
+    self.chooseCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [self.chooseCityBtn addTarget:self action:@selector(addAddress) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc]initWithCustomView:self.chooseCityBtn]];
     [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
         self.NoDataView = response;
         [self.tableView reloadData];
