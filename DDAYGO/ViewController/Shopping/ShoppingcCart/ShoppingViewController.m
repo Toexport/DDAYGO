@@ -212,6 +212,11 @@
         [self.selectArray removeAllObjects];
         [self.dataArray removeAllObjects];
         _i = 0;
+        [_CurrencySymbolLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(0);
+            make.right.mas_equalTo(_PriceLabel.mas_left);
+            make.top.equalTo(_PriceLabel).offset(0);
+        }];
         [self allData];
     }];
 }
@@ -247,6 +252,11 @@
     dictt[@"token"] = Token;
     dictt[@"cartid"] = _cardid;
     dictt[@"count"] = _numstr;
+    [_CurrencySymbolLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(0);
+        make.right.mas_equalTo(_PriceLabel.mas_left);
+        make.top.equalTo(_PriceLabel).offset(0);
+    }];
     [ZP_shoopingTool requestSetcartproductcount:dictt success:^(id obj) {
         ZPLog(@"%@",obj);
         if ([obj[@"result"] isEqualToString:@"stock_count_err"]) {
