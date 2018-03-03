@@ -90,6 +90,8 @@
             self.hidesBottomBarWhenPushed = NO;
         }
     } else {
+        self.ClearingButt.selected = NO;
+        [self.ClearingButt setTitle:MyLocal(@"Clearing") forState:UIControlStateNormal];
         [self addRefresh];
         [self allData];
     }
