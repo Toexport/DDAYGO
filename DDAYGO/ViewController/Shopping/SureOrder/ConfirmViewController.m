@@ -32,6 +32,7 @@
     NSArray * messageArray;;
     NSString * allMoney;
     NSString * allCount;
+    BOOL beenShow;
     int _i;
 }
 @property(nonatomic,strong)UITableView * tableView;
@@ -294,7 +295,11 @@
         if (modelArr.count == 0) {
             [SVProgressHUD showErrorWithStatus:MyLocal(@"Please add address")];
             AddAddressViewController * viewController = [[AddAddressViewController alloc] init];
-            [self.navigationController pushViewController:viewController animated:YES];
+            if (!beenShow) {
+                beenShow = YES;
+                [self.navigationController pushViewController:viewController animated:YES];
+            }
+            
             viewController.contentDic = @{@"asd":@(YES)};
         } else {
             [modelArr enumerateObjectsUsingBlock:^(ZP_ComfirmModel *model, NSUInteger idx, BOOL * _Nonnull stop) {
