@@ -93,7 +93,7 @@
 "Is no comment" = "没有评价内容";
 "Shop introduced" = "店铺介绍";
 "Satisfaction survey" = "满意度调查";
-"Please login account" = "请登入账户";
+"Please login account" = "请登入帐户";
 "points" = "分";
 "Shipping address:" = "收货地址:";
 "home" = "所在地:";
@@ -140,7 +140,7 @@
 "Complete" = "完成";
 "Clearing" = "结算";
 "Clearing(%ld)" = "结算(%ld)";
-"You have not selected goods " = "您还没有选择宝贝哦";
+"You have not selected goods " = "您还没有选择商品";
 "Excluding freight costs" = "不含运费";
 "Do not support additional stores for the time being" = "暂时不支持多家商店购买";
 "size:%@" = "尺码:%@";
@@ -291,9 +291,9 @@
 "Binding success" = "绑定成功";
 "ICUE has been bound." = "ICUE以被绑定";
 "Account or password error." = "帐号或密码错误";
-"Invalid account" = "无效的账户";
+"Invalid account" = "无效的帐户";
 "Blacklist user" = "黑名单用户";
-"account does not exist" = "账户不存在";
+"account does not exist" = "帐号不存在";
 "input cannot be empty." = "输入不能为空";
 "goods address" = "收货地址";
 "new address" = "新增地址";
@@ -528,7 +528,7 @@
 "Email format error" = "邮箱格式错误";
 "mailbox has been bound." = "邮箱以被绑定";
 "Mailbox validation letter delivery failed." = "邮箱验证信投递失败";
-"ICUEQuick login" = "ICUE账户快速登入";
+"ICUEQuick login" = "ICUE帐户快速登入";
 "ZPPswTextField" = "请输入长度为6-20位的英数字";
 "" = "";
 "" = "";

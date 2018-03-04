@@ -98,7 +98,7 @@
 "Clearing" = "結算";
 "Complete" = "完成";
 "Clearing(%ld)" = "結算(%ld)";
-"You have not selected goods " = "您還沒有選擇寶貝喔";
+"You have not selected goods " = "您還沒有選擇商品";
 "Excluding freight costs" = "不含運費";
 "Do not support additional stores for the time being" = "暫時不支持多家商店購買";
 "size:%@" = "尺碼:%@";
@@ -220,9 +220,9 @@
 "Binding success" = "綁定成功";
 "ICUE has been bound." = "ICUE號已被綁定";
 "Account or password error." = "帳號或密碼錯誤";
-"Invalid account" = "無效的賬戶";
+"Invalid account" = "無效的帳戶";
 "Blacklist user" = "黑名單用戶";
-"account does not exist" = "賬戶不存在";
+"account does not exist" = "帳戶不存在";
 "input cannot be empty." = "輸入不能為空";
 "goods address" = "收貨地址";
 "new address" = "新增地址";
