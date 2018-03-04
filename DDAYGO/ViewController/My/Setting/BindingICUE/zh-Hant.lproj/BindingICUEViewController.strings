@@ -6,7 +6,7 @@
 "S1L-wQ-aLr.placeholder" = "請輸入ICUC密碼";
 
 /* Class = "UILabel"; text = "ICUC账号："; ObjectID = "b7K-YZ-nNx"; */
-"b7K-YZ-nNx.text" = "ICUC賬號：";
+"b7K-YZ-nNx.text" = "ICUC帳號：";
 
 /* Class = "UIButton"; normalTitle = "绑定"; ObjectID = "mrj-l7-uQz"; */
 "mrj-l7-uQz.normalTitle" = "綁定";
