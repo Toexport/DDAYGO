@@ -139,8 +139,16 @@
 - (void)Instruction {
     self.array1 = [NSMutableArray array];
     for (int i = 0; i< 5; i++) {
-        int i = arc4random_uniform(70);
-        [self.array1 addObject:[NSNumber numberWithInt:i]];
+        int arc = 0;
+        while (arc < 1) {
+            arc = arc4random_uniform(70);
+            for (NSNumber *number in self.array1) {
+                if (number.intValue == arc) {
+                    arc = 0;
+                }
+            }
+        }
+        [self.array1 addObject:[NSNumber numberWithInt:arc]];
     }
     //    self.tableHeadView1.BallLabel.text  = [NSString stringWithFormat:@"%ld",self.array1.count];
     int a = arc4random_uniform(27);
