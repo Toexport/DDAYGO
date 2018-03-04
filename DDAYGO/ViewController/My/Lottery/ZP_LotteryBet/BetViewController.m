@@ -193,10 +193,9 @@
         return view;
         
     }else{
-
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 30)];
         view.backgroundColor = [UIColor whiteColor];
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(16, 0, 200, 30)];
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(16, 15, 200, 30)];
         label.text = MyLocal(@"Selected number");
         label.font = [UIFont systemFontOfSize:13];
         [view addSubview:label];

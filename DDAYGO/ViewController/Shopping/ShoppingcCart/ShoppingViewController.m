@@ -31,7 +31,6 @@
 @property(nonatomic,strong) NSString * stockids;
 @property(nonatomic,strong) NSString * numstr;  //数量
 @property(nonatomic,strong) NSNumber * cardid;  //cardid
-
 @property (nonatomic, strong) NoDataView * noDataView;
 @property (nonatomic, strong) UIButton * cartButton;
 
