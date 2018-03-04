@@ -28,6 +28,9 @@
 #import "UIButton+WebCache.h"
 #import "SDImageCache.h"
 #import "SelectView.h"
+#import <CoreTelephony/CTCallCenter.h>
+#import <CoreTelephony/CTCall.h>
+
 @interface MyViewController ()
 @property (weak, nonatomic) IBOutlet UIView * userBackView;
 @property (weak, nonatomic) IBOutlet UIView * sdglView;
@@ -44,6 +47,7 @@
 // 需要适配X的控件
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint * hheigth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint * ttttop;
+@property (nonatomic, strong) CTCallCenter * center;
 
 @end
 
@@ -57,6 +61,13 @@
         _hheigth.constant = 260 + 40;
         _ttttop.constant = 14 + 40;
     }
+    
+    self.center = [[CTCallCenter alloc] init];
+    self.center.callEventHandler = ^(CTCall * call) {
+        if ([call.callState isEqualToString:@"CTCallStateDisconnected"]) {
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+        }
+    };
 }
 
 // 生命周期
