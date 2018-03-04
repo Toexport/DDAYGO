@@ -10,10 +10,10 @@
 "BcJ-ag-DcH.normalTitle" = "語言";
 
 /* Class = "UIButton"; normalTitle = "绑定ICUE账号"; ObjectID = "GTw-o1-YLZ"; */
-"GTw-o1-YLZ.normalTitle" = "綁定ICUE賬號";
+"GTw-o1-YLZ.normalTitle" = "綁定ICUE帳號";
 
 /* Class = "UIButton"; normalTitle = "账号"; ObjectID = "M6W-vh-Awz"; */
-"M6W-vh-Awz.normalTitle" = "賬號";
+"M6W-vh-Awz.normalTitle" = "帳號";
 
 /* Class = "UIButton"; normalTitle = "修改密码"; ObjectID = "NyZ-Lj-fcO"; */
 "NyZ-Lj-fcO.normalTitle" = "修改密碼";
