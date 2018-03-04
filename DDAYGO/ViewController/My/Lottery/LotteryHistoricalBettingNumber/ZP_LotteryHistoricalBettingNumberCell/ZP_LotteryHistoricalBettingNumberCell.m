@@ -16,7 +16,6 @@
 }
 
 -(void)fillIntoData:(ZP_LotteryHistoricalBettingNumberModel3 *)model3 {
-    
     NSLog(@"%@",model3.white5);
     self.orderNumber.text = model3.lotteryoid;
     [self.button1 setTitle:[NSString stringWithFormat:@"%02d",model3.white1.intValue] forState:UIControlStateNormal];
