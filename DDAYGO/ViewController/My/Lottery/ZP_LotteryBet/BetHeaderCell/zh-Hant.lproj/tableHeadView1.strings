@@ -9,7 +9,7 @@
 "Gge-1d-TGw.text" = "0";
 
 /* Class = "UILabel"; text = ",已选"; ObjectID = "JNf-gG-jBo"; */
-"JNf-gG-jBo.text" = ",已选";
+"JNf-gG-jBo.text" = ",已選";
 
 /* Class = "UILabel"; text = "個"; ObjectID = "MxI-zF-qtm"; */
 "MxI-zF-qtm.text" = "個";
@@ -27,7 +27,7 @@
 "lwJ-mh-kgx.text" = "12";
 
 /* Class = "UILabel"; text = "您目前可使用彩劵"; ObjectID = "lz3-iV-ueV"; */
-"lz3-iV-ueV.text" = "您目前可使用彩劵";
+"lz3-iV-ueV.text" = "您目前可使用彩券";
 
 /* Class = "UILabel"; text = "2014"; ObjectID = "plk-Mg-pGB"; */
 "plk-Mg-pGB.text" = "2014";
