@@ -677,6 +677,12 @@
                                 <outlet property="delegate" destination="-1" id="ogp-eM-ERM"/>
                             </connections>
                         </tableView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未提交任何號碼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPM-bc-IK8">
+                            <rect key="frame" x="106" y="510" width="107.5" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本期下注号码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKM-fM-fKb">
                             <rect key="frame" x="8" y="446" width="80" height="15"/>
                             <constraints>
@@ -694,7 +700,9 @@
                         <constraint firstItem="UyV-al-GmU" firstAttribute="leading" secondItem="kNW-LK-4Wb" secondAttribute="leading" id="FiB-Yx-Sh8"/>
                         <constraint firstItem="UyV-al-GmU" firstAttribute="top" secondItem="kNW-LK-4Wb" secondAttribute="top" id="ODv-Rx-HiD"/>
                         <constraint firstItem="ggk-NA-BjG" firstAttribute="leading" secondItem="kNW-LK-4Wb" secondAttribute="leading" id="YjO-sx-8xq"/>
+                        <constraint firstAttribute="bottom" secondItem="jPM-bc-IK8" secondAttribute="bottom" constant="40" id="aUA-Uh-gUn"/>
                         <constraint firstItem="VKM-fM-fKb" firstAttribute="leading" secondItem="kNW-LK-4Wb" secondAttribute="leading" constant="8" id="buc-HZ-nwp"/>
+                        <constraint firstItem="jPM-bc-IK8" firstAttribute="centerX" secondItem="kNW-LK-4Wb" secondAttribute="centerX" id="fYj-fx-3qD"/>
                         <constraint firstItem="VKM-fM-fKb" firstAttribute="top" secondItem="Kmc-Cc-mig" secondAttribute="bottom" constant="8" id="hHM-Ui-8mQ"/>
                         <constraint firstAttribute="trailing" secondItem="ggk-NA-BjG" secondAttribute="trailing" id="hc9-m9-mfv"/>
                         <constraint firstAttribute="trailing" secondItem="Kmc-Cc-mig" secondAttribute="trailing" id="iMu-pq-eS1"/>
