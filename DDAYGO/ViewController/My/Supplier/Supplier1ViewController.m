@@ -121,14 +121,14 @@
 }
 // 提交按钮
 - (IBAction)SubmitBut:(id)sender {
-    
     NSArray *arr = [self.dataDic allKeys];
     if (arr.count == 14) {
         NSLog(@"填写完成");
-    }else{
-        [SVProgressHUD showErrorWithStatus:MyLocal(@"Please complete")];
-        return;
     }
+//    else{
+//        [SVProgressHUD showErrorWithStatus:MyLocal(@"Please complete")];
+//        return;
+//    }
     
     if (_seleStr.length < 1) {
         [SVProgressHUD showErrorWithStatus:MyLocal(@"Please select the organization form.")];
