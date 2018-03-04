@@ -31,6 +31,8 @@
         self.noDataView = response;
         [self.tableView reloadData];
     }];
+    
+            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 //UI
@@ -181,5 +183,16 @@
 //    return v;
 //}
 
+// 热点被接入，子类重写
+- (void)adjustStatusBar:(NSNotification *)notification {
+    NSValue * rectValue = [notification.userInfo objectForKey:UIApplicationStatusBarFrameUserInfoKey];
+    CGRect statusRect = [rectValue CGRectValue];
+    CGFloat height = statusRect.size.height;
+    if (height > 20) {
+        appD.window.frame = CGRectMake(0, 0, ZP_Width, ZP_height);
+    }else{
+        appD.window.frame = CGRectMake(0, 0, ZP_Width, ZP_height);
+    }
+}
 @end
 

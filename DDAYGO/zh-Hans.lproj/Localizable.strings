@@ -457,7 +457,7 @@
 "winningNumbLabel4" = "3个白球";
 //"Modify nickname" = "修改昵称";
 "The output cannot contain special characters." = "输入不能含有特殊字符";
-"" = "";
+"promptLabelText" = "未提交任何号码";
 "" = "";
 "" = "";
 "" = "";

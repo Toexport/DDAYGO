@@ -20,9 +20,9 @@
     CGRect statusRect = [rectValue CGRectValue];
     CGFloat height = statusRect.size.height;
     if (height > 20) {
-        appD.window.frame = CGRectMake(0, 40, ZP_Width, ZP_height - 40);
+        appD.window.frame = CGRectMake(0, 0, ZP_Width, ZP_height);
     }else{
-        appD.window.frame = CGRectMake(0, -40, ZP_Width, ZP_height);
+        appD.window.frame = CGRectMake(0, 0, ZP_Width, ZP_height);
     }
     
 }

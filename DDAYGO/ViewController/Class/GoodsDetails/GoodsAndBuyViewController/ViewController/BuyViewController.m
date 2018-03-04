@@ -68,7 +68,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
     [self listening];
     self.evaluateArray = [NSMutableArray array];
     [self initFrameWords];
@@ -76,29 +76,30 @@
     [self allData];
     self.scrollView.scrollEnabled = NO;
 //    //iphone X
-    if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
-        //在这里写你想要的高度 其他地方不用动
-        _LayoutConstraintButtt.constant = 18 + 10;
-        _LayoutConstraintheadView.constant = 64 + 10;
-        _LayoutConstraintLabel.constant = 10;
-    }
+//    if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
+//        //在这里写你想要的高度 其他地方不用动
+//        _LayoutConstraintButtt.constant = 18 + 10;
+//        _LayoutConstraintheadView.constant = 64 + 10;
+//        _LayoutConstraintLabel.constant = 10;
+//    }
     
 }
 
-//// 热点被接入，子类重写
-//- (void)adjustStatusBar:(NSNotification *)notification {
-//    NSValue * rectValue = [notification.userInfo objectForKey:UIApplicationStatusBarFrameUserInfoKey];
-//    CGRect statusRect = [rectValue CGRectValue];
-//    CGFloat height = statusRect.size.height;
-//    if (height > 20) {
-//        appD.window.frame = CGRectMake(0, 40, ZP_Width, ZP_height - 40);
-//    }else{
-//        appD.window.frame = CGRectMake(0, -40, ZP_Width, ZP_height);
-//    }
-//}
+// 热点被接入，子类重写
+- (void)adjustStatusBar:(NSNotification *)notification {
+    NSValue * rectValue = [notification.userInfo objectForKey:UIApplicationStatusBarFrameUserInfoKey];
+    CGRect statusRect = [rectValue CGRectValue];
+    CGFloat height = statusRect.size.height;
+    if (height > 20) {
+        appD.window.frame = CGRectMake(0, 0, ZP_Width, ZP_height);
+    }else{
+        appD.window.frame = CGRectMake(0, 0, ZP_Width, ZP_height);
+    }
+}
 
 // 註冊
 - (void)initSource {
+    [self.view bringSubviewToFront:self.tabbarView];
     self.backItemString = @"ic_details_return";
     [self.detailTableview registerNib:[UINib nibWithNibName:@"ProductTableViewCell" bundle:nil] forCellReuseIdentifier:@"ProductTableViewCell"];
     [self.detailTableview registerNib:[UINib nibWithNibName:@"EvaluateTableViewCell" bundle:nil] forCellReuseIdentifier:@"EvaluateTableViewCell"];

@@ -74,4 +74,6 @@
 @property (weak, nonatomic) IBOutlet UITableView * tableview;
 @property (strong ,nonatomic) NSNumber * pollid;
 
+@property (weak, nonatomic) IBOutlet UILabel *promptLabel;
+
 @end

@@ -44,6 +44,7 @@
                 <outlet property="prizeLabel3" destination="xPT-YL-LH4" id="Hws-C8-6za"/>
                 <outlet property="prizeLabel4" destination="dad-zF-oo8" id="kd9-UK-eMh"/>
                 <outlet property="prizeLabel5" destination="cf3-hF-rPH" id="vIp-Zg-duQ"/>
+                <outlet property="promptLabel" destination="jPM-bc-IK8" id="eid-ZI-lD8"/>
                 <outlet property="tableview" destination="ggk-NA-BjG" id="0IH-dI-KOd"/>
                 <outlet property="view" destination="5Ni-m0-9gB" id="w5q-ab-4Ki"/>
                 <outlet property="winnersNumLabel" destination="MP8-p0-YRE" id="RVp-CJ-Pz4"/>

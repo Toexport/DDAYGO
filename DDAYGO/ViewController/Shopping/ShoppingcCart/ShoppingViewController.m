@@ -20,6 +20,7 @@
     BOOL _bjBool;
     NSString * _modelstockid;
     int _i;
+    UIView * bottomView;
 }
 @property (nonatomic, strong) NSMutableArray * selectAllArray;
 @property (nonatomic, strong) NSMutableArray * indexArray;
@@ -47,7 +48,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self listening];
+//    [self listening];
     _bjBool = NO;
     _selectAllArray = [[NSMutableArray alloc]init];
     [self setUpNavgationBar];
@@ -55,6 +56,7 @@
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.title = NSLocalizedString(@"Shopping", nil);
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
     /**** IOS 11 ****/
     if (@available(iOS 11.0, *)) {
         self.tableView.estimatedRowHeight = 0;
@@ -313,10 +315,11 @@
     //   注册
     [self.tableView registerClass:[ShoppingCell class] forCellReuseIdentifier:@"shoppingCell"];
     [self.tableView registerClass:[EditorViewCell class] forCellReuseIdentifier:@"editorViewCell"];
-    UIView * bottomView = [UIView new];
+    bottomView = [UIView new];
     bottomView.backgroundColor = ZP_textWite;
-    bottomView.frame = CGRectMake(0, ZP_height - TabbarHeight - 50 - NavBarHeight, ZP_Width, 50);
+    bottomView.frame = CGRectMake(0, self.tableView.height, ZP_Width, 50);
     [self.view addSubview:bottomView];
+    [self.view bringSubviewToFront:bottomView];
     //   全选按钮
     self.AllButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.AllButton.layer.masksToBounds = YES;
@@ -1151,5 +1154,21 @@
     return;
 }
 
+// 热点被接入，子类重写
+- (void)adjustStatusBar:(NSNotification *)notification {
+    NSValue * rectValue = [notification.userInfo objectForKey:UIApplicationStatusBarFrameUserInfoKey];
+    CGRect statusRect = [rectValue CGRectValue];
+    CGFloat height = statusRect.size.height;
+    if (height > 20) {
+        appD.window.frame = CGRectMake(0, 0, ZP_Width, ZP_height);
+        self.tableView.height = self.tableView.height+20;
+        bottomView.originY = self.tableView.height;
+    }else{
+        appD.window.frame = CGRectMake(0, 0, ZP_Width, ZP_height);
+        self.tableView.height = self.tableView.height-20;
+        bottomView.originY = self.tableView.height;
+        
+    }
+}
 @end
 

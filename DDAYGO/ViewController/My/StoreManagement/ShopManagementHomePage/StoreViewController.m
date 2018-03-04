@@ -30,6 +30,8 @@
     self.merchantscrollView.bounces = YES;
     // 因为需要上个接口的 sid 所以只有等 商家sid 获取成功后才能调用
     //    [self MerchantsBalance];
+            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -179,4 +181,15 @@
     NSLog(@"按钮");
 }
 
+// 热点被接入，子类重写
+- (void)adjustStatusBar:(NSNotification *)notification {
+    NSValue * rectValue = [notification.userInfo objectForKey:UIApplicationStatusBarFrameUserInfoKey];
+    CGRect statusRect = [rectValue CGRectValue];
+    CGFloat height = statusRect.size.height;
+    if (height > 20) {
+        appD.window.frame = CGRectMake(0, 0, ZP_Width, ZP_height);
+    }else{
+        appD.window.frame = CGRectMake(0, 0, ZP_Width, ZP_height);
+    }
+}
 @end

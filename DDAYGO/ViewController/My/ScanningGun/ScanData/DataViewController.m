@@ -29,6 +29,7 @@
     [self setupWebView];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"ic_bar_return"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
+      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 - (void)backAction {
@@ -119,6 +120,17 @@
     // 禁用返回手势
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
+}
+// 热点被接入，子类重写
+- (void)adjustStatusBar:(NSNotification *)notification {
+    NSValue * rectValue = [notification.userInfo objectForKey:UIApplicationStatusBarFrameUserInfoKey];
+    CGRect statusRect = [rectValue CGRectValue];
+    CGFloat height = statusRect.size.height;
+    if (height > 20) {
+        appD.window.frame = CGRectMake(0, 0, ZP_Width, ZP_height);
+    }else{
+        appD.window.frame = CGRectMake(0, 0, ZP_Width, ZP_height);
     }
 }
 @end
