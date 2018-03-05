@@ -48,6 +48,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint * hheigth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint * ttttop;
 @property (nonatomic, strong) CTCallCenter * center;
+@property (nonatomic, strong) ZP_MyHopageModel2 *stutsModel;
 
 @end
 
@@ -383,7 +384,6 @@
             {
                 self.reason = obj[@"reason"];
                 model.stateString = MyLocal(@"Has been cancelled");
-                self.ssdkBut.enabled = YES;
                 _SdglLayoutConstraint.constant = CGFLOAT_MIN;
                 _sdglView.hidden = YES; //  已取消隐藏商家
                 self.XfjlLayoutConstraint.constant = 49;
@@ -394,7 +394,6 @@
             case 2:
             {
                 model.stateString = [NSString stringWithFormat:@"待%@",MyLocal(@"audited")];
-                self.ssdkBut.enabled = NO;
                 _SdglLayoutConstraint.constant = CGFLOAT_MIN;
                 _sdglView.hidden = YES; //  待审核隐藏商家
                 self.XfjlLayoutConstraint.constant = 49;
@@ -408,7 +407,6 @@
                 self.xfjlView.hidden = YES; // 已审核隐藏申请列表
                 _SdglLayoutConstraint.constant = 49;
                 _sdglView.hidden = NO; //  显示商家
-                
             }
                 break;
             case 7:
@@ -438,6 +436,7 @@
 }
 
 - (void)SupplierData:(ZP_MyHopageModel2 *)model {
+    self.stutsModel = model;
     self.RequestStatusLabel.text = [NSString stringWithFormat:@"%@",model.stateString];
 }
 
@@ -519,6 +518,7 @@
 
 //  商店管理
 - (IBAction)sdglAction:(id)sender {
+    
     StoreViewController *storeViewController = [[StoreViewController alloc] init];
     [self.navigationController pushViewController:storeViewController animated:YES];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
@@ -527,13 +527,17 @@
 
 // 申请开店
 - (IBAction)sskdAction:(id)sender {
-    Supplier1ViewController * Supplier = [[Supplier1ViewController alloc]init];
-    Supplier.stausType = self.RequestStatusStr.integerValue;
-    Supplier.reason = self.reason;
-    ZPLog(@"%ld -- %ld",Supplier.stausType,self.RequestStatusStr.integerValue);
-    [self.navigationController pushViewController:Supplier animated:YES];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
-    self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
+    if (self.stutsModel.state.integerValue != 2) {
+        Supplier1ViewController * Supplier = [[Supplier1ViewController alloc]init];
+        Supplier.stausType = self.RequestStatusStr.integerValue;
+        Supplier.reason = self.reason;
+        ZPLog(@"%ld -- %ld",Supplier.stausType,self.RequestStatusStr.integerValue);
+        [self.navigationController pushViewController:Supplier animated:YES];
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
+        self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
+    } else {
+        [SVProgressHUD showInfoWithStatus:self.stutsModel.stateString];
+    }
 }
 
 //// 最新消息
