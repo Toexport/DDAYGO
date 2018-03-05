@@ -14,7 +14,7 @@
 #import "UINavigationBar+Awesome.h"
 
 @interface LogregisterController ()
-@property (weak, nonatomic) IBOutlet UIButton *ICUEQuicklogin;
+@property (weak, nonatomic) IBOutlet UIButton * ICUEQuicklogin;
 
 @end
 
