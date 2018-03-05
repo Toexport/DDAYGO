@@ -15,7 +15,7 @@
 @interface ChooseView ()
 
 //规格分类
-@property(nonatomic,strong)NSArray *rankArr;
+@property(nonatomic,strong)NSArray * rankArr;
 
 @end
 
@@ -31,6 +31,7 @@
         [self creatUI];
     }
     return self;
+   
 }
 
 
@@ -125,7 +126,7 @@
     [addBtn setBackgroundColor:[UIColor colorWithRed:245/255.0f green:143/255.0f blue:43/255.0f alpha:1]];
     [addBtn setTitleColor:[UIColor whiteColor] forState:0];
     addBtn.titleLabel.font = ZP_addBtnTextdetaFont;
-    [addBtn setTitle:MyLocal(@"add shopping") forState:0];
+    [addBtn setTitle:MyLocal(@"purchase immediately") forState:0];
     [whiteView addSubview:addBtn];
     
 //   立即购买按钮
@@ -139,7 +140,7 @@
     [buyBtn setBackgroundColor:ZP_BuyColor];
     [buyBtn setTitleColor:[UIColor whiteColor] forState:0];
     buyBtn.titleLabel.font = ZP_addBtnTextdetaFont;
-    [buyBtn setTitle:MyLocal(@"purchase immediately") forState:0];
+    [buyBtn setTitle:MyLocal(@"add shopping") forState:0];
     [whiteView addSubview:buyBtn];
     
 //   库存不足按钮
@@ -154,7 +155,7 @@
     stockBtn.hidden = YES;
 
 //   有的商品尺码和颜色分类特别多 所以用UIScrollView 分类过多显示不全的时候可滑动查看
-    mainscrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(headImage.frame) + 10, screen_Width, whiteView.height-CGRectGetMaxY(headImage.frame)+10-60)];
+    mainscrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(headImage.frame) + 10, screen_Width, whiteView.height-CGRectGetMaxY(headImage.frame)+10-105)];
     mainscrollview.backgroundColor = [UIColor clearColor];
     mainscrollview.contentSize = CGSizeMake(0, 200);
     mainscrollview.showsHorizontalScrollIndicator = NO;
@@ -162,8 +163,6 @@
     [whiteView addSubview:mainscrollview];
 
 }
-
-
 
 
 @end

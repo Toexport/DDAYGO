@@ -355,10 +355,8 @@
 }
 // 减
 - (void)jian:(UIButton *)but {
-
     NSArray *arr = self.dicArray[but.tag];
     NSString *str = arr[6];
-    
     if ([str integerValue] == 1) {
         [SVProgressHUD showInfoWithStatus:MyLocal(@"Minimum not less than 1 note.")];
         NSLog(@"1");

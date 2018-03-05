@@ -82,6 +82,17 @@
         messageArray = @[@{@"Computations":@"",@"num":@""}];
     }
             [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    //iphone X
+    if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
+        //在这里写你想要的高度 其他地方不用动
+//        _LayoutConstraintButtt.constant =  30;
+//        _LayoutConstraintheadView.constant = 64+10;
+//        _LayoutConstraintLabel.constant = 8;
+//        _tabbarviewLayoutConstraint.constant = 55+38;
+        
+//
+        
+    }
 }
 
 // 刷新
@@ -125,7 +136,6 @@
     UIView * bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, ZP_height - TabbarHeight - NavBarHeight , ZP_Width, 50)];
     bottomView.backgroundColor = ZP_textWite;
     [self.view addSubview:bottomView];
-    
 //    总金额
     ZP_GeneralLabel * PriceLabel = [ZP_GeneralLabel initWithtextLabel:_PriceLabel.text textColor:ZP_pricebackground font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [bottomView addSubview:PriceLabel];
@@ -254,6 +264,11 @@
                     UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Prompt", nil) message:NSLocalizedString(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.",nil) preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                         ZPLog(@"取消");
+                        //跳转
+                        if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+                            UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
+                            [tbvc setSelectedIndex:0];
+                        }
                     }];
                     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Determine",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                         [self.navigationController popToRootViewControllerAnimated:NO];

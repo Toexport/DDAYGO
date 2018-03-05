@@ -14,19 +14,19 @@
 typedef void (^FinishBlock)(id response);
 typedef void (^FinishBtnBlock)(id response);
 
-@property(nonatomic,strong)UIView *backgroundView;
+@property(nonatomic,strong)UIView * backgroundView;
 
-@property(nonatomic,strong)NSArray *standardList;
-@property(nonatomic,strong)NSArray *standardValueList;
+@property(nonatomic,strong)NSArray * standardList;
+@property(nonatomic,strong)NSArray * standardValueList;
 
-@property(nonatomic,strong)NSArray *standardTypeList;
-@property(nonatomic,strong)NSArray *standardValueTypeList;
+@property(nonatomic,strong)NSArray * standardTypeList;
+@property(nonatomic,strong)NSArray * standardValueTypeList;
 
-@property(nonatomic,strong)ChooseView *chooseView;
-@property(nonatomic,strong)ChooseRank *chooseRank;
+@property(nonatomic,strong)ChooseView * chooseView;
+@property(nonatomic,strong)ChooseRank * chooseRank;
 
-@property(nonatomic,strong)NSMutableArray *rankArray;
-@property(nonatomic,strong)NSMutableArray *rankArray2;
+@property(nonatomic,strong)NSMutableArray * rankArray;
+@property(nonatomic,strong)NSMutableArray * rankArray2;
 
 @property (nonatomic, strong) UIButton * button;
 @property (nonatomic, strong) UILabel * numLabel;
@@ -41,14 +41,12 @@ typedef void (^FinishBtnBlock)(id response);
 @property (nonatomic, strong) NSNumber* stockid;
 
 
-@property (nonatomic, strong) ZP_GoodDetailsModel *model;
+@property (nonatomic, strong) ZP_GoodDetailsModel * model;
 @property (nonatomic, strong) NSArray *modelArr;
 @property (nonatomic, strong) NSArray *modeltypeArr;
 
 @property (nonatomic , copy) FinishBtnBlock finishBtnBlock;
 @property (nonatomic , copy) FinishBlock finishBlock;
-
-
 
 - (void)show:(FinishBlock)finishBlock;
 

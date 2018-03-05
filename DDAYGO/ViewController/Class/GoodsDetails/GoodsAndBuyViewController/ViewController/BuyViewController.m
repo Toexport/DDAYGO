@@ -38,6 +38,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *LayoutConstraintheadView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *LayoutConstraintLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottonViewHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tabbarviewLayoutConstraint;
 
 
 /********源文件属性********/
@@ -81,6 +82,8 @@
         _LayoutConstraintButtt.constant =  30;
         _LayoutConstraintheadView.constant = 64+10;
         _LayoutConstraintLabel.constant = 8;
+        _tabbarviewLayoutConstraint.constant = 55+38;
+        
     }
     
 }
@@ -200,6 +203,12 @@
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:MyLocal(@"Prompt") message:NSLocalizedString(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.",nil) preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"Cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 ZPLog(@"取消");
+                [self.navigationController popToRootViewControllerAnimated:NO];
+                //跳转
+                if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+                    UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
+                    [tbvc setSelectedIndex:0];
+                }
             }];
             UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"Determine") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                 [self.navigationController popToRootViewControllerAnimated:NO];

@@ -76,7 +76,7 @@
 "size No selection" = "没有选择尺寸";
 "number NO choices" = "没有选择数量";
 "Add success" = "添加成功";
-"Add failure" = "添加失败";
+"Add failure" = "库存不足";
 "Select category/specification" = "选择分类/规格";
 "Purchase quantity" = "购买数量";
 "Product specifications" = "商品规格";

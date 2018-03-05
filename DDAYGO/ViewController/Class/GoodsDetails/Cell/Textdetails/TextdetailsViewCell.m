@@ -27,7 +27,7 @@
     //创建UIActivityIndicatorView背底半透明View
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)];
     [view setTag:108];
-    [view setBackgroundColor:[UIColor blackColor]];
+    [view setBackgroundColor:[UIColor grayColor]];
     [view setAlpha:0.5];
     [self addSubview:view];
     

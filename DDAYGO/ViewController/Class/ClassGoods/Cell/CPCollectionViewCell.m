@@ -92,13 +92,13 @@
 
 - (void)cellWithdic:(ZP_ClassGoodsModel *)model {
     [_imageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]]; // 图片
-    _headerlabel.text = model.productname;  // 标题
+//    _headerlabel.text = model.productname;  // 标题
     _MerchandiseIntroducedLabel.text = model.productremark; // 商品介绍
     _preferentialLabel.text = model.productprice; // 优惠价格
 //    _priceLabel.text = model.productprice;
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
     _TrademarkLabel.text = model.TrademarkLabel; // CP编号
-    _AreaLabel.text = model.produced; // 地区
+//    _AreaLabel.text = model.produced; // 地区
     
 }
 

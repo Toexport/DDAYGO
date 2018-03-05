@@ -94,13 +94,10 @@
 - (void)addNavigationBar {
     __weak LotteryController *controller = self;
     [self addNavigationBarItemWithType:LLNavigationBarItemTypeRightFirst handler:^(UIButton *button) {
-       
         [button setImage:[UIImage imageNamed:@"bg_lottery_record"] forState:UIControlStateNormal];
         [button addTarget:controller action:@selector(Instruction) forControlEvents:UIControlEventTouchUpInside];
     }];
-    
     [self addNavigationBarItemWithType:LLNavigationBarItemTypeRightSecond handler:^(UIButton *button) {
-        
         [button setImage:[UIImage imageNamed:@"bg_lottery_explan"] forState:UIControlStateNormal];
         [button addTarget:controller action:@selector(HistoryLottery) forControlEvents:UIControlEventTouchUpInside];
     }];
@@ -109,6 +106,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     // 上面的frame高度 于110> 10+ 40 + 10 +40
+    [self getData];
     //    //如果等于 就刚刚好在底部
     self.scrollView.contentSize = CGSizeMake(ZP_Width, CGRectGetMaxY(_OrderNumView.frame)+110);
 }
@@ -127,6 +125,42 @@
     self.tishiLabel.hidden = NO;
     [ZP_MyTool getPrizeInfo:^(id obj) {
         ZPLog(@"%@",obj);
+        if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
+            Token = nil;
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
+            DD_ChangeStaus;
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
+            ZPICUEToken = nil;
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
+            [[SDImageCache sharedImageCache] clearDisk];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+#pragma make -- 提示框
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:MyLocal(@"Prompt") message:NSLocalizedString(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.",nil) preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"Cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                ZPLog(@"取消");
+                [self.navigationController popToRootViewControllerAnimated:NO];
+                //跳转
+                if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+                    UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
+                    [tbvc setSelectedIndex:0];
+                }
+            }];
+            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"Determine") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                [self.navigationController popToRootViewControllerAnimated:NO];
+                //跳转
+                if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+                    UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
+                    [tbvc setSelectedIndex:0];
+                }
+            }];
+            [alert addAction:defaultAction];
+            [alert addAction:cancelAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
         //这个是一次的数据
         ZP_LotterModel * model = [ZP_LotterModel mj_objectWithKeyValues:obj];
         _AmountLabel.text = [model.lbalance stringValue];

@@ -186,7 +186,7 @@
 - (void)cellWithModel:(ZP_CartsModel *)model andIndexObject:(NSString *)str {
     [_leftImageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:nil];;
     _titleLabel.text = model.productname;
-    _MerchandiseIntroducedLabel.text = model.productremark;
+//    _MerchandiseIntroducedLabel.text = model.productremark;
     NSLog(@"%@",model.colorname);
     if (model.colorname.length < 1) {
         _descLabel.hidden = YES;

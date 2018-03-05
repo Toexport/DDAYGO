@@ -9,13 +9,13 @@
 "WMR-Bk-Cfx.normalTitle" = "确定";
 
 /* Class = "UILabel"; text = "收款賬戶："; ObjectID = "bXm-vu-Uzi"; */
-"bXm-vu-Uzi.text" = "收款账户：";
+"bXm-vu-Uzi.text" = "收款賬戶：";
 
 /* Class = "UILabel"; text = "收款銀行："; ObjectID = "ky2-Yt-gWX"; */
-"ky2-Yt-gWX.text" = "收款银行：";
+"ky2-Yt-gWX.text" = "收款銀行：";
 
 /* Class = "UILabel"; text = "電話："; ObjectID = "oBz-sE-dQJ"; */
-"oBz-sE-dQJ.text" = "电话：";
+"oBz-sE-dQJ.text" = "電話：";
 
 /* Class = "UILabel"; text = "提現金額："; ObjectID = "q9M-AJ-DwY"; */
-"q9M-AJ-DwY.text" = "提现金额：";
+"q9M-AJ-DwY.text" = "提現金額：";

@@ -338,6 +338,12 @@
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"cancel",nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         NSLog(@"点击了取消按钮");
+        //跳转
+        if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+            
+            UITabBarController * tbvc  = [[UIApplication sharedApplication] keyWindow].rootViewController;
+            [tbvc setSelectedIndex:0];
+        }
     }]];
     [self presentViewController:alert animated:YES completion:nil];
 }

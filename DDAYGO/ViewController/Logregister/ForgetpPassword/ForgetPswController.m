@@ -89,8 +89,13 @@
     if (_ZPEmailTextField.textField.text == nil) {
         [SVProgressHUD showInfoWithStatus:MyLocal(@"account cannot be empty.")];
     }
-    [self.ZPCodeTextField.functionBtn startWithTime:60 title:NSLocalizedString(@"obtain", nil) titleColor:[UIColor whiteColor]countDownTitle:@"s" countDownTitleColor:[UIColor whiteColor] mainColor:ZP_PayColor countColor:ZP_PayColor];
-    [self qurestCode];  // 开始获取验证码
+    if (_ZPEmailTextField.textField.text > 0) {
+        return;
+    }else {
+        [self.ZPCodeTextField.functionBtn startWithTime:60 title:NSLocalizedString(@"obtain", nil) titleColor:[UIColor whiteColor]countDownTitle:@"s" countDownTitleColor:[UIColor whiteColor] mainColor:ZP_PayColor countColor:ZP_PayColor];
+        [self qurestCode];  // 开始获取验证码
+    }
+    
 }
 
 //  发生网络请求 --> 获取验证码

@@ -58,7 +58,7 @@
 "size No selection" = "沒有選擇尺寸";
 "number NO choices" = "數量沒有選擇";
 "Add success" = "添加成功";
-"Add failure" = "添加失敗";
+"Add failure" = "庫存不足";
 "Select category/specification" = "選擇分類/規格";
 "Purchase quantity" = "購買數量";
 "Product specifications" = "商品規格";

@@ -189,7 +189,6 @@
     [view addSubview:self];
     __weak typeof(self) _weakSelf = self;
     self.contentView.frame = CGRectMake(15, kHeight, kWidth, kATTR_VIEW_HEIGHT);;
-    
     [UIView animateWithDuration:0.3 animations:^{
         _weakSelf.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
         _weakSelf.contentView.frame = CGRectMake(15, kHeight - kATTR_VIEW_HEIGHT, kWidth, kATTR_VIEW_HEIGHT);
@@ -227,7 +226,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    return CGFLOAT_MIN;
+
     return 5.0f;
 }
 
@@ -258,6 +257,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
+//        ZP_height - TabbarHeight - NavBarHeight+10 self.contentView.frame.size.height - 100 - 60
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 100, ZP_Width, self.contentView.frame.size.height - 100 - 60) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;

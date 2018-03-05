@@ -141,6 +141,11 @@
                                         UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Prompt", nil) message:NSLocalizedString(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.",nil) preferredStyle:UIAlertControllerStyleAlert];
                                         UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                                             ZPLog(@"取消");
+                                            //跳转
+                                            if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+                                                UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
+                                                [tbvc setSelectedIndex:0];
+                                            }
                                         }];
                                         UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Determine",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                                             [self.navigationController popToRootViewControllerAnimated:NO];

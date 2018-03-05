@@ -133,137 +133,138 @@
     }
 }
         
-#pragma mark - - - -立即购买
+#pragma mark - - - -加入購物車
 - (void)immedPayBtnClick{
-    if (_model.productamount.integerValue <= 0) {
-        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Insufficient inventory", nil)];
-        return;
-    }else {
-    NSLog(@"im go pay");
-    if ( _modelArr.count > 0) {
-        int a = 0;
-        for (int i=0; i < _standardList.count; i++) {
-            ChooseRank * view = [self viewWithTag:8000+i];
-            for (UIButton * obj in  view.btnView.subviews) {
-                if(obj.selected){
-                    a++;
-                }else{
-                }
-            }
-        }
-        if (a > 0) {
-            NSLog(@"规格有选中");
-        }else{
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"specification no selected", nil)];
-            NSLog(@"规格没有选中");
-            
-            return;
-        }
-        
-    }
-    
-    NSLog(@"%ld",_standardTypeList.count);
-    if (_modeltypeArr.count > 0) {
-        int b = 0;
-        for (int i=0; i < _standardTypeList.count; i++) {
-            ChooseRank *view = [self viewWithTag:9000+i];
-            for (UIButton *obj in  view.btnView.subviews) {
-                if(obj.selected){
-                    b++;
-                }else{
-                }
-            }
-        }
-        if (b > 0) {
-            NSLog(@"尺寸有选中");
-        }else{
-            //提示语
-            NSLog(@"尺寸没有选中");
-            [SVProgressHUD showErrorWithStatus:MyLocal(@"size No selection")];
-            return;
-        }
-    }
-    if (_numLabel.text.intValue > 0 ) {
-        ConfirmViewController * Confirm = [[ConfirmViewController alloc]init];
-        Confirm.stockidsString = [NSString stringWithFormat:@"%d_%@",self.stockid.intValue,_numLabel.text];
-        if (self.finishBtnBlock) {
-            self.finishBtnBlock(Confirm);
-        }
-        [[NSNotificationCenter defaultCenter]postNotificationName:@"Confirm" object:nil];
-    }else {
-        NSLog(@"没有选择数量");
-        [SVProgressHUD showErrorWithStatus:MyLocal(@"number NO choices")];
-    }
-}
-}
-#pragma mark - - - - 加入购物车
--(void)addGoodsCartBtnClick {
     NSLog(@"add cart");
     if (_model.productamount.integerValue <= 0) {
         [SVProgressHUD showErrorWithStatus:MyLocal(@"Insufficient inventory")];
         return;
     }else {
-    if ( _modelArr.count > 0) {
-        int a = 0;
-        for (int i = 0; i < _standardList.count; i++) {
-            ChooseRank *view = [self viewWithTag:8000+i];
-            for (UIButton *obj in  view.btnView.subviews) {
-                if(obj.selected){
-                    a++;
-                }else{
+        if ( _modelArr.count > 0) {
+            int a = 0;
+            for (int i = 0; i < _standardList.count; i++) {
+                ChooseRank *view = [self viewWithTag:8000+i];
+                for (UIButton *obj in  view.btnView.subviews) {
+                    if(obj.selected){
+                        a++;
+                    }else{
+                    }
                 }
             }
-        }
-        if (a > 0) {
-            NSLog(@"规格有选中");
-        }else{
-            NSLog(@"规格没有选中");
-            
-            return;
-        }
-    }
-    
-    NSLog(@"%ld",_standardTypeList.count);
-    if (_modeltypeArr.count > 0) {
-        int b = 0;
-        for (int i=0; i < _standardTypeList.count; i++) {
-            ChooseRank *view = [self viewWithTag:9000+i];
-            for (UIButton *obj in  view.btnView.subviews) {
-                if(obj.selected){
-                    b++;
-                }else{
-                }
+            if (a > 0) {
+                NSLog(@"规格有选中");
+            }else{
+                NSLog(@"规格没有选中");
+                
+                return;
             }
-            
-        }
-        if (b > 0) {
-            NSLog(@"尺寸有选中");
-        }else{
-            //提示语
-            NSLog(@"尺寸没有选中");
-            return;
         }
         
-    }
-    if (_numLabel.text.intValue > 0 ) {
-        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-        dic[@"amount"] = self.numLabel.text;
-        dic[@"stockid"] = self.stockid;
-        dic[@"token"] = Token;
-        [ZP_ClassViewTool requAddToCart:dic success:^(id obj) {
-            if ([obj[@"result"] isEqualToString:@"ok"]) {
-                [SVProgressHUD showSuccessWithStatus:MyLocal(@"Add success")];
-            } else {
-                [SVProgressHUD showErrorWithStatus:MyLocal(@"Add failure")];
+        NSLog(@"%ld",_standardTypeList.count);
+        if (_modeltypeArr.count > 0) {
+            int b = 0;
+            for (int i=0; i < _standardTypeList.count; i++) {
+                ChooseRank *view = [self viewWithTag:9000+i];
+                for (UIButton *obj in  view.btnView.subviews) {
+                    if(obj.selected){
+                        b++;
+                    }else{
+                    }
+                }
+                
             }
-        } failure:^(NSError *error) {
+            if (b > 0) {
+                NSLog(@"尺寸有选中");
+            }else{
+                //提示语
+                NSLog(@"尺寸没有选中");
+                return;
+            }
             
-        }];
-        [self dismiss];}
-    else{
-        NSLog(@"没有选择数量");
+        }
+        if (_numLabel.text.intValue > 0 ) {
+            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+            dic[@"amount"] = self.numLabel.text;
+            dic[@"stockid"] = self.stockid;
+            dic[@"token"] = Token;
+            [ZP_ClassViewTool requAddToCart:dic success:^(id obj) {
+                if ([obj[@"result"] isEqualToString:@"ok"]) {
+                    [SVProgressHUD showSuccessWithStatus:MyLocal(@"Add success")];
+                } else {
+                    [SVProgressHUD showErrorWithStatus:MyLocal(@"Add failure")];
+                }
+            } failure:^(NSError *error) {
+                
+            }];
+            [self dismiss];}
+        else{
+            NSLog(@"没有选择数量");
+        }
     }
 }
+#pragma mark - - - - 立即購買
+-(void)addGoodsCartBtnClick {
+    if (_model.productamount.integerValue <= 0) {
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Insufficient inventory", nil)];
+        return;
+    }else {
+        NSLog(@"im go pay");
+        if ( _modelArr.count > 0) {
+            int a = 0;
+            for (int i=0; i < _standardList.count; i++) {
+                ChooseRank * view = [self viewWithTag:8000+i];
+                for (UIButton * obj in  view.btnView.subviews) {
+                    if(obj.selected){
+                        a++;
+                    }else{
+                    }
+                }
+            }
+            if (a > 0) {
+                NSLog(@"规格有选中");
+            }else{
+                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"specification no selected", nil)];
+                NSLog(@"规格没有选中");
+                
+                return;
+            }
+            
+        }
+        
+        NSLog(@"%ld",_standardTypeList.count);
+        if (_modeltypeArr.count > 0) {
+            int b = 0;
+            for (int i=0; i < _standardTypeList.count; i++) {
+                ChooseRank *view = [self viewWithTag:9000+i];
+                for (UIButton *obj in  view.btnView.subviews) {
+                    if(obj.selected){
+                        b++;
+                    }else{
+                    }
+                }
+            }
+            if (b > 0) {
+                NSLog(@"尺寸有选中");
+            }else{
+                //提示语
+                NSLog(@"尺寸没有选中");
+                [SVProgressHUD showErrorWithStatus:MyLocal(@"size No selection")];
+                return;
+            }
+        }
+        if (_numLabel.text.intValue > 0 ) {
+            ConfirmViewController * Confirm = [[ConfirmViewController alloc]init];
+            Confirm.stockidsString = [NSString stringWithFormat:@"%d_%@",self.stockid.intValue,_numLabel.text];
+            if (self.finishBtnBlock) {
+                self.finishBtnBlock(Confirm);
+            }
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"Confirm" object:nil];
+        }else {
+            NSLog(@"没有选择数量");
+            [SVProgressHUD showErrorWithStatus:MyLocal(@"number NO choices")];
+        }
+    }
+  
 }
 #pragma mark --立即购买
 -(void)chooseViewClick{

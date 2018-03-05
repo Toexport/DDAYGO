@@ -13,7 +13,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BuyViewController">
             <connections>
                 <outlet property="LayoutConstraintButtt" destination="d4i-jv-MeA" id="mY3-aE-E3Q"/>
-                <outlet property="LayoutConstraintLabel" destination="JPu-BK-3Tg" id="cR4-Gd-eI9"/>
                 <outlet property="LayoutConstraintheadView" destination="2Sq-gn-7QL" id="nTm-FC-Agy"/>
                 <outlet property="backItem" destination="yyv-kf-DKo" id="XsT-Dv-Ri1"/>
                 <outlet property="bottonViewHeight" destination="JLR-nh-NDo" id="gdS-KY-G8s"/>
@@ -22,6 +21,7 @@
                 <outlet property="headView" destination="hvo-bP-Cgu" id="aID-cq-0YM"/>
                 <outlet property="shoucangBtn" destination="4Iy-iX-bhC" id="hIe-0E-Eat"/>
                 <outlet property="tabbarView" destination="Lay-sh-ful" id="90m-fP-c1d"/>
+                <outlet property="tabbarviewLayoutConstraint" destination="JLR-nh-NDo" id="VyR-w6-JH6"/>
                 <outlet property="titleLabel" destination="vgo-8v-KYi" id="9VI-n8-lG3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
