@@ -86,12 +86,9 @@
 // 获取验证码
 - (void)getMSNCode {
     NSLog(@"获取验证码");
-    if (_ZPEmailTextField.textField.text == nil) {
+    if (_ZPEmailTextField.textField.text.length == 0) {
         [SVProgressHUD showInfoWithStatus:MyLocal(@"account cannot be empty.")];
-    }
-    if (_ZPEmailTextField.textField.text > 0) {
-        return;
-    }else {
+    } else {
         [self.ZPCodeTextField.functionBtn startWithTime:60 title:NSLocalizedString(@"obtain", nil) titleColor:[UIColor whiteColor]countDownTitle:@"s" countDownTitleColor:[UIColor whiteColor] mainColor:ZP_PayColor countColor:ZP_PayColor];
         [self qurestCode];  // 开始获取验证码
     }
@@ -107,7 +104,6 @@
         NSDictionary * dic = obj;
         _verifyemail = dic[@"verifyemail"];
         ZPLog(@"%@",dic);
-        
         if ([dic[@"result"] isEqualToString:@"ok"]) {
             [SVProgressHUD showSuccessWithStatus:MyLocal(@"Send success")];
             ZPLog(@"发送成功");
@@ -119,7 +115,7 @@
             }else
                 if ([dic[@"result"] isEqualToString:@"acc_email_err"]) {
                     [SVProgressHUD showInfoWithStatus:MyLocal(@"Account does not exist")];
-                    [_ZPCodeTextField.functionBtn cancelCountDownWith:MyLocal(@"obtain")];//这句代码是倒计时清0
+//                    [_ZPCodeTextField.functionBtn cancelCountDownWith:MyLocal(@"obtain")];//这句代码是倒计时清0
                 }else
                     if ([dic[@"result"] isEqualToString:@"send_error"]) {
                         [SVProgressHUD showInfoWithStatus:MyLocal(@"Verification code sent failed, please try again later")];
