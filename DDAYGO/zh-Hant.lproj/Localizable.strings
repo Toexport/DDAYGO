@@ -416,7 +416,7 @@
 "ZPEmailICUE" = "請輸入ICUE帳號";
 "The output cannot contain special characters." = "輸入不能含有特殊字符";
 "promptLabelText" = "未提交任何號碼";
-"" = "";
+"Your application has not been reviewed." = "您的申請還未審核";
 "" = "";
 "" = "";
 "" = "";

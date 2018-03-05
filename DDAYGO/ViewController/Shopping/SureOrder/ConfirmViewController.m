@@ -446,8 +446,11 @@
     }else
         if (3 == section) {
             return self.ConfirmArray.count;
-    }else { 
-            return _dataArrar.count;
+    }else
+        if (4 == section) {
+            return 1;
+        }else {
+            return 1;
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -536,7 +536,7 @@
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
         self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
     } else {
-        [SVProgressHUD showInfoWithStatus:self.stutsModel.stateString];
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"Your application has not been reviewed.")];
     }
 }
 

@@ -53,7 +53,6 @@
 }
 
 - (void)AnonymousBut:(UIButton * )sender {
-    
     sender.selected = !sender.selected;
 }
 @end
