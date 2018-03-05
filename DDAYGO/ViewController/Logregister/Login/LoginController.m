@@ -33,13 +33,13 @@
     self.ZPPswTextField.textField.placeholder = MyLocal(@"ZPPswTextFieldID");
     
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];  // 隐藏返回按钮上的文字
     //    self.LoginscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐藏
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
  [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"ic_bar_return"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
+    
 }
 
 // 返回
@@ -83,14 +83,6 @@
 
 // 确定按钮
 - (IBAction)LoginClick:(id)sender {
-    //    //  设置时间和动画效果
-    //    [UIView animateWithDuration:4.0 animations:^{
-    //        [SVProgressHUD showWithStatus:@"正在登录..."];
-    //        [self allData];
-    //    } completion:^(BOOL finished) {
-    //        //  动画完毕从父视图移除
-    //
-    //    }];
     [SVProgressHUD showWithStatus: MyLocal(@"Logging in...")];
     [self allData];
 }
