@@ -338,6 +338,7 @@
 - (void) SupplierAllData {
     _SdglLayoutConstraint.constant = CGFLOAT_MIN;
     _sdglView.hidden = YES; //  默认隐藏商家
+    _ssdkBut.enabled = YES;
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     [ZP_MyTool requestSupplier:dic success:^(id obj) {

@@ -75,13 +75,13 @@
     [self initSource];
     [self allData];
     self.scrollView.scrollEnabled = NO;
-//    //iphone X
-//    if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
-//        //在这里写你想要的高度 其他地方不用动
-//        _LayoutConstraintButtt.constant = 18 + 10;
-//        _LayoutConstraintheadView.constant = 64 + 10;
-//        _LayoutConstraintLabel.constant = 10;
-//    }
+    //iphone X
+    if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
+        //在这里写你想要的高度 其他地方不用动
+        _LayoutConstraintButtt.constant =  30;
+        _LayoutConstraintheadView.constant = 64+10;
+        _LayoutConstraintLabel.constant = 8;
+    }
     
 }
 

@@ -43,7 +43,7 @@
     
     if (iphoneX) {
         self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);//导航栏如果使用系统原生半透明的，top设置为64
+        self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 15, 0);//导航栏如果使用系统原生半透明的，top设置为64
         self.collectionView.scrollIndicatorInsets = self.collectionView.contentInset;
     }
 }

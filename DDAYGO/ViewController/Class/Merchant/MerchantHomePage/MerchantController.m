@@ -81,6 +81,7 @@
     UIImageView * imageview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 150)];
     _imageview = imageview;
     imageview.backgroundColor = [UIColor whiteColor];
+//    [imageview setImage:[UIImage imageNamed:@"default_advertisement"]];
     imageview.hidden = YES;
     [self.view addSubview:imageview];
     UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, imageview.frame.size.height, ZP_Width, 35)];
@@ -189,14 +190,10 @@
     _collectionView2 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight - 37) collectionViewLayout:flowLayout];
     _collectionView3 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 2, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight - 37) collectionViewLayout:flowLayout];
     _collectionView4 = [[UICollectionView alloc]initWithFrame:CGRectMake(fDeviceWidth * 3, 0, fDeviceWidth, fDeviceHeight - 200 - NavBarHeight - 37) collectionViewLayout:flowLayout];
-//    _collectionView1.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
-//    _collectionView2.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
-//    _collectionView3.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
-//    _collectionView4.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
-    _collectionView1.backgroundColor = [UIColor whiteColor];
-    _collectionView2.backgroundColor = [UIColor whiteColor];
-    _collectionView3.backgroundColor = [UIColor whiteColor];
-    _collectionView4.backgroundColor = [UIColor whiteColor];
+    _collectionView1.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
+    _collectionView2.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
+    _collectionView3.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
+    _collectionView4.backgroundColor = [UIColor colorWithRed:234/255. green:234/255. blue:234/255. alpha:1];
     //     每个Cell大小
     flowLayout.itemSize = CGSizeMake((fDeviceWidth - 20)/2, (fDeviceWidth - 20) / 2 + 60);
     //    横向
