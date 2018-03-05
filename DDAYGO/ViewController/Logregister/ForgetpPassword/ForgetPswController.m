@@ -31,6 +31,13 @@
     [self initUI];
 //    [ [NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textChange)name:UITextFieldTextDidChangeNotification object:self.ZPEmailTextField.textField];
      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"ic_bar_return"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
+}
+
+// 返回
+- (void)backAction {
+    [SVProgressHUD dismiss];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 // UI
 - (void)initUI {
