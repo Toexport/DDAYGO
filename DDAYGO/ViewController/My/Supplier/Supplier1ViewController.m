@@ -116,19 +116,13 @@
 // 提交按钮
 - (IBAction)SubmitBut:(id)sender {
     NSArray *arr = [self.dataDic allKeys];
-    if (arr.count == 14) {
+    if (arr.count == 12) {
         NSLog(@"填写完成");
     }
 //    else{
 //        [SVProgressHUD showErrorWithStatus:MyLocal(@"Please complete")];
 //        return;
 //    }
-    
-    if (_seleStr.length < 1) {
-        [SVProgressHUD showErrorWithStatus:MyLocal(@"Please select the organization form.")];
-        return;
-    }
-    
     [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         //公司名称
         if ([obj integerValue] == 0) {
@@ -139,6 +133,11 @@
             NSLog(@"统一编号 = %@",self.dataDic[obj]);
         }
     }];
+    
+    if (_seleStr.length < 1) {
+        [SVProgressHUD showErrorWithStatus:MyLocal(@"Please select the organization form.")];
+        return;
+    }
     
     //组织形态  = _seleStr
     NSLog(@"组织形态 %@",_seleStr);
@@ -290,7 +289,6 @@
         return cell2;
     }else {
         SupplierTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SupplierTableViewCell"];
-        
         cell.titleLabel.text = self.array[indexPath.row];
         cell.savaData = ^(NSString *title) {
             NSLog(@"title %@",title);

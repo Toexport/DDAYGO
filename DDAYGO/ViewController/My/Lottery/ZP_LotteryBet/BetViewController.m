@@ -26,7 +26,6 @@
 @property (nonatomic, strong) BetTableViewCellTwo *cell1;
 //* 数据**/
 @property (nonatomic, strong) NSMutableArray *Selearray;
-
 @property (nonatomic,strong) NSMutableArray   *array1;
 @property (nonatomic,strong) NSMutableArray   *arrayT;
 
@@ -51,6 +50,11 @@
     [self AcquisitionTime];
     [self initUI];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+//     iphoneX
+    if ([[UIApplication sharedApplication]statusBarFrame].size.height > 20) {
+        _TableviewLayoutConstraint.constant = 30;
+        
+    }
 }
 
 - (void)initUI {

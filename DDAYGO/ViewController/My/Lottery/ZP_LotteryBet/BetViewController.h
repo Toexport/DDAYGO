@@ -14,4 +14,9 @@
 @property (nonatomic, strong) UILabel * TitleLabel2; // 标题
 @property (nonatomic, strong) UILabel * AmountLabel; // 金额
 @property (nonatomic, strong) UILabel * YuanLabel; // 元
+@property (weak, nonatomic) IBOutlet UIView *TabbarView; //底部view
+@property (weak, nonatomic) IBOutlet UIButton *determineBut;
+@property (weak, nonatomic) IBOutlet UIButton *PlaceorderBut; // 下单
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *TableviewLayoutConstraint;
+
 @end

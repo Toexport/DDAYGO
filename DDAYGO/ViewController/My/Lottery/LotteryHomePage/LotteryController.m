@@ -143,14 +143,44 @@
     _YueLabel.text = [model1.mm stringValue];
     _RiLabel.text = [model1.periods stringValue];
     _dateLabel.text = model1.recordtime;
-    [_but1 setTitle:[NSString stringWithFormat:@"%02d",model1.white1.intValue] forState:UIControlStateNormal];
-    [_but2 setTitle:[NSString stringWithFormat:@"%02d",model1.white2.intValue] forState:UIControlStateNormal];
-    [_but3 setTitle:[NSString stringWithFormat:@"%02d",model1.white3.intValue] forState:UIControlStateNormal];
-    [_but4 setTitle:[NSString stringWithFormat:@"%02d",model1.white4.intValue] forState:UIControlStateNormal];
-    [_but5 setTitle:[NSString stringWithFormat:@"%02d",model1.white5.intValue] forState:UIControlStateNormal];
-    [_but6 setTitle:[NSString stringWithFormat:@"%02d",model1.powerball.intValue] forState:UIControlStateNormal];
+    if (model1.white1.intValue == 0) {
+        [_but1 setTitle:@"0" forState:UIControlStateNormal];
+    }else {
+        [_but1 setTitle:[NSString stringWithFormat:@"%02d",model1.white1.intValue] forState:UIControlStateNormal];
+        
+    }
+    if (model1.white2.intValue == 0) {
+        [_but2 setTitle:@"0" forState:UIControlStateNormal];
+    }else {
+        [_but2 setTitle:[NSString stringWithFormat:@"%02d",model1.white2.intValue] forState:UIControlStateNormal];
+        
+    }
+    if (model1.white3.intValue == 0) {
+        [_but3 setTitle:@"0" forState:UIControlStateNormal];
+    }else {
+        [_but3 setTitle:[NSString stringWithFormat:@"%02d",model1.white3.intValue] forState:UIControlStateNormal];
+        
+    }
+    if (model1.white4.intValue == 0) {
+        [_but4 setTitle:@"0" forState:UIControlStateNormal];
+    }else {
+        [_but4 setTitle:[NSString stringWithFormat:@"%02d",model1.white4.intValue] forState:UIControlStateNormal];
+        
+    }
+    if (model1.white5.intValue == 0) {
+        [_but5 setTitle:@"0" forState:UIControlStateNormal];
+    }else {
+        [_but5 setTitle:[NSString stringWithFormat:@"%02d",model1.white5.intValue] forState:UIControlStateNormal];
+        
+    }
+    if (model1.powerball.intValue == 0) {
+        [_but6 setTitle:@"0" forState:UIControlStateNormal];
+    }else {
+        [_but6 setTitle:[NSString stringWithFormat:@"%02d",model1.powerball.intValue] forState:UIControlStateNormal];
+        
+    }
     //下面一个数据 直接用
-    lotteryModel *model2 = [lotteryModel mj_objectWithKeyValues:model.lottery];
+    lotteryModel * model2 = [lotteryModel mj_objectWithKeyValues:model.lottery];
     NSLog(@"m2 %@",model2.createtime);
     // lottoerwinmodel 的数据
     NSArray * arr = [lotterywinModel mj_objectArrayWithKeyValuesArray:model.lotterywin];
