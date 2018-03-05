@@ -28,7 +28,8 @@
             UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
             but.frame = CGRectMake(j * ZP_Width / 8 + (ZP_Width / 8 - 30) / 2, i * ZP_Width / 8 + (ZP_Width / 8 - 30) / 2, 30, 30);
             but.titleLabel.font = ZP_TrademarkFont;
-            [but setTitle:[NSString stringWithFormat:@"%02ld",num + 1] forState:UIControlStateNormal];
+//            [but setTitle:[NSString stringWithFormat:@"%02ld",num + 1] forState:UIControlStateNormal];
+            [but setTitle:[NSString stringWithFormat:@"%02ld",num +1] forState:UIControlStateNormal];
             [but setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [but setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
             [but setBackgroundImage:[UIImage imageNamed:@"bg_choose_whiteball_normal"] forState:UIControlStateNormal];
@@ -53,7 +54,7 @@
     if (btn.selected) {
         btn.selected = !btn.selected;
         [self.butArray removeAllObjects];
-        [self upDataButtonWith:26];
+        [self upDataButtonWith:25];
        
     } else {
         if (self.butArray.count == 1) {

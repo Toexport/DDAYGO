@@ -188,7 +188,7 @@
 "Language" = "語言";
 "Setting" = "設置";
 "Choose photos" = "選取照片";
-"Change my avatar" = "修改tou'x";
+"Change my avatar" = "修改頭像";
 "cancel" = "取消";
 "camera" = "拍照";
 "photo" = "相冊";
@@ -382,7 +382,7 @@
 "account cannot be empty." = "帳號不能為空";
 "obtain" = "重新獲取";
 "Send success" = "發送成功";
-"Account does not exist" = "帳號不存在";
+"Account does not exist" = "帳號不存在或未驗證郵箱，無法找回密碼";
 "Verification code sent failed, please try again later" = "驗證碼發送失敗,請稍後再試";
 "password number should not be less than 6 digits greater than 20 digits." = "密碼位數不能少於6-20位";
 "Verify that the code cannot be empty." = "驗證碼不能為空";

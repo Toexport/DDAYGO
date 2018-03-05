@@ -64,7 +64,6 @@
                 [weakSelf setTitle:title forState:UIControlStateNormal];
                 weakSelf.userInteractionEnabled = YES;
                 [weakSelf setTitleColor:tColor forState:UIControlStateNormal];
-                
             });
         } else {
             int allTime = (int)timeLine + 1;

@@ -34,9 +34,8 @@
             but.frame = CGRectMake(j * ZP_Width / 8 + (ZP_Width / 8 - 30) / 2, i * ZP_Width / 8 + (ZP_Width / 8 - 30) / 2, 30, 30);
             but.titleLabel.font = ZP_TrademarkFont;
             [but setBackgroundImage:[UIImage imageNamed:@"bg_choose_whiteball_normal"] forState:UIControlStateNormal];
-     
             [but setBackgroundImage:[UIImage imageNamed:@"bg_white_ball"] forState:UIControlStateSelected];
-            but.tag = num+1;
+            but.tag = num + 1 ;
             [self.butArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 NSLog(@"obj =%@",obj);
                 if (but.tag == [obj integerValue]) {
@@ -44,11 +43,9 @@
                 }
             }];
 
+//            [but setTitle:[NSString stringWithFormat:@"%02ld",(long)num + 1] forState:UIControlStateNormal];
             [but setTitle:[NSString stringWithFormat:@"%02ld",(long)num + 1] forState:UIControlStateNormal];
             [but setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//            but.titleEdgeInsets = UIEdgeInsetsMake(2.5, 2.5, 2.5, 2.5);
-            
-            
             [but addTarget:self action:@selector(butClick:) forControlEvents:UIControlEventTouchUpInside];
             num ++;
             [self.contentView addSubview:but];
@@ -60,7 +57,7 @@
     if (btn.selected) {
         btn.selected = !btn.selected;
         [self.butArray removeObject:[NSNumber numberWithInteger:btn.tag]];
-        [self upDataButtonWith:69];
+        [self upDataButtonWith:68];
         
     } else {
         if (self.butArray.count == 5) {

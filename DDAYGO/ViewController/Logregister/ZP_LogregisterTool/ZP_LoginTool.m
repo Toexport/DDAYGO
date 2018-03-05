@@ -37,7 +37,6 @@
 //  获取用户信息
 + (void)getAccountInfo:(NSString *)token success:(void (^)(id))success failure:(void (^)(NSError *))failure {
     [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@accountinfo?token=%@&nonce=adf",URLAPI,token] parameters:nil success:^(NSDictionary *responseObject) {
-        
         success(responseObject);
         
     } failure:^(NSError *error) {

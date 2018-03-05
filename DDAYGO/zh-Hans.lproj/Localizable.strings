@@ -500,7 +500,7 @@
 "account cannot be empty." = "帐号不能为空";
 "obtain" = "重新获取";
 "發送成功" = "发送成功";
-"Account does not exist" = "帐号不存在";
+"Account does not exist" = "帐号不存在或未验证邮箱，无法找回密码";
 "Verification code sent failed, please try again later" = "验证码发送失败,请稍后再试";
 "password number should not be less than 6 digits greater than 20 digits." = "密码位数不能小于6-20位";
 "Verify that the code cannot be empty." = "验证码不能为空";

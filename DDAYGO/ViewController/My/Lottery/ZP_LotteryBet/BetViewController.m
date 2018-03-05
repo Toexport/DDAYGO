@@ -176,7 +176,6 @@
         return self.tableHeadView1;
     }
     if (section == 1) {
-        
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 44)];
         view.backgroundColor = [UIColor whiteColor];
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(16, view.frame.origin.y + 20, 65, 25)];
