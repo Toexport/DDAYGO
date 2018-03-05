@@ -175,27 +175,26 @@
         
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 44)];
         view.backgroundColor = [UIColor whiteColor];
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(16, 0, 65, 44)];
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(16, view.frame.origin.y + 20, 65, 25)];
         label.text =MyLocal(@"Red ball: one,");
         label.font = [UIFont systemFontOfSize:13];
         [view addSubview:label];
-        UILabel *label2 = [[UILabel alloc]initWithFrame:CGRectMake(80, 0, 30, 44)];
+        UILabel *label2 = [[UILabel alloc]initWithFrame:CGRectMake(80, view.frame.origin.y + 20, 30, 25)];
         label2.text = MyLocal(@"selected");
         label2.font = [UIFont systemFontOfSize:13];
         [view addSubview:label2];
-        _label3 = [[UILabel alloc]initWithFrame:CGRectMake(110, 0, 10, 44)];
+        _label3 = [[UILabel alloc]initWithFrame:CGRectMake(110, view.frame.origin.y + 20, 10, 25)];
         _label3.text  = [NSString stringWithFormat:@"%ld",self.arrayT.count];
         [_label3 setTextColor:[UIColor redColor]];
         _label3.font = [UIFont systemFontOfSize:13];
         [view addSubview:_label3];
-        UILabel *label4 = [[UILabel alloc]initWithFrame:CGRectMake(120, 0, 15, 44)];
+        UILabel *label4 = [[UILabel alloc]initWithFrame:CGRectMake(120, view.frame.origin.y + 20, 15, 25)];
         label4.text = MyLocal(@"a");
         label4.font = [UIFont systemFontOfSize:13];
         [view addSubview:label4];
         return view;
-        
     }else{
-        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 30)];
+        UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 30)];
         view.backgroundColor = [UIColor whiteColor];
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(16, 15, 200, 30)];
         label.text = MyLocal(@"Selected number");
@@ -206,7 +205,6 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (indexPath.section == 0) {
         return 69 / 8 * [UIScreen mainScreen].bounds.size.width/8 + 40;
     }

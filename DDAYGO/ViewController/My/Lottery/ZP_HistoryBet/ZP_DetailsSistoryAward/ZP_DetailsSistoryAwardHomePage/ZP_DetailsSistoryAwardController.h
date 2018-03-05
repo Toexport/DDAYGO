@@ -24,7 +24,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *button4;
 @property (weak, nonatomic) IBOutlet UIButton *button5;
 @property (weak, nonatomic) IBOutlet UIButton *button6;
-@property (weak, nonatomic) IBOutlet UILabel * tishiLabel;
 
 
 //奖项
@@ -74,6 +73,6 @@
 @property (weak, nonatomic) IBOutlet UITableView * tableview;
 @property (strong ,nonatomic) NSNumber * pollid;
 
-@property (weak, nonatomic) IBOutlet UILabel *promptLabel;
+@property (weak, nonatomic) IBOutlet UILabel * promptLabel;
 
 @end

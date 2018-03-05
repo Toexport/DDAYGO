@@ -81,6 +81,7 @@
     UIImageView * imageview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 150)];
     _imageview = imageview;
     imageview.backgroundColor = [UIColor whiteColor];
+    imageview.hidden = YES;
     [self.view addSubview:imageview];
     UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, imageview.frame.size.height, ZP_Width, 35)];
     topView.backgroundColor = [UIColor whiteColor];
@@ -101,6 +102,7 @@
             _btn = btn;
             _btn.selected = YES;
         }
+        
 #warning 默认
         if (i == 3) {
 //            默认图片

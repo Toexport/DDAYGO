@@ -163,13 +163,13 @@
 
 #pragma mark -- tableview delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    if (self.model.lotteryorder.count > 0) {
-//        self.tishiLabel.hidden = NO;
+    if (self.model.lotteryorder.count == 0) {
+        self.promptLabel.hidden = NO;
         return self.model.lotteryorder.count;
-//    }else {
-//        self.tishiLabel.hidden = YES;
-//    }
-//    return 0;
+    }else {
+        self.promptLabel.hidden = YES;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -179,13 +179,13 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
     return 30;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ZPLog(@"%ld",indexPath.row);
 }
+
 // 热点被接入，子类重写
 - (void)adjustStatusBar:(NSNotification *)notification {
     NSValue * rectValue = [notification.userInfo objectForKey:UIApplicationStatusBarFrameUserInfoKey];

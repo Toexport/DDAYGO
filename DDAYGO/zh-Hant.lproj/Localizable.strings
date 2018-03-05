@@ -30,7 +30,8 @@
 "Praise rate" = "好評度:";
 "Taiwan" = "臺灣";
 "More choice" = "更多精選";
-"Do you need to go out and look at other countries' goods?" = "需要登出去查看其它國家商品嗎?";
+"Do you need to go out and look at other countries' goods?" = "需要登出去看看其他國家的商品嗎?";
+
 "" = "";
 "" = "";
 "" = "";
@@ -187,7 +188,7 @@
 "Language" = "語言";
 "Setting" = "設置";
 "Choose photos" = "選取照片";
-"Change my avatar" = "修改大頭貼";
+"Change my avatar" = "修改tou'x";
 "cancel" = "取消";
 "camera" = "拍照";
 "photo" = "相冊";
@@ -197,7 +198,7 @@
 "ok" = "確定";
 "revocation" = "撤銷";
 "reminding" = "提示";
-"Are you sure you want to log out?" = "閣下確定要登出嗎？";
+"Are you sure you want to log out?" = "您確定要登出嗎？";
 "collect" = "收藏";
 "Tracking the shop" = "關注的店鋪";
 "store management" = "商店管理";

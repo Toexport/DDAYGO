@@ -30,17 +30,32 @@
 //    self.navigationItem.rightBarButtonItem = item;
 //    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor whiteColor]];
     //    self.chooseCityBtn.frame = CGRectMake(0, 0, 35.0f, 25.0f);
-    self.chooseCityBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    self.chooseCityBtn.titleLabel.font = ZP_addBtnTextdetaFont;
-    [self.chooseCityBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.chooseCityBtn setNeedsLayout];
-    [self.chooseCityBtn setTitle:MyLocal(@"new address") forState:UIControlStateNormal];
-    self.chooseCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    [self.chooseCityBtn addTarget:self action:@selector(addAddress) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc]initWithCustomView:self.chooseCityBtn]];
+    [self addNavigationBar];
     [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
         self.NoDataView = response;
         [self.tableView reloadData];
+    }];
+    
+//    self.chooseCityBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+//    self.chooseCityBtn.titleLabel.font = ZP_addBtnTextdetaFont;
+//    [self.chooseCityBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [self.chooseCityBtn setNeedsLayout];
+//    [self.chooseCityBtn setTitle:MyLocal(@"new address") forState:UIControlStateNormal];
+//    self.chooseCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+//    [self.chooseCityBtn addTarget:self action:@selector(addAddress) forControlEvents:UIControlEventTouchUpInside];
+//    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc]initWithCustomView:self.chooseCityBtn]];
+
+}
+
+// NavButton
+- (void)addNavigationBar {
+    __weak AddressViewController *controller = self;
+    [self addNavigationBarItemWithType:LLNavigationBarItemTypeRightFirst handler:^(UIButton *button) {
+//        [button setImage:[UIImage imageNamed:@"bg_lottery_record"] forState:UIControlStateNormal];
+        button.titleLabel.font = ZP_addBtnTextdetaFont;
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [button setTitle:MyLocal(@"new address") forState:UIControlStateNormal];
+        [button addTarget:controller action:@selector(addAddress) forControlEvents:UIControlEventTouchUpInside];
     }];
 }
 //  生命周期

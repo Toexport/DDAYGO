@@ -83,7 +83,7 @@
     }
     
     _LoginBtn.userInteractionEnabled = NO;
-    
+
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Logging in...", nil)];
     [self AllData];
     ZPLog(@"数据");
@@ -135,8 +135,10 @@
                                 }else
                                     if ([adic[@"result"]isEqualToString:@"token_err"]) {
                                         [SVProgressHUD showInfoWithStatus:MyLocal(@"Token existing")];
-                                        
-                                    }
+                                    }else
+                                        if ([adic[@"result"]isEqualToString:@"isnot_agent"]) {
+                                             [SVProgressHUD showInfoWithStatus:MyLocal(@"The account is not an agent.")];
+                                        }
         }
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
@@ -154,14 +156,13 @@
     dict[@"acc"] = _ZPEmailTextField.textField.text;
     dict[@"pwd"] = _ZPPswTextField.textField.text;
     dict[@"countrycode"] = CountCode;
-    
     [ZP_LoginTool requsetICUELogin:dict success:^(id obj) {
         NSDictionary * adic = obj;
         ZPLog(@"%@",obj);
         //目前不是参数的类型··可能会崩,s
         if ([adic[@"result"]isEqualToString:@"first_login"]) {
 //            [SVProgressHUD showInfoWithStatus:@"首次登錄改成"];
-        }else {
+        }else
             if ([adic[@"result"]isEqualToString:@"ok"]) {
                 Token = obj[@"token"];
                 ZPICUEToken = obj[@"icuetoken"];
@@ -173,40 +174,31 @@
                 [SVProgressHUD showSuccessWithStatus:MyLocal(@"Login successful")];
                 [self.navigationController popToRootViewControllerAnimated:YES];
                 
-            }else {
+            }else
                 if ([adic[@"result"]isEqualToString:@"failure"]) {
                     [SVProgressHUD showInfoWithStatus:MyLocal(@"Login failed")];
-                }else {
+                }else
                     if ([adic[@"result"]isEqualToString:@"country_err"]) {
                         [SVProgressHUD showInfoWithStatus:MyLocal(@"National coding error")];
-                    }else {
+                    }else
                         if ([adic[@"result"]isEqualToString:@"acc_null_err"]) {
                             [SVProgressHUD showInfoWithStatus:MyLocal(@"Account is empty")];
-                        }else {
+                        }else
                             if ([adic[@"result"]isEqualToString:@"pwd_null_err"]) {
                                 [SVProgressHUD showInfoWithStatus:MyLocal(@"Password is empty")];
-                            }else {
+                            }else
                                 if ([adic[@"result"]isEqualToString:@"sys_err"]) {
                                     [SVProgressHUD showInfoWithStatus:MyLocal(@"System error")];
-                                }else {
+                                }else
                                     if ([adic[@"result"]isEqualToString:@"token_err"]) {
                                         [SVProgressHUD showInfoWithStatus:MyLocal(@"Token existing")];
-                                        
-                                    }else {
+                                    }else
                                         if ([dict[@"result"]isEqualToString:@"isnot_agent"]) {
                                             [SVProgressHUD showInfoWithStatus:MyLocal(@"The account is not an agent.")];
-                                            
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+ 
         }
     } failure:^(NSError * error) {
-        [SVProgressHUD showInfoWithStatus:MyLocal(@"Server link failed")];
+//        [SVProgressHUD showInfoWithStatus:MyLocal(@"Server link failed")];
     }];
 }
 

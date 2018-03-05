@@ -18,18 +18,17 @@
 @property (nonatomic, strong)NSArray * array;
 @property (nonatomic, strong)NSArray * arrayP;
 
-@property (nonatomic, strong) NSString *seleStr;
-@property (nonatomic, strong) NSNumber *seleId;
+@property (nonatomic, strong) NSString * seleStr;
+@property (nonatomic, strong) NSNumber * seleId;
 
 @property (nonatomic, strong) NSNumber * sendCode;
 @property (nonatomic, strong) NSNumber * code;
 
-@property (nonatomic, strong) NSMutableArray *typeNameArray;
-@property (nonatomic, strong) NSMutableArray *typeIdArray;
+@property (nonatomic, strong) NSMutableArray * typeNameArray;
+@property (nonatomic, strong) NSMutableArray * typeIdArray;
 
-@property (nonatomic, strong) NSMutableDictionary *dataDic;
-@property (nonatomic, strong) NSMutableDictionary *PldataDic;
-
+@property (nonatomic, strong) NSMutableDictionary * dataDic;
+@property (nonatomic, strong) NSMutableDictionary * PldataDic;
 
 @end
 
@@ -40,9 +39,9 @@
     self.TExtLabel.text = self.reason;
     [self initUI];
     [self SupplierllData];
-    
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
+
 - (IBAction)requstAction:(id)sender {
     [UIView animateWithDuration:0.3 animations:^{
         self.noStoreView.alpha = 0;
@@ -55,12 +54,8 @@
 -(void)initUI {
     self.noStoreView.hidden = YES;
     self.sendingBtn.hidden = YES;
-    
     // 显示 重新加载的 ··  self.noStoreView.hidden = no; self.sendingBtn.hidden = no;
-    
-    
     // 直接显示的  self.noStoreView.hidden = YES;  self.sendingBtn.hidden = YES;
-    
     switch (self.stausType) {
         case -1:
         {
@@ -95,7 +90,6 @@
     self.tableView.dataSource = self;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: ZP_textWite}]; 
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"SupplierTableViewCell" bundle:nil] forCellReuseIdentifier:@"SupplierTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"SupplierViewCell2" bundle:nil] forCellReuseIdentifier:@"SupplierViewCell2"];
     
@@ -378,7 +372,6 @@
 }
 
 - (void)actBut:(UIButton *)but {
-    
     JXPopoverView * popoverView = [JXPopoverView popoverView];
     NSMutableArray * titleArray = [NSMutableArray array];
     for (int i = 0; i < self.typeNameArray.count; i ++) {
