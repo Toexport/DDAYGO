@@ -184,7 +184,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.93740135729999996" green="0.93740135729999996" blue="0.93740135729999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="4cV-55-Jzb" firstAttribute="leading" secondItem="oK6-vH-ivi" secondAttribute="leading" id="3u3-sE-d8E"/>
                 <constraint firstAttribute="trailing" secondItem="o2b-i2-Oc0" secondAttribute="trailing" id="O6t-EX-Bgc"/>
@@ -199,6 +199,7 @@
                 <outlet property="CurrencyLabel" destination="tSN-Qv-VMM" id="Egq-c1-hhL"/>
                 <outlet property="ckLabel" destination="5iE-O7-lB0" id="MtW-ZC-c3d"/>
                 <outlet property="cycleScrollView" destination="4cV-55-Jzb" id="OKU-aV-B1D"/>
+                <outlet property="cycleScrollViewLayoutConstraint" destination="c3y-wJ-7Jx" id="Xk0-io-8EZ"/>
                 <outlet property="shopNameLabel" destination="uJZ-6l-7xX" id="BGw-QW-FdW"/>
                 <outlet property="spjgLabel" destination="nwo-qu-0jm" id="K6r-5m-MRH"/>
                 <outlet property="xlLabel" destination="RgA-V2-KnK" id="57k-F0-07B"/>

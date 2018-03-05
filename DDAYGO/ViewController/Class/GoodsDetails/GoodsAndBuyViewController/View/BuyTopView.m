@@ -10,12 +10,14 @@
 #import "BGCenterLineLabel.h"
 #import "PrefixHeader.pch"
 @interface BuyTopView()
-@property (weak, nonatomic) IBOutlet UILabel *shopNameLabel;
-@property (weak, nonatomic) IBOutlet SDCycleScrollView *cycleScrollView;
-@property (weak, nonatomic) IBOutlet UILabel *spjgLabel;    //商品价格
-@property (weak, nonatomic) IBOutlet UILabel *ckLabel;      //库存
-@property (weak, nonatomic) IBOutlet UILabel *yhLabel;      //优惠
-@property (weak, nonatomic) IBOutlet UILabel *xlLabel;      //销量
+@property (weak, nonatomic) IBOutlet UILabel * shopNameLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint * cycleScrollViewLayoutConstraint;
+@property (weak, nonatomic) IBOutlet SDCycleScrollView * cycleScrollView;
+
+@property (weak, nonatomic) IBOutlet UILabel * spjgLabel;    //商品价格
+@property (weak, nonatomic) IBOutlet UILabel * ckLabel;      //库存
+@property (weak, nonatomic) IBOutlet UILabel * yhLabel;      //优惠
+@property (weak, nonatomic) IBOutlet UILabel * xlLabel;      //销量
 
 @end
 
@@ -25,6 +27,13 @@
     _cycleScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
     _cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
     self.CurrencyLabel.text = DD_MonetarySymbol;
+    //iphone X
+    if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
+        //在这里写你想要的高度 其他地方不用动
+//        _LayoutConstraintButtt.constant =  30;
+        _cycleScrollViewLayoutConstraint.constant = 10;
+
+    }
 }
 
 + (instancetype)view {
