@@ -18,6 +18,7 @@
     [super awakeFromNib];
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/item/customerservice"]]];
     self.webView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.webView.opaque = NO; //设置web的opaque
 }
 
 #pragma mark --- UIWebViewDelegate
