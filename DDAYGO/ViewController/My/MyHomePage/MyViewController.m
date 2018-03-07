@@ -439,9 +439,6 @@
 - (void)SupplierData:(ZP_MyHopageModel2 *)model {
     self.stutsModel = model;
     self.RequestStatusLabel.text = [NSString stringWithFormat:@"%@",model.stateString];
-    Supplier1ViewController * supp;
-    supp.TExtLabel1 = [NSString stringWithFormat:@"%@",model.stateString];
-    
 }
 
 // UI

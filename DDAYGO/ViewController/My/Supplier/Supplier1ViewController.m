@@ -36,11 +36,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.TExtLabel.text = self.reason;
+    [self state];
     [self initUI];
     [self SupplierllData];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
+
+- (void)state {
+    switch (self.reason.longLongValue) {
+        case 0:
+        {
+          self.TExtLabel.text = self.reason;
+        }
+            break;
+        case 1:
+        {
+            self.TExtLabel.text = MyLocal(@"Has product");
+        }
+            break;
+        case 2:
+        {
+            self.TExtLabel.text = self.reason;
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+
+
 
 - (IBAction)requstAction:(id)sender {
     [UIView animateWithDuration:0.3 animations:^{
@@ -424,7 +449,6 @@
             [self.typeIdArray addObject:objj[@"typeid"]];
             [self.typeNameArray addObject:objj[@"typename"]];
         }];
-        _TExtLabel.text = [NSString stringWithFormat:@"%@",self.typeIdArray];
     } failure:^(NSError * error) {
         
         ZPLog(@"%@",error);

@@ -15,7 +15,6 @@
 @property (assign, nonatomic) NSInteger stausType;
 @property (weak, nonatomic) IBOutlet UILabel * TExtLabel; // 状态Label
 @property (nonatomic, strong) NSString * reason;
-@property (nonatomic, strong) NSString * TExtLabel1; // 状态Label
 
 @property (weak, nonatomic) IBOutlet UILabel * LocationLabel; // 地区Label
 
