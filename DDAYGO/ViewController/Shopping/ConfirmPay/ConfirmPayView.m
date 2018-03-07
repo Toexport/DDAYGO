@@ -18,8 +18,8 @@
 #define kATTR_VIEW_HEIGHT (kHeight-215)
 
 ///******* 屏幕尺寸 *******/
-#define     kWidth      [UIScreen mainScreen].bounds.size.width - 30
-#define     kHeight     [UIScreen mainScreen].bounds.size.height - 50
+#define     kWidth     [UIScreen mainScreen].bounds.size.width - 30
+#define     kHeight    [UIScreen mainScreen].bounds.size.height - 50
 
 @interface ConfirmPayView () <UIGestureRecognizerDelegate,UITableViewDelegate,UITableViewDataSource>
 
@@ -38,10 +38,16 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupViews];
-//        if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
-//            _tableView.height = self.contentView.frame.size.height - 100;
-//            
-//        }
+        //iphone X
+        if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
+            _tableView.height = self.contentView.frame.size.height - 100 - 95;
+            [_Paybut mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(self).offset(-30);
+                make.height.mas_offset(40);
+            }];
+            
+        }
+        
     }
     return self;
 }
@@ -177,7 +183,6 @@
 #pragma mark - UIGestureRecognizerDelegate
 //  确定点击范围
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
-    
     if ([touch.view isDescendantOfView:self.contentView]) {
         return NO;
     }
@@ -231,7 +236,6 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-
     return 5.0f;
 }
 
@@ -262,17 +266,18 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-//        ZP_height - TabbarHeight - NavBarHeight+10 self.contentView.frame.size.height - 100 - 60
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 100, ZP_Width, self.contentView.frame.size.height - 100 - 60) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView registerNib:[UINib nibWithNibName:@"PayMoneyCell" bundle:nil] forCellReuseIdentifier:@"PayMoneyCell"];
     }
+    if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
+        _tableView.height = self.contentView.frame.size.height - 100 - 75;
+    }
     return _tableView;
 }
 
 - (void)setAmountLabel:(UILabel *)AmountLabel {
-    
 //    _AmountLabel.text = [NSString stringWithFormat:@"NT%.2f",AmountLabel.text.floatValue];
 }
 

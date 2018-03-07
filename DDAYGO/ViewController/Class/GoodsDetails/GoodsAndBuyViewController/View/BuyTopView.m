@@ -30,9 +30,7 @@
     //iphone X
     if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
         //在这里写你想要的高度 其他地方不用动
-//        _LayoutConstraintButtt.constant =  30;
         _cycleScrollViewLayoutConstraint.constant = 10;
-
     }
 }
 

@@ -23,7 +23,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4cV-55-Jzb" customClass="SDCycleScrollView">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="364"/>
-                    <color key="backgroundColor" red="0.010616172117135069" green="0.95523184537887573" blue="0.18708665475352174" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="364" id="ENw-00-NfV"/>
                     </constraints>
