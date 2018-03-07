@@ -429,7 +429,7 @@
  * 登录注册
  * */
 "Login" = "登入";
-"Please log in" = "请登入";
+"Please log in" = "請登入";
 "Login/registration" = "登入/註冊";
 "Logging in..." = "正在登入...";
 "Login successful" = "登入成功";
