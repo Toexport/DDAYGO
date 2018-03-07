@@ -83,6 +83,7 @@
         _LayoutConstraintheadView.constant = 64+10;
         _LayoutConstraintLabel.constant = 8;
         _tabbarviewLayoutConstraint.constant = 55+38;
+        self.middleView.y = CGRectGetMaxY(_topView.frame) + 15;
         
     }
     

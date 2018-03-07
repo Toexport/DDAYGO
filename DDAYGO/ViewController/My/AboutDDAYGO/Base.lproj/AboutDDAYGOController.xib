@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -11,30 +11,30 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutDDAYGOController">
             <connections>
-                <outlet property="VersionnumberLabel" destination="cpD-xz-vW2" id="HJt-a8-X0N"/>
+                <outlet property="vErsionLabel" destination="kae-7p-aY0" id="Cgr-WZ-QO0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdf-xk-sGL">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJq-T1-IcD">
-                            <rect key="frame" x="0.0" y="10" width="320" height="49"/>
+                            <rect key="frame" x="0.0" y="10" width="375" height="49"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_Forward" translatesAutoresizingMaskIntoConstraints="NO" id="uGZ-Zi-4mh">
-                                    <rect key="frame" x="280" y="5" width="40" height="40"/>
+                                    <rect key="frame" x="335" y="5" width="40" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="Vyp-Gc-IzS"/>
                                         <constraint firstAttribute="width" constant="40" id="vac-S8-Lhj"/>
                                     </constraints>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7a-nV-mAb">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <state key="normal" title="隱私政策">
@@ -62,17 +62,17 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dtm-mz-mPf">
-                            <rect key="frame" x="0.0" y="67" width="320" height="49"/>
+                            <rect key="frame" x="0.0" y="67" width="375" height="49"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_Forward" translatesAutoresizingMaskIntoConstraints="NO" id="N8g-8e-3pG">
-                                    <rect key="frame" x="280" y="5" width="40" height="40"/>
+                                    <rect key="frame" x="335" y="5" width="40" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="40" id="Ax8-NA-gZ4"/>
                                         <constraint firstAttribute="height" constant="40" id="qvB-J8-UA5"/>
                                     </constraints>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5W-eI-oMe">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <state key="normal" title="服務條款">
@@ -100,17 +100,17 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohs-gx-Yau">
-                            <rect key="frame" x="0.0" y="124" width="320" height="49"/>
+                            <rect key="frame" x="0.0" y="124" width="375" height="49"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_Forward" translatesAutoresizingMaskIntoConstraints="NO" id="UXk-an-kY1">
-                                    <rect key="frame" x="280" y="5" width="40" height="40"/>
+                                    <rect key="frame" x="335" y="5" width="40" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="Ev5-xg-WqR"/>
                                         <constraint firstAttribute="width" constant="40" id="cff-ra-5L4"/>
                                     </constraints>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJk-YL-OQN">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <state key="normal" title="退換貨流程">
@@ -138,21 +138,12 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="當前版本號:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kae-7p-aY0">
-                            <rect key="frame" x="122.5" y="189" width="75.5" height="20"/>
+                            <rect key="frame" x="150.33333333333334" y="189" width="75.333333333333343" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="FdM-fe-bDc"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.2.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpD-xz-vW2">
-                            <rect key="frame" x="203" y="189" width="30" height="20"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="20" id="YXU-H7-Php"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -162,9 +153,7 @@
                         <constraint firstItem="ohs-gx-Yau" firstAttribute="leading" secondItem="Dtm-mz-mPf" secondAttribute="leading" id="EfJ-em-ycY"/>
                         <constraint firstItem="kae-7p-aY0" firstAttribute="centerX" secondItem="cdf-xk-sGL" secondAttribute="centerX" id="Fgi-CO-USN"/>
                         <constraint firstAttribute="bottom" secondItem="kJq-T1-IcD" secondAttribute="bottom" constant="509" id="MyC-ZQ-8bc"/>
-                        <constraint firstItem="cpD-xz-vW2" firstAttribute="leading" secondItem="kae-7p-aY0" secondAttribute="trailing" constant="5" id="OeM-8D-MpM"/>
                         <constraint firstItem="kae-7p-aY0" firstAttribute="top" secondItem="ohs-gx-Yau" secondAttribute="bottom" constant="16" id="QQH-4h-upA"/>
-                        <constraint firstItem="cpD-xz-vW2" firstAttribute="top" secondItem="ohs-gx-Yau" secondAttribute="bottom" constant="16" id="UFi-Nc-Kxc"/>
                         <constraint firstItem="Dtm-mz-mPf" firstAttribute="top" secondItem="kJq-T1-IcD" secondAttribute="bottom" constant="8" symbolic="YES" id="WJg-D0-wzw"/>
                         <constraint firstItem="kJq-T1-IcD" firstAttribute="leading" secondItem="cdf-xk-sGL" secondAttribute="leading" id="YVL-JJ-92e"/>
                         <constraint firstItem="kJq-T1-IcD" firstAttribute="centerX" secondItem="cdf-xk-sGL" secondAttribute="centerX" id="h2U-zM-I4M"/>

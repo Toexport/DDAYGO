@@ -9,7 +9,7 @@
 "f7a-nV-mAb.normalTitle" = "隱私政策";
 
 /* Class = "UILabel"; text = "當前版本號:"; ObjectID = "kae-7p-aY0"; */
-"kae-7p-aY0.text" = "當前版本號:";
+//"kae-7p-aY0.text" = "當前版本號:";
 
 /* Class = "UIButton"; normalTitle = "退換貨流程"; ObjectID = "uJk-YL-OQN"; */
 "uJk-YL-OQN.normalTitle" = "退換貨流程";

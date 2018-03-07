@@ -9,9 +9,7 @@
 #import "RegistrationAgreementController.h"
 #import "PrefixHeader.pch"
 @interface RegistrationAgreementController ()<UIWebViewDelegate>
-
 @property (weak, nonatomic) IBOutlet UIWebView * webView;
-
 
 @end
 
@@ -19,12 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.webView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self initUI];
      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 - (void)initUI {
-//    webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     [self.webView setDelegate:self];
     if (self.type == 111) {
         NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/item/privacy"]];
@@ -49,7 +47,7 @@
 
 - (void) webViewDidStartLoad:(UIWebView *)webView {
     //创建UIActivityIndicatorView背底半透明View
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)];
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)];
     [view setTag:108];
     [view setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     [view setAlpha:0.5];
@@ -59,7 +57,6 @@
     [activityIndicator setCenter:view.center];
     activityIndicator.color = [UIColor grayColor];
     [view addSubview:activityIndicator];
-    
     [activityIndicator startAnimating];
     NSLog(@"webViewDidStartLoad");
 }

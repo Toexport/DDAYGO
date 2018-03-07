@@ -30,7 +30,8 @@
     //此获取的版本号对应version，打印出来对应为1.2.3.4.5这样的字符串
     NSString * infodictionaray = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     ZPLog(@"%@",infodictionaray);
-    self.VersionnumberLabel.text = [NSString stringWithFormat:@"%@",infodictionaray]; // 获取当前版本号
+//    self.VersionnumberLabel.text = [NSString stringWithFormat:@"%@",infodictionaray]; // 获取当前版本号
+    self.vErsionLabel.text = [NSString stringWithFormat:MyLocal(@"version number:%@"),infodictionaray];
 }
 
 // 隐藏政策
