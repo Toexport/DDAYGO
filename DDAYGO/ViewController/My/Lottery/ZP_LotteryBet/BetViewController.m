@@ -21,7 +21,7 @@
 //@property (nonatomic ,strong) BetHeaderView *whiteBallHeaderView;
 //@property (nonatomic ,strong) BetHeaderView *redBallHeaderView;
 @property (nonatomic,strong) tableHeadView1   *tableHeadView1;
-
+@property (nonatomic, strong) NSString *allStr;
 @property (nonatomic, strong) UILabel *label3;
 @property (nonatomic, strong) BetTableViewCellTwo *cell1;
 //* 数据**/
@@ -278,9 +278,9 @@
         return cell;
     }else
      if(indexPath.section == 1) {
-        NSLog(@"who go");
+        ZPLog(@"who go");
         BetTableViewMyCell2 *cell = [tableView dequeueReusableCellWithIdentifier:@"BetTableViewMyCell2"];
-        NSLog(@"you go");
+        ZPLog(@"you go");
          cell.butArray = self.arrayT;
         [cell upDataButtonWith:25];
         cell.arrayBlock = ^(NSMutableArray *arr2) {
@@ -342,7 +342,7 @@
 
     if ([str integerValue] == 20) {
         [SVProgressHUD showInfoWithStatus:MyLocal(@"Maximum not greater than 20 notes.")];
-        NSLog(@"20");
+        ZPLog(@"20");
         return;
     }
     [self.dicArray[but.tag] removeObjectAtIndex:6];
@@ -359,7 +359,7 @@
     NSString *str = arr[6];
     if ([str integerValue] == 1) {
         [SVProgressHUD showInfoWithStatus:MyLocal(@"Minimum not less than 1 note.")];
-        NSLog(@"1");
+        ZPLog(@"1");
         return;
     }
     [self.dicArray[but.tag] removeObjectAtIndex:6];
@@ -445,20 +445,37 @@
 
 // 下注
 - (IBAction)sureBut:(id)sender {
-//    if (!self.dicArray) {
-//        [SVProgressHUD showInfoWithStatus:MyLocal(@"You haven't filled in the number.")];
-//        ZPLog(@"11111");
-//    }else {
-        [self AllData];
-//    }
+    [self AllData];
 }
 
 // 下注
 - (void)AllData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"]  = Token;
-        NSDictionary * dicc = @{@"ballstr":_dicArray};
-        dic[@"ballstr"] = dicc;
+    if (_dicArray.count == 0) {
+        [SVProgressHUD showInfoWithStatus:MyLocal(@"You haven't filled in the number.")];
+        return;
+    }else {
+        NSArray * arr = _dicArray[0];
+        NSInteger count = arr.count;
+        for (NSInteger i = 0; i<count; i ++) {
+            NSString *str= arr[i];
+            dic[@"ballstr"] = str;
+            ZPLog(@"%@",str);
+        }
+    }
+//    NSArray * arr = _dicArray[0];
+//    NSInteger count = arr.count;
+//    for (NSInteger i = 0; i<count; i ++) {
+//        NSString *str= arr[i];
+//        if (_allStr.length > 0) {
+//            _allStr = [NSString stringWithFormat:@"%@_%@",_allStr,str];
+//        }else{
+//            _allStr = str;
+//        }
+//    }
+//    dic[@"ballstr"] = _allStr;
+    NSLog(@"all %@",_allStr);
     dic[@"count"] = @"3";
     [ZP_MyTool requestBte:dic uccess:^(id obj) {
         ZPLog(@"%@",obj);
@@ -472,6 +489,8 @@
         ZPLog(@"%@",error);
     }];
 }
+
+
 - (NSMutableArray *)Selearray {
     if (!_Selearray) {
         _Selearray = [NSMutableArray array];

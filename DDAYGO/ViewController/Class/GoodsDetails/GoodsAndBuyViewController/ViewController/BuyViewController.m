@@ -335,7 +335,8 @@
 
 //立即购买
 - (IBAction)ligmAction:(UIButton *)sender {
-    DD_CHECK_HASLONGIN;
+    [SVProgressHUD showErrorWithStatus:MyLocal(@"Please log in")];
+     DD_CHECK_HASLONGIN;
     if (_model == nil) {
         return;
     }else {
@@ -365,6 +366,7 @@
 
 //加入购物车
 - (IBAction)jrgwcAction:(UIButton *)sender {
+    [SVProgressHUD showErrorWithStatus:MyLocal(@"Please log in")];
     DD_CHECK_HASLONGIN;
     if (_model == nil) {
         return;
@@ -389,6 +391,7 @@
         _weakSelf.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
         _weakSelf.navigationController.navigationBar.tintColor = [UIColor whiteColor];
         [_weakSelf.navigationController pushViewController:response animated:YES];
+        ZPLog(@"11111");
     };
     }
 }
