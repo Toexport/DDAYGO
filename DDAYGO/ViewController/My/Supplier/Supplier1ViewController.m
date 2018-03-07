@@ -141,7 +141,7 @@
 // 提交按钮
 - (IBAction)SubmitBut:(id)sender {
     NSArray *array = @[MyLocal(@"company name is empty."),MyLocal(@"Please enter a uniform number."),MyLocal(@"Please enter the company number."),MyLocal(@"Please enter registered capital."),MyLocal(@"Please enter the date of creation."),MyLocal(@"Please select the organization form."),MyLocal(@"Please enter the company address."),MyLocal(@"Please enter your company phone."),MyLocal(@"Please enter emergency contact."),MyLocal(@"Please enter your contact email."),MyLocal(@"Please enter your contact Phone."),MyLocal(@"Please enter project management."),MyLocal(@"Please enter the cooperation project.")];
-    for (int i=0; i<14; i++) {
+    for (int i=0; i<array.count; i++) {
         if (i<9) {
             if (!self.dataDic[@(i)]) {
                 
