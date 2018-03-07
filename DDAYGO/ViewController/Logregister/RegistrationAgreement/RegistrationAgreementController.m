@@ -32,14 +32,28 @@
         [self.webView loadRequest:request];
     }else
         if (self.type == 222) {
-            NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/item/protocol"]];
+            NSURLRequest * request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/item/protocol"]];
             self.title = NSLocalizedString(@"terms service", nil);
             [self.webView loadRequest:request];
         }else
             if (self.type == 333) {
-                NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/other/exchange"]];
+                NSURLRequest * request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/other/exchange"]];
                 self.title = NSLocalizedString(@"exchange process", nil);
                 [self.webView loadRequest:request];
+//                NSString *str2 =  @" http://www.ddaygo.com/other/exchange";
+//                NSString *str3 = [str2 stringByReplacingOccurrencesOfString:@"," withString:@","]; //3www 替换成 hao
+//                self.title = NSLocalizedString(@"exchange process", nil);
+//                [self.webView loadRequest:request];
+//                ZPLog(@"%@",request);
+//                ZPLog(@"%@",request);
+//                NSString *str2 =  @"http://www.ddaygo.com/other/exchange";
+//                NSString *str3 = [str2 stringByReplacingOccurrencesOfString:@"，" withString:@","];
+//                NSString * str4 = [str3 stringByReplacingOccurrencesOfString:@"，" withString:@","];
+//                [self.webView loadRequest:str4];
+                
+//                ZPLog(@"%@",str3);
+                                  //@"\" 替换成 @","
+                
             }
 }
 

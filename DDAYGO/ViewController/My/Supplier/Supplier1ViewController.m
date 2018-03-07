@@ -98,6 +98,7 @@
     _arrayP = [NSArray arrayWithObjects:MyLocal(@" "),MyLocal(@" "),MyLocal(@"50 to 100 people"),MyLocal(@" "),MyLocal(@"YYYY - MM -DD"),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@"Contact/title/extension."),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "), nil];
     
     _LocationLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
+    
     switch ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue]) {
         case 886:
             _LocationLabel.text = MyLocal(@"Taiwan");
@@ -174,6 +175,7 @@
                                                 }
                                                 else
                                                     if (arr.count == 12) {
+                                                        
                                                         [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter project management.")];
                                                         return;
                                                     }
@@ -182,14 +184,14 @@
                                                              [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the cooperation project.")];
                                                             return;
                                                         }
-    [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj integerValue] == 0) {
-            NSLog(@"公司名称 = %@",self.dataDic[obj]);
-        }
-        //统一编号。依次类推   --> (没有5 因为5是组织形态)
-        if ([obj integerValue] == 1) {
-            NSLog(@"统一编号 = %@",self.dataDic[obj]);
-        }
+//    [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        if ([obj integerValue] == 0) {
+//            NSLog(@"公司名称 = %@",self.dataDic[obj]);
+//        }
+//        //统一编号。依次类推   --> (没有5 因为5是组织形态)
+//        if ([obj integerValue] == 1) {
+//            NSLog(@"统一编号 = %@",self.dataDic[obj]);
+//        }
 
 //    if (_seleStr.length < 1) {
 //        [SVProgressHUD showErrorWithStatus:MyLocal(@"Please select the organization form.")];
@@ -218,7 +220,7 @@
     dic[@"companyproduct"] = [self.dataDic objectForKey:@(13)];
     dic[@"projectinfo"] = [self.dataDic objectForKey:@(14)];
     [self AllData:dic];
-    }];
+//    }];
 }
 
      
@@ -422,7 +424,7 @@
             [self.typeIdArray addObject:objj[@"typeid"]];
             [self.typeNameArray addObject:objj[@"typename"]];
         }];
-        
+//        _TExtLabel.text = [NSString stringWithFormat:@"%@",self.typeIdArray];
     } failure:^(NSError * error) {
         
         ZPLog(@"%@",error);
