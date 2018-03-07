@@ -439,6 +439,9 @@
 - (void)SupplierData:(ZP_MyHopageModel2 *)model {
     self.stutsModel = model;
     self.RequestStatusLabel.text = [NSString stringWithFormat:@"%@",model.stateString];
+    Supplier1ViewController * supp;
+    supp.TExtLabel1 = [NSString stringWithFormat:@"%@",model.stateString];
+    
 }
 
 // UI
@@ -519,7 +522,6 @@
 
 //  商店管理
 - (IBAction)sdglAction:(id)sender {
-    
     StoreViewController *storeViewController = [[StoreViewController alloc] init];
     [self.navigationController pushViewController:storeViewController animated:YES];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字

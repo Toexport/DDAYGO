@@ -424,7 +424,7 @@
             [self.typeIdArray addObject:objj[@"typeid"]];
             [self.typeNameArray addObject:objj[@"typename"]];
         }];
-//        _TExtLabel.text = [NSString stringWithFormat:@"%@",self.typeIdArray];
+        _TExtLabel.text = [NSString stringWithFormat:@"%@",self.typeIdArray];
     } failure:^(NSError * error) {
         
         ZPLog(@"%@",error);
