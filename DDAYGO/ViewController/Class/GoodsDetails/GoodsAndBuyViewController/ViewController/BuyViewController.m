@@ -326,7 +326,6 @@
 
 // 商家按钮
 - (IBAction)dianpuAction:(id)sender {
-    //    DD_CHECK_HASLONGIN;
     MerchantController * Merchant = [[MerchantController alloc]init];
     Merchant.Supplieerid = self.model.supplierid;
     [self.navigationController pushViewController:Merchant animated:YES];
@@ -335,7 +334,7 @@
 
 //立即购买
 - (IBAction)ligmAction:(UIButton *)sender {
-    [SVProgressHUD showErrorWithStatus:MyLocal(@"Please log in")];
+//    [SVProgressHUD showErrorWithStatus:MyLocal(@"Please log in")];
      DD_CHECK_HASLONGIN;
     if (_model == nil) {
         return;
@@ -366,7 +365,7 @@
 
 //加入购物车
 - (IBAction)jrgwcAction:(UIButton *)sender {
-    [SVProgressHUD showErrorWithStatus:MyLocal(@"Please log in")];
+//    [SVProgressHUD showErrorWithStatus:MyLocal(@"Please log in")];
     DD_CHECK_HASLONGIN;
     if (_model == nil) {
         return;
@@ -599,6 +598,10 @@
     tableview.delegate = self;
     tableview.tag = 1;
     tableview.frame = CGRectMake(0, CGRectGetMaxY(tabBar.frame)+10, screenW,secondPageView.frame.size.height - tabBar.frame.size.height-10);
+    //iphone X
+    if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
+        tableview.height = secondPageView.frame.size.height - tabBar.frame.size.height-35;
+    }
     [secondPageView addSubview:tableview];
     [self.MyScrollView addSubview:secondPageView];
 }

@@ -144,71 +144,71 @@
     if (arr.count == 12) {
         NSLog(@"填写完成");
     }
-        if (arr.count == 0) {
-        [SVProgressHUD showInfoWithStatus:MyLocal(@"company name is empty.")];
-        return;
-    }
-        else
-            if (arr.count == 1) {
-                [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter a uniform number.")];
-                return;
-            }
-            else
-                if (arr.count == 2) {
-                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the company number.")];
-                    return;
-                }
-                else
-                    if (arr.count == 3) {
-                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter registered capital.")];
-                        return;
-                    }
-                    else
-                        if (arr.count == 4) {
-                           [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the date of creation.")];
-                            return;
-                        }
-                        else
-                            if (_seleStr.length < 1) {
-                                 [SVProgressHUD showErrorWithStatus:MyLocal(@"Please select the organization form.")];
-                                return;
-                            }
-                            else
-                                if (arr.count == 5) {
-                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the company address.")];
-                                    return;
-                                }
-                                else
-                                    if (arr.count == 6) {
-                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter your company phone.")];
-                                        return;
-                                    }
-                                    else
-                                        if (arr.count == 7) {
-                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter emergency contact.")];
-                                            return;
-                                        }
-                                        else
-                                            if (arr.count == 10) {
-                                                 [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter your contact email.")];
-                                                return;
-                                            }
-                                            else
-                                                if (arr.count == 11) {
-                                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter your contact Phone.")];
-                                                    return;
-                                                }
-                                                else
-                                                    if (arr.count == 12) {
-                                                        
-                                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter project management.")];
-                                                        return;
-                                                    }
-                                                    else
-                                                        if (arr.count == 13) {
-                                                             [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the cooperation project.")];
-                                                            return;
-                                                        }
+//        if (arr.count == 0) {
+//        [SVProgressHUD showInfoWithStatus:MyLocal(@"company name is empty.")];
+//        return;
+//    }
+//        else
+//            if (arr.count == 1) {
+//                [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter a uniform number.")];
+//                return;
+//            }
+//            else
+//                if (arr.count == 2) {
+//                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the company number.")];
+//                    return;
+//                }
+//                else
+//                    if (arr.count == 3) {
+//                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter registered capital.")];
+//                        return;
+//                    }
+//                    else
+//                        if (arr.count == 4) {
+//                           [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the date of creation.")];
+//                            return;
+//                        }
+//                        else
+//                            if (_seleStr.length < 1) {
+//                                 [SVProgressHUD showErrorWithStatus:MyLocal(@"Please select the organization form.")];
+//                                return;
+//                            }
+//                            else
+//                                if (arr.count == 5) {
+//                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the company address.")];
+//                                    return;
+//                                }
+//                                else
+//                                    if (arr.count == 6) {
+//                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter your company phone.")];
+//                                        return;
+//                                    }
+//                                    else
+//                                        if (arr.count == 7) {
+//                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter emergency contact.")];
+//                                            return;
+//                                        }
+//                                        else
+//                                            if (arr.count == 10) {
+//                                                 [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter your contact email.")];
+//                                                return;
+//                                            }
+//                                            else
+//                                                if (arr.count == 11) {
+//                                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter your contact Phone.")];
+//                                                    return;
+//                                                }
+//                                                else
+//                                                    if (arr.count == 12) {
+//                                                        
+//                                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter project management.")];
+//                                                        return;
+//                                                    }
+//                                                    else
+//                                                        if (arr.count == 13) {
+//                                                             [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the cooperation project.")];
+//                                                            return;
+//                                                        }
 //    [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
 //        if ([obj integerValue] == 0) {
 //            NSLog(@"公司名称 = %@",self.dataDic[obj]);

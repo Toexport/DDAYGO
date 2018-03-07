@@ -10,7 +10,7 @@
 #import "PrefixHeader.pch"
 @interface RegistrationAgreementController ()<UIWebViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIWebView * webView;
 
 
 @end
@@ -40,21 +40,7 @@
                 NSURLRequest * request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/other/exchange"]];
                 self.title = NSLocalizedString(@"exchange process", nil);
                 [self.webView loadRequest:request];
-//                NSString *str2 =  @" http://www.ddaygo.com/other/exchange";
-//                NSString *str3 = [str2 stringByReplacingOccurrencesOfString:@"," withString:@","]; //3www 替换成 hao
-//                self.title = NSLocalizedString(@"exchange process", nil);
-//                [self.webView loadRequest:request];
-//                ZPLog(@"%@",request);
-//                ZPLog(@"%@",request);
-//                NSString *str2 =  @"http://www.ddaygo.com/other/exchange";
-//                NSString *str3 = [str2 stringByReplacingOccurrencesOfString:@"，" withString:@","];
-//                NSString * str4 = [str3 stringByReplacingOccurrencesOfString:@"，" withString:@","];
-//                [self.webView loadRequest:str4];
-                
-//                ZPLog(@"%@",str3);
-                                  //@"\" 替换成 @","
-                
-            }
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -65,13 +51,13 @@
     //创建UIActivityIndicatorView背底半透明View
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)];
     [view setTag:108];
-    [view setBackgroundColor:[UIColor blackColor]];
+    [view setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     [view setAlpha:0.5];
     [self.view addSubview:view];
     
-    activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [activityIndicator setCenter:view.center];
-    [activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
+    activityIndicator.color = [UIColor grayColor];
     [view addSubview:activityIndicator];
     
     [activityIndicator startAnimating];
