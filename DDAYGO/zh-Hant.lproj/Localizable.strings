@@ -420,7 +420,7 @@
 "You haven't filled in the number." = "您還未填寫號碼";
 "Has product" = "已退件";
 "version number:%@" = "當前版本號:%@";
-"" = "";
+"Audit failed" = "審核未通過";
 "" = "";
 "" = "";
 "" = "";

@@ -460,7 +460,7 @@
 "promptLabelText" = "未提交任何号码";
 "Your application has not been reviewed." = "您的申请还未审核";
 "version number:%@" = "当前版本号:%@";
-"" = "";
+"Audit failed" = "审核未通过";
 "" = "";
 "" = "";
 "" = "";
