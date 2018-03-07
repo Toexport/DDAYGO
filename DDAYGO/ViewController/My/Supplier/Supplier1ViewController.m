@@ -98,7 +98,6 @@
     _arrayP = [NSArray arrayWithObjects:MyLocal(@" "),MyLocal(@" "),MyLocal(@"50 to 100 people"),MyLocal(@" "),MyLocal(@"YYYY - MM -DD"),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@"Contact/title/extension."),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "), nil];
     
     _LocationLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
-    
     switch ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue]) {
         case 886:
             _LocationLabel.text = MyLocal(@"Taiwan");
@@ -116,7 +115,7 @@
 // 提交按钮
 - (IBAction)SubmitBut:(id)sender {
     NSArray * arr = [self.dataDic allKeys];
-    if (arr.count == 13) {
+    if (arr.count == 12) {
         NSLog(@"填写完成");
     }
         if (arr.count == 0) {
@@ -183,20 +182,15 @@
                                                              [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the cooperation project.")];
                                                             return;
                                                         }
-    
-    
-   
-//    [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        //公司名称
-//        if ([obj integerValue] == 0) {
-//            NSLog(@"公司名称 = %@",self.dataDic[obj]);
-//        }
-//        //统一编号。依次类推   --> (没有5 因为5是组织形态)
-//        if ([obj integerValue] == 1) {
-//            NSLog(@"统一编号 = %@",self.dataDic[obj]);
-//        }
+    [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj integerValue] == 0) {
+            NSLog(@"公司名称 = %@",self.dataDic[obj]);
+        }
+        //统一编号。依次类推   --> (没有5 因为5是组织形态)
+        if ([obj integerValue] == 1) {
+            NSLog(@"统一编号 = %@",self.dataDic[obj]);
+        }
 
-//
 //    if (_seleStr.length < 1) {
 //        [SVProgressHUD showErrorWithStatus:MyLocal(@"Please select the organization form.")];
 //        return;
@@ -224,8 +218,10 @@
     dic[@"companyproduct"] = [self.dataDic objectForKey:@(13)];
     dic[@"projectinfo"] = [self.dataDic objectForKey:@(14)];
     [self AllData:dic];
+    }];
 }
 
+     
 // 数据
 - (void)AllData:(NSMutableDictionary *)dic {
     [ZP_MyTool requestSupplierRequest:dic success:^(id obj) {
@@ -481,7 +477,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60;
 }
-
 
 - (NSMutableArray *)typeIdArray {
     if (!_typeIdArray) {

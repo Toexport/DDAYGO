@@ -402,7 +402,7 @@
 
 // 確定
 - (IBAction)suijiBut:(id)sender {
-    NSLog(@"everyall %@  all %@  bai %@  hong zhe%@",self.Selearray,self.dicArray,self.array1,self.arrayT);
+    ZPLog(@"everyall %@  all %@  bai %@  hong zhe%@",self.Selearray,self.dicArray,self.array1,self.arrayT);
     
     if (self.array1.count < 5) {
         //        tishi
@@ -431,7 +431,6 @@
         if (self.Selearray.count == 6) {
             [self.Selearray addObject:@"1"];
             [self.dicArray addObject:self.Selearray];
-            
             self.array1 = nil;
             self.arrayT = nil;
             self.Selearray = nil;
@@ -446,14 +445,20 @@
 
 // 下注
 - (IBAction)sureBut:(id)sender {
-    [self AllData];
+//    if (!self.dicArray) {
+//        [SVProgressHUD showInfoWithStatus:MyLocal(@"You haven't filled in the number.")];
+//        ZPLog(@"11111");
+//    }else {
+        [self AllData];
+//    }
 }
 
 // 下注
 - (void)AllData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"]  = Token;
-    dic[@"count"] = _dicArray;
+        NSDictionary * dicc = @{@"ballstr":_dicArray};
+        dic[@"ballstr"] = dicc;
     dic[@"count"] = @"3";
     [ZP_MyTool requestBte:dic uccess:^(id obj) {
         ZPLog(@"%@",obj);
@@ -463,7 +468,6 @@
             if ([obj[@"result"]isEqualToString:@"count_err"]) {
                 [SVProgressHUD showInfoWithStatus:MyLocal(@"You are not able to submit your pie.")];
             }
-        ZPLog(@"%@",obj);
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
     }];
