@@ -415,6 +415,7 @@
             JXPopoverAction * action1 = [JXPopoverAction actionWithTitle:self.typeNameArray[i] handler:^(JXPopoverAction *action) {
                 
                 NSLog(@"dian ji l %@",self.typeNameArray[i]);
+                self.dataDic[@(5)] = self.typeNameArray[i];
                 _seleStr = self.typeNameArray[i];
                 _seleId = self.typeIdArray[i];
                 NSIndexPath *index = [NSIndexPath indexPathForRow:5 inSection:0];
