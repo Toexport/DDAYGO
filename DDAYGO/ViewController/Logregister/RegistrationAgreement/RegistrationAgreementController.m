@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.webView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.webView.opaque = NO; //设置web的opaque
     [self initUI];
      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
@@ -49,7 +51,7 @@
     //创建UIActivityIndicatorView背底半透明View
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)];
     [view setTag:108];
-    [view setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    [view setBackgroundColor:[UIColor whiteColor]];
     [view setAlpha:0.5];
     [self.view addSubview:view];
     
@@ -66,7 +68,6 @@
     UIView *view = (UIView*)[self.view viewWithTag:108];
     [view removeFromSuperview];
     NSLog(@"webViewDidFinishLoad");
-    
 }
 
 - (void) webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
