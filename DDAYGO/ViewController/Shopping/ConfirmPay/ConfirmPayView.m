@@ -26,6 +26,7 @@
 @property (nonatomic, weak) UIView * contentView;
 @property (nonatomic, strong) UIButton * Creditcardbut;
 @property (nonatomic, strong) UIButton * ICUEbut;
+@property (nonatomic, strong) UIButton * Paybut;
 @property (nonatomic, strong) UIView * view;
 @property (nonatomic, strong) NSArray * InformatonArray;
 
@@ -37,6 +38,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupViews];
+//        if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
+//            _tableView.height = self.contentView.frame.size.height - 100;
+//            
+//        }
     }
     return self;
 }
@@ -117,15 +122,15 @@
     });
     
     //  支付按钮
-    UIButton * Paybut = [UIButton new];
-    Paybut.titleLabel.font = ZP_TooBarFont;
-    Paybut.layer.borderColor = [UIColor clearColor].CGColor;
-    Paybut.backgroundColor = ZP_PayColor;
-    Paybut.layer.cornerRadius = 5.0;// 圆角弧度
-    [Paybut setTitle:MyLocal(@"Immediate payment") forState:UIControlStateNormal];
-    [Paybut addTarget:self action:@selector(paybut:) forControlEvents:UIControlEventTouchUpInside];
-    [bounceView addSubview:Paybut];
-    [Paybut mas_makeConstraints:^(MASConstraintMaker *make) {
+    _Paybut = [UIButton new];
+    _Paybut.titleLabel.font = ZP_TooBarFont;
+    _Paybut.layer.borderColor = [UIColor clearColor].CGColor;
+    _Paybut.backgroundColor = ZP_PayColor;
+    _Paybut.layer.cornerRadius = 5.0;// 圆角弧度
+    [_Paybut setTitle:MyLocal(@"Immediate payment") forState:UIControlStateNormal];
+    [_Paybut addTarget:self action:@selector(paybut:) forControlEvents:UIControlEventTouchUpInside];
+    [bounceView addSubview:_Paybut];
+    [_Paybut mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(10);
         make.right.equalTo(self).offset(-10);
         make.bottom.equalTo(self).offset(-15);

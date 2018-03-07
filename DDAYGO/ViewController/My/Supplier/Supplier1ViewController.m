@@ -119,7 +119,6 @@
     if (arr.count == 13) {
         NSLog(@"填写完成");
     }
-    else
         if (arr.count == 0) {
         [SVProgressHUD showInfoWithStatus:MyLocal(@"company name is empty.")];
         return;

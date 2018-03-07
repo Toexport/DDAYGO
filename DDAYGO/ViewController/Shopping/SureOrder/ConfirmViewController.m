@@ -32,12 +32,13 @@
     NSArray * messageArray;;
     NSString * allMoney;
     NSString * allCount;
+    
     BOOL beenShow;
     int _i;
 }
-@property(nonatomic,strong)UITableView * tableView;
-@property(nonatomic,strong)NSMutableArray * dataArrar;
-@property (nonatomic, strong)NSMutableArray * NewData;
+@property (nonatomic, strong) UITableView * tableView;
+@property (nonatomic, strong) NSMutableArray * dataArrar;
+@property (nonatomic, strong) NSMutableArray * NewData;
 @property (nonatomic, strong) NSMutableArray * ConfirmArray;
 @property (nonatomic, strong) ZP_InformationModel * nameModel;
 
@@ -84,13 +85,9 @@
             [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
     //iphone X
     if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
-        //在这里写你想要的高度 其他地方不用动
-//        _LayoutConstraintButtt.constant =  30;
-//        _LayoutConstraintheadView.constant = 64+10;
-//        _LayoutConstraintLabel.constant = 8;
-//        _tabbarviewLayoutConstraint.constant = 55+38;
-        
-//
+         //在这里写你想要的高度 其他地方不用动
+        self.tableView.height = ZP_height - TabbarHeight - NavBarHeight + 5;
+        self.bottomView.y = ZP_height - TabbarHeight - NavBarHeight + 5;
         
     }
 }
@@ -134,6 +131,7 @@
 
 - (void)ImmobilizationView {
     UIView * bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, ZP_height - TabbarHeight - NavBarHeight , ZP_Width, 50)];
+    self.bottomView = bottomView;
     bottomView.backgroundColor = ZP_textWite;
     [self.view addSubview:bottomView];
 //    总金额
@@ -264,6 +262,7 @@
                     UIAlertController* alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Prompt", nil) message:NSLocalizedString(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.",nil) preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                         ZPLog(@"取消");
+                        [self.navigationController popToRootViewControllerAnimated:NO];
                         //跳转
                         if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
                             UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
@@ -571,7 +570,7 @@
             BuyViewController * BuyView = [[BuyViewController alloc]init];
             BuyView.productId = model.productid;
             [self.navigationController pushViewController:BuyView animated:YES];
-        }
+    }
 }
 
 // 关闭侧滑
