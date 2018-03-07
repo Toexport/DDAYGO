@@ -142,7 +142,7 @@
 - (IBAction)SubmitBut:(id)sender {
     NSArray *array = @[MyLocal(@"company name is empty."),MyLocal(@"Please enter a uniform number."),MyLocal(@"Please enter the company number."),MyLocal(@"Please enter registered capital."),MyLocal(@"Please enter the date of creation."),MyLocal(@"Please select the organization form."),MyLocal(@"Please enter the company address."),MyLocal(@"Please enter your company phone."),MyLocal(@"Please enter emergency contact."),MyLocal(@"Please enter your contact email."),MyLocal(@"Please enter your contact Phone."),MyLocal(@"Please enter project management."),MyLocal(@"Please enter the cooperation project.")];
     for (int i=0; i<array.count; i++) {
-        if (i<9) {
+        if (i<8) {
             if (!self.dataDic[@(i)]) {
                 
                 [SVProgressHUD showInfoWithStatus:array[i]];
@@ -188,6 +188,9 @@
             if ([obj[@"result"]isEqualToString:@"token_err"]) {
                 [SVProgressHUD showInfoWithStatus:MyLocal(@"token is invalid")];
             }else
+                if ([obj[@"result"]isEqualToString:@"cname_err"]) {
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"cname_err")];
+                }else
                 if ([obj[@"result"]isEqualToString:@"companyname_null_err"]) {
                     [SVProgressHUD showInfoWithStatus:MyLocal(@"company name is empty.")];
                 }else
