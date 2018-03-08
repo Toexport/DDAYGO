@@ -122,8 +122,7 @@
                 [[NSUserDefaults standardUserDefaults] setObject:obj[@"countrycode"] forKey:@"countrycode"];  // 国别缓存本地
                 [[NSUserDefaults standardUserDefaults] synchronize];  // 国别缓存本地
                 [SVProgressHUD showSuccessWithStatus:MyLocal(@"Login successful")];
-                
-                [self.navigationController popToRootViewControllerAnimated:YES];
+                [self performSelector:@selector(pushSecondController) withObject:nil afterDelay:1.5f]; //设置加载完成后再跳转
             }else
                 if ([adic[@"result"]isEqualToString:@"failure"]) {
                     //                [SVProgressHUD showInfoWithStatus:@"登錄失敗"];
@@ -151,6 +150,10 @@
         ZPLog(@"%@",error);
         _LoginBtn.userInteractionEnabled = YES;
     }];
+}
+
+- (void)pushSecondController {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 //  调用55的接口
 - (void)getPosttion {

@@ -215,7 +215,7 @@
 		C4399D6F1FCE84A000B7B96D /* LotteryController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4399D691FCE849F00B7B96D /* LotteryController.m */; };
 		C43DE4DE200355AF002AB8D2 /* LanguageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C43DE4DB200355AF002AB8D2 /* LanguageController.m */; };
 		C43DE4DF200355AF002AB8D2 /* LanguageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43DE4DD200355AF002AB8D2 /* LanguageController.xib */; };
-		C440A6872050CE79008FC168 /* PromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = C440A6862050CE79008FC168 /* PromptView.m */; };
+		C440A68A20512149008FC168 /* PromptBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = C440A68920512149008FC168 /* PromptBoxView.m */; };
 		C4411D8C200EFB4900CE906F /* AboutDDAYGOController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4411D8A200EFB4900CE906F /* AboutDDAYGOController.m */; };
 		C4411D90200F368100CE906F /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = C4411D8E200F368000CE906F /* UIButton+Badge.m */; };
 		C4411DA5200F626200CE906F /* icon_no_date@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4411D92200F626100CE906F /* icon_no_date@2x.png */; };
@@ -904,8 +904,8 @@
 		C43DE4DB200355AF002AB8D2 /* LanguageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageController.m; sourceTree = "<group>"; };
 		C43DE4DC200355AF002AB8D2 /* LanguageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageController.h; sourceTree = "<group>"; };
 		C43DE4DD200355AF002AB8D2 /* LanguageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageController.xib; sourceTree = "<group>"; };
-		C440A6852050CE79008FC168 /* PromptView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PromptView.h; sourceTree = "<group>"; };
-		C440A6862050CE79008FC168 /* PromptView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PromptView.m; sourceTree = "<group>"; };
+		C440A68820512149008FC168 /* PromptBoxView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PromptBoxView.h; sourceTree = "<group>"; };
+		C440A68920512149008FC168 /* PromptBoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PromptBoxView.m; sourceTree = "<group>"; };
 		C4411D89200EFB4900CE906F /* AboutDDAYGOController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutDDAYGOController.h; sourceTree = "<group>"; };
 		C4411D8A200EFB4900CE906F /* AboutDDAYGOController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutDDAYGOController.m; sourceTree = "<group>"; };
 		C4411D8E200F368000CE906F /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
@@ -2850,8 +2850,8 @@
 		C440A6812050CDF6008FC168 /* Prompt box */ = {
 			isa = PBXGroup;
 			children = (
-				C440A6852050CE79008FC168 /* PromptView.h */,
-				C440A6862050CE79008FC168 /* PromptView.m */,
+				C440A68820512149008FC168 /* PromptBoxView.h */,
+				C440A68920512149008FC168 /* PromptBoxView.m */,
 			);
 			path = "Prompt box";
 			sourceTree = "<group>";
@@ -4779,6 +4779,7 @@
 				C45868FA1FC7CE06000CEB92 /* collectionModel.m in Sources */,
 				06F572421F9F204F00D61FDB /* SearchTimeViewController.m in Sources */,
 				0641BBD61F67F9E400E72FEF /* SDWebImageDecoder.m in Sources */,
+				C440A68A20512149008FC168 /* PromptBoxView.m in Sources */,
 				C47750881FBAFC5D00AE8B3F /* Const.m in Sources */,
 				C4399D6F1FCE84A000B7B96D /* LotteryController.m in Sources */,
 				C45FAF931FCD680D00BD4CE1 /* UIViewController+Utit.m in Sources */,
@@ -4969,7 +4970,6 @@
 				C47E76451FB5A1C7009F279A /* ShoplntroductionCell.m in Sources */,
 				C479C6A41FE3CB5800A58A2A /* MJPropertyKey.m in Sources */,
 				4DCDA77C2020D5B700ED64DC /* BGCenterLineLabel.m in Sources */,
-				C440A6872050CE79008FC168 /* PromptView.m in Sources */,
 				06F572301F9F1E8700D61FDB /* OrderSearchView.m in Sources */,
 				C4AD0760200C7A5D00B8FF6E /* LPDVideoPlayerController.m in Sources */,
 				C4B04DA82008B9A9009F7AF9 /* SelectModel.m in Sources */,

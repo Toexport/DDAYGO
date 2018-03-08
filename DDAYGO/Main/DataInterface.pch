@@ -23,12 +23,6 @@
 //内网
 //#define ImgAPI @"http://192.168.0.117:7000"
 
-// 首页展示
-//#define ItemAPI @"home/nav"
-//精选商品
-//#define AllDataAPI @"classify/list"
-//分类详细接口
-//#define ClassDetailAPI @"list/brand"
 //热销商品(4张图片的那个)
 #define HotCakesAPI @"hotproduct"
 //精选商品
@@ -46,17 +40,10 @@
 #define OrderAgreementAPI @"getorders"
 //购物车
 #define ShoppingAPI @"cart"
-////记录
-//#define RecordAPI @"my/activity/info"
 // 获取确认订单信息
 #define MakeSureOrderAPI @"ordersaddinfo"
-
 // 获取确认订单界面数据
 #define MakeOrderAPI @"ordersupdateinfo"
-//发送抽奖信息
-//#define LuckyDrawInfoAPI @"my/draw/coupon"
-//新人专享
-//#define FirstChanLiMinusAPI @"list/activity"
 //个人信息
 #define PersonalInformationAPI @"AccountInfo"
 //登录
@@ -67,87 +54,9 @@
 #define YzmCarAPI @"sendvercode"
 //地区列表
 #define AreaAPI @"getreceipt"
-////新品推荐
-//#define NewProductAPI @"list/"
-////添加头像
-//#define UploadPicture @"my/picture"
-////收藏列表
-//#define CollectGoods @"my/collect/list"
-////传地址
-//#define SendAddress @"my/location/add"
 //获取地址
 #define RequestAddress @"getreceipt"
 //查找地址
 #define RequetMethodpay @"getpayways"
-//添加收藏
-//#define AddCollectionAPI @"my/collect/add"
-////移除收藏
-//#define RemoveCollection @"my/collect/del"
-////搜索
-//#define searchAPI @"list/query"
-////下单
-//#define postOrderAPI @"orders/add"
-////一元购下单
-//#define OneYuanOrderAPI @"orders/activity/add"
-//
-////所有订单
-//#define orderListAPI @"my/orders"
-////待付款
-//#define orderPaymentAPI @"orders/payment"
-////待发货
-//#define orderShipmentsAPI @"orders/shipments"
-////待收货
-//#define orderDeliveryAPI @"orders/delivery"
-////删除订单
-//#define orderDeleteOrdersAPI @"orders/deleteOrders"
-////取消订单
-//#define orderCancelOrdersAPI @"orders/updateOrdersStatus"
-////完善资料
-//#define userInfoAPI @"my/updateUser"
-////设为默认地址
-//#define updateAdsAPI @"my/location/update"
-////获取默认地址
-//#define defaultAdsAPI @"my/location/default"
-////获取对方用户名和头像
-//#define otherInfoAPI @"home/user"
-////获取客服列表
-//#define customerListAPI @"home/customerCare"
-////获取用户持有优惠券
-//#define mycouponAPI @"my/coupon"
-////效果开关
-//#define lunarAPI @"home/lunar"
-//
-////售后电话
-//#define phonePSW @"123123123"
-////客服电话
-//#define KeFuStr @"+8618719050380"
-//
-////mob share
-//#define MobShareAppKey      @"188dcff82d554"
-//#define MobShareAppSecret   @"44b52c1b41faab550b464a937d171d56"
-//
-////umeng app key
-//#define UmengAppKey @"582bd9b36e27a45f9c0000fc"
-//
-////腾讯开发者平台
-//#define tencentAppID @"1105729635"
-//#define tencentAppKey @"Bg3e0ySOUTkVmWrh"
-//
-////微信开发者平台
-//#define wxAppKey    @"wx2a88af160f4ff850"
-//#define wxAPPSecret  @"26b6eba7b66c870b664a8f7cd75187ef"
-//
-////微博开发者平台
-//#define sinaAppID @"1261734393"
-//#define sinaAppKey @"iLY2yVY4oFHGJ6OD"
-//
-////极光推送
-//#define jpushAppkey    @"898041c20eb1fdd3601b8520"
-//
-////环信开发者平台
-//#define hyphenateAppKey @"1189161227115490#cusp"
-//
-////环信开发者证书名
-//#define hyapnsCertName @"CUSPiOSDevelopment"
-//
+
 #endif /* DataInterface_pch */

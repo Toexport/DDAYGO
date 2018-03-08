@@ -145,10 +145,10 @@
         NSDictionary * dic = obj;
         if ([dic[@"result"] isEqualToString:@"ok"]) {
             NSLog(@"注册成功");
-//            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Registered successfully", nil)];
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Registered successfully")];
             CountCode = self.CountCode;   // 保存国家
-            REGISTERED_SUCCESSFULLY;
-//            [self.navigationController popViewControllerAnimated:YES];
+//            REGISTERED_SUCCESSFULLY;
+            [self performSelector:@selector(pushSecondController) withObject:nil afterDelay:1.5f]; //设置加载完成后再跳转
             
         }else
             if ([dic[@"result"] isEqualToString:@"sys_err"]) {
@@ -187,7 +187,9 @@
     }];
 }
 
-
+-(void)pushSecondController {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 #pragma mark - - - - - - - - - - - - - - - event response 事件相应 - - - - - - - - - - - - - -
 
 

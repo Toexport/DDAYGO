@@ -174,6 +174,7 @@
         if ([dic[@"result"] isEqualToString:@"ok"]) {
             [SVProgressHUD showSuccessWithStatus:MyLocal(@"Password recovered")];
             //            _verifyemail = dic[@"verifyemail"];
+            
             [self.navigationController popViewControllerAnimated:YES];
         }else
             if ([dic[@"result"] isEqualToString:@"acc_null_err"]) {
