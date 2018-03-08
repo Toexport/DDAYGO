@@ -42,6 +42,7 @@
 
 - (void)getData {
     [ZP_MyTool requestLotterypoolwininfo:@{@"token":DD_TOKEN,@"pollid":_pollid} uccess:^(id obj) {
+        ZPLog(@"%@",obj);
         ZP_LotterModel * model = [ZP_LotterModel mj_objectWithKeyValues:obj];
         self.model = model;
         self.prizeDic = obj;
@@ -56,7 +57,7 @@
     
     lotteryModel *model1 = [lotteryModel mj_objectWithKeyValues:model.lottery];
     _NperLabel.text = self.title;
-    _DatesLabel.text = model1.createtime;
+    _DatesLabel.text = model1.recordtime;
 //    [_button1 setTitle:[model1.white1 stringValue] forState:UIControlStateNormal];
 //    [_button2 setTitle:[model1.white2 stringValue] forState:UIControlStateNormal];
 //    [_button3 setTitle:[model1.white3 stringValue] forState:UIControlStateNormal];

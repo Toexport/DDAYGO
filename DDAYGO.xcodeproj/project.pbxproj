@@ -215,6 +215,7 @@
 		C4399D6F1FCE84A000B7B96D /* LotteryController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4399D691FCE849F00B7B96D /* LotteryController.m */; };
 		C43DE4DE200355AF002AB8D2 /* LanguageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C43DE4DB200355AF002AB8D2 /* LanguageController.m */; };
 		C43DE4DF200355AF002AB8D2 /* LanguageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43DE4DD200355AF002AB8D2 /* LanguageController.xib */; };
+		C440A6872050CE79008FC168 /* PromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = C440A6862050CE79008FC168 /* PromptView.m */; };
 		C4411D8C200EFB4900CE906F /* AboutDDAYGOController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4411D8A200EFB4900CE906F /* AboutDDAYGOController.m */; };
 		C4411D90200F368100CE906F /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = C4411D8E200F368000CE906F /* UIButton+Badge.m */; };
 		C4411DA5200F626200CE906F /* icon_no_date@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4411D92200F626100CE906F /* icon_no_date@2x.png */; };
@@ -903,6 +904,8 @@
 		C43DE4DB200355AF002AB8D2 /* LanguageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageController.m; sourceTree = "<group>"; };
 		C43DE4DC200355AF002AB8D2 /* LanguageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageController.h; sourceTree = "<group>"; };
 		C43DE4DD200355AF002AB8D2 /* LanguageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageController.xib; sourceTree = "<group>"; };
+		C440A6852050CE79008FC168 /* PromptView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PromptView.h; sourceTree = "<group>"; };
+		C440A6862050CE79008FC168 /* PromptView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PromptView.m; sourceTree = "<group>"; };
 		C4411D89200EFB4900CE906F /* AboutDDAYGOController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutDDAYGOController.h; sourceTree = "<group>"; };
 		C4411D8A200EFB4900CE906F /* AboutDDAYGOController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutDDAYGOController.m; sourceTree = "<group>"; };
 		C4411D8E200F368000CE906F /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
@@ -1806,6 +1809,7 @@
 		065099C51F62334F002F62D4 /* Method */ = {
 			isa = PBXGroup;
 			children = (
+				C440A6812050CDF6008FC168 /* Prompt box */,
 				4DA1D7EF20236DF300D652A6 /* NoDataView */,
 				C41E9C36202081B900E6F5E2 /* TokenFail */,
 				C4BF36F2201F166B00C55DCA /* UIButton+Layout */,
@@ -2841,6 +2845,15 @@
 				C472F1521FE380110031D7B5 /* ZP_LotterModel */,
 			);
 			path = LotteryHomePage;
+			sourceTree = "<group>";
+		};
+		C440A6812050CDF6008FC168 /* Prompt box */ = {
+			isa = PBXGroup;
+			children = (
+				C440A6852050CE79008FC168 /* PromptView.h */,
+				C440A6862050CE79008FC168 /* PromptView.m */,
+			);
+			path = "Prompt box";
 			sourceTree = "<group>";
 		};
 		C4411D88200EFB3400CE906F /* AboutDDAYGO */ = {
@@ -4956,6 +4969,7 @@
 				C47E76451FB5A1C7009F279A /* ShoplntroductionCell.m in Sources */,
 				C479C6A41FE3CB5800A58A2A /* MJPropertyKey.m in Sources */,
 				4DCDA77C2020D5B700ED64DC /* BGCenterLineLabel.m in Sources */,
+				C440A6872050CE79008FC168 /* PromptView.m in Sources */,
 				06F572301F9F1E8700D61FDB /* OrderSearchView.m in Sources */,
 				C4AD0760200C7A5D00B8FF6E /* LPDVideoPlayerController.m in Sources */,
 				C4B04DA82008B9A9009F7AF9 /* SelectModel.m in Sources */,

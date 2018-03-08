@@ -120,7 +120,7 @@
     
     _array = [NSArray arrayWithObjects:MyLocal(@"Company name:"),MyLocal(@"Unified title:"),MyLocal(@"Company number:"),MyLocal(@"Injection capital:"),MyLocal(@"Date of establishment:"),MyLocal(@"Organization form:"),MyLocal(@"Company address:"),MyLocal(@"Company telephone:"),MyLocal(@"Fax (optional):"),MyLocal(@"Company website (optional):"),MyLocal(@"Contacts:"),MyLocal(@"Contact email:"),MyLocal(@"Contact number:"),MyLocal(@"Business project:"),MyLocal(@"Cooperation projects:"), nil];
     //这个数组是放 pl 的放进去·对应的放好
-    _arrayP = [NSArray arrayWithObjects:MyLocal(@" "),MyLocal(@" "),MyLocal(@"50 to 100 people"),MyLocal(@" "),MyLocal(@"YYYY - MM -DD"),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@"Contact/title/extension."),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "), nil];
+    _arrayP = [NSArray arrayWithObjects:MyLocal(@" "),MyLocal(@" "),MyLocal(@"50 to 100 people"),MyLocal(@" "),MyLocal(@"YYYY - MM -DD"),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@" "),MyLocal(@"Contact/title"),MyLocal(@" "),MyLocal(@" "),MyLocal(@"Main items/Secondary goods/Other goods"),MyLocal(@""), nil];
     
     _LocationLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
     
@@ -189,7 +189,7 @@
                 [SVProgressHUD showInfoWithStatus:MyLocal(@"token is invalid")];
             }else
                 if ([obj[@"result"]isEqualToString:@"cname_err"]) {
-                    [SVProgressHUD showInfoWithStatus:MyLocal(@"cname_err")];
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"company name already exists.")];
                 }else
                 if ([obj[@"result"]isEqualToString:@"companyname_null_err"]) {
                     [SVProgressHUD showInfoWithStatus:MyLocal(@"company name is empty.")];

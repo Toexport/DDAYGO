@@ -153,22 +153,7 @@
 "Pay success" = "Pay success";
 "Pay failure" = "Pay failure";
 "order number:" = "order number:";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Please select payment method." = "Please select payment method.";
 "" = "";
 "" = "";
 "" = "";
@@ -204,23 +189,9 @@
 "" = "";
 "" = "";
 "" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
 /* *
  * 我的
  * */
-
 "My" = "My";
 "Language" = "Language";
 "Setting" = "Setting";
@@ -303,7 +274,7 @@
 "Unified title:" = "Unified title:";
 "Company name:" = "Company name:";
 "50 to 100 people" = "50 to 100 people";
-"Contact/title/extension." = "Contact/title/extension.";
+"Contact/title" = "Contact/title";
 "Please complete" = "Please complete";
 "Successful application pending approval." = "Successful application pending approval.";
 "company name is empty." = "company name is empty.";
@@ -416,8 +387,8 @@
 //"Modify nickname" = "Modify nickname";
 "The output cannot contain special characters." = "The output cannot contain special characters.";
 "promptLabelText" = "promptLabelText";
-"" = "";
-"" = "";
+"Main items/Secondary goods/Other goods" = "Main items/Secondary goods/Other goods";
+"Detailed description wants to cooperate commodity brand and combination." = "Detailed description wants to cooperate commodity brand and combination.";
 "" = "";
 "" = "";
 "" = "";
@@ -478,21 +449,7 @@
 "" = "";
 "" = "";
 "" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+
 /**
  *提示
  */
@@ -533,22 +490,7 @@
 "Has product" = "Has product";
 "version number:%@" = "version number:%@";
 "Audit failed" = "Audit failed";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"company name already exists." = "company name already exists.";
 "" = "";
 "" = "";
 
@@ -564,29 +506,12 @@
 "" = "";
 "" = "";
 "" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
 NSCameraUsageDescription = "Used to open photos";
 NSPhotoLibraryUsageDescription = "Used to open camera";
 "" = "";
 "" = "";
 "" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+
 
 
 

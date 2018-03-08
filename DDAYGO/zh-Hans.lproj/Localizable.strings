@@ -175,7 +175,7 @@
 "ZPEmailTextFiled()" = "请输入邮箱(选填)";
 "ZPCountry" = "国家";
 "ZPEmailICUE" = "请输入ICUE帐号";
-"" = "";
+"Please select payment method." = "请选择支付方式";
 "" = "";
 "" = "";
 "" = "";
@@ -346,7 +346,7 @@
 "Unified title:" = "统一编号:";
 "Company name:" = "公司名称:";
 "50 to 100 people" = "如:50-100人";
-"Contact/title/extension." = "联系人/职称/分机";
+"Contact/title" = "联系人/职称";
 "Please complete" = "请完善";
 "Successful application pending approval." = "申请成功,等待审核";
 "company name is empty." = "公司名称为空";
@@ -461,8 +461,8 @@
 "Your application has not been reviewed." = "您的申请还未审核";
 "version number:%@" = "当前版本号:%@";
 "Audit failed" = "审核未通过";
-"" = "";
-"" = "";
+"Main items/Secondary goods/Other goods" = "主力商品项目/次要商品/其他商品";
+"Detailed description wants to cooperate commodity brand and combination." = "详细叙述欲合作商品品牌及组合";
 "" = "";
 "" = "";
 "" = "";
@@ -532,7 +532,7 @@
 "ZPPswTextField" = "请输入长度为6-20位的英数字";
 "You haven't filled in the number." = "您还未填写号码";
 "Has product" = "已退件";
-"" = "";
+"company name already exists." = "公司名称已存在";
 "" = "";
 "" = "";
 "" = "";

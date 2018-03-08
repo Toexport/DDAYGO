@@ -14,6 +14,7 @@
 @interface ZP_LotterModel : NSObject
 
 @property (nonatomic, strong) NSDictionary * lottery;
+
 /*彩金點數*/
 @property (nonatomic, strong) NSNumber * lbalance;
 

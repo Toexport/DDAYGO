@@ -143,12 +143,13 @@
     [ZP_LoginTool requestRegiser:dict success:^(id obj) {
         ZPLog(@"%@",obj);
         NSDictionary * dic = obj;
-        //        if (![self JudgeTheillegalCharacter:_ZPAccountNumberTextFiled.textField.text]) {
         if ([dic[@"result"] isEqualToString:@"ok"]) {
             NSLog(@"注册成功");
-            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Registered successfully", nil)];
+//            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Registered successfully", nil)];
             CountCode = self.CountCode;   // 保存国家
-            [self.navigationController popViewControllerAnimated:YES];
+            REGISTERED_SUCCESSFULLY;
+//            [self.navigationController popViewControllerAnimated:YES];
+            
         }else
             if ([dic[@"result"] isEqualToString:@"sys_err"]) {
                 [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"Registration failed", nil)];

@@ -126,7 +126,7 @@
 "Pay failure" = "支付失敗";
 "(freight" = "(運費";
 "Shut down" = "關閉";
-"" = "";
+"Please select payment method." = "請選擇支付方式";
 "" = "";
 "" = "";
 "" = "";
@@ -277,7 +277,7 @@
 "Unified title:" = "統一編號:";
 "Company name:" = "公司名稱:";
 "50 to 100 people" = "如:50-100人";
-"Contact/title/extension." = "聯繫人/職稱/分機";
+"Contact/title" = "聯繫人/職稱";
 "Please complete" = "請完善";
 "Successful application pending approval." = "申請成功,等待審核";
 "company name is empty." = "公司名稱為空";
@@ -421,9 +421,9 @@
 "Has product" = "已退件";
 "version number:%@" = "當前版本號:%@";
 "Audit failed" = "審核未通過";
-"" = "";
-"" = "";
-"" = "";
+"company name already exists." = "公司名稱已存在";
+"Main items/Secondary goods/Other goods" = "主力商品項目/次要商品/其他商品";
+"Detailed description wants to cooperate commodity brand and combination." = "詳細敘述欲合作商品品牌及組合";
 "" = "";
 /* *
  * 登录注册

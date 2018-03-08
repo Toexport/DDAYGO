@@ -149,7 +149,7 @@
     for (int i = 0; i < self.dataArray.count; i ++) {
         PayMoneyCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
         if (cell.PayBtn.selected) {
-            ZP_ConfirmPayModel *model = _dataArray[i];
+            ZP_ConfirmPayModel * model = _dataArray[i];
             NSLog(@"选择支付的名字为：%@",model.payname);
             if (self.ConfirmPayMoneyBlock) {
                 self.ConfirmPayMoneyBlock(model);
@@ -157,18 +157,17 @@
         }
     }
     
-    if (_Creditcardbut.selected == _Creditcardbut.selected) {
-        PayPassController * paypass = [[PayPassController alloc] init];
-        if (self.confirmPayBlock) {
-            self.confirmPayBlock(paypass);
-        }
-    }else if (_ICUEbut.selected == _ICUEbut.selected) {
-        
-        PayFailController * PayFail = [[PayFailController alloc] init];
-        if (self.PayFailBlock) {
-            self.PayFailBlock(PayFail);
-        }
-    }
+//    if (_Creditcardbut.selected == _Creditcardbut.selected) {
+//        PayPassController * paypass = [[PayPassController alloc] init];
+//        if (self.confirmPayBlock) {
+//            self.confirmPayBlock(paypass);
+//        }
+//    }else if (_ICUEbut.selected == _ICUEbut.selected) {
+//        PayFailController * PayFail = [[PayFailController alloc] init];
+//        if (self.PayFailBlock) {
+//            self.PayFailBlock(PayFail);
+//        }
+//    }
 }
 #pragma mark - 点击事件
 - (void)cancelbut:(UIButton * )sup {
@@ -220,6 +219,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
     return self.dataArray.count;
 }
 

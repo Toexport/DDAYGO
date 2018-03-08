@@ -47,6 +47,7 @@
 #import "NoDataView.h"
 #import "global.h"
 #import "UIViewController+Listening.h"
+#import "PromptView.h"
 
 //测试用这个
 #ifdef DEBUG
@@ -95,6 +96,9 @@
 [self.navigationController pushViewController:[[LogregisterController alloc] init] animated:YES];\
 [SVProgressHUD showErrorWithStatus:MyLocal(@"Please log in")];}return;}
 
+#define REGISTERED_SUCCESSFULLY if (!DD_HASLOGIN){if ([self isKindOfClass:[UIViewController class]]) {\
+[self.navigationController popViewControllerAnimated:YES];\
+[SVProgressHUD showSuccessWithStatus:MyLocal(@"Registered successfully")];}return;}
 
 #define DD_TOKEN [[NSUserDefaults standardUserDefaults] objectForKey:@"token"]
 #define DD_HASLOGIN DD_TOKEN

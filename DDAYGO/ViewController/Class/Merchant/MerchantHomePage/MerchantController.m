@@ -34,6 +34,7 @@
 @end
 
 @implementation MerchantController
+
 -(UILabel *)line {
     if (!_line) {
         UILabel *line = [[UILabel alloc]initWithFrame:CGRectMake(0, 34, ZP_Width / 4, 1.5)];
@@ -76,12 +77,12 @@
 }
 
 // UI
--(void)addUI {
+- (void)addUI {
     NSArray * allTitle = @[MyLocal(@"the front page of the shop"),MyLocal(@"Latest"),MyLocal(@"praise"),MyLocal(@"Price")];
     UIImageView * imageview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 150)];
     _imageview = imageview;
     imageview.backgroundColor = [UIColor whiteColor];
-//    [imageview setImage:[UIImage imageNamed:@"default_advertisement"]];
+    [imageview setImage:[UIImage imageNamed:@"default_advertisement"]];
     imageview.hidden = YES;
     [self.view addSubview:imageview];
     UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, imageview.frame.size.height, ZP_Width, 35)];

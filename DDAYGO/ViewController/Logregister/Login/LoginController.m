@@ -92,7 +92,6 @@
     [ZP_LoginTool requestLogin:dic success:^(id obj) {
         NSLog(@"obj---%@",obj);
         if ([obj[@"result"]isEqualToString:@"ok"]) {
-            
             NSDictionary * aadic = obj;
             Token = aadic[@"token"];
             [[NSUserDefaults standardUserDefaults] setObject:Token forKey:@"token"];// Token缓存本地
