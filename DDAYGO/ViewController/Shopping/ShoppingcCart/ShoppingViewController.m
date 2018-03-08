@@ -15,7 +15,8 @@
 #import "EditorViewCell.h"
 #import "ShoppingHeadView.h"
 #import "BuyViewController.h"
-@interface ShoppingViewController ()<UITableViewDelegate,UITableViewDataSource,UIViewControllerPreviewingDelegate> {
+#import "BHAlertView.h"
+@interface ShoppingViewController ()<UITableViewDelegate,UITableViewDataSource,UIViewControllerPreviewingDelegate,BHAlertViewDelegate> {
     NSInteger allNum;
     BOOL _bjBool;
     NSString * _modelstockid;
@@ -130,28 +131,29 @@
                 [[SDImageCache sharedImageCache] clearDisk];
                 [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
-                
-                UIAlertController * alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Prompt", nil) message:NSLocalizedString(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.",nil) preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                    ZPLog(@"取消");
-                    [self.navigationController popToRootViewControllerAnimated:NO];
-                    //跳转
-                    if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
-                        UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
-                        [tbvc setSelectedIndex:0];
-                    }
-                }];
-                UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Determine",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                    [self.navigationController popToRootViewControllerAnimated:NO];
-                    //跳转
-                    if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
-                        UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
-                        [tbvc setSelectedIndex:0];
-                    }
-                }];
-                [alert addAction:defaultAction];
-                [alert addAction:cancelAction];
-                [self presentViewController:alert animated:YES completion:nil];
+                BHAlertView *bhAlertV = [[BHAlertView alloc] initWithTitle:MyLocal(@"Prompt") icon:nil message:MyLocal(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.") delegate:self buttonTitles:MyLocal(@"Cancel"),MyLocal(@"Determine"), nil];
+                [bhAlertV show];
+//                UIAlertController * alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Prompt", nil) message:NSLocalizedString(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.",nil) preferredStyle:UIAlertControllerStyleAlert];
+//                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+//                    ZPLog(@"取消");
+//                    [self.navigationController popToRootViewControllerAnimated:NO];
+//                    //跳转
+//                    if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+//                        UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
+//                        [tbvc setSelectedIndex:0];
+//                    }
+//                }];
+//                UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Determine",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+//                    [self.navigationController popToRootViewControllerAnimated:NO];
+//                    //跳转
+//                    if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+//                        UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
+//                        [tbvc setSelectedIndex:0];
+//                    }
+//                }];
+//                [alert addAction:defaultAction];
+//                [alert addAction:cancelAction];
+//                [self presentViewController:alert animated:YES completion:nil];
             }
             ZPLog(@"%@",obj);
         }else{
@@ -217,6 +219,17 @@
     } failure:^(NSError *error) {
         [self loading];
     }];
+}
+
+#pragma mark --------- BHAlertViewDelegate
+- (void)alertView:(BHAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSLog(@"输出此时点击的按钮索引值......%ld", (long)buttonIndex);
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    //跳转
+    if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+        UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
+        [tbvc setSelectedIndex:0];
+    }
 }
 
 // 刷新

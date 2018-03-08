@@ -215,7 +215,7 @@
 		C4399D6F1FCE84A000B7B96D /* LotteryController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4399D691FCE849F00B7B96D /* LotteryController.m */; };
 		C43DE4DE200355AF002AB8D2 /* LanguageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C43DE4DB200355AF002AB8D2 /* LanguageController.m */; };
 		C43DE4DF200355AF002AB8D2 /* LanguageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43DE4DD200355AF002AB8D2 /* LanguageController.xib */; };
-		C440A68A20512149008FC168 /* PromptBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = C440A68920512149008FC168 /* PromptBoxView.m */; };
+		C440A690205153FE008FC168 /* BHAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C440A68F205153FE008FC168 /* BHAlertView.m */; };
 		C4411D8C200EFB4900CE906F /* AboutDDAYGOController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4411D8A200EFB4900CE906F /* AboutDDAYGOController.m */; };
 		C4411D90200F368100CE906F /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = C4411D8E200F368000CE906F /* UIButton+Badge.m */; };
 		C4411DA5200F626200CE906F /* icon_no_date@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4411D92200F626100CE906F /* icon_no_date@2x.png */; };
@@ -904,8 +904,8 @@
 		C43DE4DB200355AF002AB8D2 /* LanguageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageController.m; sourceTree = "<group>"; };
 		C43DE4DC200355AF002AB8D2 /* LanguageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageController.h; sourceTree = "<group>"; };
 		C43DE4DD200355AF002AB8D2 /* LanguageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageController.xib; sourceTree = "<group>"; };
-		C440A68820512149008FC168 /* PromptBoxView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PromptBoxView.h; sourceTree = "<group>"; };
-		C440A68920512149008FC168 /* PromptBoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PromptBoxView.m; sourceTree = "<group>"; };
+		C440A68E205153FE008FC168 /* BHAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHAlertView.h; sourceTree = "<group>"; };
+		C440A68F205153FE008FC168 /* BHAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHAlertView.m; sourceTree = "<group>"; };
 		C4411D89200EFB4900CE906F /* AboutDDAYGOController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutDDAYGOController.h; sourceTree = "<group>"; };
 		C4411D8A200EFB4900CE906F /* AboutDDAYGOController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutDDAYGOController.m; sourceTree = "<group>"; };
 		C4411D8E200F368000CE906F /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
@@ -2850,8 +2850,8 @@
 		C440A6812050CDF6008FC168 /* Prompt box */ = {
 			isa = PBXGroup;
 			children = (
-				C440A68820512149008FC168 /* PromptBoxView.h */,
-				C440A68920512149008FC168 /* PromptBoxView.m */,
+				C440A68E205153FE008FC168 /* BHAlertView.h */,
+				C440A68F205153FE008FC168 /* BHAlertView.m */,
 			);
 			path = "Prompt box";
 			sourceTree = "<group>";
@@ -4779,7 +4779,6 @@
 				C45868FA1FC7CE06000CEB92 /* collectionModel.m in Sources */,
 				06F572421F9F204F00D61FDB /* SearchTimeViewController.m in Sources */,
 				0641BBD61F67F9E400E72FEF /* SDWebImageDecoder.m in Sources */,
-				C440A68A20512149008FC168 /* PromptBoxView.m in Sources */,
 				C47750881FBAFC5D00AE8B3F /* Const.m in Sources */,
 				C4399D6F1FCE84A000B7B96D /* LotteryController.m in Sources */,
 				C45FAF931FCD680D00BD4CE1 /* UIViewController+Utit.m in Sources */,
@@ -4879,6 +4878,7 @@
 				C41CBE3D201CB0BD00F9B227 /* CPerViewController.m in Sources */,
 				C45F22E21FA05B3D00F5DB41 /* ZP_NetorkingTools.m in Sources */,
 				065B3CE11F984F8A00A8E6D6 /* SDCollectionViewCell.m in Sources */,
+				C440A690205153FE008FC168 /* BHAlertView.m in Sources */,
 				C4535E341FC55EA200DFFD62 /* ZP_ExpressDeliveryCell.m in Sources */,
 				C47750851FBADDAA00AE8B3F /* ZP_HomePageModel.m in Sources */,
 				C4D2FEA71FD519A100F546AB /* ZP_QrCodeModel.m in Sources */,
