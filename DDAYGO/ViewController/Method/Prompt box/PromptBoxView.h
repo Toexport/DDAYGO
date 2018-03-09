@@ -14,4 +14,6 @@
 @property (strong, nonatomic) UIAlertAction *cancelAction;
 
 - (void)logouttt;
+- (void)DeleteData;
+- (void)Jump;
 @end

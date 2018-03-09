@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface LogregisterController : UIViewController
+#import "PromptBoxView.h"
+@interface LogregisterController : PromptBoxView
 @property (weak, nonatomic) IBOutlet UIScrollView * LogregisterscrollView;
 
 @end

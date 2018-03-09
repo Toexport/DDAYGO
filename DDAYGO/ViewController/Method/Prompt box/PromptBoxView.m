@@ -16,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 }
 
 #pragma mark - 互踢：弹出对话框
@@ -25,8 +24,8 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:MyLocal(@"Prompt") message:MyLocal(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.") preferredStyle:UIAlertControllerStyleAlert];
     // 确定
     _okAction = [UIAlertAction actionWithTitle:MyLocal(@"Determine") style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
-        //        [self ClearANDJump];
-        DD_CHECK_HASLONGIN;
+          [self ClearANDJump];
+//        DD_CHECK_HASLONGIN;
     }];
     //    取消
     _cancelAction =[UIAlertAction actionWithTitle:MyLocal(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -40,11 +39,21 @@
 
 //清除与跳转
 - (void)ClearANDJump {
+    [self DeleteData];
+    [self Jump];
+}
+
+//清除数据
+- (void)DeleteData {
     //        清除所有的数据
     Token = nil;
     DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DDAYGO_REMOVE_STATE; DDAYGO_REMOVE_HEADERIMAGE; DDAYGO_REMOVE_NAMELABEL; DD_ChangeStaus;
     ZPICUEToken = nil;
     [[SDImageCache sharedImageCache] clearDisk];
+}
+
+// 跳转到指定界面
+- (void)Jump {
     //        跳转到指定界面
     [self.navigationController popToRootViewControllerAnimated:NO];
     if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
@@ -52,5 +61,4 @@
         [tbvc setSelectedIndex:0];
     }
 }
-
 @end

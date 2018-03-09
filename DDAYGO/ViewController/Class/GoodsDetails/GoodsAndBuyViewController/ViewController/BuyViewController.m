@@ -583,6 +583,7 @@
 // 选择分类规格
 - (void)ClassificationButt {
     DD_CHECK_HASLONGIN;
+    
     if (!self.purchaseView) {
         static NSString * purchasseID = @"PurchaseView";
         self.purchaseView = [[NSBundle mainBundle] loadNibNamed:purchasseID owner:self options:nil].firstObject;

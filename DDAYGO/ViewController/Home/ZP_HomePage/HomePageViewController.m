@@ -162,7 +162,6 @@
             //数据
             [self.position Position:_postionArray];
             //返回
-            
             __weak HomePageViewController *viewController = self;
             self.position.ThirdBlock = ^(NSString *ContStr,NSNumber *code) {
                 ZPLog(@"c = %@",ContStr);
