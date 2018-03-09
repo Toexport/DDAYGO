@@ -306,11 +306,9 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSInteger number = 4;
     if (self.newsData.count > 0) {
-        //        ZPLog(@"_____");
         number ++;
     }
     if (self.SixthArrData.count > 0) {
-        
         number++;
     }
     return number;
@@ -391,7 +389,6 @@
                         ZPLog(@"%ld",tag);
                         static NSString * detaled = @"BuyViewController";
                         BuyViewController * viewController = [[BuyViewController alloc]initWithNibName:detaled bundle:nil];
-                        //                    DetailedController * viewController = [[DetailedController alloc] init];
                         viewController.productId = @(tag);
                         [self.navigationController pushViewController:viewController animated:YES];
                     };
@@ -405,12 +402,10 @@
                     cell.ThirdBlock = ^(NSInteger tag){
                         static NSString * detaled = @"BuyViewController";
                         BuyViewController * viewController = [[BuyViewController alloc]initWithNibName:detaled bundle:nil];
-                        //                DetailedController * viewController = [[DetailedController alloc] init];
                         viewController.productId = @(tag);
                         [self.navigationController pushViewController:viewController animated:YES];
                     };
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
-                    
                     return cell;
                 }
 }
@@ -437,7 +432,6 @@
             }else if (indexPath.section == 4) {
                 return ZP_Width / 4 + 35;
             }else {
-                //        return (ZP_Width / 3 +35)* 2+57;
                 if (self.SixthArrData.count < 5) {
                     return (ZP_Width / 3 + 45) + 30;
                 } else {

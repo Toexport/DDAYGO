@@ -499,7 +499,7 @@
     [self initView];
 }
 
--(UIScrollView *)MyScrollView {
+- (UIScrollView *)MyScrollView {
     if (_MyScrollView == nil) {
         UIScrollView* scroll = [[UIScrollView alloc] init];
         _MyScrollView = scroll;
@@ -517,7 +517,7 @@
 /**
  初始化相关的view
  */
--(void)initView{
+- (void)initView{
     //初始化第一个页面
     //初始化第一个页面的父亲view
     UIView* firstPageView = [[UIView alloc] init];
@@ -543,7 +543,7 @@
 /**
  添加第二个页面顶部tabBar
  */
--(void)addSecondPageTopTabBar{
+- (void)addSecondPageTopTabBar{
     //初始化第二个页面的父亲view
     UIView * secondPageView = [[UIView alloc] init];
     secondPageView.frame = CGRectMake(0, SecondPageTop, screenW, screenH-NaviBarH-BottomH);
