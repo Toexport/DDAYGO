@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface BetViewController : UIViewController
+#import "PromptBoxView.h"
+@interface BetViewController : PromptBoxView
 @property (nonatomic, strong) UILabel * TitleLabel1;  // 标题
 @property (nonatomic, strong) UILabel * TimeLabel;  // 时间
 @property (nonatomic, strong) UILabel * TitleLabel2; // 标题

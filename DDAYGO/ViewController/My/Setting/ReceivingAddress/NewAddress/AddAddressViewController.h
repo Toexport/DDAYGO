@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AddAddressViewController : UIViewController
+#import "PromptBoxView.h"
+@interface AddAddressViewController : PromptBoxView
 @property (strong ,nonatomic)NSDictionary * contentDic;
 @property (strong, nonatomic) IBOutlet UIScrollView * AddAddressScrollView;
 @property (weak, nonatomic) IBOutlet UITextField * ContactpersonTextField; //联系人

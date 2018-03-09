@@ -12,8 +12,8 @@ typedef NS_ENUM(NSUInteger, DDPopKind)
     DDFromChildVC           = 0,
     DDFromDataVC            = 1
 };
-
-@interface MyViewController : UIViewController
+#import "PromptBoxView.h"
+@interface MyViewController : PromptBoxView
 @property (weak, nonatomic) IBOutlet UIView * BackgroundView;
 
 @property (strong, nonatomic) IBOutlet UILabel * NameLabel; // 名字

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ZP_CheckMoreController : UIViewController
+#import "PromptBoxView.h"
+@interface ZP_CheckMoreController : PromptBoxView
 @property (nonatomic, strong) UILabel * TitleLabel1;
 @property (nonatomic, strong) UILabel * TitleLabel2;
 

@@ -148,41 +148,13 @@
     [ZP_OrderTool requestGetorders:dic success:^(id json) {
         if ([json[@"result"]isEqualToString:@"token_not_exist"]) {
             //            [self.tableview.mj_header endRefreshing];  // 結束刷新
+            //        清除所有的数据
             Token = nil;
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
-            DD_ChangeStaus;
+            DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DDAYGO_REMOVE_STATE; DDAYGO_REMOVE_HEADERIMAGE; DDAYGO_REMOVE_NAMELABEL; DD_ChangeStaus;
             ZPICUEToken = nil;
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
             [[SDImageCache sharedImageCache] clearDisk];
-            [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:MyLocal(@"reminding") message:MyLocal(@"account exists") preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                ZPLog(@"取消");
-                UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(ZP_Width / 2, ZP_Width / 2- 50, 50, 15)];
-                [label setTextColor:ZP_TypefaceColor];
-                label.font = ZP_stockFont;
-                label.text = MyLocal(@"Please log in");
-                [self.view addSubview:label];
-            }];
-            
-            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                
-                [self.navigationController popToRootViewControllerAnimated:NO];
-                //跳转
-                if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
-                    UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
-                    [tbvc setSelectedIndex:0];
-                }
-            }];
-            [alert addAction:defaultAction];
-            [alert addAction:cancelAction];
-            [self presentViewController:alert animated:YES completion:nil];
+            [self logouttt];
         }
         /*****************************/
         if (json) {

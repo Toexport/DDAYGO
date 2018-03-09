@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TextView.h"
-@interface YueTixianController : UIViewController
+#import "PromptBoxView.h"
+@interface YueTixianController : PromptBoxView
 @property (strong, nonatomic) IBOutlet UIScrollView * TikuanscrollView;
 
 @property (strong, nonatomic) IBOutlet TextView * amountText;

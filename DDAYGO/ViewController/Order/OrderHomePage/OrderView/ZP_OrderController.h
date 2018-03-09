@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "FSSegmentTitleView.h"
-@interface ZP_OrderController : UIViewController<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
+#import "PromptBoxView.h"
+@interface ZP_OrderController : PromptBoxView<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, strong) NSString * titleStr;
 @property (nonatomic, assign) NSInteger num;
 @property (nonatomic, strong) UILabel * RemindLabel;

@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "collectionModel.h"
-@interface CollectionViewController : UIViewController
+#import "PromptBoxView.h"
+@interface CollectionViewController : PromptBoxView
 @property (weak, nonatomic) IBOutlet UITableView * tableView;
 @property (nonatomic, strong) collectionModel * model;
 @end

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ExchangeDetailsController : UIViewController
+#import "PromptBoxView.h"
+@interface ExchangeDetailsController : PromptBoxView
 @property (weak, nonatomic) IBOutlet UIScrollView * ExchangeDetailsScrollView; // 滚动视图
 @property (nonatomic, strong) NSNumber * Oid;
 @property (nonatomic, assign) NSInteger type; //

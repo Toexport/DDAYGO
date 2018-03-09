@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface RefundServiceController : UIViewController
+#import "PromptBoxView.h"
+@interface RefundServiceController : PromptBoxView
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 
 @end

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ReceivingController : UIViewController
+#import "PromptBoxView.h"
+@interface ReceivingController : PromptBoxView
 
 // 设备尺寸的宽、高
 #define ScreenW  CGRectGetWidth([UIScreen mainScreen].bounds)

@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ZP_FrontPageReceivingAddressModel.h"
-@interface EditViewController : UIViewController
+#import "PromptBoxView.h"
+@interface EditViewController : PromptBoxView
 @property (weak, nonatomic) IBOutlet UIScrollView * EditscrollView; // 滚动视图
 @property (weak, nonatomic) IBOutlet UITextField * ContactpersonTextField; //联系人
 @property (weak, nonatomic) IBOutlet UITextField * ContactnumberTextField; // 联系电话

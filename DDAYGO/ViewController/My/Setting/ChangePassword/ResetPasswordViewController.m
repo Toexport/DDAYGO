@@ -88,13 +88,11 @@
         if ([obj[@"result"]isEqualToString:@"ok"]) {
             [SVProgressHUD showSuccessWithStatus:MyLocal(@"Modified successfully, please login again...")];
             [self.navigationController popToRootViewControllerAnimated:NO];
+            //        清除所有的数据
             Token = nil;
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
-            DD_ChangeStaus;
+            DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DD_ChangeStaus;
             ZPICUEToken = nil;
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
+            [[SDImageCache sharedImageCache] clearDisk];
             [self.navigationController popViewControllerAnimated:YES];
             UITabBarController * tbvc  = [[UIApplication sharedApplication] keyWindow].rootViewController;
             [tbvc setSelectedIndex:0];

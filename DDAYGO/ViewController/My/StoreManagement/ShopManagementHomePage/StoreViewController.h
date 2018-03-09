@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface StoreViewController : UIViewController
+#import "PromptBoxView.h"
+@interface StoreViewController : PromptBoxView
 @property (strong, nonatomic) IBOutlet UIScrollView * merchantscrollView;
 @property (strong, nonatomic) IBOutlet UIButton * MerchantBut; // 头像
 @property (strong, nonatomic) IBOutlet UILabel * TitleLabel; // 店铺名字

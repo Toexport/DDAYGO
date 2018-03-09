@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface RequestRefundController : UIViewController
+#import "PromptBoxView.h"
+@interface RequestRefundController : PromptBoxView
 @property (weak, nonatomic) IBOutlet UIScrollView *ReuqestRefundScrollView; // 滚动视图
 @property (nonatomic, strong) NSString * OrderStr;
 @property (nonatomic, assign) NSInteger type; // 识别号

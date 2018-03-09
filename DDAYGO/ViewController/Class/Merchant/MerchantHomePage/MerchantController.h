@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface MerchantController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+#import "PromptBoxView.h"
+@interface MerchantController : PromptBoxView<UICollectionViewDataSource,UICollectionViewDelegate>
 @property (nonatomic, strong) UICollectionView * collectionView1;
 @property (nonatomic, strong) UICollectionView * collectionView2;
 @property (nonatomic, strong) UICollectionView * collectionView3;

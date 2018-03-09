@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface LotteryController : UIViewController
+#import "PromptBoxView.h"
+@interface LotteryController : PromptBoxView
 //@property (nonatomic, strong) UIButton * Pickbuttom;  //领取按钮
 //@property (nonatomic, strong) UILabel * NumberingLabel; // 编号
 //@property (nonatomic, strong) UILabel * TitleLabel; // 标题

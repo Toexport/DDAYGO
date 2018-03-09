@@ -315,18 +315,11 @@
     alert.popoverPresentationController.barButtonItem = self.navigationItem.leftBarButtonItem;
     //  確定按钮
     [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"ok", nil)  style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+        //        清除所有的数据
         Token = nil;
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
-        DD_ChangeStaus;
+        DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DDAYGO_REMOVE_STATE; DDAYGO_REMOVE_HEADERIMAGE; DDAYGO_REMOVE_NAMELABEL; DD_ChangeStaus;
         ZPICUEToken = nil;
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
         [[SDImageCache sharedImageCache] clearDisk];
-        [[NSUserDefaults standardUserDefaults]synchronize];
         [self.navigationController popToRootViewControllerAnimated:NO];
         //跳转
         if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
@@ -338,12 +331,12 @@
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"cancel",nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         NSLog(@"点击了取消按钮");
-        //跳转
-        if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
-            
-            UITabBarController * tbvc  = [[UIApplication sharedApplication] keyWindow].rootViewController;
-            [tbvc setSelectedIndex:0];
-        }
+//        //跳转
+//        if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+//
+//            UITabBarController * tbvc  = [[UIApplication sharedApplication] keyWindow].rootViewController;
+//            [tbvc setSelectedIndex:0];
+//        }
     }]];
     [self presentViewController:alert animated:YES completion:nil];
 }

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface Supplier1ViewController : UIViewController
+#import "PromptBoxView.h"
+@interface Supplier1ViewController : PromptBoxView
 @property (weak, nonatomic) IBOutlet UITableView * tableView;
 @property (weak, nonatomic) IBOutlet UIView *noStoreView;
 @property (weak, nonatomic) IBOutlet UIButton *sendingBtn;

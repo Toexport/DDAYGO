@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PromptBoxView.h"
 @interface SettingViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIScrollView * SettingScrollView;
 @property (strong, nonatomic) IBOutlet UIImageView * PhotoImage;

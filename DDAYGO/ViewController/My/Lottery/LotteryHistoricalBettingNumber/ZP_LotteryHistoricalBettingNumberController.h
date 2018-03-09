@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ZP_LotteryHistoricalBettingNumberController : UIViewController
+#import "PromptBoxView.h"
+@interface ZP_LotteryHistoricalBettingNumberController : PromptBoxView
 @property (nonatomic, strong) UILabel * TitleLabel1;
 @property (nonatomic, strong) UILabel * TitleLabel2;
 @property (nonatomic, strong) UILabel * TitleLabel3;

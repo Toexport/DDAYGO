@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface BindingEmailController : UIViewController
+#import "PromptBoxView.h"
+@interface BindingEmailController : PromptBoxView
 @property (strong, nonatomic) IBOutlet UIScrollView * BindingEmailscrollView;
 
 @end

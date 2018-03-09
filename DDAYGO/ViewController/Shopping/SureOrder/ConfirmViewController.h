@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ZP_ShoppingModel.h"
 
-
-@interface ConfirmViewController : UIViewController
+#include "PromptBoxView.h"
+@interface ConfirmViewController : PromptBoxView
 
 @property (nonatomic, assign) NSInteger type;
 

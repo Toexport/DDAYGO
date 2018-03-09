@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface BindingIntroduce : UIViewController
+#import "PromptBoxView.h"
+@interface BindingIntroduce : PromptBoxView
 @property (strong, nonatomic) IBOutlet UIScrollView * BindingIntroducscrollView;
 @property (strong, nonatomic) IBOutlet UITextField * BindingIntroduceTextField;
 @property (weak, nonatomic) IBOutlet UIButton *BinDingBut;

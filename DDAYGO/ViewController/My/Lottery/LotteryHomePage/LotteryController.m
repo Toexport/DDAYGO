@@ -126,33 +126,13 @@
     [ZP_MyTool getPrizeInfo:^(id obj) {
         ZPLog(@"%@",obj);
         if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
+            //        清除所有的数据
             Token = nil;
-            ZPICUEToken = nil;
             DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DDAYGO_REMOVE_STATE; DDAYGO_REMOVE_HEADERIMAGE; DDAYGO_REMOVE_NAMELABEL; DD_ChangeStaus;
+            ZPICUEToken = nil;
             [[SDImageCache sharedImageCache] clearDisk];
-            [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:MyLocal(@"Prompt") message:NSLocalizedString(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.",nil) preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:MyLocal(@"Cancel") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                ZPLog(@"取消");
-                [self.navigationController popToRootViewControllerAnimated:NO];
-                //跳转
-                if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
-                    UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
-                    [tbvc setSelectedIndex:0];
-                }
-            }];
-            UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:MyLocal(@"Determine") style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                [self.navigationController popToRootViewControllerAnimated:NO];
-                //跳转
-                if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
-                    UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
-                    [tbvc setSelectedIndex:0];
-                }
-            }];
-            [alert addAction:defaultAction];
-            [alert addAction:cancelAction];
-            [self presentViewController:alert animated:YES completion:nil];
+            [self logouttt];
         }
         //这个是一次的数据
         ZP_LotterModel * model = [ZP_LotterModel mj_objectWithKeyValues:obj];

@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "UIButton+UIButtonImageWithLable.h"
-
-@interface BuyViewController : UIViewController
+#import "PromptBoxView.h"
+@interface BuyViewController : PromptBoxView
 @property (weak, nonatomic) IBOutlet UIView * onScrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView * smallScrollView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint * onScrollViewWidth;

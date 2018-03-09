@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ZP_ExtractController : UIViewController
+#import "PromptBoxView.h"
+@interface ZP_ExtractController : PromptBoxView
 @property (strong, nonatomic) IBOutlet UITableView * tableView;
 @property (nonatomic, strong) UILabel * DateTimeLabel;
 /**

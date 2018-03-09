@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ZP_FrontPageReceivingAddressModel.h"
-
-@interface AddressViewController : UIViewController
+#import "PromptBoxView.h"
+@interface AddressViewController : PromptBoxView
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSNumber * oid; // 地址id
 @property (nonatomic, copy) void(^popBlock)(ZP_FrontPageReceivingAddressModel * model);

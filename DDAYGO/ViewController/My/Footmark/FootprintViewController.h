@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface FootprintViewController : UIViewController
+#import "PromptBoxView.h"
+@interface FootprintViewController : PromptBoxView
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) UILabel * RemindLabel;
 
