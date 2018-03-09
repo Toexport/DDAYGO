@@ -39,6 +39,7 @@ CGFloat contentViewWidth;
 CGFloat contentViewHeight;
 
 @implementation BHAlertView
+
 #pragma mark -- 初始化
 - (instancetype)init {
     if (self = [super initWithFrame:[UIScreen mainScreen].bounds]) {

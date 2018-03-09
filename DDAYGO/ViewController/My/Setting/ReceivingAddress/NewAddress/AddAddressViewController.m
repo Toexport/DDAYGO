@@ -25,7 +25,7 @@
     self.ContactpersonTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
     self.ReceivingaddressTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
     self.ZipcodeaddressTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 - (void)setContentDic:(NSDictionary *)contentDic {
@@ -42,6 +42,7 @@
 
 // 国别
 - (void)countrycode {
+    
     self.regionLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
     switch ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue]) {
         case 886:
@@ -63,7 +64,6 @@
 //  保存按钮
 - (void)saveAddress {
     [self allData];
-    
 }
 
 //  数据
@@ -79,7 +79,6 @@
     dic[@"isdefault"] = [NSNumber numberWithBool: _acquiescence.selected];
     dic[@"token"] = Token;
     ZPLog(@"%@",dic);
-    
     [ZP_MyTool requesnewAaddress:dic success:^(id obj) {
         NSDictionary * dic = obj;
         ZPLog(@"%@",obj);
@@ -91,25 +90,25 @@
             if ([dic[@"result"] isEqualToString:@"add_up_to_ten"]) {
                 [SVProgressHUD showInfoWithStatus:MyLocal(@"Add failure, and you can only add up to 10 data.")];
             }else
-                    if ([dic[@"result"] isEqualToString:@"name_err"]) {
-                        [SVProgressHUD showInfoWithStatus:MyLocal(@"name cannot be empty.")];
+                if ([dic[@"result"] isEqualToString:@"name_err"]) {
+                    [SVProgressHUD showInfoWithStatus:MyLocal(@"name cannot be empty.")];
+                }else
+                    if ([dic[@"result"] isEqualToString:@"phone_err"]) {
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"phone number cannot be empty.")];
                     }else
-                        if ([dic[@"result"] isEqualToString:@"phone_err"]) {
-                            [SVProgressHUD showInfoWithStatus:MyLocal(@"phone number cannot be empty.")];
+                        if ([dic[@"result"] isEqualToString:@"address_err"]) {
+                            [SVProgressHUD showInfoWithStatus:MyLocal(@"address cannot be empty.")];
                         }else
-                            if ([dic[@"result"] isEqualToString:@"address_err"]) {
-                                [SVProgressHUD showInfoWithStatus:MyLocal(@"address cannot be empty.")];
-                            }else
-                                //*************************************Token被挤掉***************************************************//
-                                if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
-                                    //        清除所有的数据
-                                    Token = nil;
-                                    DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DDAYGO_REMOVE_STATE; DDAYGO_REMOVE_HEADERIMAGE; DDAYGO_REMOVE_NAMELABEL; DD_ChangeStaus;
-                                    ZPICUEToken = nil;
-                                    [[SDImageCache sharedImageCache] clearDisk];
+                            //*************************************Token被挤掉***************************************************//
+                            if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
+                                //        清除所有的数据
+                                Token = nil;
+                                DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DDAYGO_REMOVE_STATE; DDAYGO_REMOVE_HEADERIMAGE; DDAYGO_REMOVE_NAMELABEL; DD_ChangeStaus;
+                                ZPICUEToken = nil;
+                                [[SDImageCache sharedImageCache] clearDisk];
 #pragma make -- 提示框
-                                    [self logouttt];
-                                }
+                                [self logouttt];
+                            }
         //****************************************************************************************//
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
@@ -118,7 +117,6 @@
 
 // 设置默认地址
 - (IBAction)acquiescence:(UIButton *)sender {
-    
     sender.selected = !sender.selected;
 }
 

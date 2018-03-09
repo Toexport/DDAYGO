@@ -56,7 +56,7 @@
     [self AllData];
     [self addRefresh];
     if (DD_HASLOGIN ) {
-    [self AllData];
+        [self AllData];
     }
 }
 
@@ -71,7 +71,7 @@
 
 // 70) 获取退换货记录列表
 - (void)AllData {
-//    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
+    //    [ZPProgressHUD showWithStatus:loading maskType:ZPProgressHUDMaskTypeNone];
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     dic[@"page"] = @"1";
@@ -107,22 +107,24 @@
 
 // 数据为空时加载此动画
 -(void)loading{
-//    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    //    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
     __weak typeof(self)weakSelf = self;
     [ReloadView showToView:self.view touch:^{
         [weakSelf AllData];
         [ReloadView dismissFromView:weakSelf.view];
     }];
 }
+
 -(void)successful {
     [self.tableview reloadData];
     [ZPProgressHUD dismiss];
 }
+
 -(void)networkProblems{
     __weak typeof(self)weakSelf = self;
-//    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
+    //    [ZPProgressHUD showErrorWithStatus:connectFailed toViewController:self];
     [ReloadView showToView:self.view touch:^{
-     [weakSelf AllData];
+        [weakSelf AllData];
     }];
     return;
 }
@@ -132,6 +134,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
+
 // 分组
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (self.dataarray.count > 0) {
@@ -145,12 +148,11 @@
         }
         return 0;
     }
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 195;
-
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -163,7 +165,7 @@
     cell.WaitStateLabel.text = model.statestr;
     cell.TitleLabel.text = model.productname;
     [cell.MaimImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI, model.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
-//    cell.StateLabel.text = [model.returntype stringValue];
+    //    cell.StateLabel.text = [model.returntype stringValue];
     int a = [model.returntype intValue];
     switch (a) {
         case 0:
@@ -183,7 +185,7 @@
         default:
             break;
     }
-//    ZPLog(@"%@%@",ImgAPI,model.defaultimg);
+    //    ZPLog(@"%@%@",ImgAPI,model.defaultimg);
     cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果、
     return cell;
 }
@@ -201,14 +203,13 @@
     if (section == 0) {
         return 0;
     }else {
-    return 10.0f;
+        return 10.0f;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return CGFLOAT_MIN;
     return 0.001;
-
 }
 
 // 热点被接入，子类重写

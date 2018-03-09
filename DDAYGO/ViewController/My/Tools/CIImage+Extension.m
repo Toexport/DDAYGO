@@ -16,8 +16,7 @@
 // *  @param size  图片宽度
 
 
-- (UIImage *)createNonInterpolatedWithSize:(CGFloat)size
-{
+- (UIImage *)createNonInterpolatedWithSize:(CGFloat)size {
     CGRect extent = CGRectIntegral(self.extent);
     CGFloat scale = MIN(size/CGRectGetWidth(extent), size/CGRectGetHeight(extent));
     

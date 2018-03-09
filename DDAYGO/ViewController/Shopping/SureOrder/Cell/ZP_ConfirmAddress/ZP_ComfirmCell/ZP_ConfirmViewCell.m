@@ -21,17 +21,17 @@
 }
 - (void)initUI {
     
-//  收货人（固定）
+    //  收货人（固定）
     ZP_GeneralLabel* ConsigneeLabel = [ZP_GeneralLabel initWithtextLabel:_ConsigneeLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     ConsigneeLabel.text = MyLocal(@"Consignee:");
     [self addSubview:ConsigneeLabel];
     [ConsigneeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(30); // 左
-        make.bottom.equalTo(self).offset(-60); 
+        make.bottom.equalTo(self).offset(-60);
     }];
     _ConsigneeLabel = ConsigneeLabel;
     
-//  名字
+    //  名字
     ZP_GeneralLabel * NameLabel = [ZP_GeneralLabel initWithtextLabel:_NameLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self.contentView addSubview:NameLabel];
     [NameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -40,7 +40,7 @@
     }];
     _NameLabel = NameLabel;
     
-//  手机号码
+    //  手机号码
     ZP_GeneralLabel * PhotoLabel = [ZP_GeneralLabel initWithtextLabel:_PhotoLabel.text textColor:ZP_textblack font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self.contentView addSubview:PhotoLabel];
     [PhotoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -50,7 +50,7 @@
     
     _PhotoLabel = PhotoLabel;
     
-//  定位图标（固定）
+    //  定位图标（固定）
     UIImageView * addressImage = [UIImageView new];
     [self.contentView addSubview:addressImage];
     addressImage.image = [UIImage imageNamed:@"ic_order_address"];
@@ -63,7 +63,7 @@
     }];
     _addressImage = addressImage;
     
-//  收货地址(固定)
+    //  收货地址(固定)
     ZP_GeneralLabel * AddressLabel = [ZP_GeneralLabel initWithtextLabel:_AddressLabel.text textColor:ZP_textblack font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     AddressLabel.text = MyLocal(@"Shipping address:");
     [self.contentView addSubview:AddressLabel];
@@ -73,7 +73,7 @@
     }];
     _AddressLabel = AddressLabel;
     
-//  地址
+    //  地址
     ZP_GeneralLabel * AddressdetailsLabel = [ZP_GeneralLabel initWithtextLabel:_AddressdetailsLabel.text textColor:ZP_textblack font:ZP_titleFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     AddressdetailsLabel.lineBreakMode = NSLineBreakByWordWrapping; //文字分行
     AddressdetailsLabel.numberOfLines = 0;
@@ -85,7 +85,7 @@
     }];
     _AddressdetailsLabel = AddressdetailsLabel;
     
-//  箭头
+    //  箭头
     UIImageView * ArrowImage = [UIImageView new];
     [self.contentView addSubview:ArrowImage];
     ArrowImage.image = [UIImage imageNamed:@"ic_forward"];
@@ -97,7 +97,7 @@
     }];
     _ArrowImage = ArrowImage;
     
-//  横线彩条
+    //  横线彩条
     UIImageView * CrossImage = [UIImageView new];
     [self.contentView addSubview:CrossImage];
     CrossImage.image = [UIImage imageNamed:@"img_order_stripe"];

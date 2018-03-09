@@ -17,26 +17,17 @@
 @implementation Pop_upTableViewDelegate
 
 - (instancetype) init {
-    
     self = [super init];
-    
     if (self) {
-        
     }
-    
     return self;
 }
 
 - (instancetype)initWithDidSelectRowAtIndexPath:(TableViewDidSelectRowAtIndexPath)tableViewDidSelectRowAtIndexPath {
-    
     self = [super init];
-    
     if (self) {
-        
         self.tableViewDidSelectRowAtIndexPath = [tableViewDidSelectRowAtIndexPath copy];
-        
     }
-    
     return self;
 }
 

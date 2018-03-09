@@ -20,26 +20,26 @@
 }
 
 - (void)initUI {
-//   商家图片
-        UIImageView * merchantsImage = [UIImageView new];
-        merchantsImage.image = [UIImage imageNamed:@"ic_order_store"];
-        [self addSubview:merchantsImage];
-        [merchantsImage mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self).offset(5);
-            make.top.equalTo(self).offset(10);
-        }];
-
-//    商家名字
-        UILabel * merchantsLabel = [UILabel new];
-        merchantsLabel.textAlignment = NSTextAlignmentLeft;
-        merchantsLabel.textColor = ZP_textblack;
-        merchantsLabel.font = ZP_titleFont;
-        [self addSubview:merchantsLabel];
-        [merchantsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self).offset(30);
-            make.top.equalTo(self).offset(10);
-        }];
-        self.merchantsLabel = merchantsLabel;
+    //   商家图片
+    UIImageView * merchantsImage = [UIImageView new];
+    merchantsImage.image = [UIImage imageNamed:@"ic_order_store"];
+    [self addSubview:merchantsImage];
+    [merchantsImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(5);
+        make.top.equalTo(self).offset(10);
+    }];
+    
+    //    商家名字
+    UILabel * merchantsLabel = [UILabel new];
+    merchantsLabel.textAlignment = NSTextAlignmentLeft;
+    merchantsLabel.textColor = ZP_textblack;
+    merchantsLabel.font = ZP_titleFont;
+    [self addSubview:merchantsLabel];
+    [merchantsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(30);
+        make.top.equalTo(self).offset(10);
+    }];
+    self.merchantsLabel = merchantsLabel;
 }
 
 - (void)InformationModel:(ZP_InformationModel *)model {

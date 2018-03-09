@@ -18,7 +18,7 @@
     [super viewDidLoad];
     self.title =MyLocal(@"Pay failure");
     // Do any additional setup after loading the view from its nib.
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

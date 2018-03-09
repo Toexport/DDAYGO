@@ -30,16 +30,16 @@
         _defaultimgImageVIew.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         [_defaultimgImageVIew addSubview:_defaltLabel];
     }else{
-    [_defaultimg sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
+        [_defaultimg sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
         _defaultimg.frame = CGRectMake(_defaultimg.frame.origin.x, _defaultimg.frame.origin.y, _defaultimg.frame.size.width, _defaultimg.frame.size.height);
-    [_defaultimg setContentScaleFactor:[[UIScreen mainScreen] scale]];
-    _defaultimg.contentMode =  UIViewContentModeScaleAspectFill;
-    _defaultimg.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+        [_defaultimg setContentScaleFactor:[[UIScreen mainScreen] scale]];
+        _defaultimg.contentMode =  UIViewContentModeScaleAspectFill;
+        _defaultimg.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     }
     _productname.text = model.productname;
     _productprice.text = [NSString stringWithFormat:@"%@",model.productprice];
-//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
-//    _CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+    //    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+    //    _CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     _CurrencySymbolLabel.text = DD_MonetarySymbol;
     _cp.text = [NSString stringWithFormat:@"%@",model.cp];
     

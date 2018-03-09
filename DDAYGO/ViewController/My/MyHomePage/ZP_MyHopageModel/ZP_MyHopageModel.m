@@ -12,7 +12,6 @@
 
 @end
 
-
 @implementation ZP_MyHopageModel2
 
 @end

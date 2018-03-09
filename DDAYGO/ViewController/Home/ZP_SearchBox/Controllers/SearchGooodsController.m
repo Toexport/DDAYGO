@@ -52,7 +52,7 @@
 //设置导航栏
 - (void)setUpNavgationBar {
     
-//        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"input_home_search"] forBarMetrics:UIBarMetricsDefault];
+    //        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"input_home_search"] forBarMetrics:UIBarMetricsDefault];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:MyLocal(@"Cancel") style:UIBarButtonItemStyleDone target:self action:@selector(back)];
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
@@ -82,22 +82,22 @@
         if (newStr.length > 0 ) {
             ZPLog(@"go");
             [SVProgressHUD showInfoWithStatus:MyLocal(@"Temporarily no data")];
-    }
+        }
     }else {
-    NSString * newStr = [keywords stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSString * searchKit = [newStr stringByAddingPercentEscapesUsingEncoding:kCFStringEncodingUTF8];
-    ZPLog(@"go - > %@ --- %@,kkk_> %@",keywords,newStr,searchKit);
-    if (newStr.length > 0 ) {
-        ZPLog(@"go");
-        CPerViewController * CVPView = [[CPerViewController alloc]init];
-        CVPView.fatherId = [NSNumber numberWithInteger:0];
-        CVPView.keyword = searchKit;
-        CVPView.titleString = MyLocal(@"Search");
-        [ZPProgressHUD showWithStatus:MyLocal(@"Searching for...") maskType:ZPProgressHUDMaskTypeBlack];
-        [self.navigationController pushViewController:CVPView animated:YES];
-    }else{
-    [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the product you are looking for")];
-        ZPLog(@"no go");
+        NSString * newStr = [keywords stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSString * searchKit = [newStr stringByAddingPercentEscapesUsingEncoding:kCFStringEncodingUTF8];
+        ZPLog(@"go - > %@ --- %@,kkk_> %@",keywords,newStr,searchKit);
+        if (newStr.length > 0 ) {
+            ZPLog(@"go");
+            CPerViewController * CVPView = [[CPerViewController alloc]init];
+            CVPView.fatherId = [NSNumber numberWithInteger:0];
+            CVPView.keyword = searchKit;
+            CVPView.titleString = MyLocal(@"Search");
+            [ZPProgressHUD showWithStatus:MyLocal(@"Searching for...") maskType:ZPProgressHUDMaskTypeBlack];
+            [self.navigationController pushViewController:CVPView animated:YES];
+        }else{
+            [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the product you are looking for")];
+            ZPLog(@"no go");
         }
     }
 }
@@ -105,7 +105,7 @@
 #pragma mark - action
 - (void)back {
     [self dismissViewControllerAnimated:YES completion:nil];
-//    [self.navigationController popViewControllerAnimated:YES];
+    //    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

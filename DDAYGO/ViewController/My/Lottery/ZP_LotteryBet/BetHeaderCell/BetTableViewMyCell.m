@@ -15,9 +15,7 @@
     // Initialization code
     
     _butArray= [NSMutableArray array];
-
 }
-
 
 - (void)upDataButtonWith:(NSInteger )count
 {
@@ -42,8 +40,8 @@
                     but.selected = YES;
                 }
             }];
-
-//            [but setTitle:[NSString stringWithFormat:@"%02ld",(long)num + 1] forState:UIControlStateNormal];
+            
+            //            [but setTitle:[NSString stringWithFormat:@"%02ld",(long)num + 1] forState:UIControlStateNormal];
             [but setTitle:[NSString stringWithFormat:@"%02ld",(long)num + 1] forState:UIControlStateNormal];
             [but setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [but addTarget:self action:@selector(butClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -81,7 +79,7 @@
 - (void)removeAllSubviews {
     //[self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     while (self.contentView.subviews.count) {
-      
+        
         [self.contentView.subviews.lastObject removeFromSuperview];
     }
 }

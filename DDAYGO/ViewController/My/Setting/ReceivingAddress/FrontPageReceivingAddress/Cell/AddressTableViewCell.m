@@ -24,13 +24,11 @@
     }
 }
 
-
 - (void)cellWithdic:(ZP_FrontPageReceivingAddressModel *)model {
     _NameLabel.text = model.eeceiptname;
     _PhoneLabel.text = model.eeceiptphone;
     _AddressLabel.text = model.addressdetail;
     _defBtn.selected = [model.isdefault boolValue];
-    
 }
 
 

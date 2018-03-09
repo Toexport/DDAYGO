@@ -29,11 +29,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = MyLocal(@"Release comments");
-     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"ic_bar_return"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
     [self initUI];
     [self setUpNavgationBar];
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
     
     
 }
@@ -44,9 +44,9 @@
     NSArray *array = [self.navigationController viewControllers];
     UIViewController *viewController = array.firstObject;
     [alert addAction:[UIAlertAction actionWithTitle:MyLocal(@"ok") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        [self.navigationController popToRootViewControllerAnimated:NO];
-//        viewController.tabBarController.selectedIndex = 3;
-//        viewController.popoverPresentationController = YES;
+        //        [self.navigationController popToRootViewControllerAnimated:NO];
+        //        viewController.tabBarController.selectedIndex = 3;
+        //        viewController.popoverPresentationController = YES;
         [viewController.navigationController popViewControllerAnimated:YES];
     }]];
     
@@ -86,19 +86,19 @@
 }
 
 - (void)cartButton {
-// 数据
+    // 数据
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     NSString * allStr = [NSString stringWithFormat:@"%@,%@,%ld,%@",_model2.detailid,_model2.productid,_score1+1,_pjstr];
     NSString * utf8Str = [allStr stringByAddingPercentEscapesUsingEncoding:kCFStringEncodingUTF8];
     dic[@"preview"] = utf8Str;
-//    ZPLog(@"%ld",_score1);
-//    ZPLog(@"%@",_pjstr);
+    //    ZPLog(@"%ld",_score1);
+    //    ZPLog(@"%@",_pjstr);
     dic[@"oid"] = self.ordersnumber;   //订单编号
     dic[@"supscore"] = [NSNumber numberWithFloat:_Score2+1]; // 店家评分
-//    ZPLog(@"%ld",_Score2);
+    //    ZPLog(@"%ld",_Score2);
     NSString * djStr = [_jpstr stringByAddingPercentEscapesUsingEncoding:kCFStringEncodingUTF8];
     dic[@"sreview"] = djStr; //店家评论
-//    ZPLog(@"%@",_jpstr);
+    //    ZPLog(@"%@",_jpstr);
     dic[@"token"] = Token;
     if (_score1 < 1) {
         [SVProgressHUD showInfoWithStatus:MyLocal(@"Is no comment")];
@@ -155,7 +155,7 @@
         };
         [cell score:A];
         return cell;
-
+        
     }else {
         NSArray * B = @[@"a",@"b",@"c",@"d",@"e"];
         NSString * ShopevaluationID = @"shopevaluation";
@@ -179,7 +179,7 @@
     if (indexPath.section == 0) {
         return 150;
     }else {
-       return 160;
+        return 160;
     }
     
 }

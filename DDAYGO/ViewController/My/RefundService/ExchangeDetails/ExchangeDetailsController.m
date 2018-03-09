@@ -32,7 +32,6 @@
     [self initUI];
     [self ExchangeDetails];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
-    
 }
 
 // UI
@@ -41,16 +40,16 @@
     switch (a) {
         case 0:
             self.title = MyLocal(@"refund");
-//            NSLog(@"%d",a);
+            //            NSLog(@"%d",a);
             break;
         case 1:
             self.title = MyLocal(@"Returnrefund");
-//            NSLog(@"%d",a);
+            //            NSLog(@"%d",a);
             break;
             
         case 2:
             self.title = MyLocal(@"Returnrefund");
-//            NSLog(@"%d",a);
+            //            NSLog(@"%d",a);
             break;
         default:
             break;
@@ -60,12 +59,12 @@
     _imageView.navcDelegate = self;
     _imageView.maxSelectedCount = 3;
     [self.view3 addSubview:_imageView];
-//    _imageview1.userInteractionEnabled = YES;// 打开用户交互
-//    UIGestureRecognizer * singleTap = [[UIGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapAction:)];
-//    //为图片添加手势
-//    [_imageview1 addGestureRecognizer:singleTap];
-//    //显示
-//    [self.view addSubview:_imageview1];
+    //    _imageview1.userInteractionEnabled = YES;// 打开用户交互
+    //    UIGestureRecognizer * singleTap = [[UIGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapAction:)];
+    //    //为图片添加手势
+    //    [_imageview1 addGestureRecognizer:singleTap];
+    //    //显示
+    //    [self.view addSubview:_imageview1];
 }
 
 //71) 获取退换货详情
@@ -91,7 +90,7 @@
             }
             //****************************************************************************************//
             
-//            ZPLog(@"%@",obj);
+            //            ZPLog(@"%@",obj);
             _model = [ExchangeDetailsModel mj_objectWithKeyValues:obj[@"refund"]];
             _model1 = [ExchangeDetailsModel mj_objectWithKeyValues:obj[@"product"][0]];
             [self ExchangeDeatils:_model];
@@ -99,16 +98,16 @@
         } failure:^(NSError *error) {
             ZPLog(@"%@",error);
         }];
-//        _ViewLayoutConstraint.constant = CGFLOAT_MIN;
-//        _View3LayoutConstraint.constant = CGFLOAT_MIN;
-//        _View4LayoutConstraint.constant = CGFLOAT_MIN;
-//        _View5LayoutConstraint.constant = CGFLOAT_MIN;
-//        _view3.height = YES;
-//        _View5.height = YES;
-//        _view4.height = YES;
-//        _View4titleLabel.height = YES;
-//        _CancelBut.height = YES;
-//        self.RequestServiceBut.hidden = YES;
+        //        _ViewLayoutConstraint.constant = CGFLOAT_MIN;
+        //        _View3LayoutConstraint.constant = CGFLOAT_MIN;
+        //        _View4LayoutConstraint.constant = CGFLOAT_MIN;
+        //        _View5LayoutConstraint.constant = CGFLOAT_MIN;
+        //        _view3.height = YES;
+        //        _View5.height = YES;
+        //        _view4.height = YES;
+        //        _View4titleLabel.height = YES;
+        //        _CancelBut.height = YES;
+        //        self.RequestServiceBut.hidden = YES;
     }else
         if (self.type == 777) {
             self.title = MyLocal(@"Returnrefund");
@@ -122,29 +121,28 @@
             } failure:^(NSError *error) {
                 ZPLog(@"%@",error);
             }];
-    }else{
-//        self.title = @"退货退款";
-        dic[@"refundid"] = self.Oid;
-        [ZP_MyTool requestGetrefundinfo:dic success:^(id obj) {
-//            ZPLog(@"%@",obj);
-            _model = [ExchangeDetailsModel mj_objectWithKeyValues:obj[@"refund"]];
-            _model1 = [ExchangeDetailsModel mj_objectWithKeyValues:obj[@"product"][0]];
-            [self ExchangeDeatils:_model];
-            [self ExchangeDeatils1:_model1];
-        } failure:^(NSError *error) {
-            ZPLog(@"%@",error);
-        }];
-    }
-    
+        }else{
+            //        self.title = @"退货退款";
+            dic[@"refundid"] = self.Oid;
+            [ZP_MyTool requestGetrefundinfo:dic success:^(id obj) {
+                //            ZPLog(@"%@",obj);
+                _model = [ExchangeDetailsModel mj_objectWithKeyValues:obj[@"refund"]];
+                _model1 = [ExchangeDetailsModel mj_objectWithKeyValues:obj[@"product"][0]];
+                [self ExchangeDeatils:_model];
+                [self ExchangeDeatils1:_model1];
+            } failure:^(NSError *error) {
+                ZPLog(@"%@",error);
+            }];
+        }
 }
 
 - (void)ExchangeDeatils:(ExchangeDetailsModel *)model {
     self.OrderNumberLabel.text = [model.ordersnumber stringValue];
     self.RequestTypeLabel.text = [model.returntype stringValue];
-//    NSLog(@"%@",model.returntype);
+    //    NSLog(@"%@",model.returntype);
     int a = [model.returntype intValue];
-//    NSLog(@"Stata = %D",a);
-//     按钮文字及属性
+    //    NSLog(@"Stata = %D",a);
+    //     按钮文字及属性
     switch (a) {
         case 0:
             self.RequestTypeLabel.text = MyLocal(@"refund");
@@ -153,7 +151,7 @@
             _View3LayoutConstraint.constant = CGFLOAT_MIN;
             self.ViewLayoutConstraint.constant = 50;
             self.view3.hidden = YES;
-//            NSLog(@"Stata = %D",a);
+            //            NSLog(@"Stata = %D",a);
             break;
             
         case 1:
@@ -163,37 +161,37 @@
             self.ViewLayoutConstraint.constant = 50;
             self.view3.hidden = YES;
             self.RequestServiceBut.hidden = YES;
-//            NSLog(@"Stata = %D",a);
+            //            NSLog(@"Stata = %D",a);
             break;
             
         case 2:
             self.RequestTypeLabel.text = MyLocal(@"Exchange goods");
             [self.CancelBut setTitle:MyLocal(@"cancel a replacement")  forState:UIControlStateNormal];
             _View3LayoutConstraint.constant = CGFLOAT_MIN;
-           self.ViewLayoutConstraint.constant = 50;
+            self.ViewLayoutConstraint.constant = 50;
             self.view3.hidden = YES;
             self.RequestServiceBut.hidden = YES;
-//            NSLog(@"Stata = %D",a);
+            //            NSLog(@"Stata = %D",a);
             break;
         default:
             break;
     }
     
-//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
-//    self.CurrencyLabel.text = [NSString stringWithFormat:@"%@",str];
+    //    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+    //    self.CurrencyLabel.text = [NSString stringWithFormat:@"%@",str];
     self.CurrencyLabel.text = DD_MonetarySymbol;
     self.PriceLabel.text = [model.ordersamount stringValue];
     self.RequestTimeLabel.text = model.createtime;
     self.RequestYuanyin.text = model.refundreason;
     self.NowStateLabel.text = model.statestr;
-//    NSLog(@"%@",model.statestr);
+    //    NSLog(@"%@",model.statestr);
     int b = [model.state intValue];
     NSLog(@"Stata11 = %D",b);
     switch (b) {
-//         根据返回的数字来识别隐藏是否显示View
+            //         根据返回的数字来识别隐藏是否显示View
         case 1:
             _View3LayoutConstraint.constant = CGFLOAT_MIN;
-             _View5LayoutConstraint.constant = CGFLOAT_MIN;
+            _View5LayoutConstraint.constant = CGFLOAT_MIN;
             self.ViewLayoutConstraint.constant = 50;
             self.view3.hidden = YES;
             self.View5.hidden = YES;
@@ -305,26 +303,26 @@
                 ZPLog(@"%@",error);
             }];
         }else {
-//72) 更改退换货状态
-    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-    dic[@"token"] = Token;
-    dic[@"refundid"] = self.Oid;
-    dic[@"type"] = @"cancel";
-    dic[@"rtimgs"] = @"";
-    [ZP_MyTool RequestRefundStatus:dic success:^(id obj) {
-        if ([obj[@"result"]isEqualToString:@"ok"]) {
-            [self ExchangeDetails];
-            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Cancel success")];
-        }else
-            if ([obj[@"result"]isEqualToString:@"sys_err"]) {
-                [SVProgressHUD showInfoWithStatus:MyLocal(@"Operation failure")];
-            }
-        ZPLog(@"%@",obj);
-        [self.view4 removeFromSuperview];
-    } failure:^(NSError *error) {
-        ZPLog(@"%@",error);
-    }];
-    }
+            //72) 更改退换货状态
+            NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+            dic[@"token"] = Token;
+            dic[@"refundid"] = self.Oid;
+            dic[@"type"] = @"cancel";
+            dic[@"rtimgs"] = @"";
+            [ZP_MyTool RequestRefundStatus:dic success:^(id obj) {
+                if ([obj[@"result"]isEqualToString:@"ok"]) {
+                    [self ExchangeDetails];
+                    [SVProgressHUD showSuccessWithStatus:MyLocal(@"Cancel success")];
+                }else
+                    if ([obj[@"result"]isEqualToString:@"sys_err"]) {
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Operation failure")];
+                    }
+                ZPLog(@"%@",obj);
+                [self.view4 removeFromSuperview];
+            } failure:^(NSError *error) {
+                ZPLog(@"%@",error);
+            }];
+        }
 }
 
 // 热点被接入，子类重写

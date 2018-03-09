@@ -26,43 +26,28 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     [self.tableView registerNib:[UINib nibWithNibName:@"AddressTableViewCell" bundle:nil] forCellReuseIdentifier:@"AddressTableViewCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
-//    UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithTitle:MyLocal(@"new address")  style:UIBarButtonItemStylePlain target:self action:@selector(addAddress)];
-//    self.navigationItem.rightBarButtonItem = item;
-//    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor whiteColor]];
-    //    self.chooseCityBtn.frame = CGRectMake(0, 0, 35.0f, 25.0f);
     [self addNavigationBar];
     [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
         self.NoDataView = response;
         [self.tableView reloadData];
     }];
-    
-//    self.chooseCityBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
-//    self.chooseCityBtn.titleLabel.font = ZP_addBtnTextdetaFont;
-//    [self.chooseCityBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    [self.chooseCityBtn setNeedsLayout];
-//    [self.chooseCityBtn setTitle:MyLocal(@"new address") forState:UIControlStateNormal];
-//    self.chooseCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-//    [self.chooseCityBtn addTarget:self action:@selector(addAddress) forControlEvents:UIControlEventTouchUpInside];
-//    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc]initWithCustomView:self.chooseCityBtn]];
-
 }
 
 // NavButton
 - (void)addNavigationBar {
     __weak AddressViewController *controller = self;
     [self addNavigationBarItemWithType:LLNavigationBarItemTypeRightFirst handler:^(UIButton *button) {
-//        [button setImage:[UIImage imageNamed:@"bg_lottery_record"] forState:UIControlStateNormal];
         button.titleLabel.font = ZP_addBtnTextdetaFont;
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [button setTitle:MyLocal(@"new address") forState:UIControlStateNormal];
         [button addTarget:controller action:@selector(addAddress) forControlEvents:UIControlEventTouchUpInside];
     }];
 }
+
 //  生命周期
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self allData];
-    //    [self DeletingClick:];
     [_tableView reloadData]; // 刷新数据
 }
 
@@ -148,7 +133,7 @@
     if (self.popBlock) {
         self.popBlock(model);
     }
-//    [self.navigationController popViewControllerAnimated:YES];
+    //    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

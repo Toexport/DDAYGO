@@ -48,7 +48,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
+    
     [self getAddData];
 }
 
@@ -63,18 +63,18 @@
     self.title = NSLocalizedString(@"Make sure order", nil);
     // 666shi 订单界面
     if (self.type == 666) {
-//        ZP_BusinessNameCell * cell = [[ZP_BusinessNameCell alloc]init];
-//        cell.merchantsLabel.text = self.shopname;
+        //        ZP_BusinessNameCell * cell = [[ZP_BusinessNameCell alloc]init];
+        //        cell.merchantsLabel.text = self.shopname;
         
         [self Mainorder];
-//        [self getAddData];
+        //        [self getAddData];
         ZPLog(@"^^^");
     } else {
-//        购物车界面
-//         [self getAddData];
-         [self MakeSureOrder];
+        //        购物车界面
+        //         [self getAddData];
+        [self MakeSureOrder];
     }
-        [self ExpressDelivery];
+    [self ExpressDelivery];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     InformatonArray = _dataArray;
     if (_PriceStr && _NumStr) {
@@ -82,10 +82,10 @@
     }else {
         messageArray = @[@{@"Computations":@"",@"num":@""}];
     }
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
     //iphone X
     if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
-         //在这里写你想要的高度 其他地方不用动
+        //在这里写你想要的高度 其他地方不用动
         self.tableView.height = ZP_height - TabbarHeight - NavBarHeight + 5;
         self.bottomView.y = ZP_height - TabbarHeight - NavBarHeight + 5;
         
@@ -94,7 +94,7 @@
 
 // 刷新
 - (void)addRefresh {
-//    下拉刷新
+    //    下拉刷新
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.dataArrar removeAllObjects];
         [self.NewData removeAllObjects];
@@ -114,7 +114,7 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
-//  注册
+    //  注册
     static NSString * ConfirmViewID = @"confirmViewCell";
     static NSString * BusinessNameID = @"ZP_BusinessNameCell";
     static NSString * InformationID = @"informationCell";
@@ -134,7 +134,7 @@
     self.bottomView = bottomView;
     bottomView.backgroundColor = ZP_textWite;
     [self.view addSubview:bottomView];
-//    总金额
+    //    总金额
     ZP_GeneralLabel * PriceLabel = [ZP_GeneralLabel initWithtextLabel:_PriceLabel.text textColor:ZP_pricebackground font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [bottomView addSubview:PriceLabel];
     [PriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -143,10 +143,10 @@
     }];
     _PriceLabel = PriceLabel;
     
-//    货币符号
+    //    货币符号
     ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_pricebackground font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
-//    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+    //    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+    //    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     CurrencySymbolLabel.text = DD_MonetarySymbol;
     [bottomView addSubview:CurrencySymbolLabel];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -155,7 +155,7 @@
     }];
     _CurrencySymbolLabel = CurrencySymbolLabel;
     
-//    合计
+    //    合计
     ZP_GeneralLabel * StatisticsLabel = [ZP_GeneralLabel initWithtextLabel:_StatisticsLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     StatisticsLabel.text = MyLocal(@"Total");
     [bottomView addSubview:StatisticsLabel];
@@ -165,7 +165,7 @@
     }];
     _StatisticsLabel = StatisticsLabel;
     
-//    提交订单
+    //    提交订单
     UIButton * Clearing = [UIButton new];
     Clearing.backgroundColor = ZP_pricebackground;
     [Clearing setTitle:MyLocal(@"Submit orders") forState:UIControlStateNormal];
@@ -180,8 +180,8 @@
     }];
     _ClearingBut = Clearing;
     [self.view addSubview:bottomView];
-
-//       货币符号
+    
+    //       货币符号
     ZP_GeneralLabel * HintLanguageLabel = [ZP_GeneralLabel initWithtextLabel:_HintLanguageLabel.text textColor:ZP_TypefaceColor font:ZP_TooBarFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     HintLanguageLabel.text = MyLocal( @"(Contains freight)");
     [bottomView addSubview:HintLanguageLabel];
@@ -261,7 +261,7 @@
             } failure:^(NSError *error) {
                 ZPLog(@"%@",error);
             }];
-            };
+        };
         [PayView showInView:self.view];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
@@ -314,16 +314,16 @@
         allMoney = [NSString stringWithFormat:@"%@",obj[@"allamount"]];
         self.NewData = [ZP_InformationModel arrayWithArray:dic[@"carts"]];
         NSArray *arr = [ZP_InformationModel arrayWithArray:dic[@"cartshop"]];
-         [self.tableView reloadData];
+        [self.tableView reloadData];
         _nameModel= arr[0];
-
+        
         ZP_ExpressDeliveryModel * model = [[ZP_ExpressDeliveryModel alloc] init];
         model.freightamount = dic[@"freightamount"];
         model.chooselogistic = dic[@"chooselogistic"];
-//        _merchantsLabel.text = [NSString stringWithFormat:@"%@",modell.shopname];
+        //        _merchantsLabel.text = [NSString stringWithFormat:@"%@",modell.shopname];
         [_ConfirmArray addObject:model];
         [self upfataStatisticsLabel];
-
+        
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
@@ -349,7 +349,7 @@
     [ZP_shoopingTool requesMakeSureOrder:dic success:^(id obj) {
         //        NSDictionary * dic = obj;
         ZPLog(@"freightamount : %@",obj[@"freightamount"]);
-//      self.ConfirmArray = [ZP_ExpressDeliveryModel arrayWithArray:obj[@"freightamount"]];
+        //      self.ConfirmArray = [ZP_ExpressDeliveryModel arrayWithArray:obj[@"freightamount"]];
         [self.tableView reloadData];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
@@ -366,7 +366,7 @@
         NSDictionary * dic = obj;
         ZPLog(@"%@",dic);
         self.NewData = [ZP_InformationModel arrayWithArray:dic[@"carts"]];
-         allMoney = [NSString stringWithFormat:@"%@",obj[@"allamount"]];
+        allMoney = [NSString stringWithFormat:@"%@",obj[@"allamount"]];
         ZP_ExpressDeliveryModel * model = [[ZP_ExpressDeliveryModel alloc] init];
         model.freightamount = dic[@"freightamount"];
         model.chooselogistic = dic[@"chooselogistic"];
@@ -385,11 +385,11 @@
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     dic[@"orderno"] = _ordersnumber;
-        dic[@"adsid"] = @"1";
-        dic[@"logistic"] = @1;
-        dic[@"payway"] = @"allpay_creditcard";
-        dic[@"leavemsg"] = @"";
-        dic[@"icuetoken"] = ZPICUEToken;
+    dic[@"adsid"] = @"1";
+    dic[@"logistic"] = @1;
+    dic[@"payway"] = @"allpay_creditcard";
+    dic[@"leavemsg"] = @"";
+    dic[@"icuetoken"] = ZPICUEToken;
     [ZP_shoopingTool requesOrdersPay:dic success:^(id obj) {
         ZPLog(@"%@",obj);
     } failure:^(NSError * error) {
@@ -409,19 +409,18 @@
     }else
         if (1 == section) {
             return 1;
-    }else
-        if (2 == section) {
-            //        return InformatonArray.count;
-            return self.NewData.count;
-    }else
-        if (3 == section) {
-            return self.ConfirmArray.count;
-    }else
-        if (4 == section) {
-            return 1;
-        }else {
-            return 1;
-    }
+        }else
+            if (2 == section) {
+                return self.NewData.count;
+            }else
+                if (3 == section) {
+                    return self.ConfirmArray.count;
+                }else
+                    if (4 == section) {
+                        return 1;
+                    }else {
+                        return 1;
+                    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
@@ -444,47 +443,47 @@
             }else{
                 [cell InformationModel:_nameModel];}
             return cell;
-    }else
-        if (indexPath.section == 2){
-            static NSString * ID = @"informationCell";
-            ZP_InformationCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
-            self.tableView.tableFooterView = [[UIView alloc]init];
-            ZP_InformationModel * model = self.NewData[indexPath.row];
-            [cell InformationWithDic:model];
-            return cell;
-    }else
-        if (indexPath.section ==3){
-            static NSString * ExpressDeliveryID = @"expressDeliveryCell";
-            ZP_ExpressDeliveryCell * cell = [tableView dequeueReusableCellWithIdentifier:ExpressDeliveryID];
-            self.tableView.tableFooterView = [[UIView alloc]init];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;  // 取消cell点击变灰
-            ZP_ExpressDeliveryModel * model = self.ConfirmArray[indexPath.row];
-            [cell ExpressDevliveryDic:model];
-            return cell;
-                
-    }else
-        if (indexPath.section == 4){
-            static NSString * messageID = @"messageViewCell";
-            ZP_MessageViewCell * cell = [tableView dequeueReusableCellWithIdentifier:messageID];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;  // 取消cell点击变灰
-            self.tableView.tableFooterView = [[UIView alloc]init];
-            if (self.NewData.count > indexPath.row) {
-                cell.allMoney = allMoney;
-                cell.allCount = allCount;
+        }else
+            if (indexPath.section == 2){
+                static NSString * ID = @"informationCell";
+                ZP_InformationCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
+                self.tableView.tableFooterView = [[UIView alloc]init];
                 ZP_InformationModel * model = self.NewData[indexPath.row];
-                [cell MessageDic:model];
-            }
-            return cell;
-    }else {
-            static NSString * AnonymityID = @"anonymity";
-            ZP_AnonymityViewCell * cell = [tableView dequeueReusableCellWithIdentifier:AnonymityID];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
-            [cell.AnonymousButton removeTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
-            [cell.AnonymousButton addTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
-            return cell;
-        }
-    }
+                [cell InformationWithDic:model];
+                return cell;
+            }else
+                if (indexPath.section ==3){
+                    static NSString * ExpressDeliveryID = @"expressDeliveryCell";
+                    ZP_ExpressDeliveryCell * cell = [tableView dequeueReusableCellWithIdentifier:ExpressDeliveryID];
+                    self.tableView.tableFooterView = [[UIView alloc]init];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;  // 取消cell点击变灰
+                    ZP_ExpressDeliveryModel * model = self.ConfirmArray[indexPath.row];
+                    [cell ExpressDevliveryDic:model];
+                    return cell;
+                    
+                }else
+                    if (indexPath.section == 4){
+                        static NSString * messageID = @"messageViewCell";
+                        ZP_MessageViewCell * cell = [tableView dequeueReusableCellWithIdentifier:messageID];
+                        cell.selectionStyle = UITableViewCellSelectionStyleNone;  // 取消cell点击变灰
+                        self.tableView.tableFooterView = [[UIView alloc]init];
+                        if (self.NewData.count > indexPath.row) {
+                            cell.allMoney = allMoney;
+                            cell.allCount = allCount;
+                            ZP_InformationModel * model = self.NewData[indexPath.row];
+                            [cell MessageDic:model];
+                        }
+                        return cell;
+                    }else {
+                        static NSString * AnonymityID = @"anonymity";
+                        ZP_AnonymityViewCell * cell = [tableView dequeueReusableCellWithIdentifier:AnonymityID];
+                        cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
+                        [cell.AnonymousButton removeTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
+                        [cell.AnonymousButton addTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
+                        return cell;
+                    }
+}
 
 - (void)selectClick:(UIButton *)sup {
     if (sup.selected == 0) {
@@ -492,7 +491,7 @@
     }else
         if (sup.selected == 1) {
             NSLog(@"选中");
-    }
+        }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -501,18 +500,18 @@
     }else
         if (indexPath.section == 1) {
             return 30;
-    }else
-        if (indexPath.section == 2){
-            return 95;
-    }else
-        if (indexPath.section == 3){
-            return 45;
-    }else
-        if (indexPath.section == 4){
-            return 90;
-    }else {
-        return 45;
-    }
+        }else
+            if (indexPath.section == 2){
+                return 95;
+            }else
+                if (indexPath.section == 3){
+                    return 45;
+                }else
+                    if (indexPath.section == 4){
+                        return 90;
+                    }else {
+                        return 45;
+                    }
 }
 
 
@@ -541,7 +540,7 @@
             BuyViewController * BuyView = [[BuyViewController alloc]init];
             BuyView.productId = model.productid;
             [self.navigationController pushViewController:BuyView animated:YES];
-    }
+        }
 }
 
 // 关闭侧滑

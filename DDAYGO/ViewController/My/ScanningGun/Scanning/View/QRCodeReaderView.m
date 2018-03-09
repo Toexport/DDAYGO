@@ -65,7 +65,7 @@ static CGFloat const timer_animation_Duration = 0.05;
 
 // 创建扫描边框
 - (void)setupScanningQRCodeEdging {
-// 扫描内容的创建
+    // 扫描内容的创建
     UIView *scanContentView = [[UIView alloc] init];
     CGFloat scanContentViewX = scanContent_X;
     CGFloat scanContentViewY = scanContent_Y;
@@ -77,17 +77,17 @@ static CGFloat const timer_animation_Duration = 0.05;
     scanContentView.backgroundColor = [UIColor clearColor];
     [self.basedLayer addSublayer:scanContentView.layer];
     
-// 扫描动画添加
+    // 扫描动画添加
     self.animation_line = [[UIImageView alloc] init];
     _animation_line.image = [UIImage imageNamed:@"img_line"];
     _animation_line.frame = CGRectMake(scanContent_X * 0.5, scanContentViewY, self.frame.size.width - scanContent_X , animation_line_H);
     [self.basedLayer addSublayer:_animation_line.layer];
     
-// 添加定时器
+    // 添加定时器
     self.timer =[NSTimer scheduledTimerWithTimeInterval:timer_animation_Duration target:self selector:@selector(animation_line_action) userInfo:nil repeats:YES];
     
 #pragma mark - - - 扫描外部View的创建
-// 顶部View的创建
+    // 顶部View的创建
     UIView *top_View = [[UIView alloc] init];
     CGFloat top_ViewX = 0;
     CGFloat top_ViewY = 0;
@@ -97,7 +97,7 @@ static CGFloat const timer_animation_Duration = 0.05;
     top_View.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:scanBorderOutsideViewAlpha];
     [self addSubview:top_View];
     
-// 左侧View的创建
+    // 左侧View的创建
     UIView *left_View = [[UIView alloc] init];
     CGFloat left_ViewX = 0;
     CGFloat left_ViewY = scanContentViewY;
@@ -106,8 +106,8 @@ static CGFloat const timer_animation_Duration = 0.05;
     left_View.frame = CGRectMake(left_ViewX, left_ViewY, left_ViewW, left_ViewH);
     left_View.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:scanBorderOutsideViewAlpha];
     [self addSubview:left_View];
-
-// 右侧View的创建
+    
+    // 右侧View的创建
     UIView *right_View = [[UIView alloc] init];
     CGFloat right_ViewX = CGRectGetMaxX(scanContentView.frame);
     CGFloat right_ViewY = scanContentViewY;
@@ -117,7 +117,7 @@ static CGFloat const timer_animation_Duration = 0.05;
     right_View.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:scanBorderOutsideViewAlpha];
     [self addSubview:right_View];
     
-// 下面View的创建
+    // 下面View的创建
     UIView *bottom_View = [[UIView alloc] init];
     CGFloat bottom_ViewX = 0;
     CGFloat bottom_ViewY = CGRectGetMaxY(scanContentView.frame);
@@ -127,7 +127,7 @@ static CGFloat const timer_animation_Duration = 0.05;
     bottom_View.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:scanBorderOutsideViewAlpha];
     [self addSubview:bottom_View];
     
-// 提示Label
+    // 提示Label
     UILabel *promptLabel = [[UILabel alloc] init];
     promptLabel.backgroundColor = [UIColor clearColor];
     CGFloat promptLabelX = 0;
@@ -141,22 +141,22 @@ static CGFloat const timer_animation_Duration = 0.05;
     promptLabel.text = MyLocal(@"Place the qr code in the box and scan automatically.");
     [bottom_View addSubview:promptLabel];
     
-// 添加闪光灯按钮
+    // 添加闪光灯按钮
     UIButton * light_button = [[UIButton alloc] init];
     CGFloat light_buttonX = CGRectGetWidth([UIScreen mainScreen].bounds) / 2 - 35/2;
     CGFloat light_buttonY = CGRectGetMaxY(promptLabel.frame) + scanContent_X * 0.6;
     CGFloat light_buttonW = 35;
     CGFloat light_buttonH = 35;
     light_button.frame = CGRectMake(light_buttonX, light_buttonY, light_buttonW, light_buttonH);
-
+    
     [light_button setBackgroundImage:[UIImage imageNamed:@"ic_lamp_normal"] forState:UIControlStateNormal];
     [light_button setBackgroundImage:[UIImage imageNamed:@"ic_lamp_pressed"] forState:UIControlStateSelected];
     
     [light_button addTarget:self action:@selector(light_buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     [bottom_View addSubview:light_button];
-
+    
 #pragma mark - - - 扫描边角imageView的创建
-// 左上侧的image
+    // 左上侧的image
     CGFloat margin = 7;
     
     UIImage *left_image = [UIImage imageNamed:@"img_scanning1"];
@@ -169,7 +169,7 @@ static CGFloat const timer_animation_Duration = 0.05;
     left_imageView.image = left_image;
     [self.basedLayer addSublayer:left_imageView.layer];
     
-// 右上侧的image
+    // 右上侧的image
     UIImage *right_image = [UIImage imageNamed:@"img_scanning4"];
     UIImageView *right_imageView = [[UIImageView alloc] init];
     CGFloat right_imageViewX = CGRectGetMaxX(scanContentView.frame) - right_image.size.width * 0.5 - margin;
@@ -180,7 +180,7 @@ static CGFloat const timer_animation_Duration = 0.05;
     right_imageView.image = right_image;
     [self.basedLayer addSublayer:right_imageView.layer];
     
-// 左下侧的image （修改过。删掉3.5即可）
+    // 左下侧的image （修改过。删掉3.5即可）
     UIImage *left_image_down = [UIImage imageNamed:@"img_scanning3"];
     UIImageView *left_imageView_down = [[UIImageView alloc] init];
     CGFloat left_imageView_downX = left_imageView.frame.origin.x;
@@ -191,7 +191,7 @@ static CGFloat const timer_animation_Duration = 0.05;
     left_imageView_down.image = left_image_down;
     [self.basedLayer addSublayer:left_imageView_down.layer];
     
-// 右下侧的image
+    // 右下侧的image
     UIImage *right_image_down = [UIImage imageNamed:@"img_scanning2"];
     UIImageView *right_imageView_down = [[UIImageView alloc] init];
     CGFloat right_imageView_downX = right_imageView.frame.origin.x;
@@ -231,7 +231,6 @@ static CGFloat const timer_animation_Duration = 0.05;
 #pragma mark - - - 执行定时器方法
 - (void)animation_line_action {
     __block CGRect frame = _animation_line.frame;
-    
     static BOOL flag = YES;
     
     if (flag) {

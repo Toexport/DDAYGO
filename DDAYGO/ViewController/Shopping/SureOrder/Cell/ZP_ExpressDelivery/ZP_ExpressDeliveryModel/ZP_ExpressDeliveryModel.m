@@ -9,6 +9,7 @@
 #import "ZP_ExpressDeliveryModel.h"
 
 @implementation ZP_ExpressDeliveryModel
+
 + (instancetype)GetExpressDeliveryData:(NSDictionary *)dic {
     return [[self alloc]initWithInformationData:dic];
 }
@@ -30,7 +31,7 @@
     for (NSDictionary * dic in array) {
         ZP_ExpressDeliveryModel * model = [[ZP_ExpressDeliveryModel alloc]init];
         model.freightamount = [NSString stringWithFormat:@"%@",dic[@"freightamount"]];
-
+        
         [arr addObject:model];
     }
     return arr;

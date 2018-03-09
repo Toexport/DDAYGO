@@ -28,7 +28,7 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     [self setUpNavgationBar];
     [self initUI];
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -85,7 +85,6 @@
 - (void)FSSegmentTitleView:(FSSegmentTitleView *)titleView startIndex:(NSInteger)startIndex endIndex:(NSInteger)endIndex {
     NSLog(@"222 %ld- %ld",(long)endIndex,(long)startIndex);
     self.pageContentView.contentViewCurrentIndex = endIndex;
-    
 }
 
 - (void)FSContenViewDidEndDecelerating:(FSPageContentView *)contentView startIndex:(NSInteger)startIndex endIndex:(NSInteger)endIndex {
@@ -101,6 +100,7 @@
     [self presentViewController:login animated:YES completion:nil];
     NSLog(@"搜索框");
 }
+
 // 热点被接入，子类重写
 - (void)adjustStatusBar:(NSNotification *)notification {
     NSValue * rectValue = [notification.userInfo objectForKey:UIApplicationStatusBarFrameUserInfoKey];

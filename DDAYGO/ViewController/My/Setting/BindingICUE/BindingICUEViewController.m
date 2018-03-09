@@ -21,7 +21,7 @@
     [super viewDidLoad];
     [self ButStatusAttribute];
     [self initUI];
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 // UI
@@ -51,6 +51,7 @@
         self.BindingBut.alpha = 0.5;
     }
 }
+
 - (IBAction)buildingAction:(id)sender {
 #pragma make -- 提示框
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:MyLocal(@"reminding") message:MyLocal(@"The ICUE account will not be changed once it is bound. Are you sure you want to bind this ICUE account?") preferredStyle:UIAlertControllerStyleAlert];
@@ -100,7 +101,7 @@
                             if ([dic[@"result"]isEqualToString:@"account_notexist"]) {
                                 [SVProgressHUD showInfoWithStatus:MyLocal(@"account does not exist")];
                                 ZPLog(@"account_notexist：账户不存在");
-                                }
+                            }
     } failure:^(NSError * error) {
         
     }];

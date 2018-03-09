@@ -18,6 +18,7 @@
 @end
 
 @implementation SatisfactionSurveyController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
@@ -26,8 +27,9 @@
         self.NoDataView = response;
         [self.tableView reloadData];
     }];
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
+
 // UI
 - (void)initUI {
     self.title = NSLocalizedString(@"Satisfaction survey", nil);
@@ -67,7 +69,7 @@
             self.tableView.hidden = YES;
             self.NoDataView.hidden = NO;
         }
-    return 0;
+        return 0;
     }
 }
 

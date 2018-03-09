@@ -24,16 +24,16 @@
     [super viewDidLoad];
     [self addNavigationBar];
     [self initUI];
-//  数据持久化
+    //  数据持久化
     NSString * la = [[NSUserDefaults standardUserDefaults] objectForKey:@"Language"];
     NSIndexPath * index ;
     if ([la isEqualToString:@"zh-Hans"]) {
         index = [NSIndexPath indexPathForRow:0 inSection:0];
-         [self.tableview cellForRowAtIndexPath:index].accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.tableview cellForRowAtIndexPath:index].accessoryType = UITableViewCellAccessoryCheckmark;
     }else{
         [self.tableview cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]].accessoryType = UITableViewCellAccessoryCheckmark;
     }
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 // UI
 - (void)initUI {
@@ -68,13 +68,13 @@
         }
     }
     if (a == 0) {
-//        [SVProgressHUD showErrorWithStatus:@"请选择"];
+        //        [SVProgressHUD showErrorWithStatus:@"请选择"];
         return;
     }
     switch (a) {
-//        case 1:
-//            [self changeLanguageTo:@"en"];
-//            break;
+            //        case 1:
+            //            [self changeLanguageTo:@"en"];
+            //            break;
         case 1:
             [self changeLanguageTo:@"zh-Hans"];
             break;
@@ -142,7 +142,6 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
-    
     return indexPath;
 }
 

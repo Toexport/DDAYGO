@@ -29,8 +29,8 @@
     //    [self secureTextEntry];
     _ForgetPswscrollView.bounces = NO;
     [self initUI];
-//    [ [NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textChange)name:UITextFieldTextDidChangeNotification object:self.ZPEmailTextField.textField];
-     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    //    [ [NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textChange)name:UITextFieldTextDidChangeNotification object:self.ZPEmailTextField.textField];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -115,7 +115,7 @@
             }else
                 if ([dic[@"result"] isEqualToString:@"acc_email_err"]) {
                     [SVProgressHUD showInfoWithStatus:MyLocal(@"Account does not exist")];
-//                    [_ZPCodeTextField.functionBtn cancelCountDownWith:MyLocal(@"obtain")];//这句代码是倒计时清0
+                    //                    [_ZPCodeTextField.functionBtn cancelCountDownWith:MyLocal(@"obtain")];//这句代码是倒计时清0
                 }else
                     if ([dic[@"result"] isEqualToString:@"send_error"]) {
                         [SVProgressHUD showInfoWithStatus:MyLocal(@"Verification code sent failed, please try again later")];

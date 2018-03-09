@@ -19,6 +19,7 @@
         failure(error);
     }];
 }
+
 // 修改资料(暂时只有昵称，性别)
 + (void)requesModifydata:(NSDictionary *)Modifydata uccess:(void (^)(id))success failure:(void (^)(NSError *))failure {
     NSString * nickname = Modifydata[@"nickname"];
@@ -128,11 +129,6 @@
 
 // 用户扫码后请求付款链接
 + (void)requesQrCodePay:(NSDictionary *)QrCoed success:(void (^)(id))success failure:(void (^)(NSError *))failure{
-    //    [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getqrcodepaylink?",URLAPI] parameters:QrCoed success:^(NSDictionary *responseObject) {
-    //        success(responseObject);
-    //    } failure:^(NSError *error) {
-    //        failure(error);
-    //    }];
     [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@getqrcodepaylink?amount=%@&countrycode=%@&icuetoken=%@&payway=%@&shopcode=%@&token=%@",URLAPI,QrCoed[@"amount"],QrCoed[@"countrycode"],QrCoed[@"icuetoken"],QrCoed[@"payway"],QrCoed[@"shopcode"],QrCoed[@"token"]] parameters:nil success:^(NSDictionary *responseObject) {
         success(responseObject);
     } failure:^(NSError *error) {

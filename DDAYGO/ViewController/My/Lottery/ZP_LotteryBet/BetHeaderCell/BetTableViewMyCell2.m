@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-        _butArray= [NSMutableArray array];
+    _butArray= [NSMutableArray array];
 }
 
 - (void)upDataButtonWith:(NSInteger )count {
@@ -28,7 +28,7 @@
             UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
             but.frame = CGRectMake(j * ZP_Width / 8 + (ZP_Width / 8 - 30) / 2, i * ZP_Width / 8 + (ZP_Width / 8 - 30) / 2, 30, 30);
             but.titleLabel.font = ZP_TrademarkFont;
-//            [but setTitle:[NSString stringWithFormat:@"%02ld",num + 1] forState:UIControlStateNormal];
+            //            [but setTitle:[NSString stringWithFormat:@"%02ld",num + 1] forState:UIControlStateNormal];
             [but setTitle:[NSString stringWithFormat:@"%02ld",num +1] forState:UIControlStateNormal];
             [but setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [but setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
@@ -36,9 +36,9 @@
             
             [but setBackgroundImage:[UIImage imageNamed:@"bg_red_ball_receive"] forState:UIControlStateSelected];
             but.tag = num + 100;
-        
+            
             [self.butArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-           
+                
                 if (but.tag == [obj integerValue]) {
                     but.selected = YES;
                 }
@@ -55,7 +55,7 @@
         btn.selected = !btn.selected;
         [self.butArray removeAllObjects];
         [self upDataButtonWith:25];
-       
+        
     } else {
         if (self.butArray.count == 1) {
             return;
@@ -76,7 +76,7 @@
 //}
 
 - (void)removeAllSubviews {
-
+    
     while (self.contentView.subviews.count) {
         [self.contentView.subviews.lastObject removeFromSuperview];
     }

@@ -308,64 +308,64 @@
 
 //立即购买
 - (IBAction)ligmAction:(UIButton *)sender {
-//    [SVProgressHUD showErrorWithStatus:MyLocal(@"Please log in")];
-     DD_CHECK_HASLONGIN;
-    if (_model == nil) {
-        return;
-    }else {
-    if (!self.purchaseView) {
-        static NSString * purchasseID = @"PurchaseView";
-        self.purchaseView = [[NSBundle mainBundle] loadNibNamed:purchasseID owner:self options:nil].firstObject;
-        self.purchaseView.frame = self.view.frame;
-        NSLog(@"%@",_model.productamount);
-        self.purchaseView.model = _model;
-        self.purchaseView.modeltypeArr = _typeArr;
-        self.purchaseView.modelArr = _normsArr;
-        [self.view addSubview:self.purchaseView];
-    }
-    [self.purchaseView show:^(id response) {
-        [self.middleView.xzflBtn setTitle:response forState:UIControlStateNormal];
-    }];
-    __weak typeof(self) _weakSelf = self;
-    self.purchaseView.finishBtnBlock = ^(id response) {
-        NSLog(@"go");
-        _weakSelf.hidesBottomBarWhenPushed = YES;
-        _weakSelf.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:_weakSelf action:nil];  // 隐藏返回按钮上的文字
-        _weakSelf.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-        [_weakSelf.navigationController pushViewController:response animated:YES];
-    };
-}
-}
-
-//加入购物车
-- (IBAction)jrgwcAction:(UIButton *)sender {
-//    [SVProgressHUD showErrorWithStatus:MyLocal(@"Please log in")];
+    //    [SVProgressHUD showErrorWithStatus:MyLocal(@"Please log in")];
     DD_CHECK_HASLONGIN;
     if (_model == nil) {
         return;
     }else {
-    if (!self.purchaseView) {
-        static NSString * purchasseID = @"PurchaseView";
-        self.purchaseView = [[NSBundle mainBundle] loadNibNamed:purchasseID owner:self options:nil].firstObject;
-        self.purchaseView.frame = self.view.frame;
-        self.purchaseView.model = _model;
-        self.purchaseView.modeltypeArr = _typeArr;
-        self.purchaseView.modelArr = _normsArr;
-        [self.view addSubview:self.purchaseView];
+        if (!self.purchaseView) {
+            static NSString * purchasseID = @"PurchaseView";
+            self.purchaseView = [[NSBundle mainBundle] loadNibNamed:purchasseID owner:self options:nil].firstObject;
+            self.purchaseView.frame = self.view.frame;
+            NSLog(@"%@",_model.productamount);
+            self.purchaseView.model = _model;
+            self.purchaseView.modeltypeArr = _typeArr;
+            self.purchaseView.modelArr = _normsArr;
+            [self.view addSubview:self.purchaseView];
+        }
+        [self.purchaseView show:^(id response) {
+            [self.middleView.xzflBtn setTitle:response forState:UIControlStateNormal];
+        }];
+        __weak typeof(self) _weakSelf = self;
+        self.purchaseView.finishBtnBlock = ^(id response) {
+            NSLog(@"go");
+            _weakSelf.hidesBottomBarWhenPushed = YES;
+            _weakSelf.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:_weakSelf action:nil];  // 隐藏返回按钮上的文字
+            _weakSelf.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+            [_weakSelf.navigationController pushViewController:response animated:YES];
+        };
     }
-    [self.purchaseView show:^(id response) {
-        NSLog(@"re = %@",response);
-        [self.middleView.xzflBtn setTitle:response forState:UIControlStateNormal];
-    }];
-    __weak typeof(self) _weakSelf = self;
-    self.purchaseView.finishBtnBlock = ^(id response) {
-        NSLog(@"go");
-        _weakSelf.hidesBottomBarWhenPushed = YES;
-        _weakSelf.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
-        _weakSelf.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-        [_weakSelf.navigationController pushViewController:response animated:YES];
-        ZPLog(@"11111");
-    };
+}
+
+//加入购物车
+- (IBAction)jrgwcAction:(UIButton *)sender {
+    //    [SVProgressHUD showErrorWithStatus:MyLocal(@"Please log in")];
+    DD_CHECK_HASLONGIN;
+    if (_model == nil) {
+        return;
+    }else {
+        if (!self.purchaseView) {
+            static NSString * purchasseID = @"PurchaseView";
+            self.purchaseView = [[NSBundle mainBundle] loadNibNamed:purchasseID owner:self options:nil].firstObject;
+            self.purchaseView.frame = self.view.frame;
+            self.purchaseView.model = _model;
+            self.purchaseView.modeltypeArr = _typeArr;
+            self.purchaseView.modelArr = _normsArr;
+            [self.view addSubview:self.purchaseView];
+        }
+        [self.purchaseView show:^(id response) {
+            NSLog(@"re = %@",response);
+            [self.middleView.xzflBtn setTitle:response forState:UIControlStateNormal];
+        }];
+        __weak typeof(self) _weakSelf = self;
+        self.purchaseView.finishBtnBlock = ^(id response) {
+            NSLog(@"go");
+            _weakSelf.hidesBottomBarWhenPushed = YES;
+            _weakSelf.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
+            _weakSelf.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+            [_weakSelf.navigationController pushViewController:response animated:YES];
+            ZPLog(@"11111");
+        };
     }
 }
 

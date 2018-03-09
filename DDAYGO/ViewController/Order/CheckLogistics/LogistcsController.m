@@ -14,18 +14,17 @@
     NSArray * dataArray;
 }
 @property (nonatomic, strong) UITableView * tableview;
+
 @end
 
 @implementation LogistcsController
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
     self.title = NSLocalizedString(@"Logistics details", nil);
-     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     [self initUI];
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 - (void)initUI {
@@ -41,12 +40,10 @@
 
 #pragma mark - <TableviewDelegate>
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView { //tableview个数
-    
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return dataArray.count;
 }
 
@@ -60,11 +57,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     return 180;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

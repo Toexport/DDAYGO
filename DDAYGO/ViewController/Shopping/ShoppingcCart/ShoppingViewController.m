@@ -52,7 +52,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self listening];
+    //    [self listening];
     _bjBool = NO;
     _selectAllArray = [[NSMutableArray alloc]init];
     [self setUpNavgationBar];
@@ -67,7 +67,7 @@
         self.tableView.estimatedSectionHeaderHeight = 0;
         self.tableView.estimatedSectionFooterHeight = 0;
     }
-//    數據為空加載
+    //    數據為空加載
     [NoDataView initWithSuperView:self.view Content:nil FinishBlock:^(id response) {
         self.noDataView = response;
         [self.tableView reloadData];
@@ -121,7 +121,7 @@
     [ZP_shoopingTool requesshoppingData:Token success:^(id obj) {
         if ([obj isKindOfClass:[NSDictionary class]]) {
             if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
-           //        清除所有的数据
+                //        清除所有的数据
                 Token = nil;
                 DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DDAYGO_REMOVE_STATE; DDAYGO_REMOVE_HEADERIMAGE; DDAYGO_REMOVE_NAMELABEL; DD_ChangeStaus;
                 ZPICUEToken = nil;
@@ -279,7 +279,7 @@
 - (void)onClickedSweep:(UIButton *)sup {
     sup.selected = !sup.selected;
     _bjBool = !_bjBool;
-     [self.tableView reloadData];
+    [self.tableView reloadData];
     if (_bjBool) {
         [self beginEditing];
     }else{
@@ -343,7 +343,7 @@
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
     CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     ZPLog(@"%@",str);
-//    CurrencySymbolLabel.text = DD_MonetarySymbol;
+    //    CurrencySymbolLabel.text = DD_MonetarySymbol;
     [bottomView addSubview:CurrencySymbolLabel];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(PriceLabel.mas_left);
@@ -400,10 +400,10 @@
     }
     sender.selected =! sender.selected;
     if (!_bjBool) {
-//        self.CurrencySymbolLabel.hidden = YES;
-//        [self.StatisticsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(self.CurrencySymbolLabel).offset(-15);
-//        }];
+        //        self.CurrencySymbolLabel.hidden = YES;
+        //        [self.StatisticsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        //            make.left.equalTo(self.CurrencySymbolLabel).offset(-15);
+        //        }];
         ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
         cell.buttom.selected = sender.selected;
         [_CurrencySymbolLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -779,14 +779,13 @@
         if (!_bjBool) {
             for (int i = 0; i < models.array.count; i ++) {
                 ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:but.tag - 666]];
-//                _CurrencySymbolLabel.hidden = NO;
+                //                _CurrencySymbolLabel.hidden = NO;
                 [_CurrencySymbolLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
                     if (but.selected) {
                         make.width.mas_equalTo(20);
                     } else {
                         make.width.mas_equalTo(0);
                     }
-                    
                     make.right.mas_equalTo(_PriceLabel.mas_left);
                     make.top.equalTo(_PriceLabel).offset(0);
                 }];
@@ -826,8 +825,6 @@
                 }else{
                     _stockids = str;
                 }
-
-                
             }
         }
     }else{
@@ -980,18 +977,18 @@
                     count = 0;
                     
                 }
-//                NSString *str = [NSString stringWithFormat:@"%@_%@",model2.stockid,model2.amount];
-//                NSString *str1 = [NSString stringWithFormat:@"%@",model2.stockid];
-//                if (_modelstockid.length > 0) {
-//                    _modelstockid = [_modelstockid stringByAppendingString:[NSString stringWithFormat:@",%@",str1]];
-//                }else{
-//                    _modelstockid = str1;
-//                }
-//                if (_stockids.length > 0) {
-//                    _stockids = [_stockids stringByAppendingString:[NSString stringWithFormat:@",%@",str]];
-//                }else{
-//                    _stockids = str;
-//                }
+                //                NSString *str = [NSString stringWithFormat:@"%@_%@",model2.stockid,model2.amount];
+                //                NSString *str1 = [NSString stringWithFormat:@"%@",model2.stockid];
+                //                if (_modelstockid.length > 0) {
+                //                    _modelstockid = [_modelstockid stringByAppendingString:[NSString stringWithFormat:@",%@",str1]];
+                //                }else{
+                //                    _modelstockid = str1;
+                //                }
+                //                if (_stockids.length > 0) {
+                //                    _stockids = [_stockids stringByAppendingString:[NSString stringWithFormat:@",%@",str]];
+                //                }else{
+                //                    _stockids = str;
+                //                }
             }
         }
     }

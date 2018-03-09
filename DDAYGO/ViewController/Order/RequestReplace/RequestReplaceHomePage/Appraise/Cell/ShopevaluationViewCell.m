@@ -21,7 +21,7 @@
 
 - (void)initUI {
     self.scoreButArray = [NSMutableArray array];
-//       商家图片
+    //       商家图片
     UIImageView * merchantsImage = [UIImageView new];
     merchantsImage.image = [UIImage imageNamed:@"ic_evaluate_store"];
     [self.contentView addSubview:merchantsImage];
@@ -31,7 +31,7 @@
     }];
     _merchantsImage = merchantsImage;
     
-//         商家名字
+    //         商家名字
     UILabel * merchantsLabel = [UILabel new];
     merchantsLabel.textAlignment = NSTextAlignmentLeft;
     [merchantsLabel setTextColor:ZP_Graybackground];
@@ -44,7 +44,7 @@
     }];
     _merchantsLabel = merchantsLabel;
     
-//     横线
+    //     横线
     UIView * view0 = [UIView new];
     view0.backgroundColor = ZP_Graybackground;
     [self.contentView addSubview:view0];
@@ -55,7 +55,7 @@
         make.width.mas_equalTo(ZP_Width);
     }];
     
-//    店铺评分
+    //    店铺评分
     UITextField * Storeratingstext = [UITextField new];
     Storeratingstext.textAlignment = NSTextAlignmentLeft;
     Storeratingstext.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
@@ -71,7 +71,7 @@
     }];
     _Storeratingstext = Storeratingstext;
     
-//    横线
+    //    横线
     UIView * view1 = [UIView new];
     view1.backgroundColor = ZP_Graybackground;
     [self.contentView addSubview:view1];
@@ -82,7 +82,7 @@
         make.width.mas_equalTo(ZP_Width);
     }];
     
-//    选择按钮
+    //    选择按钮
     UIButton * Anonymousbutton = [UIButton buttonWithType:UIButtonTypeCustom];
     [Anonymousbutton setTitle:MyLocal(@"anonymous") forState:UIControlStateNormal];
     Anonymousbutton.titleLabel.font = ZP_TooBarFont;
@@ -103,7 +103,7 @@
         make.height.mas_offset(20);
     }];
     _Anonymousbutton = Anonymousbutton;
-//    文字提示
+    //    文字提示
     UILabel * PromptingLabel = [UILabel new];
     PromptingLabel.textAlignment = NSTextAlignmentLeft;
     PromptingLabel.textColor = ZP_TypefaceColor;
@@ -137,7 +137,7 @@
 }
 
 - (void)buttonType:(UIButton *)sender {
-
+    
     self.ShopevaluationBlock(sender.tag);
     for (int i =0; i < self.scoreButArray.count; i ++) {
         [self.scoreButArray[i] setSelected:i <= sender.tag];

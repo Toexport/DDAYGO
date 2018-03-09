@@ -35,7 +35,7 @@
 
 @implementation MerchantController
 
--(UILabel *)line {
+- (UILabel *)line {
     if (!_line) {
         UILabel *line = [[UILabel alloc]initWithFrame:CGRectMake(0, 34, ZP_Width / 4, 1.5)];
         line.backgroundColor = [UIColor colorWithHexString:@"#e74940"];
@@ -105,9 +105,9 @@
             _btn.selected = YES;
         }
         
-#warning 默认
+#pragma mark --  默认
         if (i == 3) {
-//            默认图片
+            //            默认图片
             [btn setImage:[UIImage imageNamed:@"icon_shop_classification_01"] forState:UIControlStateNormal];
             _priceStrTag = @"desc";
         }
@@ -157,9 +157,9 @@
     [ZP_ClassViewTool requestGetshopinfos:dic success:^(id obj) {
         self.title = obj[@"title"];
         self.NameLabel = dic[@"shopname"];
-//        ***********纯代码要加需要隐藏与显示的frame
+        //        ***********纯代码要加需要隐藏与显示的frame
         // collection 的高度 等于 屏幕的高度··- nav的高度· - 4个按钮view 的高度
-       //  写的时候考虑当前屏幕上有几个控件，再来决定。
+        //  写的时候考虑当前屏幕上有几个控件，再来决定。
         if (self.imageview > 0) {
             self.imageview.hidden = YES;
             self.imageview.height = CGFLOAT_MIN;
@@ -213,7 +213,7 @@
     [_collectionView3 registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ReusableView"];
     [_collectionView4 registerClass:[MerchantCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     [_collectionView4 registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ReusableView"];
-
+    
     //        代理
     _collectionView1.delegate = self;
     _collectionView1.dataSource = self;
@@ -223,7 +223,7 @@
     _collectionView3.dataSource = self;
     _collectionView4.delegate = self;
     _collectionView4.dataSource = self;
-//    //    自适应大小
+    //    //    自适应大小
     _collectionView1.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight;
     _collectionView2.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _collectionView3.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -247,7 +247,7 @@
 
 - (NSArray *) titles {
     return @[NSLocalizedString(@"Shop introduced", nil),
-            NSLocalizedString(@"Satisfaction survey", nil)];
+             NSLocalizedString(@"Satisfaction survey", nil)];
 }
 - (NSArray *) images {
     return @[@"ic_shop_filesearch",
@@ -280,14 +280,14 @@
     if (sender.tag -100 == 3) {
         sender.selected = !sender.selected;
         if (sender.selected) {
-#warning 选中
-//          这里设置button 按钮 图片
+#pragma mark --  选中
+            //          这里设置button 按钮 图片
             [sender setImage:[UIImage imageNamed:@"icon_shop_classification_02"] forState:UIControlStateNormal];
             _priceStrTag = @"asc";
             NSLog(@"选择状态");
         }else{
-#warning 取消选中
-//          这里设置button 按钮 图片
+#pragma mark --  取消选中
+            //          这里设置button 按钮 图片
             [sender setImage:[UIImage imageNamed:@"icon_shop_classification_03"] forState:UIControlStateNormal];
             _priceStrTag = @"desc";
         }
@@ -306,7 +306,6 @@
             self.line.x = sender.x;
         }];
     }
-    
 }
 
 // 77) 根据大分类和子分类，获取该分类下产品，默认销量排序，支持排序最新，好评，价格
@@ -322,7 +321,7 @@
     if (Token) {
         dic[@"token"] = Token;
     }else {
-      dic[@"token"] = @"";
+        dic[@"token"] = @"";
     }
     dic[@"sid"] = self.Supplieerid;
     dic[@"fathid"] = @"0";
@@ -350,39 +349,39 @@
     
     [ZP_ClassViewTool requestGetproductfilter:dic success:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
-        //        清除所有的数据
+            //        清除所有的数据
             Token = nil;
             DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DDAYGO_REMOVE_STATE; DDAYGO_REMOVE_HEADERIMAGE; DDAYGO_REMOVE_NAMELABEL; DD_ChangeStaus;
             ZPICUEToken = nil;
             [[SDImageCache sharedImageCache] clearDisk];
 #pragma make -- 提示框
-        [self logouttt];
+            [self logouttt];
         }else {
-        ZPLog(@"%@",obj);
-        NSDictionary * dict = obj;
-        NSDictionary * dicct = dict[@"reviewgood"];
-        NSArray * arr = dicct[@"datalist"];
-        _newsarray = [MerchantModel Merchant:arr];
-        switch (tag-100) {
-            case 0:
-                [self.collectionView1 reloadData];
-                [self.collectionView1.mj_header endRefreshing];  // 結束下拉刷新
-                break;
-            case 1:
-                [self.collectionView2 reloadData];
-                [self.collectionView2.mj_header endRefreshing];  // 結束下拉刷新
-                break;
-            case 2:
-                [self.collectionView3 reloadData];
-                [self.collectionView3.mj_header endRefreshing];  // 結束下拉刷新
-                break;
-            case 3:
-                [self.collectionView4 reloadData];
-                [self.collectionView4.mj_header endRefreshing];  // 結束下拉刷新
-                break;
-            default:
-                break;
-        }
+            ZPLog(@"%@",obj);
+            NSDictionary * dict = obj;
+            NSDictionary * dicct = dict[@"reviewgood"];
+            NSArray * arr = dicct[@"datalist"];
+            _newsarray = [MerchantModel Merchant:arr];
+            switch (tag-100) {
+                case 0:
+                    [self.collectionView1 reloadData];
+                    [self.collectionView1.mj_header endRefreshing];  // 結束下拉刷新
+                    break;
+                case 1:
+                    [self.collectionView2 reloadData];
+                    [self.collectionView2.mj_header endRefreshing];  // 結束下拉刷新
+                    break;
+                case 2:
+                    [self.collectionView3 reloadData];
+                    [self.collectionView3.mj_header endRefreshing];  // 結束下拉刷新
+                    break;
+                case 3:
+                    [self.collectionView4 reloadData];
+                    [self.collectionView4.mj_header endRefreshing];  // 結束下拉刷新
+                    break;
+                default:
+                    break;
+            }
         }
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
@@ -438,25 +437,25 @@
         NSArray * arr = dicct[@"datalist"];
         _newsarray = [MerchantModel Merchant:arr];
         switch (tag) {
-                case 0:
+            case 0:
                 [self.collectionView1 reloadData];
                 [self.collectionView1.mj_header endRefreshing];  // 結束下拉刷新
-            break;
-                case 1:
+                break;
+            case 1:
                 [self.collectionView2 reloadData];
                 [self.collectionView2.mj_header endRefreshing];  // 結束下拉刷新
-            break;
-                case 2:
+                break;
+            case 2:
                 [self.collectionView3 reloadData];
                 [self.collectionView3.mj_header endRefreshing];  // 結束下拉刷新
-            break;
-                case 3:
+                break;
+            case 3:
                 [self.collectionView4 reloadData];
                 [self.collectionView4.mj_header endRefreshing];  // 結束下拉刷新
-            break;
+                break;
                 
             default:
-            break;
+                break;
         }
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
@@ -511,7 +510,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//     判断是否越界
+    //     判断是否越界
     MerchantModel * model = nil;
     if (indexPath.row < [_newsarray count]) {//无论你武功有多高，有时也会忘记加
         model = [_newsarray objectAtIndex:indexPath.row];
@@ -522,12 +521,12 @@
     NSLog(@"选中%ld",(long)indexPath.item);
 }
 
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     NSLog(@"ggg");
     return CGSizeMake(ZP_Width, CGFLOAT_MIN);
 }
 
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     NSLog(@"ooooo");
     return CGSizeMake(ZP_Width, CGFLOAT_MIN);
 }
@@ -535,9 +534,9 @@
 // 刷新
 - (void)addRefresh {
     self.collectionView1.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-    [self.newsarray removeAllObjects];
-    _i = 0;
-    [self getproductfilter:100];
+        [self.newsarray removeAllObjects];
+        _i = 0;
+        [self getproductfilter:100];
     }];
     
     self.collectionView2.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{

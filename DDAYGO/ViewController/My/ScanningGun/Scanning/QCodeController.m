@@ -45,12 +45,12 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: ZP_textWite}];
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self InitScan];
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 #pragma mark 初始化扫描
 - (void)InitScan {
-//    创建扫描边框
+    //    创建扫描边框
     // 创建扫描边框
     self.scanningView = [[QRCodeReaderView alloc] initWithFrame:self.view.frame outsideViewLayer:self.view.layer];
     [self.view addSubview:self.scanningView];
@@ -58,7 +58,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//  二维码扫描
+    //  二维码扫描
     [self setupScanningQRCode];
 }
 
@@ -87,7 +87,7 @@
     // 5.1 添加会话输入
     if (input == nil) {
         [SVProgressHUD showInfoWithStatus:MyLocal(@"Camera unavailable")];
-//        [self.navigationController popViewControllerAnimated:YES];
+        //        [self.navigationController popViewControllerAnimated:YES];
     }else {
         [_session addInput:input];
         // 5.2 添加会话输出
@@ -117,21 +117,20 @@
     if (metadataObjects.count > 0) {
         AVMetadataMachineReadableCodeObject * obj = metadataObjects[0];
         NSLog(@"metadataObjects = %@", metadataObjects);
-    //  提示：如果需要对url或者名片等信息进行扫描，可以在此进行扩展！
-           if ([obj.stringValue containsString:@"ddaygo"]) {
-               [self.session stopRunning];
-               
-               // 2. 删除预览图层
-               [self.previewLayer removeFromSuperlayer];
-                PayViewController * pay = [[PayViewController alloc]init];
-                NSArray * arr = [obj.stringValue componentsSeparatedByString:@","];
-                pay.Oid = arr[1];
-                pay.Oname = arr[2];
-                [self.navigationController pushViewController:pay animated:YES];
-           } else {
-               [SVProgressHUD showErrorWithStatus:MyLocal(@"Error in qr code.")];
-               [self.navigationController popViewControllerAnimated:YES];
-           }
+        //  提示：如果需要对url或者名片等信息进行扫描，可以在此进行扩展！
+        if ([obj.stringValue containsString:@"ddaygo"]) {
+            [self.session stopRunning];
+            // 2. 删除预览图层
+            [self.previewLayer removeFromSuperlayer];
+            PayViewController * pay = [[PayViewController alloc]init];
+            NSArray * arr = [obj.stringValue componentsSeparatedByString:@","];
+            pay.Oid = arr[1];
+            pay.Oname = arr[2];
+            [self.navigationController pushViewController:pay animated:YES];
+        } else {
+            [SVProgressHUD showErrorWithStatus:MyLocal(@"Error in qr code.")];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
 }
 
@@ -139,7 +138,6 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self.scanningView removeTimer];
-    
 }
 
 // 热点被接入，子类重写

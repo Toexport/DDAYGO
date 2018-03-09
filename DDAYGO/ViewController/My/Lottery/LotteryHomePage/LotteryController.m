@@ -44,7 +44,7 @@
     [self initUI];
     [self getData];
     [self addNavigationBar];
-          [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
     
 }
 
@@ -58,9 +58,9 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: ZP_textWite}];
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     UIToolbar * tools = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, -15, 15)];
-// 解决出现的那条线
+    // 解决出现的那条线
     tools.clipsToBounds = YES;
-// 解决tools背景颜色的问题
+    // 解决tools背景颜色的问题
     [tools setBackgroundImage:[UIImage new]forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     [tools setShadowImage:[UIImage new] forToolbarPosition:UIToolbarPositionAny];
     
@@ -191,7 +191,7 @@
     NSLog(@"m2 %@",model2.createtime);
     // lottoerwinmodel 的数据
     NSArray * arr = [lotterywinModel mj_objectArrayWithKeyValuesArray:model.lotterywin];
-
+    
     if (arr.count > 0) {
         //如你想取第一个的数据
         lotterywinModel * model3 = arr[0]; //这个是头奖的后面
@@ -216,9 +216,9 @@
         _bountyLabel4.text = [model5.winunit stringValue].creatPirceString;
         _bountyLabel5.text = [model5.winunit stringValue].creatPirceString;
     }else{
-       
+        
     }
- 
+    
     lotteryorderModel * model6 = [lotteryorderModel mj_objectWithKeyValues:model.lotteryorder.firstObject];
     if (model6) {
         _butt1.hidden = NO;
@@ -252,8 +252,8 @@
         _SymbolLabel.hidden = YES;
         _XiazhushuliangLabel.hidden = YES;
         self.tishiLabel.hidden = NO;
-//        _lingjiangBtn.hidden = NO;
-//        _OrderNumberLabel.text = nil;
+        //        _lingjiangBtn.hidden = NO;
+        //        _OrderNumberLabel.text = nil;
     }
     NSLog(@"m3 = %@",model.lottery);
     [self updateBounctyViewWithBonus:[self.prizeDic[@"lottery"][@"poolamount"] integerValue] Suffix:@""];
@@ -299,7 +299,7 @@
     for (UIView *view in self.bounctyView.subviews) {
         [view removeFromSuperview];
     }
-
+    
     NSString *bonusString = @(bonus).stringValue;
     NSInteger commaCount = (bonusString.length - 1) / 3;
     CGFloat startPoint = ([UIScreen mainScreen].bounds.size.width - (14 * (bonusString.length + 1) + (bonusString.length + commaCount) * 3 + commaCount * 10)) / 2;
@@ -308,7 +308,7 @@
         [bonusBtn setBackgroundImage:[UIImage imageNamed:@"bg_lottery_money"] forState:UIControlStateNormal];
         [bonusBtn setTitle:[bonusString substringWithRange:NSMakeRange(i, 1)] forState:UIControlStateNormal];
         [bonusBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-
+        
         if (0 == (bonusString.length - i) % 3 && i > 0) {
             UIButton *commaBtn = [[UIButton alloc] initWithFrame:CGRectMake(startPoint, 0, 10, 20)];
             [commaBtn setTitle:@"," forState:UIControlStateNormal];
@@ -316,15 +316,15 @@
             [bonusBtn setFrame:CGRectMake(startPoint + 13, 0, 14, 20)];
             [self.bounctyView addSubview:commaBtn];
             [self.bounctyView addSubview:bonusBtn];
-
+            
             startPoint += 32;
         } else {
             [self.bounctyView addSubview:bonusBtn];
-
+            
             startPoint += 17;
         }
     }
-
+    
     UIButton *suffixBtn = [[UIButton alloc] initWithFrame:CGRectMake(startPoint, 0, 14, 20)];
     [suffixBtn setTitle:suffix forState:UIControlStateNormal];
     [suffixBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];

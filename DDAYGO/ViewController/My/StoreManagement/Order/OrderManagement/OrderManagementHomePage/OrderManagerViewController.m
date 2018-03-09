@@ -38,7 +38,7 @@
     [self.dthBtn addTarget:self action:@selector(getOrderData:) forControlEvents:UIControlEventTouchUpInside];
     [self.yfhBtn addTarget:self action:@selector(getOrderData:) forControlEvents:UIControlEventTouchUpInside];
     [self.rightBtn addTarget:self action:@selector(getOrderData:) forControlEvents:UIControlEventTouchUpInside];
-//    self.dfkBtn.selected = YES;
+    //    self.dfkBtn.selected = YES;
     self.array = @[self.dfhBtn,self.dfhBtn,self.yfhBtn,self.dhhBtn,self.dthBtn];
     self.scrollView.delegate = self;
     [self updateCurrentInterface];
@@ -137,13 +137,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

@@ -20,7 +20,7 @@
 #define ZPLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
 
 //#define ZPLog(...) fprintf(stderr,"[%s-%d行] %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:@"%@", ##__VA_ARGS__] UTF8String]);
-
+#endif
 #endif
 
 ////正式发布
@@ -33,16 +33,13 @@
 //
 //#define NSLog(...) NSLog(__VA_ARGS__)
 //
-////#endif
+//#endif
 //
 //#endif
 //
-/////**
-////正式用这个
 //#ifdef DEBUG // 调试状态, 打开LOG功能
 //#define ZPLog(...) NSLog(__VA_ARGS__)
 //#else // 发布状态, 关闭LOG功能
 //#define ZPLog(...)
 
-#endif
 #endif /* DebuggingANDPublishing_pch */

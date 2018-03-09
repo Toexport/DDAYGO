@@ -9,6 +9,7 @@
 #import "MerchantCollectionViewCell.h"
 #import "PrefixHeader.pch"
 @implementation MerchantCollectionViewCell
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -61,7 +62,7 @@
 }
 
 - (void)merchant:(MerchantModel *)model {
-     [_imageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
     self.headerlabel.text = model.productname;
     self.priceLabel.text =  [NSString stringWithFormat:@"%@ %@", DD_MonetarySymbol,[model.productprice stringValue]];
     self.TrademarkLabel.text = [model.cp stringValue];

@@ -33,9 +33,8 @@
 //  商品分类
 + (void)requMerchandise:(NSDictionary *)spfl WithIndex:(NSUInteger)index success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     NSArray * arr = @[@"default",@"sale",@"price",@"time"];
-//    productfilter?fatherid=1&sort=default&seq=desc&word=&countrycode=886&page=1&pagesize=30
     [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@productfilter?seq=%@&countrycode=%@&word=%@&fatherid=%@&sort=%@&page=%@&pagesize=%@",URLAPI,spfl[@"seq"],spfl[@"countrycode"],spfl[@"word"],spfl[@"fatherid"],arr[index],spfl[@"page"],spfl[@"pagesize"]] parameters:nil success:^(NSDictionary *responseObject) {
-        //        ZPLog(@"%@",responseObject);
+        
         success(responseObject);
     } failure:^(NSError *error) {
         failure(error);
@@ -47,7 +46,7 @@
 + (void)requDetails:(NSDictionary *)spxq success:(void (^)(id))success failure:(void (^)(NSError *))failure {
     [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@%@?productid=%@&token=%@", URLAPI,Details,spxq[@"productid"],spxq[@"token"]] parameters:nil success:^(NSDictionary *responseObject) {
         success(responseObject);
-        //        ZPLog(@"%@",responseObject);
+        
     } failure:^(NSError *error) {
         failure(error);
         
@@ -72,6 +71,7 @@
         failure(error);
     }];
 }
+
 //  根据颜色尺码ID查询库存
 + (void)requColorOrSize:(NSDictionary *)dic success:(void (^)(id))success failure:(void (^)(NSError *))failure{
     [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getcolornormstockid", URLAPI] parameters:dic success:^(NSDictionary *responseObject) {
@@ -114,15 +114,6 @@
     }];
 }
 
-//+ (void)requImage:(NSString *)url success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
-//    [ZP_NetorkingTools GET:url parameters:nil success:^(NSDictionary *responseObject) {
-//        success([UIImage imageWithData:responseObject]);
-//    } failure:^(NSError *error) {
-//        NSDictionary *dic = error;
-//        failure(error);
-//    }];
-//}
-
 //75) 获取店铺信息
 + (void)requestGetshopinfos: (NSDictionary *)Getshopinfos success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
     [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@getshopinfos?supplierid=%@",URLAPI,Getshopinfos[@"supplierid"]] parameters:nil success:^(id responseObject) {
@@ -135,10 +126,8 @@
 
 //76) 获取店铺评论
 + (void)requestGetshopreviews:(NSDictionary *)Getshopreviews success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure{
-
-//    NSString * strUrl = [NSString stringWithFormat:[NSString stringWithFormat:@"%@getshopreviews?sid=%@&page=%@&pagesize=%@",URLAPI,Getshopreviews[@"sid"],Getshopreviews[@"page"],Getshopreviews[@"pagesize"]];
     NSString * strUrl = [NSString stringWithFormat:@"%@getshopreviews?sid=%@&page=%@&pagesize=%@",URLAPI,Getshopreviews[@"sid"],Getshopreviews[@"page"],Getshopreviews[@"pagesize"]];
-     NSString * urlString = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString * urlString = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [ZP_NetorkingTools GET:urlString parameters:nil success:^(id responseObject) {
         success(responseObject);
     } failure:^(NSError * error) {
@@ -157,7 +146,6 @@
 
 //77) 根据大分类和子分类，获取该分类下产品，默认销量排序，支持排序最新，好评，价格
 + (void)requestGetproductfilter:(NSDictionary *)Getproductfilter success:(void (^)(id obj))success failure:(void (^)(NSError *error))failure {
-//    NSString * strUrl = [NSString stringWithFormat:@"%@getproductfilter?fathid=%@&sort=%@&seq=%@&word=%@&countrycode=%@&page=%@&pagesize=%@",URLAPI,Getproductfilter[@"fathid"],Getproductfilter[@"sort"],Getproductfilter[@"seq"],Getproductfilter[@"word"],Getproductfilter[@"countrycode"],Getproductfilter[@"page"],Getproductfilter[@"pagesize"]];
     NSString * strUrl = [NSString stringWithFormat:@"%@getproductfilter?token=%@&sid=%@&fathid=%@&sort=%@&seq=%@&word=%@&countrycode=%@&page=%@&pagesize=%@",URLAPI,Getproductfilter[@"token"],Getproductfilter[@"sid"],Getproductfilter[@"fathid"],Getproductfilter[@"sort"],Getproductfilter[@"seq"],Getproductfilter[@"word"],Getproductfilter[@"countrycode"],Getproductfilter[@"page"],Getproductfilter[@"pagesize"]];
     NSString * str = [strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [ZP_NetorkingTools GET:str parameters:nil success:^(id responseObject) {

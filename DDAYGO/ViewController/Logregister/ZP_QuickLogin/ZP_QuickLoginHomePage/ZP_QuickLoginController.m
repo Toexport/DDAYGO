@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
 }
 
@@ -88,14 +88,11 @@
         ZPLog(@"同意协议");
         return;
     }
-    
     _LoginBtn.userInteractionEnabled = NO;
-
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Logging in...", nil)];
     [self AllData];
     ZPLog(@"数据");
 }
-
 
 //  数据 ICUE登入（如返回首次登入则调用55再请求）
 - (void)AllData {
@@ -143,7 +140,7 @@
                                         [SVProgressHUD showInfoWithStatus:MyLocal(@"Token existing")];
                                     }else
                                         if ([adic[@"result"]isEqualToString:@"isnot_agent"]) {
-                                             [SVProgressHUD showInfoWithStatus:MyLocal(@"The account is not an agent.")];
+                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"The account is not an agent.")];
                                         }
         }
     } failure:^(NSError * error) {
@@ -171,7 +168,7 @@
         ZPLog(@"%@",obj);
         //目前不是参数的类型··可能会崩,s
         if ([adic[@"result"]isEqualToString:@"first_login"]) {
-//            [SVProgressHUD showInfoWithStatus:@"首次登錄改成"];
+            //            [SVProgressHUD showInfoWithStatus:@"首次登錄改成"];
         }else
             if ([adic[@"result"]isEqualToString:@"ok"]) {
                 Token = obj[@"token"];
@@ -205,10 +202,10 @@
                                     }else
                                         if ([dict[@"result"]isEqualToString:@"isnot_agent"]) {
                                             [SVProgressHUD showInfoWithStatus:MyLocal(@"The account is not an agent.")];
- 
-        }
+                                            
+                                        }
     } failure:^(NSError * error) {
-//        [SVProgressHUD showInfoWithStatus:MyLocal(@"Server link failed")];
+        //        [SVProgressHUD showInfoWithStatus:MyLocal(@"Server link failed")];
     }];
 }
 
@@ -262,7 +259,6 @@
 //}
 
 #pragma mark - 安全输入
-
 -(void)secureTextEntry {
     _ZPPswTextField.textField.secureTextEntry = !_ZPPswTextField.textField.secureTextEntry;
     

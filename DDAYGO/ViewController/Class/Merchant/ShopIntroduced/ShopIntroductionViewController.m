@@ -32,9 +32,9 @@
     [self initUI];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
+
 // UI
 - (void)initUI {
-    
     self.tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height)style:UITableViewStylePlain];
     self.tableview.backgroundColor = ZP_Graybackground;
     self.tableview.delegate = self;
@@ -52,7 +52,7 @@
         NSDictionary * dic = obj;
         _introductionDic = dic[@"introduction"];
         _reviewgoodDic = dic[@"reviewgood"];
-//        ZPLog(@"%@",_introductionDic[@"updatetime"]);
+        //        ZPLog(@"%@",_introductionDic[@"updatetime"]);
         ZPLog(@"%@",obj);
         [self.tableview reloadData];
     } failure:^(NSError *error) {
@@ -71,11 +71,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    ShoplntroducedModel * model = _NewsData[indexPath.row];
+    //    ShoplntroducedModel * model = _NewsData[indexPath.row];
     ShoplntroductionCell * cell = [tableView dequeueReusableCellWithIdentifier:@"Shoplntroduction"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone; // 取消Cell变灰效果
     cell.StorenameLabel.text = [NSString stringWithFormat:@"%@",self.Shoppname];
-//     1. 创建一个点击事件，点击时触发labelClick方法
+    //     1. 创建一个点击事件，点击时触发labelClick方法
     UITapGestureRecognizer * TapGestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapOnLabel:)];
     UITapGestureRecognizer * TapGestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapOnLabel:)];
     // 2. 将点击事件添加到label上

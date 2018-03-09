@@ -11,6 +11,7 @@
 #import "PrefixHeader.pch"
 #import "ZP_NetorkingTools.h"
 @implementation ZP_LoginTool
+
 //  注册
 + (void)requestRegiser:(NSDictionary *)Regiser success:(void (^)(id))success failure:(void (^)(NSError *))failure {
     //get 请求 格式
@@ -56,6 +57,7 @@
         
     }];
 }
+
 // 选择地区
 +(void)requsetArea:(NSDictionary *)Area success:(void (^)(id))success failure:(void (^)(NSError *))failure {
     [ZP_NetorkingTools GET:[NSString stringWithFormat:@"%@%@",URLAPI, AreaAPI] parameters:Area success:^(NSDictionary *responseObject) {
@@ -74,6 +76,7 @@
         failure(error);
     }];
 }
+
 // ICUE登入（如返回首次登入则调用55再请求）（58）
 + (void)requesForFirstTimeLogin:(NSDictionary *)ForFirstTimeLogin success:(void (^)(id))success failure:(void (^)(NSError *))failure {
     [ZP_NetorkingTools POST:[NSString stringWithFormat:@"%@icuelogin?acc=%@&pwd=%@",URLAPI,ForFirstTimeLogin[@"acc"],ForFirstTimeLogin[@"pwd"]] parameters:nil success:^(id responseObject) {

@@ -66,12 +66,12 @@
     lotteryModel *model1 = [lotteryModel mj_objectWithKeyValues:model.lottery];
     _NperLabel.text = self.title;
     _DatesLabel.text = model1.recordtime;
-//    [_button1 setTitle:[model1.white1 stringValue] forState:UIControlStateNormal];
-//    [_button2 setTitle:[model1.white2 stringValue] forState:UIControlStateNormal];
-//    [_button3 setTitle:[model1.white3 stringValue] forState:UIControlStateNormal];
-//    [_button4 setTitle:[model1.white4 stringValue] forState:UIControlStateNormal];
-//    [_button5 setTitle:[model1.white5 stringValue] forState:UIControlStateNormal];
-//    [_button6 setTitle:[model1.powerball stringValue] forState:UIControlStateNormal];
+    //    [_button1 setTitle:[model1.white1 stringValue] forState:UIControlStateNormal];
+    //    [_button2 setTitle:[model1.white2 stringValue] forState:UIControlStateNormal];
+    //    [_button3 setTitle:[model1.white3 stringValue] forState:UIControlStateNormal];
+    //    [_button4 setTitle:[model1.white4 stringValue] forState:UIControlStateNormal];
+    //    [_button5 setTitle:[model1.white5 stringValue] forState:UIControlStateNormal];
+    //    [_button6 setTitle:[model1.powerball stringValue] forState:UIControlStateNormal];
     //    NSLog(@"dic %@",model.lottery);
     
     //下面一个数据 直接用
@@ -114,7 +114,7 @@
         _button5.hidden = NO;
         _button6.hidden = NO;
         
-//        _OrderNumberLabel.text = [model6.lotteryoid stringValue];
+        //        _OrderNumberLabel.text = [model6.lotteryoid stringValue];
         [_button1 setTitle:[NSString stringWithFormat:@"%02d",model2.white1.intValue] forState:UIControlStateNormal];
         [_button2 setTitle:[NSString stringWithFormat:@"%02d",model2.white2.intValue] forState:UIControlStateNormal];
         [_button3 setTitle:[NSString stringWithFormat:@"%02d",model2.white3.intValue] forState:UIControlStateNormal];

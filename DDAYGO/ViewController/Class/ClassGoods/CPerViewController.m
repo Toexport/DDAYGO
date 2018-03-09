@@ -36,7 +36,7 @@
         _contentScrollView.delegate = self;
         _contentScrollView.backgroundColor = [UIColor redColor];
         [self.view addSubview:_contentScrollView];
-      
+        
         
     }
     return _contentScrollView;
@@ -88,9 +88,9 @@
         button.titleLabel.font = ZP_titleFont;
         [button addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         button.tag = i;
-#warning 默认图片
+#pragma mark --  默认图片
         if (i == 3) {
-//          默认图片
+            //          默认图片
             [button setImage:[UIImage imageNamed:@"icon_shop_classification_01"] forState:UIControlStateNormal];
             [button setTitleEdgeInsets:UIEdgeInsetsMake(0, -button.imageView.bounds.size.width, 0, button.imageView.bounds.size.width)];
             [button setImageEdgeInsets:UIEdgeInsetsMake(0, button.titleLabel.bounds.size.width, 0, - button.titleLabel.bounds.size.width)];
@@ -139,11 +139,11 @@
     if (button.tag == 3) {
         button.selected = !button.selected;
         if (button.selected) {
-#warning 选中
+#pragma mark --  选中
             [button setImage:[UIImage imageNamed:@"icon_shop_classification_03"] forState:UIControlStateNormal];
             _priceStrTag = @"desc";
         }else{
-#warning 取消选中
+#pragma mark -- 取消选中
             [button setImage:[UIImage imageNamed:@"icon_shop_classification_02"] forState:UIControlStateNormal];
             _priceStrTag = @"asc";
         }

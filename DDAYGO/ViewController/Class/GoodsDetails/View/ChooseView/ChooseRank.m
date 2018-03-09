@@ -20,7 +20,7 @@
     
     self = [super initWithFrame:frame];
     if (self) {
-
+        
         self.frame = frame;
         self.title = title;
         self.rankArray = [NSArray arrayWithArray:titleArr];
@@ -34,10 +34,10 @@
     self.packView = [[UIView alloc] initWithFrame:self.frame];
     self.packView.y = 0;
     
-//    分割线
+    //    分割线
     UILabel *line = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, screen_Width, 0.3)];
     line.backgroundColor = ZP_DeepBlue;
-//    [self.packView addSubview:line];
+    //    [self.packView addSubview:line];
     
     UILabel *titleLB = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, screen_Width, 25)];
     titleLB.text = self.title;
@@ -53,12 +53,12 @@
     for (int i = 0; i < self.rankArray.count; i++) {
         
         NSString * btnName = self.rankArray[i];
-
+        
         UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn setBackgroundColor:BackgroundColor];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-
+        
         btn.titleLabel.font = ZP_TooBarFont;
         [btn setTitle:btnName forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -97,16 +97,16 @@
         
         btn.tag = 10000+i;
         
-//        if (i==0)
-//        {
-//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(300 * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^{
-//                [self btnClick:btn];
-//            });
-//        }
+        //        if (i==0)
+        //        {
+        //            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(300 * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^{
+        //                [self btnClick:btn];
+        //            });
+        //        }
     }
     self.btnView.height = viewHeight;
     self.packView.height = self.btnView.height+CGRectGetMaxY(titleLB.frame);
-
+    
     self.height = self.packView.height;
     
     [self addSubview:self.packView];
@@ -129,7 +129,7 @@
     }
     
     
-
+    
     if ([self.delegate respondsToSelector:@selector(selectBtnTitle:andBtn:)]) {
         
         [self.delegate selectBtnTitle:btn.titleLabel.text andBtn:self.selectBtn];

@@ -20,6 +20,7 @@
     }
     return self;
 }
+
 + (id)cheakNull:(id)dic {
     if ([dic isEqual:[NSNull null]]) {
         return @"";

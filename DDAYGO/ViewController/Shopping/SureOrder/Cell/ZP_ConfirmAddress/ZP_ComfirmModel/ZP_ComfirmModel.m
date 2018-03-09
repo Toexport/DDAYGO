@@ -9,6 +9,7 @@
 #import "ZP_ComfirmModel.h"
 
 @implementation ZP_ComfirmModel
+
 + (instancetype)GetComfirmData:(NSDictionary *)dic {
     return [[self alloc]initWithInformationData:dic];
 }

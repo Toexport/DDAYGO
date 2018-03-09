@@ -18,11 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title =MyLocal(@"Pay success");
-//    for (UIViewController * controller in self.navigationController.viewControllers) {
-//        if ([controller isKindOfClass:[OrderViewController class]]) {
-//            [self.navigationController popToViewController:controller animated:YES];
-//        }
-//    }
+    //    for (UIViewController * controller in self.navigationController.viewControllers) {
+    //        if ([controller isKindOfClass:[OrderViewController class]]) {
+    //            [self.navigationController popToViewController:controller animated:YES];
+    //        }
+    //    }
     // Do any additional setup after loading the view from its nib.
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
@@ -33,7 +33,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
-    
 }
 
 // 热点被接入，子类重写

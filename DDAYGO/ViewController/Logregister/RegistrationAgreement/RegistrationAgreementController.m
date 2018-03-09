@@ -21,7 +21,7 @@
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.webView.opaque = NO; //设置web的opaque
     [self initUI];
-     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 - (void)initUI {
@@ -40,7 +40,7 @@
                 NSURLRequest * request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.ddaygo.com/other/exchange"]];
                 self.title = NSLocalizedString(@"exchange process", nil);
                 [self.webView loadRequest:request];
-    }
+            }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

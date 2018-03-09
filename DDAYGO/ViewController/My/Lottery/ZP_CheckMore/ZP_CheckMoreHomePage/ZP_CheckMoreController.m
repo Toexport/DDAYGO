@@ -24,7 +24,7 @@
     self.title = NSLocalizedString(@"Wager number", nil);
     [self.tableview registerNib:[UINib nibWithNibName:@"ZP_CheckMoreCell" bundle:nil] forCellReuseIdentifier:@"ZP_CheckMoreCell"];
     [self initTableHeadView];
-/**** IOS 11 ****/
+    /**** IOS 11 ****/
     if (@available(iOS 11.0, *)) {
         self.tableview.estimatedRowHeight = 0;
         self.tableview.estimatedSectionHeaderHeight = 0;
@@ -34,7 +34,7 @@
         self.NoDataView = response;
         [self.tableview reloadData];
     }];
-          [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 - (void)initTableHeadView {
@@ -90,12 +90,12 @@
     }];
 }
 
- //表头
+//表头
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *myView = [[UIView alloc]initWithFrame:CGRectMake(0, 5, ZP_Width, 20)];
-//    self.tableview.tableHeaderView = myView; // 表头跟着cell一起滚动
+    //    self.tableview.tableHeaderView = myView; // 表头跟着cell一起滚动
     [myView setBackgroundColor:ZP_WhiteColor];
-//     订单
+    //     订单
     ZP_GeneralLabel * OrderLabel = [ZP_GeneralLabel initWithtextLabel:_OrderLabel.text textColor:ZP_textblack font:ZP_TrademarkFont textAlignment:NSTextAlignmentLeft bakcgroundColor:nil];
     OrderLabel.text = MyLocal(@"order number:");
     [myView addSubview:OrderLabel];
@@ -107,9 +107,9 @@
         make.height.mas_equalTo(15);
     }];
     
-//     订单号
+    //     订单号
     ZP_GeneralLabel * OrderNumberLabel = [ZP_GeneralLabel initWithtextLabel:_OrderNumberLabel.text textColor:ZP_textblack font:ZP_TrademarkFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
-//    OrderNumberLabel.text = @"5678908765456";
+    //    OrderNumberLabel.text = @"5678908765456";
     [myView addSubview:OrderNumberLabel];
     _OrderNumberLabel = OrderNumberLabel;
     [OrderNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -122,10 +122,10 @@
     //     button
     UIButton * button = [[UIButton alloc] init];
     [myView addSubview:button];
-//    [button setTitle:@"领奖" forState:UIControlStateNormal];
+    //    [button setTitle:@"领奖" forState:UIControlStateNormal];
     button.titleLabel.font = ZP_TooBarFont;
     [button setTitleColor:ZP_TypefaceColor forState:UIControlStateNormal];
-     [button addTarget:self action:@selector(AwardBut) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(AwardBut) forControlEvents:UIControlEventTouchUpInside];
     button.layer.borderWidth = 1;
     button.layer.cornerRadius = 5;
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -168,9 +168,9 @@
 }
 /*设置cell 的宽度 */
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     return 35;
-
+    
 }
 
 #pragma mark -- tableviewDelegate

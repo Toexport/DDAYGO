@@ -29,14 +29,14 @@
         self.title = MyLocal(@"Exchange goods");
         _view4.hidden = NO;
     }else
-    if (self.type == 666) {
-        self.title = MyLocal(@"Exchange goods");
-        _view4.hidden = NO;
-    }else {
-        self.title = MyLocal(@"refund", nil);
-        _view4.hidden = YES;
-    }
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+        if (self.type == 666) {
+            self.title = MyLocal(@"Exchange goods");
+            _view4.hidden = NO;
+        }else {
+            self.title = MyLocal(@"refund", nil);
+            _view4.hidden = YES;
+        }
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 // UI
@@ -54,8 +54,8 @@
     SelectModel2 * model2 = [SelectModel2 mj_objectWithKeyValues:dic];
     [_MainImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ImgAPI, model2.defaultimg]] placeholderImage:[UIImage imageNamed:@""]];
     _TitleLabel.text = model2.productname;
-//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
-//    _CurrencyLabel.text = [NSString stringWithFormat:@"%@",str];
+    //    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+    //    _CurrencyLabel.text = [NSString stringWithFormat:@"%@",str];
     _CurrencyLabel.text = DD_MonetarySymbol;
     _PriceLabel.text = [model2.productamount stringValue];
 }
@@ -64,7 +64,7 @@
 - (IBAction)yuanyinBut:(UIButton *)sender {
     self.WhyBut.userInteractionEnabled = NO;
     [self requsetRefundAllData];
-   
+    
 }
 // 66) 获取退换货原因列表
 - (void)requsetRefundAllData {
@@ -153,7 +153,7 @@
 - (void)addrefund {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
-//    dic[@"rty"] = @"0"; // 这个是类型（默认为0）
+    //    dic[@"rty"] = @"0"; // 这个是类型（默认为0）
     dic[@"oid"] = self.oid; // 订单号
     dic[@"reason"] = self.showLabel.text; // 这个是原因
     dic[@"reasondetail"] = _MessageLabel.text; // 这个是输入的文字

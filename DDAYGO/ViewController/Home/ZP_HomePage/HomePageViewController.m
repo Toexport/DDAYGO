@@ -47,7 +47,7 @@
     [self addRefresh];
     [self getDataSource];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeStaus:) name:@"changeStaus" object:nil];
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 - (void)getDataSource {
@@ -290,7 +290,7 @@
     [ZP_HomeTool requSelectLikeHotCakes:dict success:^(id obj) {
         NSArray * arr = obj;
         ZPLog(@"%@",arr);
-//        self.SixthArrData = [[NSMutableArray alloc]init];
+        //        self.SixthArrData = [[NSMutableArray alloc]init];
         self.SixthArrData = [ZP_SixthModel arrayWithArray:arr];
         [self.tableView reloadData];
     } failure:^(NSError *error) {

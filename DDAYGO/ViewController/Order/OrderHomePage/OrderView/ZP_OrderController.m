@@ -45,7 +45,7 @@
 
 @implementation ZP_OrderController
 
--(UILabel *)line {
+- (UILabel *)line {
     if (!_line) {
         UILabel *line = [[UILabel alloc]initWithFrame:CGRectMake(0, 34, ZP_Width / 5, 2)];
         line.backgroundColor = [UIColor colorWithHexString:@"#e74940"];
@@ -271,7 +271,7 @@
         dic[@"ordernumber"] = model.ordersnumber;
         [ZP_OrderTool requestDeleteOrder:dic success:^(id obj) {
             if ([obj[@"result"]isEqualToString:@"ok"]) {
-//
+                //
                 [self getDataWithState];
                 [self.newsData removeObjectAtIndex:sender.tag];
                 [SVProgressHUD showSuccessWithStatus:MyLocal(@"Delete success")];
@@ -282,7 +282,6 @@
                     //不显示··可不写
                     self.noDataView.hidden = YES;
                 }
-                
             }else
                 if ([obj[@"result"]isEqualToString:@"time_error"]) {
                     [SVProgressHUD showInfoWithStatus:MyLocal(@"It takes 15 days for the completed order to be deleted.")];
@@ -354,8 +353,7 @@
         [cell InformationWithDic:model2 WithModel:model];
         
         return cell;
-    }
-    else
+    }else
         if (indexPath.row == 1+model.ordersdetail.count) {
             OrdeTailViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"OrdeTailViewCell"];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;

@@ -12,6 +12,7 @@
 //    图面名字
     NSString * _imageName;
 }
+
 - (instancetype)init {
     self = [super init];
     if (self) {

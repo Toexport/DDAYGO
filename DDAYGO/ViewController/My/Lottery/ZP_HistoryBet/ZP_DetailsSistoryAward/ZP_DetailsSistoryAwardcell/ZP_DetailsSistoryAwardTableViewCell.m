@@ -11,8 +11,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    
 }
 
 - (void)HistoryBet:(lotteryorderModel *)model {

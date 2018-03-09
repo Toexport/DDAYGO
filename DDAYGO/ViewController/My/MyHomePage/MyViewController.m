@@ -56,21 +56,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    //iphone X
+    //    //iphone X
     if ([[UIApplication sharedApplication] statusBarFrame].size.height>20) {
         //在这里写你想要的高度 其他地方不用动
         _hheigth.constant = 260 + 40;
         _ttttop.constant = 14 + 40;
     }
-    
     self.center = [[CTCallCenter alloc] init];
     self.center.callEventHandler = ^(CTCall * call) {
         if ([call.callState isEqualToString:@"CTCallStateDisconnected"]) {
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
         }
     };
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 // 生命周期
@@ -142,8 +140,6 @@
         [self SupplierAllData];
         [self AllDatas];
         [self allData];
-        
-        
     }
 }
 
@@ -315,7 +311,7 @@
 - (void) SupplierAllData {
     _SdglLayoutConstraint.constant = CGFLOAT_MIN;
     _sdglView.hidden = YES; //  默认隐藏商家
-//    _ssdkBut.enabled = YES;
+    //    _ssdkBut.enabled = YES;
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     [ZP_MyTool requestSupplier:dic success:^(id obj) {
@@ -431,7 +427,6 @@
 }
 
 - (NSString *)getMonetarySymbol {
-    
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] isEqualToString:@"86"]) {
         return @"¥";
     } else if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] isEqualToString:@"852"]) {
@@ -473,6 +468,7 @@
     [self.navigationController pushViewController:collectionViewController animated:YES];
     self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
 }
+
 // 关注店铺（暂时不开启）- (IBAction)gzdpAction:(id)sender {
 //    ConcernShopViewController *concernShopViewController = [[ConcernShopViewController alloc] init];
 //    [self.navigationController pushViewController:concernShopViewController animated:YES];
@@ -543,8 +539,6 @@
     self.navigationController.navigationBar.tintColor = ZP_WhiteColor;
     
 }
-
-
 
 // 适配iphoneX
 -(void)mainColor {

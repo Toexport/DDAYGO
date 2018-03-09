@@ -19,7 +19,6 @@ typedef void (^ConfirmPayMoneyBlock)(id response);
 
 @property (nonatomic, strong) UITableView *tableView;
 
-
 @property (nonatomic , copy) ConfirmPayBlock confirmPayBlock;
 
 @property (nonatomic , copy) PayFailBlock PayFailBlock;

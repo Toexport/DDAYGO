@@ -28,8 +28,7 @@
     self.view.backgroundColor = ZP_green;
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
-    
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 - (void)initUI {
@@ -41,6 +40,7 @@
 
 // 数据
 -(void)allData {
+    
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     int i = arc4random_uniform(999);  // 随机数
@@ -63,11 +63,10 @@
                 [self logouttt];
             }
         //****************************************************************************************//
-        
-    _strUrl = [NSString stringWithFormat:@"ddaygo,%@,%@",obj[@"supplierid"],obj[@"shopname"]];
+        _strUrl = [NSString stringWithFormat:@"ddaygo,%@,%@",obj[@"supplierid"],obj[@"shopname"]];
         [self.tableView reloadData];
     } failure:^(NSError * error) {
-//        ZPLog(@"%@",error);
+        //        ZPLog(@"%@",error);
         [SVProgressHUD showInfoWithStatus:MyLocal(@"Server link failed")];
     }];
 }
@@ -79,20 +78,17 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     ReceivingViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ReceivingViewCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
     cell.layer.cornerRadius = 5.0;// View圆角弧度
     
     if (_strUrl.length >0) {
-         [cell getInitWithUrl:_strUrl];
+        [cell getInitWithUrl:_strUrl];
     }
-   
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     return 350;
 }
 

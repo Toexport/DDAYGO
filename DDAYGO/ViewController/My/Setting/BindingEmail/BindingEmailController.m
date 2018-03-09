@@ -27,7 +27,7 @@
     self.title = MyLocal(@"Binding email");
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
     self.BindingEmailscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐藏
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 // UI
 - (void)initUI {
@@ -41,7 +41,7 @@
     //    self.BinDing.layer.masksToBounds = YES;
     self.ZPEmailTextFiled.textField.keyboardType = UIKeyboardTypeEmailAddress;
     self.ZPEmailTextFiled.textField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
-//    [self.ZPEmailTextFiled.textField.placeholder = MyLocal(@"ZPEmailTextFiled")];
+    //    [self.ZPEmailTextFiled.textField.placeholder = MyLocal(@"ZPEmailTextFiled")];
     self.ZPEmailTextFiled.textField.placeholder = MyLocal(@"ZPEmailTextFiled");
     //    [_ZPCodeTextField.functionBtn addTarget:self action:@selector(getMSNCode) forControlEvents:UIControlEventTouchUpInside];
     //    _ZPCodeTextField.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -179,13 +179,9 @@
 
 #pragma mark - - - - - - - - - - - - - - - private methods 私有方法 - - - - - - - - - - - - - -
 - (BOOL)validateEmail:(NSString *)email {
-    
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-    
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-    
     return [emailTest evaluateWithObject:email];
-    
 }
 
 ////  密码显示与隐藏

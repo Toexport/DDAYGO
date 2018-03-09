@@ -19,9 +19,9 @@
 //图片拼接接口
 //外网
 #define ImgAPI @"http://www.ddaygo.com"
-
 //内网
 //#define ImgAPI @"http://192.168.0.117:7000"
+
 
 //热销商品(4张图片的那个)
 #define HotCakesAPI @"hotproduct"

@@ -9,12 +9,13 @@
 #import "ZP_FrontPageReceivingAddressModel.h"
 
 @implementation ZP_FrontPageReceivingAddressModel
+
 + (instancetype)GetFrontPageReceivingAddress:(NSDictionary *)dic {
     return [[self alloc]initWithFrontPageReceivingAddressData:dic];
 }
+
 - (instancetype)initWithFrontPageReceivingAddressData:(NSDictionary *)Dic {
     if (self == [super init]) {
-        
         self.eeceiptname = Dic[@"receiptname"];
         self.eeceiptphone = Dic[@"receiptphone"];
         self.addressid = Dic[@"addressid"];
@@ -24,6 +25,7 @@
     }
     return self;
 }
+
 +(id)cheakNull:(id)dic {
     if ([dic isEqual:[NSNull null]]) {
         return @"";

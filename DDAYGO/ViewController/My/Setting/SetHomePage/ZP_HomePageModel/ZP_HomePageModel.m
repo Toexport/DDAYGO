@@ -9,6 +9,7 @@
 #import "ZP_HomePageModel.h"
 #import "PrefixHeader.pch"
 @implementation ZP_HomePageModel
+
 + (instancetype)gEtHomePage:(NSDictionary *)Dic {
     return [[self alloc]initWithHomePageData:Dic];
 }

@@ -19,7 +19,7 @@
         self.productname = dic[@"productname"];
         self.productprice = [NSString stringWithFormat:@"%@",dic[@"productprice"]];
         self.TrademarkLabel = [NSString stringWithFormat:@"%@", dic[@"cp"]];
-//        self.quantity = [NSString stringWithFormat:@"%@",dic[@"per"]];
+        //        self.quantity = [NSString stringWithFormat:@"%@",dic[@"per"]];
         self.peramount = [NSString stringWithFormat:@"%@",dic[@"productsale"]];
         self.productid = [NSString stringWithFormat:@"%@",dic[@"productid"]];
         self.productamount = [NSString stringWithFormat:@"%@",dic[@"productamount"]];

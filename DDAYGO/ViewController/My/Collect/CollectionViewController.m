@@ -31,8 +31,7 @@
         self.noDataView = response;
         [self.tableView reloadData];
     }];
-    
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 //UI
@@ -63,6 +62,7 @@
     [super viewWillAppear:animated];
     [self getData];
 }
+
 // 获取数据
 - (void)getData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
@@ -122,7 +122,6 @@
         }
         return 0;
     }
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

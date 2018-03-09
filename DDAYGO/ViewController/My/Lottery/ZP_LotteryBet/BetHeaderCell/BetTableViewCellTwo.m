@@ -13,12 +13,12 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-//    _deleBut.layer.borderWidth = 0.5f;
-//    _deleBut.layer.borderColor = [[UIColor redColor]CGColor];
+    //    _deleBut.layer.borderWidth = 0.5f;
+    //    _deleBut.layer.borderColor = [[UIColor redColor]CGColor];
 }
 
 - (void)updateCount:(NSArray *)arr {
-
+    
     [self removeAllSubviews];
     CGFloat value = ZP_Width-109-28*6;
     CGFloat superHeight = self.contentView.frame.size.height;
@@ -44,13 +44,10 @@
             [but setTitle:[NSString stringWithFormat:@"%02ld",[arr[i] integerValue]] forState:UIControlStateNormal];}
         [but setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [but setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-//        but.titleEdgeInsets = UIEdgeInsetsMake(2.5, 2.5, 2.5, 2.5);
+        //        but.titleEdgeInsets = UIEdgeInsetsMake(2.5, 2.5, 2.5, 2.5);
         [self.contentView addSubview:but];
-        
     }
-   
 }
-
 
 - (void)removeAllSubviews {
     //[self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];

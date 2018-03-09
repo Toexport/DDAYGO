@@ -27,7 +27,7 @@
     [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_WhiteColor}];   // 更改导航栏字体颜色
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-//    [_ICUEQuicklogin setTitle:MyLocal(@"Searchfavorite") forState:UIControlStateNormal];
+    //    [_ICUEQuicklogin setTitle:MyLocal(@"Searchfavorite") forState:UIControlStateNormal];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
@@ -47,8 +47,8 @@
     [self.navigationController pushViewController:Register animated:YES];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
 }
+
 // 快速登录
 - (IBAction)QuickloginAction:(id)sender {
     NSLog(@"快速登录");
@@ -56,7 +56,6 @@
     [self.navigationController pushViewController:Register animated:YES];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
 }
 
 // 热点被接入，子类重写

@@ -57,8 +57,7 @@ static NSString * collectionCellIdentifier = @"collectionCellIdentifier";
 }
 
 #pragma mark --setup
-- (void)setupSubViews
-{
+- (void)setupSubViews {
     _startOffsetX = 0;
     _isSelectBtn = NO;
     _contentViewCanScroll = YES;
@@ -72,8 +71,7 @@ static NSString * collectionCellIdentifier = @"collectionCellIdentifier";
 
 #pragma mark UICollectionView
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.childsVCs.count;
 }
 
@@ -100,8 +98,7 @@ static NSString * collectionCellIdentifier = @"collectionCellIdentifier";
 
 #pragma mark UIScrollView
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     _isSelectBtn = NO;
     _startOffsetX = scrollView.contentOffset.x;
     
@@ -110,8 +107,7 @@ static NSString * collectionCellIdentifier = @"collectionCellIdentifier";
     }
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (_isSelectBtn) {
         return;
     }

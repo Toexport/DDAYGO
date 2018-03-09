@@ -26,7 +26,7 @@
 }
 
 - (void)initUI {
-   self.title = NSLocalizedString(@"Roll up", nil);
+    self.title = NSLocalizedString(@"Roll up", nil);
 }
 // 國際化
 - (void) international {
@@ -44,11 +44,11 @@
 }
 
 - (void)AllData {
-//    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
-//    dic[@"token"] = Token;
+    //    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    //    dic[@"token"] = Token;
     [ZP_MyTool requestLotterynow:Token uccess:^(id obj) {
         ZPLog(@"%@",obj);
-//        NSMutableDictionary * dic = obj[@"lotterywin"];
+        //        NSMutableDictionary * dic = obj[@"lotterywin"];
         ZP_InstructionBetModel * model = [ZP_InstructionBetModel mj_objectWithKeyValues:obj];
         self.prizeDic = obj;
         [self initWithINstruction:model];

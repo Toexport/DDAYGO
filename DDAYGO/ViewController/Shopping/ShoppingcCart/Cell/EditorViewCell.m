@@ -35,7 +35,7 @@
     }];
     _button = button;
     
-//  主图
+    //  主图
     UIImageView * Mainfigure = [UIImageView new];
     [Mainfigure setContentScaleFactor:[[UIScreen mainScreen] scale]];
     Mainfigure.contentMode =  UIViewContentModeScaleAspectFill;
@@ -50,7 +50,7 @@
     }];
     _Mainfigure = Mainfigure;
     
-//  标题
+    //  标题
     ZP_GeneralLabel * titleLabel = [ZP_GeneralLabel initWithtextLabel:_titleLabel.text textColor:ZP_TypefaceColor font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self.contentView addSubview:titleLabel];
     _titleLabel = titleLabel;
@@ -60,7 +60,7 @@
         make.right.equalTo(Mainfigure).offset(ZP_Width - 35 -95);
     }];
     
-//     商品介绍
+    //     商品介绍
     ZP_GeneralLabel * MerchandiseIntroducedLabel = [ZP_GeneralLabel initWithtextLabel:_MerchandiseIntroducedLabel.text textColor:ZP_TypefaceColor font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     MerchandiseIntroducedLabel.lineBreakMode = NSLineBreakByWordWrapping; //文字分行
     MerchandiseIntroducedLabel.numberOfLines = 0;
@@ -72,27 +72,27 @@
         make.right.equalTo(Mainfigure).offset(ZP_Width - 35 - 95);
     }];
     
-//  商品颜色
+    //  商品颜色
     ZP_GeneralLabel * descLabel = [ZP_GeneralLabel initWithtextLabel:_descLabel.text textColor:ZP_TypefaceColor font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self.contentView addSubview:descLabel];
     _descLabel = descLabel;
     [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(Mainfigure).offset(95);
         make.top.equalTo(titleLabel).offset(35);
-//        make.width.mas_offset(50);
+        //        make.width.mas_offset(50);
     }];
     
-//  商品尺码
+    //  商品尺码
     ZP_GeneralLabel * SizeLabel = [ZP_GeneralLabel initWithtextLabel:_SizeLanbel.text textColor:ZP_TypefaceColor font:ZP_stockFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     [self.contentView addSubview:SizeLabel];
     _SizeLanbel = SizeLabel;
     [SizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(descLabel).offset(40);
         make.top.equalTo(descLabel).offset(0);
-    //        make.width.mas_offset(25);
+        //        make.width.mas_offset(25);
     }];
     
-//  背景
+    //  背景
     UIView * backgroundView = [UIView new];
     backgroundView.layer.borderWidth = 1;
     backgroundView.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
@@ -104,7 +104,7 @@
         make.width.mas_equalTo(140);
     }];
     
-//  减少
+    //  减少
     UIButton * Reducebutton = [UIButton buttonWithType:UIButtonTypeCustom];
     Reducebutton.frame = CGRectMake(0, 0, 30, 30);
     [Reducebutton setImage:[UIImage imageNamed:@"ic_shopping_less"] forState:UIControlStateNormal];
@@ -114,7 +114,7 @@
     [backgroundView addSubview:Reducebutton];
     _Reducebutton = Reducebutton;
     
-//  个数
+    //  个数
     UILabel * numLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 0, 80, 30)];
     numLabel.textAlignment = NSTextAlignmentCenter;
     numLabel.textColor = [UIColor blackColor];
@@ -123,7 +123,7 @@
     [backgroundView addSubview:numLabel];
     _numLabel = numLabel;
     
-//  添加
+    //  添加
     UIButton * addButton = [UIButton buttonWithType:UIButtonTypeCustom];
     addButton.frame = CGRectMake(110, 0, 30, 30);
     [addButton setImage:[UIImage imageNamed:@"ic_shopping_add"] forState:UIControlStateNormal];
@@ -133,7 +133,7 @@
     [backgroundView addSubview:addButton];
     _addButton = addButton;
     
-//  分割线
+    //  分割线
     UIView * view1 = [UIView new];
     view1.backgroundColor = ZP_Graybackground;
     [self.contentView addSubview:view1];
@@ -149,7 +149,7 @@
 - (void)cellWithModel:(ZP_CartsModel *)model {
     [_Mainfigure sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:nil];;
     _titleLabel.text = model.productname;
-//    _MerchandiseIntroducedLabel.text = model.productremark;
+    //    _MerchandiseIntroducedLabel.text = model.productremark;
     if (model.colorname.length < 1) {
         _descLabel.hidden = YES;
     }else {
@@ -162,7 +162,7 @@
     }
     _numLabel.text = [NSString stringWithFormat:@"%@",model.amount];
     _productamountmodel = model;
-
+    
 }
 
 - (void)buttonClick:(UIButton *)sender {
@@ -183,9 +183,9 @@
         ZPLog(@"%@",self.productamountmodel.productamount);
         return;
     }else {
-    _numLabel.text = [NSString stringWithFormat:@"%ld",[_numLabel.text integerValue]+1];
-    self.btnClickBlock(_numLabel.text);
-}
+        _numLabel.text = [NSString stringWithFormat:@"%ld",[_numLabel.text integerValue]+1];
+        self.btnClickBlock(_numLabel.text);
+    }
 }
 //  筛选
 - (void)ScreeningBut:(UIButton *)sender {

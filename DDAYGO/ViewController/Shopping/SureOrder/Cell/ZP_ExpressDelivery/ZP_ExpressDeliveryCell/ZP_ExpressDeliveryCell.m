@@ -20,7 +20,7 @@
 }
 
 - (void)initUI {
-//  配送方式
+    //  配送方式
     UILabel * DistributionLabel = [UILabel new];
     DistributionLabel.textAlignment = NSTextAlignmentLeft;
     DistributionLabel.textColor = ZP_textblack;
@@ -34,7 +34,7 @@
     }];
     _DistributionLabel = DistributionLabel;
     
-//  快递
+    //  快递
     UILabel * CourierLabel = [UILabel new];
     CourierLabel.textAlignment = NSTextAlignmentLeft;
     CourierLabel.textColor = ZP_textblack;
@@ -47,7 +47,7 @@
     }];
     _CourierLabel = CourierLabel;
     
-//  费用
+    //  费用
     UILabel * CostLabel = [UILabel new];
     CostLabel.textAlignment = NSTextAlignmentLeft;
     CostLabel.textColor = ZP_TypefaceColor;
@@ -59,7 +59,7 @@
     }];
     _CostLabel = CostLabel;
     
-//  下划线
+    //  下划线
     UIView * Underline1 = [UIView new];
     Underline1.layer.borderWidth = 1;
     Underline1.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
@@ -70,13 +70,12 @@
         make.height.mas_equalTo(1);
         make.width.mas_equalTo(ZP_Width - 5);
     }];
-
+    
 }
 
 - (void)ExpressDevliveryDic:(ZP_ExpressDeliveryModel *)model {
-    
     _CostLabel.text = [NSString stringWithFormat:@"%@ %@",DD_MonetarySymbol,model.freightamount]; // 优惠价格
-//    _DistributionLabel.text = [NSString stringWithFormat:@"%@%@",NSLocalizedString(@"Distribution mode: ", nil),model.chooselogistic];
+    //    _DistributionLabel.text = [NSString stringWithFormat:@"%@%@",NSLocalizedString(@"Distribution mode: ", nil),model.chooselogistic];
 }
 
 @end

@@ -21,7 +21,7 @@
 }
 
 - (void)initUI {
-//  背景view
+    //  背景view
     UIView * Backgroundview = [UIView new];
     Backgroundview.layer.borderWidth = 1;
     Backgroundview.backgroundColor = ZP_Graybackground;
@@ -35,7 +35,7 @@
         make.width.mas_equalTo(ZP_Width);
     }];
     
-//  主图
+    //  主图
     UIImageView * FigureImage = [UIImageView new];
     [FigureImage setContentScaleFactor:[[UIScreen mainScreen] scale]];
     FigureImage.contentMode =  UIViewContentModeScaleAspectFill;
@@ -50,7 +50,7 @@
     }];
     _FigureImage = FigureImage;
     
-//  商品文字
+    //  商品文字
     UILabel * titleLabel = [UILabel new];
     titleLabel.textColor = ZP_textblack;
     titleLabel.lineBreakMode = NSLineBreakByWordWrapping; //文字分行
@@ -64,7 +64,7 @@
     }];
     _titleLabel = titleLabel;
     
-//  250ml升级装
+    //  250ml升级装
     UILabel * descLabel = [UILabel new];
     descLabel.textColor = ZP_TypefaceColor;
     descLabel.font = [UIFont systemFontOfSize:11];
@@ -74,13 +74,13 @@
         make.top.equalTo(titleLabel).offset(30);
     }];
     _descLabel = descLabel;
-//  货币符号
+    //  货币符号
     UILabel * CurrencySymbolLabel = [UILabel new];
     CurrencySymbolLabel.textAlignment = NSTextAlignmentLeft;
     CurrencySymbolLabel.textColor = ZP_pricebackground;
     CurrencySymbolLabel.font = ZP_titleFont;
-//    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
-//    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
+    //    NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
+    //    CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
     CurrencySymbolLabel.text = DD_MonetarySymbol;
     [self.contentView addSubview:CurrencySymbolLabel];
     [CurrencySymbolLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -88,7 +88,7 @@
         make.top.equalTo(descLabel).offset(15);
     }];
     _CurrencySymbolLabel = CurrencySymbolLabel;
-//  优惠价格
+    //  优惠价格
     UILabel * PreferentialLabel = [UILabel new];
     PreferentialLabel.textAlignment = NSTextAlignmentLeft;
     PreferentialLabel.textColor = ZP_pricebackground;
@@ -100,7 +100,7 @@
     }];
     _PreferentialLabel = PreferentialLabel;
     
-//  商标
+    //  商标
     UIImageView * TrademarkImage = [UIImageView new];
     [self.contentView addSubview:TrademarkImage];
     [TrademarkImage mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -111,7 +111,7 @@
     }];
     _TrademarkImage = TrademarkImage;
     
-//  商标编号
+    //  商标编号
     UILabel * TrademarkLabel = [UILabel new];
     TrademarkLabel.textAlignment = NSTextAlignmentLeft;
     TrademarkLabel.textColor = ZP_textblack;
@@ -122,8 +122,8 @@
         make.top.equalTo(TrademarkImage).offset(2.5);
     }];
     _TrademarkLabel = TrademarkLabel;
-
-//  符号X
+    
+    //  符号X
     UILabel * SharacterLabel = [UILabel new];
     SharacterLabel.textAlignment = NSTextAlignmentLeft;
     SharacterLabel.textColor = ZP_TypefaceColor;
@@ -136,7 +136,7 @@
     }];
     _SharacterLabel = SharacterLabel;
     
-//  数量
+    //  数量
     UILabel * QuantityLabel = [UILabel new];
     QuantityLabel.textAlignment = NSTextAlignmentLeft;
     QuantityLabel.textColor = ZP_TypefaceColor;
@@ -147,8 +147,8 @@
         make.top.equalTo(SharacterLabel).offset(0);
     }];
     _QuantityLabel = QuantityLabel;
-
-//  下划线
+    
+    //  下划线
     UIView * Underline1 = [UIView new];
     Underline1.layer.borderWidth = 1;
     Underline1.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -164,12 +164,12 @@
 - (void)InformationWithDic:(ZP_InformationModel *)model {
     [_FigureImage sd_setImageWithURL:[NSURL URLWithString:model.defaultimg] placeholderImage:[UIImage imageNamed:@""]];
     _titleLabel.text = model.productname;
-   _PreferentialLabel.text = [NSString stringWithFormat:@"%@",model.productprice]; // 优惠价格
+    _PreferentialLabel.text = [NSString stringWithFormat:@"%@",model.productprice]; // 优惠价格
     _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
     _TrademarkLabel.text = model.cp;
     _QuantityLabel.text = model.amount;
-    _ComputationsLabel.text = [NSString stringWithFormat:@"NT %.2f",model.amount.intValue * model.productprice.floatValue];
-
+    _ComputationsLabel.text = [NSString stringWithFormat:@" %.2f",model.amount.intValue * model.productprice.floatValue];
+    
 }
 
 @end

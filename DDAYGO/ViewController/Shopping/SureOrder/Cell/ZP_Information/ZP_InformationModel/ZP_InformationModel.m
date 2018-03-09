@@ -9,6 +9,7 @@
 #import "ZP_InformationModel.h"
 #import "PrefixHeader.pch"
 @implementation ZP_InformationModel
+
 + (instancetype)GetInformationData:(NSDictionary *)dic {
     return [[self alloc]initWithInformationData:dic];
 }
@@ -32,6 +33,7 @@
     }
     return dic;
 }
+
 + (NSMutableArray *)arrayWithArray:(NSArray *)array {
     NSMutableArray * arr = [[NSMutableArray alloc]init];
     for (NSDictionary * dic in array) {

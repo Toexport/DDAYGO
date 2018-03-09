@@ -21,8 +21,7 @@
     [super viewDidLoad];
     [self initUI];
     [self AllData];
-          [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 - (void)initUI {
@@ -36,7 +35,6 @@
         self.tableView.estimatedSectionFooterHeight = 0;
     }
 }
-
 
 // 获取用户提现记录列表
 - (void)AllData {
@@ -105,11 +103,8 @@
 }
 
 #pragma mark - tableview delegate
-
-
 //2.对于每个section返回一个cell
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.ExtractArr.count;
 }
 
@@ -137,10 +132,8 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     return 290;
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (self.ExtractArr.count -1 == section) {

@@ -16,7 +16,7 @@
 #import "ZP_LeftModel.h"
 #import "ZP_RightModel.h"
 @interface ClassificationViewController ()<UITableViewDataSource,UITableViewDelegate> {
-
+    
     NSInteger num;
 }
 @property (assign ,nonatomic) NSInteger leftSelectRow;
@@ -85,7 +85,7 @@
         [self.leftTableView reloadData];
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
-  }];
+    }];
 }
 
 //  数据（右边）
@@ -99,7 +99,7 @@
         sendCode = @886;
     }
     NSDictionary * dictt = @{@"level":@"2",@"countrycode":sendCode,@"fatherid":[Molde.producttypeid stringValue]};
-//     NSDictionary * dictt = @{@"level":@"2",@"language":@"zh-tw",@"fatherid": [NSString stringWithFormat:@"producttypeid+%ld",producttypeid]};
+    //     NSDictionary * dictt = @{@"level":@"2",@"language":@"zh-tw",@"fatherid": [NSString stringWithFormat:@"producttypeid+%ld",producttypeid]};
     ZPLog(@"%@",dictt);
     [ZP_ClassViewTool requClassIficationrj:dictt success:^(id obj) {
         ZPLog(@"%@",obj);
@@ -122,7 +122,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (tableView == self.leftTableView) {
         LeftTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"LeftTableViewCell"];
         [cell updateData:self.newsData[indexPath.row]];

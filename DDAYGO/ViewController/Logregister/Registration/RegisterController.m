@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];  // 隐藏返回按钮上的文字
 }
 
@@ -147,7 +147,7 @@
             NSLog(@"注册成功");
             [SVProgressHUD showSuccessWithStatus:MyLocal(@"Registered successfully")];
             CountCode = self.CountCode;   // 保存国家
-//            REGISTERED_SUCCESSFULLY;
+            //            REGISTERED_SUCCESSFULLY;
             [self performSelector:@selector(pushSecondController) withObject:nil afterDelay:1.5f]; //设置加载完成后再跳转
             
         }else
@@ -324,7 +324,6 @@
 
 #pragma mark - - - - - - - - - - - - - - delegate 视图委托 - - - - - - - - - - - - - -
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    
     if (self.ZPCountryTextField.textField == textField) {
         [self choseCountry];
         return NO;

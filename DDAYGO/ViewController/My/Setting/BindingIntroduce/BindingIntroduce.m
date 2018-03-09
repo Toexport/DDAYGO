@@ -24,8 +24,7 @@
     self.BindingIntroduceTextField.keyboardType = UIKeyboardTypeASCIICapable;
     self.BindingIntroduceTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
     self.BindingIntroducscrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag; // 滚动时键盘隐藏
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 // 按钮状态属性
@@ -34,6 +33,7 @@
     self.BinDingBut.userInteractionEnabled = NO;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(ButStatus:) name:UITextFieldTextDidChangeNotification object:self.BindingIntroduceTextField];
 }
+
 - (void)ButStatus:(UIButton *)sender {
     if (self.BindingIntroduceTextField.text.length > 0) {
         self.BinDingBut.userInteractionEnabled = YES;
@@ -59,6 +59,7 @@
     [alert addAction:cancelAction];
     [self presentViewController:alert animated:YES completion:nil];
 }
+
 - (void)allData {
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"acc"] = self.BindingIntroduceTextField.text;

@@ -3,8 +3,6 @@
 
 @interface FSSegmentTitleView ()<UIScrollViewDelegate>
 
-
-
 @property (nonatomic, strong) UIScrollView *scrollView;
 
 @property (nonatomic, strong) NSMutableArray<UIButton *> *itemBtnArr;
@@ -19,8 +17,7 @@
 
 @implementation FSSegmentTitleView
 
-- (instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titlesArr delegate:(id<FSSegmentTitleViewDelegate>)delegate indicatorType:(FSIndicatorType)incatorType
-{
+- (instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titlesArr delegate:(id<FSSegmentTitleViewDelegate>)delegate indicatorType:(FSIndicatorType)incatorType {
     self = [super initWithFrame:frame];
     if (self) {
         [self initWithProperty];
@@ -31,8 +28,7 @@
     return self;
 }
 //初始化默认属性值
-- (void)initWithProperty
-{
+- (void)initWithProperty {
     self.itemMargin = 20;
     self.selectIndex = 0;
     self.titleNormalColor = [UIColor blackColor];
@@ -43,8 +39,7 @@
     self.titleSelectFont = self.titleFont;
 }
 //重新布局frame
-- (void)layoutSubviews
-{
+- (void)layoutSubviews {
     [super layoutSubviews];
     self.scrollView.frame = self.bounds;
     if (self.itemBtnArr.count == 0) {
@@ -60,9 +55,7 @@
             CGFloat itemBtnWidth = [FSSegmentTitleView getWidthWithString:self.titlesArr[idx] font:titleFont] + self.itemMargin;
             totalBtnWidth += itemBtnWidth;
         }
-    }
-    else
-    {
+    }else {
         for (NSString *title in self.titlesArr) {
             CGFloat itemBtnWidth = [FSSegmentTitleView getWidthWithString:title font:titleFont] + self.itemMargin;
             totalBtnWidth += itemBtnWidth;
@@ -75,7 +68,7 @@
             obj.frame = CGRectMake(idx * itemBtnWidth, 0, itemBtnWidth, itemBtnHeight);
         }];
         self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds), CGRectGetHeight(self.scrollView.bounds));
-    }else{//超出屏幕 可以滑动
+    }else {//超出屏幕 可以滑动
         CGFloat currentX = 0;
         for (int idx = 0; idx < self.titlesArr.count; idx++) {
             UIButton *btn = self.itemBtnArr[idx];
@@ -90,8 +83,7 @@
     [self moveIndicatorView:YES];
 }
 
-- (void)moveIndicatorView:(BOOL)animated
-{
+- (void)moveIndicatorView:(BOOL)animated {
     UIFont *titleFont = _titleFont;
     UIButton *selectBtn = self.itemBtnArr[self.selectIndex];
     titleFont = selectBtn.isSelected?_titleSelectFont:_titleFont;
@@ -120,8 +112,7 @@
     }];
 }
 
-- (void)scrollSelectBtnCenter:(BOOL)animated
-{
+- (void)scrollSelectBtnCenter:(BOOL)animated {
     UIButton *selectBtn = self.itemBtnArr[self.selectIndex];
     CGRect centerRect = CGRectMake(selectBtn.center.x - CGRectGetWidth(self.scrollView.bounds)/2, 0, CGRectGetWidth(self.scrollView.bounds), CGRectGetHeight(self.scrollView.bounds));
     [self.scrollView scrollRectToVisible:centerRect animated:animated];
@@ -141,16 +132,14 @@
     return _scrollView;
 }
 
-- (NSMutableArray<UIButton *>*)itemBtnArr
-{
+- (NSMutableArray<UIButton *>*)itemBtnArr {
     if (!_itemBtnArr) {
         _itemBtnArr = [[NSMutableArray alloc]init];
     }
     return _itemBtnArr;
 }
 
-- (UIView *)indicatorView
-{
+- (UIView *)indicatorView {
     if (!_indicatorView) {
         _indicatorView = [[UIView alloc]init];
         [self.scrollView addSubview:_indicatorView];
@@ -160,8 +149,7 @@
 
 #pragma mark --Setter
 
-- (void)setTitlesArr:(NSArray *)titlesArr
-{
+- (void)setTitlesArr:(NSArray *)titlesArr {
     _titlesArr = titlesArr;
     [self.itemBtnArr makeObjectsPerformSelector:@selector(removeFromSuperview)];
     self.itemBtnArr = nil;
@@ -183,8 +171,7 @@
     [self layoutIfNeeded];
 }
 
-- (void)setItemMargin:(CGFloat)itemMargin
-{
+- (void)setItemMargin:(CGFloat)itemMargin {
     _itemMargin = itemMargin;
     
     [self setNeedsLayout];

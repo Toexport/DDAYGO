@@ -21,7 +21,7 @@
 
 - (void)initUI {
     
-//  匿名买家
+    //  匿名买家
     UILabel * AnonymousLabel = [UILabel new];
     AnonymousLabel.textAlignment = NSTextAlignmentLeft;
     AnonymousLabel.textColor = ZP_textblack;
@@ -34,7 +34,7 @@
     }];
     _AnonymousLabel = AnonymousLabel;
     
-//  匿名买家按钮
+    //  匿名买家按钮
     UIButton * AnonymousButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [AnonymousButton setImage:[UIImage imageNamed:@"ic_Shopping_Choice_normal"] forState:UIControlStateNormal];
     [AnonymousButton setImage:[UIImage imageNamed:@"ic_Shopping_Choice_pressed"] forState:UIControlStateSelected];
@@ -49,7 +49,6 @@
         make.bottom.equalTo(self).offset(-12.f);
     }];
     _AnonymousButton = AnonymousButton;
-    
 }
 
 - (void)AnonymousBut:(UIButton * )sender {

@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 // UI
@@ -30,7 +30,7 @@
 - (IBAction)RefundsRefunds:(id)sender {
     RequestRefundController * RequestReplace = [[RequestRefundController alloc]init];
     RequestReplace.oid = self.Oid; // 传过去的订单号
-//    RequestReplace.titleStr = self.title;
+    //    RequestReplace.titleStr = self.title;
     RequestReplace.type = 666;
     [self.navigationController pushViewController:RequestReplace animated:YES];
 }
@@ -39,7 +39,7 @@
 - (IBAction)Exchange:(id)sender {
     RequestRefundController * RequestReplace = [[RequestRefundController alloc]init];
     RequestReplace.oid = self.Oid; // 传过去的订单号
-//    RequestReplace.titleStr = self.title;
+    //    RequestReplace.titleStr = self.title;
     RequestReplace.type = 555;
     [self.navigationController pushViewController:RequestReplace animated:YES];
 }

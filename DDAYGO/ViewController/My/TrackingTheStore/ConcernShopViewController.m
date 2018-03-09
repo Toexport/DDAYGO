@@ -20,8 +20,7 @@
     [super viewDidLoad];
     [self initUI];
     self.title = NSLocalizedString(@"Tracking the shop", nil);
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 // 暂不开启
 - (void)initUI {
@@ -39,7 +38,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ConcernShopTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConcernShopTableViewCell"];
-    
     return cell;
 }
 

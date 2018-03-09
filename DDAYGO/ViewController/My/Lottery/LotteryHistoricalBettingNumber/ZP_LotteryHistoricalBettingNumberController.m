@@ -54,7 +54,6 @@
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.view.backgroundColor = [UIColor whiteColor];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
-
 }
 
 - (UITableView *)tableView {
@@ -71,7 +70,7 @@
     self.title = NSLocalizedString(@"History submission number", nil);
     [self.view addSubview:self.tableView];
     [self.tableView registerNib:[UINib nibWithNibName:@"ZP_LotteryHistoricalBettingNumberCell" bundle:nil] forCellReuseIdentifier:@"ZP_LotteryHistoricalBettingNumberCell"];
-//    [self.tableView registerClass:[ZP_LotterySubCell class] forCellReuseIdentifier:@"lotterysubcell"];
+    //    [self.tableView registerClass:[ZP_LotterySubCell class] forCellReuseIdentifier:@"lotterysubcell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;  //隐藏tableview多余的线条
     
     /**** IOS 11 ****/
@@ -110,7 +109,7 @@
         make.height.mas_equalTo(15);
     }];
     
-//    标题3
+    //    标题3
     ZP_GeneralLabel * titleLabel3 = [ZP_GeneralLabel initWithtextLabel:_TitleLabel3.text textColor:ZP_textblack font:ZP_TrademarkFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_Graybackground];
     [myView addSubview:titleLabel3];
     _TitleLabel3 = titleLabel3;
@@ -142,9 +141,9 @@
             [self logouttt];
         }
         //****************************************************************************************//
-         ZPLog(@"%@",obj);
+        ZPLog(@"%@",obj);
         if ([obj isKindOfClass:[NSDictionary class]]) {
-
+            
             return ;
         }
         ZP_LotteryHistoricalBettingNumberModel *model1 = [ZP_LotteryHistoricalBettingNumberModel mj_objectWithKeyValues:obj[0]];
@@ -190,7 +189,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return CGFLOAT_MIN;
     return 0.001;
-
+    
 }
 
 ///*设置标题头的宽度*/
@@ -216,7 +215,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
     ZP_LotteryHistoricalBettingNumberModel3 * model3= [ZP_LotteryHistoricalBettingNumberModel3 mj_objectWithKeyValues:model2.winordersdetail[0]];
     [cell fillIntoData:model3];
-
+    
     return cell;
 }
 

@@ -37,7 +37,7 @@
         self.NoDataView = response;
         [self.collectionView reloadData];
     }];
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 // 刷新
 - (void)addRefresh {
@@ -116,8 +116,8 @@
         NSLog(@"dele %@",error);
     }];
 }
-#pragma mark --- collectionView delegate
 
+#pragma mark --- collectionView delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (self.newsData.count > 0) {
         self.collectionView.hidden = NO;
@@ -146,11 +146,11 @@
     return CGSizeMake(width + 5, width * 140 / 95);
 }
 
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(10, 10, 10, 10);
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     ZP_FootprintModel1 *model = self.newsData[indexPath.row];
     BuyViewController * ByView = [[BuyViewController alloc]init];
@@ -165,7 +165,6 @@
     }
     return _newsData;
 }
-
 
 // 热点被接入，子类重写
 - (void)adjustStatusBar:(NSNotification *)notification {

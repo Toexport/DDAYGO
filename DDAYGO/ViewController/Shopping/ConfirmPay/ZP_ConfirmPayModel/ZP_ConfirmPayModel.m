@@ -13,6 +13,7 @@
 + (instancetype)GetConfirmPayData:(NSDictionary *)dic {
     return [[self alloc]initWithConfirmPayData:dic];
 }
+
 - (instancetype)initWithConfirmPayData:(NSDictionary *)Dic {
     if (self == [super init]) {
         self.payname = Dic[@"payname"];
@@ -20,12 +21,14 @@
     }
     return self;
 }
+
 + (id)cheakNull:(id)dic {
     if ([dic isEqual:[NSNull null]]) {
         return @"";
     }
     return dic;
 }
+
 + (NSMutableArray *)arrayWithArray:(NSArray *)array {
     NSMutableArray * arr = [[NSMutableArray alloc]init];
     for (NSDictionary * dic in array) {

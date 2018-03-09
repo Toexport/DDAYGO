@@ -24,7 +24,7 @@
 
 - (void)initUI {
     self.scoreButArray = [NSMutableArray array];
-//  主图
+    //  主图
     UIImageView * FigureImage = [UIImageView new];
     [self.contentView addSubview:FigureImage];
     [FigureImage mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -35,7 +35,7 @@
     }];
     _FigureImage = FigureImage;
     
-//  商品评分
+    //  商品评分
     UILabel * EvaluationLabel = [UILabel new];
     EvaluationLabel.textAlignment = NSTextAlignmentLeft;
     EvaluationLabel.textColor = ZP_textblack;
@@ -45,11 +45,10 @@
     [EvaluationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(50);
         make.top.equalTo(self).offset(20);
-        
     }];
     _EvaluationLabel = EvaluationLabel;
     
-//  横线
+    //  横线
     UIView * Horizontalview = [UIView new];
     Horizontalview.backgroundColor = ZP_Graybackground;
     [self.contentView addSubview:Horizontalview];
@@ -60,7 +59,7 @@
         make.width.mas_equalTo(ZP_Width);
     }];
     
-//  产品评价
+    //  产品评价
     UITextField * Evaluationtext = [UITextField new];
     Evaluationtext.textAlignment = NSTextAlignmentLeft;
     Evaluationtext.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
@@ -86,7 +85,7 @@
         make.bottom.equalTo(self).offset(0);
         make.height.mas_equalTo(1);
         make.width.mas_equalTo(ZP_Width - 5);
-     }];
+    }];
 }
 
 //  按钮

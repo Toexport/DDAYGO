@@ -33,11 +33,12 @@
     self.ZipcodeaddressTextField.clearButtonMode = UITextFieldViewModeWhileEditing;  // 一键删除文字
     [self.navigationItem.rightBarButtonItem setTintColor:ZP_WhiteColor];
     
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 // 国别
 - (void)countrycode {
+    
     self.RegionLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"];
     switch ([[[NSUserDefaults standardUserDefaults] objectForKey:@"countrycode"] integerValue]) {
         case 886:
@@ -85,17 +86,17 @@
         }else
             if ([dic[@"result"] isEqualToString:@"add_up_to_ten"]) {
                 [SVProgressHUD showInfoWithStatus:MyLocal(@"Add failure, and you can only add up to 10 data.")];
-                }else
-                    //*************************************Token被挤掉***************************************************//
-                    if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
-                        //        清除所有的数据
-                        Token = nil;
-                        DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DDAYGO_REMOVE_STATE; DDAYGO_REMOVE_HEADERIMAGE; DDAYGO_REMOVE_NAMELABEL; DD_ChangeStaus;
-                        ZPICUEToken = nil;
-                        [[SDImageCache sharedImageCache] clearDisk];
+            }else
+                //*************************************Token被挤掉***************************************************//
+                if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
+                    //        清除所有的数据
+                    Token = nil;
+                    DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DDAYGO_REMOVE_STATE; DDAYGO_REMOVE_HEADERIMAGE; DDAYGO_REMOVE_NAMELABEL; DD_ChangeStaus;
+                    ZPICUEToken = nil;
+                    [[SDImageCache sharedImageCache] clearDisk];
 #pragma make -- 提示框
-                        [self logouttt];
-                    }
+                    [self logouttt];
+                }
         //****************************************************************************************//
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);

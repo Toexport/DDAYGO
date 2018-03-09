@@ -12,6 +12,7 @@
 #import "ZP_InformationCell.h"
 #import "ZP_InformationModel.h"
 @implementation ZP_MessageViewCell
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     static NSString * MessageID = @"messageViewCell";
     self = [super initWithStyle:style reuseIdentifier:MessageID];
@@ -73,6 +74,7 @@
         make.bottom.equalTo(self).offset(-15);
     }];
     _TotalLabel = TotalLabel;
+    
     //  小计
     UILabel * SmallLabel = [UILabel new];
     SmallLabel.textAlignment = NSTextAlignmentLeft;
@@ -86,15 +88,13 @@
     }];
     _SmallLabel = SmallLabel;
     
-    
-//      价格
+    //      价格
     UILabel * ComputationsLabel = [UILabel new];
     ComputationsLabel.textAlignment = NSTextAlignmentLeft;
     ComputationsLabel.textColor = ZP_HomePreferentialpriceTypefaceCorlor;
     ComputationsLabel.font = ZP_titleFont;
     [self.contentView addSubview:ComputationsLabel];
     [ComputationsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         make.left.equalTo(SmallLabel).offset(30);
         make.bottom.equalTo(self).offset(-15);
     }];
@@ -114,7 +114,6 @@
 }
 
 - (void)MessageDic:(ZP_InformationModel *)model {
-
     _TotalLabel.text = [NSString stringWithFormat:MyLocal(@"Total%@a goods"),_allCount];
     _ComputationsLabel.text = [NSString stringWithFormat:@"%@ %@",DD_MonetarySymbol, _allMoney];
 }

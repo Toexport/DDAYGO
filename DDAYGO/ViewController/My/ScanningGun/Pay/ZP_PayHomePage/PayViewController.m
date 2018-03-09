@@ -35,7 +35,7 @@
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"ic_bar_return"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
-      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 - (void)backAction {
@@ -58,12 +58,12 @@
         ZP_PayView * payView = [[ZP_PayView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         payView.AmountLabel.text = money;
         payView.dataArray = _dataArrar;
-//        payView.
+        //        payView.
         payView.confirmPayBlock = ^(id response) {
         };
         payView.ConfirmPayMoneyBlock = ^(id response) {
             ZP_PayModel * model = response;
-//            ZP_PayModel * modell = _dataArrar[0];
+            //            ZP_PayModel * modell = _dataArrar[0];
             NSMutableDictionary * dic = [NSMutableDictionary dictionary];
             dic[@"token"] = Token;
             dic[@"amount"] = money; // 这个是在view上选择支付金额（手动输入）
@@ -72,7 +72,7 @@
             //    dic[@"payway"] = @"esafe_creditcard";   // 这个是在view上选择支付方式
             dic[@"payway"] = model.payid;
             dic[@"icuetoken"] = ZPICUEToken;
-             __weak typeof(payView) weakView = payView;
+            __weak typeof(payView) weakView = payView;
             //    这是是在选择支付方式后点击确定后跳转的数据加OID回调
             [ZP_MyTool requesQrCodePay:dic success:^(id obj) {
                 if ([obj[@"result"]isEqualToString:@"ok"]) {
@@ -86,37 +86,37 @@
                 }else
                     if ([obj[@"result"]isEqualToString:@"country_err"]) {
                         [SVProgressHUD showInfoWithStatus:MyLocal(@"Country mismatch")];
-                }else
-                    if ([obj[@"result"]isEqualToString:@"payamount_err"]) {
-                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Payment method error")];
-                }else
-                    if ([obj[@"result"]isEqualToString:@"icuetoken_err"]) {
-                        [SVProgressHUD showInfoWithStatus:MyLocal(@"ICUE identity error.")];
-                }else
-                    if ([obj[@"result"]isEqualToString:@"shopcode_err"]) {
-                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Qr code error, wrong merchant ID.")];
-                }else
-                    if ([obj[@"result"]isEqualToString:@"qrpay_state_err"]) {
-                        [SVProgressHUD showInfoWithStatus:MyLocal(@"merchant has closed the scan code payment.")];
-                }else
-                    if ([obj[@"result"]isEqualToString:@"qrpay_state_err"]) {
-                        [SVProgressHUD showInfoWithStatus:MyLocal(@"amount of payment must be greater than 0.")];
-                }else
-                    if ([obj[@"result"]isEqualToString:@"addorder_err"]) {
-                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Order generation failed")];
-                }
+                    }else
+                        if ([obj[@"result"]isEqualToString:@"payamount_err"]) {
+                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Payment method error")];
+                        }else
+                            if ([obj[@"result"]isEqualToString:@"icuetoken_err"]) {
+                                [SVProgressHUD showInfoWithStatus:MyLocal(@"ICUE identity error.")];
+                            }else
+                                if ([obj[@"result"]isEqualToString:@"shopcode_err"]) {
+                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Qr code error, wrong merchant ID.")];
+                                }else
+                                    if ([obj[@"result"]isEqualToString:@"qrpay_state_err"]) {
+                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"merchant has closed the scan code payment.")];
+                                    }else
+                                        if ([obj[@"result"]isEqualToString:@"qrpay_state_err"]) {
+                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"amount of payment must be greater than 0.")];
+                                        }else
+                                            if ([obj[@"result"]isEqualToString:@"addorder_err"]) {
+                                                [SVProgressHUD showInfoWithStatus:MyLocal(@"Order generation failed")];
+                                            }
             } failure:^(NSError *error) {
                 NSLog(@"error = %@",error);
             }];
         };
         ZPLog(@"%@",obj);
         [payView showInView:self.view];
-//        [self.tableView reloadData];
+        //        [self.tableView reloadData];
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
     }];
-
-    }
+    
+}
 
 // UI
 - (void)initUI {
@@ -145,7 +145,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 350;
 }
-
 
 // 热点被接入，子类重写
 - (void)adjustStatusBar:(NSNotification *)notification {

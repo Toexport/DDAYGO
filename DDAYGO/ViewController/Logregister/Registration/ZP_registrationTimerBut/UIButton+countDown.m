@@ -9,6 +9,7 @@
 #import "UIButton+countDown.h"
 
 @implementation UIButton (countDown)
+
 - (void)startWithTime:(NSInteger)timeLine title:(NSString *)title countDownTitle:(NSString *)subTitle mainColor:(UIColor *)mColor countColor:(UIColor *)color {
     
     __weak typeof(self) weakSelf = self;
@@ -20,8 +21,8 @@
     dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), 1.0 * NSEC_PER_SEC, 0);
     dispatch_source_set_event_handler(_timer, ^{
         
-    //倒计时结束，关闭,标题设置为完成标题,并且要设定倒数时间不等于现在剩余时间
-    if (timeOut <= 0 || ([self.titleLabel.text isEqualToString:title] && timeOut != timeLine)) {
+        //倒计时结束，关闭,标题设置为完成标题,并且要设定倒数时间不等于现在剩余时间
+        if (timeOut <= 0 || ([self.titleLabel.text isEqualToString:title] && timeOut != timeLine)) {
             dispatch_source_cancel(_timer);
             dispatch_async(dispatch_get_main_queue(), ^{
                 weakSelf.backgroundColor = mColor;
@@ -55,8 +56,7 @@
     dispatch_source_set_event_handler(_timer, ^{
         
         //        NSLog(@"self.titleLabel.text-->%@",self.titleLabel.text);
-        
-    //倒计时结束，关闭,标题设置为完成标题,并且要设定倒数时间不等于现在剩余时间
+        //倒计时结束，关闭,标题设置为完成标题,并且要设定倒数时间不等于现在剩余时间
         if (timeOut <= 0 || ([self.titleLabel.text isEqualToString:title] && timeOut != timeLine)) {
             dispatch_source_cancel(_timer);
             dispatch_async(dispatch_get_main_queue(), ^{

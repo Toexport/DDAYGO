@@ -9,7 +9,6 @@
 #import "UIButton+Badge.h"
 
 NSString const *UIButton_badgeKey = @"UIButton_badgeKey";
-
 NSString const *UIButton_badgeBGColorKey = @"UIButton_badgeBGColorKey";
 NSString const *UIButton_badgeTextColorKey = @"UIButton_badgeTextColorKey";
 NSString const *UIButton_badgeFontKey = @"UIButton_badgeFontKey";
@@ -68,7 +67,7 @@ NSString const *UIButton_badgeValueKey = @"UIButton_badgeValueKey";
 
 - (void)updateBadgeFrame
 {
-
+    
     CGSize expectedLabelSize = [self badgeExpectedSize];
     
     // Make sure that for small value, the badge will be big enough

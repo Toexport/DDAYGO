@@ -46,7 +46,7 @@
     switch (self.reason.longLongValue) {
         case 0:
         {
-          self.TExtLabel.text = self.reason;
+            self.TExtLabel.text = self.reason;
         }
             break;
         case 1:
@@ -63,9 +63,6 @@
             break;
     }
 }
-
-
-
 
 - (IBAction)requstAction:(id)sender {
     [UIView animateWithDuration:0.3 animations:^{
@@ -113,7 +110,7 @@
     self.title = MyLocal(@"supplier");
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: ZP_textWite}]; 
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: ZP_textWite}];
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
     [self.tableView registerNib:[UINib nibWithNibName:@"SupplierTableViewCell" bundle:nil] forCellReuseIdentifier:@"SupplierTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"SupplierViewCell2" bundle:nil] forCellReuseIdentifier:@"SupplierViewCell2"];
@@ -138,6 +135,7 @@
             break;
     }
 }
+
 // 提交按钮
 - (IBAction)SubmitBut:(id)sender {
     NSArray *array = @[MyLocal(@"company name is empty."),MyLocal(@"Please enter a uniform number."),MyLocal(@"Please enter the company number."),MyLocal(@"Please enter registered capital."),MyLocal(@"Please enter the date of creation."),MyLocal(@"Please select the organization form."),MyLocal(@"Please enter the company address."),MyLocal(@"Please enter your company phone."),MyLocal(@"Please enter emergency contact."),MyLocal(@"Please enter your contact email."),MyLocal(@"Please enter your contact Phone."),MyLocal(@"Please enter project management."),MyLocal(@"Please enter the cooperation project.")];
@@ -174,10 +172,9 @@
     dic[@"companyproduct"] = [self.dataDic objectForKey:@(13)];
     dic[@"projectinfo"] = [self.dataDic objectForKey:@(14)];
     [self AllData:dic];
-//    }];
+    //    }];
 }
 
-     
 // 数据
 - (void)AllData:(NSMutableDictionary *)dic {
     [ZP_MyTool requestSupplierRequest:dic success:^(id obj) {
@@ -191,75 +188,75 @@
                 if ([obj[@"result"]isEqualToString:@"cname_err"]) {
                     [SVProgressHUD showInfoWithStatus:MyLocal(@"company name already exists.")];
                 }else
-                if ([obj[@"result"]isEqualToString:@"companyname_null_err"]) {
-                    [SVProgressHUD showInfoWithStatus:MyLocal(@"company name is empty.")];
-                }else
-                    if ([obj[@"result"]isEqualToString:@"companycode_null_err"]) {
-                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter a uniform number.")];
+                    if ([obj[@"result"]isEqualToString:@"companyname_null_err"]) {
+                        [SVProgressHUD showInfoWithStatus:MyLocal(@"company name is empty.")];
                     }else
-                        if ([obj[@"result"]isEqualToString:@"poeplecount_null_err"]) {
-                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the company number.")];
+                        if ([obj[@"result"]isEqualToString:@"companycode_null_err"]) {
+                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter a uniform number.")];
                         }else
-                            if ([obj[@"result"]isEqualToString:@"capital_null_err"]) {
-                                [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter registered capital.")];
+                            if ([obj[@"result"]isEqualToString:@"poeplecount_null_err"]) {
+                                [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the company number.")];
                             }else
-                                if ([obj[@"result"]isEqualToString:@"companydate_null_err"]) {
-                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the date of creation.")];
+                                if ([obj[@"result"]isEqualToString:@"capital_null_err"]) {
+                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter registered capital.")];
                                 }else
-                                    if ([obj[@"result"]isEqualToString:@"companydate_formart_err"]) {
-                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Creation date format error, must be in English - to divide.")];
+                                    if ([obj[@"result"]isEqualToString:@"companydate_null_err"]) {
+                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the date of creation.")];
                                     }else
-                                        if ([obj[@"result"]isEqualToString:@"address_null_err"]) {
-                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the company address.")];
+                                        if ([obj[@"result"]isEqualToString:@"companydate_formart_err"]) {
+                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Creation date format error, must be in English - to divide.")];
                                         }else
-                                            if ([obj[@"result"]isEqualToString:@"phone_null_err"]) {
-                                                [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter your company phone.")];
+                                            if ([obj[@"result"]isEqualToString:@"address_null_err"]) {
+                                                [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the company address.")];
                                             }else
-                                                if ([obj[@"result"]isEqualToString:@"contact_null_err"]) {
-                                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter emergency contact.")];
+                                                if ([obj[@"result"]isEqualToString:@"phone_null_err"]) {
+                                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter your company phone.")];
                                                 }else
-                                                    if ([obj[@"result"]isEqualToString:@"contactphone_null_err"]) {
-                                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter your contact Phone.")];
+                                                    if ([obj[@"result"]isEqualToString:@"contact_null_err"]) {
+                                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter emergency contact.")];
                                                     }else
-                                                        if ([obj[@"result"]isEqualToString:@"contactemail_null_err"]) {
-                                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter your contact email.")];
+                                                        if ([obj[@"result"]isEqualToString:@"contactphone_null_err"]) {
+                                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter your contact Phone.")];
                                                         }else
-                                                            if ([obj[@"result"]isEqualToString:@"contactemail_format_err"]) {
-                                                                [SVProgressHUD showInfoWithStatus:MyLocal(@"Incorrect email format.")];
+                                                            if ([obj[@"result"]isEqualToString:@"contactemail_null_err"]) {
+                                                                [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter your contact email.")];
                                                             }else
-                                                                if ([obj[@"result"]isEqualToString:@"companyproduct_null_err"]) {
-                                                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter project management.")];
+                                                                if ([obj[@"result"]isEqualToString:@"contactemail_format_err"]) {
+                                                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"Incorrect email format.")];
                                                                 }else
-                                                                    if ([obj[@"result"]isEqualToString:@"projectinfo_null_err"]) {
-                                                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the cooperation project.")];
+                                                                    if ([obj[@"result"]isEqualToString:@"companyproduct_null_err"]) {
+                                                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter project management.")];
                                                                     }else
-                                                                        
-                                                                        
-                                                                        if ([obj[@"result"]isEqualToString:@"sup_err"]) {
-                                                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"is already a supplier or is applying for a supplier.")];
+                                                                        if ([obj[@"result"]isEqualToString:@"projectinfo_null_err"]) {
+                                                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter the cooperation project.")];
                                                                         }else
-                                                                            if ([obj[@"result"]isEqualToString:@"agt_err"]) {
-                                                                                [SVProgressHUD showInfoWithStatus:MyLocal(@"agent cannot apply for the supplier.")];
+                                                                            
+                                                                            
+                                                                            if ([obj[@"result"]isEqualToString:@"sup_err"]) {
+                                                                                [SVProgressHUD showInfoWithStatus:MyLocal(@"is already a supplier or is applying for a supplier.")];
                                                                             }else
-                                                                                if ([obj[@"result"]isEqualToString:@"cname_er"]) {
-                                                                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"company name already exists")];
+                                                                                if ([obj[@"result"]isEqualToString:@"agt_err"]) {
+                                                                                    [SVProgressHUD showInfoWithStatus:MyLocal(@"agent cannot apply for the supplier.")];
                                                                                 }else
-                                                                                    if ([obj[@"result"]isEqualToString:@"ccode_err"]) {
-                                                                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"uniform number already exists")];
+                                                                                    if ([obj[@"result"]isEqualToString:@"cname_er"]) {
+                                                                                        [SVProgressHUD showInfoWithStatus:MyLocal(@"company name already exists")];
                                                                                     }else
-                                                                                        if ([obj[@"result"]isEqualToString:@"sys_err"]) {
-                                                                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"Add failure")];
+                                                                                        if ([obj[@"result"]isEqualToString:@"ccode_err"]) {
+                                                                                            [SVProgressHUD showInfoWithStatus:MyLocal(@"uniform number already exists")];
                                                                                         }else
-                                                                                            //*************************************Token被挤掉***************************************************//
-                                                                                            if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
-                                                                                                //        清除所有的数据
-                                                                                                Token = nil;
-                                                                                                DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DDAYGO_REMOVE_STATE; DDAYGO_REMOVE_HEADERIMAGE; DDAYGO_REMOVE_NAMELABEL; DD_ChangeStaus;
-                                                                                                ZPICUEToken = nil;
-                                                                                                [[SDImageCache sharedImageCache] clearDisk];
+                                                                                            if ([obj[@"result"]isEqualToString:@"sys_err"]) {
+                                                                                                [SVProgressHUD showInfoWithStatus:MyLocal(@"Add failure")];
+                                                                                            }else
+                                                                                                //*************************************Token被挤掉***************************************************//
+                                                                                                if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
+                                                                                                    //        清除所有的数据
+                                                                                                    Token = nil;
+                                                                                                    DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DDAYGO_REMOVE_STATE; DDAYGO_REMOVE_HEADERIMAGE; DDAYGO_REMOVE_NAMELABEL; DD_ChangeStaus;
+                                                                                                    ZPICUEToken = nil;
+                                                                                                    [[SDImageCache sharedImageCache] clearDisk];
 #pragma make -- 提示框
-                                                                                                [self logouttt];
-                                                                                            }
+                                                                                                    [self logouttt];
+                                                                                                }
         //****************************************************************************************//
         ZPLog(@"%@",obj);
     } failure:^(NSError *error) {
@@ -362,7 +359,6 @@
         
         ZPLog(@"%@",error);
     }];
-    
 }
 
 - (void)actBut:(UIButton *)but {
@@ -372,12 +368,10 @@
         JXPopoverAction * action1 = [JXPopoverAction actionWithTitle:self.typeNameArray[i] handler:^(JXPopoverAction *action) {
             
             NSLog(@"dian ji l %@",self.typeNameArray[i]);
-            
             _seleStr = self.typeNameArray[i];
             _seleId = self.typeIdArray[i];
             NSIndexPath *index = [NSIndexPath indexPathForRow:5 inSection:0];
             [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:index, nil] withRowAnimation:UITableViewRowAnimationNone];
-            
         }];
         [titleArray addObject:action1];
     }
@@ -420,6 +414,7 @@
     }
     return _typeIdArray;
 }
+
 - (NSMutableArray *)typeNameArray {
     if (!_typeNameArray) {
         _typeNameArray = [NSMutableArray array];

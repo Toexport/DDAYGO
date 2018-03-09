@@ -50,7 +50,7 @@
     [self AcquisitionTime];
     [self initUI];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
-//     iphoneX
+    //     iphoneX
     if ([[UIApplication sharedApplication]statusBarFrame].size.height > 20) {
         _TableviewLayoutConstraint.constant = 30;
         
@@ -63,11 +63,11 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"BetTableViewMyCell" bundle:nil] forCellReuseIdentifier:@"BetTableViewMyCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"BetTableViewCellTwo" bundle:nil] forCellReuseIdentifier:@"BetTableViewCellTwo"];
     [self.tableView registerNib:[UINib nibWithNibName:@"BetTableViewMyCell2" bundle:nil] forCellReuseIdentifier:@"BetTableViewMyCell2"];
-
+    
     self.tableView.estimatedRowHeight = 0;
     self.tableView.estimatedSectionFooterHeight = 0;
     self.tableView.estimatedSectionHeaderHeight = 0;
-//     添加一个按钮
+    //     添加一个按钮
     CGRect frame = _chooseCityBtn.frame;
     frame.size.width = 50;
     frame.size.height = 35;
@@ -109,7 +109,7 @@
         }
         //****************************************************************************************//
         ZPLog(@"%@",obj);
-       _model = [ZP_BetHeaderModel mj_objectWithKeyValues:obj];
+        _model = [ZP_BetHeaderModel mj_objectWithKeyValues:obj];
         
         [self.tableView reloadData];
     } failure:^(NSError * error) {
@@ -148,7 +148,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         self.tableHeadView1 = [[[NSBundle mainBundle] loadNibNamed:@"tableHeadView1" owner:nil options:nil] firstObject];
-         self.tableHeadView1.BallLabel.text  = [NSString stringWithFormat:@"%ld",self.array1.count];
+        self.tableHeadView1.BallLabel.text  = [NSString stringWithFormat:@"%ld",self.array1.count];
         [self.tableHeadView1  tableHeadView1:_model];
         return self.tableHeadView1;
     }
@@ -222,17 +222,17 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-     return CGFLOAT_MIN;
+    return CGFLOAT_MIN;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         BetTableViewMyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BetTableViewMyCell"];
-//        NSLog(@"you go");
+        //        NSLog(@"you go");
         cell.butArray = self.array1;
         [cell upDataButtonWith:68];
         cell.arrayBlock = ^(NSMutableArray *arr1) {
-           self.tableHeadView1.BallLabel.text = [NSString stringWithFormat:@"%ld",arr1.count];
+            self.tableHeadView1.BallLabel.text = [NSString stringWithFormat:@"%ld",arr1.count];
             if (self.Selearray.count > 0) {
                 for (NSNumber *Nstr in self.Selearray) {
                     if ([Nstr integerValue] > 99) {
@@ -254,69 +254,69 @@
         };
         return cell;
     }else
-     if(indexPath.section == 1) {
-        ZPLog(@"who go");
-        BetTableViewMyCell2 *cell = [tableView dequeueReusableCellWithIdentifier:@"BetTableViewMyCell2"];
-        ZPLog(@"you go");
-         cell.butArray = self.arrayT;
-        [cell upDataButtonWith:25];
-        cell.arrayBlock = ^(NSMutableArray *arr2) {
-            _label3.text = [NSString stringWithFormat:@"%ld",arr2.count];
-            _arrayT = arr2;
-            if (arr2.count == 0) {
-                [self.Selearray removeLastObject];
-            }else{
-                if (self.Selearray.count > 0) {
-                    for (NSNumber *Nstr in self.Selearray) {
-                        if ([Nstr integerValue] < 99) {
-                            [self.Selearray addObject:arr2[0]];
-                            break;
-                        }else{
-                            self.Selearray = [NSMutableArray arrayWithArray:arr2];
-                        }
-                    }
+        if(indexPath.section == 1) {
+            ZPLog(@"who go");
+            BetTableViewMyCell2 *cell = [tableView dequeueReusableCellWithIdentifier:@"BetTableViewMyCell2"];
+            ZPLog(@"you go");
+            cell.butArray = self.arrayT;
+            [cell upDataButtonWith:25];
+            cell.arrayBlock = ^(NSMutableArray *arr2) {
+                _label3.text = [NSString stringWithFormat:@"%ld",arr2.count];
+                _arrayT = arr2;
+                if (arr2.count == 0) {
+                    [self.Selearray removeLastObject];
                 }else{
-                    self.Selearray = [NSMutableArray arrayWithArray:arr2];
+                    if (self.Selearray.count > 0) {
+                        for (NSNumber *Nstr in self.Selearray) {
+                            if ([Nstr integerValue] < 99) {
+                                [self.Selearray addObject:arr2[0]];
+                                break;
+                            }else{
+                                self.Selearray = [NSMutableArray arrayWithArray:arr2];
+                            }
+                        }
+                    }else{
+                        self.Selearray = [NSMutableArray arrayWithArray:arr2];
+                    }
                 }
+                if (_dicArray.count > 0) {
+                    NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:2];
+                    [tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+                }
+                
+            };
+            return cell;
+        }else{
+            _cell1 = [tableView dequeueReusableCellWithIdentifier:@"BetTableViewCellTwo" forIndexPath:indexPath];
+            if (self.dicArray.count > 0) {
+                
+                
+                if (indexPath.row == self.dicArray.count) {
+                    [_cell1 updateCount:self.Selearray];
+                }else{
+                    NSMutableArray  *arr = [NSMutableArray arrayWithArray:self.dicArray[indexPath.row]];
+                    _cell1.shuliangLabel.text = arr[6];
+                    [arr removeObjectAtIndex:6];
+                    [_cell1 updateCount:arr];
+                }
+            }else{
+                [_cell1 updateCount:self.Selearray];
             }
-            if (_dicArray.count > 0) {
-                NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:2];
-                [tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
-            }
-            
-        };
-        return cell;
-     }else{
-          _cell1 = [tableView dequeueReusableCellWithIdentifier:@"BetTableViewCellTwo" forIndexPath:indexPath];
-         if (self.dicArray.count > 0) {
-             
-
-             if (indexPath.row == self.dicArray.count) {
-                 [_cell1 updateCount:self.Selearray];
-             }else{
-                 NSMutableArray  *arr = [NSMutableArray arrayWithArray:self.dicArray[indexPath.row]];
-                 _cell1.shuliangLabel.text = arr[6];
-                 [arr removeObjectAtIndex:6];
-                 [_cell1 updateCount:arr];
-             }
-         }else{
-                 [_cell1 updateCount:self.Selearray];
-         }
-         _cell1.deleBut.tag = indexPath.row;
-         _cell1.jiaBut.tag = indexPath.row;
-         _cell1.jianBut.tag = indexPath.row;
-         [_cell1.deleBut addTarget:self action:@selector(dele:) forControlEvents:UIControlEventTouchUpInside];
-         [_cell1.jiaBut addTarget:self action:@selector(jia:) forControlEvents:UIControlEventTouchUpInside];
-         [_cell1.jianBut addTarget:self action:@selector(jian:) forControlEvents:UIControlEventTouchUpInside];
-        return _cell1;
-    }
-
+            _cell1.deleBut.tag = indexPath.row;
+            _cell1.jiaBut.tag = indexPath.row;
+            _cell1.jianBut.tag = indexPath.row;
+            [_cell1.deleBut addTarget:self action:@selector(dele:) forControlEvents:UIControlEventTouchUpInside];
+            [_cell1.jiaBut addTarget:self action:@selector(jia:) forControlEvents:UIControlEventTouchUpInside];
+            [_cell1.jianBut addTarget:self action:@selector(jian:) forControlEvents:UIControlEventTouchUpInside];
+            return _cell1;
+        }
+    
 }
 //  加
 - (void)jia:(UIButton *)but {
     NSArray *arr = self.dicArray[but.tag];
     NSString *str = arr[6];
-
+    
     if ([str integerValue] == 20) {
         [SVProgressHUD showInfoWithStatus:MyLocal(@"Maximum not greater than 20 notes.")];
         ZPLog(@"20");
@@ -328,7 +328,7 @@
     NSIndexPath * index = [NSIndexPath indexPathForRow:but.tag inSection:2];
     [self.tableView reloadMoveToBottom];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:index, nil] withRowAnimation:UITableViewRowAnimationNone];
- 
+    
 }
 // 减
 - (void)jian:(UIButton *)but {
@@ -343,7 +343,7 @@
     
     NSString * jStr = [NSString stringWithFormat:@"%d",[str integerValue] - 1];
     [self.dicArray[but.tag] addObject:jStr];
-
+    
     NSIndexPath * index = [NSIndexPath indexPathForRow:but.tag inSection:2];
     [self.tableView reloadMoveToBottom];
 }
@@ -355,7 +355,7 @@
             if (self.Selearray.count > 0) {
                 [self.Selearray removeLastObject];
                 NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:2];
-//                [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+                //                [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
                 
                 [self.tableView reloadMoveToBottom];
             }else{
@@ -366,7 +366,7 @@
             [self.dicArray removeObjectAtIndex:but.tag];
             NSIndexSet * indexSet=[[NSIndexSet alloc]initWithIndex:2];
             if (self.dicArray.count > 0) {
-//                [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+                //                [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
                 [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationFade];
             }else{
                 [self.tableView reloadData];
@@ -441,17 +441,17 @@
             ZPLog(@"%@",str);
         }
     }
-//    NSArray * arr = _dicArray[0];
-//    NSInteger count = arr.count;
-//    for (NSInteger i = 0; i<count; i ++) {
-//        NSString *str= arr[i];
-//        if (_allStr.length > 0) {
-//            _allStr = [NSString stringWithFormat:@"%@_%@",_allStr,str];
-//        }else{
-//            _allStr = str;
-//        }
-//    }
-//    dic[@"ballstr"] = _allStr;
+    //    NSArray * arr = _dicArray[0];
+    //    NSInteger count = arr.count;
+    //    for (NSInteger i = 0; i<count; i ++) {
+    //        NSString *str= arr[i];
+    //        if (_allStr.length > 0) {
+    //            _allStr = [NSString stringWithFormat:@"%@_%@",_allStr,str];
+    //        }else{
+    //            _allStr = str;
+    //        }
+    //    }
+    //    dic[@"ballstr"] = _allStr;
     NSLog(@"all %@",_allStr);
     dic[@"count"] = @"3";
     [ZP_MyTool requestBte:dic uccess:^(id obj) {

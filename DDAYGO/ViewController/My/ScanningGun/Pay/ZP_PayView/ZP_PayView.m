@@ -41,7 +41,7 @@
  *  设置视图的基本内容
  */
 - (void)setupViews {
-//  添加手势，点击背景视图消失
+    //  添加手势，点击背景视图消失
     UIView * bounceView = [UIView new];
     bounceView.backgroundColor = [UIColor whiteColor];
     bounceView.layer.cornerRadius = 5.0;// View圆角弧度
@@ -54,7 +54,7 @@
         make.bottom.equalTo(self).offset(0);
         make.width.mas_offset(ZP_Width);
     }];
-//  取消按钮
+    //  取消按钮
     UIButton * Cancelbut = [UIButton buttonWithType:UIButtonTypeCustom];
     [Cancelbut setImage:[UIImage imageNamed:@"ic_payment_cancel"] forState:UIControlStateNormal];
     [Cancelbut addTarget:self action:@selector(cancelbut:) forControlEvents:UIControlEventTouchUpInside];
@@ -66,7 +66,7 @@
         make.left.equalTo(bounceView).offset(10);
         make.top.equalTo(bounceView).offset(10);
     }];
-//  标题
+    //  标题
     UILabel * titleLabel = [UILabel new];
     titleLabel.textColor = [UIColor blackColor];
     titleLabel.textColor = ZP_textblack;
@@ -88,7 +88,7 @@
             }
         }
     }
-//    货币符号
+    //    货币符号
     ZP_GeneralLabel * CurrencySymbolLabel = [ZP_GeneralLabel initWithtextLabel:_CurrencySymbolLabel.text textColor:ZP_textblack font:ZP_AmountTextFont textAlignment:NSTextAlignmentLeft bakcgroundColor:ZP_WhiteColor];
     NSString * str = [[NSUserDefaults standardUserDefaults] objectForKey:@"symbol"];
     CurrencySymbolLabel.text = [NSString stringWithFormat:@"%@",str];
@@ -128,17 +128,6 @@
 
 #pragma mark - 点击支付按钮
 - (void)paybut:(UIButton *)sender {
-    for (int i = 0; i < self.dataArray.count; i ++) {
-        PayMoneyViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-        if (cell.PayBut.selected) {
-            ZP_PayModel *model = _dataArray[i];
-            NSLog(@"选择支付的名字为：%@",model.payname);
-            if (self.ConfirmPayMoneyBlock) {
-                self.ConfirmPayMoneyBlock(model);
-            }
-        }
-    }
-    
     if (_Creditcardbut.selected == _Creditcardbut.selected) {
         PayPassController * paypass = [[PayPassController alloc] init];
         if (self.confirmPayBlock) {
@@ -149,6 +138,19 @@
         PayFailController * PayFail = [[PayFailController alloc] init];
         if (self.PayFailBlock) {
             self.PayFailBlock(PayFail);
+        }
+    }
+    for (int i = 0; i < self.dataArray.count; i ++) {
+        PayMoneyViewCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        if (cell.PayBut.selected) {
+            ZP_PayModel *model = _dataArray[i];
+            NSLog(@"选择支付的名字为：%@",model.payname);
+            if (self.ConfirmPayMoneyBlock) {
+                self.ConfirmPayMoneyBlock(model);
+            }
+            return;
+        }else {
+            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Please select payment method.")];
         }
     }
 }
@@ -202,13 +204,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataArray.count;
-//    return 3;
+    //    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZP_PayModel * model = _dataArray[indexPath.row];
     PayMoneyViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"PayMoneyViewCell"];
-//    cell.backgroundColor = [UIColor yellowColor];
+    //    cell.backgroundColor = [UIColor yellowColor];
     cell.PayBut.tag = indexPath.row;
     [cell.PayImageView sd_setImageWithURL:[NSURL URLWithString:model.logourl]placeholderImage:nil];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

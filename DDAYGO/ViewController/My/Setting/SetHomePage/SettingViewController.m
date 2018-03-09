@@ -57,7 +57,7 @@
     self.title = NSLocalizedString(@"Setting", nil) ;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: ZP_textWite}];
     [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -92,7 +92,7 @@
     [ZP_MyTool requestSetHomePage:dic success:^(id obj) {
         //*************************************Token被挤掉***************************************************//
         if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
-        //        清除所有的数据
+            //        清除所有的数据
             Token = nil;
             DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DDAYGO_REMOVE_STATE; DDAYGO_REMOVE_HEADERIMAGE; DDAYGO_REMOVE_NAMELABEL; DD_ChangeStaus;
             ZPICUEToken = nil;
@@ -142,8 +142,8 @@
     _AccountNumber.text = model.email; // 账号
     if ([model.nickname isEqualToString:@"(null)"]) { // 判断数据为nill
         self.nicknameLabel.hidden = YES;
-        }else {
-         _nicknameLabel.text = model.nickname; // 昵称
+    }else {
+        _nicknameLabel.text = model.nickname; // 昵称
     }
     _bindingEmailLabel.text = model.emailverify;  // 邮箱
     _BindingICUELabel.text = model.icueaccount; // ICUE 绑定
@@ -170,7 +170,7 @@
         [ZP_MyTool RequestUploadavatarimg:@{@"token":DD_TOKEN} Data:imageArray success:^(id obj) {
             ZPLog(@"%@",obj);
             mySelf.headerImage.image = image;
-            [[MyViewController sharedInstanceTool].headImageBut setImage:image forState:UIControlStateNormal]; 
+            [[MyViewController sharedInstanceTool].headImageBut setImage:image forState:UIControlStateNormal];
         } failure:^(NSError *error) {
             ZPLog(@"%@",error.description);
             
@@ -332,7 +332,6 @@
         [self.navigationController popToRootViewControllerAnimated:NO];
         //跳转
         if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
-            
             UITabBarController * tbvc  = [[UIApplication sharedApplication] keyWindow].rootViewController;
             [tbvc setSelectedIndex:0];
         }
@@ -340,12 +339,12 @@
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"cancel",nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         NSLog(@"点击了取消按钮");
-//        //跳转
-//        if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
-//
-//            UITabBarController * tbvc  = [[UIApplication sharedApplication] keyWindow].rootViewController;
-//            [tbvc setSelectedIndex:0];
-//        }
+        //        //跳转
+        //        if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+        //
+        //            UITabBarController * tbvc  = [[UIApplication sharedApplication] keyWindow].rootViewController;
+        //            [tbvc setSelectedIndex:0];
+        //        }
     }]];
     [self presentViewController:alert animated:YES completion:nil];
 }

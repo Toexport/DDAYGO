@@ -22,8 +22,8 @@
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
     self.backgroundView.userInteractionEnabled = YES;
     [self.backgroundView addGestureRecognizer:tap];
-//    self.standardTypeList = @[NSLocalizedString(@"", nil),NSLocalizedString(@"購買數量", nil)];
-// 商品价格
+    //    self.standardTypeList = @[NSLocalizedString(@"", nil),NSLocalizedString(@"購買數量", nil)];
+    // 商品价格
     self.chooseView = [[ChooseView alloc] initWithFrame:CGRectMake(0, screen_Height, screen_Width, screen_Height)];
     self.chooseView.headImage.image = [UIImage imageNamed:@"bingli"];
     self.chooseView.LB_stock.text = [NSString stringWithFormat:NSLocalizedString(@"Inventory:%@a", nil),@100];
@@ -109,9 +109,9 @@
 }
 
 - (void)buttonClick:(UIButton *)sender {
-//    if (_numLabel.text.integerValue) {
-//        _numLabel.text = [NSString stringWithFormat:@"%ld",_numLabel.text.integerValue - 1];
-//    }
+    //    if (_numLabel.text.integerValue) {
+    //        _numLabel.text = [NSString stringWithFormat:@"%ld",_numLabel.text.integerValue - 1];
+    //    }
     if ([_numLabel.text integerValue] <= 1) {
         //NSLocalizedString(@"purchase quantity cannot be less than 1", nil)
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"purchase quantity cannot be less than 1", nil)];
@@ -119,7 +119,7 @@
         return;
     }else {
         _numLabel.text = [NSString stringWithFormat:@"%ld",[_numLabel.text integerValue]-1];
-//        self.btnClickBlock(_numLabel.text);
+        //        self.btnClickBlock(_numLabel.text);
     }
 }
 
@@ -129,10 +129,10 @@
         return;
     }else {
         _numLabel.text = [NSString stringWithFormat:@"%ld",[_numLabel.text integerValue]+1];
-//        self.btnClickBlock(_numLabel.text);
+        //        self.btnClickBlock(_numLabel.text);
     }
 }
-        
+
 #pragma mark - - - -加入購物車
 - (void)immedPayBtnClick{
     NSLog(@"add cart");
@@ -264,7 +264,7 @@
             [SVProgressHUD showErrorWithStatus:MyLocal(@"number NO choices")];
         }
     }
-  
+    
 }
 #pragma mark --立即购买
 -(void)chooseViewClick{

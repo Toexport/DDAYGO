@@ -41,7 +41,7 @@
 - (void)updateInfoWithModel:(ZP_GoodDetailsModel *)model {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.cycleScrollView.imageURLStringsGroup = @[model.defaultimg];
-         self.shopNameLabel.text = model.productname;
+        self.shopNameLabel.text = model.productname;
         if ([model.peramount isEqualToString:@"(null)"]) {
             self.xlLabel.hidden = YES;
         }else {

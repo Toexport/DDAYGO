@@ -30,8 +30,7 @@
     self.merchantscrollView.bounces = YES;
     // 因为需要上个接口的 sid 所以只有等 商家sid 获取成功后才能调用
     //    [self MerchantsBalance];
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

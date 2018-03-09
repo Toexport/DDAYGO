@@ -26,11 +26,6 @@
 @end
 
 
-
-
-
-
-
 @implementation ZP_FootprintModel1
 
 + (instancetype)gEtFootprint1:(NSDictionary *)Dic {
@@ -50,7 +45,6 @@
 }
 
 + (NSMutableArray *)arrayWithArray1:(NSArray *)array {
-    
     NSMutableArray * arr = [[NSMutableArray alloc]init];
     if (array.count > 0) {
         

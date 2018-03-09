@@ -8,6 +8,7 @@
 
 #import "ZP_OrderModel.h"
 @implementation OrderModel1
+
 + (NSMutableArray *)arrayWithOrderArray:(NSArray *)array {
     NSMutableArray * arr = [NSMutableArray array];
     for (NSDictionary * dict in array) {
@@ -34,10 +35,11 @@
     }
     return arr;
 }
+
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    
 }
 @end
-
 
 
 @implementation OrdersdetailModel

@@ -22,7 +22,6 @@
     [UIView animateWithDuration:0.3f animations:^{
         self.frame = [UIScreen mainScreen].bounds;
     } completion:^(BOOL finished) {
-        
     }];
 }
 

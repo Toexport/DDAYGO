@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 // UI
@@ -108,7 +108,7 @@
                         if ([obj[@"result"]isEqualToString:@"opwd_err"]) {
                             [SVProgressHUD showInfoWithStatus:MyLocal(@"Original password error")];
                         }else
-        ZPLog(@"obj %@",obj);
+                            ZPLog(@"obj %@",obj);
     } failure:^(NSError * error) {
         ZPLog(@"%@",error);
     }];
@@ -140,7 +140,6 @@
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     return [emailTest evaluateWithObject:email];
-    
 }
 
 - (BOOL)JudgeTheillegalCharacter:(NSString *)content {

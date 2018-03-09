@@ -22,7 +22,7 @@
     self.TimeLabel.text = model.createtime;
     self.FenshuLabel.text = [NSString stringWithFormat:MyLocal(@"%@points"),model.fraction];
     [self updateStartsWithtype:0 StartCount:[model.fraction integerValue]];
-
+    
 }
 
 - (void)updateStartsWithtype:(NSInteger)startType StartCount:(NSInteger)startCount {
@@ -36,6 +36,6 @@
             }
         }
     }
-    }
+}
 
 @end

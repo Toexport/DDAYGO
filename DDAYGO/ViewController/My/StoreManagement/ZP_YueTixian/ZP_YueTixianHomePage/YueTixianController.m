@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
 - (void)initUI {
@@ -72,7 +72,6 @@
         [SVProgressHUD showInfoWithStatus:MyLocal(@"Please enter email")];
         return;
     }
-    
     [self AllData];
 }
 
@@ -118,13 +117,9 @@
 
 #pragma mark - - - - - - - - - - - - - - - private methods 私有方法 - - - - - - - - - - - - - -
 - (BOOL)validateEmail:(NSString *)email {
-    
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-    
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-    
     return [emailTest evaluateWithObject:email];
-    
 }
 
 // 热点被接入，子类重写
