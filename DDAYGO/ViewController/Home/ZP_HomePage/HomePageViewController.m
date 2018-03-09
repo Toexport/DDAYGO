@@ -432,10 +432,11 @@
             }else if (indexPath.section == 4) {
                 return ZP_Width / 4 + 35;
             }else {
-                if (self.SixthArrData.count < 5) {
-                    return (ZP_Width / 3 + 45) + 30;
+                
+                if (self.SixthArrData.count > 0) {
+                    return (ZP_Width / 3 + 45) * (self.SixthArrData.count%4>0?self.SixthArrData.count/4+1:self.SixthArrData.count)+ 30;
                 } else {
-                    return (ZP_Width / 3 + 45) * 2 + 30;
+                    return 0;
                 }
             }
     
