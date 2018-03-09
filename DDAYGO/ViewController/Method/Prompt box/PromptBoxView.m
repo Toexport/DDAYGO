@@ -8,6 +8,7 @@
 
 #import "PromptBoxView.h"
 #import "PrefixHeader.pch"
+#import "LoginController.h"
 @interface PromptBoxView ()
 
 @end
@@ -24,12 +25,12 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:MyLocal(@"Prompt") message:MyLocal(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.") preferredStyle:UIAlertControllerStyleAlert];
     // 确定
     _okAction = [UIAlertAction actionWithTitle:MyLocal(@"Determine") style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
-          [self ClearANDJump];
+        [self ClearANDJump:NO];
 //        DD_CHECK_HASLONGIN;
     }];
     //    取消
     _cancelAction =[UIAlertAction actionWithTitle:MyLocal(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        [self ClearANDJump];
+        [self ClearANDJump:YES];
     }];
     [alert addAction:_okAction];
     [alert addAction:_cancelAction];
@@ -38,9 +39,9 @@
 }
 
 //清除与跳转
-- (void)ClearANDJump {
+- (void)ClearANDJump:(BOOL)isCancel {
     [self DeleteData];
-    [self Jump];
+    [self Jump:isCancel];
 }
 
 //清除数据
@@ -53,12 +54,17 @@
 }
 
 // 跳转到指定界面
-- (void)Jump {
+- (void)Jump:(BOOL)isCancel {
     //        跳转到指定界面
-    [self.navigationController popToRootViewControllerAnimated:NO];
-    if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
-        UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
-        [tbvc setSelectedIndex:0];
+    if (isCancel) {
+        [self.navigationController popToRootViewControllerAnimated:NO];
+        if ([[[UIApplication sharedApplication] keyWindow].rootViewController isKindOfClass:[UITabBarController class]]) {
+            UITabBarController * tbvc = [[UIApplication sharedApplication] keyWindow].rootViewController;
+            [tbvc setSelectedIndex:0];
+        }
+    } else {
+        LoginController *vc = [LoginController new];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 @end

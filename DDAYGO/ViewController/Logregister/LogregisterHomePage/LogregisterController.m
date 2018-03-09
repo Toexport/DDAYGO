@@ -36,10 +36,10 @@
 //    if (_type == 111) {
 //        [self.navigationController popViewControllerAnimated:YES];
 //    }else {
-    if (![[self.navigationController viewControllers] containsObject:self]) {
-        NSLog(@"用户点击了返回按钮");
-        [self Jump];
-    }
+//    if (![[self.navigationController viewControllers] containsObject:self]) {
+//        NSLog(@"用户点击了返回按钮");
+//        [self Jump];
+//    }
 //    }
 }
 //  登录
