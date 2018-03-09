@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ShoppingViewController : UIViewController
+#import "PromptBoxView.h"
+@interface ShoppingViewController : PromptBoxView
 
 @property (nonatomic, strong) UILabel * merchantsLabel; // 店铺名称
 @property (nonatomic, strong) UIButton * AllButton;  // 全选按钮

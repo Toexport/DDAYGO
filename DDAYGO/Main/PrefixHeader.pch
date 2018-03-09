@@ -14,8 +14,6 @@
 #import <AFNetworking/AFNetworking.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 
-#endif
-
 //#ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 #import "UIView+Extension.h"
@@ -47,44 +45,10 @@
 #import "NoDataView.h"
 #import "global.h"
 #import "UIViewController+Listening.h"
-//#import "PromptBoxView.h"
-//#import "BHAlertView.h"
+#import "StoredCacheClearing.pch"
+#import "DebuggingANDPublishing.pch"
+#import "BHAlertView.h"
 
-//测试用这个
-#ifdef DEBUG
-#if TARGET_IPHONE_SIMULATOR//模拟器
-
-#define ZPLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
-
-#elif TARGET_OS_IPHONE//真机
-
-#define ZPLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
-
-//#define ZPLog(...) fprintf(stderr,"[%s-%d行] %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:@"%@", ##__VA_ARGS__] UTF8String]);
-
-#endif
-
-////正式发布
-//#else
-//#ifdef zhengShiFaBu
-//
-//#define NSLog(...)
-//
-//#else
-//
-//#define NSLog(...) NSLog(__VA_ARGS__)
-//
-////#endif
-//
-//#endif
-//
-/////**
-////正式用这个
-//#ifdef DEBUG // 调试状态, 打开LOG功能
-//#define ZPLog(...) NSLog(__VA_ARGS__)
-//#else // 发布状态, 关闭LOG功能
-//#define ZPLog(...)
-//#endif
 
 //*/
 #define DD_MonetarySymbol [[MyViewController sharedInstanceTool] getMonetarySymbol]
@@ -167,5 +131,6 @@
 #define WidthRatio ((ZP_Width==320)?1:ZP_Width/320)
 
 #pragma mark 网络转码
+
 #endif /* PrefixHeader_pch */
 

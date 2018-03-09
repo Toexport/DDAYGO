@@ -414,6 +414,7 @@
 		C48C623E20467E8600FA6E0A /* ForgetPswController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C624020467E8600FA6E0A /* ForgetPswController.xib */; };
 		C48C624520467EAD00FA6E0A /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C624720467EAD00FA6E0A /* LoginController.xib */; };
 		C48C62532046BC7F00FA6E0A /* DialogBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C62552046BC7F00FA6E0A /* DialogBox.xib */; };
+		C48DA8ED205231E600F66F49 /* PromptBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = C48DA8EC205231E600F66F49 /* PromptBoxView.m */; };
 		C4910F701FFC6D24006DA5B9 /* ddg_advertising.png in Resources */ = {isa = PBXBuildFile; fileRef = C4910F6F1FFC6D24006DA5B9 /* ddg_advertising.png */; };
 		C491D3771FCBE31D00D127E9 /* BindingIntroduce.m in Sources */ = {isa = PBXBuildFile; fileRef = C491D3751FCBE31D00D127E9 /* BindingIntroduce.m */; };
 		C492A1771FD0ECB7009FF57B /* ZP_HistoryBetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C492A16C1FD0ECB7009FF57B /* ZP_HistoryBetCell.m */; };
@@ -1307,6 +1308,10 @@
 		C48C624920467EAE00FA6E0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LoginController.strings"; sourceTree = "<group>"; };
 		C48C624B20467EAF00FA6E0A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LoginController.strings"; sourceTree = "<group>"; };
 		C48C62542046BC7F00FA6E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DialogBox.xib; sourceTree = "<group>"; };
+		C48DA8E320521CC400F66F49 /* StoredCacheClearing.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoredCacheClearing.pch; sourceTree = "<group>"; };
+		C48DA8E420521E3100F66F49 /* DebuggingANDPublishing.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DebuggingANDPublishing.pch; sourceTree = "<group>"; };
+		C48DA8EB205231E600F66F49 /* PromptBoxView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PromptBoxView.h; sourceTree = "<group>"; };
+		C48DA8EC205231E600F66F49 /* PromptBoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PromptBoxView.m; sourceTree = "<group>"; };
 		C4910F6F1FFC6D24006DA5B9 /* ddg_advertising.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ddg_advertising.png; sourceTree = "<group>"; };
 		C491D3741FCBE31D00D127E9 /* BindingIntroduce.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindingIntroduce.h; sourceTree = "<group>"; };
 		C491D3751FCBE31D00D127E9 /* BindingIntroduce.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindingIntroduce.m; sourceTree = "<group>"; };
@@ -1802,6 +1807,8 @@
 				064AB1931F73B2FF007FE5F0 /* PrefixHeader.pch */,
 				06F572441F9F3A0900D61FDB /* DataInterface.pch */,
 				C477507A1FBA981500AE8B3F /* Documents.pch */,
+				C48DA8E320521CC400F66F49 /* StoredCacheClearing.pch */,
+				C48DA8E420521E3100F66F49 /* DebuggingANDPublishing.pch */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -2852,6 +2859,8 @@
 			children = (
 				C440A68E205153FE008FC168 /* BHAlertView.h */,
 				C440A68F205153FE008FC168 /* BHAlertView.m */,
+				C48DA8EB205231E600F66F49 /* PromptBoxView.h */,
+				C48DA8EC205231E600F66F49 /* PromptBoxView.m */,
 			);
 			path = "Prompt box";
 			sourceTree = "<group>";
@@ -4924,6 +4933,7 @@
 				C4780BEF1FD6A1F600DDE25D /* ZP_ShopManagementModel.m in Sources */,
 				C4FFF2052012309800EF4A4D /* ShoplntroducedModel.m in Sources */,
 				C45FAEE71FCD055B00BD4CE1 /* myNavigationController.m in Sources */,
+				C48DA8ED205231E600F66F49 /* PromptBoxView.m in Sources */,
 				06418F521F7A076A00479523 /* MASConstraintMaker.m in Sources */,
 				064449A71F6A9B250004DFE4 /* MJRefreshAutoFooter.m in Sources */,
 				C4535E2C1FC55A7F00DFFD62 /* ZP_ConfirmViewCell.m in Sources */,

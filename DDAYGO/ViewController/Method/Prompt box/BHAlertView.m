@@ -107,7 +107,7 @@ CGFloat contentViewHeight;
 }
 #pragma mark -- 初始化设计对应的视图样式
 - (void)initContentView {
-    contentViewWidth = 280 * self.frame.size.width / 320;
+    contentViewWidth = self.frame.size.width / 320;
     contentViewHeight = MARGIN_TOP;
     
     _contentView = [[UIView alloc] init];

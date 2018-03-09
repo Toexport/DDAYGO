@@ -1,0 +1,23 @@
+//
+//  StoredCacheClearing.pch
+//  DDAYGO
+//
+//  Created by Summer on 2018/3/9.
+//  Copyright © 2018年 Summer. All rights reserved.
+//
+
+#ifndef StoredCacheClearing_pch
+#define StoredCacheClearing_pch
+
+#pragma mark -- 退出时清除所有数据
+//#define DDAYGO
+#define DDAYGO_REMOVE_TOKEN [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
+#define DDAYGO_REMOVE_SYMBOL [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
+#define DDAYGO_REMOVE_COUNTRYCODE [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
+#define DDAYGO_REMOVE_HEADERIMAGE [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
+#define DDAYGO_REMOVE_NAMELABEL [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
+#define DDAYGO_REMOVE_ICUETOKEN [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
+#define DDAYGO_REMOVE_STATE [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
+
+
+#endif /* StoredCacheClearing_pch */

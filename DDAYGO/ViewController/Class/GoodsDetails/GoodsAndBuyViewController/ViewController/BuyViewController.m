@@ -189,15 +189,8 @@
     [ZP_ClassViewTool requDetails:dic success:^(id obj) {
         if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
             Token = nil;
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"symbol"];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"countrycode"];
-            DD_ChangeStaus;
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"headerImage"];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"NameLabel"];
             ZPICUEToken = nil;
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"icuetoken"];
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"state"];
+            DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DDAYGO_REMOVE_STATE; DDAYGO_REMOVE_HEADERIMAGE; DDAYGO_REMOVE_NAMELABEL; DD_ChangeStaus;
             [[SDImageCache sharedImageCache] clearDisk];
             [[NSUserDefaults standardUserDefaults]synchronize];
 #pragma make -- 提示框
