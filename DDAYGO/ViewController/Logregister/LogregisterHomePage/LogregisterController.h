@@ -10,5 +10,6 @@
 #import "PromptBoxView.h"
 @interface LogregisterController : PromptBoxView
 @property (weak, nonatomic) IBOutlet UIScrollView * LogregisterscrollView;
+@property (nonatomic, assign) NSInteger type; //识别号
 
 @end

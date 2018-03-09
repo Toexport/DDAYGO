@@ -31,13 +31,17 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(adjustStatusBar:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
-//- (void)viewWillDisappear:(BOOL)animated {
-//    [super viewWillDisappear:animated];
-//    if (![[self.navigationController viewControllers] containsObject:self]) {
-//        NSLog(@"用户点击了返回按钮");
-//        [self Jump];
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+//    if (_type == 111) {
+//        [self.navigationController popViewControllerAnimated:YES];
+//    }else {
+    if (![[self.navigationController viewControllers] containsObject:self]) {
+        NSLog(@"用户点击了返回按钮");
+        [self Jump];
+    }
 //    }
-//}
+}
 //  登录
 - (IBAction)LoginAction:(id)sender {
     NSLog(@"登录");
