@@ -41,7 +41,6 @@
     self.TextIntroduceLabel6.text = MyLocal(@"TextIntroduceLabel6");
     self.TextIntroduceLabel7.text = MyLocal(@"TextIntroduceLabel7");
     
-    
 }
 
 - (void)AllData {
@@ -53,13 +52,22 @@
         ZP_InstructionBetModel * model = [ZP_InstructionBetModel mj_objectWithKeyValues:obj];
         self.prizeDic = obj;
         [self initWithINstruction:model];
+        //*************************************Token被挤掉***************************************************//
+        if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
+            //        清除所有的数据
+            Token = nil;
+            DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DDAYGO_REMOVE_STATE; DDAYGO_REMOVE_HEADERIMAGE; DDAYGO_REMOVE_NAMELABEL; DD_ChangeStaus;
+            ZPICUEToken = nil;
+            [[SDImageCache sharedImageCache] clearDisk];
+#pragma make -- 提示框
+            [self logouttt];
+        }
     } failure:^(NSError *error) {
         ZPLog(@"%@",error);
     }];
 }
 
 - (void)initWithINstruction:(ZP_InstructionBetModel *)model {
-    
     NSArray * arr =  [InstructionBetModel mj_objectArrayWithKeyValuesArray:model.lotterywin];
     InstructionBetModel * model1 = arr[0];
     _referAndBonusLabel1.text = [model1.winamount stringValue].creatPirceString;

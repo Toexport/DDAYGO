@@ -90,6 +90,16 @@
     int i = arc4random_uniform(999);  // 随机数
     dic[@"nonce"] = @(i);
     [ZP_MyTool requestSetHomePage:dic success:^(id obj) {
+        //*************************************Token被挤掉***************************************************//
+        if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
+        //        清除所有的数据
+            Token = nil;
+            DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DDAYGO_REMOVE_STATE; DDAYGO_REMOVE_HEADERIMAGE; DDAYGO_REMOVE_NAMELABEL; DD_ChangeStaus;
+            ZPICUEToken = nil;
+            [[SDImageCache sharedImageCache] clearDisk];
+#pragma make -- 提示框
+            [self logouttt];
+        }
         ZPLog(@"%@",obj);
         ZP_HomePageModel * model = [[ZP_HomePageModel alloc]init];
         model.avatarimg = [NSString stringWithFormat:@"%@%@",ImgAPI,obj[@"avatarimg"]];
@@ -120,7 +130,6 @@
         }else{
             _genderGail.selected = YES;
         }
-        
         // 填写数据
         [self fillData:model];
     } failure:^(NSError * error) {

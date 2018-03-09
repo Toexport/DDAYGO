@@ -104,8 +104,7 @@
             [[NSUserDefaults standardUserDefaults] setObject:aadic[@"countryname"] forKey:@"countryname"];  // 国名本地
             [[NSNotificationCenter defaultCenter] postNotificationName:@"changeStaus" object:nil userInfo:@{@"countryname":obj[@"countryname"]}];
             [[NSUserDefaults standardUserDefaults] synchronize];  // 国别缓存本地
-//            [self performSelector:@selector(pushSecondController) withObject:nil afterDelay:1.5f]; //设置加载完成后再跳转
-            [SVProgressHUD showSuccessWithStatus:MyLocal(@"Login successful")];
+            [self performSelector:@selector(pushSecondController) withObject:nil afterDelay:1.5f]; //设置加载完成后再跳转
             NSArray * array = self.navigationController.viewControllers;
             if (array.count > 2) {
                 [self.navigationController popToViewController:array[array.count-3] animated:YES];
@@ -138,11 +137,12 @@
             }
         }
     } failure:^(NSError *error) {
-        
         NSLog(@"%@",error);
     }];
 }
-
+- (void)pushSecondController {
+    [SVProgressHUD showSuccessWithStatus:MyLocal(@"Login successful")];
+}
 - (IBAction)forgetPsdClick:(id)sender {
     self.hidesBottomBarWhenPushed = YES;
     ForgetPswController * forget = [[ForgetPswController alloc]init];

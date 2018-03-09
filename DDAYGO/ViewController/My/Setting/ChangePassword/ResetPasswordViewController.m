@@ -78,7 +78,6 @@
 
 // 数据
 - (void)allData {
-    
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     dic[@"token"] = Token;
     dic[@"opwd"] = [self md5:self.oldpwTextfield.text];

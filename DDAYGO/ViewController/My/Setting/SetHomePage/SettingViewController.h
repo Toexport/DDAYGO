@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PromptBoxView.h"
-@interface SettingViewController : UIViewController
+@interface SettingViewController : PromptBoxView
 @property (weak, nonatomic) IBOutlet UIScrollView * SettingScrollView;
 @property (strong, nonatomic) IBOutlet UIImageView * PhotoImage;
 @property (strong, nonatomic) IBOutlet UILabel * AccountNumber;   // 账号

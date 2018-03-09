@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ZP_DetailsSistoryAwardController : UIViewController
+#import "PromptBoxView.h"
+@interface ZP_DetailsSistoryAwardController : PromptBoxView
 @property (weak, nonatomic) IBOutlet UIScrollView *BackgroundScrollView; // 背景
 @property (weak, nonatomic) IBOutlet UIView * TitleView; // 标题view
 @property (weak, nonatomic) IBOutlet UILabel * AmountLabel;

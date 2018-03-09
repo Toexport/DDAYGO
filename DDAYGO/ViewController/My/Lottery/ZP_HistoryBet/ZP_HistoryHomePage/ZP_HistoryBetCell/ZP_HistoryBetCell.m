@@ -24,7 +24,7 @@
     _Day.text = [NSString stringWithFormat:MyLocal(@"period"),model.periods];
 //    _DateCodeLabel.text = model.recordtime
 //    _DateCodeLabel.text = model.createtime;
-    _DateCodeLabel.text = [model.createtime substringToIndex:10]; // 固定
+    _DateCodeLabel.text = [model.recordtime substringToIndex:10]; // 固定
     [_button1 setTitle:[NSString stringWithFormat:@"%02d",model.white1.intValue] forState:UIControlStateNormal];
     [_button2 setTitle:[NSString stringWithFormat:@"%02d",model.white2.intValue] forState:UIControlStateNormal];
     [_button3 setTitle:[NSString stringWithFormat:@"%02d",model.white3.intValue] forState:UIControlStateNormal];

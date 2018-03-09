@@ -142,10 +142,9 @@
             [self logouttt];
         }
         //****************************************************************************************//
-        
          ZPLog(@"%@",obj);
         if ([obj isKindOfClass:[NSDictionary class]]) {
-//            [SVProgressHUD showErrorWithStatus:@"無數據"];
+
             return ;
         }
         ZP_LotteryHistoricalBettingNumberModel *model1 = [ZP_LotteryHistoricalBettingNumberModel mj_objectWithKeyValues:obj[0]];
@@ -215,7 +214,7 @@
     ZP_LotteryHistoricalBettingNumberModel2 *model2  = self.rowData[indexPath.section];
     ZP_LotteryHistoricalBettingNumberCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ZP_LotteryHistoricalBettingNumberCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
-    ZP_LotteryHistoricalBettingNumberModel3 *model3= [ZP_LotteryHistoricalBettingNumberModel3 mj_objectWithKeyValues:model2.winordersdetail[0]];
+    ZP_LotteryHistoricalBettingNumberModel3 * model3= [ZP_LotteryHistoricalBettingNumberModel3 mj_objectWithKeyValues:model2.winordersdetail[0]];
     [cell fillIntoData:model3];
 
     return cell;

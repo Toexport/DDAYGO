@@ -23,10 +23,12 @@
 - (void) logouttt {
     // 初始化对话框
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:MyLocal(@"Prompt") message:MyLocal(@"Your account has been logged in other places, you have been forced to go offline, please change the password as soon as possible if you are not logged in.") preferredStyle:UIAlertControllerStyleAlert];
-    // 确定注销
+    // 确定
     _okAction = [UIAlertAction actionWithTitle:MyLocal(@"Determine") style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
-        [self ClearANDJump];
+//        [self ClearANDJump];
+        DD_CHECK_HASLONGIN;
     }];
+//    取消
     _cancelAction =[UIAlertAction actionWithTitle:MyLocal(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         [self ClearANDJump];
     }];

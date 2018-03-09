@@ -181,9 +181,9 @@
             model.white4 = dic[@"white4"];
             model.white5 = dic[@"white5"];
             model.powerball = dic[@"powerball"];
-            model.createtime = dic[@"createtime"];
+            model.recordtime = dic[@"recordtime"];
             model.pollid = dic[@"pollid"];
-            NSString *string = [NSString stringWithFormat:@"%@%@%@",dic[@"yyyy"],dic[@"mm"],dic[@"periods"]];
+            NSString * string = [NSString stringWithFormat:@"%@%@%@",dic[@"yyyy"],dic[@"mm"],dic[@"periods"]];
             model.yyyy = @(string.integerValue);
             [self.newsData addObject:model];
         }

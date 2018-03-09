@@ -48,13 +48,21 @@
         self.prizeDic = obj;
         _AmountLabel.text = [model.lbalance stringValue];
         [self updateData:model];
+        if ([obj[@"result"]isEqualToString:@"token_not_exist"]) {
+            //        清除所有的数据
+            Token = nil;
+            DDAYGO_REMOVE_TOKEN; DDAYGO_REMOVE_SYMBOL; DDAYGO_REMOVE_COUNTRYCODE; DDAYGO_REMOVE_ICUETOKEN; DDAYGO_REMOVE_STATE; DDAYGO_REMOVE_HEADERIMAGE; DDAYGO_REMOVE_NAMELABEL; DD_ChangeStaus;
+            ZPICUEToken = nil;
+            [[SDImageCache sharedImageCache] clearDisk];
+#pragma make -- 提示框
+            [self logouttt];
+        }
     } failure:^(NSError *error) {
         
     }];
 }
 
 - (void)updateData:(ZP_LotterModel *)model {
-    
     lotteryModel *model1 = [lotteryModel mj_objectWithKeyValues:model.lottery];
     _NperLabel.text = self.title;
     _DatesLabel.text = model1.recordtime;
