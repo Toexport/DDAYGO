@@ -41,18 +41,18 @@
 -(void)initChooseView{
     CGFloat maxY = 0;
     CGFloat height = 0;
-    for (int i = 0; i < self.standardValueList.count; i ++) {
-        self.chooseRank = [[ChooseRank alloc] initWithTitle:self.standardList[i] titleArr:self.standardValueList[i] andFrame:CGRectMake(0, maxY, screen_Width, 40)];
-        maxY = CGRectGetMaxY(self.chooseRank.frame);
-        height += self.chooseRank.height;
-        self.chooseRank.tag = 8000+i;
-        self.chooseRank.delegate = self;
-        
-        [self.chooseView.mainscrollview addSubview:self.chooseRank];
-    }
-    self.chooseView.mainscrollview.contentSize = CGSizeMake(0, height);
+//    for (int i = 0; i < self.standardValueList.count; i ++) {
+//        self.chooseRank = [[ChooseRank alloc] initWithTitle:self.standardList[i] titleArr:self.standardValueList[i] andFrame:CGRectMake(0, maxY, screen_Width, 40)];
+//        maxY = CGRectGetMaxY(self.chooseRank.frame);
+//        height += self.chooseRank.height;
+//        self.chooseRank.tag = 8000+i;
+//        self.chooseRank.delegate = self;
+//        
+//        [self.chooseView.mainscrollview addSubview:self.chooseRank];
+//    }
+//    self.chooseView.mainscrollview.contentSize = CGSizeMake(0, height);
     
-    maxY = maxY - 30;
+//    maxY = maxY - 30;
     for (int i = 0; i < self.standardValueTypeList.count; i ++) {
         self.chooseRank = [[ChooseRank alloc] initWithTitle:self.standardTypeList[i] titleArr:self.standardValueTypeList[i] andFrame:CGRectMake(0, maxY, screen_Width, 40)];
         maxY = CGRectGetMaxY(self.chooseRank.frame);
@@ -60,6 +60,17 @@
         self.chooseRank.tag = 9000+i;
         self.chooseRank.delegate = self;
         [self.chooseView.mainscrollview addSubview:self.chooseRank];
+        
+        if (self.standardValueList.count > i) {
+            self.chooseRank = [[ChooseRank alloc] initWithTitle:self.standardList[i] titleArr:self.standardValueList[i] andFrame:CGRectMake(0, maxY, screen_Width, 40)];
+            self.chooseRank
+            maxY = CGRectGetMaxY(self.chooseRank.frame);
+            height += self.chooseRank.height;
+            self.chooseRank.tag = 8000+i;
+            self.chooseRank.delegate = self;
+            
+            [self.chooseView.mainscrollview addSubview:self.chooseRank];
+        }
     }
     self.chooseView.mainscrollview.contentSize = CGSizeMake(0, height);
     
